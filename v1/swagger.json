@@ -1,0 +1,127 @@
+{
+  "info": {
+    "title": "DealMaker API",
+    "description": "Welcome to the DealMaker API.\n\n# Introduction\n\nThis is a test introduction.\n\n# Usage\n\nThis is a usage example.\n\n# Support\n\nFor more support, contact [email].",
+    "version": "1.0.0"
+  },
+  "swagger": "2.0",
+  "produces": [
+    "application/xml",
+    "application/json",
+    "application/octet-stream",
+    "text/plain"
+  ],
+  "securityDefinitions": {
+    "oauth": {
+      "description": "OAuth security",
+      "type": "oauth2",
+      "name": "oauth",
+      "authorizationUrl": "https://api.dealmaker.tech/oauth/token",
+      "flow": "clientCredentials"
+    }
+  },
+  "host": "api.dealmaker.tech",
+  "x-servers": [
+    {
+      "url": "https://api.dealmaker.tech",
+      "description": "Production"
+    },
+    {
+      "url": "https://sandbox.api.dealmaker.tech",
+      "description": "Sandbox"
+    }
+  ],
+  "x-tagGroups": [
+    {
+      "name": "General",
+      "tags": [
+        "deal"
+      ]
+    },
+    {
+      "name": "Models",
+      "tags": [
+        "deal_model"
+      ]
+    }
+  ],
+  "tags": [
+    {
+      "name": "deal",
+      "description": "Access to your deals"
+    },
+    {
+      "name": "deal_model",
+      "description": "<SchemaDefinition schemaRef=\"#/components/schemas/V1_Entities_Deal\" />",
+      "x-displayName": "Deal"
+    }
+  ],
+  "paths": {
+    "/deals/{id}": {
+      "get": {
+        "summary": "Get a deal by id",
+        "description": "Get a deal",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "description": "The deal id.",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "security": [
+          {
+            "oauth": [
+              "deals.read"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get a deal",
+            "schema": {
+              "$ref": "#/definitions/V1_Entities_Deal"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Not found"
+          }
+        },
+        "tags": [
+          "deal"
+        ],
+        "operationId": "getDealsId",
+        "x-codeSamples": [
+          {
+            "lang": "javascript",
+            "source": "console.log('test')"
+          },
+          {
+            "lang": "ruby",
+            "source": "puts 'test'"
+          }
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "V1_Entities_Deal": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string",
+          "description": "Deal title."
+        }
+      },
+      "description": "V1_Entities_Deal model"
+    }
+  }
+}

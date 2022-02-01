@@ -1,0 +1,16 @@
+.babelrc
+.gitignore
+.openapi-generator-ignore
+.travis.yml
+README.md
+docs/DealApi.md
+docs/V1EntitiesDeal.md
+git_push.sh
+mocha.opts
+package.json
+src/ApiClient.js
+src/api/DealApi.js
+src/index.js
+src/model/V1EntitiesDeal.js
+test/api/DealApi.spec.js
+test/model/V1EntitiesDeal.spec.js

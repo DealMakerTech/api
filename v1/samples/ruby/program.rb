@@ -9,6 +9,12 @@ require 'DealMakerAPI'
 # Load environment variables from the file
 Dotenv.load('.env', '.env.local')
 
+# Check to make sure the deal id is provided by command line
+if ARGV.size != 1
+  puts "Please specify a deal id."
+  return
+end
+
 # The application client id
 client_id = ENV['DEALMAKER_CLIENT_ID']
 # The application client secret
@@ -41,8 +47,8 @@ DealMakerAPI::ApiClient.default.default_headers.merge!(token.headers)
 # Create an instance of the deal API client
 api = DealMakerAPI::DealApi.new
 
-# The deal id
-deal_id = 1
+# The deal id pulled from the command line
+deal_id = ARGV[0]
 
 # Make a request to lookup the deal with the given deal id
 result = api.get_deals_id(deal_id)

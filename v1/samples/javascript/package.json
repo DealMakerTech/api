@@ -1,0 +1,9 @@
+{
+    "name": "dealmakersample",
+    "main": "app.js",
+    "dependencies": {
+        "axios": "^0.25.0",
+        "dealmakerapi": "file:../../clients/javascript",
+        "dotenv": "^16.0.0"
+    }
+}

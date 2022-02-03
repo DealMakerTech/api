@@ -10,7 +10,11 @@
 /test/version_tmp/
 /tmp/
 
+.env
 .env.local
+
+node_modules/
+dist/
 
 # Used by dotenv library to load environment variables.
 # .env

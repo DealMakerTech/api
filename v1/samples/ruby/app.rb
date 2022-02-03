@@ -7,7 +7,7 @@ require 'dotenv'
 require 'DealMakerAPI'
 
 # Load environment variables from the file
-Dotenv.load('.env', '.env.local')
+Dotenv.load('.env')
 
 # Check to make sure the deal id is provided by command line
 if ARGV.size != 1
@@ -25,6 +25,9 @@ token_url = ENV['DEALMAKER_TOKEN_URL']
 api_host = ENV['DEALMAKER_API_HOST']
 # The requested scopes
 scopes = ENV['DEALMAKER_SCOPES']
+
+# The deal id pulled from the command line
+deal_id = ARGV[0]
 
 # Create an OAuth2 client that will be requesting a token
 client = OAuth2::Client.new(client_id, client_secret, token_url: token_url)
@@ -46,9 +49,6 @@ DealMakerAPI::ApiClient.default.default_headers.merge!(token.headers)
 
 # Create an instance of the deal API client
 api = DealMakerAPI::DealApi.new
-
-# The deal id pulled from the command line
-deal_id = ARGV[0]
 
 # Make a request to lookup the deal with the given deal id
 result = api.get_deals_id(deal_id)

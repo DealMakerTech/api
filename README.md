@@ -1,25 +1,48 @@
 # DealMaker API
-Dealmaker header
+![DealMaker Logo](v1/assets/images/DealMaker-Logo-Dark-SM.png)
 ## About
-## Support
-    https://docs.dealmaker.tech/
-## List of Features
-    Listing Investors on Deal
-    Listing a Specific Investor
-    Create an Investor
-    Get Information about a Deal
-## Releases
-## Supported Languages
-    Link to the clients and the Samples
-### Clients
-#### [Javascript](https://github.com/DealMakerTech/api/tree/main/v1/clients/javascript)
 
-#### [Ruby](https://github.com/DealMakerTech/api/tree/main/v1/clients/ruby)
+This README is for the `1.0.0` version of the DealMaker API
+
+## Support
+
+If you want to see how API will render your requests, you can try it out online at https://docs.dealmaker.tech/
+
+For more support, contact [email]
+
+## List of Features
+
+- [Listing Investors on a Deal](https://docs.dealmaker.tech/#operation/listInvestors)
+
+- [Listing a Specific Investor](https://docs.dealmaker.tech/#operation/getInvestor)
+
+- Create an Investor
+
+- [Get Information about a Deal](https://docs.dealmaker.tech/#operation/getDeal)
+
+## Releases
+
+| Version  | Release Date |
+| ------------- | ------------- |
+| `1.0.0`  | TBD  |
+
+## Supported Languages
+The current version supports the following languages:
+
+- Javascript
+- Ruby
+
+Please review the next sections for each supported languages and available samples.
+
+### Clients
+- #### [Javascript](v1/clients/javascript)
+
+- #### [Ruby](v1/clients/ruby)
 
 ### Samples
-#### [Javascript](https://github.com/DealMakerTech/api/tree/main/v1/samples/javascript)
+- #### [Javascript](v1/samples/javascript)
 
-#### [Ruby](https://github.com/DealMakerTech/api/tree/main/v1/samples/ruby)
+- #### [Ruby](v1/samples/ruby)
 
 
-## Generating a Custom Client
+<!-- ## Generating a Custom Client -->

@@ -11,61 +11,375 @@
  *
  */
 
-(function(root, factory) {
-  if (typeof define === 'function' && define.amd) {
-    // AMD.
-    define(['expect.js', process.cwd()+'/src/index'], factory);
-  } else if (typeof module === 'object' && module.exports) {
-    // CommonJS-like environments that support module.exports, like Node.
-    factory(require('expect.js'), require(process.cwd()+'/src/index'));
-  } else {
-    // Browser globals (root is window)
-    factory(root.expect, root.Dealmakerapi);
-  }
-}(this, function(expect, Dealmakerapi) {
-  'use strict';
+import ApiClient from '../ApiClient';
+import V1EntitiesAttachment from './V1EntitiesAttachment';
+import V1EntitiesBackgroundCheckSearch from './V1EntitiesBackgroundCheckSearch';
+import V1EntitiesSubscriptionAgreement from './V1EntitiesSubscriptionAgreement';
 
-  var instance;
+/**
+ * The V1EntitiesInvestor model module.
+ * @module model/V1EntitiesInvestor
+ * @version 0.0.1
+ */
+class V1EntitiesInvestor {
+    /**
+     * Constructs a new <code>V1EntitiesInvestor</code>.
+     * V1_Entities_Investor model
+     * @alias module:model/V1EntitiesInvestor
+     */
+    constructor() { 
+        
+        V1EntitiesInvestor.initialize(this);
+    }
 
-  beforeEach(function() {
-    instance = new Dealmakerapi.V1EntitiesDeal();
-  });
+    /**
+     * Initializes the fields of this object.
+     * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
+     * Only for internal use.
+     */
+    static initialize(obj) { 
+    }
 
-  var getProperty = function(object, getter, property) {
-    // Use getter method if present; otherwise, get the property directly.
-    if (typeof object[getter] === 'function')
-      return object[getter]();
-    else
-      return object[property];
-  }
+    /**
+     * Constructs a <code>V1EntitiesInvestor</code> from a plain JavaScript object, optionally creating a new instance.
+     * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @param {module:model/V1EntitiesInvestor} obj Optional instance to populate.
+     * @return {module:model/V1EntitiesInvestor} The populated <code>V1EntitiesInvestor</code> instance.
+     */
+    static constructFromObject(data, obj) {
+        if (data) {
+            obj = obj || new V1EntitiesInvestor();
 
-  var setProperty = function(object, setter, property, value) {
-    // Use setter method if present; otherwise, set the property directly.
-    if (typeof object[setter] === 'function')
-      object[setter](value);
-    else
-      object[property] = value;
-  }
+            if (data.hasOwnProperty('id')) {
+                obj['id'] = ApiClient.convertToType(data['id'], 'Number');
+            }
+            if (data.hasOwnProperty('created_at')) {
+                obj['created_at'] = ApiClient.convertToType(data['created_at'], 'Date');
+            }
+            if (data.hasOwnProperty('updated_at')) {
+                obj['updated_at'] = ApiClient.convertToType(data['updated_at'], 'Date');
+            }
+            if (data.hasOwnProperty('name')) {
+                obj['name'] = ApiClient.convertToType(data['name'], 'String');
+            }
+            if (data.hasOwnProperty('allocation_unit')) {
+                obj['allocation_unit'] = ApiClient.convertToType(data['allocation_unit'], 'String');
+            }
+            if (data.hasOwnProperty('state')) {
+                obj['state'] = ApiClient.convertToType(data['state'], 'String');
+            }
+            if (data.hasOwnProperty('funds_state')) {
+                obj['funds_state'] = ApiClient.convertToType(data['funds_state'], 'String');
+            }
+            if (data.hasOwnProperty('funds_pending')) {
+                obj['funds_pending'] = ApiClient.convertToType(data['funds_pending'], 'Boolean');
+            }
+            if (data.hasOwnProperty('beneficial_address')) {
+                obj['beneficial_address'] = ApiClient.convertToType(data['beneficial_address'], 'String');
+            }
+            if (data.hasOwnProperty('investor_currency')) {
+                obj['investor_currency'] = ApiClient.convertToType(data['investor_currency'], 'String');
+            }
+            if (data.hasOwnProperty('investment_value')) {
+                obj['investment_value'] = ApiClient.convertToType(data['investment_value'], 'Number');
+            }
+            if (data.hasOwnProperty('number_of_securities')) {
+                obj['number_of_securities'] = ApiClient.convertToType(data['number_of_securities'], 'Number');
+            }
+            if (data.hasOwnProperty('allocated_amount')) {
+                obj['allocated_amount'] = ApiClient.convertToType(data['allocated_amount'], 'Number');
+            }
+            if (data.hasOwnProperty('funds_value')) {
+                obj['funds_value'] = ApiClient.convertToType(data['funds_value'], 'Number');
+            }
+            if (data.hasOwnProperty('access_link')) {
+                obj['access_link'] = ApiClient.convertToType(data['access_link'], 'String');
+            }
+            if (data.hasOwnProperty('subscription_agreement')) {
+                obj['subscription_agreement'] = V1EntitiesSubscriptionAgreement.constructFromObject(data['subscription_agreement']);
+            }
+            if (data.hasOwnProperty('attachments')) {
+                obj['attachments'] = V1EntitiesAttachment.constructFromObject(data['attachments']);
+            }
+            if (data.hasOwnProperty('background_check_searches')) {
+                obj['background_check_searches'] = V1EntitiesBackgroundCheckSearch.constructFromObject(data['background_check_searches']);
+            }
+            if (data.hasOwnProperty('verification_status')) {
+                obj['verification_status'] = ApiClient.convertToType(data['verification_status'], 'String');
+            }
+            if (data.hasOwnProperty('warrant_expiry_date')) {
+                obj['warrant_expiry_date'] = ApiClient.convertToType(data['warrant_expiry_date'], 'Date');
+            }
+            if (data.hasOwnProperty('warrant_certificate_number')) {
+                obj['warrant_certificate_number'] = ApiClient.convertToType(data['warrant_certificate_number'], 'Number');
+            }
+        }
+        return obj;
+    }
 
-  describe('V1EntitiesDeal', function() {
-    it('should create an instance of V1EntitiesDeal', function() {
-      // uncomment below and update the code to test V1EntitiesDeal
-      //var instance = new Dealmakerapi.V1EntitiesDeal();
-      //expect(instance).to.be.a(Dealmakerapi.V1EntitiesDeal);
-    });
 
-    it('should have the property id (base name: "id")', function() {
-      // uncomment below and update the code to test the property id
-      //var instance = new Dealmakerapi.V1EntitiesDeal();
-      //expect(instance).to.be();
-    });
+}
 
-    it('should have the property title (base name: "title")', function() {
-      // uncomment below and update the code to test the property title
-      //var instance = new Dealmakerapi.V1EntitiesDeal();
-      //expect(instance).to.be();
-    });
+/**
+ * Investor id.
+ * @member {Number} id
+ */
+V1EntitiesInvestor.prototype['id'] = undefined;
 
-  });
+/**
+ * The creation time.
+ * @member {Date} created_at
+ */
+V1EntitiesInvestor.prototype['created_at'] = undefined;
 
-}));
+/**
+ * The last update time.
+ * @member {Date} updated_at
+ */
+V1EntitiesInvestor.prototype['updated_at'] = undefined;
+
+/**
+ * The full name of the investor.
+ * @member {String} name
+ */
+V1EntitiesInvestor.prototype['name'] = undefined;
+
+/**
+ * The allocation unit.
+ * @member {module:model/V1EntitiesInvestor.AllocationUnitEnum} allocation_unit
+ */
+V1EntitiesInvestor.prototype['allocation_unit'] = undefined;
+
+/**
+ * The state.
+ * @member {module:model/V1EntitiesInvestor.StateEnum} state
+ */
+V1EntitiesInvestor.prototype['state'] = undefined;
+
+/**
+ * The funding state.
+ * @member {module:model/V1EntitiesInvestor.FundsStateEnum} funds_state
+ */
+V1EntitiesInvestor.prototype['funds_state'] = undefined;
+
+/**
+ * True if any funds are pending; false otherwise.
+ * @member {Boolean} funds_pending
+ */
+V1EntitiesInvestor.prototype['funds_pending'] = undefined;
+
+/**
+ * The address.
+ * @member {String} beneficial_address
+ */
+V1EntitiesInvestor.prototype['beneficial_address'] = undefined;
+
+/**
+ * The investor currency.
+ * @member {String} investor_currency
+ */
+V1EntitiesInvestor.prototype['investor_currency'] = undefined;
+
+/**
+ * The current investment value.
+ * @member {Number} investment_value
+ */
+V1EntitiesInvestor.prototype['investment_value'] = undefined;
+
+/**
+ * The number of securities.
+ * @member {Number} number_of_securities
+ */
+V1EntitiesInvestor.prototype['number_of_securities'] = undefined;
+
+/**
+ * The amount allocated.
+ * @member {Number} allocated_amount
+ */
+V1EntitiesInvestor.prototype['allocated_amount'] = undefined;
+
+/**
+ * The current amount that has been funded.
+ * @member {Number} funds_value
+ */
+V1EntitiesInvestor.prototype['funds_value'] = undefined;
+
+/**
+ * The access link for the investor.
+ * @member {String} access_link
+ */
+V1EntitiesInvestor.prototype['access_link'] = undefined;
+
+/**
+ * @member {module:model/V1EntitiesSubscriptionAgreement} subscription_agreement
+ */
+V1EntitiesInvestor.prototype['subscription_agreement'] = undefined;
+
+/**
+ * @member {module:model/V1EntitiesAttachment} attachments
+ */
+V1EntitiesInvestor.prototype['attachments'] = undefined;
+
+/**
+ * @member {module:model/V1EntitiesBackgroundCheckSearch} background_check_searches
+ */
+V1EntitiesInvestor.prototype['background_check_searches'] = undefined;
+
+/**
+ * The current 506c verification state.
+ * @member {module:model/V1EntitiesInvestor.VerificationStatusEnum} verification_status
+ */
+V1EntitiesInvestor.prototype['verification_status'] = undefined;
+
+/**
+ * The warrant expiry date.
+ * @member {Date} warrant_expiry_date
+ */
+V1EntitiesInvestor.prototype['warrant_expiry_date'] = undefined;
+
+/**
+ * The warrant certificate number.
+ * @member {Number} warrant_certificate_number
+ */
+V1EntitiesInvestor.prototype['warrant_certificate_number'] = undefined;
+
+
+
+
+
+/**
+ * Allowed values for the <code>allocation_unit</code> property.
+ * @enum {String}
+ * @readonly
+ */
+V1EntitiesInvestor['AllocationUnitEnum'] = {
+
+    /**
+     * value: "securities"
+     * @const
+     */
+    "securities": "securities",
+
+    /**
+     * value: "amount"
+     * @const
+     */
+    "amount": "amount"
+};
+
+
+/**
+ * Allowed values for the <code>state</code> property.
+ * @enum {String}
+ * @readonly
+ */
+V1EntitiesInvestor['StateEnum'] = {
+
+    /**
+     * value: "draft"
+     * @const
+     */
+    "draft": "draft",
+
+    /**
+     * value: "invited"
+     * @const
+     */
+    "invited": "invited",
+
+    /**
+     * value: "cosigning"
+     * @const
+     */
+    "cosigning": "cosigning",
+
+    /**
+     * value: "signed"
+     * @const
+     */
+    "signed": "signed",
+
+    /**
+     * value: "waiting"
+     * @const
+     */
+    "waiting": "waiting",
+
+    /**
+     * value: "accepted"
+     * @const
+     */
+    "accepted": "accepted"
+};
+
+
+/**
+ * Allowed values for the <code>funds_state</code> property.
+ * @enum {String}
+ * @readonly
+ */
+V1EntitiesInvestor['FundsStateEnum'] = {
+
+    /**
+     * value: "unfunded"
+     * @const
+     */
+    "unfunded": "unfunded",
+
+    /**
+     * value: "underfunded"
+     * @const
+     */
+    "underfunded": "underfunded",
+
+    /**
+     * value: "funded"
+     * @const
+     */
+    "funded": "funded",
+
+    /**
+     * value: "overfunded"
+     * @const
+     */
+    "overfunded": "overfunded"
+};
+
+
+/**
+ * Allowed values for the <code>verification_status</code> property.
+ * @enum {String}
+ * @readonly
+ */
+V1EntitiesInvestor['VerificationStatusEnum'] = {
+
+    /**
+     * value: "pending"
+     * @const
+     */
+    "pending": "pending",
+
+    /**
+     * value: "approved"
+     * @const
+     */
+    "approved": "approved",
+
+    /**
+     * value: "rejected"
+     * @const
+     */
+    "rejected": "rejected",
+
+    /**
+     * value: "new_documents_requested"
+     * @const
+     */
+    "new_documents_requested": "new_documents_requested"
+};
+
+
+
+export default V1EntitiesInvestor;
+

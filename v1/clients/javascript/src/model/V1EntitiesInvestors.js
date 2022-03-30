@@ -11,61 +11,63 @@
  *
  */
 
-(function(root, factory) {
-  if (typeof define === 'function' && define.amd) {
-    // AMD.
-    define(['expect.js', process.cwd()+'/src/index'], factory);
-  } else if (typeof module === 'object' && module.exports) {
-    // CommonJS-like environments that support module.exports, like Node.
-    factory(require('expect.js'), require(process.cwd()+'/src/index'));
-  } else {
-    // Browser globals (root is window)
-    factory(root.expect, root.Dealmakerapi);
-  }
-}(this, function(expect, Dealmakerapi) {
-  'use strict';
+import ApiClient from '../ApiClient';
+import V1EntitiesInvestor from './V1EntitiesInvestor';
 
-  var instance;
+/**
+ * The V1EntitiesInvestors model module.
+ * @module model/V1EntitiesInvestors
+ * @version 0.0.1
+ */
+class V1EntitiesInvestors {
+    /**
+     * Constructs a new <code>V1EntitiesInvestors</code>.
+     * V1_Entities_Investors model
+     * @alias module:model/V1EntitiesInvestors
+     */
+    constructor() { 
+        
+        V1EntitiesInvestors.initialize(this);
+    }
 
-  beforeEach(function() {
-    instance = new Dealmakerapi.V1EntitiesDeal();
-  });
+    /**
+     * Initializes the fields of this object.
+     * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
+     * Only for internal use.
+     */
+    static initialize(obj) { 
+    }
 
-  var getProperty = function(object, getter, property) {
-    // Use getter method if present; otherwise, get the property directly.
-    if (typeof object[getter] === 'function')
-      return object[getter]();
-    else
-      return object[property];
-  }
+    /**
+     * Constructs a <code>V1EntitiesInvestors</code> from a plain JavaScript object, optionally creating a new instance.
+     * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @param {module:model/V1EntitiesInvestors} obj Optional instance to populate.
+     * @return {module:model/V1EntitiesInvestors} The populated <code>V1EntitiesInvestors</code> instance.
+     */
+    static constructFromObject(data, obj) {
+        if (data) {
+            obj = obj || new V1EntitiesInvestors();
 
-  var setProperty = function(object, setter, property, value) {
-    // Use setter method if present; otherwise, set the property directly.
-    if (typeof object[setter] === 'function')
-      object[setter](value);
-    else
-      object[property] = value;
-  }
+            if (data.hasOwnProperty('items')) {
+                obj['items'] = V1EntitiesInvestor.constructFromObject(data['items']);
+            }
+        }
+        return obj;
+    }
 
-  describe('V1EntitiesDeal', function() {
-    it('should create an instance of V1EntitiesDeal', function() {
-      // uncomment below and update the code to test V1EntitiesDeal
-      //var instance = new Dealmakerapi.V1EntitiesDeal();
-      //expect(instance).to.be.a(Dealmakerapi.V1EntitiesDeal);
-    });
 
-    it('should have the property id (base name: "id")', function() {
-      // uncomment below and update the code to test the property id
-      //var instance = new Dealmakerapi.V1EntitiesDeal();
-      //expect(instance).to.be();
-    });
+}
 
-    it('should have the property title (base name: "title")', function() {
-      // uncomment below and update the code to test the property title
-      //var instance = new Dealmakerapi.V1EntitiesDeal();
-      //expect(instance).to.be();
-    });
+/**
+ * @member {module:model/V1EntitiesInvestor} items
+ */
+V1EntitiesInvestors.prototype['items'] = undefined;
 
-  });
 
-}));
+
+
+
+
+export default V1EntitiesInvestors;
+

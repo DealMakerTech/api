@@ -4,6 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
+| **id** | **Integer** | Deal id. | [optional] |
 | **title** | **String** | Deal title. | [optional] |
 
 ## Example
@@ -12,6 +13,7 @@
 require 'DealMakerAPI'
 
 instance = DealMakerAPI::V1EntitiesDeal.new(
+  id: null,
   title: null
 )
 ```

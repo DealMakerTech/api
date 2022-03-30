@@ -28,7 +28,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new Dealmakerapi.V1EntitiesDeal();
+    instance = new Dealmakerapi.V1EntitiesInvestor();
   });
 
   var getProperty = function(object, getter, property) {
@@ -47,22 +47,136 @@
       object[property] = value;
   }
 
-  describe('V1EntitiesDeal', function() {
-    it('should create an instance of V1EntitiesDeal', function() {
-      // uncomment below and update the code to test V1EntitiesDeal
-      //var instance = new Dealmakerapi.V1EntitiesDeal();
-      //expect(instance).to.be.a(Dealmakerapi.V1EntitiesDeal);
+  describe('V1EntitiesInvestor', function() {
+    it('should create an instance of V1EntitiesInvestor', function() {
+      // uncomment below and update the code to test V1EntitiesInvestor
+      //var instance = new Dealmakerapi.V1EntitiesInvestor();
+      //expect(instance).to.be.a(Dealmakerapi.V1EntitiesInvestor);
     });
 
     it('should have the property id (base name: "id")', function() {
       // uncomment below and update the code to test the property id
-      //var instance = new Dealmakerapi.V1EntitiesDeal();
+      //var instance = new Dealmakerapi.V1EntitiesInvestor();
       //expect(instance).to.be();
     });
 
-    it('should have the property title (base name: "title")', function() {
-      // uncomment below and update the code to test the property title
-      //var instance = new Dealmakerapi.V1EntitiesDeal();
+    it('should have the property createdAt (base name: "created_at")', function() {
+      // uncomment below and update the code to test the property createdAt
+      //var instance = new Dealmakerapi.V1EntitiesInvestor();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property updatedAt (base name: "updated_at")', function() {
+      // uncomment below and update the code to test the property updatedAt
+      //var instance = new Dealmakerapi.V1EntitiesInvestor();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property name (base name: "name")', function() {
+      // uncomment below and update the code to test the property name
+      //var instance = new Dealmakerapi.V1EntitiesInvestor();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property allocationUnit (base name: "allocation_unit")', function() {
+      // uncomment below and update the code to test the property allocationUnit
+      //var instance = new Dealmakerapi.V1EntitiesInvestor();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property state (base name: "state")', function() {
+      // uncomment below and update the code to test the property state
+      //var instance = new Dealmakerapi.V1EntitiesInvestor();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property fundsState (base name: "funds_state")', function() {
+      // uncomment below and update the code to test the property fundsState
+      //var instance = new Dealmakerapi.V1EntitiesInvestor();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property fundsPending (base name: "funds_pending")', function() {
+      // uncomment below and update the code to test the property fundsPending
+      //var instance = new Dealmakerapi.V1EntitiesInvestor();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property beneficialAddress (base name: "beneficial_address")', function() {
+      // uncomment below and update the code to test the property beneficialAddress
+      //var instance = new Dealmakerapi.V1EntitiesInvestor();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property investorCurrency (base name: "investor_currency")', function() {
+      // uncomment below and update the code to test the property investorCurrency
+      //var instance = new Dealmakerapi.V1EntitiesInvestor();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property investmentValue (base name: "investment_value")', function() {
+      // uncomment below and update the code to test the property investmentValue
+      //var instance = new Dealmakerapi.V1EntitiesInvestor();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property numberOfSecurities (base name: "number_of_securities")', function() {
+      // uncomment below and update the code to test the property numberOfSecurities
+      //var instance = new Dealmakerapi.V1EntitiesInvestor();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property allocatedAmount (base name: "allocated_amount")', function() {
+      // uncomment below and update the code to test the property allocatedAmount
+      //var instance = new Dealmakerapi.V1EntitiesInvestor();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property fundsValue (base name: "funds_value")', function() {
+      // uncomment below and update the code to test the property fundsValue
+      //var instance = new Dealmakerapi.V1EntitiesInvestor();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property accessLink (base name: "access_link")', function() {
+      // uncomment below and update the code to test the property accessLink
+      //var instance = new Dealmakerapi.V1EntitiesInvestor();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property subscriptionAgreement (base name: "subscription_agreement")', function() {
+      // uncomment below and update the code to test the property subscriptionAgreement
+      //var instance = new Dealmakerapi.V1EntitiesInvestor();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property attachments (base name: "attachments")', function() {
+      // uncomment below and update the code to test the property attachments
+      //var instance = new Dealmakerapi.V1EntitiesInvestor();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property backgroundCheckSearches (base name: "background_check_searches")', function() {
+      // uncomment below and update the code to test the property backgroundCheckSearches
+      //var instance = new Dealmakerapi.V1EntitiesInvestor();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property verificationStatus (base name: "verification_status")', function() {
+      // uncomment below and update the code to test the property verificationStatus
+      //var instance = new Dealmakerapi.V1EntitiesInvestor();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property warrantExpiryDate (base name: "warrant_expiry_date")', function() {
+      // uncomment below and update the code to test the property warrantExpiryDate
+      //var instance = new Dealmakerapi.V1EntitiesInvestor();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property warrantCertificateNumber (base name: "warrant_certificate_number")', function() {
+      // uncomment below and update the code to test the property warrantCertificateNumber
+      //var instance = new Dealmakerapi.V1EntitiesInvestor();
       //expect(instance).to.be();
     });
 

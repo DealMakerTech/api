@@ -11,61 +11,80 @@
  *
  */
 
-(function(root, factory) {
-  if (typeof define === 'function' && define.amd) {
-    // AMD.
-    define(['expect.js', process.cwd()+'/src/index'], factory);
-  } else if (typeof module === 'object' && module.exports) {
-    // CommonJS-like environments that support module.exports, like Node.
-    factory(require('expect.js'), require(process.cwd()+'/src/index'));
-  } else {
-    // Browser globals (root is window)
-    factory(root.expect, root.Dealmakerapi);
-  }
-}(this, function(expect, Dealmakerapi) {
-  'use strict';
+import ApiClient from '../ApiClient';
 
-  var instance;
+/**
+ * The V1EntitiesAttachment model module.
+ * @module model/V1EntitiesAttachment
+ * @version 0.0.1
+ */
+class V1EntitiesAttachment {
+    /**
+     * Constructs a new <code>V1EntitiesAttachment</code>.
+     * @alias module:model/V1EntitiesAttachment
+     */
+    constructor() { 
+        
+        V1EntitiesAttachment.initialize(this);
+    }
 
-  beforeEach(function() {
-    instance = new Dealmakerapi.V1EntitiesDeal();
-  });
+    /**
+     * Initializes the fields of this object.
+     * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
+     * Only for internal use.
+     */
+    static initialize(obj) { 
+    }
 
-  var getProperty = function(object, getter, property) {
-    // Use getter method if present; otherwise, get the property directly.
-    if (typeof object[getter] === 'function')
-      return object[getter]();
-    else
-      return object[property];
-  }
+    /**
+     * Constructs a <code>V1EntitiesAttachment</code> from a plain JavaScript object, optionally creating a new instance.
+     * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @param {module:model/V1EntitiesAttachment} obj Optional instance to populate.
+     * @return {module:model/V1EntitiesAttachment} The populated <code>V1EntitiesAttachment</code> instance.
+     */
+    static constructFromObject(data, obj) {
+        if (data) {
+            obj = obj || new V1EntitiesAttachment();
 
-  var setProperty = function(object, setter, property, value) {
-    // Use setter method if present; otherwise, set the property directly.
-    if (typeof object[setter] === 'function')
-      object[setter](value);
-    else
-      object[property] = value;
-  }
+            if (data.hasOwnProperty('id')) {
+                obj['id'] = ApiClient.convertToType(data['id'], 'String');
+            }
+            if (data.hasOwnProperty('url')) {
+                obj['url'] = ApiClient.convertToType(data['url'], 'String');
+            }
+            if (data.hasOwnProperty('file_name')) {
+                obj['file_name'] = ApiClient.convertToType(data['file_name'], 'String');
+            }
+        }
+        return obj;
+    }
 
-  describe('V1EntitiesDeal', function() {
-    it('should create an instance of V1EntitiesDeal', function() {
-      // uncomment below and update the code to test V1EntitiesDeal
-      //var instance = new Dealmakerapi.V1EntitiesDeal();
-      //expect(instance).to.be.a(Dealmakerapi.V1EntitiesDeal);
-    });
 
-    it('should have the property id (base name: "id")', function() {
-      // uncomment below and update the code to test the property id
-      //var instance = new Dealmakerapi.V1EntitiesDeal();
-      //expect(instance).to.be();
-    });
+}
 
-    it('should have the property title (base name: "title")', function() {
-      // uncomment below and update the code to test the property title
-      //var instance = new Dealmakerapi.V1EntitiesDeal();
-      //expect(instance).to.be();
-    });
+/**
+ * The attachment id.
+ * @member {String} id
+ */
+V1EntitiesAttachment.prototype['id'] = undefined;
 
-  });
+/**
+ * The attachment url.
+ * @member {String} url
+ */
+V1EntitiesAttachment.prototype['url'] = undefined;
 
-}));
+/**
+ * The attachment filename.
+ * @member {String} file_name
+ */
+V1EntitiesAttachment.prototype['file_name'] = undefined;
+
+
+
+
+
+
+export default V1EntitiesAttachment;
+

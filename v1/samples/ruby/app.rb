@@ -1,4 +1,3 @@
-# Add client to the load path
 $LOAD_PATH.unshift File.expand_path('../../../clients/ruby/lib', __FILE__)
 
 # Include required libraries
@@ -51,6 +50,6 @@ DealMakerAPI::ApiClient.default.default_headers.merge!(token.headers)
 api = DealMakerAPI::DealApi.new
 
 # Make a request to lookup the deal with the given deal id
-result = api.get_deals_id(deal_id)
+result = api.get_deal(deal_id)
 
 puts result

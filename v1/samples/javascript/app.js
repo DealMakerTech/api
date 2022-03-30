@@ -47,7 +47,7 @@ async function main() {
     const api = new Dealmakerapi.DealApi()
 
     // Make a request to lookup the deal with the given deal id
-    api.getDealsId(dealId, function(error, data, response) {
+    api.getDeal(dealId, function(error, data, response) {
         if (error) {
             // If an error occurs, print the error
             console.error(error);

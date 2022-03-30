@@ -28,7 +28,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new Dealmakerapi.V1EntitiesDeal();
+    instance = new Dealmakerapi.V1EntitiesInvestors();
   });
 
   var getProperty = function(object, getter, property) {
@@ -47,22 +47,16 @@
       object[property] = value;
   }
 
-  describe('V1EntitiesDeal', function() {
-    it('should create an instance of V1EntitiesDeal', function() {
-      // uncomment below and update the code to test V1EntitiesDeal
-      //var instance = new Dealmakerapi.V1EntitiesDeal();
-      //expect(instance).to.be.a(Dealmakerapi.V1EntitiesDeal);
+  describe('V1EntitiesInvestors', function() {
+    it('should create an instance of V1EntitiesInvestors', function() {
+      // uncomment below and update the code to test V1EntitiesInvestors
+      //var instance = new Dealmakerapi.V1EntitiesInvestors();
+      //expect(instance).to.be.a(Dealmakerapi.V1EntitiesInvestors);
     });
 
-    it('should have the property id (base name: "id")', function() {
-      // uncomment below and update the code to test the property id
-      //var instance = new Dealmakerapi.V1EntitiesDeal();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property title (base name: "title")', function() {
-      // uncomment below and update the code to test the property title
-      //var instance = new Dealmakerapi.V1EntitiesDeal();
+    it('should have the property items (base name: "items")', function() {
+      // uncomment below and update the code to test the property items
+      //var instance = new Dealmakerapi.V1EntitiesInvestors();
       //expect(instance).to.be();
     });
 

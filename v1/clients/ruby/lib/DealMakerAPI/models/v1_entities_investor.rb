@@ -14,19 +14,114 @@ require 'date'
 require 'time'
 
 module DealMakerAPI
-  # V1_Entities_Deal model
-  class V1EntitiesDeal
-    # Deal id.
+  # V1_Entities_Investor model
+  class V1EntitiesInvestor
+    # Investor id.
     attr_accessor :id
 
-    # Deal title.
-    attr_accessor :title
+    # The creation time.
+    attr_accessor :created_at
+
+    # The last update time.
+    attr_accessor :updated_at
+
+    # The full name of the investor.
+    attr_accessor :name
+
+    # The allocation unit.
+    attr_accessor :allocation_unit
+
+    # The state.
+    attr_accessor :state
+
+    # The funding state.
+    attr_accessor :funds_state
+
+    # True if any funds are pending; false otherwise.
+    attr_accessor :funds_pending
+
+    # The address.
+    attr_accessor :beneficial_address
+
+    # The investor currency.
+    attr_accessor :investor_currency
+
+    # The current investment value.
+    attr_accessor :investment_value
+
+    # The number of securities.
+    attr_accessor :number_of_securities
+
+    # The amount allocated.
+    attr_accessor :allocated_amount
+
+    # The current amount that has been funded.
+    attr_accessor :funds_value
+
+    # The access link for the investor.
+    attr_accessor :access_link
+
+    attr_accessor :subscription_agreement
+
+    attr_accessor :attachments
+
+    attr_accessor :background_check_searches
+
+    # The current 506c verification state.
+    attr_accessor :verification_status
+
+    # The warrant expiry date.
+    attr_accessor :warrant_expiry_date
+
+    # The warrant certificate number.
+    attr_accessor :warrant_certificate_number
+
+    class EnumAttributeValidator
+      attr_reader :datatype
+      attr_reader :allowable_values
+
+      def initialize(datatype, allowable_values)
+        @allowable_values = allowable_values.map do |value|
+          case datatype.to_s
+          when /Integer/i
+            value.to_i
+          when /Float/i
+            value.to_f
+          else
+            value
+          end
+        end
+      end
+
+      def valid?(value)
+        !value || allowable_values.include?(value)
+      end
+    end
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'id' => :'id',
-        :'title' => :'title'
+        :'created_at' => :'created_at',
+        :'updated_at' => :'updated_at',
+        :'name' => :'name',
+        :'allocation_unit' => :'allocation_unit',
+        :'state' => :'state',
+        :'funds_state' => :'funds_state',
+        :'funds_pending' => :'funds_pending',
+        :'beneficial_address' => :'beneficial_address',
+        :'investor_currency' => :'investor_currency',
+        :'investment_value' => :'investment_value',
+        :'number_of_securities' => :'number_of_securities',
+        :'allocated_amount' => :'allocated_amount',
+        :'funds_value' => :'funds_value',
+        :'access_link' => :'access_link',
+        :'subscription_agreement' => :'subscription_agreement',
+        :'attachments' => :'attachments',
+        :'background_check_searches' => :'background_check_searches',
+        :'verification_status' => :'verification_status',
+        :'warrant_expiry_date' => :'warrant_expiry_date',
+        :'warrant_certificate_number' => :'warrant_certificate_number'
       }
     end
 
@@ -39,7 +134,26 @@ module DealMakerAPI
     def self.openapi_types
       {
         :'id' => :'Integer',
-        :'title' => :'String'
+        :'created_at' => :'Time',
+        :'updated_at' => :'Time',
+        :'name' => :'String',
+        :'allocation_unit' => :'String',
+        :'state' => :'String',
+        :'funds_state' => :'String',
+        :'funds_pending' => :'Boolean',
+        :'beneficial_address' => :'String',
+        :'investor_currency' => :'String',
+        :'investment_value' => :'Float',
+        :'number_of_securities' => :'Integer',
+        :'allocated_amount' => :'Float',
+        :'funds_value' => :'Float',
+        :'access_link' => :'String',
+        :'subscription_agreement' => :'V1EntitiesSubscriptionAgreement',
+        :'attachments' => :'V1EntitiesAttachment',
+        :'background_check_searches' => :'V1EntitiesBackgroundCheckSearch',
+        :'verification_status' => :'String',
+        :'warrant_expiry_date' => :'Date',
+        :'warrant_certificate_number' => :'Integer'
       }
     end
 
@@ -53,13 +167,13 @@ module DealMakerAPI
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DealMakerAPI::V1EntitiesDeal` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DealMakerAPI::V1EntitiesInvestor` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `DealMakerAPI::V1EntitiesDeal`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DealMakerAPI::V1EntitiesInvestor`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
@@ -68,8 +182,84 @@ module DealMakerAPI
         self.id = attributes[:'id']
       end
 
-      if attributes.key?(:'title')
-        self.title = attributes[:'title']
+      if attributes.key?(:'created_at')
+        self.created_at = attributes[:'created_at']
+      end
+
+      if attributes.key?(:'updated_at')
+        self.updated_at = attributes[:'updated_at']
+      end
+
+      if attributes.key?(:'name')
+        self.name = attributes[:'name']
+      end
+
+      if attributes.key?(:'allocation_unit')
+        self.allocation_unit = attributes[:'allocation_unit']
+      end
+
+      if attributes.key?(:'state')
+        self.state = attributes[:'state']
+      end
+
+      if attributes.key?(:'funds_state')
+        self.funds_state = attributes[:'funds_state']
+      end
+
+      if attributes.key?(:'funds_pending')
+        self.funds_pending = attributes[:'funds_pending']
+      end
+
+      if attributes.key?(:'beneficial_address')
+        self.beneficial_address = attributes[:'beneficial_address']
+      end
+
+      if attributes.key?(:'investor_currency')
+        self.investor_currency = attributes[:'investor_currency']
+      end
+
+      if attributes.key?(:'investment_value')
+        self.investment_value = attributes[:'investment_value']
+      end
+
+      if attributes.key?(:'number_of_securities')
+        self.number_of_securities = attributes[:'number_of_securities']
+      end
+
+      if attributes.key?(:'allocated_amount')
+        self.allocated_amount = attributes[:'allocated_amount']
+      end
+
+      if attributes.key?(:'funds_value')
+        self.funds_value = attributes[:'funds_value']
+      end
+
+      if attributes.key?(:'access_link')
+        self.access_link = attributes[:'access_link']
+      end
+
+      if attributes.key?(:'subscription_agreement')
+        self.subscription_agreement = attributes[:'subscription_agreement']
+      end
+
+      if attributes.key?(:'attachments')
+        self.attachments = attributes[:'attachments']
+      end
+
+      if attributes.key?(:'background_check_searches')
+        self.background_check_searches = attributes[:'background_check_searches']
+      end
+
+      if attributes.key?(:'verification_status')
+        self.verification_status = attributes[:'verification_status']
+      end
+
+      if attributes.key?(:'warrant_expiry_date')
+        self.warrant_expiry_date = attributes[:'warrant_expiry_date']
+      end
+
+      if attributes.key?(:'warrant_certificate_number')
+        self.warrant_certificate_number = attributes[:'warrant_certificate_number']
       end
     end
 
@@ -83,7 +273,55 @@ module DealMakerAPI
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      allocation_unit_validator = EnumAttributeValidator.new('String', ["securities", "amount"])
+      return false unless allocation_unit_validator.valid?(@allocation_unit)
+      state_validator = EnumAttributeValidator.new('String', ["draft", "invited", "cosigning", "signed", "waiting", "accepted"])
+      return false unless state_validator.valid?(@state)
+      funds_state_validator = EnumAttributeValidator.new('String', ["unfunded", "underfunded", "funded", "overfunded"])
+      return false unless funds_state_validator.valid?(@funds_state)
+      verification_status_validator = EnumAttributeValidator.new('String', ["pending", "approved", "rejected", "new_documents_requested"])
+      return false unless verification_status_validator.valid?(@verification_status)
       true
+    end
+
+    # Custom attribute writer method checking allowed values (enum).
+    # @param [Object] allocation_unit Object to be assigned
+    def allocation_unit=(allocation_unit)
+      validator = EnumAttributeValidator.new('String', ["securities", "amount"])
+      unless validator.valid?(allocation_unit)
+        fail ArgumentError, "invalid value for \"allocation_unit\", must be one of #{validator.allowable_values}."
+      end
+      @allocation_unit = allocation_unit
+    end
+
+    # Custom attribute writer method checking allowed values (enum).
+    # @param [Object] state Object to be assigned
+    def state=(state)
+      validator = EnumAttributeValidator.new('String', ["draft", "invited", "cosigning", "signed", "waiting", "accepted"])
+      unless validator.valid?(state)
+        fail ArgumentError, "invalid value for \"state\", must be one of #{validator.allowable_values}."
+      end
+      @state = state
+    end
+
+    # Custom attribute writer method checking allowed values (enum).
+    # @param [Object] funds_state Object to be assigned
+    def funds_state=(funds_state)
+      validator = EnumAttributeValidator.new('String', ["unfunded", "underfunded", "funded", "overfunded"])
+      unless validator.valid?(funds_state)
+        fail ArgumentError, "invalid value for \"funds_state\", must be one of #{validator.allowable_values}."
+      end
+      @funds_state = funds_state
+    end
+
+    # Custom attribute writer method checking allowed values (enum).
+    # @param [Object] verification_status Object to be assigned
+    def verification_status=(verification_status)
+      validator = EnumAttributeValidator.new('String', ["pending", "approved", "rejected", "new_documents_requested"])
+      unless validator.valid?(verification_status)
+        fail ArgumentError, "invalid value for \"verification_status\", must be one of #{validator.allowable_values}."
+      end
+      @verification_status = verification_status
     end
 
     # Checks equality by comparing each attribute.
@@ -92,7 +330,26 @@ module DealMakerAPI
       return true if self.equal?(o)
       self.class == o.class &&
           id == o.id &&
-          title == o.title
+          created_at == o.created_at &&
+          updated_at == o.updated_at &&
+          name == o.name &&
+          allocation_unit == o.allocation_unit &&
+          state == o.state &&
+          funds_state == o.funds_state &&
+          funds_pending == o.funds_pending &&
+          beneficial_address == o.beneficial_address &&
+          investor_currency == o.investor_currency &&
+          investment_value == o.investment_value &&
+          number_of_securities == o.number_of_securities &&
+          allocated_amount == o.allocated_amount &&
+          funds_value == o.funds_value &&
+          access_link == o.access_link &&
+          subscription_agreement == o.subscription_agreement &&
+          attachments == o.attachments &&
+          background_check_searches == o.background_check_searches &&
+          verification_status == o.verification_status &&
+          warrant_expiry_date == o.warrant_expiry_date &&
+          warrant_certificate_number == o.warrant_certificate_number
     end
 
     # @see the `==` method
@@ -104,7 +361,7 @@ module DealMakerAPI
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, title].hash
+      [id, created_at, updated_at, name, allocation_unit, state, funds_state, funds_pending, beneficial_address, investor_currency, investment_value, number_of_securities, allocated_amount, funds_value, access_link, subscription_agreement, attachments, background_check_searches, verification_status, warrant_expiry_date, warrant_certificate_number].hash
     end
 
     # Builds the object from hash

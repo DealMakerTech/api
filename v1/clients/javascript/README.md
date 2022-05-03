@@ -16,7 +16,7 @@ To authenticate, add an Authorization header to your API request that contains a
 
 ## Create an Application
 
-DealMaker’s Web API v1 supports the use of OAuth applications. Applications can be generated in your [account](https://www.dealmaker.tech/developer/applications). 
+DealMaker’s Web API v1 supports the use of OAuth applications. Applications can be generated in your [account](https://app.dealmaker.tech/developer/applications). 
 
 Unde the developer tab, click the `Create New Application` button
 
@@ -396,6 +396,7 @@ Class | Method | HTTP request | Description
 *Dealmakerapi.DealApi* | [**getDeal**](docs/DealApi.md#getDeal) | **GET** /deals/{id} | Get a deal by id
 *Dealmakerapi.DealApi* | [**getInvestor**](docs/DealApi.md#getInvestor) | **GET** /deals/{id}/investors/{investor_id} | Get a deal investor by id
 *Dealmakerapi.DealApi* | [**listInvestors**](docs/DealApi.md#listInvestors) | **GET** /deals/{id}/investors | List deal investors
+*Dealmakerapi.InvestorProfileApi* | [**createInvestorProfile**](docs/InvestorProfileApi.md#createInvestorProfile) | **POST** /investor_profiles | Create new investor profile
 
 
 ## Documentation for Models
@@ -403,7 +404,13 @@ Class | Method | HTTP request | Description
  - [Dealmakerapi.V1EntitiesAttachment](docs/V1EntitiesAttachment.md)
  - [Dealmakerapi.V1EntitiesBackgroundCheckSearch](docs/V1EntitiesBackgroundCheckSearch.md)
  - [Dealmakerapi.V1EntitiesDeal](docs/V1EntitiesDeal.md)
+ - [Dealmakerapi.V1EntitiesDealEnterprise](docs/V1EntitiesDealEnterprise.md)
+ - [Dealmakerapi.V1EntitiesDealFundingMetrics](docs/V1EntitiesDealFundingMetrics.md)
+ - [Dealmakerapi.V1EntitiesDealInvestorMetrics](docs/V1EntitiesDealInvestorMetrics.md)
+ - [Dealmakerapi.V1EntitiesDealIssuer](docs/V1EntitiesDealIssuer.md)
  - [Dealmakerapi.V1EntitiesInvestor](docs/V1EntitiesInvestor.md)
+ - [Dealmakerapi.V1EntitiesInvestorProfileIndividual](docs/V1EntitiesInvestorProfileIndividual.md)
+ - [Dealmakerapi.V1EntitiesInvestorUser](docs/V1EntitiesInvestorUser.md)
  - [Dealmakerapi.V1EntitiesInvestors](docs/V1EntitiesInvestors.md)
  - [Dealmakerapi.V1EntitiesSubscriptionAgreement](docs/V1EntitiesSubscriptionAgreement.md)
 

@@ -1,0 +1,269 @@
+=begin
+#DealMaker API
+
+## Introduction  Welcome to DealMaker’s Web API v1! This API is RESTful, easy to integrate with, and offers support in 2 different languages.  # Libraries  * Javascript * Ruby  # Authentication  To authenticate, add an Authorization header to your API request that contains an access token.  ## Create an Application  DealMaker’s Web API v1 supports the use of OAuth applications. Applications can be generated in your [account](https://app.dealmaker.tech/developer/applications).   Unde the developer tab, click the `Create New Application` button  ![Screenshot](https://s3.ca-central-1.amazonaws.com/docs.dealmaker.tech/images/api-application-1.png)  Name your application and assign the level of permissions for this application  ![Screenshot](https://s3.ca-central-1.amazonaws.com/docs.dealmaker.tech/images/api-application-2.png)  Once your application is created, save in a secure space your public and secret keys.  **WARNING**: The secret key will not be visible after you click the close button  ![Screenshot](https://s3.ca-central-1.amazonaws.com/docs.dealmaker.tech/images/api-application-3.png)  From the developer tab, you will be able to view and manage all the available applications  ![Screenshot](https://s3.ca-central-1.amazonaws.com/docs.dealmaker.tech/images/api-application-4.png)   Each Application consists of a client id, secret and set of scopes. The scopes define what resources you want to have access to. The client ID and secret are used to generate an access token. You will need to create an application to use API endpoints.   ## How to generate an access token   After creating an application, you must make a call to obtain a bearer token using the Generate an OAuth token operation. This operation requires the following parameters:  `token endpoint` - https://app.dealmaker.tech/oauth/token  `grant_type` - must be set to `client_credentials`  `client_id` - the Client ID displayed when you created the OAuth application in the previous step  `client_secret` - the Client Secret displayed when you created the OAuth application in the previous step   `scope` - the scope is established when you created the OAuth application in the previous step  Note: The Generate an OAuth token response specifies how long the bearer token is valid for. You should reuse the bearer token until it is expired. When the token is expired, call Generate an OAuth token again to generate a new one.  To use the access token, you must set a plain text header named `Authorization` with the contents of the header being “Bearer XXX” where XXX is your generated access token.  # Status Codes  ## Content-Type Header   All responses are returned in JSON format. We specify this by sending the Content-Type header.   ## Status Codes  Below is a table containing descriptions of the various status codes we currently support against various resources.  Sometimes your API call will generate an error. Here you will find additional information about what to expect if you don’t format your request properly, or we fail to properly process your request.  | Status Code      | Description | | ----------- | ----------- | | `200`    | Success       | | `403`   | Forbiden        | | `404` | Not found |   # Pagination  Pagination is used to divide large resposes is smaller portions (pages). By default, all endpoints return a maximum of 25 records per page. You can change the number of records on a per request basis by passing a `per_page` parameter in the request header parameters.   When the response exceeds the `per_page` parameter, you can paginate through the records by increasing the `offset` parameter. Example: `offset=25` will return 25 records starting from 26th record. You may also paginate using the `page` parameter to indicate the page number you would like to show on the response.  Please review the table below for the input parameters  ## Inputs  | Parameter      | Description | | ----------- | ----------- | | `per_page` | Amount of records included on each page (Default is 25)       | | `page`   | Page number        | | `offset` | Amount of records offset on the API request where 0 represents the first record |   ## Respose Headers  To review additional information about pagination on a specific response, including how to determine the total number of pages of the avaialble data set, the API returns the following header fields with every paginated response:   | Response Header |  Description | | ----------- |  ----------- | | `X-Total`    | Total number of records of response | | `X-Total-Pages`   | Total number of pages of response | | `X-Per-Page` |  Total number of records per page of response | | `X-Page` |  Number of current page | | `X-Next-Page` |  Number of next page | | `X-Prev-Page` |  Number of previous page| | `X-Offset` |  Total number of records offset |  # Versioning  The latest version is v1.  The version can be updated on the `Accept` header, just set the version as stated on the following example:   ```  Accept:application/vnd.dealmaker-v1+json  ``` | Version |  Accept Header | | ----------- |  ----------- | | `v1`    | application/vnd.dealmaker-`v1`+json |  # SDK’s  For instruction on installing SDKs, please view the following links  * [Javascript](https://github.com/DealMakerTech/api/tree/main/v1/clients/javascript) * [Ruby](https://github.com/DealMakerTech/api/tree/main/v1/clients/ruby)  # Webhooks  Our webhooks functionality allows clients to automatically receive updates on a deal's investor data.  The type of data that the webhooks include:  * Investor Name * Date created  * Email * Phone * Allocation * Attachments * Accredited investor status * Accredited investor category * Status (Draft, Invited, Accepted, Waiting)  Via webhooks clients can subscribe to the following events as they happen on Dealmaker:  * Investor is created * Investor details are updated (any of the investor details above change or are updated) * Investor is deleted  A URL supplied by the client will receive all the events with the information as part of the payload. Clients are able to add and update the URL within DealMaker.  ## Configuration  For a comprehensive guide on how to configure Webhooks please visit our support article: [Configuring Webhooks on DealMaker – DealMaker Support](https://help.dealmaker.tech/configuring-webhooks-on-dealmaker).    As a developer user on DealMaker, you are able to configure webhooks by following the steps below:  1. Sign into Dealmaker 2. Go to **“Your profile”** in the top right corner 3. Access an **“Integrations”** configuration via the left menu 4. The developer configures webhooks by including:     * The HTTPS URL where the request will be sent     * Optionally, a security token that we would use to build a SHA1 hash that would be included in the request headers. The name of the header is `X-DealMaker-Signature`. If the secret is not specified, the hash won’t be included in the headers.     * An email address that will be used to notify about errors. 5. The developers can disable webhooks temporarily if needed  ## Specification  ### Events  The initial set of events will be related to the investor. The events are:  1. `investor.created`      * Triggers every time a new investor is added to a deal  2. `investor.updated`      * Triggers on updates to any of the following fields:         1. Status         2. Name         3. Email - (this is a user field so we trigger event for all investors with webhook subscription)         4. Allocated Amount         5. Investment Amount         6. Accredited investor fields         7. Adding or removing attachments         8. Tags     * When the investor status is signed, the payload also includes a link to the signed document; the link expires after 30  minutes  3. `investor.deleted`      * Triggers when the investor is removed from the deal     * The investor key of the payload only includes investor ID     * The deal is not included in the payload. Due to our implementation it’s impossible to retrieve the deal the investor was part of  ### Requests  * The request is a `POST` * The payload’s `content-type` is `application/json` * Only `2XX` responses are considered successful. In the event of a different response, we consider it failed and queue the event for retry * We retry the request five times, after the initial attempt. Doubling the waiting time between intervals with each try. The first retry happens after 30 seconds, then 60 seconds, 2 mins, 4 minutes, and 8 minutes. This timing scheme gives the receiver about 1 hour if all the requests fail * If an event fails all the attempts to be delivered, we send an email to the address that the user configured  ### Payload  #### Common Properties  There will be some properties that are common to all the events on the system.   |Key|Type|Description| |--- |--- |--- | |event|String|The event that triggered the call| |event_id|String|A unique identifier for the event| |deal<sup>*</sup>|Object|The deal in which the event occurred. It includes id, title, created_at and updated_at|   <sup>*</sup>This field is not included when deleting a resource  #### Common Properties (investor scope)  Every event on this scope must contain an investor object, here are some properties that are common to this object on all events in the investor scope:  |Key|Type|Description| |--- |--- |--- | |id|Integer|The unique ID of the Investor| |name|String|Investor’s Name| |status|String|Current status of the investor<br />Possible states are: <br />draft<br />invited<br />signed<br />waiting<br />accepted| |email|String|| |phone_number|String|| |investment_amount|Double|| |allocated_amount|Double|| |accredited_investor|Object|See format in respective ticket| |attachments|Array of Objects|List of supporting documents uploaded to the investor, including URL (expire after 30 minutes) and title (caption)| |funding_state|String|Investor’s current funding state (unfunded, underfunded, funded, overfunded)| |funds_pending|Boolean|True if there are pending transactions, False otherwise| |created_at|Date|| |updated_at|Date|| |tags|Array of Strings|a list of the investor's tags, separated by comma.|   ### investor.status >= signed Specific Properties   |Key|Type|Description| |--- |--- |--- | |subscription_agreement|object|id, url (expiring URL)|  #### Investor Status  Here is a brief description of each investor state:  * **Draft:** the investor is added to the platform but hasn't been invited yet and cannot access the portal * **Invited:** the investor was added to the platform but hasn’t completed the questionnaire  * **Signed:** the investor signed the document (needs approval from Lawyer or Reviewer before countersignature) * **Waiting:** the investor was approved for countersignature by any of the Lawyers or Reviewers in the deal * **Accepted:** the investor's agreement was countersigned by the Signatory  #### Update Delay  Given the high number of updates our platform performs on any investor, we’ve added a cool down period on update events that allows us to “group” updates and trigger only one every minute. In consequence, update events will be delivered 1 minute after the initial request was made and will include the latest version of the investor data at delivery time.   
+
+The version of the OpenAPI document: 1.0.0
+
+Generated by: https://openapi-generator.tech
+OpenAPI Generator version: 5.4.0-SNAPSHOT
+
+=end
+
+require 'date'
+require 'time'
+
+module DealMakerAPI
+  class V1EntitiesDealFundingMetrics
+    # The amount subscribed. <br><br>This value is obtained by taking the sum of the investment amount from committed investors. Committed investors are investors with a status of `signed``, `waiting`, or `accepted`.
+    attr_accessor :amount_subscribed
+
+    # The number of securities that have been subscribed. <br><br>This value is obtained by taking the sum of the total number of securities from committed investors. Committed investors are investors with a status of `signed`, `waiting`, or `accepted`.
+    attr_accessor :securities_subscribed
+
+    # The amount allocated. <br><br>This value is obtained by taking the sum of the total allocated investment amount for investors with a status of `invited`. Allocated investment amounts are locked in and cannot be changed by the investor.
+    attr_accessor :amount_allocated
+
+    # The number of securities that have been allocated. <br><br>This value is obtained by taking the sum of the total allocated number of securities for investors with a status of `invited`. Allocated securities are locked in and cannot be changed by the investor.
+    attr_accessor :securities_allocated
+
+    # The amount accepted. <br><br>This value is obtained by taking the sum of the investment amount from investors with the status `accepted`.
+    attr_accessor :amount_accepted
+
+    # The number of securities that have been accepted. <br><br>This value is obtained by dividing the amount_accepted value by the price per security.
+    attr_accessor :securities_accepted
+
+    # Attribute mapping from ruby-style variable name to JSON key.
+    def self.attribute_map
+      {
+        :'amount_subscribed' => :'amount_subscribed',
+        :'securities_subscribed' => :'securities_subscribed',
+        :'amount_allocated' => :'amount_allocated',
+        :'securities_allocated' => :'securities_allocated',
+        :'amount_accepted' => :'amount_accepted',
+        :'securities_accepted' => :'securities_accepted'
+      }
+    end
+
+    # Returns all the JSON keys this model knows about
+    def self.acceptable_attributes
+      attribute_map.values
+    end
+
+    # Attribute type mapping.
+    def self.openapi_types
+      {
+        :'amount_subscribed' => :'Float',
+        :'securities_subscribed' => :'Integer',
+        :'amount_allocated' => :'Float',
+        :'securities_allocated' => :'Integer',
+        :'amount_accepted' => :'Float',
+        :'securities_accepted' => :'Integer'
+      }
+    end
+
+    # List of attributes with nullable: true
+    def self.openapi_nullable
+      Set.new([
+      ])
+    end
+
+    # Initializes the object
+    # @param [Hash] attributes Model attributes in the form of hash
+    def initialize(attributes = {})
+      if (!attributes.is_a?(Hash))
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DealMakerAPI::V1EntitiesDealFundingMetrics` initialize method"
+      end
+
+      # check to see if the attribute exists and convert string to symbol for hash key
+      attributes = attributes.each_with_object({}) { |(k, v), h|
+        if (!self.class.attribute_map.key?(k.to_sym))
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DealMakerAPI::V1EntitiesDealFundingMetrics`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+        end
+        h[k.to_sym] = v
+      }
+
+      if attributes.key?(:'amount_subscribed')
+        self.amount_subscribed = attributes[:'amount_subscribed']
+      end
+
+      if attributes.key?(:'securities_subscribed')
+        self.securities_subscribed = attributes[:'securities_subscribed']
+      end
+
+      if attributes.key?(:'amount_allocated')
+        self.amount_allocated = attributes[:'amount_allocated']
+      end
+
+      if attributes.key?(:'securities_allocated')
+        self.securities_allocated = attributes[:'securities_allocated']
+      end
+
+      if attributes.key?(:'amount_accepted')
+        self.amount_accepted = attributes[:'amount_accepted']
+      end
+
+      if attributes.key?(:'securities_accepted')
+        self.securities_accepted = attributes[:'securities_accepted']
+      end
+    end
+
+    # Show invalid properties with the reasons. Usually used together with valid?
+    # @return Array for valid properties with the reasons
+    def list_invalid_properties
+      invalid_properties = Array.new
+      invalid_properties
+    end
+
+    # Check to see if the all the properties in the model are valid
+    # @return true if the model is valid
+    def valid?
+      true
+    end
+
+    # Checks equality by comparing each attribute.
+    # @param [Object] Object to be compared
+    def ==(o)
+      return true if self.equal?(o)
+      self.class == o.class &&
+          amount_subscribed == o.amount_subscribed &&
+          securities_subscribed == o.securities_subscribed &&
+          amount_allocated == o.amount_allocated &&
+          securities_allocated == o.securities_allocated &&
+          amount_accepted == o.amount_accepted &&
+          securities_accepted == o.securities_accepted
+    end
+
+    # @see the `==` method
+    # @param [Object] Object to be compared
+    def eql?(o)
+      self == o
+    end
+
+    # Calculates hash code according to all attributes.
+    # @return [Integer] Hash code
+    def hash
+      [amount_subscribed, securities_subscribed, amount_allocated, securities_allocated, amount_accepted, securities_accepted].hash
+    end
+
+    # Builds the object from hash
+    # @param [Hash] attributes Model attributes in the form of hash
+    # @return [Object] Returns the model itself
+    def self.build_from_hash(attributes)
+      new.build_from_hash(attributes)
+    end
+
+    # Builds the object from hash
+    # @param [Hash] attributes Model attributes in the form of hash
+    # @return [Object] Returns the model itself
+    def build_from_hash(attributes)
+      return nil unless attributes.is_a?(Hash)
+      self.class.openapi_types.each_pair do |key, type|
+        if attributes[self.class.attribute_map[key]].nil? && self.class.openapi_nullable.include?(key)
+          self.send("#{key}=", nil)
+        elsif type =~ /\AArray<(.*)>/i
+          # check to ensure the input is an array given that the attribute
+          # is documented as an array but the input is not
+          if attributes[self.class.attribute_map[key]].is_a?(Array)
+            self.send("#{key}=", attributes[self.class.attribute_map[key]].map { |v| _deserialize($1, v) })
+          end
+        elsif !attributes[self.class.attribute_map[key]].nil?
+          self.send("#{key}=", _deserialize(type, attributes[self.class.attribute_map[key]]))
+        end
+      end
+
+      self
+    end
+
+    # Deserializes the data based on type
+    # @param string type Data type
+    # @param string value Value to be deserialized
+    # @return [Object] Deserialized data
+    def _deserialize(type, value)
+      case type.to_sym
+      when :Time
+        Time.parse(value)
+      when :Date
+        Date.parse(value)
+      when :String
+        value.to_s
+      when :Integer
+        value.to_i
+      when :Float
+        value.to_f
+      when :Boolean
+        if value.to_s =~ /\A(true|t|yes|y|1)\z/i
+          true
+        else
+          false
+        end
+      when :Object
+        # generic object (usually a Hash), return directly
+        value
+      when /\AArray<(?<inner_type>.+)>\z/
+        inner_type = Regexp.last_match[:inner_type]
+        value.map { |v| _deserialize(inner_type, v) }
+      when /\AHash<(?<k_type>.+?), (?<v_type>.+)>\z/
+        k_type = Regexp.last_match[:k_type]
+        v_type = Regexp.last_match[:v_type]
+        {}.tap do |hash|
+          value.each do |k, v|
+            hash[_deserialize(k_type, k)] = _deserialize(v_type, v)
+          end
+        end
+      else # model
+        # models (e.g. Pet) or oneOf
+        klass = DealMakerAPI.const_get(type)
+        klass.respond_to?(:openapi_one_of) ? klass.build(value) : klass.build_from_hash(value)
+      end
+    end
+
+    # Returns the string representation of the object
+    # @return [String] String presentation of the object
+    def to_s
+      to_hash.to_s
+    end
+
+    # to_body is an alias to to_hash (backward compatibility)
+    # @return [Hash] Returns the object in the form of hash
+    def to_body
+      to_hash
+    end
+
+    # Returns the object in the form of hash
+    # @return [Hash] Returns the object in the form of hash
+    def to_hash
+      hash = {}
+      self.class.attribute_map.each_pair do |attr, param|
+        value = self.send(attr)
+        if value.nil?
+          is_nullable = self.class.openapi_nullable.include?(attr)
+          next if !is_nullable || (is_nullable && !instance_variable_defined?(:"@#{attr}"))
+        end
+
+        hash[param] = _to_hash(value)
+      end
+      hash
+    end
+
+    # Outputs non-array value in the form of hash
+    # For object, use to_hash. Otherwise, just return the value
+    # @param [Object] value Any valid value
+    # @return [Hash] Returns the value in the form of hash
+    def _to_hash(value)
+      if value.is_a?(Array)
+        value.compact.map { |v| _to_hash(v) }
+      elsif value.is_a?(Hash)
+        {}.tap do |hash|
+          value.each { |k, v| hash[k] = _to_hash(v) }
+        end
+      elsif value.respond_to? :to_hash
+        value.to_hash
+      else
+        value
+      end
+    end
+
+  end
+
+end

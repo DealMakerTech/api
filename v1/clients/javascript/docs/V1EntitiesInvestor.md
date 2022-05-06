@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **Number** | Investor id. | [optional] 
+**user** | [**V1EntitiesInvestorUser**](V1EntitiesInvestorUser.md) |  | [optional] 
 **createdAt** | **Date** | The creation time. | [optional] 
 **updatedAt** | **Date** | The last update time. | [optional] 
 **name** | **String** | The full name of the investor. | [optional] 

@@ -173,7 +173,8 @@ let opts = {
   'page': 1, // Number | Page offset to fetch.
   'perPage': 25, // Number | Number of results to return per page.
   'offset': 0, // Number | Pad a number of results.
-  'investorIds': [null] // [Number] | An array of investor ids.
+  'investorIds': [null], // [Number] | An array of investor ids.
+  'q': "q_example" // String | The search query for investors.
 };
 apiInstance.listInvestors(id, opts, (error, data, response) => {
   if (error) {
@@ -194,6 +195,7 @@ Name | Type | Description  | Notes
  **perPage** | **Number**| Number of results to return per page. | [optional] [default to 25]
  **offset** | **Number**| Pad a number of results. | [optional] [default to 0]
  **investorIds** | [**[Number]**](Number.md)| An array of investor ids. | [optional] 
+ **q** | **String**| The search query for investors. | [optional] 
 
 ### Return type
 

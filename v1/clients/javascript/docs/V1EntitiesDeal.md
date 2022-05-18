@@ -1,4 +1,4 @@
-# @DealmakertechApi.V1EntitiesDeal
+# Api.V1EntitiesDeal
 
 ## Properties
 

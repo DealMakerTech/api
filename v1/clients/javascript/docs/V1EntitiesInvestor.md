@@ -1,4 +1,4 @@
-# @DealmakertechApi.V1EntitiesInvestor
+# Api.V1EntitiesInvestor
 
 ## Properties
 

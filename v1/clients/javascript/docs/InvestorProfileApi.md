@@ -1,4 +1,4 @@
-# Dealmakerapi.InvestorProfileApi
+# @DealmakertechApi.InvestorProfileApi
 
 All URIs are relative to *http://api.dealmaker.tech*
 
@@ -19,11 +19,11 @@ Create new investor profile associated to the user by email.
 ### Example
 
 ```javascript
-import Dealmakerapi from 'dealmakerapi';
-let defaultClient = Dealmakerapi.ApiClient.instance;
+import @DealmakertechApi from '@dealmakertech/api';
+let defaultClient = @DealmakertechApi.ApiClient.instance;
 
-let apiInstance = new Dealmakerapi.InvestorProfileApi();
-let UNKNOWN_BASE_TYPE = new Dealmakerapi.UNKNOWN_BASE_TYPE(); // UNKNOWN_BASE_TYPE | 
+let apiInstance = new @DealmakertechApi.InvestorProfileApi();
+let UNKNOWN_BASE_TYPE = new @DealmakertechApi.UNKNOWN_BASE_TYPE(); // UNKNOWN_BASE_TYPE | 
 apiInstance.createInvestorProfile(UNKNOWN_BASE_TYPE, (error, data, response) => {
   if (error) {
     console.error(error);

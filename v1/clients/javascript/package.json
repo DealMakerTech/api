@@ -1,5 +1,5 @@
 {
-  "name": "dealmakerapi",
+  "name": "@dealmakertech/api",
   "version": "0.0.1",
   "description": "A javascript wrapper for the DealMaker API",
   "license": "TODO",

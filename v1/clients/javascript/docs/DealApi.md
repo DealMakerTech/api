@@ -1,4 +1,4 @@
-# Dealmakerapi.DealApi
+# @DealmakertechApi.DealApi
 
 All URIs are relative to *http://api.dealmaker.tech*
 
@@ -22,12 +22,12 @@ Create a single deal investor.
 ### Example
 
 ```javascript
-import Dealmakerapi from 'dealmakerapi';
-let defaultClient = Dealmakerapi.ApiClient.instance;
+import @DealmakertechApi from '@dealmakertech/api';
+let defaultClient = @DealmakertechApi.ApiClient.instance;
 
-let apiInstance = new Dealmakerapi.DealApi();
+let apiInstance = new @DealmakertechApi.DealApi();
 let id = 56; // Number | The deal id.
-let UNKNOWN_BASE_TYPE = new Dealmakerapi.UNKNOWN_BASE_TYPE(); // UNKNOWN_BASE_TYPE | 
+let UNKNOWN_BASE_TYPE = new @DealmakertechApi.UNKNOWN_BASE_TYPE(); // UNKNOWN_BASE_TYPE | 
 apiInstance.createInvestor(id, UNKNOWN_BASE_TYPE, (error, data, response) => {
   if (error) {
     console.error(error);
@@ -70,10 +70,10 @@ Get a deal
 ### Example
 
 ```javascript
-import Dealmakerapi from 'dealmakerapi';
-let defaultClient = Dealmakerapi.ApiClient.instance;
+import @DealmakertechApi from '@dealmakertech/api';
+let defaultClient = @DealmakertechApi.ApiClient.instance;
 
-let apiInstance = new Dealmakerapi.DealApi();
+let apiInstance = new @DealmakertechApi.DealApi();
 let id = 56; // Number | The deal id.
 apiInstance.getDeal(id, (error, data, response) => {
   if (error) {
@@ -116,10 +116,10 @@ Gets a single investor by the id.
 ### Example
 
 ```javascript
-import Dealmakerapi from 'dealmakerapi';
-let defaultClient = Dealmakerapi.ApiClient.instance;
+import @DealmakertechApi from '@dealmakertech/api';
+let defaultClient = @DealmakertechApi.ApiClient.instance;
 
-let apiInstance = new Dealmakerapi.DealApi();
+let apiInstance = new @DealmakertechApi.DealApi();
 let id = 56; // Number | The deal id.
 let investorId = 56; // Number | The investor id.
 apiInstance.getInvestor(id, investorId, (error, data, response) => {
@@ -164,10 +164,10 @@ List deal investors according to the specified search criteria.
 ### Example
 
 ```javascript
-import Dealmakerapi from 'dealmakerapi';
-let defaultClient = Dealmakerapi.ApiClient.instance;
+import @DealmakertechApi from '@dealmakertech/api';
+let defaultClient = @DealmakertechApi.ApiClient.instance;
 
-let apiInstance = new Dealmakerapi.DealApi();
+let apiInstance = new @DealmakertechApi.DealApi();
 let id = 56; // Number | The deal id.
 let opts = {
   'page': 1, // Number | Page offset to fetch.

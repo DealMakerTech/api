@@ -1,4 +1,4 @@
-# Dealmakerapi.V1EntitiesSubscriptionAgreement
+# @DealmakertechApi.V1EntitiesSubscriptionAgreement
 
 ## Properties
 

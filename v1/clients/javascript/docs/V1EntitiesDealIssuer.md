@@ -1,4 +1,4 @@
-# Dealmakerapi.V1EntitiesDealIssuer
+# @DealmakertechApi.V1EntitiesDealIssuer
 
 ## Properties
 

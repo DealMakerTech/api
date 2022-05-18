@@ -1,6 +1,6 @@
-# dealmakerapi
+# @dealmakertech/api
 
-Dealmakerapi - JavaScript client for dealmakerapi
+@DealmakertechApi - JavaScript client for @dealmakertech/api
 # Introduction
 
 Welcome to DealMaker’s Web API v1! This API is RESTful, easy to integrate with, and offers support in 2 different languages.
@@ -289,7 +289,7 @@ To publish the library as a [npm](https://www.npmjs.com/), please follow the pro
 Then install it via:
 
 ```shell
-npm install dealmakerapi --save
+npm install @dealmakertech/api --save
 ```
 
 Finally, you need to build the module:
@@ -312,7 +312,7 @@ Next, [link](https://docs.npmjs.com/cli/link) it globally in npm with the follow
 npm link
 ```
 
-To use the link you just defined in your project, switch to the directory you want to use your dealmakerapi from, and run:
+To use the link you just defined in your project, switch to the directory you want to use your @dealmakertech/api from, and run:
 
 ```shell
 npm link /path/to/<JAVASCRIPT_CLIENT_DIR>
@@ -368,13 +368,13 @@ module: {
 Please follow the [installation](#installation) instruction and execute the following JS code:
 
 ```javascript
-var Dealmakerapi = require('dealmakerapi');
+var @DealmakertechApi = require('@dealmakertech/api');
 
-var defaultClient = Dealmakerapi.ApiClient.instance;
+var defaultClient = @DealmakertechApi.ApiClient.instance;
 
-var api = new Dealmakerapi.DealApi()
+var api = new @DealmakertechApi.DealApi()
 var id = 56; // {Number} The deal id.
-var UNKNOWN_BASE_TYPE = new Dealmakerapi.UNKNOWN_BASE_TYPE(); // {UNKNOWN_BASE_TYPE} 
+var UNKNOWN_BASE_TYPE = new @DealmakertechApi.UNKNOWN_BASE_TYPE(); // {UNKNOWN_BASE_TYPE} 
 var callback = function(error, data, response) {
   if (error) {
     console.error(error);
@@ -392,27 +392,27 @@ All URIs are relative to *http://api.dealmaker.tech*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*Dealmakerapi.DealApi* | [**createInvestor**](docs/DealApi.md#createInvestor) | **POST** /deals/{id}/investors | Create a deal investor
-*Dealmakerapi.DealApi* | [**getDeal**](docs/DealApi.md#getDeal) | **GET** /deals/{id} | Get a deal by id
-*Dealmakerapi.DealApi* | [**getInvestor**](docs/DealApi.md#getInvestor) | **GET** /deals/{id}/investors/{investor_id} | Get a deal investor by id
-*Dealmakerapi.DealApi* | [**listInvestors**](docs/DealApi.md#listInvestors) | **GET** /deals/{id}/investors | List deal investors
-*Dealmakerapi.InvestorProfileApi* | [**createInvestorProfile**](docs/InvestorProfileApi.md#createInvestorProfile) | **POST** /investor_profiles | Create new investor profile
+*@DealmakertechApi.DealApi* | [**createInvestor**](docs/DealApi.md#createInvestor) | **POST** /deals/{id}/investors | Create a deal investor
+*@DealmakertechApi.DealApi* | [**getDeal**](docs/DealApi.md#getDeal) | **GET** /deals/{id} | Get a deal by id
+*@DealmakertechApi.DealApi* | [**getInvestor**](docs/DealApi.md#getInvestor) | **GET** /deals/{id}/investors/{investor_id} | Get a deal investor by id
+*@DealmakertechApi.DealApi* | [**listInvestors**](docs/DealApi.md#listInvestors) | **GET** /deals/{id}/investors | List deal investors
+*@DealmakertechApi.InvestorProfileApi* | [**createInvestorProfile**](docs/InvestorProfileApi.md#createInvestorProfile) | **POST** /investor_profiles | Create new investor profile
 
 
 ## Documentation for Models
 
- - [Dealmakerapi.V1EntitiesAttachment](docs/V1EntitiesAttachment.md)
- - [Dealmakerapi.V1EntitiesBackgroundCheckSearch](docs/V1EntitiesBackgroundCheckSearch.md)
- - [Dealmakerapi.V1EntitiesDeal](docs/V1EntitiesDeal.md)
- - [Dealmakerapi.V1EntitiesDealEnterprise](docs/V1EntitiesDealEnterprise.md)
- - [Dealmakerapi.V1EntitiesDealFundingMetrics](docs/V1EntitiesDealFundingMetrics.md)
- - [Dealmakerapi.V1EntitiesDealInvestorMetrics](docs/V1EntitiesDealInvestorMetrics.md)
- - [Dealmakerapi.V1EntitiesDealIssuer](docs/V1EntitiesDealIssuer.md)
- - [Dealmakerapi.V1EntitiesInvestor](docs/V1EntitiesInvestor.md)
- - [Dealmakerapi.V1EntitiesInvestorProfileIndividual](docs/V1EntitiesInvestorProfileIndividual.md)
- - [Dealmakerapi.V1EntitiesInvestorUser](docs/V1EntitiesInvestorUser.md)
- - [Dealmakerapi.V1EntitiesInvestors](docs/V1EntitiesInvestors.md)
- - [Dealmakerapi.V1EntitiesSubscriptionAgreement](docs/V1EntitiesSubscriptionAgreement.md)
+ - [@DealmakertechApi.V1EntitiesAttachment](docs/V1EntitiesAttachment.md)
+ - [@DealmakertechApi.V1EntitiesBackgroundCheckSearch](docs/V1EntitiesBackgroundCheckSearch.md)
+ - [@DealmakertechApi.V1EntitiesDeal](docs/V1EntitiesDeal.md)
+ - [@DealmakertechApi.V1EntitiesDealEnterprise](docs/V1EntitiesDealEnterprise.md)
+ - [@DealmakertechApi.V1EntitiesDealFundingMetrics](docs/V1EntitiesDealFundingMetrics.md)
+ - [@DealmakertechApi.V1EntitiesDealInvestorMetrics](docs/V1EntitiesDealInvestorMetrics.md)
+ - [@DealmakertechApi.V1EntitiesDealIssuer](docs/V1EntitiesDealIssuer.md)
+ - [@DealmakertechApi.V1EntitiesInvestor](docs/V1EntitiesInvestor.md)
+ - [@DealmakertechApi.V1EntitiesInvestorProfileIndividual](docs/V1EntitiesInvestorProfileIndividual.md)
+ - [@DealmakertechApi.V1EntitiesInvestorUser](docs/V1EntitiesInvestorUser.md)
+ - [@DealmakertechApi.V1EntitiesInvestors](docs/V1EntitiesInvestors.md)
+ - [@DealmakertechApi.V1EntitiesSubscriptionAgreement](docs/V1EntitiesSubscriptionAgreement.md)
 
 
 ## Documentation for Authorization

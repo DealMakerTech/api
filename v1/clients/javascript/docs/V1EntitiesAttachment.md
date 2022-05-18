@@ -1,4 +1,4 @@
-# Dealmakerapi.V1EntitiesAttachment
+# Api.V1EntitiesAttachment
 
 ## Properties
 

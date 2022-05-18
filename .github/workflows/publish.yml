@@ -27,6 +27,10 @@ jobs:
   ruby:
     runs-on: ubuntu-latest
 
+    defaults:
+      run:
+        working-directory: v1/clients/ruby
+
     steps:
       - uses: actions/checkout@v2
       - uses: ruby/setup-ruby@v1
@@ -41,6 +45,6 @@ jobs:
         env:
           RUBY_GEMS_API_KEY: ${{ secrets.RUBY_GEMS_API_KEY }}
       - name: Build gem
-        run: gem build -C v1/clients/ruby
+        run: gem build
       - name: Publish gem
-        run: gem push v1/clients/ruby/DealMakerAPI-*.gem
+        run: gem push DealMakerAPI-*.gem

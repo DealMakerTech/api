@@ -234,7 +234,8 @@ opts = {
   page: 56, # Integer | Page offset to fetch.
   per_page: 56, # Integer | Number of results to return per page.
   offset: 56, # Integer | Pad a number of results.
-  investor_ids: [37] # Array<Integer> | An array of investor ids.
+  investor_ids: [37], # Array<Integer> | An array of investor ids.
+  q: 'q_example' # String | The search query for investors.
 }
 
 begin
@@ -273,6 +274,7 @@ end
 | **per_page** | **Integer** | Number of results to return per page. | [optional][default to 25] |
 | **offset** | **Integer** | Pad a number of results. | [optional][default to 0] |
 | **investor_ids** | [**Array&lt;Integer&gt;**](Integer.md) | An array of investor ids. | [optional] |
+| **q** | **String** | The search query for investors. | [optional] |
 
 ### Return type
 

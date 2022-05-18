@@ -5,6 +5,7 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **id** | **Integer** | Investor id. | [optional] |
+| **user** | [**V1EntitiesInvestorUser**](V1EntitiesInvestorUser.md) |  | [optional] |
 | **created_at** | **Time** | The creation time. | [optional] |
 | **updated_at** | **Time** | The last update time. | [optional] |
 | **name** | **String** | The full name of the investor. | [optional] |
@@ -33,6 +34,7 @@ require 'DealMakerAPI'
 
 instance = DealMakerAPI::V1EntitiesInvestor.new(
   id: null,
+  user: null,
   created_at: null,
   updated_at: null,
   name: null,

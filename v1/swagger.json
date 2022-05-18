@@ -1,7 +1,7 @@
 {
   "info": {
     "title": "DealMaker API",
-    "description": "Welcome to the DealMaker API.\n\n# Introduction\n\nThis is a test introduction.\n\n# Usage\n\nThis is a usage example.\n\n# Support\n\nFor more support, contact [email].",
+    "description": "# Introduction\n\nWelcome to DealMaker’s Web API v1! This API is RESTful, easy to integrate with, and offers support in 2 different languages.\n\n# Libraries\n\n* Javascript\n* Ruby\n\n# Authentication\n\nTo authenticate, add an Authorization header to your API request that contains an access token.\n\n## Create an Application\n\nDealMaker’s Web API v1 supports the use of OAuth applications. Applications can be generated in your [account](https://app.dealmaker.tech/developer/applications). \n\nUnde the developer tab, click the `Create New Application` button\n\n![Screenshot](https://s3.ca-central-1.amazonaws.com/docs.dealmaker.tech/images/api-application-1.png)\n\nName your application and assign the level of permissions for this application\n\n![Screenshot](https://s3.ca-central-1.amazonaws.com/docs.dealmaker.tech/images/api-application-2.png)\n\nOnce your application is created, save in a secure space your public and secret keys.\n\n**WARNING**: The secret key will not be visible after you click the close button\n\n![Screenshot](https://s3.ca-central-1.amazonaws.com/docs.dealmaker.tech/images/api-application-3.png)\n\nFrom the developer tab, you will be able to view and manage all the available applications\n\n![Screenshot](https://s3.ca-central-1.amazonaws.com/docs.dealmaker.tech/images/api-application-4.png)\n\n\nEach Application consists of a client id, secret and set of scopes. The scopes define what resources you want to have access to. The client ID and secret are used to generate an access token. You will need to create an application to use API endpoints.\n\n\n## How to generate an access token\n\n\nAfter creating an application, you must make a call to obtain a bearer token using the Generate an OAuth token operation. This operation requires the following parameters:\n\n`token endpoint` - https://app.dealmaker.tech/oauth/token\n\n`grant_type` - must be set to `client_credentials`\n\n`client_id` - the Client ID displayed when you created the OAuth application in the previous step\n\n`client_secret` - the Client Secret displayed when you created the OAuth application in the previous step\n\n\n`scope` - the scope is established when you created the OAuth application in the previous step\n\nNote: The Generate an OAuth token response specifies how long the bearer token is valid for. You should reuse the bearer token until it is expired. When the token is expired, call Generate an OAuth token again to generate a new one.\n\nTo use the access token, you must set a plain text header named `Authorization` with the contents of the header being “Bearer XXX” where XXX is your generated access token.\n\n# Status Codes\n\n## Content-Type Header\n\n\nAll responses are returned in JSON format. We specify this by sending the Content-Type header.\n\n\n## Status Codes\n\nBelow is a table containing descriptions of the various status codes we currently support against various resources.\n\nSometimes your API call will generate an error. Here you will find additional information about what to expect if you don’t format your request properly, or we fail to properly process your request.\n\n| Status Code      | Description |\n| ----------- | ----------- |\n| `200`    | Success       |\n| `403`   | Forbiden        |\n| `404` | Not found |\n\n\n# Pagination\n\nPagination is used to divide large resposes is smaller portions (pages). By default, all endpoints return a maximum of 25 records per page. You can change the number of records on a per request basis by passing a `per_page` parameter in the request header parameters. \n\nWhen the response exceeds the `per_page` parameter, you can paginate through the records by increasing the `offset` parameter. Example: `offset=25` will return 25 records starting from 26th record. You may also paginate using the `page` parameter to indicate the page number you would like to show on the response.\n\nPlease review the table below for the input parameters\n\n## Inputs\n\n| Parameter      | Description |\n| ----------- | ----------- |\n| `per_page` | Amount of records included on each page (Default is 25)       |\n| `page`   | Page number        |\n| `offset` | Amount of records offset on the API request where 0 represents the first record |\n\n\n## Respose Headers\n\nTo review additional information about pagination on a specific response, including how to determine the total number of pages of the avaialble data set, the API returns the following header fields with every paginated response:\n\n\n| Response Header |  Description |\n| ----------- |  ----------- |\n| `X-Total`    | Total number of records of response |\n| `X-Total-Pages`   | Total number of pages of response |\n| `X-Per-Page` |  Total number of records per page of response |\n| `X-Page` |  Number of current page |\n| `X-Next-Page` |  Number of next page |\n| `X-Prev-Page` |  Number of previous page|\n| `X-Offset` |  Total number of records offset |\n\n# Versioning\n\nThe latest version is v1.\n\nThe version can be updated on the `Accept` header, just set the version as stated on the following example: \n\n```\n\nAccept:application/vnd.dealmaker-v1+json\n\n```\n| Version |  Accept Header |\n| ----------- |  ----------- |\n| `v1`    | application/vnd.dealmaker-`v1`+json |\n\n# SDK’s\n\nFor instruction on installing SDKs, please view the following links\n\n* [Javascript](https://github.com/DealMakerTech/api/tree/main/v1/clients/javascript)\n* [Ruby](https://github.com/DealMakerTech/api/tree/main/v1/clients/ruby)\n\n# Webhooks\n\nOur webhooks functionality allows clients to automatically receive updates on a deal's investor data.\n\nThe type of data that the webhooks include:\n\n* Investor Name\n* Date created \n* Email\n* Phone\n* Allocation\n* Attachments\n* Accredited investor status\n* Accredited investor category\n* Status (Draft, Invited, Accepted, Waiting)\n\nVia webhooks clients can subscribe to the following events as they happen on Dealmaker:\n\n* Investor is created\n* Investor details are updated (any of the investor details above change or are updated)\n* Investor is deleted\n\nA URL supplied by the client will receive all the events with the information as part of the payload. Clients are able to add and update the URL within DealMaker.\n\n## Configuration\n\nFor a comprehensive guide on how to configure Webhooks please visit our support article: [Configuring Webhooks on DealMaker – DealMaker Support](https://help.dealmaker.tech/configuring-webhooks-on-dealmaker). \n\n\nAs a developer user on DealMaker, you are able to configure webhooks by following the steps below:\n\n1. Sign into Dealmaker\n2. Go to **“Your profile”** in the top right corner\n3. Access an **“Integrations”** configuration via the left menu\n4. The developer configures webhooks by including:\n    * The HTTPS URL where the request will be sent\n    * Optionally, a security token that we would use to build a SHA1 hash that would be included in the request headers. The name of the header is `X-DealMaker-Signature`. If the secret is not specified, the hash won’t be included in the headers.\n    * An email address that will be used to notify about errors.\n5. The developers can disable webhooks temporarily if needed\n\n## Specification\n\n### Events\n\nThe initial set of events will be related to the investor. The events are:\n\n1. `investor.created`\n\n    * Triggers every time a new investor is added to a deal\n\n2. `investor.updated`\n\n    * Triggers on updates to any of the following fields:\n        1. Status\n        2. Name\n        3. Email - (this is a user field so we trigger event for all investors with webhook subscription)\n        4. Allocated Amount\n        5. Investment Amount\n        6. Accredited investor fields\n        7. Adding or removing attachments\n        8. Tags\n    * When the investor status is signed, the payload also includes a link to the signed document; the link expires after 30  minutes\n\n3. `investor.deleted`\n\n    * Triggers when the investor is removed from the deal\n    * The investor key of the payload only includes investor ID\n    * The deal is not included in the payload. Due to our implementation it’s impossible to retrieve the deal the investor was part of\n\n### Requests\n\n* The request is a `POST`\n* The payload’s `content-type` is `application/json`\n* Only `2XX` responses are considered successful. In the event of a different response, we consider it failed and queue the event for retry\n* We retry the request five times, after the initial attempt. Doubling the waiting time between intervals with each try. The first retry happens after 30 seconds, then 60 seconds, 2 mins, 4 minutes, and 8 minutes. This timing scheme gives the receiver about 1 hour if all the requests fail\n* If an event fails all the attempts to be delivered, we send an email to the address that the user configured\n\n### Payload\n\n#### Common Properties\n\nThere will be some properties that are common to all the events on the system. \n\n|Key|Type|Description|\n|--- |--- |--- |\n|event|String|The event that triggered the call|\n|event_id|String|A unique identifier for the event|\n|deal<sup>*</sup>|Object|The deal in which the event occurred. It includes id, title, created_at and updated_at|\n\n\n<sup>*</sup>This field is not included when deleting a resource\n\n#### Common Properties (investor scope)\n\nEvery event on this scope must contain an investor object, here are some properties that are common to this object on all events in the investor scope:\n\n|Key|Type|Description|\n|--- |--- |--- |\n|id|Integer|The unique ID of the Investor|\n|name|String|Investor’s Name|\n|status|String|Current status of the investor<br />Possible states are: <br />draft<br />invited<br />signed<br />waiting<br />accepted|\n|email|String||\n|phone_number|String||\n|investment_amount|Double||\n|allocated_amount|Double||\n|accredited_investor|Object|See format in respective ticket|\n|attachments|Array of Objects|List of supporting documents uploaded to the investor, including URL (expire after 30 minutes) and title (caption)|\n|funding_state|String|Investor’s current funding state (unfunded, underfunded, funded, overfunded)|\n|funds_pending|Boolean|True if there are pending transactions, False otherwise|\n|created_at|Date||\n|updated_at|Date||\n|tags|Array of Strings|a list of the investor's tags, separated by comma.|\n\n\n### investor.status >= signed Specific Properties\n\n\n|Key|Type|Description|\n|--- |--- |--- |\n|subscription_agreement|object|id, url (expiring URL)|\n\n#### Investor Status\n\nHere is a brief description of each investor state:\n\n* **Draft:** the investor is added to the platform but hasn't been invited yet and cannot access the portal\n* **Invited:** the investor was added to the platform but hasn’t completed the questionnaire \n* **Signed:** the investor signed the document (needs approval from Lawyer or Reviewer before countersignature)\n* **Waiting:** the investor was approved for countersignature by any of the Lawyers or Reviewers in the deal\n* **Accepted:** the investor's agreement was countersigned by the Signatory\n\n#### Update Delay\n\nGiven the high number of updates our platform performs on any investor, we’ve added a cool down period on update events that allows us to “group” updates and trigger only one every minute. In consequence, update events will be delivered 1 minute after the initial request was made and will include the latest version of the investor data at delivery time.\n\n\n",
     "version": "1.0.0"
   },
   "swagger": "2.0",
@@ -15,9 +15,12 @@
     "oauth": {
       "description": "OAuth security",
       "type": "oauth2",
-      "name": "oauth",
-      "authorizationUrl": "https://api.dealmaker.tech/oauth/token",
-      "flow": "clientCredentials"
+      "tokenUrl": "https://app.dealmaker.tech/oauth/token",
+      "flow": "clientCredentials",
+      "scopes": {
+        "deals.read": "Read deal information",
+        "deals.write": "Write information to deals."
+      }
     }
   },
   "host": "api.dealmaker.tech",
@@ -35,13 +38,16 @@
     {
       "name": "General",
       "tags": [
-        "deal"
+        "deal",
+        "investor_profile"
       ]
     },
     {
       "name": "Models",
       "tags": [
-        "deal_model"
+        "deal_model",
+        "investor_model",
+        "investor_profile_model"
       ]
     }
   ],
@@ -51,12 +57,320 @@
       "description": "Access to your deals"
     },
     {
+      "name": "investor_profile",
+      "description": "Access to your investor profiles",
+      "x-displayName": "Investor Profile"
+    },
+    {
       "name": "deal_model",
       "description": "<SchemaDefinition schemaRef=\"#/components/schemas/V1_Entities_Deal\" />",
       "x-displayName": "Deal"
+    },
+    {
+      "name": "investor_model",
+      "description": "<SchemaDefinition schemaRef=\"#/components/schemas/V1_Entities_Investor\" />",
+      "x-displayName": "Investor"
+    },
+    {
+      "name": "investor_profile_model",
+      "description": "<SchemaDefinition schemaRef=\"#/components/schemas/V1_Entities_InvestorProfile_Individual\" />",
+      "x-displayName": "Investor Profile"
     }
   ],
   "paths": {
+    "/deals/{id}/investors": {
+      "get": {
+        "summary": "List deal investors",
+        "description": "List deal investors according to the specified search criteria.",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "page",
+            "description": "Page offset to fetch.",
+            "type": "integer",
+            "format": "int32",
+            "default": 1,
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "per_page",
+            "description": "Number of results to return per page.",
+            "type": "integer",
+            "format": "int32",
+            "default": 25,
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "description": "Pad a number of results.",
+            "type": "integer",
+            "format": "int32",
+            "default": 0,
+            "required": false
+          },
+          {
+            "in": "path",
+            "name": "id",
+            "description": "The deal id.",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          },
+          {
+            "in": "query",
+            "name": "investor_ids",
+            "description": "An array of investor ids.",
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "q",
+            "description": "The search query for investors.",
+            "type": "string",
+            "required": false
+          }
+        ],
+        "security": [
+          {
+            "oauth": [
+              "deals.read"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List deal investors",
+            "schema": {
+              "$ref": "#/definitions/V1_Entities_Investors"
+            }
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "tags": [
+          "deal"
+        ],
+        "operationId": "listInvestors",
+        "x-codeSamples": [
+          {
+            "lang": "javascript",
+            "source": "const dealApi = new Dealmakerapi.DealApi()\nconst dealId = 56\nconst investorId = [null]\n\ndealApi.listInvestors(dealId, investorId, (error, data, response) => {\n  if (error) {\n    console.error(error)\n  } else {\n    console.log(JSON.stringify(data))\n  }\n})"
+          },
+          {
+            "lang": "ruby",
+            "source": "deal_api = DealMakerAPI::DealApi.new\ndeal_id = 56\ninvestor_id = [37]\n\n# List deal investors\nprint deal_api.list_investors(deal_id, investor_id)"
+          }
+        ]
+      },
+      "post": {
+        "summary": "Create a deal investor",
+        "description": "Create a single deal investor.",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "description": "The deal id.",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "email",
+            "description": "The investor email address.",
+            "type": "string",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "tags",
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "first_name",
+            "description": "The first name of the investor.",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "last_name",
+            "description": "The last name of the investor.",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "phone_number",
+            "description": "The phone number of the investor.",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "message",
+            "description": "The reminder email text of the investor.",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "warrant_expiry_date",
+            "description": "The warrant expiry date of the investor.",
+            "type": "string",
+            "format": "date",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "warrant_certificate_number",
+            "description": "The certificate number of the investor.",
+            "type": "integer",
+            "format": "int32",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "allocated_amount",
+            "description": "The allocation amount of the investor.",
+            "type": "number",
+            "format": "float",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "allocation_unit",
+            "description": "The allocation unit of the investor.",
+            "type": "string",
+            "default": "securities",
+            "enum": [
+              "securities",
+              "amount"
+            ],
+            "required": false
+          }
+        ],
+        "security": [
+          {
+            "oauth": [
+              "deals.write"
+            ]
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Create deal investor",
+            "schema": {
+              "$ref": "#/definitions/V1_Entities_Investor"
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "tags": [
+          "deal"
+        ],
+        "operationId": "createInvestor",
+        "x-codeSamples": [
+          {
+            "lang": "javascript",
+            "source": "const dealApi = new Dealmakerapi.DealApi()\nconst dealId = 56\n\nconst investorDetails = {\n  email: 'test@example.com',\n  first_name: 'First Name',\n  last_name: 'Last Name',\n}\n\ndealApi.create_investor(dealId, investorDetails, (error, data, response) => {\n  if (error) {\n    console.error(error)\n  } else {\n    console.log(JSON.stringify(data))\n  }\n})"
+          },
+          {
+            "lang": "ruby",
+            "source": "deal_api = DealMakerAPI::DealApi.new\n\ndeal_id = 100\n\nprint deal_api.create_investor(deal_id, {\n  email: 'test@example.com',\n  first_name: 'First Name',\n  last_name: 'Last Name'\n})"
+          }
+        ]
+      }
+    },
+    "/deals/{id}/investors/{investor_id}": {
+      "get": {
+        "summary": "Get a deal investor by id",
+        "description": "Gets a single investor by the id.",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "description": "The deal id.",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          },
+          {
+            "in": "path",
+            "name": "investor_id",
+            "description": "The investor id.",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "security": [
+          {
+            "oauth": [
+              "deals.read"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get deal investor",
+            "schema": {
+              "$ref": "#/definitions/V1_Entities_Investor"
+            }
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not found"
+          }
+        },
+        "tags": [
+          "deal"
+        ],
+        "operationId": "getInvestor",
+        "x-codeSamples": [
+          {
+            "lang": "javascript",
+            "source": "const dealApi = new Dealmakerapi.DealApi()\nconst dealId = 56\nconst id = 56\n\ndealApi.getInvestor(dealId, id, (error, data, response) => {\n  if (error) {\n    console.error(error)\n  } else {\n    console.log(JSON.stringify(data))\n  }\n})"
+          },
+          {
+            "lang": "ruby",
+            "source": "deal_api = DealMakerAPI::DealApi.new\ndeal_id = 56\nid = 56\n\n# Get a deal investor by id\nprint deal_api.get_investor(deal_id, id)"
+          }
+        ]
+      }
+    },
     "/deals/{id}": {
       "get": {
         "summary": "Get a deal by id",
@@ -88,8 +402,8 @@
               "$ref": "#/definitions/V1_Entities_Deal"
             }
           },
-          "401": {
-            "description": "Unauthorized"
+          "403": {
+            "description": "Forbidden"
           },
           "404": {
             "description": "Not found"
@@ -98,15 +412,134 @@
         "tags": [
           "deal"
         ],
-        "operationId": "getDealsId",
+        "operationId": "getDeal",
         "x-codeSamples": [
           {
             "lang": "javascript",
-            "source": "console.log('test')"
+            "source": "const dealApi = new Dealmakerapi.DealApi()\nconst dealId = 100\n\napi.getDeal(dealId, function(error, data, response) {\n  if (error) {\n    console.error(error)\n  } else {\n    console.log(JSON.stringify(data))\n  }\n})"
           },
           {
             "lang": "ruby",
-            "source": "puts 'test'"
+            "source": "deal_api = DealMakerAPI::DealApi.new\n\ndeal_id = 100\n\nprint deal_api.get_deal(deal_id)"
+          }
+        ]
+      }
+    },
+    "/investor_profiles": {
+      "post": {
+        "summary": "Create new investor profile",
+        "description": "Create new investor profile associated to the user by email.",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "formData",
+            "name": "email",
+            "description": "User email which associated with investor profile",
+            "type": "string",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "type",
+            "description": "Type of individual profile",
+            "type": "string",
+            "enum": [
+              "individual"
+            ],
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "first_name",
+            "description": "The First Name of the investor profile (required for individual)",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "last_name",
+            "description": "The Last Name of the investor profile (required for individual)",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "country",
+            "description": "The Counrty the investor profile (required for individual)",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "street_address",
+            "description": "The Street Address of the investor profile (required for individual)",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "unit2",
+            "description": "The Street Address Line 2 of the investor profile",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "city",
+            "description": "The City of the investor profile (required for individual)",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "region",
+            "description": "The Region or State of the investor profile (required for individual)",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "postal_code",
+            "description": "The Postal Code or ZipCode of the investor profile (required for individual)",
+            "type": "string",
+            "required": false
+          }
+        ],
+        "security": [
+          {
+            "oauth": [
+              "deals.write"
+            ]
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Create new investor profile",
+            "schema": {
+              "$ref": "#/definitions/V1_Entities_InvestorProfile_Individual"
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        },
+        "tags": [
+          "investor_profile"
+        ],
+        "operationId": "createInvestorProfile",
+        "x-codeSamples": [
+          {
+            "lang": "javascript",
+            "source": ""
+          },
+          {
+            "lang": "ruby",
+            "source": ""
           }
         ]
       }
@@ -116,12 +549,438 @@
     "V1_Entities_Deal": {
       "type": "object",
       "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32",
+          "description": "The deal's unique id."
+        },
         "title": {
           "type": "string",
-          "description": "Deal title."
+          "description": "The deal title."
+        },
+        "state": {
+          "type": "string",
+          "enum": [
+            "draft",
+            "close",
+            "active",
+            "amending"
+          ],
+          "description": "The deal state."
+        },
+        "currency": {
+          "type": "string",
+          "description": "The primary currency associated with the deal."
+        },
+        "security_type": {
+          "type": "string",
+          "description": "The deal security type."
+        },
+        "price_per_security": {
+          "type": "number",
+          "format": "float",
+          "description": "The deal price per security."
+        },
+        "minimum_investment": {
+          "type": "integer",
+          "format": "int32",
+          "description": "The minimum investment amount, in cents."
+        },
+        "maximum_investment": {
+          "type": "integer",
+          "format": "int32",
+          "description": "The maximum investment amount, in cents."
+        },
+        "issuer": {
+          "$ref": "#/definitions/V1_Entities_DealIssuer"
+        },
+        "enterprise": {
+          "$ref": "#/definitions/V1_Entities_DealEnterprise"
+        },
+        "deal_type": {
+          "type": "string",
+          "enum": [
+            "other_or_unknown",
+            "dm_plus",
+            "dm_basic",
+            "mini_deal",
+            "reg_cf",
+            "reg_a",
+            "warrants",
+            "offering_memorandum",
+            "reg_d_506_c",
+            "reg_d_506_b"
+          ],
+          "description": "The deal type."
+        },
+        "investors": {
+          "$ref": "#/definitions/V1_Entities_DealInvestorMetrics"
+        },
+        "funding": {
+          "$ref": "#/definitions/V1_Entities_DealFundingMetrics"
         }
       },
       "description": "V1_Entities_Deal model"
+    },
+    "V1_Entities_DealIssuer": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32",
+          "description": "The issuer's unique id."
+        },
+        "name": {
+          "type": "string",
+          "description": "The issuer name."
+        }
+      }
+    },
+    "V1_Entities_DealEnterprise": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32",
+          "description": "The enterprise id."
+        },
+        "name": {
+          "type": "string",
+          "description": "The enterprise name."
+        }
+      }
+    },
+    "V1_Entities_DealInvestorMetrics": {
+      "type": "object",
+      "properties": {
+        "total": {
+          "type": "integer",
+          "format": "int32",
+          "description": "The total number of investors."
+        },
+        "draft": {
+          "type": "integer",
+          "format": "int32",
+          "description": "The total number of investors in the draft state."
+        },
+        "invited": {
+          "type": "integer",
+          "format": "int32",
+          "description": "The total number of investors in the invited state."
+        },
+        "signed": {
+          "type": "integer",
+          "format": "int32",
+          "description": "The total number of investors in the signed state."
+        },
+        "waiting": {
+          "type": "integer",
+          "format": "int32",
+          "description": "The total number of investors in the waiting state."
+        },
+        "accepted": {
+          "type": "integer",
+          "format": "int32",
+          "description": "The total number of investors in the accepted state."
+        }
+      }
+    },
+    "V1_Entities_DealFundingMetrics": {
+      "type": "object",
+      "properties": {
+        "amount_subscribed": {
+          "type": "number",
+          "format": "float",
+          "description": "The amount subscribed. <br><br>This value is obtained by taking the sum of the investment amount from committed investors. Committed investors are investors with a status of `signed``, `waiting`, or `accepted`."
+        },
+        "securities_subscribed": {
+          "type": "integer",
+          "format": "int32",
+          "description": "The number of securities that have been subscribed. <br><br>This value is obtained by taking the sum of the total number of securities from committed investors. Committed investors are investors with a status of `signed`, `waiting`, or `accepted`."
+        },
+        "amount_allocated": {
+          "type": "number",
+          "format": "float",
+          "description": "The amount allocated. <br><br>This value is obtained by taking the sum of the total allocated investment amount for investors with a status of `invited`. Allocated investment amounts are locked in and cannot be changed by the investor."
+        },
+        "securities_allocated": {
+          "type": "integer",
+          "format": "int32",
+          "description": "The number of securities that have been allocated. <br><br>This value is obtained by taking the sum of the total allocated number of securities for investors with a status of `invited`. Allocated securities are locked in and cannot be changed by the investor."
+        },
+        "amount_accepted": {
+          "type": "number",
+          "format": "float",
+          "description": "The amount accepted. <br><br>This value is obtained by taking the sum of the investment amount from investors with the status `accepted`."
+        },
+        "securities_accepted": {
+          "type": "integer",
+          "format": "int32",
+          "description": "The number of securities that have been accepted. <br><br>This value is obtained by dividing the amount_accepted value by the price per security."
+        }
+      }
+    },
+    "V1_Entities_Investor": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Investor id."
+        },
+        "user": {
+          "$ref": "#/definitions/V1_Entities_InvestorUser",
+          "description": "The user associated with this investor."
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The creation time."
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The last update time."
+        },
+        "name": {
+          "type": "string",
+          "description": "The full name of the investor."
+        },
+        "allocation_unit": {
+          "type": "string",
+          "enum": [
+            "securities",
+            "amount"
+          ],
+          "description": "The allocation unit."
+        },
+        "state": {
+          "type": "string",
+          "enum": [
+            "draft",
+            "invited",
+            "cosigning",
+            "signed",
+            "waiting",
+            "accepted"
+          ],
+          "description": "The state."
+        },
+        "funds_state": {
+          "type": "string",
+          "enum": [
+            "unfunded",
+            "underfunded",
+            "funded",
+            "overfunded"
+          ],
+          "description": "The funding state."
+        },
+        "funds_pending": {
+          "type": "boolean",
+          "description": "True if any funds are pending; false otherwise."
+        },
+        "beneficial_address": {
+          "type": "string",
+          "description": "The address."
+        },
+        "tags": {
+          "type": "Array[String]",
+          "description": "An array of associated tags."
+        },
+        "investor_currency": {
+          "type": "string",
+          "description": "The investor currency."
+        },
+        "investment_value": {
+          "type": "number",
+          "format": "float",
+          "description": "The current investment value."
+        },
+        "number_of_securities": {
+          "type": "integer",
+          "format": "int32",
+          "description": "The number of securities."
+        },
+        "allocated_amount": {
+          "type": "number",
+          "format": "float",
+          "description": "The amount allocated."
+        },
+        "funds_value": {
+          "type": "number",
+          "format": "float",
+          "description": "The current amount that has been funded."
+        },
+        "access_link": {
+          "type": "string",
+          "description": "The access link for the investor."
+        },
+        "subscription_agreement": {
+          "$ref": "#/definitions/V1_Entities_SubscriptionAgreement",
+          "description": "The subscription agreement."
+        },
+        "attachments": {
+          "$ref": "#/definitions/V1_Entities_Attachment",
+          "description": "An array of the attachments for the investor."
+        },
+        "background_check_tags": {
+          "type": "Array[String]",
+          "enum": [
+            "flagged",
+            "document_upload_pending",
+            "document_review_pending",
+            "approved",
+            "pending"
+          ],
+          "description": "An array of background check tags"
+        },
+        "background_check_searches": {
+          "$ref": "#/definitions/V1_Entities_BackgroundCheckSearch"
+        },
+        "verification_status": {
+          "type": "string",
+          "enum": [
+            "pending",
+            "approved",
+            "rejected",
+            "new_documents_requested"
+          ],
+          "description": "The current 506c verification state."
+        },
+        "warrant_expiry_date": {
+          "type": "string",
+          "format": "date",
+          "description": "The warrant expiry date."
+        },
+        "warrant_certificate_number": {
+          "type": "integer",
+          "format": "int32",
+          "description": "The warrant certificate number."
+        }
+      },
+      "description": "V1_Entities_Investor model"
+    },
+    "V1_Entities_InvestorUser": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Investor user id."
+        },
+        "email": {
+          "type": "string",
+          "description": "Investor user email address."
+        }
+      }
+    },
+    "V1_Entities_SubscriptionAgreement": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The subscription agreement id."
+        },
+        "url": {
+          "type": "string",
+          "description": "The subscription agreement url."
+        }
+      }
+    },
+    "V1_Entities_Attachment": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The attachment id."
+        },
+        "url": {
+          "type": "string",
+          "description": "The attachment url."
+        },
+        "file_name": {
+          "type": "string",
+          "description": "The attachment filename."
+        }
+      }
+    },
+    "V1_Entities_BackgroundCheckSearch": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The background check search id."
+        }
+      }
+    },
+    "V1_Entities_Investors": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "$ref": "#/definitions/V1_Entities_Investor"
+        }
+      },
+      "description": "V1_Entities_Investors model"
+    },
+    "V1_Entities_InvestorProfile_Individual": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Investor Profile id"
+        },
+        "user_id": {
+          "type": "integer",
+          "format": "int32",
+          "description": "User id"
+        },
+        "email": {
+          "type": "string",
+          "description": "User email"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "individual"
+          ],
+          "description": "Investor Profile type"
+        },
+        "first_name": {
+          "type": "string",
+          "description": "Investor Profile First Name"
+        },
+        "last_name": {
+          "type": "string",
+          "description": "Investor Profile Last Name"
+        },
+        "country": {
+          "type": "string",
+          "description": "Investor Profile Counrty"
+        },
+        "street_address": {
+          "type": "string",
+          "description": "Investor Profile Street Address"
+        },
+        "unit2": {
+          "type": "string",
+          "description": "Investor Profile Street Address Line 2"
+        },
+        "city": {
+          "type": "string",
+          "description": "Investor Profile City"
+        },
+        "region": {
+          "type": "string",
+          "description": "Investor Profile Region or State"
+        },
+        "postal_code": {
+          "type": "string",
+          "description": "Investor Profile Postal Code or ZipCode"
+        }
+      },
+      "description": "V1_Entities_InvestorProfile_Individual model"
     }
   }
 }

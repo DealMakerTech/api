@@ -5,6 +5,25 @@ on:
     branches: [ main ]
 
 jobs:
+  javascript:
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: v1/clients/javascript
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '17.x'
+          registry-url: 'https://registry.npmjs.org'
+      - name: Install dependencies
+        run: npm install --ignore-scripts
+      - name: Publish
+        run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_API_KEY }}
   ruby:
     runs-on: ubuntu-latest
 

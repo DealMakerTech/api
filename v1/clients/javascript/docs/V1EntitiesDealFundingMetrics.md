@@ -1,4 +1,4 @@
-# Api.V1EntitiesDealFundingMetrics
+# Dealmakerapi.V1EntitiesDealFundingMetrics
 
 ## Properties
 

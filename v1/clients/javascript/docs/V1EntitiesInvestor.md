@@ -1,4 +1,4 @@
-# Api.V1EntitiesInvestor
+# Dealmakerapi.V1EntitiesInvestor
 
 ## Properties
 
@@ -54,6 +54,8 @@ Name | Type | Description | Notes
 * `waiting` (value: `"waiting"`)
 
 * `accepted` (value: `"accepted"`)
+
+* `inactive` (value: `"inactive"`)
 
 
 

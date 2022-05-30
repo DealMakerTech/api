@@ -1,4 +1,4 @@
-# Api.V1EntitiesDeal
+# Dealmakerapi.V1EntitiesDeal
 
 ## Properties
 

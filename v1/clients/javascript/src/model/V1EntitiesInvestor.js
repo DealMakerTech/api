@@ -20,7 +20,7 @@ import V1EntitiesSubscriptionAgreement from './V1EntitiesSubscriptionAgreement';
 /**
  * The V1EntitiesInvestor model module.
  * @module model/V1EntitiesInvestor
- * @version 0.0.1
+ * @version 0.0.2
  */
 class V1EntitiesInvestor {
     /**
@@ -319,7 +319,13 @@ V1EntitiesInvestor['StateEnum'] = {
      * value: "accepted"
      * @const
      */
-    "accepted": "accepted"
+    "accepted": "accepted",
+
+    /**
+     * value: "inactive"
+     * @const
+     */
+    "inactive": "inactive"
 };
 
 

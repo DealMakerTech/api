@@ -283,7 +283,7 @@ module DealMakerAPI
     def valid?
       allocation_unit_validator = EnumAttributeValidator.new('String', ["securities", "amount"])
       return false unless allocation_unit_validator.valid?(@allocation_unit)
-      state_validator = EnumAttributeValidator.new('String', ["draft", "invited", "cosigning", "signed", "waiting", "accepted"])
+      state_validator = EnumAttributeValidator.new('String', ["draft", "invited", "cosigning", "signed", "waiting", "accepted", "inactive"])
       return false unless state_validator.valid?(@state)
       funds_state_validator = EnumAttributeValidator.new('String', ["unfunded", "underfunded", "funded", "overfunded"])
       return false unless funds_state_validator.valid?(@funds_state)
@@ -305,7 +305,7 @@ module DealMakerAPI
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] state Object to be assigned
     def state=(state)
-      validator = EnumAttributeValidator.new('String', ["draft", "invited", "cosigning", "signed", "waiting", "accepted"])
+      validator = EnumAttributeValidator.new('String', ["draft", "invited", "cosigning", "signed", "waiting", "accepted", "inactive"])
       unless validator.valid?(state)
         fail ArgumentError, "invalid value for \"state\", must be one of #{validator.allowable_values}."
       end

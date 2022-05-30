@@ -1,4 +1,4 @@
-# Api.V1EntitiesInvestorProfileIndividual
+# Dealmakerapi.V1EntitiesInvestorProfileIndividual
 
 ## Properties
 

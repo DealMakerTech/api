@@ -15,6 +15,7 @@ docs/V1EntitiesDealEnterprise.md
 docs/V1EntitiesDealFundingMetrics.md
 docs/V1EntitiesDealInvestorMetrics.md
 docs/V1EntitiesDealIssuer.md
+docs/V1EntitiesDeals.md
 docs/V1EntitiesInvestor.md
 docs/V1EntitiesInvestorProfileIndividual.md
 docs/V1EntitiesInvestorUser.md
@@ -34,6 +35,7 @@ lib/DealMakerAPI/models/v1_entities_deal_enterprise.rb
 lib/DealMakerAPI/models/v1_entities_deal_funding_metrics.rb
 lib/DealMakerAPI/models/v1_entities_deal_investor_metrics.rb
 lib/DealMakerAPI/models/v1_entities_deal_issuer.rb
+lib/DealMakerAPI/models/v1_entities_deals.rb
 lib/DealMakerAPI/models/v1_entities_investor.rb
 lib/DealMakerAPI/models/v1_entities_investor_profile_individual.rb
 lib/DealMakerAPI/models/v1_entities_investor_user.rb

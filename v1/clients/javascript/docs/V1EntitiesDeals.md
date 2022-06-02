@@ -1,9 +1,9 @@
-# Api.V1EntitiesInvestors
+# Api.V1EntitiesDeals
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**items** | [**V1EntitiesInvestor**](V1EntitiesInvestor.md) |  | [optional] 
+**items** | [**V1EntitiesDeal**](V1EntitiesDeal.md) |  | [optional] 
 
 

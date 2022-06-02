@@ -11,6 +11,7 @@ docs/V1EntitiesDealEnterprise.md
 docs/V1EntitiesDealFundingMetrics.md
 docs/V1EntitiesDealInvestorMetrics.md
 docs/V1EntitiesDealIssuer.md
+docs/V1EntitiesDeals.md
 docs/V1EntitiesInvestor.md
 docs/V1EntitiesInvestorProfileIndividual.md
 docs/V1EntitiesInvestorUser.md
@@ -30,6 +31,7 @@ src/model/V1EntitiesDealEnterprise.js
 src/model/V1EntitiesDealFundingMetrics.js
 src/model/V1EntitiesDealInvestorMetrics.js
 src/model/V1EntitiesDealIssuer.js
+src/model/V1EntitiesDeals.js
 src/model/V1EntitiesInvestor.js
 src/model/V1EntitiesInvestorProfileIndividual.js
 src/model/V1EntitiesInvestorUser.js

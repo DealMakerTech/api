@@ -196,6 +196,14 @@
           },
           {
             "in": "formData",
+            "name": "investor_profile_id",
+            "description": "The Investor Profile id.",
+            "type": "integer",
+            "format": "int32",
+            "required": false
+          },
+          {
+            "in": "formData",
             "name": "tags",
             "type": "array",
             "items": {
@@ -429,6 +437,79 @@
           {
             "lang": "ruby",
             "source": "deal_api = DealMakerAPI::DealApi.new\n\ndeal_id = 100\n\nprint deal_api.get_deal(deal_id)"
+          }
+        ]
+      }
+    },
+    "/deals": {
+      "get": {
+        "summary": "List available deals",
+        "description": "List available deals",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "page",
+            "description": "Page offset to fetch.",
+            "type": "integer",
+            "format": "int32",
+            "default": 1,
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "per_page",
+            "description": "Number of results to return per page.",
+            "type": "integer",
+            "format": "int32",
+            "default": 25,
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "description": "Pad a number of results.",
+            "type": "integer",
+            "format": "int32",
+            "default": 0,
+            "required": false
+          }
+        ],
+        "security": [
+          {
+            "oauth": [
+              "deals.read"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List available deals",
+            "schema": {
+              "$ref": "#/definitions/V1_Entities_Deals"
+            }
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not found"
+          }
+        },
+        "tags": [
+          "deal"
+        ],
+        "operationId": "listDeals",
+        "x-codeSamples": [
+          {
+            "lang": "javascript",
+            "source": ""
+          },
+          {
+            "lang": "ruby",
+            "source": ""
           }
         ]
       }
@@ -990,6 +1071,15 @@
         }
       },
       "description": "V1_Entities_InvestorProfile_Individual model"
+    },
+    "V1_Entities_Deals": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "$ref": "#/definitions/V1_Entities_Deal"
+        }
+      },
+      "description": "V1_Entities_Deals model"
     }
   }
 }

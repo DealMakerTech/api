@@ -1,4 +1,4 @@
-# Dealmakerapi.V1EntitiesBackgroundCheckSearch
+# Api.V1EntitiesBackgroundCheckSearch
 
 ## Properties
 

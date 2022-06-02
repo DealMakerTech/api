@@ -24,7 +24,7 @@ Gem::Specification.new do |s|
   s.homepage    = "https://dealmaker.tech"
   s.summary     = "A ruby wrapper for the DealMaker API"
   s.description = "A ruby wrapper for the DealMaker API"
-  s.license     = "TODO"
+  s.license     = "MIT"
   s.required_ruby_version = ">= 2.4"
 
   s.add_runtime_dependency 'typhoeus', '~> 1.0', '>= 1.0.1'

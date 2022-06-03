@@ -7,6 +7,7 @@ All URIs are relative to *http://api.dealmaker.tech*
 | [**create_investor**](DealApi.md#create_investor) | **POST** /deals/{id}/investors | Create a deal investor |
 | [**get_deal**](DealApi.md#get_deal) | **GET** /deals/{id} | Get a deal by id |
 | [**get_investor**](DealApi.md#get_investor) | **GET** /deals/{id}/investors/{investor_id} | Get a deal investor by id |
+| [**list_deals**](DealApi.md#list_deals) | **GET** /deals | List available deals |
 | [**list_investors**](DealApi.md#list_investors) | **GET** /deals/{id}/investors | List deal investors |
 
 
@@ -212,6 +213,78 @@ No authorization required
 - **Accept**: application/json
 
 
+## list_deals
+
+> <V1EntitiesDeals> list_deals(opts)
+
+List available deals
+
+List available deals
+
+### Examples
+
+```ruby
+require 'time'
+require 'DealMakerAPI'
+# setup authorization
+DealMakerAPI.configure do |config|end
+
+api_instance = DealMakerAPI::DealApi.new
+opts = {
+  page: 56, # Integer | Page offset to fetch.
+  per_page: 56, # Integer | Number of results to return per page.
+  offset: 56 # Integer | Pad a number of results.
+}
+
+begin
+  # List available deals
+  result = api_instance.list_deals(opts)
+  p result
+rescue DealMakerAPI::ApiError => e
+  puts "Error when calling DealApi->list_deals: #{e}"
+end
+```
+
+#### Using the list_deals_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<V1EntitiesDeals>, Integer, Hash)> list_deals_with_http_info(opts)
+
+```ruby
+begin
+  # List available deals
+  data, status_code, headers = api_instance.list_deals_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <V1EntitiesDeals>
+rescue DealMakerAPI::ApiError => e
+  puts "Error when calling DealApi->list_deals_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **page** | **Integer** | Page offset to fetch. | [optional][default to 1] |
+| **per_page** | **Integer** | Number of results to return per page. | [optional][default to 25] |
+| **offset** | **Integer** | Pad a number of results. | [optional][default to 0] |
+
+### Return type
+
+[**V1EntitiesDeals**](V1EntitiesDeals.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
 ## list_investors
 
 > <V1EntitiesInvestors> list_investors(id, opts)
@@ -235,7 +308,7 @@ opts = {
   per_page: 56, # Integer | Number of results to return per page.
   offset: 56, # Integer | Pad a number of results.
   investor_ids: [37], # Array<Integer> | An array of investor ids.
-  q: 'q_example' # String | The search query for investors.
+  q: 'q_example' # String | The search query for investors. For additional information on filtering and seach, click [here](#section/Search-and-Filtering-(The-q-parameter)/Keyword-filtering)
 }
 
 begin
@@ -274,7 +347,7 @@ end
 | **per_page** | **Integer** | Number of results to return per page. | [optional][default to 25] |
 | **offset** | **Integer** | Pad a number of results. | [optional][default to 0] |
 | **investor_ids** | [**Array&lt;Integer&gt;**](Integer.md) | An array of investor ids. | [optional] |
-| **q** | **String** | The search query for investors. | [optional] |
+| **q** | **String** | The search query for investors. For additional information on filtering and seach, click [here](#section/Search-and-Filtering-(The-q-parameter)/Keyword-filtering) | [optional] |
 
 ### Return type
 

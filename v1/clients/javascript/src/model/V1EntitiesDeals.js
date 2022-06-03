@@ -12,20 +12,22 @@
  */
 
 import ApiClient from '../ApiClient';
+import V1EntitiesDeal from './V1EntitiesDeal';
 
 /**
- * The V1EntitiesAttachment model module.
- * @module model/V1EntitiesAttachment
+ * The V1EntitiesDeals model module.
+ * @module model/V1EntitiesDeals
  * @version 0.0.3
  */
-class V1EntitiesAttachment {
+class V1EntitiesDeals {
     /**
-     * Constructs a new <code>V1EntitiesAttachment</code>.
-     * @alias module:model/V1EntitiesAttachment
+     * Constructs a new <code>V1EntitiesDeals</code>.
+     * V1_Entities_Deals model
+     * @alias module:model/V1EntitiesDeals
      */
     constructor() { 
         
-        V1EntitiesAttachment.initialize(this);
+        V1EntitiesDeals.initialize(this);
     }
 
     /**
@@ -37,24 +39,18 @@ class V1EntitiesAttachment {
     }
 
     /**
-     * Constructs a <code>V1EntitiesAttachment</code> from a plain JavaScript object, optionally creating a new instance.
+     * Constructs a <code>V1EntitiesDeals</code> from a plain JavaScript object, optionally creating a new instance.
      * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @param {module:model/V1EntitiesAttachment} obj Optional instance to populate.
-     * @return {module:model/V1EntitiesAttachment} The populated <code>V1EntitiesAttachment</code> instance.
+     * @param {module:model/V1EntitiesDeals} obj Optional instance to populate.
+     * @return {module:model/V1EntitiesDeals} The populated <code>V1EntitiesDeals</code> instance.
      */
     static constructFromObject(data, obj) {
         if (data) {
-            obj = obj || new V1EntitiesAttachment();
+            obj = obj || new V1EntitiesDeals();
 
-            if (data.hasOwnProperty('id')) {
-                obj['id'] = ApiClient.convertToType(data['id'], 'String');
-            }
-            if (data.hasOwnProperty('url')) {
-                obj['url'] = ApiClient.convertToType(data['url'], 'String');
-            }
-            if (data.hasOwnProperty('file_name')) {
-                obj['file_name'] = ApiClient.convertToType(data['file_name'], 'String');
+            if (data.hasOwnProperty('items')) {
+                obj['items'] = V1EntitiesDeal.constructFromObject(data['items']);
             }
         }
         return obj;
@@ -64,27 +60,14 @@ class V1EntitiesAttachment {
 }
 
 /**
- * The attachment id.
- * @member {String} id
+ * @member {module:model/V1EntitiesDeal} items
  */
-V1EntitiesAttachment.prototype['id'] = undefined;
-
-/**
- * The attachment url.
- * @member {String} url
- */
-V1EntitiesAttachment.prototype['url'] = undefined;
-
-/**
- * The attachment filename.
- * @member {String} file_name
- */
-V1EntitiesAttachment.prototype['file_name'] = undefined;
+V1EntitiesDeals.prototype['items'] = undefined;
 
 
 
 
 
 
-export default V1EntitiesAttachment;
+export default V1EntitiesDeals;
 

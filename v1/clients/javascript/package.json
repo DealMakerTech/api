@@ -1,8 +1,8 @@
 {
-  "name": "dealmakerapi",
-  "version": "0.0.2",
+  "name": "@dealmakertech/api",
+  "version": "0.0.3",
   "description": "A javascript wrapper for the DealMaker API",
-  "license": "TODO",
+  "license": "MIT",
   "main": "dist/index.js",
   "scripts": {
     "build": "babel src -d dist",

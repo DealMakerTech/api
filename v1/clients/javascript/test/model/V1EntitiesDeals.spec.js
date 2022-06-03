@@ -11,80 +11,55 @@
  *
  */
 
-import ApiClient from '../ApiClient';
+(function(root, factory) {
+  if (typeof define === 'function' && define.amd) {
+    // AMD.
+    define(['expect.js', process.cwd()+'/src/index'], factory);
+  } else if (typeof module === 'object' && module.exports) {
+    // CommonJS-like environments that support module.exports, like Node.
+    factory(require('expect.js'), require(process.cwd()+'/src/index'));
+  } else {
+    // Browser globals (root is window)
+    factory(root.expect, root.Api);
+  }
+}(this, function(expect, Api) {
+  'use strict';
 
-/**
- * The V1EntitiesAttachment model module.
- * @module model/V1EntitiesAttachment
- * @version 0.0.3
- */
-class V1EntitiesAttachment {
-    /**
-     * Constructs a new <code>V1EntitiesAttachment</code>.
-     * @alias module:model/V1EntitiesAttachment
-     */
-    constructor() { 
-        
-        V1EntitiesAttachment.initialize(this);
-    }
+  var instance;
 
-    /**
-     * Initializes the fields of this object.
-     * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
-     * Only for internal use.
-     */
-    static initialize(obj) { 
-    }
+  beforeEach(function() {
+    instance = new Api.V1EntitiesDeals();
+  });
 
-    /**
-     * Constructs a <code>V1EntitiesAttachment</code> from a plain JavaScript object, optionally creating a new instance.
-     * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
-     * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @param {module:model/V1EntitiesAttachment} obj Optional instance to populate.
-     * @return {module:model/V1EntitiesAttachment} The populated <code>V1EntitiesAttachment</code> instance.
-     */
-    static constructFromObject(data, obj) {
-        if (data) {
-            obj = obj || new V1EntitiesAttachment();
+  var getProperty = function(object, getter, property) {
+    // Use getter method if present; otherwise, get the property directly.
+    if (typeof object[getter] === 'function')
+      return object[getter]();
+    else
+      return object[property];
+  }
 
-            if (data.hasOwnProperty('id')) {
-                obj['id'] = ApiClient.convertToType(data['id'], 'String');
-            }
-            if (data.hasOwnProperty('url')) {
-                obj['url'] = ApiClient.convertToType(data['url'], 'String');
-            }
-            if (data.hasOwnProperty('file_name')) {
-                obj['file_name'] = ApiClient.convertToType(data['file_name'], 'String');
-            }
-        }
-        return obj;
-    }
+  var setProperty = function(object, setter, property, value) {
+    // Use setter method if present; otherwise, set the property directly.
+    if (typeof object[setter] === 'function')
+      object[setter](value);
+    else
+      object[property] = value;
+  }
 
+  describe('V1EntitiesDeals', function() {
+    it('should create an instance of V1EntitiesDeals', function() {
+      // uncomment below and update the code to test V1EntitiesDeals
+      //var instance = new Api.V1EntitiesDeals();
+      //expect(instance).to.be.a(Api.V1EntitiesDeals);
+    });
 
-}
+    it('should have the property items (base name: "items")', function() {
+      // uncomment below and update the code to test the property items
+      //var instance = new Api.V1EntitiesDeals();
+      //expect(instance).to.be();
+    });
 
-/**
- * The attachment id.
- * @member {String} id
- */
-V1EntitiesAttachment.prototype['id'] = undefined;
+  });
 
-/**
- * The attachment url.
- * @member {String} url
- */
-V1EntitiesAttachment.prototype['url'] = undefined;
-
-/**
- * The attachment filename.
- * @member {String} file_name
- */
-V1EntitiesAttachment.prototype['file_name'] = undefined;
-
-
-
-
-
-
-export default V1EntitiesAttachment;
-
+}));

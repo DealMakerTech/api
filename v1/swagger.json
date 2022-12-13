@@ -1,7 +1,7 @@
 {
   "info": {
     "title": "DealMaker API",
-    "description": "# Introduction\n\nWelcome to DealMaker’s Web API v1! This API is RESTful, easy to integrate with, and offers support in 2 different languages.\n\n# Libraries\n\n- Javascript\n- Ruby\n\n# Authentication\n\nTo authenticate, add an Authorization header to your API request that contains an access token. Before you [generate an access token](#how-to-generate-an-access-token) your must first [create an application](#create-an-application) on your portal and retrieve the your client ID and secret\n\n## Create an Application\n\nDealMaker’s Web API v1 supports the use of OAuth applications. Applications can be generated in your [account](https://app.dealmaker.tech/developer/applications).\n\nUnder the API settings tab, click the `Create New Application` button\n\n![Screenshot](https://s3.ca-central-1.amazonaws.com/docs.dealmaker.tech/images/api-application-1.png)\n\nName your application and assign the level of permissions for this application\n\n![Screenshot](https://s3.ca-central-1.amazonaws.com/docs.dealmaker.tech/images/api-application-2.png)\n\nOnce your application is created, save in a secure space your client ID and secret.\n\n**WARNING**: The secret key will not be visible after you click the close button\n\n![Screenshot](https://s3.ca-central-1.amazonaws.com/docs.dealmaker.tech/images/api-application-3.png)\n\nFrom the developer tab, you will be able to view and manage all the available applications\n\n![Screenshot](https://s3.ca-central-1.amazonaws.com/docs.dealmaker.tech/images/api-application-4.png)\n\nEach Application consists of a client id, secret and set of scopes. The scopes define what resources you want to have access to. The client ID and secret are used to generate an access token. You will need to create an application to use API endpoints.\n\n## How to generate an access token\n\nAfter creating an application, you must make a call to obtain a bearer token using the Generate an OAuth token operation. This operation requires the following parameters:\n\n`token endpoint` - https://app.dealmaker.tech/oauth/token\n\n`grant_type` - must be set to `client_credentials`\n\n`client_id` - the Client ID displayed when you created the OAuth application in the previous step\n\n`client_secret` - the Client Secret displayed when you created the OAuth application in the previous step\n\n`scope` - the scope is established when you created the OAuth application in the previous step\n\nNote: The Generate an OAuth token response specifies how long the bearer token is valid for. You should reuse the bearer token until it is expired. When the token is expired, call Generate an OAuth token again to generate a new one.\n\nTo use the access token, you must set a plain text header named `Authorization` with the contents of the header being “Bearer XXX” where XXX is your generated access token.\n\n### Example\n\n#### Postman\n\nHere's an example on how to generate the access token with Postman, where `{{CLIENT_ID}}` and `{{CLIENT_SECRET}}` are the values generated after following the steps on [Create an Application](#create-an-application)\n\n![Get access token postman example](https://s3.ca-central-1.amazonaws.com/docs.dealmaker.tech/images/token-postman.png)\n\n# Status Codes\n\n## Content-Type Header\n\nAll responses are returned in JSON format. We specify this by sending the Content-Type header.\n\n## Status Codes\n\nBelow is a table containing descriptions of the various status codes we currently support against various resources.\n\nSometimes your API call will generate an error. Here you will find additional information about what to expect if you don’t format your request properly, or we fail to properly process your request.\n\n| Status Code | Description |\n| ----------- | ----------- |\n| `200`       | Success     |\n| `403`       | Forbidden   |\n| `404`       | Not found   |\n\n# Pagination\n\nPagination is used to divide large responses is smaller portions (pages). By default, all endpoints return a maximum of 25 records per page. You can change the number of records on a per request basis by passing a `per_page` parameter in the request header parameters.\n\n\nWhen the response exceeds the `per_page` parameter, you can paginate through the records by increasing the `offset` parameter. Example: `offset=25` will return 25 records starting from 26th record. You may also paginate using the `page` parameter to indicate the page number you would like to show on the response.\n\nPlease review the table below for the input parameters\n\n## Inputs\n\n| Parameter  | Description                                                                     |\n| ---------- | ------------------------------------------------------------------------------- |\n| `per_page` | Amount of records included on each page (Default is 25)                         |\n| `page`     | Page number                                                                     |\n| `offset`   | Amount of records offset on the API request where 0 represents the first record |\n\n## Response Headers\n\n| Response Header | Description                                  |\n| --------------- | -------------------------------------------- |\n| `X-Total`       | Total number of records of response          |\n| `X-Total-Pages` | Total number of pages of response            |\n| `X-Per-Page`    | Total number of records per page of response |\n| `X-Page`        | Number of current page                       |\n| `X-Next-Page`   | Number of next page                          |\n| `X-Prev-Page`   | Number of previous page                      |\n| `X-Offset`      | Total number of records offset               |\n\n# Search and Filtering (The q parameter)\n\nThe q optional parameter accepts a string as input and allows you to filter the request based on that string. There are two main ways to filter with it.\n\n## Keyword filtering\n\nSome keywords allow you to filter investors based on a specific “scope” of the investors, for example using the string “Invited” will filter all investors with the status invited, and the keyword “Has attachments” will filter investors with attachments.\n\nHere’s a list of possible keywords and the “scope” each one of the keywords filters by:\n\n| Keywords                                       | Scope                                                                       | Decoded Example                                                      | Encoded Example                                                                          |\n| ---------------------------------------------- | --------------------------------------------------------------------------- | -------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |\n| Signed on \\(date range\\)                       | Investors who signed in the provided date range                             | Signed on (date range) [2020-07-01:2020-07-31]                       | `Signed%20on%20%28date%20range%29%20%5B2020-07-01%3A2020-07-31%5D`                       |\n| Enabled for countersignature on \\(date range\\) | Investors who were enabled for counter signature in the provided date range | Enabled for countersignature on (date range) [2022-05-24:2022-05-25] | `Enabled%20for%20countersignature%20on%20(date%20range)%20%5B2022-05-24%3A2022-05-25%5D` |\n| Accepted on \\(date range\\)                     | Investors accepted in the provided date rage                                | Accepted on (date range) [2022-05-24:2022-05-25]                     | `Accepted%20on%20(date%20range)%20%5B2022-05-24%3A2022-05-25%5D`                         |\n| Offline                                        | Investors added to the deal offline                                         | Offline                                                              | `Offline`                                                                                |\n| Online                                         | Investors added to the deal online                                          | Online                                                               | `Online`                                                                                 |\n| Signed                                         | Investors who signed their agreement                                        | Signed                                                               | `Signed`                                                                                 |\n| Waiting for countersignature                   | Investors who have signed and are waiting for counter signature             | Waiting for countersignature                                         | `Waiting%20for%20countersignature`                                                       |\n| Invited                                        | Investors on the Invited Status                                             | Invited                                                              | `Invited`                                                                                |\n| Accepted                                       | Investors in the Accepted Status                                            | Accepted                                                             | `Accepted`                                                                               |\n| Questionnaire in progress                      | All Investors who have not finished completing the questionnaire            | Questionnaire in progress                                            | `Questionnaire%20in%20progress`                                                          |\n| Has attachments                                | All Investors with attachments                                              | Has attachments                                                      | `Has%20attachments`                                                                      |\n| Has notes                                      | All Investors with notes                                                    | Has notes                                                            | `Has%20notes`                                                                            |\n| Waiting for co-signature                       | Investors who have signed and are waiting for co-signature                  | Waiting for co-signature                                             | `Waiting%20for%20co-signature`                                                           |\n| Background Check Approved                      | Investors with approved background check                                    | Background Check Approved                                            | `Background%20Check%20Approved`                                                          |\n| Document Review Pending                        | Investors with pending review                                               | Document Review Pending                                              | `Document%20Review%20Pending`                                                            |\n| Document Upload Pending                        | Investors with pending documents to upload                                  | Document Upload Pending                                              | `Document%20Upload%20Pending`                                                            |\n| Required adjudicator review                    | Investors who are required to be review by the adjudicator                  | Required adjudicator review                                          | `Required%20adjudicator%20review`                                                        |\n\n---\n\n**NOTE**\n\nFiltering keywords are case sensitive and need to be encoded\n\n---\n\n## Search String\n\nAny value for the parameter which does not match one of the keywords listed above, will use fields like `first name`, `last name`, `email`, `tags` to search for the investor.\n\nFor example, if you search “Robert”, because this does not match one of the keywords listed above, it will then return any investors who have the string “Robert” in their name, email, or tags fields.\n\n# Versioning\n\nThe latest version is v1.\n\nThe version can be updated on the `Accept` header, just set the version as stated on the following example:\n\n```\n\nAccept:application/vnd.dealmaker-v1+json\n\n```\n\n| Version | Accept Header                       |\n| ------- | ----------------------------------- |\n| `v1`    | application/vnd.dealmaker-`v1`+json |\n\n# SDK’s\n\nFor instruction on installing SDKs, please view the following links\n\n- [Javascript](https://github.com/DealMakerTech/api/tree/main/v1/clients/javascript)\n- [Ruby](https://github.com/DealMakerTech/api/tree/main/v1/clients/ruby)\n\n# Webhooks\n\nOur webhooks functionality allows clients to automatically receive updates on a deal's investor data.\n\nThe type of data that the webhooks include:\n\n- Investor Name\n- Date created\n- Email\n- Phone\n- Allocation\n- Attachments\n- Accredited investor status\n- Accredited investor category\n- Status (Draft, Invited, Accepted, Waiting)\n\nVia webhooks clients can subscribe to the following events as they happen on Dealmaker:\n\n- Investor is created\n- Investor details are updated (any of the investor details above change or are updated)\n- Investor is deleted\n\nA URL supplied by the client will receive all the events with the information as part of the payload. Clients are able to add and update the URL within DealMaker.\n\n## Configuration\n\nFor a comprehensive guide on how to configure Webhooks please visit our support article: [Configuring Webhooks on DealMaker – DealMaker Support](https://help.dealmaker.tech/configuring-webhooks-on-dealmaker).\n\nAs a developer user on DealMaker, you are able to configure webhooks by following the steps below:\n\n1. Sign into Dealmaker\n2. Go to **“Your profile”** in the top right corner\n3. Access an **“Integrations”** configuration via the left menu\n4. The developer configures webhooks by including:\n   - The HTTPS URL where the request will be sent\n   - Optionally, a security token that we would use to build a SHA1 hash that would be included in the request headers. The name of the header is `X-DealMaker-Signature`. If the secret is not specified, the hash won’t be included in the headers.\n   - An email address that will be used to notify about errors.\n5. The developers can disable webhooks temporarily if needed\n\n## Specification\n\n### Events\n\nThe initial set of events will be related to the investor. The events are:\n\n1. `investor.created`\n\n   - Triggers every time a new investor is added to a deal\n\n2. `investor.updated`\n\n   - Triggers on updates to any of the following fields:\n     1. Status\n     2. Name\n     3. Email - (this is a user field so we trigger event for all investors with webhook subscription)\n     4. Allocated Amount\n     5. Investment Amount\n     6. Accredited investor fields\n     7. Adding or removing attachments\n     8. Tags\n   - When the investor status is signed, the payload also includes a link to the signed document; the link expires after 30 minutes\n\n3. `investor.deleted`\n\n   - Triggers when the investor is removed from the deal\n   - The investor key of the payload only includes investor ID\n   - The deal is not included in the payload. Due to our implementation it’s impossible to retrieve the deal the investor was part of\n\n### Requests\n\n- The request is a `POST`\n- The payload’s `content-type` is `application/json`\n- Only `2XX` responses are considered successful. In the event of a different response, we consider it failed and queue the event for retry\n- We retry the request five times, after the initial attempt. Doubling the waiting time between intervals with each try. The first retry happens after 30 seconds, then 60 seconds, 2 mins, 4 minutes, and 8 minutes. This timing scheme gives the receiver about 1 hour if all the requests fail\n- If an event fails all the attempts to be delivered, we send an email to the address that the user configured\n\n### Payload\n\n#### Common Properties\n\nThere will be some properties that are common to all the events on the system.\n\n| Key               | Type   | Description                                                                            |\n| ----------------- | ------ | -------------------------------------------------------------------------------------- |\n| event             | String | The event that triggered the call                                                      |\n| event_id          | String | A unique identifier for the event                                                      |\n| deal<sup>\\*</sup> | Object | The deal in which the event occurred. It includes id, title, created_at and updated_at |\n\n<sup>\\*</sup>This field is not included when deleting a resource\n\n#### Common Properties (investor scope)\n\nEvery event on this scope must contain an investor object, here are some properties that are common to this object on all events in the investor scope:\n\n| Key                 | Type             | Description                                                                                                              |\n| ------------------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------ |\n| id                  | Integer          | The unique ID of the Investor                                                                                            |\n| name                | String           | Investor’s Name                                                                                                          |\n| status              | String           | Current status of the investor<br />Possible states are: <br />draft<br />invited<br />signed<br />waiting<br />accepted |\n| email               | String           |                                                                                                                          |\n| phone_number        | String           |                                                                                                                          |\n| investment_amount   | Double           |                                                                                                                          |\n| allocated_amount    | Double           |                                                                                                                          |\n| accredited_investor | Object           | See format in respective ticket                                                                                          |\n| attachments         | Array of Objects | List of supporting documents uploaded to the investor, including URL (expire after 30 minutes) and title (caption)       |\n| funding_state       | String           | Investor’s current funding state (unfunded, underfunded, funded, overfunded)                                             |\n| funds_pending       | Boolean          | True if there are pending transactions, False otherwise                                                                  |\n| created_at          | Date             |                                                                                                                          |\n| updated_at          | Date             |                                                                                                                          |\n| tags                | Array of Strings | a list of the investor's tags, separated by comma.                                                                       |\n\n### investor.status >= signed Specific Properties\n\n| Key                    | Type   | Description            |\n| ---------------------- | ------ | ---------------------- |\n| subscription_agreement | object | id, url (expiring URL) |\n\n#### Investor Status\n\nHere is a brief description of each investor state:\n\n- **Draft:** the investor is added to the platform but hasn't been invited yet and cannot access the portal\n- **Invited:** the investor was added to the platform but hasn’t completed the questionnaire\n- **Signed:** the investor signed the document (needs approval from Lawyer or Reviewer before countersignature)\n- **Waiting:** the investor was approved for countersignature by any of the Lawyers or Reviewers in the deal\n- **Accepted:** the investor's agreement was countersigned by the Signatory\n\n#### Update Delay\n\nGiven the high number of updates our platform performs on any investor, we’ve added a cool down period on update events that allows us to “group” updates and trigger only one every minute. In consequence, update events will be delivered 1 minute after the initial request was made and will include the latest version of the investor data at delivery time.\n",
+    "description": "# Introduction\n\nWelcome to DealMaker’s Web API v1! This API is RESTful, easy to integrate with, and offers support in 2 different languages. This is the technical documentation for our API. There are tutorials and examples of integrations with our API available on our [knowledge centre](https://help.dealmaker.tech/training-centre) as well.\n\n# Libraries\n\n- Javascript\n- Ruby\n\n# Authentication\n\nTo authenticate, add an Authorization header to your API request that contains an access token. Before you [generate an access token](#how-to-generate-an-access-token) your must first [create an application](#create-an-application) on your portal and retrieve the your client ID and secret\n\n## Create an Application\n\nDealMaker’s Web API v1 supports the use of OAuth applications. Applications can be generated in your [account](https://app.dealmaker.tech/developer/applications).\n\nTo create an API Application, click on your user name in the top right corner to open a dropdown menu, and select \"Integrations\". Under the API settings tab, click the `Create New Application` button\n\n![Screenshot](https://s3.ca-central-1.amazonaws.com/docs.dealmaker.tech/images/api-application-1.png)\n\nName your application and assign the level of permissions for this application\n\n![Screenshot](https://s3.ca-central-1.amazonaws.com/docs.dealmaker.tech/images/api-application-2.png)\n\nOnce your application is created, save in a secure space your client ID and secret.\n\n**WARNING**: The secret key will not be visible after you click the close button\n\n![Screenshot](https://s3.ca-central-1.amazonaws.com/docs.dealmaker.tech/images/api-application-3.png)\n\nFrom the developer tab, you will be able to view and manage all the available applications\n\n![Screenshot](https://s3.ca-central-1.amazonaws.com/docs.dealmaker.tech/images/api-application-4.png)\n\nEach Application consists of a client id, secret and set of scopes. The scopes define what resources you want to have access to. The client ID and secret are used to generate an access token. You will need to create an application to use API endpoints.\n\n## How to generate an access token\n\nAfter creating an application, you must make a call to obtain a bearer token using the Generate an OAuth token operation. This operation requires the following parameters:\n\n`token endpoint` - https://app.dealmaker.tech/oauth/token\n\n`grant_type` - must be set to `client_credentials`\n\n`client_id` - the Client ID displayed when you created the OAuth application in the previous step\n\n`client_secret` - the Client Secret displayed when you created the OAuth application in the previous step\n\n`scope` - the scope is established when you created the OAuth application in the previous step\n\nNote: The Generate an OAuth token response specifies how long the bearer token is valid for. You should reuse the bearer token until it is expired. When the token is expired, call Generate an OAuth token again to generate a new one.\n\nTo use the access token, you must set a plain text header named `Authorization` with the contents of the header being “Bearer XXX” where XXX is your generated access token.\n\n### Example\n\n#### Postman\n\nHere's an example on how to generate the access token with Postman, where `{{CLIENT_ID}}` and `{{CLIENT_SECRET}}` are the values generated after following the steps on [Create an Application](#create-an-application)\n\n![Get access token postman example](https://s3.ca-central-1.amazonaws.com/docs.dealmaker.tech/images/token-postman.png)\n\n# Status Codes\n\n## Content-Type Header\n\nAll responses are returned in JSON format. We specify this by sending the Content-Type header.\n\n## Status Codes\n\nBelow is a table containing descriptions of the various status codes we currently support against various resources.\n\nSometimes your API call will generate an error. Here you will find additional information about what to expect if you don’t format your request properly, or we fail to properly process your request.\n\n| Status Code | Description |\n| ----------- | ----------- |\n| `200`       | Success     |\n| `403`       | Forbidden   |\n| `404`       | Not found   |\n\n# Pagination\n\nPagination is used to divide large responses is smaller portions (pages). By default, all endpoints return a maximum of 25 records per page. You can change the number of records on a per request basis by passing a `per_page` parameter in the request header parameters. The largest supported `per_page` parameter is 100.\n\nWhen the response exceeds the `per_page` parameter, you can paginate through the records by increasing the `offset` parameter. Example: `offset=25` will return 25 records starting from 26th record. You may also paginate using the `page` parameter to indicate the page number you would like to show on the response.\n\nPlease review the table below for the input parameters\n\n## Inputs\n\n| Parameter  | Description                                                                     |\n| ---------- | ------------------------------------------------------------------------------- |\n| `per_page` | Amount of records included on each page (Default is 25)                         |\n| `page`     | Page number                                                                     |\n| `offset`   | Amount of records offset on the API request where 0 represents the first record |\n\n## Response Headers\n\n| Response Header | Description                                  |\n| --------------- | -------------------------------------------- |\n| `X-Total`       | Total number of records of response          |\n| `X-Total-Pages` | Total number of pages of response            |\n| `X-Per-Page`    | Total number of records per page of response |\n| `X-Page`        | Number of current page                       |\n| `X-Next-Page`   | Number of next page                          |\n| `X-Prev-Page`   | Number of previous page                      |\n| `X-Offset`      | Total number of records offset               |\n\n# Search and Filtering (The q parameter)\n\nThe q optional parameter accepts a string as input and allows you to filter the request based on that string. Please note that search strings must be encoded according to ASCII. For example, \"john+investor&#64;dealmaker.tech\" should be passed as “john%2Binvestor%40dealmaker.tech”. There are two main ways to filter with it.\n\n## Keyword filtering\n\nSome keywords allow you to filter investors based on a specific “scope” of the investors, for example using the string “Invited” will filter all investors with the status invited, and the keyword “Has attachments” will filter investors with attachments.\n\nHere’s a list of possible keywords and the “scope” each one of the keywords filters by:\n\n| Keywords                                       | Scope                                                                       | Decoded Example                                                      | Encoded Example                                                                          |\n| ---------------------------------------------- | --------------------------------------------------------------------------- | -------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |\n| Signed on \\(date range\\)                       | Investors who signed in the provided date range                             | Signed on (date range) [2020-07-01:2020-07-31]                       | `Signed%20on%20%28date%20range%29%20%5B2020-07-01%3A2020-07-31%5D`                       |\n| Enabled for countersignature on \\(date range\\) | Investors who were enabled for counter signature in the provided date range | Enabled for countersignature on (date range) [2022-05-24:2022-05-25] | `Enabled%20for%20countersignature%20on%20(date%20range)%20%5B2022-05-24%3A2022-05-25%5D` |\n| Accepted on \\(date range\\)                     | Investors accepted in the provided date rage                                | Accepted on (date range) [2022-05-24:2022-05-25]                     | `Accepted%20on%20(date%20range)%20%5B2022-05-24%3A2022-05-25%5D`                         |\n| Offline                                        | Investors added to the deal offline                                         | Offline                                                              | `Offline`                                                                                |\n| Online                                         | Investors added to the deal online                                          | Online                                                               | `Online`                                                                                 |\n| Signed                                         | Investors who signed their agreement                                        | Signed                                                               | `Signed`                                                                                 |\n| Waiting for countersignature                   | Investors who have signed and are waiting for counter signature             | Waiting for countersignature                                         | `Waiting%20for%20countersignature`                                                       |\n| Invited                                        | Investors on the Invited Status                                             | Invited                                                              | `Invited`                                                                                |\n| Accepted                                       | Investors in the Accepted Status                                            | Accepted                                                             | `Accepted`                                                                               |\n| Questionnaire in progress                      | All Investors who have not finished completing the questionnaire            | Questionnaire in progress                                            | `Questionnaire%20in%20progress`                                                          |\n| Has attachments                                | All Investors with attachments                                              | Has attachments                                                      | `Has%20attachments`                                                                      |\n| Has notes                                      | All Investors with notes                                                    | Has notes                                                            | `Has%20notes`                                                                            |\n| Waiting for co-signature                       | Investors who have signed and are waiting for co-signature                  | Waiting for co-signature                                             | `Waiting%20for%20co-signature`                                                           |\n| Background Check Approved                      | Investors with approved background check                                    | Background Check Approved                                            | `Background%20Check%20Approved`                                                          |\n| Document Review Pending                        | Investors with pending review                                               | Document Review Pending                                              | `Document%20Review%20Pending`                                                            |\n| Document Upload Pending                        | Investors with pending documents to upload                                  | Document Upload Pending                                              | `Document%20Upload%20Pending`                                                            |\n| Required adjudicator review                    | Investors who are required to be review by the adjudicator                  | Required adjudicator review                                          | `Required%20adjudicator%20review`                                                        |\n\n---\n\n**NOTE**\n\nFiltering keywords are case sensitive and need to be encoded\n\n---\n\n## Search String\n\nAny value for the parameter which does not match one of the keywords listed above, will use fields like `first name`, `last name`, `email`, `tags` to search for the investor.\n\nFor example, if you search “Robert”, because this does not match one of the keywords listed above, it will then return any investors who have the string “Robert” in their name, email, or tags fields.\n\n# Versioning\n\nThe latest version is v1.\n\nThe version can be updated on the `Accept` header, just set the version as stated on the following example:\n\n```\n\nAccept:application/vnd.dealmaker-v1+json\n\n```\n\n| Version | Accept Header                       |\n| ------- | ----------------------------------- |\n| `v1`    | application/vnd.dealmaker-`v1`+json |\n\n# SDK’s\n\nFor instruction on installing SDKs, please view the following links\n\n- [Javascript](https://github.com/DealMakerTech/api/tree/main/v1/clients/javascript)\n- [Ruby](https://github.com/DealMakerTech/api/tree/main/v1/clients/ruby)\n\n# Webhooks\n\nOur webhooks functionality allows clients to automatically receive updates on a deal's investor data.\n\nThe type of data that the webhooks include:\n\n- Investor Name\n- Date created\n- Email\n- Phone\n- Allocation\n- Attachments\n- Accredited investor status\n- Accredited investor category\n- Status (Draft, Invited, Accepted, Waiting)\n\nVia webhooks clients can subscribe to the following events as they happen on Dealmaker:\n\n- Investor is created\n- Investor details are updated (any of the investor details above change or are updated)\n- Investor is deleted\n\nA URL supplied by the client will receive all the events with the information as part of the payload. Clients are able to add and update the URL within DealMaker.\n\n## Configuration\n\nFor a comprehensive guide on how to configure Webhooks please visit our support article: [Configuring Webhooks on DealMaker – DealMaker Support](https://help.dealmaker.tech/configuring-webhooks-on-dealmaker).\n\nAs a developer user on DealMaker, you are able to configure webhooks by following the steps below:\n\n1. Sign into Dealmaker\n2. Go to **“Your profile”** in the top right corner\n3. Access an **“Integrations”** configuration via the left menu\n4. The developer configures webhooks by including:\n   - The HTTPS URL where the request will be sent\n   - Optionally, a security token that we would use to build a SHA1 hash that would be included in the request headers. The name of the header is `X-DealMaker-Signature`. If the secret is not specified, the hash won’t be included in the headers.\n   - An email address that will be used to notify about errors.\n5. The developers can disable webhooks temporarily if needed\n\n## Specification\n\n### Events\n\nThe initial set of events will be related to the investor. The events are:\n\n1. `investor.created`\n\n   - Triggers every time a new investor is added to a deal\n\n2. `investor.updated`\n\n   - Triggers on updates to any of the following fields:\n     1. Status\n     2. Name\n     3. Email - (this is a user field so we trigger event for all investors with webhook subscription)\n     4. Allocated Amount\n     5. Investment Amount\n     6. Accredited investor fields\n     7. Adding or removing attachments\n     8. Tags\n   - When the investor status is signed, the payload also includes a link to the signed document; the link expires after 30 minutes\n\n3. `investor.deleted`\n\n   - Triggers when the investor is removed from the deal\n   - The investor key of the payload only includes investor ID\n   - The deal is not included in the payload. Due to our implementation it’s impossible to retrieve the deal the investor was part of\n\n### Requests\n\n- The request is a `POST`\n- The payload’s `content-type` is `application/json`\n- Only `2XX` responses are considered successful. In the event of a different response, we consider it failed and queue the event for retry\n- We retry the request five times, after the initial attempt. Doubling the waiting time between intervals with each try. The first retry happens after 30 seconds, then 60 seconds, 2 mins, 4 minutes, and 8 minutes. This timing scheme gives the receiver about 1 hour if all the requests fail\n- If an event fails all the attempts to be delivered, we send an email to the address that the user configured\n\n### Payload\n\n#### Common Properties\n\nThere will be some properties that are common to all the events on the system.\n\n| Key               | Type   | Description                                                                            |\n| ----------------- | ------ | -------------------------------------------------------------------------------------- |\n| event             | String | The event that triggered the call                                                      |\n| event_id          | String | A unique identifier for the event                                                      |\n| deal<sup>\\*</sup> | Object | The deal in which the event occurred. It includes id, title, created_at and updated_at |\n\n<sup>\\*</sup>This field is not included when deleting a resource\n\n#### Common Properties (investor scope)\n\nEvery event on this scope must contain an investor object, here are some properties that are common to this object on all events in the investor scope:\n\n| Key                 | Type             | Description                                                                                                              |\n| ------------------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------ |\n| id                  | Integer          | The unique ID of the Investor                                                                                            |\n| name                | String           | Investor’s Name                                                                                                          |\n| status              | String           | Current status of the investor<br />Possible states are: <br />draft<br />invited<br />signed<br />waiting<br />accepted |\n| email               | String           |                                                                                                                          |\n| phone_number        | String           |                                                                                                                          |\n| investment_amount   | Double           |                                                                                                                          |\n| allocated_amount    | Double           |                                                                                                                          |\n| accredited_investor | Object           | See format in respective ticket                                                                                          |\n| attachments         | Array of Objects | List of supporting documents uploaded to the investor, including URL (expire after 30 minutes) and title (caption)       |\n| funding_state       | String           | Investor’s current funding state (unfunded, underfunded, funded, overfunded)                                             |\n| funds_pending       | Boolean          | True if there are pending transactions, False otherwise                                                                  |\n| created_at          | Date             |                                                                                                                          |\n| updated_at          | Date             |                                                                                                                          |\n| tags                | Array of Strings | a list of the investor's tags, separated by comma.                                                                       |\n\n### investor.status >= signed Specific Properties\n\n| Key                    | Type   | Description            |\n| ---------------------- | ------ | ---------------------- |\n| subscription_agreement | object | id, url (expiring URL) |\n\n#### Investor Status\n\nHere is a brief description of each investor state:\n\n- **Draft:** the investor is added to the platform but hasn't been invited yet and cannot access the portal\n- **Invited:** the investor was added to the platform but hasn’t completed the questionnaire\n- **Signed:** the investor signed the document (needs approval from Lawyer or Reviewer before countersignature)\n- **Waiting:** the investor was approved for countersignature by any of the Lawyers or Reviewers in the deal\n- **Accepted:** the investor's agreement was countersigned by the Signatory\n\n#### Update Delay\n\nGiven the high number of updates our platform performs on any investor, we’ve added a cool down period on update events that allows us to “group” updates and trigger only one every minute. In consequence, update events will be delivered 1 minute after the initial request was made and will include the latest version of the investor data at delivery time.\n",
     "version": "1.0.0"
   },
   "swagger": "2.0",
@@ -19,7 +19,9 @@
       "flow": "clientCredentials",
       "scopes": {
         "deals.read": "Read deal information",
-        "deals.write": "Write information to deals."
+        "deals.write": "Write information to deals",
+        "companies.read": "Read company information",
+        "companies.write": "Write information to companies"
       }
     }
   },
@@ -32,10 +34,12 @@
   ],
   "x-tagGroups": [
     {
-      "name": "General",
+      "name": "Endpoints",
       "tags": [
         "deal",
-        "investor_profile"
+        "investor",
+        "investor_profile",
+        "company"
       ]
     },
     {
@@ -43,19 +47,36 @@
       "tags": [
         "deal_model",
         "investor_model",
-        "investor_profile_model"
+        "investor_profile_model",
+        "company_model",
+        "address_model"
       ]
     }
   ],
   "tags": [
     {
+      "name": "deal_setup",
+      "description": "Operations about deal_setups"
+    },
+    {
       "name": "deal",
-      "description": "Access to your deals"
+      "description": "The Deal is the portal which a Company uses for its raise. Each deal will have one Company, and will have multiple investors. An Investor represents a specific investment, meaning that a User could have multiple Investments. A Deal has many complex components. The Deal will have a subscription agreement, which is the document investors will sign. The Deal will have team members which have different roles and permissions in terms of how they interact with the Deal and with Investors on the Deal. The Deal will also have payment methods set up to allow Investors to pay for their investments. These features can be accessed within the DealMaker application. To set up a Deal and interact with these features, please view our help desk documentation: [How can I set up my own deal?](https://help.dealmaker.tech/new-deal). In the production environment, a Deal’s invoice must be recorded as paid before it can be set to `active`, however this requirement is waived in the staging environment.\n\nWith the Deal Endpoints you may interact with your deals. Each Deal has a unique ID, which is accessible from the URL of any page on that Deal.",
+      "x-displayName": "Deal"
+    },
+    {
+      "name": "investor",
+      "description": "Each individual investment in a deal is an Investor. Investments belong to a User, and a User may have multiple Investments, across different deals or in the same deal. Each Investor has a unique ID, which is accessible on the overview page for that Investor. The access link for each Investor will also be unique, even if multiple investors belong to the same User.",
+      "x-displayName": "Investor"
     },
     {
       "name": "investor_profile",
-      "description": "Access to your investor profiles",
+      "description": "An Investor Profile contains information about the identity of the investor. The Investor Profile is the information which identifies how the investor’s securities will be registered, namely the type of investor, the investor’s name, and the investor’s address. There are four possible investor types: Individual, Joint (i.e. joint tenants, tenants in common, community property), Trust, and Corporation.\n\nThe profile will also contain more detailed information, depending on what type of investor it is. An individual investor will contain the date of birth and taxpayer identification number, while a corporation profile will contain information about the signing officer and beneficial owners. The investor profile will also contain the investor’s accredited investor status.\n\nAn investor profile belongs to the User. An investor profile may be created by the user themselves, when they complete an investment, or it may be created by an external API application on behalf of the user. Only a User may update their own profile - an external API application cannot update a profile on a User’s behalf. When an investment is created, it may be associated to an investor profile. A User may have many Investor Profiles, and an Investor Profile may have many Investors associated to it. This may be represented by the structure below.\n![Screenshot](https://docs.dealmaker.tech/images/investor-profile.png)\n\nAn investor profile contains all the information about an investor which is needed to complete an investment. The specific investment in a deal is done through the Investor model. The Investor model takes all the information contained in the Investor Profile and applies it to a specific investment, in a deal. When an Investor moves into the signed state (which happens the investor signs their digital subscription agreement), a snapshot is created of the Investor Profile to which that Investor is associated. This snapshot will make available the core information about that investor, including name, address, date of birth, taxpayer ID, and other fields (depending on profile type). The snapshot will reflect the information contained in the profile at the time the Investor moved into the signed state, meaning if the Investor Profile is update at a future time, any existing Investors associated with it who were in the signed (or waiting or accepted) states will not reflect the updates.\n\nAn Investor is related to a deal, but an Investor Profile is not. A User is also not related to any specific deal. A User may use an Investor Profile to create an Investor, the latter of which will be related to a specific deal.",
       "x-displayName": "Investor Profile"
+    },
+    {
+      "name": "company",
+      "description": "Access to your companies",
+      "x-displayName": "Company"
     },
     {
       "name": "deal_model",
@@ -71,6 +92,16 @@
       "name": "investor_profile_model",
       "description": "<SchemaDefinition schemaRef=\"#/components/schemas/V1_Entities_InvestorProfile_Individual\" />",
       "x-displayName": "Investor Profile"
+    },
+    {
+      "name": "company_model",
+      "description": "<SchemaDefinition schemaRef=\"#/components/schemas/V1_Entities_Company\" />",
+      "x-displayName": "Company"
+    },
+    {
+      "name": "address_model",
+      "description": "<SchemaDefinition schemaRef=\"#/components/schemas/V1_Entities_Address\" />",
+      "x-displayName": "Address"
     }
   ],
   "paths": {
@@ -139,7 +170,8 @@
         "security": [
           {
             "oauth": [
-              "deals.read"
+              "deals.read",
+              "deals.investors.read"
             ]
           }
         ],
@@ -155,7 +187,7 @@
           }
         },
         "tags": [
-          "deal"
+          "investor"
         ],
         "operationId": "listInvestors",
         "x-codeSamples": [
@@ -310,7 +342,7 @@
           }
         },
         "tags": [
-          "deal"
+          "investor"
         ],
         "operationId": "createInvestor",
         "x-codeSamples": [
@@ -326,6 +358,176 @@
       }
     },
     "/deals/{id}/investors/{investor_id}": {
+      "patch": {
+        "summary": "Patch a deal investor",
+        "description": "Patch deal investor",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "description": "The deal id.",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          },
+          {
+            "in": "path",
+            "name": "investor_id",
+            "description": "The investor id.",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "investor_profile_id",
+            "description": "Investor profile id that needs to be set on investor",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "security": [
+          {
+            "oauth": [
+
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Patch deal investor",
+            "schema": {
+              "$ref": "#/definitions/V1_Entities_Investor"
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "tags": [
+          "investor"
+        ],
+        "operationId": "patchInvestor",
+        "x-codeSamples": [
+          {
+            "lang": "javascript",
+            "source": ""
+          },
+          {
+            "lang": "ruby",
+            "source": ""
+          }
+        ]
+      },
+      "put": {
+        "summary": "Update a deal investor",
+        "description": "Update deal investor",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "description": "The deal id.",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          },
+          {
+            "in": "path",
+            "name": "investor_id",
+            "description": "The investor id.",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "warrant_expiry_date",
+            "description": "The warrant expiry date of the investor.",
+            "type": "string",
+            "format": "date",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "warrant_certificate_number",
+            "description": "The certificate number of the investor.",
+            "type": "integer",
+            "format": "int32",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "allocated_amount",
+            "description": "The allocation amount of the investor.",
+            "type": "number",
+            "format": "float",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "allocation_unit",
+            "description": "The allocation unit of the investor.",
+            "type": "string",
+            "default": "securities",
+            "enum": [
+              "securities",
+              "amount"
+            ],
+            "required": false
+          }
+        ],
+        "security": [
+          {
+            "oauth": [
+              "deals.investors.write"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Update deal investor",
+            "schema": {
+              "$ref": "#/definitions/V1_Entities_Investor"
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "tags": [
+          "investor"
+        ],
+        "operationId": "updateInvestor",
+        "x-codeSamples": [
+          {
+            "lang": "javascript",
+            "source": ""
+          },
+          {
+            "lang": "ruby",
+            "source": ""
+          }
+        ]
+      },
       "get": {
         "summary": "Get a deal investor by id",
         "description": "Gets a single investor by the id.",
@@ -353,7 +555,8 @@
         "security": [
           {
             "oauth": [
-              "deals.read"
+              "deals.read",
+              "deals.investors.read"
             ]
           }
         ],
@@ -372,7 +575,7 @@
           }
         },
         "tags": [
-          "deal"
+          "investor"
         ],
         "operationId": "getInvestor",
         "x-codeSamples": [
@@ -389,8 +592,8 @@
     },
     "/deals/{id}": {
       "get": {
-        "summary": "Get a deal by id",
-        "description": "Get a deal",
+        "summary": "Get deal by Deal ID",
+        "description": "Gets a single deal using the Deal ID",
         "produces": [
           "application/json"
         ],
@@ -407,13 +610,14 @@
         "security": [
           {
             "oauth": [
-              "deals.read"
+              "deals.read",
+              "deals.information.read"
             ]
           }
         ],
         "responses": {
           "200": {
-            "description": "Get a deal",
+            "description": "Gets a single deal using the Deal ID",
             "schema": {
               "$ref": "#/definitions/V1_Entities_Deal"
             }
@@ -480,7 +684,8 @@
         "security": [
           {
             "oauth": [
-              "deals.read"
+              "deals.read",
+              "deals.information.read"
             ]
           }
         ],
@@ -514,10 +719,81 @@
         ]
       }
     },
-    "/investor_profiles": {
+    "/companies": {
+      "get": {
+        "summary": "Get list of Companies",
+        "description": "Get companies",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "page",
+            "description": "Page offset to fetch.",
+            "type": "integer",
+            "format": "int32",
+            "default": 1,
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "per_page",
+            "description": "Number of results to return per page.",
+            "type": "integer",
+            "format": "int32",
+            "default": 25,
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "description": "Pad a number of results.",
+            "type": "integer",
+            "format": "int32",
+            "default": 0,
+            "required": false
+          }
+        ],
+        "security": [
+          {
+            "oauth": [
+              "companies.read"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get companies",
+            "schema": {
+              "$ref": "#/definitions/V1_Entities_Company"
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Forbidden"
+          }
+        },
+        "tags": [
+          "company"
+        ],
+        "operationId": "getCompanies",
+        "x-codeSamples": [
+          {
+            "lang": "javascript",
+            "source": ""
+          },
+          {
+            "lang": "ruby",
+            "source": ""
+          }
+        ]
+      },
       "post": {
-        "summary": "Create new investor profile",
-        "description": "Create new investor profile associated to the user by email.",
+        "summary": "Create new company",
+        "description": "Creates a new company.",
         "produces": [
           "application/json"
         ],
@@ -527,74 +803,248 @@
         "parameters": [
           {
             "in": "formData",
-            "name": "email",
-            "description": "User email which associated with investor profile",
+            "name": "name",
+            "description": "The company name",
             "type": "string",
             "required": true
-          },
-          {
-            "in": "formData",
-            "name": "type",
-            "description": "Type of individual profile",
-            "type": "string",
-            "enum": [
-              "individual"
-            ],
-            "required": true
-          },
-          {
-            "in": "formData",
-            "name": "first_name",
-            "description": "The First Name of the investor profile (required for individual)",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "last_name",
-            "description": "The Last Name of the investor profile (required for individual)",
-            "type": "string",
-            "required": false
           },
           {
             "in": "formData",
             "name": "country",
-            "description": "The Counrty the investor profile (required for individual)",
+            "description": "The country of the company",
             "type": "string",
-            "required": false
+            "required": true
           },
           {
             "in": "formData",
-            "name": "street_address",
-            "description": "The Street Address of the investor profile (required for individual)",
+            "name": "street",
+            "description": "The street of the company",
             "type": "string",
-            "required": false
+            "required": true
           },
           {
             "in": "formData",
-            "name": "unit2",
-            "description": "The Street Address Line 2 of the investor profile",
+            "name": "line_2",
+            "description": "The second line of the address of the company",
             "type": "string",
             "required": false
           },
           {
             "in": "formData",
             "name": "city",
-            "description": "The City of the investor profile (required for individual)",
+            "description": "The city of the company",
             "type": "string",
-            "required": false
+            "required": true
           },
           {
             "in": "formData",
-            "name": "region",
-            "description": "The Region or State of the investor profile (required for individual)",
+            "name": "state",
+            "description": "The state of the company",
             "type": "string",
-            "required": false
+            "required": true
           },
           {
             "in": "formData",
             "name": "postal_code",
-            "description": "The Postal Code or ZipCode of the investor profile (required for individual)",
+            "description": "The postal code/zip code of the company",
+            "type": "string",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "primary_color",
+            "description": "The primary color of the company",
+            "type": "string",
+            "required": false
+          }
+        ],
+        "security": [
+          {
+            "oauth": [
+              "companies.write"
+            ]
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Create new company",
+            "schema": {
+              "$ref": "#/definitions/V1_Entities_Company"
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        },
+        "tags": [
+          "company"
+        ],
+        "operationId": "createCompany",
+        "x-codeSamples": [
+          {
+            "lang": "javascript",
+            "source": ""
+          },
+          {
+            "lang": "ruby",
+            "source": ""
+          }
+        ]
+      }
+    },
+    "/companies/{id}": {
+      "get": {
+        "summary": "Get a Company",
+        "description": "Get a Company.",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "security": [
+          {
+            "oauth": [
+              "companies.read"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get company",
+            "schema": {
+              "$ref": "#/definitions/V1_Entities_Company"
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not found"
+          }
+        },
+        "tags": [
+          "company"
+        ],
+        "operationId": "getCompany",
+        "x-codeSamples": [
+          {
+            "lang": "javascript",
+            "source": ""
+          },
+          {
+            "lang": "ruby",
+            "source": ""
+          }
+        ]
+      }
+    },
+    "/deal_setups": {
+      "post": {
+        "summary": "Create deal setup",
+        "description": "Create deal setup",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "formData",
+            "name": "invoicing_email",
+            "description": "The invoice email address.",
+            "type": "string",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "issuer_industry",
+            "description": "The industry.",
+            "type": "string",
+            "default": "other",
+            "enum": [
+              "other",
+              "beverage",
+              "blockchain",
+              "cannabis",
+              "cpc",
+              "gaming",
+              "health",
+              "industry",
+              "mining",
+              "real_estate",
+              "retail",
+              "tech",
+              "psychedelics",
+              "office_of_life_sciences",
+              "office_of_energy_and_transportation",
+              "office_of_real_estate_and_construction",
+              "office_of_manufacturing",
+              "office_of_technology",
+              "office_of_trade_and_services",
+              "office_of_finance",
+              "office_of_international_corp_fin"
+            ],
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "prohibited_industry",
+            "description": "Determine if the deal is a high risk or not.",
+            "type": "string",
+            "default": "prohibited",
+            "enum": [
+              "prohibited",
+              "not_prohibited"
+            ],
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "offering_type",
+            "description": "The deal kind",
+            "type": "string",
+            "default": "other",
+            "enum": [
+              "other",
+              "canadian_private_placement",
+              "regulation_a_plus_offering",
+              "offering_memorandum",
+              "regulation_cf_offering",
+              "reg_d_506_c",
+              "reg_d_506_b"
+            ],
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "title",
+            "description": "The name of deal to setup.",
+            "type": "string",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "company_id",
+            "description": "the company id.",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "representative",
+            "description": "The email of the representative.",
             "type": "string",
             "required": false
           }
@@ -608,19 +1058,22 @@
         ],
         "responses": {
           "201": {
-            "description": "Create new investor profile",
+            "description": "Create deal setup",
             "schema": {
-              "$ref": "#/definitions/V1_Entities_InvestorProfile_Individual"
+              "$ref": "#/definitions/V1_Entities_DealSetup"
             }
           },
           "400": {
             "description": "Bad Request"
+          },
+          "403": {
+            "description": "Forbidden"
           }
         },
         "tags": [
-          "investor_profile"
+          "deal_setup"
         ],
-        "operationId": "createInvestorProfile",
+        "operationId": "createDealSetup",
         "x-codeSamples": [
           {
             "lang": "javascript",
@@ -631,6 +1084,2248 @@
             "source": ""
           }
         ]
+      }
+    },
+    "/investor_profiles/trusts/{investor_profile_id}": {
+      "patch": {
+        "summary": "Patch a trust investor profile",
+        "description": "Patch trust investor profile",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "formData",
+            "name": "us_accredited_category",
+            "description": "The accredited investor information.",
+            "type": "string",
+            "enum": [
+              "entity_owned_by_accredited_investors",
+              "broker_or_dealer",
+              "assets_trust",
+              "not_accredited"
+            ],
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "name",
+            "description": "The name of the trust.",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "date",
+            "description": "The creation date of the trust.",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "phone_number",
+            "description": "The phone number of the trust.",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "country",
+            "description": "Trust country.",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "street_address",
+            "description": "Trust street address.",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "unit2",
+            "description": "Trust street address line 2.",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "city",
+            "description": "Trust city.",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "region",
+            "description": "Trust region or state.",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "postal_code",
+            "description": "Trust postal code or zipcode.",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "trustee_first_name",
+            "description": "Trustee first name.",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "trustee_last_name",
+            "description": "Trustee last name.",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "trustee_suffix",
+            "description": "Trustee suffix.",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "trustee_country",
+            "description": "Trustee country.",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "trustee_street_address",
+            "description": "Trustee street address.",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "trustee_unit2",
+            "description": "Trustee street address line 2.",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "trustee_city",
+            "description": "Trustee city.",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "trustee_region",
+            "description": "Trustee region or state.",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "trustee_postal_code",
+            "description": "Trustee postal code or zipcode.",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "trustee_date_of_birth",
+            "description": "Trustee date of birth.",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "trustee_taxpayer_id",
+            "description": "The taxpayer identification number of the investor profile.",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "path",
+            "name": "investor_profile_id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "security": [
+          {
+            "oauth": [
+              "deals.write"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Patch trust investor profile",
+            "schema": {
+              "$ref": "#/definitions/V1_Entities_InvestorProfile_Trust"
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Forbidden"
+          }
+        },
+        "tags": [
+          "investor_profile"
+        ],
+        "operationId": "patchTrustProfile",
+        "x-codeSamples": [
+          {
+            "lang": "javascript",
+            "source": ""
+          },
+          {
+            "lang": "ruby",
+            "source": ""
+          }
+        ]
+      }
+    },
+    "/investor_profiles/trusts": {
+      "post": {
+        "summary": "Create new trust investor profile.",
+        "description": "Create new trust investor profile associated to the user by email.",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "formData",
+            "name": "email",
+            "description": "User email which is associated with investor profile (required).",
+            "type": "string",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "us_accredited_category",
+            "description": "The accredited investor information.",
+            "type": "string",
+            "enum": [
+              "entity_owned_by_accredited_investors",
+              "broker_or_dealer",
+              "assets_trust",
+              "not_accredited"
+            ],
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "name",
+            "description": "The name of the trust (required).",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "date",
+            "description": "The creation date of the trust (required).",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "country",
+            "description": "The country of the trust (required).",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "street_address",
+            "description": "Trust street address of the trust (required).",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "unit2",
+            "description": "The street address line 2 of the trust.",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "city",
+            "description": "The city of the trust (required).",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "region",
+            "description": "The region or state of the trust (required).",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "postal_code",
+            "description": "The postal code or zipcode of the trust (required).",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "phone_number",
+            "description": "The phone number of the trust (required).",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "trustees[first_name]",
+            "description": "The list of first names for the trustees (required for trustee 1).",
+            "type": "array",
+            "required": false,
+            "items": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "formData",
+            "name": "trustees[last_name]",
+            "description": "The list of last names for the trustees (required for trustee 1).",
+            "type": "array",
+            "required": false,
+            "items": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "formData",
+            "name": "trustees[suffix]",
+            "description": "The list of suffixes for the trustees.",
+            "type": "array",
+            "required": false,
+            "items": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "formData",
+            "name": "trustees[country]",
+            "description": "The list of countries for the trustees (required for trustee 1).",
+            "type": "array",
+            "required": false,
+            "items": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "formData",
+            "name": "trustees[street_address]",
+            "description": "The list of street addresses for the trustees (required for trustee 1).",
+            "type": "array",
+            "required": false,
+            "items": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "formData",
+            "name": "trustees[unit_2]",
+            "description": "The list of street address line 2 for the trustees.",
+            "type": "array",
+            "required": false,
+            "items": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "formData",
+            "name": "trustees[city]",
+            "description": "The list of cities for the trustees (required for trustee 1).",
+            "type": "array",
+            "required": false,
+            "items": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "formData",
+            "name": "trustees[region]",
+            "description": "The list of regions or states for the trustees (required for trustee 1).",
+            "type": "array",
+            "required": false,
+            "items": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "formData",
+            "name": "trustees[postal_code]",
+            "description": "The list of postal codes or zipcodes for the trustees (required) for trustee 1.",
+            "type": "array",
+            "required": false,
+            "items": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "formData",
+            "name": "trustees[date_of_birth]",
+            "description": "The list of dates of birth for the trustees (required for trustee 1).",
+            "type": "array",
+            "required": false,
+            "items": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "formData",
+            "name": "trustees[taxpayer_id]",
+            "description": "The list of taxpayer identification numbers for the trustees (required for trustee 1).",
+            "type": "array",
+            "required": false,
+            "items": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "oauth": [
+              "deals.write"
+            ]
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Create new trust investor profile.",
+            "schema": {
+              "$ref": "#/definitions/V1_Entities_InvestorProfile_Trust"
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Forbidden"
+          }
+        },
+        "tags": [
+          "investor_profile"
+        ],
+        "operationId": "createTrustProfile",
+        "x-codeSamples": [
+          {
+            "lang": "javascript",
+            "source": ""
+          },
+          {
+            "lang": "ruby",
+            "source": ""
+          }
+        ]
+      }
+    },
+    "/investor_profiles/individuals/{investor_profile_id}": {
+      "patch": {
+        "summary": "Patch an individual investor profile.",
+        "description": "Patch individual investor profile.",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "formData",
+            "name": "us_accredited_category",
+            "description": "The accredited investor information.",
+            "type": "string",
+            "enum": [
+              "income_individual",
+              "assets_individual",
+              "director",
+              "knowledgable_employee",
+              "broker_or_dealer",
+              "investment_advisor_registered",
+              "investment_advisor_relying",
+              "designated_accredited_investor",
+              "not_accredited"
+            ],
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "first_name",
+            "description": "The first name of the individual investor profile.",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "last_name",
+            "description": "The last name of the individual investor profile.",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "suffix",
+            "description": "The suffix of the individual investor profile.",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "date_of_birth",
+            "description": "The date of birth of the investor profile.",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "taxpayer_id",
+            "description": "The taxpayer identification number of the investor profile.",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "phone_number",
+            "description": "The phone number of the investor profile.",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "country",
+            "description": "The country of the individual investor profile.",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "street_address",
+            "description": "The street address of the individual investor profile.",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "unit2",
+            "description": "The street address line 2 of the individual investor profile.",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "city",
+            "description": "The city of the individual investor profile.",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "region",
+            "description": "The region or state of the individual investor profile.",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "postal_code",
+            "description": "The postal code or zipcode of the individual investor profile.",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "path",
+            "name": "investor_profile_id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "security": [
+          {
+            "oauth": [
+              "deals.write"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Patch individual investor profile.",
+            "schema": {
+              "$ref": "#/definitions/V1_Entities_InvestorProfile_Individual"
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Forbidden"
+          }
+        },
+        "tags": [
+          "investor_profile"
+        ],
+        "operationId": "patchIndividualProfile",
+        "x-codeSamples": [
+          {
+            "lang": "javascript",
+            "source": ""
+          },
+          {
+            "lang": "ruby",
+            "source": ""
+          }
+        ]
+      }
+    },
+    "/investor_profiles/individuals": {
+      "post": {
+        "summary": "Create new individual investor profile",
+        "description": "Create new individual investor profile associated to the user by email.",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "formData",
+            "name": "email",
+            "description": "User email which is associated with individual investor profile.",
+            "type": "string",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "us_accredited_category",
+            "description": "The accredited investor information.",
+            "type": "string",
+            "enum": [
+              "income_individual",
+              "assets_individual",
+              "director",
+              "knowledgable_employee",
+              "broker_or_dealer",
+              "investment_advisor_registered",
+              "investment_advisor_relying",
+              "designated_accredited_investor",
+              "not_accredited"
+            ],
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "first_name",
+            "description": "The first name of the individual investor profile (required).",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "last_name",
+            "description": "The last name of the individual investor profile (required)",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "suffix",
+            "description": "The suffix of the individual investor profile",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "date_of_birth",
+            "description": "The date of birth of the investor profile (required)",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "taxpayer_id",
+            "description": "The taxpayer identification number of the investor profile (required)",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "phone_number",
+            "description": "The phone number of the investor profile (required)",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "country",
+            "description": "The country of the individual investor profile (required)",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "street_address",
+            "description": "The street address of the individual investor profile (required)",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "unit2",
+            "description": "The street address line 2 of the individual investor profile",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "city",
+            "description": "The city of the individual investor profile (required)",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "region",
+            "description": "The region or state of the individual investor profile (required)",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "postal_code",
+            "description": "The postal code or zipcode of the individual investor profile (required)",
+            "type": "string",
+            "required": false
+          }
+        ],
+        "security": [
+          {
+            "oauth": [
+              "deals.write"
+            ]
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Create new individual investor profile",
+            "schema": {
+              "$ref": "#/definitions/V1_Entities_InvestorProfile_Individual"
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Forbidden"
+          }
+        },
+        "tags": [
+          "investor_profile"
+        ],
+        "operationId": "createIndividualProfile",
+        "x-codeSamples": [
+          {
+            "lang": "javascript",
+            "source": ""
+          },
+          {
+            "lang": "ruby",
+            "source": ""
+          }
+        ]
+      }
+    },
+    "/investor_profiles/joints/{investor_profile_id}": {
+      "patch": {
+        "summary": "Patch a joint investor profile",
+        "description": "Patch joint investor profile",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "formData",
+            "name": "us_accredited_category",
+            "description": "The accredited investor information.",
+            "type": "string",
+            "enum": [
+              "income_individual",
+              "assets_individual",
+              "director",
+              "knowledgable_employee",
+              "broker_or_dealer",
+              "investment_advisor_registered",
+              "investment_advisor_relying",
+              "designated_accredited_investor",
+              "not_accredited"
+            ],
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "joint_type",
+            "description": "The kind of joint investor.",
+            "type": "string",
+            "enum": [
+              "joint_tenant",
+              "tenants_in_common",
+              "community_property"
+            ],
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "first_name",
+            "description": "The first name of the investor profile.",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "last_name",
+            "description": "The last name of the investor profile.",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "suffix",
+            "description": "The suffix of the investor profile.",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "country",
+            "description": "The country the investor profile.",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "street_address",
+            "description": "The street address of the investor profile.",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "unit2",
+            "description": "The street address line 2 of the investor profile.",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "city",
+            "description": "The city of the investor profile.",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "region",
+            "description": "The region or State of the investor profile.",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "postal_code",
+            "description": "The postal code or zipcode of the investor profile.",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "date_of_birth",
+            "description": "The date of birth of the investor profile.",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "taxpayer_id",
+            "description": "The taxpayer identification number of the investor profile.",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "phone_number",
+            "description": "The phone number of the investor profile.",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "joint_holder_first_name",
+            "description": "The joint holder first name of the investor profile.",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "joint_holder_last_name",
+            "description": "The joint holder last name of the investor profile.",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "joint_holder_suffix",
+            "description": "The suffix of the individual investor profile.",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "joint_holder_country",
+            "description": "The joint holder country of the investor profile.",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "joint_holder_street_address",
+            "description": "The joint holder street address of the investor profile.",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "joint_holder_unit2",
+            "description": "The Joint holder street address line 2 of the investor profile.",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "joint_holder_city",
+            "description": "The Joint holder city of the investor profile.",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "joint_holder_region",
+            "description": "The joint holder region or state of the investor profile.",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "joint_holder_postal_code",
+            "description": "The joint holder postal code or zipcode of the investor profile.",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "joint_holder_date_of_birth",
+            "description": "The joint holder date of birth of the investor profile.",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "joint_holder_taxpayer_id",
+            "description": "The joint holder taxpayer identification number of the investor profile.",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "path",
+            "name": "investor_profile_id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "security": [
+          {
+            "oauth": [
+              "deals.write"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Patch joint investor profile",
+            "schema": {
+              "$ref": "#/definitions/V1_Entities_InvestorProfile_Joint"
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Forbidden"
+          }
+        },
+        "tags": [
+          "investor_profile"
+        ],
+        "operationId": "patchJointProfile",
+        "x-codeSamples": [
+          {
+            "lang": "javascript",
+            "source": ""
+          },
+          {
+            "lang": "ruby",
+            "source": ""
+          }
+        ]
+      }
+    },
+    "/investor_profiles/joints": {
+      "post": {
+        "summary": "Create new joint investor profile",
+        "description": "Create new joint investor profile associated to the user by email.",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "formData",
+            "name": "email",
+            "description": "User email which is associated with investor profile.",
+            "type": "string",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "us_accredited_category",
+            "description": "The accredited investor information.",
+            "type": "string",
+            "enum": [
+              "income_individual",
+              "assets_individual",
+              "director",
+              "knowledgable_employee",
+              "broker_or_dealer",
+              "investment_advisor_registered",
+              "investment_advisor_relying",
+              "designated_accredited_investor",
+              "not_accredited"
+            ],
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "joint_type",
+            "description": "The types of joint investor.",
+            "type": "string",
+            "enum": [
+              "joint_tenant",
+              "tenants_in_common",
+              "community_property"
+            ],
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "first_name",
+            "description": "The first name of the primary holder (required).",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "last_name",
+            "description": "The last name of the primary holder (required).",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "suffix",
+            "description": "The suffix of the primary holder.",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "country",
+            "description": "The country the primary holder (required).",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "street_address",
+            "description": "The street address of the primary holder (required).",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "unit2",
+            "description": "The street address line 2 of the primary holder.",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "city",
+            "description": "The city of the primary holder (required).",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "region",
+            "description": "The region or State of the primary holder (required).",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "postal_code",
+            "description": "The postal code or zipcode of the primary holder (required).",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "date_of_birth",
+            "description": "The date of birth of the primary holder (required).",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "taxpayer_id",
+            "description": "The taxpayer identification number of the primary holder (required).",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "phone_number",
+            "description": "The phone number of the primary holder (required).",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "joint_holder_first_name",
+            "description": "The first name of the joint holder (required).",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "joint_holder_last_name",
+            "description": "The last name of the joint holder (required).",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "joint_holder_suffix",
+            "description": "The suffix of the joint holder.",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "joint_holder_country",
+            "description": "The country of the joint holder (required).",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "joint_holder_street_address",
+            "description": "The street address of the joint holder (required).",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "joint_holder_unit2",
+            "description": "The street address line 2 of the joint holder.",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "joint_holder_city",
+            "description": "The city of the joint holder (required).",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "joint_holder_region",
+            "description": "The region or state of the joint holder (required).",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "joint_holder_postal_code",
+            "description": "The postal code or zipcode of the joint holder (required).",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "joint_holder_date_of_birth",
+            "description": "The date of birth of the joint holder (required).",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "joint_holder_taxpayer_id",
+            "description": "The taxpayer identification number of the joint holder (required).",
+            "type": "string",
+            "required": false
+          }
+        ],
+        "security": [
+          {
+            "oauth": [
+              "deals.write"
+            ]
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Create new joint investor profile",
+            "schema": {
+              "$ref": "#/definitions/V1_Entities_InvestorProfile_Joint"
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        },
+        "tags": [
+          "investor_profile"
+        ],
+        "operationId": "createJointProfile",
+        "x-codeSamples": [
+          {
+            "lang": "javascript",
+            "source": ""
+          },
+          {
+            "lang": "ruby",
+            "source": ""
+          }
+        ]
+      }
+    },
+    "/investor_profiles/corporations/{investor_profile_id}": {
+      "patch": {
+        "summary": "Patch a corporation investor profile",
+        "description": "Patch corporation investor profile",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "formData",
+            "name": "us_accredited_category",
+            "description": "The accredited investor information.",
+            "type": "string",
+            "enum": [
+              "entity_owned_by_accredited_investors",
+              "assets_other",
+              "assets_family_office",
+              "assets_benefit_plan",
+              "assets_state_plan",
+              "assets_501_c_3",
+              "assets_corporation",
+              "broker_or_dealer",
+              "bank_3_a_2",
+              "business_development_company",
+              "private_business_development_company",
+              "investment_company",
+              "rural_business_investment_company",
+              "insurance_company",
+              "family_client",
+              "not_accredited"
+            ],
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "name",
+            "description": "Corporation name.",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "country",
+            "description": "Corporation country.",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "street_address",
+            "description": "Corporation street address.",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "unit2",
+            "description": "Corporation street address line 2.",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "city",
+            "description": "Corporation city.",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "region",
+            "description": "Corporation region or state.",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "postal_code",
+            "description": "Corporation postal code or zipcode.",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "business_number",
+            "description": "The business number of the investor profile.",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "phone_number",
+            "description": "The phone number of the investor profile.",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "signing_officer_first_name",
+            "description": "Signing officer first name.",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "signing_officer_last_name",
+            "description": "Signing officer last name.",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "signing_officer_suffix",
+            "description": "Signing officer suffix.",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "signing_officer_country",
+            "description": "Signing officer country.",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "signing_officer_street_address",
+            "description": "Signing officer street address.",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "signing_officer_unit2",
+            "description": "Signing officer street address line 2.",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "signing_officer_city",
+            "description": "Signing officer city.",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "signing_officer_region",
+            "description": "Signing officer region or state.",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "signing_officer_postal_code",
+            "description": "Signing officer postal code or zipcode.",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "signing_officer_date_of_birth",
+            "description": "Signing officer date of birth.",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "signing_officer_taxpayer_id",
+            "description": "The taxpayer identification number of the investor profile.",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "path",
+            "name": "investor_profile_id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "security": [
+          {
+            "oauth": [
+              "deals.write"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Patch corporation investor profile",
+            "schema": {
+              "$ref": "#/definitions/V1_Entities_InvestorProfile_Corporation"
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Forbidden"
+          }
+        },
+        "tags": [
+          "investor_profile"
+        ],
+        "operationId": "patchCorporationProfile",
+        "x-codeSamples": [
+          {
+            "lang": "javascript",
+            "source": ""
+          },
+          {
+            "lang": "ruby",
+            "source": ""
+          }
+        ]
+      }
+    },
+    "/investor_profiles/corporations": {
+      "post": {
+        "summary": "Create new corporation investor profile.",
+        "description": "Create new corporation investor profile associated to the user by email.",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "formData",
+            "name": "email",
+            "description": "User email which is associated with investor profile (required).",
+            "type": "string",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "us_accredited_category",
+            "description": "The accredited investor information.",
+            "type": "string",
+            "enum": [
+              "entity_owned_by_accredited_investors",
+              "assets_other",
+              "assets_family_office",
+              "assets_benefit_plan",
+              "assets_state_plan",
+              "assets_501_c_3",
+              "assets_corporation",
+              "broker_or_dealer",
+              "bank_3_a_2",
+              "business_development_company",
+              "private_business_development_company",
+              "investment_company",
+              "rural_business_investment_company",
+              "insurance_company",
+              "family_client",
+              "not_accredited"
+            ],
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "name",
+            "description": "The name of the corporation (required).",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "country",
+            "description": "The country of the corporation (required).",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "street_address",
+            "description": "The street address of the corporation (required).",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "unit2",
+            "description": "The street address line 2 of the corporation.",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "city",
+            "description": "The city of the corporation (required).",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "region",
+            "description": "The region or state of the corporation (required).",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "postal_code",
+            "description": "The postal code or zipcode of the corporation (required).",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "business_number",
+            "description": "The taxpayer identification number  of the corporation (required).",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "phone_number",
+            "description": "The phone number o of the corporation (required).",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "signing_officer_first_name",
+            "description": "The first name of the signing officer (required).",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "signing_officer_last_name",
+            "description": "The last name of the signing officer (required).",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "signing_officer_suffix",
+            "description": "The suffix of the signing officer.",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "signing_officer_country",
+            "description": "The country of the signing officer (required).",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "signing_officer_street_address",
+            "description": "The street address of the signing officer (required).",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "signing_officer_unit2",
+            "description": "The street address line 2 of the signing officer.",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "signing_officer_city",
+            "description": "The city of the signing officer (required).",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "signing_officer_region",
+            "description": "The region or state of the signing officer (required).",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "signing_officer_postal_code",
+            "description": "The postal code or zipcode of the signing officer (required).",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "signing_officer_date_of_birth",
+            "description": "The date of birth of the signing officer (required).",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "signing_officer_taxpayer_id",
+            "description": "The taxpayer identification number of the signing officer (required).",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "beneficial_owners[first_name]",
+            "description": "The list of first names for the beneficial owners (required for beneficial owner 1).",
+            "type": "array",
+            "required": false,
+            "items": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "formData",
+            "name": "beneficial_owners[last_name]",
+            "description": "The list of last names for the beneficial owners (required for beneficial owner 1).",
+            "type": "array",
+            "required": false,
+            "items": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "formData",
+            "name": "beneficial_owners[suffix]",
+            "description": "The list of suffixes for the beneficial owners.",
+            "type": "array",
+            "required": false,
+            "items": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "formData",
+            "name": "beneficial_owners[country]",
+            "description": "The list of countries for the beneficial owners (required for beneficial owner 1).",
+            "type": "array",
+            "required": false,
+            "items": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "formData",
+            "name": "beneficial_owners[street_address]",
+            "description": "The list of street addresses for the beneficial owners (required for beneficial owner 1).",
+            "type": "array",
+            "required": false,
+            "items": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "formData",
+            "name": "beneficial_owners[unit_2]",
+            "description": "The list of street address line 2 for the beneficial owners.",
+            "type": "array",
+            "required": false,
+            "items": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "formData",
+            "name": "beneficial_owners[city]",
+            "description": "The list of cities for the beneficial owners (required for beneficial owner 1).",
+            "type": "array",
+            "required": false,
+            "items": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "formData",
+            "name": "beneficial_owners[region]",
+            "description": "The list of region or states for the beneficial owners (required for beneficial owner 1).",
+            "type": "array",
+            "required": false,
+            "items": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "formData",
+            "name": "beneficial_owners[postal_code]",
+            "description": "The list of postal codes or zipcodes for the beneficial owners (required for beneficial owner 1).",
+            "type": "array",
+            "required": false,
+            "items": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "formData",
+            "name": "beneficial_owners[date_of_birth]",
+            "description": "The list of dates of birth for the beneficial owners (required for beneficial owner 1).",
+            "type": "array",
+            "required": false,
+            "items": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "formData",
+            "name": "beneficial_owners[taxpayer_id]",
+            "description": "The list of taxpayer identification numbers for the beneficial owners (required for beneficial owner 1).",
+            "type": "array",
+            "required": false,
+            "items": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "oauth": [
+              "deals.write"
+            ]
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Create new corporation investor profile.",
+            "schema": {
+              "$ref": "#/definitions/V1_Entities_InvestorProfile_Corporation"
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Forbidden"
+          }
+        },
+        "tags": [
+          "investor_profile"
+        ],
+        "operationId": "createCorporationProfile",
+        "x-codeSamples": [
+          {
+            "lang": "javascript",
+            "source": ""
+          },
+          {
+            "lang": "ruby",
+            "source": ""
+          }
+        ]
+      }
+    },
+    "/investor_profiles": {
+      "get": {
+        "summary": "Get list of InvestorProfiles",
+        "description": "Get investor profiles",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "page",
+            "description": "Page offset to fetch.",
+            "type": "integer",
+            "format": "int32",
+            "default": 1,
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "per_page",
+            "description": "Number of results to return per page.",
+            "type": "integer",
+            "format": "int32",
+            "default": 25,
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "description": "Pad a number of results.",
+            "type": "integer",
+            "format": "int32",
+            "default": 0,
+            "required": false
+          }
+        ],
+        "security": [
+          {
+            "oauth": [
+
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get investor profiles",
+            "schema": {
+              "$ref": "#/definitions/V1_Entities_InvestorProfiles"
+            }
+          },
+          "401": {
+            "description": "Forbidden"
+          }
+        },
+        "tags": [
+          "investor_profile"
+        ],
+        "operationId": "getInvestorProfiles",
+        "x-codeSamples": [
+          {
+            "lang": "javascript",
+            "source": ""
+          },
+          {
+            "lang": "ruby",
+            "source": ""
+          }
+        ]
+      }
+    },
+    "/webhooks/{id}": {
+      "put": {
+        "summary": "Updates webhook subscription and webhooks subcription deals",
+        "description": "Updates webhook subscription",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "formData",
+            "name": "name",
+            "description": "Endpoint name",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "enabled",
+            "description": "Endpoint status",
+            "type": "boolean",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "url",
+            "description": "Payload URL",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "security_token",
+            "description": "Secret key",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "webhook_subscription_deals[id]",
+            "description": "The id of the webhook subscription deal",
+            "type": "array",
+            "required": false,
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "in": "formData",
+            "name": "webhook_subscription_deals[deal_id]",
+            "description": "The id of the deal to link",
+            "type": "array",
+            "required": false,
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "in": "formData",
+            "name": "webhook_subscription_deals[_destroy]",
+            "description": "",
+            "type": "array",
+            "required": false,
+            "items": {
+              "type": "boolean"
+            }
+          },
+          {
+            "in": "path",
+            "name": "id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "security": [
+          {
+            "oauth": [
+              "internal",
+              "webhooks.write"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Updates webhook subscription",
+            "schema": {
+              "$ref": "#/definitions/V1_Entities_Webhooks_Subscription"
+            }
+          },
+          "403": {
+            "description": "Do not have access to this action"
+          },
+          "400": {
+            "description": "Validation error"
+          }
+        },
+        "tags": [
+
+        ],
+        "operationId": "putWebhooksId"
+      }
+    },
+    "/webhooks/deals/search": {
+      "get": {
+        "summary": "Searches for deals for a given user",
+        "description": "Searches for deals for a given user",
+        "produces": [
+          "application/json"
+        ],
+        "security": [
+          {
+            "oauth": [
+              "internal",
+              "webhooks.read"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Searches for deals for a given user",
+            "schema": {
+              "$ref": "#/definitions/V1_Entities_Webhooks_SecurityToken"
+            }
+          },
+          "403": {
+            "description": "Do not have access to this action"
+          },
+          "400": {
+            "description": "Validation error"
+          }
+        },
+        "tags": [
+
+        ],
+        "operationId": "getWebhooksDealsSearch"
+      }
+    },
+    "/webhooks/security_token": {
+      "get": {
+        "summary": "Creates a new security token for webhook subscription",
+        "description": "Creates a new security token for webhook subscription",
+        "produces": [
+          "application/json"
+        ],
+        "security": [
+          {
+            "oauth": [
+              "internal",
+              "webhooks.read"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Creates a new security token for webhook subscription",
+            "schema": {
+              "$ref": "#/definitions/V1_Entities_Webhooks_SecurityToken"
+            }
+          },
+          "403": {
+            "description": "Do not have access to this action"
+          },
+          "400": {
+            "description": "Validation error"
+          }
+        },
+        "tags": [
+
+        ],
+        "operationId": "getWebhooksSecurityToken"
+      }
+    },
+    "/webhooks/deal/{id}": {
+      "get": {
+        "summary": "Finds a deal using the id",
+        "description": "Returns a deal",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "security": [
+          {
+            "oauth": [
+              "internal",
+              "webhooks.read"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns a deal",
+            "schema": {
+              "$ref": "#/definitions/V1_Entities_Webhooks_Deal"
+            }
+          },
+          "403": {
+            "description": "Do not have access to this action"
+          },
+          "400": {
+            "description": "Validation error"
+          }
+        },
+        "tags": [
+
+        ],
+        "operationId": "getWebhooksDealId"
+      }
+    },
+    "/webhooks": {
+      "get": {
+        "summary": "Returns a list of webhook subscription which is associated to the user",
+        "description": "Returns a list of webhook subscription",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "page",
+            "description": "Page offset to fetch.",
+            "type": "integer",
+            "format": "int32",
+            "default": 1,
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "per_page",
+            "description": "Number of results to return per page.",
+            "type": "integer",
+            "format": "int32",
+            "default": 25,
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "description": "Pad a number of results.",
+            "type": "integer",
+            "format": "int32",
+            "default": 0,
+            "required": false
+          }
+        ],
+        "security": [
+          {
+            "oauth": [
+              "internal",
+              "webhooks.read"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns a list of webhook subscription",
+            "schema": {
+              "$ref": "#/definitions/V1_Entities_Webhooks_Subscription"
+            }
+          },
+          "403": {
+            "description": "Do not have access to this action"
+          },
+          "400": {
+            "description": "Validation error"
+          }
+        },
+        "tags": [
+
+        ],
+        "operationId": "getWebhooks"
+      },
+      "post": {
+        "summary": "Creates a webhook subscription which is associated to the user",
+        "description": "Creates new webhook subscription",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "formData",
+            "name": "name",
+            "description": "Endpoint name",
+            "type": "string",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "enabled",
+            "description": "Endpoint status",
+            "type": "boolean",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "url",
+            "description": "Payload URL",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "security_token",
+            "description": "Secret key",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "webhook_subscription_deals[deal_id]",
+            "description": "The id of the deal to link",
+            "type": "array",
+            "required": true,
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "security": [
+          {
+            "oauth": [
+              "internal",
+              "webhooks.write"
+            ]
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Creates new webhook subscription",
+            "schema": {
+              "$ref": "#/definitions/V1_Entities_Webhooks_Subscription"
+            }
+          },
+          "403": {
+            "description": "Do not have access to this action"
+          },
+          "400": {
+            "description": "Validation error"
+          }
+        },
+        "tags": [
+
+        ],
+        "operationId": "postWebhooks"
       }
     }
   },
@@ -653,7 +3348,8 @@
             "draft",
             "close",
             "active",
-            "amending"
+            "amending",
+            "ending"
           ],
           "description": "The deal state."
         },
@@ -856,7 +3552,7 @@
           ],
           "description": "The state."
         },
-        "funds_state": {
+        "funding_state": {
           "type": "string",
           "enum": [
             "unfunded",
@@ -873,6 +3569,10 @@
         "beneficial_address": {
           "type": "string",
           "description": "The address."
+        },
+        "phone_number": {
+          "type": "string",
+          "description": "The beneficial phone number associated with the investor. If there is no phone number, this returns the phone number associated with the user profile."
         },
         "tags": {
           "type": "Array[String]",
@@ -904,7 +3604,7 @@
         },
         "access_link": {
           "type": "string",
-          "description": "The access link for the investor."
+          "description": "The access link for the investor. This is the access link for the specific investment, not the user. If the same user has multiple investments, each one will have a different access link."
         },
         "subscription_agreement": {
           "$ref": "#/definitions/V1_Entities_SubscriptionAgreement",
@@ -947,6 +3647,14 @@
           "type": "integer",
           "format": "int32",
           "description": "The warrant certificate number."
+        },
+        "ranking_score": {
+          "type": "number",
+          "format": "float",
+          "description": "A value `[0, 1]` that represents the propensity for the investor to complete payment for the investment. A larger value indicates a higher likelihood of payment, as predicted by DealMaker’s machine learning algorithm. This field will only populate if DealMaker Compass is enabled for a deal and the investor `funds_state` value is not `funded` or `overfunded`"
+        },
+        "investor_profile": {
+          "type": "string"
         }
       },
       "description": "V1_Entities_Investor model"
@@ -1033,44 +3741,395 @@
         "type": {
           "type": "string",
           "enum": [
-            "individual"
+            "individual",
+            "joint",
+            "corporation",
+            "trust"
           ],
           "description": "Investor Profile type"
         },
-        "first_name": {
+        "us_accredited_category": {
           "type": "string",
-          "description": "Investor Profile First Name"
+          "description": "The accredited investor information"
         },
-        "last_name": {
-          "type": "string",
-          "description": "Investor Profile Last Name"
+        "complete": {
+          "type": "boolean",
+          "description": "To check if the profile is complete or not"
         },
-        "country": {
-          "type": "string",
-          "description": "Investor Profile Counrty"
-        },
-        "street_address": {
-          "type": "string",
-          "description": "Investor Profile Street Address"
-        },
-        "unit2": {
-          "type": "string",
-          "description": "Investor Profile Street Address Line 2"
-        },
-        "city": {
-          "type": "string",
-          "description": "Investor Profile City"
-        },
-        "region": {
-          "type": "string",
-          "description": "Investor Profile Region or State"
-        },
-        "postal_code": {
-          "type": "string",
-          "description": "Investor Profile Postal Code or ZipCode"
+        "account_holder": {
+          "$ref": "#/definitions/V1_Entities_InvestorProfile_Fields_PrimaryHolder"
         }
       },
       "description": "V1_Entities_InvestorProfile_Individual model"
+    },
+    "V1_Entities_InvestorProfile_Fields_PrimaryHolder": {
+      "type": "object",
+      "properties": {
+        "first_name": {
+          "type": "string",
+          "description": "Investor profile first name"
+        },
+        "last_name": {
+          "type": "string",
+          "description": "Investor profile last name"
+        },
+        "suffix": {
+          "type": "string",
+          "description": "Investor profile suffix"
+        },
+        "date_of_birth": {
+          "type": "string",
+          "description": "The date of birth"
+        },
+        "taxpayer_id": {
+          "type": "string",
+          "description": "The taxpayer identification number"
+        },
+        "phone_number": {
+          "type": "string",
+          "description": "The phone number of the primary account holder"
+        },
+        "address": {
+          "$ref": "#/definitions/V1_Entities_InvestorProfile_Address"
+        }
+      }
+    },
+    "V1_Entities_InvestorProfile_Address": {
+      "type": "object",
+      "properties": {
+        "street_address": {
+          "type": "string",
+          "description": "Investor profile street address"
+        },
+        "unit2": {
+          "type": "string",
+          "description": "Investor profile street address line 2"
+        },
+        "city": {
+          "type": "string",
+          "description": "Investor profile city"
+        },
+        "region": {
+          "type": "string",
+          "description": "Investor profile region or state"
+        },
+        "country": {
+          "type": "string",
+          "description": "Investor profile country"
+        },
+        "postal_code": {
+          "type": "string",
+          "description": "Investor profile postal code or zipcode"
+        }
+      }
+    },
+    "V1_Entities_InvestorProfile_Joint": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Investor Profile id"
+        },
+        "user_id": {
+          "type": "integer",
+          "format": "int32",
+          "description": "User id"
+        },
+        "email": {
+          "type": "string",
+          "description": "User email"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "individual",
+            "joint",
+            "corporation",
+            "trust"
+          ],
+          "description": "Investor Profile type"
+        },
+        "us_accredited_category": {
+          "type": "string",
+          "description": "The accredited investor information"
+        },
+        "complete": {
+          "type": "boolean",
+          "description": "To check if the profile is complete or not"
+        },
+        "joint_type": {
+          "type": "string",
+          "description": "The kind of joint investor"
+        },
+        "primary_holder": {
+          "$ref": "#/definitions/V1_Entities_InvestorProfile_Fields_PrimaryHolder"
+        },
+        "joint_holder": {
+          "$ref": "#/definitions/V1_Entities_InvestorProfile_Fields_AccountHolder"
+        }
+      },
+      "description": "V1_Entities_InvestorProfile_Joint model"
+    },
+    "V1_Entities_InvestorProfile_Fields_AccountHolder": {
+      "type": "object",
+      "properties": {
+        "first_name": {
+          "type": "string",
+          "description": "Investor profile first name"
+        },
+        "last_name": {
+          "type": "string",
+          "description": "Investor profile last name"
+        },
+        "suffix": {
+          "type": "string",
+          "description": "Investor profile suffix"
+        },
+        "date_of_birth": {
+          "type": "string",
+          "description": "The date of birth"
+        },
+        "taxpayer_id": {
+          "type": "string",
+          "description": "The taxpayer identification number"
+        },
+        "address": {
+          "$ref": "#/definitions/V1_Entities_InvestorProfile_Address"
+        }
+      }
+    },
+    "V1_Entities_InvestorProfile_Corporation": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Investor Profile id"
+        },
+        "user_id": {
+          "type": "integer",
+          "format": "int32",
+          "description": "User id"
+        },
+        "email": {
+          "type": "string",
+          "description": "User email"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "individual",
+            "joint",
+            "corporation",
+            "trust"
+          ],
+          "description": "Investor Profile type"
+        },
+        "us_accredited_category": {
+          "type": "string",
+          "description": "The accredited investor information"
+        },
+        "complete": {
+          "type": "boolean",
+          "description": "To check if the profile is complete or not"
+        },
+        "corporation": {
+          "$ref": "#/definitions/V1_Entities_InvestorProfile_Fields_Corporation"
+        },
+        "signing_officer": {
+          "$ref": "#/definitions/V1_Entities_InvestorProfile_Fields_AccountHolder"
+        },
+        "beneficial_owners": {
+          "$ref": "#/definitions/V1_Entities_InvestorProfile_Fields_AccountHolder"
+        }
+      },
+      "description": "V1_Entities_InvestorProfile_Corporation model"
+    },
+    "V1_Entities_InvestorProfile_Fields_Corporation": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "The corporation name"
+        },
+        "business_number": {
+          "type": "string",
+          "description": "The corporation business number"
+        },
+        "phone_number": {
+          "type": "string",
+          "description": "The corporation phone number"
+        },
+        "address": {
+          "$ref": "#/definitions/V1_Entities_InvestorProfile_Address"
+        }
+      }
+    },
+    "V1_Entities_InvestorProfile_Trust": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Investor Profile id"
+        },
+        "user_id": {
+          "type": "integer",
+          "format": "int32",
+          "description": "User id"
+        },
+        "email": {
+          "type": "string",
+          "description": "User email"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "individual",
+            "joint",
+            "corporation",
+            "trust"
+          ],
+          "description": "Investor Profile type"
+        },
+        "us_accredited_category": {
+          "type": "string",
+          "description": "The accredited investor information"
+        },
+        "complete": {
+          "type": "boolean",
+          "description": "To check if the profile is complete or not"
+        },
+        "trust_holder": {
+          "$ref": "#/definitions/V1_Entities_InvestorProfile_Fields_Trust"
+        },
+        "trustees": {
+          "$ref": "#/definitions/V1_Entities_InvestorProfile_Fields_AccountHolder"
+        }
+      },
+      "description": "V1_Entities_InvestorProfile_Trust model"
+    },
+    "V1_Entities_InvestorProfile_Fields_Trust": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "The name of the trust"
+        },
+        "date": {
+          "type": "string",
+          "description": "The creation date of the trust"
+        },
+        "phone_number": {
+          "type": "string",
+          "description": "The phone number of the trust"
+        },
+        "address": {
+          "$ref": "#/definitions/V1_Entities_InvestorProfile_Address"
+        }
+      }
+    },
+    "V1_Entities_Company": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32",
+          "description": "The unique id."
+        },
+        "type": {
+          "type": "integer",
+          "format": "int32",
+          "description": "The entity company."
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the company."
+        },
+        "description": {
+          "type": "string",
+          "description": "The description of the company."
+        },
+        "reply_email": {
+          "type": "string",
+          "description": "The reply email of the company."
+        },
+        "company_url": {
+          "type": "string",
+          "description": "The url of the company."
+        },
+        "addresses": {
+          "$ref": "#/definitions/V1_Entities_Addresses"
+        },
+        "portals": {
+          "$ref": "#/definitions/V1_Entities_CompanyDeals"
+        },
+        "primary_color": {
+          "type": "string",
+          "description": "The primary color of the company. This should be a hex color code, with the leading \"#\"."
+        }
+      },
+      "description": "V1_Entities_Company model"
+    },
+    "V1_Entities_Addresses": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "$ref": "#/definitions/V1_Entities_Address"
+        }
+      }
+    },
+    "V1_Entities_Address": {
+      "type": "object",
+      "properties": {
+        "street": {
+          "type": "string",
+          "description": "The street."
+        },
+        "line_2": {
+          "type": "string",
+          "description": "The second line."
+        },
+        "city": {
+          "type": "string",
+          "description": "The city."
+        },
+        "state": {
+          "type": "string",
+          "description": "The state/province."
+        },
+        "postal_code": {
+          "type": "string",
+          "description": "The postal code/zip code."
+        },
+        "country": {
+          "type": "string",
+          "description": "The country."
+        }
+      }
+    },
+    "V1_Entities_CompanyDeals": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "$ref": "#/definitions/V1_Entities_CompanyDeal"
+        }
+      }
+    },
+    "V1_Entities_CompanyDeal": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32",
+          "description": "The deal's unique id."
+        },
+        "name": {
+          "type": "string",
+          "description": "The deal title."
+        }
+      }
     },
     "V1_Entities_Deals": {
       "type": "object",
@@ -1080,6 +4139,169 @@
         }
       },
       "description": "V1_Entities_Deals model"
+    },
+    "V1_Entities_DealSetup": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32",
+          "description": "The deal setup id."
+        },
+        "deal_name": {
+          "type": "string",
+          "description": "The title/name of the deal."
+        },
+        "deal_type": {
+          "type": "integer",
+          "format": "int32",
+          "description": "The type of the deal."
+        },
+        "invoice_contact": {
+          "type": "string",
+          "description": "The invoice email address."
+        },
+        "industry": {
+          "type": "string",
+          "description": "The industry."
+        },
+        "high_risk": {
+          "type": "boolean",
+          "description": "Determine if the deal is a high risk or not."
+        },
+        "company_id": {
+          "type": "integer",
+          "format": "int32",
+          "description": "The id of the company."
+        },
+        "link": {
+          "type": "string",
+          "description": "Link to the second page of the deal setup"
+        },
+        "representative": {
+          "$ref": "#/definitions/V1_Entities_DealSetupUser",
+          "description": "The user associated with this deal setup."
+        }
+      },
+      "description": "V1_Entities_DealSetup model"
+    },
+    "V1_Entities_DealSetupUser": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Investor user id."
+        },
+        "email": {
+          "type": "string",
+          "description": "Investor user email address."
+        }
+      }
+    },
+    "V1_Entities_InvestorProfiles": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "$ref": "#/definitions/V1_Entities_InvestorProfileItem"
+        }
+      },
+      "description": "V1_Entities_InvestorProfiles model"
+    },
+    "V1_Entities_InvestorProfileItem": {
+      "type": "object",
+      "properties": {
+        "profile": {
+          "$ref": "#/definitions/V1_Entities_InvestorProfile_Trust"
+        }
+      }
+    },
+    "V1_Entities_Webhooks_Subscription": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Webhook subscription id."
+        },
+        "name": {
+          "type": "string",
+          "description": "Webhook subscription name."
+        },
+        "url": {
+          "type": "string",
+          "description": "Webhook subscription payload URL."
+        },
+        "enabled": {
+          "type": "boolean",
+          "description": "Webhook subscription status."
+        },
+        "security_token": {
+          "type": "string",
+          "description": "Webhook subscription secrete key."
+        },
+        "deals": {
+          "$ref": "#/definitions/V1_Entities_Webhooks_SubscriptionDeals"
+        }
+      },
+      "description": "V1_Entities_Webhooks_Subscription model"
+    },
+    "V1_Entities_Webhooks_SubscriptionDeals": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "$ref": "#/definitions/V1_Entities_Webhooks_SubscriptionDeal"
+        }
+      }
+    },
+    "V1_Entities_Webhooks_SubscriptionDeal": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The id of the webhook subscription deal."
+        },
+        "deal_id": {
+          "type": "string",
+          "description": "Linked deal id."
+        },
+        "name": {
+          "type": "string",
+          "description": "Linked deal name."
+        },
+        "company_name": {
+          "type": "string",
+          "description": "Name of the company that owns the linked deal."
+        }
+      }
+    },
+    "V1_Entities_Webhooks_SecurityToken": {
+      "type": "object",
+      "properties": {
+        "security_token": {
+          "type": "string",
+          "description": "The generated security token."
+        }
+      },
+      "description": "V1_Entities_Webhooks_SecurityToken model"
+    },
+    "V1_Entities_Webhooks_Deal": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Deal id."
+        },
+        "name": {
+          "type": "string",
+          "description": "Deal name."
+        },
+        "company_name": {
+          "type": "string",
+          "description": "Name of the company that owns the deal."
+        }
+      },
+      "description": "V1_Entities_Webhooks_Deal model"
     }
   }
 }

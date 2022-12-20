@@ -1,0 +1,155 @@
+# Api.CompanyApi
+
+All URIs are relative to *http://api.dealmaker.tech*
+
+Method | HTTP request | Description
+------------- | ------------- | -------------
+[**createCompany**](CompanyApi.md#createCompany) | **POST** /companies | Create new company
+[**getCompanies**](CompanyApi.md#getCompanies) | **GET** /companies | Get list of Companies
+[**getCompany**](CompanyApi.md#getCompany) | **GET** /companies/{id} | Get a Company
+
+
+
+## createCompany
+
+> V1EntitiesCompany createCompany(createCompanyRequest)
+
+Create new company
+
+Creates a new company.
+
+### Example
+
+```javascript
+import Api from 'api';
+let defaultClient = Api.ApiClient.instance;
+
+let apiInstance = new Api.CompanyApi();
+let createCompanyRequest = new Api.CreateCompanyRequest(); // CreateCompanyRequest | 
+apiInstance.createCompany(createCompanyRequest, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **createCompanyRequest** | [**CreateCompanyRequest**](CreateCompanyRequest.md)|  | 
+
+### Return type
+
+[**V1EntitiesCompany**](V1EntitiesCompany.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## getCompanies
+
+> V1EntitiesCompany getCompanies(opts)
+
+Get list of Companies
+
+Get companies
+
+### Example
+
+```javascript
+import Api from 'api';
+let defaultClient = Api.ApiClient.instance;
+
+let apiInstance = new Api.CompanyApi();
+let opts = {
+  'page': 1, // Number | Page offset to fetch.
+  'perPage': 25, // Number | Number of results to return per page.
+  'offset': 0 // Number | Pad a number of results.
+};
+apiInstance.getCompanies(opts, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **page** | **Number**| Page offset to fetch. | [optional] [default to 1]
+ **perPage** | **Number**| Number of results to return per page. | [optional] [default to 25]
+ **offset** | **Number**| Pad a number of results. | [optional] [default to 0]
+
+### Return type
+
+[**V1EntitiesCompany**](V1EntitiesCompany.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## getCompany
+
+> V1EntitiesCompany getCompany(id)
+
+Get a Company
+
+Get a Company.
+
+### Example
+
+```javascript
+import Api from 'api';
+let defaultClient = Api.ApiClient.instance;
+
+let apiInstance = new Api.CompanyApi();
+let id = 56; // Number | 
+apiInstance.getCompany(id, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Number**|  | 
+
+### Return type
+
+[**V1EntitiesCompany**](V1EntitiesCompany.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+

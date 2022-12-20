@@ -8,14 +8,9 @@ Name | Type | Description | Notes
 **userId** | **Number** | User id | [optional] 
 **email** | **String** | User email | [optional] 
 **type** | **String** | Investor Profile type | [optional] 
-**firstName** | **String** | Investor Profile First Name | [optional] 
-**lastName** | **String** | Investor Profile Last Name | [optional] 
-**country** | **String** | Investor Profile Counrty | [optional] 
-**streetAddress** | **String** | Investor Profile Street Address | [optional] 
-**unit2** | **String** | Investor Profile Street Address Line 2 | [optional] 
-**city** | **String** | Investor Profile City | [optional] 
-**region** | **String** | Investor Profile Region or State | [optional] 
-**postalCode** | **String** | Investor Profile Postal Code or ZipCode | [optional] 
+**usAccreditedCategory** | **String** | The accredited investor information | [optional] 
+**complete** | **Boolean** | To check if the profile is complete or not | [optional] 
+**accountHolder** | [**V1EntitiesInvestorProfileFieldsPrimaryHolder**](V1EntitiesInvestorProfileFieldsPrimaryHolder.md) |  | [optional] 
 
 
 
@@ -23,6 +18,12 @@ Name | Type | Description | Notes
 
 
 * `individual` (value: `"individual"`)
+
+* `joint` (value: `"joint"`)
+
+* `corporation` (value: `"corporation"`)
+
+* `trust` (value: `"trust"`)
 
 
 

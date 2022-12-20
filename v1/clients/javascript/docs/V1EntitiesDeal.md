@@ -31,6 +31,8 @@ Name | Type | Description | Notes
 
 * `amending` (value: `"amending"`)
 
+* `ending` (value: `"ending"`)
+
 
 
 

@@ -11,21 +11,24 @@
 | **name** | **String** | The full name of the investor. | [optional] |
 | **allocation_unit** | **String** | The allocation unit. | [optional] |
 | **state** | **String** | The state. | [optional] |
-| **funds_state** | **String** | The funding state. | [optional] |
+| **funding_state** | **String** | The funding state. | [optional] |
 | **funds_pending** | **Boolean** | True if any funds are pending; false otherwise. | [optional] |
 | **beneficial_address** | **String** | The address. | [optional] |
+| **phone_number** | **String** | The beneficial phone number associated with the investor. If there is no phone number, this returns the phone number associated with the user profile. | [optional] |
 | **investor_currency** | **String** | The investor currency. | [optional] |
 | **investment_value** | **Float** | The current investment value. | [optional] |
 | **number_of_securities** | **Integer** | The number of securities. | [optional] |
 | **allocated_amount** | **Float** | The amount allocated. | [optional] |
 | **funds_value** | **Float** | The current amount that has been funded. | [optional] |
-| **access_link** | **String** | The access link for the investor. | [optional] |
+| **access_link** | **String** | The access link for the investor. This is the access link for the specific investment, not the user. If the same user has multiple investments, each one will have a different access link. | [optional] |
 | **subscription_agreement** | [**V1EntitiesSubscriptionAgreement**](V1EntitiesSubscriptionAgreement.md) |  | [optional] |
 | **attachments** | [**V1EntitiesAttachment**](V1EntitiesAttachment.md) |  | [optional] |
 | **background_check_searches** | [**V1EntitiesBackgroundCheckSearch**](V1EntitiesBackgroundCheckSearch.md) |  | [optional] |
 | **verification_status** | **String** | The current 506c verification state. | [optional] |
 | **warrant_expiry_date** | **Date** | The warrant expiry date. | [optional] |
 | **warrant_certificate_number** | **Integer** | The warrant certificate number. | [optional] |
+| **ranking_score** | **Float** | A value &#x60;[0, 1]&#x60; that represents the propensity for the investor to complete payment for the investment. A larger value indicates a higher likelihood of payment, as predicted by DealMaker’s machine learning algorithm. This field will only populate if DealMaker Compass is enabled for a deal and the investor &#x60;funds_state&#x60; value is not &#x60;funded&#x60; or &#x60;overfunded&#x60; | [optional] |
+| **investor_profile** | **String** |  | [optional] |
 
 ## Example
 
@@ -40,9 +43,10 @@ instance = DealMakerAPI::V1EntitiesInvestor.new(
   name: null,
   allocation_unit: null,
   state: null,
-  funds_state: null,
+  funding_state: null,
   funds_pending: null,
   beneficial_address: null,
+  phone_number: null,
   investor_currency: null,
   investment_value: null,
   number_of_securities: null,
@@ -54,7 +58,9 @@ instance = DealMakerAPI::V1EntitiesInvestor.new(
   background_check_searches: null,
   verification_status: null,
   warrant_expiry_date: null,
-  warrant_certificate_number: null
+  warrant_certificate_number: null,
+  ranking_score: null,
+  investor_profile: null
 )
 ```
 

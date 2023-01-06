@@ -18,7 +18,7 @@ import V1EntitiesInvestorProfileFieldsCorporation from './V1EntitiesInvestorProf
 /**
  * The V1EntitiesInvestorProfileCorporation model module.
  * @module model/V1EntitiesInvestorProfileCorporation
- * @version 0.68.6
+ * @version 0.69.0
  */
 class V1EntitiesInvestorProfileCorporation {
     /**

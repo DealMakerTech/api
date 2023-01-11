@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The CreateCompanyRequest model module.
  * @module model/CreateCompanyRequest
- * @version 0.68.6
+ * @version 0.69.2
  */
 class CreateCompanyRequest {
     /**

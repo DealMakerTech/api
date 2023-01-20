@@ -18,7 +18,7 @@ import V1EntitiesInvestorProfileFieldsTrust from './V1EntitiesInvestorProfileFie
 /**
  * The V1EntitiesInvestorProfileTrust model module.
  * @module model/V1EntitiesInvestorProfileTrust
- * @version 0.68.7
+ * @version 0.70.0
  */
 class V1EntitiesInvestorProfileTrust {
     /**

@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The PatchIndividualProfileRequest model module.
  * @module model/PatchIndividualProfileRequest
- * @version 0.68.7
+ * @version 0.70.0
  */
 class PatchIndividualProfileRequest {
     /**

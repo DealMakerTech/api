@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The CreateInvestorRequest model module.
  * @module model/CreateInvestorRequest
- * @version 0.70.0
+ * @version 0.70.2
  */
 class CreateInvestorRequest {
     /**

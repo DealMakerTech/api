@@ -22,7 +22,7 @@ import V1EntitiesInvestors from '../model/V1EntitiesInvestors';
 /**
 * Investor service.
 * @module api/InvestorApi
-* @version 0.70.0
+* @version 0.70.3
 */
 export default class InvestorApi {
 

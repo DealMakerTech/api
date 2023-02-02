@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The CreateTrustProfileRequest model module.
  * @module model/CreateTrustProfileRequest
- * @version 0.70.5
+ * @version 0.71.0
  */
 class CreateTrustProfileRequest {
     /**

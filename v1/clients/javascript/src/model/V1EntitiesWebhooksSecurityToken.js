@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The V1EntitiesWebhooksSecurityToken model module.
  * @module model/V1EntitiesWebhooksSecurityToken
- * @version 0.70.5
+ * @version 0.71.0
  */
 class V1EntitiesWebhooksSecurityToken {
     /**

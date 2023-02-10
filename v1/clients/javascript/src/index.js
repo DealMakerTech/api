@@ -100,7 +100,7 @@ import InvestorProfileApi from './api/InvestorProfileApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.71.0
+* @version 0.71.6
 */
 export {
     /**

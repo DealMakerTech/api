@@ -20,7 +20,7 @@ import V1EntitiesSubscriptionAgreement from './V1EntitiesSubscriptionAgreement';
 /**
  * The V1EntitiesInvestor model module.
  * @module model/V1EntitiesInvestor
- * @version 0.71.0
+ * @version 0.73.4
  */
 class V1EntitiesInvestor {
     /**
@@ -127,6 +127,12 @@ class V1EntitiesInvestor {
             if (data.hasOwnProperty('investor_profile')) {
                 obj['investor_profile'] = ApiClient.convertToType(data['investor_profile'], 'String');
             }
+            if (data.hasOwnProperty('investor_profile_id')) {
+                obj['investor_profile_id'] = ApiClient.convertToType(data['investor_profile_id'], 'Number');
+            }
+            if (data.hasOwnProperty('checkout_state')) {
+                obj['checkout_state'] = ApiClient.convertToType(data['checkout_state'], 'String');
+            }
         }
         return obj;
     }
@@ -192,6 +198,10 @@ class V1EntitiesInvestor {
         // ensure the json data is a string
         if (data['investor_profile'] && !(typeof data['investor_profile'] === 'string' || data['investor_profile'] instanceof String)) {
             throw new Error("Expected the field `investor_profile` to be a primitive type in the JSON string but got " + data['investor_profile']);
+        }
+        // ensure the json data is a string
+        if (data['checkout_state'] && !(typeof data['checkout_state'] === 'string' || data['checkout_state'] instanceof String)) {
+            throw new Error("Expected the field `checkout_state` to be a primitive type in the JSON string but got " + data['checkout_state']);
         }
 
         return true;
@@ -346,6 +356,18 @@ V1EntitiesInvestor.prototype['ranking_score'] = undefined;
  * @member {String} investor_profile
  */
 V1EntitiesInvestor.prototype['investor_profile'] = undefined;
+
+/**
+ * The investor profile id.
+ * @member {Number} investor_profile_id
+ */
+V1EntitiesInvestor.prototype['investor_profile_id'] = undefined;
+
+/**
+ * Current state on checkout page.
+ * @member {String} checkout_state
+ */
+V1EntitiesInvestor.prototype['checkout_state'] = undefined;
 
 
 

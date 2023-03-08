@@ -60,6 +60,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property currentStep (base name: "current_step")', function() {
+      // uncomment below and update the code to test the property currentStep
+      //var instance = new Api.PatchInvestorRequest();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

@@ -40,6 +40,7 @@ docs/V1EntitiesDealSetup.md
 docs/V1EntitiesDealSetupUser.md
 docs/V1EntitiesDeals.md
 docs/V1EntitiesInvestor.md
+docs/V1EntitiesInvestorOtpAccessLink.md
 docs/V1EntitiesInvestorProfileAddress.md
 docs/V1EntitiesInvestorProfileCorporation.md
 docs/V1EntitiesInvestorProfileFieldsAccountHolder.md
@@ -101,6 +102,7 @@ src/model/V1EntitiesDealSetup.js
 src/model/V1EntitiesDealSetupUser.js
 src/model/V1EntitiesDeals.js
 src/model/V1EntitiesInvestor.js
+src/model/V1EntitiesInvestorOtpAccessLink.js
 src/model/V1EntitiesInvestorProfileAddress.js
 src/model/V1EntitiesInvestorProfileCorporation.js
 src/model/V1EntitiesInvestorProfileFieldsAccountHolder.js
@@ -157,6 +159,7 @@ test/model/V1EntitiesDealSetup.spec.js
 test/model/V1EntitiesDealSetupUser.spec.js
 test/model/V1EntitiesDeals.spec.js
 test/model/V1EntitiesInvestor.spec.js
+test/model/V1EntitiesInvestorOtpAccessLink.spec.js
 test/model/V1EntitiesInvestorProfileAddress.spec.js
 test/model/V1EntitiesInvestorProfileCorporation.spec.js
 test/model/V1EntitiesInvestorProfileFieldsAccountHolder.spec.js

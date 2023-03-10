@@ -17,11 +17,12 @@ import V1EntitiesInvestorProfileTrust from './V1EntitiesInvestorProfileTrust';
 /**
  * The V1EntitiesInvestorProfileItem model module.
  * @module model/V1EntitiesInvestorProfileItem
- * @version 0.71.0
+ * @version 0.73.5
  */
 class V1EntitiesInvestorProfileItem {
     /**
      * Constructs a new <code>V1EntitiesInvestorProfileItem</code>.
+     * V1_Entities_InvestorProfileItem model
      * @alias module:model/V1EntitiesInvestorProfileItem
      */
     constructor() { 

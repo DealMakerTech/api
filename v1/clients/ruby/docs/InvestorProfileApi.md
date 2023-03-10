@@ -8,6 +8,8 @@ All URIs are relative to *http://api.dealmaker.tech*
 | [**create_individual_profile**](InvestorProfileApi.md#create_individual_profile) | **POST** /investor_profiles/individuals | Create new individual investor profile |
 | [**create_joint_profile**](InvestorProfileApi.md#create_joint_profile) | **POST** /investor_profiles/joints | Create new joint investor profile |
 | [**create_trust_profile**](InvestorProfileApi.md#create_trust_profile) | **POST** /investor_profiles/trusts | Create new trust investor profile. |
+| [**get_deal_investor_profiles**](InvestorProfileApi.md#get_deal_investor_profiles) | **GET** /investor_profiles/{deal_id} | Get list of InvestorProfiles for a specific deal |
+| [**get_investor_profile**](InvestorProfileApi.md#get_investor_profile) | **GET** /investor_profiles/profile/{id} | Get an investor profile by id |
 | [**get_investor_profiles**](InvestorProfileApi.md#get_investor_profiles) | **GET** /investor_profiles | Get list of InvestorProfiles |
 | [**patch_corporation_profile**](InvestorProfileApi.md#patch_corporation_profile) | **PATCH** /investor_profiles/corporations/{investor_profile_id} | Patch a corporation investor profile |
 | [**patch_individual_profile**](InvestorProfileApi.md#patch_individual_profile) | **PATCH** /investor_profiles/individuals/{investor_profile_id} | Patch an individual investor profile. |
@@ -276,6 +278,148 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## get_deal_investor_profiles
+
+> <V1EntitiesInvestorProfiles> get_deal_investor_profiles(deal_id, opts)
+
+Get list of InvestorProfiles for a specific deal
+
+Get investor profiles for a specific deal
+
+### Examples
+
+```ruby
+require 'time'
+require 'DealMakerAPI'
+# setup authorization
+DealMakerAPI.configure do |config|end
+
+api_instance = DealMakerAPI::InvestorProfileApi.new
+deal_id = 56 # Integer | The deal id.
+opts = {
+  page: 56, # Integer | Page offset to fetch.
+  per_page: 56, # Integer | Number of results to return per page.
+  offset: 56, # Integer | Pad a number of results.
+  user_id: 56 # Integer | The user id filter.
+}
+
+begin
+  # Get list of InvestorProfiles for a specific deal
+  result = api_instance.get_deal_investor_profiles(deal_id, opts)
+  p result
+rescue DealMakerAPI::ApiError => e
+  puts "Error when calling InvestorProfileApi->get_deal_investor_profiles: #{e}"
+end
+```
+
+#### Using the get_deal_investor_profiles_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<V1EntitiesInvestorProfiles>, Integer, Hash)> get_deal_investor_profiles_with_http_info(deal_id, opts)
+
+```ruby
+begin
+  # Get list of InvestorProfiles for a specific deal
+  data, status_code, headers = api_instance.get_deal_investor_profiles_with_http_info(deal_id, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <V1EntitiesInvestorProfiles>
+rescue DealMakerAPI::ApiError => e
+  puts "Error when calling InvestorProfileApi->get_deal_investor_profiles_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **deal_id** | **Integer** | The deal id. |  |
+| **page** | **Integer** | Page offset to fetch. | [optional][default to 1] |
+| **per_page** | **Integer** | Number of results to return per page. | [optional][default to 25] |
+| **offset** | **Integer** | Pad a number of results. | [optional][default to 0] |
+| **user_id** | **Integer** | The user id filter. | [optional] |
+
+### Return type
+
+[**V1EntitiesInvestorProfiles**](V1EntitiesInvestorProfiles.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## get_investor_profile
+
+> <V1EntitiesInvestorProfileItem> get_investor_profile(id)
+
+Get an investor profile by id
+
+Get an investor profile
+
+### Examples
+
+```ruby
+require 'time'
+require 'DealMakerAPI'
+# setup authorization
+DealMakerAPI.configure do |config|end
+
+api_instance = DealMakerAPI::InvestorProfileApi.new
+id = 56 # Integer | The id of the investor profile.
+
+begin
+  # Get an investor profile by id
+  result = api_instance.get_investor_profile(id)
+  p result
+rescue DealMakerAPI::ApiError => e
+  puts "Error when calling InvestorProfileApi->get_investor_profile: #{e}"
+end
+```
+
+#### Using the get_investor_profile_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<V1EntitiesInvestorProfileItem>, Integer, Hash)> get_investor_profile_with_http_info(id)
+
+```ruby
+begin
+  # Get an investor profile by id
+  data, status_code, headers = api_instance.get_investor_profile_with_http_info(id)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <V1EntitiesInvestorProfileItem>
+rescue DealMakerAPI::ApiError => e
+  puts "Error when calling InvestorProfileApi->get_investor_profile_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **id** | **Integer** | The id of the investor profile. |  |
+
+### Return type
+
+[**V1EntitiesInvestorProfileItem**](V1EntitiesInvestorProfileItem.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 

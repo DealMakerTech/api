@@ -44,6 +44,7 @@ import V1EntitiesDealSetup from './model/V1EntitiesDealSetup';
 import V1EntitiesDealSetupUser from './model/V1EntitiesDealSetupUser';
 import V1EntitiesDeals from './model/V1EntitiesDeals';
 import V1EntitiesInvestor from './model/V1EntitiesInvestor';
+import V1EntitiesInvestorOtpAccessLink from './model/V1EntitiesInvestorOtpAccessLink';
 import V1EntitiesInvestorProfileAddress from './model/V1EntitiesInvestorProfileAddress';
 import V1EntitiesInvestorProfileCorporation from './model/V1EntitiesInvestorProfileCorporation';
 import V1EntitiesInvestorProfileFieldsAccountHolder from './model/V1EntitiesInvestorProfileFieldsAccountHolder';
@@ -100,7 +101,7 @@ import InvestorProfileApi from './api/InvestorProfileApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.71.0
+* @version 0.73.5
 */
 export {
     /**
@@ -294,6 +295,12 @@ export {
      * @property {module:model/V1EntitiesInvestor}
      */
     V1EntitiesInvestor,
+
+    /**
+     * The V1EntitiesInvestorOtpAccessLink model constructor.
+     * @property {module:model/V1EntitiesInvestorOtpAccessLink}
+     */
+    V1EntitiesInvestorOtpAccessLink,
 
     /**
      * The V1EntitiesInvestorProfileAddress model constructor.

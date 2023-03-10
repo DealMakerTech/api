@@ -88,6 +88,26 @@
         done();
       });
     });
+    describe('getDealInvestorProfiles', function() {
+      it('should call getDealInvestorProfiles successfully', function(done) {
+        //uncomment below and update the code to test getDealInvestorProfiles
+        //instance.getDealInvestorProfiles(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('getInvestorProfile', function() {
+      it('should call getInvestorProfile successfully', function(done) {
+        //uncomment below and update the code to test getInvestorProfile
+        //instance.getInvestorProfile(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('getInvestorProfiles', function() {
       it('should call getInvestorProfiles successfully', function(done) {
         //uncomment below and update the code to test getInvestorProfiles

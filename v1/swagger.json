@@ -65,7 +65,7 @@
     },
     {
       "name": "investor",
-      "description": "Each individual investment in a deal is an Investor. Investments belong to a User, and a User may have multiple Investments, across different deals or in the same deal. Each Investor has a unique ID, which is accessible on the overview page for that Investor. The access link for each Investor will also be unique, even if multiple investors belong to the same User.",
+      "description": "Each individual investment in a deal is an Investor. Investments belong to a User, and a User may have multiple Investments, across different deals or in the same deal. Each Investor has a unique ID, which is accessible on the overview page for that Investor. The access link for each Investor will also be unique, even if multiple investors belong to the same User. If an Investor is using an Investor Profile, a snapshot of the profile will be included with the Investor payload once they are in the signed state. An Investor enters the signed state when they sign their subscription agreement. If an Investor has not yet signed their agreement, or if an Investor is created without an associated profile, then the “investor_profile” field will be `null`.",
       "x-displayName": "Investor"
     },
     {
@@ -105,6 +105,65 @@
     }
   ],
   "paths": {
+    "/deals/{id}/investors/{investor_id}/otp_access_link": {
+      "get": {
+        "summary": "Get OTP access link for deal investor",
+        "description": "Get OTP access link for deal investor by id",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "description": "The deal id.",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          },
+          {
+            "in": "path",
+            "name": "investor_id",
+            "description": "The investor id.",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "security": [
+          {
+            "oauth": [
+              "deals.investors.read"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get OTP access link for deal investor",
+            "schema": {
+              "$ref": "#/definitions/V1_Entities_InvestorOtpAccessLink"
+            }
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "tags": [
+          "investor"
+        ],
+        "operationId": "getInvestorOtpLink",
+        "x-codeSamples": [
+          {
+            "lang": "javascript",
+            "source": ""
+          },
+          {
+            "lang": "ruby",
+            "source": ""
+          }
+        ]
+      }
+    },
     "/deals/{id}/investors": {
       "get": {
         "summary": "List deal investors",
@@ -391,6 +450,18 @@
             "type": "integer",
             "format": "int32",
             "required": true
+          },
+          {
+            "in": "formData",
+            "name": "current_step",
+            "description": "Step on checkout page.",
+            "type": "string",
+            "default": "contact-information",
+            "enum": [
+              "contact-information",
+              "investor-confirmation"
+            ],
+            "required": false
           }
         ],
         "security": [
@@ -1277,6 +1348,9 @@
           },
           "401": {
             "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not found"
           }
         },
         "tags": [
@@ -1677,6 +1751,9 @@
           },
           "401": {
             "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not found"
           }
         },
         "tags": [
@@ -2082,6 +2159,9 @@
           },
           "401": {
             "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not found"
           }
         },
         "tags": [
@@ -2547,6 +2627,9 @@
           },
           "401": {
             "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not found"
           }
         },
         "tags": [
@@ -2896,6 +2979,57 @@
         ]
       }
     },
+    "/investor_profiles/profile/{id}": {
+      "get": {
+        "summary": "Get an investor profile by id",
+        "description": "Get an investor profile",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "description": "The id of the investor profile.",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "security": [
+          {
+            "oauth": [
+
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get an investor profile",
+            "schema": {
+              "$ref": "#/definitions/V1_Entities_InvestorProfileItem"
+            }
+          },
+          "401": {
+            "description": "Forbidden"
+          }
+        },
+        "tags": [
+          "investor_profile"
+        ],
+        "operationId": "getInvestorProfile",
+        "x-codeSamples": [
+          {
+            "lang": "javascript",
+            "source": ""
+          },
+          {
+            "lang": "ruby",
+            "source": ""
+          }
+        ]
+      }
+    },
     "/investor_profiles": {
       "get": {
         "summary": "Get list of InvestorProfiles",
@@ -2954,6 +3088,92 @@
           "investor_profile"
         ],
         "operationId": "getInvestorProfiles",
+        "x-codeSamples": [
+          {
+            "lang": "javascript",
+            "source": ""
+          },
+          {
+            "lang": "ruby",
+            "source": ""
+          }
+        ]
+      }
+    },
+    "/investor_profiles/{deal_id}": {
+      "get": {
+        "summary": "Get list of InvestorProfiles for a specific deal",
+        "description": "Get investor profiles for a specific deal",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "page",
+            "description": "Page offset to fetch.",
+            "type": "integer",
+            "format": "int32",
+            "default": 1,
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "per_page",
+            "description": "Number of results to return per page.",
+            "type": "integer",
+            "format": "int32",
+            "default": 25,
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "description": "Pad a number of results.",
+            "type": "integer",
+            "format": "int32",
+            "default": 0,
+            "required": false
+          },
+          {
+            "in": "path",
+            "name": "deal_id",
+            "description": "The deal id.",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          },
+          {
+            "in": "query",
+            "name": "user_id",
+            "description": "The user id filter.",
+            "type": "integer",
+            "format": "int32",
+            "required": false
+          }
+        ],
+        "security": [
+          {
+            "oauth": [
+
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get investor profiles for a specific deal",
+            "schema": {
+              "$ref": "#/definitions/V1_Entities_InvestorProfiles"
+            }
+          },
+          "401": {
+            "description": "Forbidden"
+          }
+        },
+        "tags": [
+          "investor_profile"
+        ],
+        "operationId": "getDealInvestorProfiles",
         "x-codeSamples": [
           {
             "lang": "javascript",
@@ -3655,6 +3875,15 @@
         },
         "investor_profile": {
           "type": "string"
+        },
+        "investor_profile_id": {
+          "type": "integer",
+          "format": "int32",
+          "description": "The investor profile id."
+        },
+        "checkout_state": {
+          "type": "string",
+          "description": "Current state on checkout page."
         }
       },
       "description": "V1_Entities_Investor model"
@@ -4131,6 +4360,16 @@
         }
       }
     },
+    "V1_Entities_InvestorOtpAccessLink": {
+      "type": "object",
+      "properties": {
+        "access_link": {
+          "type": "string",
+          "description": "OTP access link for the investor."
+        }
+      },
+      "description": "V1_Entities_InvestorOtpAccessLink model"
+    },
     "V1_Entities_Deals": {
       "type": "object",
       "properties": {
@@ -4199,6 +4438,15 @@
         }
       }
     },
+    "V1_Entities_InvestorProfileItem": {
+      "type": "object",
+      "properties": {
+        "profile": {
+          "$ref": "#/definitions/V1_Entities_InvestorProfile_Trust"
+        }
+      },
+      "description": "V1_Entities_InvestorProfileItem model"
+    },
     "V1_Entities_InvestorProfiles": {
       "type": "object",
       "properties": {
@@ -4207,14 +4455,6 @@
         }
       },
       "description": "V1_Entities_InvestorProfiles model"
-    },
-    "V1_Entities_InvestorProfileItem": {
-      "type": "object",
-      "properties": {
-        "profile": {
-          "$ref": "#/definitions/V1_Entities_InvestorProfile_Trust"
-        }
-      }
     },
     "V1_Entities_Webhooks_Subscription": {
       "type": "object",

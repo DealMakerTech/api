@@ -17,12 +17,13 @@ import CreateInvestorRequest from '../model/CreateInvestorRequest';
 import PatchInvestorRequest from '../model/PatchInvestorRequest';
 import UpdateInvestorRequest from '../model/UpdateInvestorRequest';
 import V1EntitiesInvestor from '../model/V1EntitiesInvestor';
+import V1EntitiesInvestorOtpAccessLink from '../model/V1EntitiesInvestorOtpAccessLink';
 import V1EntitiesInvestors from '../model/V1EntitiesInvestors';
 
 /**
 * Investor service.
 * @module api/InvestorApi
-* @version 0.71.0
+* @version 0.73.6
 */
 export default class InvestorApi {
 
@@ -130,6 +131,55 @@ export default class InvestorApi {
       let returnType = V1EntitiesInvestor;
       return this.apiClient.callApi(
         '/deals/{id}/investors/{investor_id}', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the getInvestorOtpLink operation.
+     * @callback module:api/InvestorApi~getInvestorOtpLinkCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/V1EntitiesInvestorOtpAccessLink} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Get OTP access link for deal investor
+     * Get OTP access link for deal investor by id
+     * @param {Number} id The deal id.
+     * @param {Number} investorId The investor id.
+     * @param {module:api/InvestorApi~getInvestorOtpLinkCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/V1EntitiesInvestorOtpAccessLink}
+     */
+    getInvestorOtpLink(id, investorId, callback) {
+      let postBody = null;
+      // verify the required parameter 'id' is set
+      if (id === undefined || id === null) {
+        throw new Error("Missing the required parameter 'id' when calling getInvestorOtpLink");
+      }
+      // verify the required parameter 'investorId' is set
+      if (investorId === undefined || investorId === null) {
+        throw new Error("Missing the required parameter 'investorId' when calling getInvestorOtpLink");
+      }
+
+      let pathParams = {
+        'id': id,
+        'investor_id': investorId
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = V1EntitiesInvestorOtpAccessLink;
+      return this.apiClient.callApi(
+        '/deals/{id}/investors/{investor_id}/otp_access_link', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

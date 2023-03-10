@@ -23,6 +23,7 @@ import PatchJointProfileRequest from '../model/PatchJointProfileRequest';
 import PatchTrustProfileRequest from '../model/PatchTrustProfileRequest';
 import V1EntitiesInvestorProfileCorporation from '../model/V1EntitiesInvestorProfileCorporation';
 import V1EntitiesInvestorProfileIndividual from '../model/V1EntitiesInvestorProfileIndividual';
+import V1EntitiesInvestorProfileItem from '../model/V1EntitiesInvestorProfileItem';
 import V1EntitiesInvestorProfileJoint from '../model/V1EntitiesInvestorProfileJoint';
 import V1EntitiesInvestorProfileTrust from '../model/V1EntitiesInvestorProfileTrust';
 import V1EntitiesInvestorProfiles from '../model/V1EntitiesInvestorProfiles';
@@ -30,7 +31,7 @@ import V1EntitiesInvestorProfiles from '../model/V1EntitiesInvestorProfiles';
 /**
 * InvestorProfile service.
 * @module api/InvestorProfileApi
-* @version 0.71.0
+* @version 0.73.6
 */
 export default class InvestorProfileApi {
 
@@ -209,6 +210,102 @@ export default class InvestorProfileApi {
       let returnType = V1EntitiesInvestorProfileTrust;
       return this.apiClient.callApi(
         '/investor_profiles/trusts', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the getDealInvestorProfiles operation.
+     * @callback module:api/InvestorProfileApi~getDealInvestorProfilesCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/V1EntitiesInvestorProfiles} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Get list of InvestorProfiles for a specific deal
+     * Get investor profiles for a specific deal
+     * @param {Number} dealId The deal id.
+     * @param {Object} opts Optional parameters
+     * @param {Number} opts.page Page offset to fetch. (default to 1)
+     * @param {Number} opts.perPage Number of results to return per page. (default to 25)
+     * @param {Number} opts.offset Pad a number of results. (default to 0)
+     * @param {Number} opts.userId The user id filter.
+     * @param {module:api/InvestorProfileApi~getDealInvestorProfilesCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/V1EntitiesInvestorProfiles}
+     */
+    getDealInvestorProfiles(dealId, opts, callback) {
+      opts = opts || {};
+      let postBody = null;
+      // verify the required parameter 'dealId' is set
+      if (dealId === undefined || dealId === null) {
+        throw new Error("Missing the required parameter 'dealId' when calling getDealInvestorProfiles");
+      }
+
+      let pathParams = {
+        'deal_id': dealId
+      };
+      let queryParams = {
+        'page': opts['page'],
+        'per_page': opts['perPage'],
+        'offset': opts['offset'],
+        'user_id': opts['userId']
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = V1EntitiesInvestorProfiles;
+      return this.apiClient.callApi(
+        '/investor_profiles/{deal_id}', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the getInvestorProfile operation.
+     * @callback module:api/InvestorProfileApi~getInvestorProfileCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/V1EntitiesInvestorProfileItem} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Get an investor profile by id
+     * Get an investor profile
+     * @param {Number} id The id of the investor profile.
+     * @param {module:api/InvestorProfileApi~getInvestorProfileCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/V1EntitiesInvestorProfileItem}
+     */
+    getInvestorProfile(id, callback) {
+      let postBody = null;
+      // verify the required parameter 'id' is set
+      if (id === undefined || id === null) {
+        throw new Error("Missing the required parameter 'id' when calling getInvestorProfile");
+      }
+
+      let pathParams = {
+        'id': id
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = V1EntitiesInvestorProfileItem;
+      return this.apiClient.callApi(
+        '/investor_profiles/profile/{id}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

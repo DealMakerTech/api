@@ -8,6 +8,8 @@ All URIs are relative to http://api.dealmaker.tech, except if the operation defi
 | [**createIndividualProfile()**](InvestorProfileApi.md#createIndividualProfile) | **POST** /investor_profiles/individuals | Create new individual investor profile |
 | [**createJointProfile()**](InvestorProfileApi.md#createJointProfile) | **POST** /investor_profiles/joints | Create new joint investor profile |
 | [**createTrustProfile()**](InvestorProfileApi.md#createTrustProfile) | **POST** /investor_profiles/trusts | Create new trust investor profile. |
+| [**getDealInvestorProfiles()**](InvestorProfileApi.md#getDealInvestorProfiles) | **GET** /investor_profiles/{deal_id} | Get list of InvestorProfiles for a specific deal |
+| [**getInvestorProfile()**](InvestorProfileApi.md#getInvestorProfile) | **GET** /investor_profiles/profile/{id} | Get an investor profile by id |
 | [**getInvestorProfiles()**](InvestorProfileApi.md#getInvestorProfiles) | **GET** /investor_profiles | Get list of InvestorProfiles |
 | [**patchCorporationProfile()**](InvestorProfileApi.md#patchCorporationProfile) | **PATCH** /investor_profiles/corporations/{investor_profile_id} | Patch a corporation investor profile |
 | [**patchIndividualProfile()**](InvestorProfileApi.md#patchIndividualProfile) | **PATCH** /investor_profiles/individuals/{investor_profile_id} | Patch an individual investor profile. |
@@ -237,6 +239,128 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getDealInvestorProfiles()`
+
+```php
+getDealInvestorProfiles($deal_id, $page, $per_page, $offset, $user_id): \DealMaker\Model\V1EntitiesInvestorProfiles
+```
+
+Get list of InvestorProfiles for a specific deal
+
+Get investor profiles for a specific deal
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new DealMaker\Api\InvestorProfileApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$deal_id = 56; // int | The deal id.
+$page = 1; // int | Page offset to fetch.
+$per_page = 25; // int | Number of results to return per page.
+$offset = 0; // int | Pad a number of results.
+$user_id = 56; // int | The user id filter.
+
+try {
+    $result = $apiInstance->getDealInvestorProfiles($deal_id, $page, $per_page, $offset, $user_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling InvestorProfileApi->getDealInvestorProfiles: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **deal_id** | **int**| The deal id. | |
+| **page** | **int**| Page offset to fetch. | [optional] [default to 1] |
+| **per_page** | **int**| Number of results to return per page. | [optional] [default to 25] |
+| **offset** | **int**| Pad a number of results. | [optional] [default to 0] |
+| **user_id** | **int**| The user id filter. | [optional] |
+
+### Return type
+
+[**\DealMaker\Model\V1EntitiesInvestorProfiles**](../Model/V1EntitiesInvestorProfiles.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getInvestorProfile()`
+
+```php
+getInvestorProfile($id): \DealMaker\Model\V1EntitiesInvestorProfileItem
+```
+
+Get an investor profile by id
+
+Get an investor profile
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new DealMaker\Api\InvestorProfileApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = 56; // int | The id of the investor profile.
+
+try {
+    $result = $apiInstance->getInvestorProfile($id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling InvestorProfileApi->getInvestorProfile: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **int**| The id of the investor profile. | |
+
+### Return type
+
+[**\DealMaker\Model\V1EntitiesInvestorProfileItem**](../Model/V1EntitiesInvestorProfileItem.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

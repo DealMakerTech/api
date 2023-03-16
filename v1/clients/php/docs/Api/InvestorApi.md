@@ -6,6 +6,7 @@ All URIs are relative to http://api.dealmaker.tech, except if the operation defi
 | ------------- | ------------- | ------------- |
 | [**createInvestor()**](InvestorApi.md#createInvestor) | **POST** /deals/{id}/investors | Create a deal investor |
 | [**getInvestor()**](InvestorApi.md#getInvestor) | **GET** /deals/{id}/investors/{investor_id} | Get a deal investor by id |
+| [**getInvestorOtpLink()**](InvestorApi.md#getInvestorOtpLink) | **GET** /deals/{id}/investors/{investor_id}/otp_access_link | Get OTP access link for deal investor |
 | [**listInvestors()**](InvestorApi.md#listInvestors) | **GET** /deals/{id}/investors | List deal investors |
 | [**patchInvestor()**](InvestorApi.md#patchInvestor) | **PATCH** /deals/{id}/investors/{investor_id} | Patch a deal investor |
 | [**updateInvestor()**](InvestorApi.md#updateInvestor) | **PUT** /deals/{id}/investors/{investor_id} | Update a deal investor |
@@ -115,6 +116,65 @@ try {
 ### Return type
 
 [**\DealMaker\Model\V1EntitiesInvestor**](../Model/V1EntitiesInvestor.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getInvestorOtpLink()`
+
+```php
+getInvestorOtpLink($id, $investor_id): \DealMaker\Model\V1EntitiesInvestorOtpAccessLink
+```
+
+Get OTP access link for deal investor
+
+Get OTP access link for deal investor by id
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new DealMaker\Api\InvestorApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = 56; // int | The deal id.
+$investor_id = 56; // int | The investor id.
+
+try {
+    $result = $apiInstance->getInvestorOtpLink($id, $investor_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling InvestorApi->getInvestorOtpLink: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **int**| The deal id. | |
+| **investor_id** | **int**| The investor id. | |
+
+### Return type
+
+[**\DealMaker\Model\V1EntitiesInvestorOtpAccessLink**](../Model/V1EntitiesInvestorOtpAccessLink.md)
 
 ### Authorization
 

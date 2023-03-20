@@ -8,6 +8,8 @@ Method | HTTP request | Description
 [**createIndividualProfile**](InvestorProfileApi.md#createIndividualProfile) | **POST** /investor_profiles/individuals | Create new individual investor profile
 [**createJointProfile**](InvestorProfileApi.md#createJointProfile) | **POST** /investor_profiles/joints | Create new joint investor profile
 [**createTrustProfile**](InvestorProfileApi.md#createTrustProfile) | **POST** /investor_profiles/trusts | Create new trust investor profile.
+[**getDealInvestorProfiles**](InvestorProfileApi.md#getDealInvestorProfiles) | **GET** /investor_profiles/{deal_id} | Get list of InvestorProfiles for a specific deal
+[**getInvestorProfile**](InvestorProfileApi.md#getInvestorProfile) | **GET** /investor_profiles/profile/{id} | Get an investor profile by id
 [**getInvestorProfiles**](InvestorProfileApi.md#getInvestorProfiles) | **GET** /investor_profiles | Get list of InvestorProfiles
 [**patchCorporationProfile**](InvestorProfileApi.md#patchCorporationProfile) | **PATCH** /investor_profiles/corporations/{investor_profile_id} | Patch a corporation investor profile
 [**patchIndividualProfile**](InvestorProfileApi.md#patchIndividualProfile) | **PATCH** /investor_profiles/individuals/{investor_profile_id} | Patch an individual investor profile.
@@ -197,6 +199,108 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## getDealInvestorProfiles
+
+> V1EntitiesInvestorProfiles getDealInvestorProfiles(dealId, opts)
+
+Get list of InvestorProfiles for a specific deal
+
+Get investor profiles for a specific deal
+
+### Example
+
+```javascript
+import Api from 'api';
+let defaultClient = Api.ApiClient.instance;
+
+let apiInstance = new Api.InvestorProfileApi();
+let dealId = 56; // Number | The deal id.
+let opts = {
+  'page': 1, // Number | Page offset to fetch.
+  'perPage': 25, // Number | Number of results to return per page.
+  'offset': 0, // Number | Pad a number of results.
+  'userId': 56 // Number | The user id filter.
+};
+apiInstance.getDealInvestorProfiles(dealId, opts, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **dealId** | **Number**| The deal id. | 
+ **page** | **Number**| Page offset to fetch. | [optional] [default to 1]
+ **perPage** | **Number**| Number of results to return per page. | [optional] [default to 25]
+ **offset** | **Number**| Pad a number of results. | [optional] [default to 0]
+ **userId** | **Number**| The user id filter. | [optional] 
+
+### Return type
+
+[**V1EntitiesInvestorProfiles**](V1EntitiesInvestorProfiles.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## getInvestorProfile
+
+> V1EntitiesInvestorProfileItem getInvestorProfile(id)
+
+Get an investor profile by id
+
+Get an investor profile
+
+### Example
+
+```javascript
+import Api from 'api';
+let defaultClient = Api.ApiClient.instance;
+
+let apiInstance = new Api.InvestorProfileApi();
+let id = 56; // Number | The id of the investor profile.
+apiInstance.getInvestorProfile(id, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Number**| The id of the investor profile. | 
+
+### Return type
+
+[**V1EntitiesInvestorProfileItem**](V1EntitiesInvestorProfileItem.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 

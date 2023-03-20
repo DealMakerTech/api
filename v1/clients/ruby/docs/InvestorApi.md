@@ -6,6 +6,7 @@ All URIs are relative to *http://api.dealmaker.tech*
 | ------ | ------------ | ----------- |
 | [**create_investor**](InvestorApi.md#create_investor) | **POST** /deals/{id}/investors | Create a deal investor |
 | [**get_investor**](InvestorApi.md#get_investor) | **GET** /deals/{id}/investors/{investor_id} | Get a deal investor by id |
+| [**get_investor_otp_link**](InvestorApi.md#get_investor_otp_link) | **GET** /deals/{id}/investors/{investor_id}/otp_access_link | Get OTP access link for deal investor |
 | [**list_investors**](InvestorApi.md#list_investors) | **GET** /deals/{id}/investors | List deal investors |
 | [**patch_investor**](InvestorApi.md#patch_investor) | **PATCH** /deals/{id}/investors/{investor_id} | Patch a deal investor |
 | [**update_investor**](InvestorApi.md#update_investor) | **PUT** /deals/{id}/investors/{investor_id} | Update a deal investor |
@@ -136,6 +137,74 @@ end
 ### Return type
 
 [**V1EntitiesInvestor**](V1EntitiesInvestor.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## get_investor_otp_link
+
+> <V1EntitiesInvestorOtpAccessLink> get_investor_otp_link(id, investor_id)
+
+Get OTP access link for deal investor
+
+Get OTP access link for deal investor by id
+
+### Examples
+
+```ruby
+require 'time'
+require 'DealMakerAPI'
+# setup authorization
+DealMakerAPI.configure do |config|end
+
+api_instance = DealMakerAPI::InvestorApi.new
+id = 56 # Integer | The deal id.
+investor_id = 56 # Integer | The investor id.
+
+begin
+  # Get OTP access link for deal investor
+  result = api_instance.get_investor_otp_link(id, investor_id)
+  p result
+rescue DealMakerAPI::ApiError => e
+  puts "Error when calling InvestorApi->get_investor_otp_link: #{e}"
+end
+```
+
+#### Using the get_investor_otp_link_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<V1EntitiesInvestorOtpAccessLink>, Integer, Hash)> get_investor_otp_link_with_http_info(id, investor_id)
+
+```ruby
+begin
+  # Get OTP access link for deal investor
+  data, status_code, headers = api_instance.get_investor_otp_link_with_http_info(id, investor_id)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <V1EntitiesInvestorOtpAccessLink>
+rescue DealMakerAPI::ApiError => e
+  puts "Error when calling InvestorApi->get_investor_otp_link_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **id** | **Integer** | The deal id. |  |
+| **investor_id** | **Integer** | The investor id. |  |
+
+### Return type
+
+[**V1EntitiesInvestorOtpAccessLink**](V1EntitiesInvestorOtpAccessLink.md)
 
 ### Authorization
 

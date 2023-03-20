@@ -68,6 +68,16 @@
         done();
       });
     });
+    describe('getInvestorOtpLink', function() {
+      it('should call getInvestorOtpLink successfully', function(done) {
+        //uncomment below and update the code to test getInvestorOtpLink
+        //instance.getInvestorOtpLink(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('listInvestors', function() {
       it('should call listInvestors successfully', function(done) {
         //uncomment below and update the code to test listInvestors

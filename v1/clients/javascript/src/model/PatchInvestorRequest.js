@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The PatchInvestorRequest model module.
  * @module model/PatchInvestorRequest
- * @version 0.71.0
+ * @version 0.74.1
  */
 class PatchInvestorRequest {
     /**
@@ -52,6 +52,9 @@ class PatchInvestorRequest {
             if (data.hasOwnProperty('investor_profile_id')) {
                 obj['investor_profile_id'] = ApiClient.convertToType(data['investor_profile_id'], 'Number');
             }
+            if (data.hasOwnProperty('current_step')) {
+                obj['current_step'] = ApiClient.convertToType(data['current_step'], 'String');
+            }
         }
         return obj;
     }
@@ -68,6 +71,10 @@ class PatchInvestorRequest {
                 throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
             }
         }
+        // ensure the json data is a string
+        if (data['current_step'] && !(typeof data['current_step'] === 'string' || data['current_step'] instanceof String)) {
+            throw new Error("Expected the field `current_step` to be a primitive type in the JSON string but got " + data['current_step']);
+        }
 
         return true;
     }
@@ -83,8 +90,36 @@ PatchInvestorRequest.RequiredProperties = ["investor_profile_id"];
  */
 PatchInvestorRequest.prototype['investor_profile_id'] = undefined;
 
+/**
+ * Step on checkout page.
+ * @member {module:model/PatchInvestorRequest.CurrentStepEnum} current_step
+ * @default 'contact-information'
+ */
+PatchInvestorRequest.prototype['current_step'] = 'contact-information';
 
 
+
+
+
+/**
+ * Allowed values for the <code>current_step</code> property.
+ * @enum {String}
+ * @readonly
+ */
+PatchInvestorRequest['CurrentStepEnum'] = {
+
+    /**
+     * value: "contact-information"
+     * @const
+     */
+    "contact-information": "contact-information",
+
+    /**
+     * value: "investor-confirmation"
+     * @const
+     */
+    "investor-confirmation": "investor-confirmation"
+};
 
 
 

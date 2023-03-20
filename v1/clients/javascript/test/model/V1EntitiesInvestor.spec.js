@@ -204,6 +204,18 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property investorProfileId (base name: "investor_profile_id")', function() {
+      // uncomment below and update the code to test the property investorProfileId
+      //var instance = new Api.V1EntitiesInvestor();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property checkoutState (base name: "checkout_state")', function() {
+      // uncomment below and update the code to test the property checkoutState
+      //var instance = new Api.V1EntitiesInvestor();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

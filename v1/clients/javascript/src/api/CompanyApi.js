@@ -19,7 +19,7 @@ import V1EntitiesCompany from '../model/V1EntitiesCompany';
 /**
 * Company service.
 * @module api/CompanyApi
-* @version 0.74.1
+* @version 0.74.3
 */
 export default class CompanyApi {
 
@@ -89,9 +89,9 @@ export default class CompanyApi {
      * Get list of Companies
      * Get companies
      * @param {Object} opts Optional parameters
-     * @param {Number} opts.page Page offset to fetch. (default to 1)
-     * @param {Number} opts.perPage Number of results to return per page. (default to 25)
-     * @param {Number} opts.offset Pad a number of results. (default to 0)
+     * @param {Number} [page = 1)] Page offset to fetch.
+     * @param {Number} [perPage = 25)] Number of results to return per page.
+     * @param {Number} [offset = 0)] Pad a number of results.
      * @param {module:api/CompanyApi~getCompaniesCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/V1EntitiesCompany}
      */

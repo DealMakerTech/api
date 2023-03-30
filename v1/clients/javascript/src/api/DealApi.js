@@ -19,7 +19,7 @@ import V1EntitiesDeals from '../model/V1EntitiesDeals';
 /**
 * Deal service.
 * @module api/DealApi
-* @version 0.74.1
+* @version 0.75.0
 */
 export default class DealApi {
 
@@ -90,9 +90,9 @@ export default class DealApi {
      * List available deals
      * List available deals
      * @param {Object} opts Optional parameters
-     * @param {Number} opts.page Page offset to fetch. (default to 1)
-     * @param {Number} opts.perPage Number of results to return per page. (default to 25)
-     * @param {Number} opts.offset Pad a number of results. (default to 0)
+     * @param {Number} [page = 1)] Page offset to fetch.
+     * @param {Number} [perPage = 25)] Number of results to return per page.
+     * @param {Number} [offset = 0)] Pad a number of results.
      * @param {module:api/DealApi~listDealsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/V1EntitiesDeals}
      */

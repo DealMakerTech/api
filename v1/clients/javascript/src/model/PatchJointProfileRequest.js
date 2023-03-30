@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The PatchJointProfileRequest model module.
  * @module model/PatchJointProfileRequest
- * @version 0.74.1
+ * @version 0.75.0
  */
 class PatchJointProfileRequest {
     /**

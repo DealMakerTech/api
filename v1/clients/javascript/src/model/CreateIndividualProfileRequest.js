@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The CreateIndividualProfileRequest model module.
  * @module model/CreateIndividualProfileRequest
- * @version 0.74.1
+ * @version 0.75.0
  */
 class CreateIndividualProfileRequest {
     /**

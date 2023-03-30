@@ -23,7 +23,7 @@ import V1EntitiesInvestors from '../model/V1EntitiesInvestors';
 /**
 * Investor service.
 * @module api/InvestorApi
-* @version 0.74.1
+* @version 0.75.0
 */
 export default class InvestorApi {
 
@@ -198,11 +198,11 @@ export default class InvestorApi {
      * List deal investors according to the specified search criteria.
      * @param {Number} id The deal id.
      * @param {Object} opts Optional parameters
-     * @param {Number} opts.page Page offset to fetch. (default to 1)
-     * @param {Number} opts.perPage Number of results to return per page. (default to 25)
-     * @param {Number} opts.offset Pad a number of results. (default to 0)
-     * @param {Array.<Number>} opts.investorIds An array of investor ids.
-     * @param {String} opts.q The search query for investors. For additional information on filtering and seach, click [here](#section/Search-and-Filtering-(The-q-parameter)/Keyword-filtering)
+     * @param {Number} [page = 1)] Page offset to fetch.
+     * @param {Number} [perPage = 25)] Number of results to return per page.
+     * @param {Number} [offset = 0)] Pad a number of results.
+     * @param {Array.<Number>} [investorIds] An array of investor ids.
+     * @param {String} [q] The search query for investors. For additional information on filtering and seach, click [here](#section/Search-and-Filtering-(The-q-parameter)/Keyword-filtering)
      * @param {module:api/InvestorApi~listInvestorsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/V1EntitiesInvestors}
      */
@@ -308,7 +308,7 @@ export default class InvestorApi {
      * @param {Number} id The deal id.
      * @param {Number} investorId The investor id.
      * @param {Object} opts Optional parameters
-     * @param {module:model/UpdateInvestorRequest} opts.updateInvestorRequest 
+     * @param {module:model/UpdateInvestorRequest} [updateInvestorRequest] 
      * @param {module:api/InvestorApi~updateInvestorCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/V1EntitiesInvestor}
      */

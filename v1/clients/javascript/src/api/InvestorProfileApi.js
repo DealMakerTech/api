@@ -31,7 +31,7 @@ import V1EntitiesInvestorProfiles from '../model/V1EntitiesInvestorProfiles';
 /**
 * InvestorProfile service.
 * @module api/InvestorProfileApi
-* @version 0.74.1
+* @version 0.75.0
 */
 export default class InvestorProfileApi {
 
@@ -228,10 +228,10 @@ export default class InvestorProfileApi {
      * Get investor profiles for a specific deal
      * @param {Number} dealId The deal id.
      * @param {Object} opts Optional parameters
-     * @param {Number} opts.page Page offset to fetch. (default to 1)
-     * @param {Number} opts.perPage Number of results to return per page. (default to 25)
-     * @param {Number} opts.offset Pad a number of results. (default to 0)
-     * @param {Number} opts.userId The user id filter.
+     * @param {Number} [page = 1)] Page offset to fetch.
+     * @param {Number} [perPage = 25)] Number of results to return per page.
+     * @param {Number} [offset = 0)] Pad a number of results.
+     * @param {Number} [userId] The user id filter.
      * @param {module:api/InvestorProfileApi~getDealInvestorProfilesCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/V1EntitiesInvestorProfiles}
      */
@@ -323,9 +323,9 @@ export default class InvestorProfileApi {
      * Get list of InvestorProfiles
      * Get investor profiles
      * @param {Object} opts Optional parameters
-     * @param {Number} opts.page Page offset to fetch. (default to 1)
-     * @param {Number} opts.perPage Number of results to return per page. (default to 25)
-     * @param {Number} opts.offset Pad a number of results. (default to 0)
+     * @param {Number} [page = 1)] Page offset to fetch.
+     * @param {Number} [perPage = 25)] Number of results to return per page.
+     * @param {Number} [offset = 0)] Pad a number of results.
      * @param {module:api/InvestorProfileApi~getInvestorProfilesCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/V1EntitiesInvestorProfiles}
      */
@@ -369,7 +369,7 @@ export default class InvestorProfileApi {
      * Patch corporation investor profile
      * @param {Number} investorProfileId 
      * @param {Object} opts Optional parameters
-     * @param {module:model/PatchCorporationProfileRequest} opts.patchCorporationProfileRequest 
+     * @param {module:model/PatchCorporationProfileRequest} [patchCorporationProfileRequest] 
      * @param {module:api/InvestorProfileApi~patchCorporationProfileCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/V1EntitiesInvestorProfileCorporation}
      */
@@ -415,7 +415,7 @@ export default class InvestorProfileApi {
      * Patch individual investor profile.
      * @param {Number} investorProfileId 
      * @param {Object} opts Optional parameters
-     * @param {module:model/PatchIndividualProfileRequest} opts.patchIndividualProfileRequest 
+     * @param {module:model/PatchIndividualProfileRequest} [patchIndividualProfileRequest] 
      * @param {module:api/InvestorProfileApi~patchIndividualProfileCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/V1EntitiesInvestorProfileIndividual}
      */
@@ -461,7 +461,7 @@ export default class InvestorProfileApi {
      * Patch joint investor profile
      * @param {Number} investorProfileId 
      * @param {Object} opts Optional parameters
-     * @param {module:model/PatchJointProfileRequest} opts.patchJointProfileRequest 
+     * @param {module:model/PatchJointProfileRequest} [patchJointProfileRequest] 
      * @param {module:api/InvestorProfileApi~patchJointProfileCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/V1EntitiesInvestorProfileJoint}
      */
@@ -507,7 +507,7 @@ export default class InvestorProfileApi {
      * Patch trust investor profile
      * @param {Number} investorProfileId 
      * @param {Object} opts Optional parameters
-     * @param {module:model/PatchTrustProfileRequest} opts.patchTrustProfileRequest 
+     * @param {module:model/PatchTrustProfileRequest} [patchTrustProfileRequest] 
      * @param {module:api/InvestorProfileApi~patchTrustProfileCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/V1EntitiesInvestorProfileTrust}
      */

@@ -22,7 +22,7 @@ import V1EntitiesWebhooksSubscription from '../model/V1EntitiesWebhooksSubscript
 /**
 * Default service.
 * @module api/DefaultApi
-* @version 0.74.1
+* @version 0.75.0
 */
 export default class DefaultApi {
 
@@ -50,9 +50,9 @@ export default class DefaultApi {
      * Returns a list of webhook subscription which is associated to the user
      * Returns a list of webhook subscription
      * @param {Object} opts Optional parameters
-     * @param {Number} opts.page Page offset to fetch. (default to 1)
-     * @param {Number} opts.perPage Number of results to return per page. (default to 25)
-     * @param {Number} opts.offset Pad a number of results. (default to 0)
+     * @param {Number} [page = 1)] Page offset to fetch.
+     * @param {Number} [perPage = 25)] Number of results to return per page.
+     * @param {Number} [offset = 0)] Pad a number of results.
      * @param {module:api/DefaultApi~getWebhooksCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/V1EntitiesWebhooksSubscription}
      */
@@ -255,7 +255,7 @@ export default class DefaultApi {
      * Updates webhook subscription
      * @param {Number} id 
      * @param {Object} opts Optional parameters
-     * @param {module:model/PutWebhooksIdRequest} opts.putWebhooksIdRequest 
+     * @param {module:model/PutWebhooksIdRequest} [putWebhooksIdRequest] 
      * @param {module:api/DefaultApi~putWebhooksIdCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/V1EntitiesWebhooksSubscription}
      */

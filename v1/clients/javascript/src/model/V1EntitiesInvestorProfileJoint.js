@@ -18,7 +18,7 @@ import V1EntitiesInvestorProfileFieldsPrimaryHolder from './V1EntitiesInvestorPr
 /**
  * The V1EntitiesInvestorProfileJoint model module.
  * @module model/V1EntitiesInvestorProfileJoint
- * @version 0.75.0
+ * @version 0.75.4
  */
 class V1EntitiesInvestorProfileJoint {
     /**

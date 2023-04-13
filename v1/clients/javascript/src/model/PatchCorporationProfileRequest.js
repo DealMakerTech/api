@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The PatchCorporationProfileRequest model module.
  * @module model/PatchCorporationProfileRequest
- * @version 0.75.0
+ * @version 0.75.5
  */
 class PatchCorporationProfileRequest {
     /**

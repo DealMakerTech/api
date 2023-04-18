@@ -1,7 +1,7 @@
 {
   "info": {
     "title": "DealMaker API",
-    "description": "# Introduction\n\nWelcome to DealMaker’s Web API v1! This API is RESTful, easy to integrate with, and offers support in 2 different languages. This is the technical documentation for our API. There are tutorials and examples of integrations with our API available on our [knowledge centre](https://help.dealmaker.tech/training-centre) as well.\n\n# Libraries\n\n- Javascript\n- Ruby\n\n# Authentication\n\nTo authenticate, add an Authorization header to your API request that contains an access token. Before you [generate an access token](#how-to-generate-an-access-token) your must first [create an application](#create-an-application) on your portal and retrieve the your client ID and secret\n\n## Create an Application\n\nDealMaker’s Web API v1 supports the use of OAuth applications. Applications can be generated in your [account](https://app.dealmaker.tech/developer/applications).\n\nTo create an API Application, click on your user name in the top right corner to open a dropdown menu, and select \"Integrations\". Under the API settings tab, click the `Create New Application` button\n\n![Screenshot](https://s3.ca-central-1.amazonaws.com/docs.dealmaker.tech/images/api-application-1.png)\n\nName your application and assign the level of permissions for this application\n\n![Screenshot](https://s3.ca-central-1.amazonaws.com/docs.dealmaker.tech/images/api-application-2.png)\n\nOnce your application is created, save in a secure space your client ID and secret.\n\n**WARNING**: The secret key will not be visible after you click the close button\n\n![Screenshot](https://s3.ca-central-1.amazonaws.com/docs.dealmaker.tech/images/api-application-3.png)\n\nFrom the developer tab, you will be able to view and manage all the available applications\n\n![Screenshot](https://s3.ca-central-1.amazonaws.com/docs.dealmaker.tech/images/api-application-4.png)\n\nEach Application consists of a client id, secret and set of scopes. The scopes define what resources you want to have access to. The client ID and secret are used to generate an access token. You will need to create an application to use API endpoints.\n\n## How to generate an access token\n\nAfter creating an application, you must make a call to obtain a bearer token using the Generate an OAuth token operation. This operation requires the following parameters:\n\n`token endpoint` - https://app.dealmaker.tech/oauth/token\n\n`grant_type` - must be set to `client_credentials`\n\n`client_id` - the Client ID displayed when you created the OAuth application in the previous step\n\n`client_secret` - the Client Secret displayed when you created the OAuth application in the previous step\n\n`scope` - the scope is established when you created the OAuth application in the previous step\n\nNote: The Generate an OAuth token response specifies how long the bearer token is valid for. You should reuse the bearer token until it is expired. When the token is expired, call Generate an OAuth token again to generate a new one.\n\nTo use the access token, you must set a plain text header named `Authorization` with the contents of the header being “Bearer XXX” where XXX is your generated access token.\n\n### Example\n\n#### Postman\n\nHere's an example on how to generate the access token with Postman, where `{{CLIENT_ID}}` and `{{CLIENT_SECRET}}` are the values generated after following the steps on [Create an Application](#create-an-application)\n\n![Get access token postman example](https://s3.ca-central-1.amazonaws.com/docs.dealmaker.tech/images/token-postman.png)\n\n# Status Codes\n\n## Content-Type Header\n\nAll responses are returned in JSON format. We specify this by sending the Content-Type header.\n\n## Status Codes\n\nBelow is a table containing descriptions of the various status codes we currently support against various resources.\n\nSometimes your API call will generate an error. Here you will find additional information about what to expect if you don’t format your request properly, or we fail to properly process your request.\n\n| Status Code | Description |\n| ----------- | ----------- |\n| `200`       | Success     |\n| `403`       | Forbidden   |\n| `404`       | Not found   |\n\n# Pagination\n\nPagination is used to divide large responses is smaller portions (pages). By default, all endpoints return a maximum of 25 records per page. You can change the number of records on a per request basis by passing a `per_page` parameter in the request header parameters. The largest supported `per_page` parameter is 100.\n\nWhen the response exceeds the `per_page` parameter, you can paginate through the records by increasing the `offset` parameter. Example: `offset=25` will return 25 records starting from 26th record. You may also paginate using the `page` parameter to indicate the page number you would like to show on the response.\n\nPlease review the table below for the input parameters\n\n## Inputs\n\n| Parameter  | Description                                                                     |\n| ---------- | ------------------------------------------------------------------------------- |\n| `per_page` | Amount of records included on each page (Default is 25)                         |\n| `page`     | Page number                                                                     |\n| `offset`   | Amount of records offset on the API request where 0 represents the first record |\n\n## Response Headers\n\n| Response Header | Description                                  |\n| --------------- | -------------------------------------------- |\n| `X-Total`       | Total number of records of response          |\n| `X-Total-Pages` | Total number of pages of response            |\n| `X-Per-Page`    | Total number of records per page of response |\n| `X-Page`        | Number of current page                       |\n| `X-Next-Page`   | Number of next page                          |\n| `X-Prev-Page`   | Number of previous page                      |\n| `X-Offset`      | Total number of records offset               |\n\n# Search and Filtering (The q parameter)\n\nThe q optional parameter accepts a string as input and allows you to filter the request based on that string. Please note that search strings must be encoded according to ASCII. For example, \"john+investor&#64;dealmaker.tech\" should be passed as “john%2Binvestor%40dealmaker.tech”. There are two main ways to filter with it.\n\n## Keyword filtering\n\nSome keywords allow you to filter investors based on a specific “scope” of the investors, for example using the string “Invited” will filter all investors with the status invited, and the keyword “Has attachments” will filter investors with attachments.\n\nHere’s a list of possible keywords and the “scope” each one of the keywords filters by:\n\n| Keywords                                       | Scope                                                                       | Decoded Example                                                      | Encoded Example                                                                          |\n| ---------------------------------------------- | --------------------------------------------------------------------------- | -------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |\n| Signed on \\(date range\\)                       | Investors who signed in the provided date range                             | Signed on (date range) [2020-07-01:2020-07-31]                       | `Signed%20on%20%28date%20range%29%20%5B2020-07-01%3A2020-07-31%5D`                       |\n| Enabled for countersignature on \\(date range\\) | Investors who were enabled for counter signature in the provided date range | Enabled for countersignature on (date range) [2022-05-24:2022-05-25] | `Enabled%20for%20countersignature%20on%20(date%20range)%20%5B2022-05-24%3A2022-05-25%5D` |\n| Accepted on \\(date range\\)                     | Investors accepted in the provided date rage                                | Accepted on (date range) [2022-05-24:2022-05-25]                     | `Accepted%20on%20(date%20range)%20%5B2022-05-24%3A2022-05-25%5D`                         |\n| Offline                                        | Investors added to the deal offline                                         | Offline                                                              | `Offline`                                                                                |\n| Online                                         | Investors added to the deal online                                          | Online                                                               | `Online`                                                                                 |\n| Signed                                         | Investors who signed their agreement                                        | Signed                                                               | `Signed`                                                                                 |\n| Waiting for countersignature                   | Investors who have signed and are waiting for counter signature             | Waiting for countersignature                                         | `Waiting%20for%20countersignature`                                                       |\n| Invited                                        | Investors on the Invited Status                                             | Invited                                                              | `Invited`                                                                                |\n| Accepted                                       | Investors in the Accepted Status                                            | Accepted                                                             | `Accepted`                                                                               |\n| Questionnaire in progress                      | All Investors who have not finished completing the questionnaire            | Questionnaire in progress                                            | `Questionnaire%20in%20progress`                                                          |\n| Has attachments                                | All Investors with attachments                                              | Has attachments                                                      | `Has%20attachments`                                                                      |\n| Has notes                                      | All Investors with notes                                                    | Has notes                                                            | `Has%20notes`                                                                            |\n| Waiting for co-signature                       | Investors who have signed and are waiting for co-signature                  | Waiting for co-signature                                             | `Waiting%20for%20co-signature`                                                           |\n| Background Check Approved                      | Investors with approved background check                                    | Background Check Approved                                            | `Background%20Check%20Approved`                                                          |\n| Document Review Pending                        | Investors with pending review                                               | Document Review Pending                                              | `Document%20Review%20Pending`                                                            |\n| Document Upload Pending                        | Investors with pending documents to upload                                  | Document Upload Pending                                              | `Document%20Upload%20Pending`                                                            |\n| Required adjudicator review                    | Investors who are required to be review by the adjudicator                  | Required adjudicator review                                          | `Required%20adjudicator%20review`                                                        |\n\n---\n\n**NOTE**\n\nFiltering keywords are case sensitive and need to be encoded\n\n---\n\n## Search String\n\nAny value for the parameter which does not match one of the keywords listed above, will use fields like `first name`, `last name`, `email`, `tags` to search for the investor.\n\nFor example, if you search “Robert”, because this does not match one of the keywords listed above, it will then return any investors who have the string “Robert” in their name, email, or tags fields.\n\n# Versioning\n\nThe latest version is v1.\n\nThe version can be updated on the `Accept` header, just set the version as stated on the following example:\n\n```\n\nAccept:application/vnd.dealmaker-v1+json\n\n```\n\n| Version | Accept Header                       |\n| ------- | ----------------------------------- |\n| `v1`    | application/vnd.dealmaker-`v1`+json |\n\n# SDK’s\n\nFor instruction on installing SDKs, please view the following links\n\n- [Javascript](https://github.com/DealMakerTech/api/tree/main/v1/clients/javascript)\n- [Ruby](https://github.com/DealMakerTech/api/tree/main/v1/clients/ruby)\n\n# Webhooks\n\nOur webhooks functionality allows clients to automatically receive updates on a deal's investor data.\n\nThe type of data that the webhooks include:\n\n- Investor Name\n- Date created\n- Email\n- Phone\n- Allocation\n- Attachments\n- Accredited investor status\n- Accredited investor category\n- Status (Draft, Invited, Accepted, Waiting)\n\nVia webhooks clients can subscribe to the following events as they happen on Dealmaker:\n\n- Investor is created\n- Investor details are updated (any of the investor details above change or are updated)\n- Investor is deleted\n\nA URL supplied by the client will receive all the events with the information as part of the payload. Clients are able to add and update the URL within DealMaker.\n\n## Configuration\n\nFor a comprehensive guide on how to configure Webhooks please visit our support article: [Configuring Webhooks on DealMaker – DealMaker Support](https://help.dealmaker.tech/configuring-webhooks-on-dealmaker).\n\nAs a developer user on DealMaker, you are able to configure webhooks by following the steps below:\n\n1. Sign into Dealmaker\n2. Go to **“Your profile”** in the top right corner\n3. Access an **“Integrations”** configuration via the left menu\n4. The developer configures webhooks by including:\n   - The HTTPS URL where the request will be sent\n   - Optionally, a security token that we would use to build a SHA1 hash that would be included in the request headers. The name of the header is `X-DealMaker-Signature`. If the secret is not specified, the hash won’t be included in the headers.\n   - An email address that will be used to notify about errors.\n5. The developers can disable webhooks temporarily if needed\n\n## Specification\n\n### Events\n\nThe initial set of events will be related to the investor. The events are:\n\n1. `investor.created`\n\n   - Triggers every time a new investor is added to a deal\n\n2. `investor.updated`\n\n   - Triggers on updates to any of the following fields:\n     1. Status\n     2. Name\n     3. Email - (this is a user field so we trigger event for all investors with webhook subscription)\n     4. Allocated Amount\n     5. Investment Amount\n     6. Accredited investor fields\n     7. Adding or removing attachments\n     8. Tags\n   - When the investor status is signed, the payload also includes a link to the signed document; the link expires after 30 minutes\n\n3. `investor.deleted`\n\n   - Triggers when the investor is removed from the deal\n   - The investor key of the payload only includes investor ID\n   - The deal is not included in the payload. Due to our implementation it’s impossible to retrieve the deal the investor was part of\n\n### Requests\n\n- The request is a `POST`\n- The payload’s `content-type` is `application/json`\n- Only `2XX` responses are considered successful. In the event of a different response, we consider it failed and queue the event for retry\n- We retry the request five times, after the initial attempt. Doubling the waiting time between intervals with each try. The first retry happens after 30 seconds, then 60 seconds, 2 mins, 4 minutes, and 8 minutes. This timing scheme gives the receiver about 1 hour if all the requests fail\n- If an event fails all the attempts to be delivered, we send an email to the address that the user configured\n\n### Payload\n\n#### Common Properties\n\nThere will be some properties that are common to all the events on the system.\n\n| Key               | Type   | Description                                                                            |\n| ----------------- | ------ | -------------------------------------------------------------------------------------- |\n| event             | String | The event that triggered the call                                                      |\n| event_id          | String | A unique identifier for the event                                                      |\n| deal<sup>\\*</sup> | Object | The deal in which the event occurred. It includes id, title, created_at and updated_at |\n\n<sup>\\*</sup>This field is not included when deleting a resource\n\n#### Common Properties (investor scope)\n\nEvery event on this scope must contain an investor object, here are some properties that are common to this object on all events in the investor scope:\n\n| Key                 | Type             | Description                                                                                                              |\n| ------------------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------ |\n| id                  | Integer          | The unique ID of the Investor                                                                                            |\n| name                | String           | Investor’s Name                                                                                                          |\n| status              | String           | Current status of the investor<br />Possible states are: <br />draft<br />invited<br />signed<br />waiting<br />accepted |\n| email               | String           |                                                                                                                          |\n| phone_number        | String           |                                                                                                                          |\n| investment_amount   | Double           |                                                                                                                          |\n| allocated_amount    | Double           |                                                                                                                          |\n| accredited_investor | Object           | See format in respective ticket                                                                                          |\n| attachments         | Array of Objects | List of supporting documents uploaded to the investor, including URL (expire after 30 minutes) and title (caption)       |\n| funding_state       | String           | Investor’s current funding state (unfunded, underfunded, funded, overfunded)                                             |\n| funds_pending       | Boolean          | True if there are pending transactions, False otherwise                                                                  |\n| created_at          | Date             |                                                                                                                          |\n| updated_at          | Date             |                                                                                                                          |\n| tags                | Array of Strings | a list of the investor's tags, separated by comma.                                                                       |\n\n### investor.status >= signed Specific Properties\n\n| Key                    | Type   | Description            |\n| ---------------------- | ------ | ---------------------- |\n| subscription_agreement | object | id, url (expiring URL) |\n\n#### Investor Status\n\nHere is a brief description of each investor state:\n\n- **Draft:** the investor is added to the platform but hasn't been invited yet and cannot access the portal\n- **Invited:** the investor was added to the platform but hasn’t completed the questionnaire\n- **Signed:** the investor signed the document (needs approval from Lawyer or Reviewer before countersignature)\n- **Waiting:** the investor was approved for countersignature by any of the Lawyers or Reviewers in the deal\n- **Accepted:** the investor's agreement was countersigned by the Signatory\n\n#### Update Delay\n\nGiven the high number of updates our platform performs on any investor, we’ve added a cool down period on update events that allows us to “group” updates and trigger only one every minute. In consequence, update events will be delivered 1 minute after the initial request was made and will include the latest version of the investor data at delivery time.\n",
+    "description": "# Introduction\n\nWelcome to DealMaker’s Web API v1! This API is RESTful, easy to integrate with, and offers support in 2 different languages. This is the technical documentation for our API. There are tutorials and examples of integrations with our API available on our [knowledge centre](https://help.dealmaker.tech/training-centre) as well.\n\n# Libraries\n\n- Javascript\n- Ruby\n\n# Authentication\n\nTo authenticate, add an Authorization header to your API request that contains an access token. Before you [generate an access token](#how-to-generate-an-access-token) your must first [create an application](#create-an-application) on your portal and retrieve the your client ID and secret\n\n## Create an Application\n\nDealMaker’s Web API v1 supports the use of OAuth applications. Applications can be generated in your [account](https://app.dealmaker.tech/developer/applications).\n\nTo create an API Application, click on your user name in the top right corner to open a dropdown menu, and select \"Integrations\". Under the API settings tab, click the `Create New Application` button\n\n![Screenshot](https://s3.ca-central-1.amazonaws.com/docs.dealmaker.tech/images/api-application-1.png)\n\nName your application and assign the level of permissions for this application\n\n![Screenshot](https://s3.ca-central-1.amazonaws.com/docs.dealmaker.tech/images/api-application-2.png)\n\nOnce your application is created, save in a secure space your client ID and secret.\n\n**WARNING**: The secret key will not be visible after you click the close button\n\n![Screenshot](https://s3.ca-central-1.amazonaws.com/docs.dealmaker.tech/images/api-application-3.png)\n\nFrom the developer tab, you will be able to view and manage all the available applications\n\n![Screenshot](https://s3.ca-central-1.amazonaws.com/docs.dealmaker.tech/images/api-application-4.png)\n\nEach Application consists of a client id, secret and set of scopes. The scopes define what resources you want to have access to. The client ID and secret are used to generate an access token. You will need to create an application to use API endpoints.\n\n## How to generate an access token\n\nAfter creating an application, you must make a call to obtain a bearer token using the Generate an OAuth token operation. This operation requires the following parameters:\n\n`token endpoint` - https://app.dealmaker.tech/oauth/token\n\n`grant_type` - must be set to `client_credentials`\n\n`client_id` - the Client ID displayed when you created the OAuth application in the previous step\n\n`client_secret` - the Client Secret displayed when you created the OAuth application in the previous step\n\n`scope` - the scope is established when you created the OAuth application in the previous step\n\nNote: The Generate an OAuth token response specifies how long the bearer token is valid for. You should reuse the bearer token until it is expired. When the token is expired, call Generate an OAuth token again to generate a new one.\n\nTo use the access token, you must set a plain text header named `Authorization` with the contents of the header being “Bearer XXX” where XXX is your generated access token.\n\n### Example\n\n#### Postman\n\nHere's an example on how to generate the access token with Postman, where `{{CLIENT_ID}}` and `{{CLIENT_SECRET}}` are the values generated after following the steps on [Create an Application](#create-an-application)\n\n![Get access token postman example](https://s3.ca-central-1.amazonaws.com/docs.dealmaker.tech/images/token-postman.png)\n\n# Status Codes\n\n## Content-Type Header\n\nAll responses are returned in JSON format. We specify this by sending the Content-Type header.\n\n## Status Codes\n\nBelow is a table containing descriptions of the various status codes we currently support against various resources.\n\nSometimes your API call will generate an error. Here you will find additional information about what to expect if you don’t format your request properly, or we fail to properly process your request.\n\n| Status Code | Description |\n| ----------- | ----------- |\n| `200`       | Success     |\n| `403`       | Forbidden   |\n| `404`       | Not found   |\n\n# Pagination\n\nPagination is used to divide large responses is smaller portions (pages). By default, all endpoints return a maximum of 25 records per page. You can change the number of records on a per request basis by passing a `per_page` parameter in the request header parameters. The largest supported `per_page` parameter is 100.\n\nWhen the response exceeds the `per_page` parameter, you can paginate through the records by increasing the `offset` parameter. Example: `offset=25` will return 25 records starting from 26th record. You may also paginate using the `page` parameter to indicate the page number you would like to show on the response.\n\nPlease review the table below for the input parameters\n\n## Inputs\n\n| Parameter  | Description                                                                     |\n| ---------- | ------------------------------------------------------------------------------- |\n| `per_page` | Amount of records included on each page (Default is 25)                         |\n| `page`     | Page number                                                                     |\n| `offset`   | Amount of records offset on the API request where 0 represents the first record |\n\n## Response Headers\n\n| Response Header | Description                                  |\n| --------------- | -------------------------------------------- |\n| `X-Total`       | Total number of records of response          |\n| `X-Total-Pages` | Total number of pages of response            |\n| `X-Per-Page`    | Total number of records per page of response |\n| `X-Page`        | Number of current page                       |\n| `X-Next-Page`   | Number of next page                          |\n| `X-Prev-Page`   | Number of previous page                      |\n| `X-Offset`      | Total number of records offset               |\n\n# Search and Filtering (The q parameter)\n\nThe q optional parameter accepts a string as input and allows you to filter the request based on that string. Please note that search strings must be encoded according to ASCII. For example, \"john+investor&#64;dealmaker.tech\" should be passed as “john%2Binvestor%40dealmaker.tech”. There are two main ways to filter with it.\n\n## Keyword filtering\n\nSome keywords allow you to filter investors based on a specific “scope” of the investors, for example using the string “Invited” will filter all investors with the status invited, and the keyword “Has attachments” will filter investors with attachments.\n\nHere’s a list of possible keywords and the “scope” each one of the keywords filters by:\n\n| Keywords                                       | Scope                                                                       | Decoded Example                                                      | Encoded Example                                                                          |\n| ---------------------------------------------- | --------------------------------------------------------------------------- | -------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |\n| Signed on \\(date range\\)                       | Investors who signed in the provided date range                             | Signed on (date range) [2020-07-01:2020-07-31]                       | `Signed%20on%20%28date%20range%29%20%5B2020-07-01%3A2020-07-31%5D`                       |\n| Enabled for countersignature on \\(date range\\) | Investors who were enabled for counter signature in the provided date range | Enabled for countersignature on (date range) [2022-05-24:2022-05-25] | `Enabled%20for%20countersignature%20on%20(date%20range)%20%5B2022-05-24%3A2022-05-25%5D` |\n| Accepted on \\(date range\\)                     | Investors accepted in the provided date rage                                | Accepted on (date range) [2022-05-24:2022-05-25]                     | `Accepted%20on%20(date%20range)%20%5B2022-05-24%3A2022-05-25%5D`                         |\n| Offline                                        | Investors added to the deal offline                                         | Offline                                                              | `Offline`                                                                                |\n| Online                                         | Investors added to the deal online                                          | Online                                                               | `Online`                                                                                 |\n| Signed                                         | Investors who signed their agreement                                        | Signed                                                               | `Signed`                                                                                 |\n| Waiting for countersignature                   | Investors who have signed and are waiting for counter signature             | Waiting for countersignature                                         | `Waiting%20for%20countersignature`                                                       |\n| Invited                                        | Investors on the Invited Status                                             | Invited                                                              | `Invited`                                                                                |\n| Accepted                                       | Investors in the Accepted Status                                            | Accepted                                                             | `Accepted`                                                                               |\n| Questionnaire in progress                      | All Investors who have not finished completing the questionnaire            | Questionnaire in progress                                            | `Questionnaire%20in%20progress`                                                          |\n| Has attachments                                | All Investors with attachments                                              | Has attachments                                                      | `Has%20attachments`                                                                      |\n| Has notes                                      | All Investors with notes                                                    | Has notes                                                            | `Has%20notes`                                                                            |\n| Waiting for co-signature                       | Investors who have signed and are waiting for co-signature                  | Waiting for co-signature                                             | `Waiting%20for%20co-signature`                                                           |\n| Background Check Approved                      | Investors with approved background check                                    | Background Check Approved                                            | `Background%20Check%20Approved`                                                          |\n| Document Review Pending                        | Investors with pending review                                               | Document Review Pending                                              | `Document%20Review%20Pending`                                                            |\n| Document Upload Pending                        | Investors with pending documents to upload                                  | Document Upload Pending                                              | `Document%20Upload%20Pending`                                                            |\n| Required adjudicator review                    | Investors who are required to be review by the adjudicator                  | Required adjudicator review                                          | `Required%20adjudicator%20review`                                                        |\n\n---\n\n**NOTE**\n\nFiltering keywords are case sensitive and need to be encoded\n\n---\n\n## Search String\n\nAny value for the parameter which does not match one of the keywords listed above, will use fields like `first name`, `last name`, `email`, `tags` to search for the investor.\n\nFor example, if you search “Robert”, because this does not match one of the keywords listed above, it will then return any investors who have the string “Robert” in their name, email, or tags fields.\n\n# Versioning\n\nThe latest version is v1.\n\nThe version can be updated on the `Accept` header, just set the version as stated on the following example:\n\n```\n\nAccept:application/vnd.dealmaker-v1+json\n\n```\n\n| Version | Accept Header                       |\n| ------- | ----------------------------------- |\n| `v1`    | application/vnd.dealmaker-`v1`+json |\n\n# SDK’s\n\nFor instruction on installing SDKs, please view the following links\n\n- [Javascript](https://github.com/DealMakerTech/api/tree/main/v1/clients/javascript)\n- [Ruby](https://github.com/DealMakerTech/api/tree/main/v1/clients/ruby)\n\n# Webhooks\n\nOur webhooks functionality allows clients to automatically receive updates on a deal's investor data.\n\nSome of the data that the webhooks include:\n\n- Investor Name\n- Date created\n- Email\n- Phone\n- Allocation\n- Attachments\n- Accredited investor status\n- Accredited investor category\n- State (Draft, Invited, Signed, Accepted, Waiting, Inactive)\n\nVia webhooks clients can subscribe to the following events as they happen on Dealmaker:\n\n- Investor is created\n- Investor details are updated (any of the investor details above change or are updated)\n- Investor has signed their agreement\n- Invertor fully funded their investment\n- Investor has been accepted\n- Investor is deleted\n\nA URL supplied by the client will receive all the events with the information as part of the payload. Clients are able to add and update the URL within DealMaker.\n\n## Configuration\n\nFor a comprehensive guide on how to configure Webhooks please visit our support article: [Configuring Webhooks on DealMaker – DealMaker Support](https://help.dealmaker.tech/configuring-webhooks-on-dealmaker).\n\nAs a developer user on DealMaker, you are able to configure webhooks by following the steps below:\n\n1. Sign into Dealmaker\n2. Go to **“Your profile”** in the top right corner\n3. Access an **“Integrations”** configuration via the left menu\n4. The developer configures webhooks by including:\n   - The HTTPS URL where the request will be sent\n   - Optionally, a security token that we would use to build a SHA1 hash that would be included in the request headers. The name of the header is `X-DealMaker-Signature`. If the secret is not specified, the hash won’t be included in the headers.\n   - The Deal(s) to include in the webhook subscription\n   - An email address that will be used to notify about errors.\n5. The developers can disable webhooks temporarily if needed\n\n## Specification\n\n### Events\n\nThe initial set of events will be related to the investor. The events are:\n\n1. `investor.created`\n\n   - Triggers every time a new investor is added to a deal\n\n2. `investor.updated`\n\n   - Triggers on updates to any of the following fields:\n     - Status\n     - Name\n     - Email - (this is a user field so we trigger event for all investors with webhook subscription)\n     - Allocated Amount\n     - Investment Amount\n     - Accredited investor fields\n     - Adding or removing attachments\n     - Tags\n   - When the investor status is signed, the payload also includes a link to the signed document; the link expires after 30 minutes\n  \n3. `investor.signed`\n\n   - Triggers when the investor signs their subscription agreement (terms and conditions)\n     - When this happens the investor.state becomes `signed`\n   - This event includes the same fields as the `investor.updated` event\n\n4. `investor.funded`\n\n   - Triggers when the investor becomes fully funded\n     - This happens when the investor.funded_state becomes `funded`\n   - This event includes the same fields as the `investor.updated` event\n\n5. `investor.accepted`\n\n   - Triggers when the investor is countersigned\n     - When this happens the investor.state becomes `accepted`\n   - This event includes the same fields as the `investor.updated` event\n\n6.  `investor.deleted`\n\n   - Triggers when the investor is removed from the deal\n   - The investor key of the payload only includes investor ID\n   - The deal is not included in the payload. Due to our implementation it’s impossible to retrieve the deal the investor was part of\n\n### Requests\n\n- The request is a `POST`\n- The payload’s `content-type` is `application/json`\n- Only `2XX` responses are considered successful. In the event of a different response, we consider it failed and queue the event for retry\n- We retry the request five times, after the initial attempt. Doubling the waiting time between intervals with each try. The first retry happens after 30 seconds, then 60 seconds, 2 mins, 4 minutes, and 8 minutes. This timing scheme gives the receiver about 1 hour if all the requests fail\n- If an event fails all the attempts to be delivered, we send an email to the address that the user configured\n\n### Payload\n\n#### Common Properties\n\nThere will be some properties that are common to all the events on the system.\n\n| Key               | Type   | Description                                                                              |\n| ----------------- | ------ | --------------------------------------------------------------------------------------   |\n| event             | String | The event that triggered the call                                                        |\n| event_id          | String | A unique identifier for the event                                                        |\n| deal<sup>\\*</sup> | Object | The deal in which the event occurred. please see below for an example on the deal object<sup>\\*\\*</sup> |\n\n<sup>\\*</sup>This field is not included when deleting a resource\n\n<sup>\\*\\*</sup> Sample Deal Object in the webhook payload\n\n```json\n\"deal\": {\n        \"id\": 0,\n        \"title\": \"string\",\n        \"created_at\": \"2022-12-06T18:14:44.000Z\",\n        \"updated_at\": \"2022-12-08T12:46:48.000Z\",\n        \"state\": \"string\",\n        \"currency\": \"string\",\n        \"security_type\": \"string\",\n        \"price_per_security\": 0.00,\n        \"deal_type\": \"string\",\n        \"minimum_investment\": 0,\n        \"maximum_investment\": 0,\n        \"issuer\": {\n            \"id\": 0,\n            \"name\": \"string\"\n        },\n        \"enterprise\": {\n            \"id\": 0,\n            \"name\": \"string\"\n        }\n    }\n```\n\n#### Common Properties (investor scope)\n\nBy design, we have incorporated on the webhooks payload the same investor-related fields included in the Investor model, for reference on the included fields, their types and values please click [here](https://docs.dealmaker.tech/#tag/investor_model). This will allow you to get all the necessary information you need about a particular investor without having to call the Get Investor by ID endpoint.                                                           |\n#### Investor State\n\nHere is a brief description of each investor state:\n\n- **Draft:** the investor is added to the platform but hasn't been invited yet and cannot access the portal\n- **Invited:** the investor was added to the platform but hasn’t completed the questionnaire\n- **Signed:** the investor signed the document (needs approval from Lawyer or Reviewer before countersignature)\n- **Waiting:** the investor was approved for countersignature by any of the Lawyers or Reviewers in the deal\n- **Accepted:** the investor's agreement was countersigned by the Signatory\n- **Inactive** the investor is no longer eligible to participate in the offering. This may be because their warrant expired, they requested a refund, or they opted out of the offering\n\n#### Update Delay\n\nGiven the high number of updates our platform performs on any investor, we’ve added a cool down period on update events that allows us to “group” updates and trigger only one every minute. In consequence, update events will be delivered 1 minute after the initial request was made and will include the latest version of the investor data at delivery time.\n",
     "version": "1.0.0"
   },
   "swagger": "2.0",
@@ -146,6 +146,9 @@
           },
           "403": {
             "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not found"
           }
         },
         "tags": [
@@ -243,6 +246,9 @@
           },
           "403": {
             "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not found"
           }
         },
         "tags": [
@@ -350,6 +356,14 @@
             "in": "formData",
             "name": "allocated_amount",
             "description": "The allocation amount of the investor.",
+            "type": "number",
+            "format": "float",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "investment_value",
+            "description": "The investment value of the investor.",
             "type": "number",
             "format": "float",
             "required": false
@@ -483,6 +497,9 @@
           },
           "403": {
             "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not found"
           }
         },
         "tags": [
@@ -582,6 +599,9 @@
           },
           "403": {
             "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not found"
           }
         },
         "tags": [
@@ -1246,6 +1266,30 @@
           },
           {
             "in": "formData",
+            "name": "income",
+            "description": "The income of the Trust.",
+            "type": "number",
+            "format": "float",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "net_worth",
+            "description": "The net worth of the Trust.",
+            "type": "number",
+            "format": "float",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "reg_cf_prior_offerings_amount",
+            "description": "The prior offering amount of the Trust.",
+            "type": "number",
+            "format": "float",
+            "required": false
+          },
+          {
+            "in": "formData",
             "name": "trustee_first_name",
             "description": "Trustee first name.",
             "type": "string",
@@ -1461,6 +1505,30 @@
             "name": "phone_number",
             "description": "The phone number of the trust (required).",
             "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "income",
+            "description": "The income of the trust.",
+            "type": "number",
+            "format": "float",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "net_worth",
+            "description": "The net worth of the trust.",
+            "type": "number",
+            "format": "float",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "reg_cf_prior_offerings_amount",
+            "description": "The prior offering amount of the trust.",
+            "type": "number",
+            "format": "float",
             "required": false
           },
           {
@@ -1725,6 +1793,30 @@
             "required": false
           },
           {
+            "in": "formData",
+            "name": "income",
+            "description": "The income of the individual investor profile",
+            "type": "number",
+            "format": "float",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "net_worth",
+            "description": "The net worth of the individual investor profile",
+            "type": "number",
+            "format": "float",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "reg_cf_prior_offerings_amount",
+            "description": "The prior offering amount of the individual investor profile",
+            "type": "number",
+            "format": "float",
+            "required": false
+          },
+          {
             "in": "path",
             "name": "investor_profile_id",
             "type": "integer",
@@ -1891,6 +1983,30 @@
             "description": "The postal code or zipcode of the individual investor profile (required)",
             "type": "string",
             "required": false
+          },
+          {
+            "in": "formData",
+            "name": "income",
+            "description": "The income of the individual investor profile",
+            "type": "number",
+            "format": "float",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "net_worth",
+            "description": "The net worth of the individual investor profile",
+            "type": "number",
+            "format": "float",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "reg_cf_prior_offerings_amount",
+            "description": "The prior offering amount of the individual investor profile",
+            "type": "number",
+            "format": "float",
+            "required": false
           }
         ],
         "security": [
@@ -2053,6 +2169,30 @@
             "name": "phone_number",
             "description": "The phone number of the investor profile.",
             "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "income",
+            "description": "The income of the investor profile.",
+            "type": "number",
+            "format": "float",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "net_worth",
+            "description": "The net worth of the investor profile.",
+            "type": "number",
+            "format": "float",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "reg_cf_prior_offerings_amount",
+            "description": "The prior offerings amount of the investor profile.",
+            "type": "number",
+            "format": "float",
             "required": false
           },
           {
@@ -2314,6 +2454,30 @@
           },
           {
             "in": "formData",
+            "name": "income",
+            "description": "The income of the primary holder.",
+            "type": "number",
+            "format": "float",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "net_worth",
+            "description": "The net worth of the primary holder.",
+            "type": "number",
+            "format": "float",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "reg_cf_prior_offerings_amount",
+            "description": "The prior offerings amount of the primary holder.",
+            "type": "number",
+            "format": "float",
+            "required": false
+          },
+          {
+            "in": "formData",
             "name": "joint_holder_first_name",
             "description": "The first name of the joint holder (required).",
             "type": "string",
@@ -2521,6 +2685,30 @@
             "name": "phone_number",
             "description": "The phone number of the investor profile.",
             "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "income",
+            "description": "The income of the individual investor profile",
+            "type": "number",
+            "format": "float",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "net_worth",
+            "description": "The net worth of the individual investor profile",
+            "type": "number",
+            "format": "float",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "reg_cf_prior_offerings_amount",
+            "description": "The prior offering amount of the individual investor profile",
+            "type": "number",
+            "format": "float",
             "required": false
           },
           {
@@ -2752,6 +2940,30 @@
             "name": "phone_number",
             "description": "The phone number o of the corporation (required).",
             "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "income",
+            "description": "The income of the individual investor profile",
+            "type": "number",
+            "format": "float",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "net_worth",
+            "description": "The net worth of the individual investor profile",
+            "type": "number",
+            "format": "float",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "reg_cf_prior_offerings_amount",
+            "description": "The prior offering amount of the individual investor profile",
+            "type": "number",
+            "format": "float",
             "required": false
           },
           {
@@ -3698,6 +3910,16 @@
           "format": "float",
           "description": "The amount subscribed. <br><br>This value is obtained by taking the sum of the investment amount from committed investors. Committed investors are investors with a status of `signed``, `waiting`, or `accepted`."
         },
+        "funds_received": {
+          "type": "number",
+          "format": "float",
+          "description": "The amount received."
+        },
+        "funds_pending": {
+          "type": "number",
+          "format": "float",
+          "description": "The amount pending."
+        },
         "securities_subscribed": {
           "type": "integer",
           "format": "int32",
@@ -3802,15 +4024,15 @@
           "type": "string",
           "description": "The investor currency."
         },
-        "investment_value": {
-          "type": "number",
-          "format": "float",
-          "description": "The current investment value."
-        },
         "number_of_securities": {
           "type": "integer",
           "format": "int32",
           "description": "The number of securities."
+        },
+        "investment_value": {
+          "type": "number",
+          "format": "float",
+          "description": "The current investment value."
         },
         "allocated_amount": {
           "type": "number",
@@ -3985,11 +4207,35 @@
           "type": "boolean",
           "description": "To check if the profile is complete or not"
         },
+        "owner_type": {
+          "type": "string",
+          "description": "Type of the investor profile owner"
+        },
+        "owner": {
+          "$ref": "#/definitions/V1_Entities_InvestorProfile_Owner"
+        },
         "account_holder": {
           "$ref": "#/definitions/V1_Entities_InvestorProfile_Fields_PrimaryHolder"
         }
       },
       "description": "V1_Entities_InvestorProfile_Individual model"
+    },
+    "V1_Entities_InvestorProfile_Owner": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Id of the owner"
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the owner"
+        },
+        "logo": {
+          "type": "string",
+          "description": "Logo of the owner"
+        }
+      }
     },
     "V1_Entities_InvestorProfile_Fields_PrimaryHolder": {
       "type": "object",
@@ -4017,6 +4263,21 @@
         "phone_number": {
           "type": "string",
           "description": "The phone number of the primary account holder"
+        },
+        "income": {
+          "type": "number",
+          "format": "float",
+          "description": "The income"
+        },
+        "net_worth": {
+          "type": "number",
+          "format": "float",
+          "description": "The net worth"
+        },
+        "reg_cf_prior_offerings_amount": {
+          "type": "number",
+          "format": "float",
+          "description": "The prior offering amount in the last 12 months"
         },
         "address": {
           "$ref": "#/definitions/V1_Entities_InvestorProfile_Address"
@@ -4086,6 +4347,13 @@
         "complete": {
           "type": "boolean",
           "description": "To check if the profile is complete or not"
+        },
+        "owner_type": {
+          "type": "string",
+          "description": "Type of the investor profile owner"
+        },
+        "owner": {
+          "$ref": "#/definitions/V1_Entities_InvestorProfile_Owner"
         },
         "joint_type": {
           "type": "string",
@@ -4163,6 +4431,13 @@
           "type": "boolean",
           "description": "To check if the profile is complete or not"
         },
+        "owner_type": {
+          "type": "string",
+          "description": "Type of the investor profile owner"
+        },
+        "owner": {
+          "$ref": "#/definitions/V1_Entities_InvestorProfile_Owner"
+        },
         "corporation": {
           "$ref": "#/definitions/V1_Entities_InvestorProfile_Fields_Corporation"
         },
@@ -4189,6 +4464,21 @@
         "phone_number": {
           "type": "string",
           "description": "The corporation phone number"
+        },
+        "income": {
+          "type": "number",
+          "format": "float",
+          "description": "The income"
+        },
+        "net_worth": {
+          "type": "number",
+          "format": "float",
+          "description": "The net worth"
+        },
+        "reg_cf_prior_offerings_amount": {
+          "type": "number",
+          "format": "float",
+          "description": "The prior offering amount in the last 12 months"
         },
         "address": {
           "$ref": "#/definitions/V1_Entities_InvestorProfile_Address"
@@ -4230,6 +4520,13 @@
           "type": "boolean",
           "description": "To check if the profile is complete or not"
         },
+        "owner_type": {
+          "type": "string",
+          "description": "Type of the investor profile owner"
+        },
+        "owner": {
+          "$ref": "#/definitions/V1_Entities_InvestorProfile_Owner"
+        },
         "trust_holder": {
           "$ref": "#/definitions/V1_Entities_InvestorProfile_Fields_Trust"
         },
@@ -4253,6 +4550,21 @@
         "phone_number": {
           "type": "string",
           "description": "The phone number of the trust"
+        },
+        "income": {
+          "type": "number",
+          "format": "float",
+          "description": "The income"
+        },
+        "net_worth": {
+          "type": "number",
+          "format": "float",
+          "description": "The net worth"
+        },
+        "reg_cf_prior_offerings_amount": {
+          "type": "number",
+          "format": "float",
+          "description": "The prior offering amount in the last 12 months"
         },
         "address": {
           "$ref": "#/definitions/V1_Entities_InvestorProfile_Address"

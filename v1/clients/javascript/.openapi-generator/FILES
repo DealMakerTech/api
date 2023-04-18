@@ -50,6 +50,7 @@ docs/V1EntitiesInvestorProfileFieldsTrust.md
 docs/V1EntitiesInvestorProfileIndividual.md
 docs/V1EntitiesInvestorProfileItem.md
 docs/V1EntitiesInvestorProfileJoint.md
+docs/V1EntitiesInvestorProfileOwner.md
 docs/V1EntitiesInvestorProfileTrust.md
 docs/V1EntitiesInvestorProfiles.md
 docs/V1EntitiesInvestorUser.md
@@ -112,6 +113,7 @@ src/model/V1EntitiesInvestorProfileFieldsTrust.js
 src/model/V1EntitiesInvestorProfileIndividual.js
 src/model/V1EntitiesInvestorProfileItem.js
 src/model/V1EntitiesInvestorProfileJoint.js
+src/model/V1EntitiesInvestorProfileOwner.js
 src/model/V1EntitiesInvestorProfileTrust.js
 src/model/V1EntitiesInvestorProfiles.js
 src/model/V1EntitiesInvestorUser.js
@@ -169,6 +171,7 @@ test/model/V1EntitiesInvestorProfileFieldsTrust.spec.js
 test/model/V1EntitiesInvestorProfileIndividual.spec.js
 test/model/V1EntitiesInvestorProfileItem.spec.js
 test/model/V1EntitiesInvestorProfileJoint.spec.js
+test/model/V1EntitiesInvestorProfileOwner.spec.js
 test/model/V1EntitiesInvestorProfileTrust.spec.js
 test/model/V1EntitiesInvestorProfiles.spec.js
 test/model/V1EntitiesInvestorUser.spec.js

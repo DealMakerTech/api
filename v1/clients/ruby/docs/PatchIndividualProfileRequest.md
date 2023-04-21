@@ -17,6 +17,9 @@
 | **city** | **String** | The city of the individual investor profile. | [optional] |
 | **region** | **String** | The region or state of the individual investor profile. | [optional] |
 | **postal_code** | **String** | The postal code or zipcode of the individual investor profile. | [optional] |
+| **income** | **Float** | The income of the individual investor profile | [optional] |
+| **net_worth** | **Float** | The net worth of the individual investor profile | [optional] |
+| **reg_cf_prior_offerings_amount** | **Float** | The prior offering amount of the individual investor profile | [optional] |
 
 ## Example
 
@@ -36,7 +39,10 @@ instance = DealMakerAPI::PatchIndividualProfileRequest.new(
   unit2: null,
   city: null,
   region: null,
-  postal_code: null
+  postal_code: null,
+  income: null,
+  net_worth: null,
+  reg_cf_prior_offerings_amount: null
 )
 ```
 

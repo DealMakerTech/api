@@ -15,6 +15,9 @@
 | **region** | **String** | The region or state of the trust (required). | [optional] |
 | **postal_code** | **String** | The postal code or zipcode of the trust (required). | [optional] |
 | **phone_number** | **String** | The phone number of the trust (required). | [optional] |
+| **income** | **Float** | The income of the trust. | [optional] |
+| **net_worth** | **Float** | The net worth of the trust. | [optional] |
+| **reg_cf_prior_offerings_amount** | **Float** | The prior offering amount of the trust. | [optional] |
 | **trustees_first_name** | **Array&lt;String&gt;** | The list of first names for the trustees (required for trustee 1). | [optional] |
 | **trustees_last_name** | **Array&lt;String&gt;** | The list of last names for the trustees (required for trustee 1). | [optional] |
 | **trustees_suffix** | **Array&lt;String&gt;** | The list of suffixes for the trustees. | [optional] |
@@ -44,6 +47,9 @@ instance = DealMakerAPI::CreateTrustProfileRequest.new(
   region: null,
   postal_code: null,
   phone_number: null,
+  income: null,
+  net_worth: null,
+  reg_cf_prior_offerings_amount: null,
   trustees_first_name: null,
   trustees_last_name: null,
   trustees_suffix: null,

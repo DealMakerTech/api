@@ -17,5 +17,8 @@ Name | Type | Description | Notes
 **city** | **string** | The city of the individual investor profile. | [optional]
 **region** | **string** | The region or state of the individual investor profile. | [optional]
 **postal_code** | **string** | The postal code or zipcode of the individual investor profile. | [optional]
+**income** | **float** | The income of the individual investor profile | [optional]
+**net_worth** | **float** | The net worth of the individual investor profile | [optional]
+**reg_cf_prior_offerings_amount** | **float** | The prior offering amount of the individual investor profile | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

@@ -51,6 +51,7 @@ docs/Model/V1EntitiesInvestorProfileFieldsTrust.md
 docs/Model/V1EntitiesInvestorProfileIndividual.md
 docs/Model/V1EntitiesInvestorProfileItem.md
 docs/Model/V1EntitiesInvestorProfileJoint.md
+docs/Model/V1EntitiesInvestorProfileOwner.md
 docs/Model/V1EntitiesInvestorProfileTrust.md
 docs/Model/V1EntitiesInvestorProfiles.md
 docs/Model/V1EntitiesInvestorUser.md
@@ -113,6 +114,7 @@ lib/Model/V1EntitiesInvestorProfileFieldsTrust.php
 lib/Model/V1EntitiesInvestorProfileIndividual.php
 lib/Model/V1EntitiesInvestorProfileItem.php
 lib/Model/V1EntitiesInvestorProfileJoint.php
+lib/Model/V1EntitiesInvestorProfileOwner.php
 lib/Model/V1EntitiesInvestorProfileTrust.php
 lib/Model/V1EntitiesInvestorProfiles.php
 lib/Model/V1EntitiesInvestorUser.php
@@ -171,6 +173,7 @@ test/Model/V1EntitiesInvestorProfileFieldsTrustTest.php
 test/Model/V1EntitiesInvestorProfileIndividualTest.php
 test/Model/V1EntitiesInvestorProfileItemTest.php
 test/Model/V1EntitiesInvestorProfileJointTest.php
+test/Model/V1EntitiesInvestorProfileOwnerTest.php
 test/Model/V1EntitiesInvestorProfileTrustTest.php
 test/Model/V1EntitiesInvestorProfilesTest.php
 test/Model/V1EntitiesInvestorTest.php

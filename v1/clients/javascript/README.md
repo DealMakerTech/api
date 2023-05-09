@@ -181,7 +181,7 @@ For instruction on installing SDKs, please view the following links
 
 Our webhooks functionality allows clients to automatically receive updates on a deal's investor data.
 
-The type of data that the webhooks include:
+Some of the data that the webhooks include:
 
 - Investor Name
 - Date created
@@ -191,12 +191,15 @@ The type of data that the webhooks include:
 - Attachments
 - Accredited investor status
 - Accredited investor category
-- Status (Draft, Invited, Accepted, Waiting)
+- State (Draft, Invited, Signed, Accepted, Waiting, Inactive)
 
 Via webhooks clients can subscribe to the following events as they happen on Dealmaker:
 
 - Investor is created
 - Investor details are updated (any of the investor details above change or are updated)
+- Investor has signed their agreement
+- Invertor fully funded their investment
+- Investor has been accepted
 - Investor is deleted
 
 A URL supplied by the client will receive all the events with the information as part of the payload. Clients are able to add and update the URL within DealMaker.
@@ -213,6 +216,7 @@ As a developer user on DealMaker, you are able to configure webhooks by followin
 4. The developer configures webhooks by including:
    - The HTTPS URL where the request will be sent
    - Optionally, a security token that we would use to build a SHA1 hash that would be included in the request headers. The name of the header is `X-DealMaker-Signature`. If the secret is not specified, the hash won’t be included in the headers.
+   - The Deal(s) to include in the webhook subscription
    - An email address that will be used to notify about errors.
 5. The developers can disable webhooks temporarily if needed
 
@@ -229,17 +233,35 @@ The initial set of events will be related to the investor. The events are:
 2. `investor.updated`
 
    - Triggers on updates to any of the following fields:
-     1. Status
-     2. Name
-     3. Email - (this is a user field so we trigger event for all investors with webhook subscription)
-     4. Allocated Amount
-     5. Investment Amount
-     6. Accredited investor fields
-     7. Adding or removing attachments
-     8. Tags
+     - Status
+     - Name
+     - Email - (this is a user field so we trigger event for all investors with webhook subscription)
+     - Allocated Amount
+     - Investment Amount
+     - Accredited investor fields
+     - Adding or removing attachments
+     - Tags
    - When the investor status is signed, the payload also includes a link to the signed document; the link expires after 30 minutes
+  
+3. `investor.signed`
 
-3. `investor.deleted`
+   - Triggers when the investor signs their subscription agreement (terms and conditions)
+     - When this happens the investor.state becomes `signed`
+   - This event includes the same fields as the `investor.updated` event
+
+4. `investor.funded`
+
+   - Triggers when the investor becomes fully funded
+     - This happens when the investor.funded_state becomes `funded`
+   - This event includes the same fields as the `investor.updated` event
+
+5. `investor.accepted`
+
+   - Triggers when the investor is countersigned
+     - When this happens the investor.state becomes `accepted`
+   - This event includes the same fields as the `investor.updated` event
+
+6.  `investor.deleted`
 
    - Triggers when the investor is removed from the deal
    - The investor key of the payload only includes investor ID
@@ -259,42 +281,44 @@ The initial set of events will be related to the investor. The events are:
 
 There will be some properties that are common to all the events on the system.
 
-| Key               | Type   | Description                                                                            |
-| ----------------- | ------ | -------------------------------------------------------------------------------------- |
-| event             | String | The event that triggered the call                                                      |
-| event_id          | String | A unique identifier for the event                                                      |
-| deal<sup>\\*</sup> | Object | The deal in which the event occurred. It includes id, title, created_at and updated_at |
+| Key               | Type   | Description                                                                              |
+| ----------------- | ------ | --------------------------------------------------------------------------------------   |
+| event             | String | The event that triggered the call                                                        |
+| event_id          | String | A unique identifier for the event                                                        |
+| deal<sup>\\*</sup> | Object | The deal in which the event occurred. please see below for an example on the deal object<sup>\\*\\*</sup> |
 
 <sup>\\*</sup>This field is not included when deleting a resource
 
+<sup>\\*\\*</sup> Sample Deal Object in the webhook payload
+
+```json
+\"deal\": {
+        \"id\": 0,
+        \"title\": \"string\",
+        \"created_at\": \"2022-12-06T18:14:44.000Z\",
+        \"updated_at\": \"2022-12-08T12:46:48.000Z\",
+        \"state\": \"string\",
+        \"currency\": \"string\",
+        \"security_type\": \"string\",
+        \"price_per_security\": 0.00,
+        \"deal_type\": \"string\",
+        \"minimum_investment\": 0,
+        \"maximum_investment\": 0,
+        \"issuer\": {
+            \"id\": 0,
+            \"name\": \"string\"
+        },
+        \"enterprise\": {
+            \"id\": 0,
+            \"name\": \"string\"
+        }
+    }
+```
+
 #### Common Properties (investor scope)
 
-Every event on this scope must contain an investor object, here are some properties that are common to this object on all events in the investor scope:
-
-| Key                 | Type             | Description                                                                                                              |
-| ------------------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------ |
-| id                  | Integer          | The unique ID of the Investor                                                                                            |
-| name                | String           | Investor’s Name                                                                                                          |
-| status              | String           | Current status of the investor<br />Possible states are: <br />draft<br />invited<br />signed<br />waiting<br />accepted |
-| email               | String           |                                                                                                                          |
-| phone_number        | String           |                                                                                                                          |
-| investment_amount   | Double           |                                                                                                                          |
-| allocated_amount    | Double           |                                                                                                                          |
-| accredited_investor | Object           | See format in respective ticket                                                                                          |
-| attachments         | Array of Objects | List of supporting documents uploaded to the investor, including URL (expire after 30 minutes) and title (caption)       |
-| funding_state       | String           | Investor’s current funding state (unfunded, underfunded, funded, overfunded)                                             |
-| funds_pending       | Boolean          | True if there are pending transactions, False otherwise                                                                  |
-| created_at          | Date             |                                                                                                                          |
-| updated_at          | Date             |                                                                                                                          |
-| tags                | Array of Strings | a list of the investor's tags, separated by comma.                                                                       |
-
-### investor.status >= signed Specific Properties
-
-| Key                    | Type   | Description            |
-| ---------------------- | ------ | ---------------------- |
-| subscription_agreement | object | id, url (expiring URL) |
-
-#### Investor Status
+By design, we have incorporated on the webhooks payload the same investor-related fields included in the Investor model, for reference on the included fields, their types and values please click [here](https://docs.dealmaker.tech/#tag/investor_model). This will allow you to get all the necessary information you need about a particular investor without having to call the Get Investor by ID endpoint.                                                           |
+#### Investor State
 
 Here is a brief description of each investor state:
 
@@ -303,6 +327,7 @@ Here is a brief description of each investor state:
 - **Signed:** the investor signed the document (needs approval from Lawyer or Reviewer before countersignature)
 - **Waiting:** the investor was approved for countersignature by any of the Lawyers or Reviewers in the deal
 - **Accepted:** the investor's agreement was countersigned by the Signatory
+- **Inactive** the investor is no longer eligible to participate in the offering. This may be because their warrant expired, they requested a refund, or they opted out of the offering
 
 #### Update Delay
 
@@ -311,7 +336,7 @@ Given the high number of updates our platform performs on any investor, we’ve 
 This SDK is automatically generated by the [OpenAPI Generator](https://openapi-generator.tech) project:
 
 - API version: 1.0.0
-- Package version: 0.75.0
+- Package version: 0.77.4
 - Build package: org.openapitools.codegen.languages.JavascriptClientCodegen
 
 ## Installation
@@ -501,6 +526,7 @@ Class | Method | HTTP request | Description
  - [Api.V1EntitiesInvestorProfileIndividual](docs/V1EntitiesInvestorProfileIndividual.md)
  - [Api.V1EntitiesInvestorProfileItem](docs/V1EntitiesInvestorProfileItem.md)
  - [Api.V1EntitiesInvestorProfileJoint](docs/V1EntitiesInvestorProfileJoint.md)
+ - [Api.V1EntitiesInvestorProfileOwner](docs/V1EntitiesInvestorProfileOwner.md)
  - [Api.V1EntitiesInvestorProfileTrust](docs/V1EntitiesInvestorProfileTrust.md)
  - [Api.V1EntitiesInvestorProfiles](docs/V1EntitiesInvestorProfiles.md)
  - [Api.V1EntitiesInvestorUser](docs/V1EntitiesInvestorUser.md)

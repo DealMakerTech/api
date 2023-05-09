@@ -10,6 +10,8 @@ Name | Type | Description | Notes
 **type** | **String** | Investor Profile type | [optional] 
 **usAccreditedCategory** | **String** | The accredited investor information | [optional] 
 **complete** | **Boolean** | To check if the profile is complete or not | [optional] 
+**ownerType** | **String** | Type of the investor profile owner | [optional] 
+**owner** | [**V1EntitiesInvestorProfileOwner**](V1EntitiesInvestorProfileOwner.md) |  | [optional] 
 **jointType** | **String** | The kind of joint investor | [optional] 
 **primaryHolder** | [**V1EntitiesInvestorProfileFieldsPrimaryHolder**](V1EntitiesInvestorProfileFieldsPrimaryHolder.md) |  | [optional] 
 **jointHolder** | [**V1EntitiesInvestorProfileFieldsAccountHolder**](V1EntitiesInvestorProfileFieldsAccountHolder.md) |  | [optional] 

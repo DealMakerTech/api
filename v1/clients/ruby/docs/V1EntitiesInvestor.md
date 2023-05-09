@@ -16,8 +16,8 @@
 | **beneficial_address** | **String** | The address. | [optional] |
 | **phone_number** | **String** | The beneficial phone number associated with the investor. If there is no phone number, this returns the phone number associated with the user profile. | [optional] |
 | **investor_currency** | **String** | The investor currency. | [optional] |
-| **investment_value** | **Float** | The current investment value. | [optional] |
 | **number_of_securities** | **Integer** | The number of securities. | [optional] |
+| **investment_value** | **Float** | The current investment value. | [optional] |
 | **allocated_amount** | **Float** | The amount allocated. | [optional] |
 | **funds_value** | **Float** | The current amount that has been funded. | [optional] |
 | **access_link** | **String** | The access link for the investor. This is the access link for the specific investment, not the user. If the same user has multiple investments, each one will have a different access link. | [optional] |
@@ -50,8 +50,8 @@ instance = DealMakerAPI::V1EntitiesInvestor.new(
   beneficial_address: null,
   phone_number: null,
   investor_currency: null,
-  investment_value: null,
   number_of_securities: null,
+  investment_value: null,
   allocated_amount: null,
   funds_value: null,
   access_link: null,

@@ -10,6 +10,8 @@
 | **type** | **String** | Investor Profile type | [optional] |
 | **us_accredited_category** | **String** | The accredited investor information | [optional] |
 | **complete** | **Boolean** | To check if the profile is complete or not | [optional] |
+| **owner_type** | **String** | Type of the investor profile owner | [optional] |
+| **owner** | [**V1EntitiesInvestorProfileOwner**](V1EntitiesInvestorProfileOwner.md) |  | [optional] |
 | **account_holder** | [**V1EntitiesInvestorProfileFieldsPrimaryHolder**](V1EntitiesInvestorProfileFieldsPrimaryHolder.md) |  | [optional] |
 
 ## Example
@@ -24,6 +26,8 @@ instance = DealMakerAPI::V1EntitiesInvestorProfileIndividual.new(
   type: null,
   us_accredited_category: null,
   complete: null,
+  owner_type: null,
+  owner: null,
   account_holder: null
 )
 ```

@@ -15,6 +15,9 @@
 | **postal_code** | **String** | The postal code or zipcode of the corporation (required). | [optional] |
 | **business_number** | **String** | The taxpayer identification number  of the corporation (required). | [optional] |
 | **phone_number** | **String** | The phone number o of the corporation (required). | [optional] |
+| **income** | **Float** | The income of the individual investor profile | [optional] |
+| **net_worth** | **Float** | The net worth of the individual investor profile | [optional] |
+| **reg_cf_prior_offerings_amount** | **Float** | The prior offering amount of the individual investor profile | [optional] |
 | **signing_officer_first_name** | **String** | The first name of the signing officer (required). | [optional] |
 | **signing_officer_last_name** | **String** | The last name of the signing officer (required). | [optional] |
 | **signing_officer_suffix** | **String** | The suffix of the signing officer. | [optional] |
@@ -55,6 +58,9 @@ instance = DealMakerAPI::CreateCorporationProfileRequest.new(
   postal_code: null,
   business_number: null,
   phone_number: null,
+  income: null,
+  net_worth: null,
+  reg_cf_prior_offerings_amount: null,
   signing_officer_first_name: null,
   signing_officer_last_name: null,
   signing_officer_suffix: null,

@@ -55,6 +55,7 @@ docs/V1EntitiesInvestorProfileFieldsTrust.md
 docs/V1EntitiesInvestorProfileIndividual.md
 docs/V1EntitiesInvestorProfileItem.md
 docs/V1EntitiesInvestorProfileJoint.md
+docs/V1EntitiesInvestorProfileOwner.md
 docs/V1EntitiesInvestorProfileTrust.md
 docs/V1EntitiesInvestorProfiles.md
 docs/V1EntitiesInvestorUser.md
@@ -117,6 +118,7 @@ lib/DealMakerAPI/models/v1_entities_investor_profile_fields_trust.rb
 lib/DealMakerAPI/models/v1_entities_investor_profile_individual.rb
 lib/DealMakerAPI/models/v1_entities_investor_profile_item.rb
 lib/DealMakerAPI/models/v1_entities_investor_profile_joint.rb
+lib/DealMakerAPI/models/v1_entities_investor_profile_owner.rb
 lib/DealMakerAPI/models/v1_entities_investor_profile_trust.rb
 lib/DealMakerAPI/models/v1_entities_investor_profiles.rb
 lib/DealMakerAPI/models/v1_entities_investor_user.rb
@@ -176,6 +178,7 @@ spec/models/v1_entities_investor_profile_fields_trust_spec.rb
 spec/models/v1_entities_investor_profile_individual_spec.rb
 spec/models/v1_entities_investor_profile_item_spec.rb
 spec/models/v1_entities_investor_profile_joint_spec.rb
+spec/models/v1_entities_investor_profile_owner_spec.rb
 spec/models/v1_entities_investor_profile_trust_spec.rb
 spec/models/v1_entities_investor_profiles_spec.rb
 spec/models/v1_entities_investor_spec.rb

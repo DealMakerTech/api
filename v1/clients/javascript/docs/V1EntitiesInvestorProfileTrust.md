@@ -10,6 +10,8 @@ Name | Type | Description | Notes
 **type** | **String** | Investor Profile type | [optional] 
 **usAccreditedCategory** | **String** | The accredited investor information | [optional] 
 **complete** | **Boolean** | To check if the profile is complete or not | [optional] 
+**ownerType** | **String** | Type of the investor profile owner | [optional] 
+**owner** | [**V1EntitiesInvestorProfileOwner**](V1EntitiesInvestorProfileOwner.md) |  | [optional] 
 **trustHolder** | [**V1EntitiesInvestorProfileFieldsTrust**](V1EntitiesInvestorProfileFieldsTrust.md) |  | [optional] 
 **trustees** | [**V1EntitiesInvestorProfileFieldsAccountHolder**](V1EntitiesInvestorProfileFieldsAccountHolder.md) |  | [optional] 
 

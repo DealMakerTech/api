@@ -18,6 +18,9 @@ Name | Type | Description | Notes
 **city** | **String** | The city of the individual investor profile (required) | [optional] 
 **region** | **String** | The region or state of the individual investor profile (required) | [optional] 
 **postalCode** | **String** | The postal code or zipcode of the individual investor profile (required) | [optional] 
+**income** | **Number** | The income of the individual investor profile | [optional] 
+**netWorth** | **Number** | The net worth of the individual investor profile | [optional] 
+**regCfPriorOfferingsAmount** | **Number** | The prior offering amount of the individual investor profile | [optional] 
 
 
 

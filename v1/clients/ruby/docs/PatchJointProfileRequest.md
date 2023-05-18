@@ -18,6 +18,9 @@
 | **date_of_birth** | **String** | The date of birth of the investor profile. | [optional] |
 | **taxpayer_id** | **String** | The taxpayer identification number of the investor profile. | [optional] |
 | **phone_number** | **String** | The phone number of the investor profile. | [optional] |
+| **income** | **Float** | The income of the investor profile. | [optional] |
+| **net_worth** | **Float** | The net worth of the investor profile. | [optional] |
+| **reg_cf_prior_offerings_amount** | **Float** | The prior offerings amount of the investor profile. | [optional] |
 | **joint_holder_first_name** | **String** | The joint holder first name of the investor profile. | [optional] |
 | **joint_holder_last_name** | **String** | The joint holder last name of the investor profile. | [optional] |
 | **joint_holder_suffix** | **String** | The suffix of the individual investor profile. | [optional] |
@@ -50,6 +53,9 @@ instance = DealMakerAPI::PatchJointProfileRequest.new(
   date_of_birth: null,
   taxpayer_id: null,
   phone_number: null,
+  income: null,
+  net_worth: null,
+  reg_cf_prior_offerings_amount: null,
   joint_holder_first_name: null,
   joint_holder_last_name: null,
   joint_holder_suffix: null,

@@ -19,6 +19,9 @@
 | **date_of_birth** | **String** | The date of birth of the primary holder (required). | [optional] |
 | **taxpayer_id** | **String** | The taxpayer identification number of the primary holder (required). | [optional] |
 | **phone_number** | **String** | The phone number of the primary holder (required). | [optional] |
+| **income** | **Float** | The income of the primary holder. | [optional] |
+| **net_worth** | **Float** | The net worth of the primary holder. | [optional] |
+| **reg_cf_prior_offerings_amount** | **Float** | The prior offerings amount of the primary holder. | [optional] |
 | **joint_holder_first_name** | **String** | The first name of the joint holder (required). | [optional] |
 | **joint_holder_last_name** | **String** | The last name of the joint holder (required). | [optional] |
 | **joint_holder_suffix** | **String** | The suffix of the joint holder. | [optional] |
@@ -52,6 +55,9 @@ instance = DealMakerAPI::CreateJointProfileRequest.new(
   date_of_birth: null,
   taxpayer_id: null,
   phone_number: null,
+  income: null,
+  net_worth: null,
+  reg_cf_prior_offerings_amount: null,
   joint_holder_first_name: null,
   joint_holder_last_name: null,
   joint_holder_suffix: null,

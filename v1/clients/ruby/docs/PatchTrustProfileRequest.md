@@ -14,6 +14,9 @@
 | **city** | **String** | Trust city. | [optional] |
 | **region** | **String** | Trust region or state. | [optional] |
 | **postal_code** | **String** | Trust postal code or zipcode. | [optional] |
+| **income** | **Float** | The income of the Trust. | [optional] |
+| **net_worth** | **Float** | The net worth of the Trust. | [optional] |
+| **reg_cf_prior_offerings_amount** | **Float** | The prior offering amount of the Trust. | [optional] |
 | **trustee_first_name** | **String** | Trustee first name. | [optional] |
 | **trustee_last_name** | **String** | Trustee last name. | [optional] |
 | **trustee_suffix** | **String** | Trustee suffix. | [optional] |
@@ -42,6 +45,9 @@ instance = DealMakerAPI::PatchTrustProfileRequest.new(
   city: null,
   region: null,
   postal_code: null,
+  income: null,
+  net_worth: null,
+  reg_cf_prior_offerings_amount: null,
   trustee_first_name: null,
   trustee_last_name: null,
   trustee_suffix: null,

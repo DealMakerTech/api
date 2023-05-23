@@ -14,6 +14,9 @@
 | **postal_code** | **String** | Corporation postal code or zipcode. | [optional] |
 | **business_number** | **String** | The business number of the investor profile. | [optional] |
 | **phone_number** | **String** | The phone number of the investor profile. | [optional] |
+| **income** | **Float** | The income of the individual investor profile | [optional] |
+| **net_worth** | **Float** | The net worth of the individual investor profile | [optional] |
+| **reg_cf_prior_offerings_amount** | **Float** | The prior offering amount of the individual investor profile | [optional] |
 | **signing_officer_first_name** | **String** | Signing officer first name. | [optional] |
 | **signing_officer_last_name** | **String** | Signing officer last name. | [optional] |
 | **signing_officer_suffix** | **String** | Signing officer suffix. | [optional] |
@@ -42,6 +45,9 @@ instance = DealMakerAPI::PatchCorporationProfileRequest.new(
   postal_code: null,
   business_number: null,
   phone_number: null,
+  income: null,
+  net_worth: null,
+  reg_cf_prior_offerings_amount: null,
   signing_officer_first_name: null,
   signing_officer_last_name: null,
   signing_officer_suffix: null,

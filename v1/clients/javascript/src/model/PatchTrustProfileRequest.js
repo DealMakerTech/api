@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The PatchTrustProfileRequest model module.
  * @module model/PatchTrustProfileRequest
- * @version 0.78.4
+ * @version 0.79.0
  */
 class PatchTrustProfileRequest {
     /**

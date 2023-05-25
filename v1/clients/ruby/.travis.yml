@@ -8,4 +8,4 @@ script:
   - bundle install --path vendor/bundle
   - bundle exec rspec
   - gem build DealMakerAPI.gemspec
-  - gem install ./DealMakerAPI-0.78.4.gem
+  - gem install ./DealMakerAPI-0.79.0.gem

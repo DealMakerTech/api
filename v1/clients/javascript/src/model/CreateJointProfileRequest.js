@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The CreateJointProfileRequest model module.
  * @module model/CreateJointProfileRequest
- * @version 0.78.4
+ * @version 0.79.1
  */
 class CreateJointProfileRequest {
     /**

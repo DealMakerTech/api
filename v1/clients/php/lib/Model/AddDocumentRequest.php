@@ -1,6 +1,7 @@
 <?php
 /**
- * Configuration
+ * AddDocumentRequest
+ *
  * PHP version 7.4
  *
  * @category Class
@@ -25,508 +26,526 @@
  * Do not edit the class manually.
  */
 
-namespace DealMaker;
+namespace DealMaker\Model;
+
+use \ArrayAccess;
+use \DealMaker\ObjectSerializer;
 
 /**
- * Configuration Class Doc Comment
- * PHP version 7.4
+ * AddDocumentRequest Class Doc Comment
  *
  * @category Class
  * @package  DealMaker
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
+ * @implements \ArrayAccess<string, mixed>
  */
-class Configuration
+class AddDocumentRequest implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    public const BOOLEAN_FORMAT_INT = 'int';
-    public const BOOLEAN_FORMAT_STRING = 'string';
+    public const DISCRIMINATOR = null;
 
     /**
-     * @var Configuration
-     */
-    private static $defaultConfiguration;
+      * The original name of the model.
+      *
+      * @var string
+      */
+    protected static $openAPIModelName = 'addDocument_request';
 
     /**
-     * Associate array to store API key(s)
+      * Array of property to type mappings. Used for (de)serialization
+      *
+      * @var string[]
+      */
+    protected static $openAPITypes = [
+        'type' => 'string',
+        'file' => '\SplFileObject',
+        'caption' => 'string',
+        'search_entity_id' => 'int'
+    ];
+
+    /**
+      * Array of property to format mappings. Used for (de)serialization
+      *
+      * @var string[]
+      * @phpstan-var array<string, string|null>
+      * @psalm-var array<string, string|null>
+      */
+    protected static $openAPIFormats = [
+        'type' => null,
+        'file' => 'binary',
+        'caption' => null,
+        'search_entity_id' => 'int32'
+    ];
+
+    /**
+      * Array of nullable properties. Used for (de)serialization
+      *
+      * @var boolean[]
+      */
+    protected static array $openAPINullables = [
+        'type' => false,
+		'file' => false,
+		'caption' => false,
+		'search_entity_id' => false
+    ];
+
+    /**
+      * If a nullable field gets set to null, insert it here
+      *
+      * @var boolean[]
+      */
+    protected array $openAPINullablesSetToNull = [];
+
+    /**
+     * Array of property to type mappings. Used for (de)serialization
      *
-     * @var string[]
+     * @return array
      */
-    protected $apiKeys = [];
-
-    /**
-     * Associate array to store API prefix (e.g. Bearer)
-     *
-     * @var string[]
-     */
-    protected $apiKeyPrefixes = [];
-
-    /**
-     * Access token for OAuth/Bearer authentication
-     *
-     * @var string
-     */
-    protected $accessToken = '';
-
-    /**
-     * Boolean format for query string
-     *
-     * @var string
-     */
-    protected $booleanFormatForQueryString = self::BOOLEAN_FORMAT_INT;
-
-    /**
-     * Username for HTTP basic authentication
-     *
-     * @var string
-     */
-    protected $username = '';
-
-    /**
-     * Password for HTTP basic authentication
-     *
-     * @var string
-     */
-    protected $password = '';
-
-    /**
-     * The host
-     *
-     * @var string
-     */
-    protected $host = 'http://api.dealmaker.tech';
-
-    /**
-     * User agent of the HTTP request, set to "OpenAPI-Generator/{version}/PHP" by default
-     *
-     * @var string
-     */
-    protected $userAgent = 'OpenAPI-Generator/0.79.2/PHP';
-
-    /**
-     * Debug switch (default set to false)
-     *
-     * @var bool
-     */
-    protected $debug = false;
-
-    /**
-     * Debug file location (log to STDOUT by default)
-     *
-     * @var string
-     */
-    protected $debugFile = 'php://output';
-
-    /**
-     * Debug file location (log to STDOUT by default)
-     *
-     * @var string
-     */
-    protected $tempFolderPath;
-
-    /**
-     * Constructor
-     */
-    public function __construct()
+    public static function openAPITypes()
     {
-        $this->tempFolderPath = sys_get_temp_dir();
+        return self::$openAPITypes;
     }
 
     /**
-     * Sets API key
+     * Array of property to format mappings. Used for (de)serialization
      *
-     * @param string $apiKeyIdentifier API key identifier (authentication scheme)
-     * @param string $key              API key or token
-     *
-     * @return $this
+     * @return array
      */
-    public function setApiKey($apiKeyIdentifier, $key)
+    public static function openAPIFormats()
     {
-        $this->apiKeys[$apiKeyIdentifier] = $key;
-        return $this;
+        return self::$openAPIFormats;
     }
 
     /**
-     * Gets API key
+     * Array of nullable properties
      *
-     * @param string $apiKeyIdentifier API key identifier (authentication scheme)
-     *
-     * @return null|string API key or token
+     * @return array
      */
-    public function getApiKey($apiKeyIdentifier)
+    protected static function openAPINullables(): array
     {
-        return isset($this->apiKeys[$apiKeyIdentifier]) ? $this->apiKeys[$apiKeyIdentifier] : null;
+        return self::$openAPINullables;
     }
 
     /**
-     * Sets the prefix for API key (e.g. Bearer)
+     * Array of nullable field names deliberately set to null
      *
-     * @param string $apiKeyIdentifier API key identifier (authentication scheme)
-     * @param string $prefix           API key prefix, e.g. Bearer
-     *
-     * @return $this
+     * @return boolean[]
      */
-    public function setApiKeyPrefix($apiKeyIdentifier, $prefix)
+    private function getOpenAPINullablesSetToNull(): array
     {
-        $this->apiKeyPrefixes[$apiKeyIdentifier] = $prefix;
-        return $this;
+        return $this->openAPINullablesSetToNull;
     }
 
     /**
-     * Gets API key prefix
+     * Setter - Array of nullable field names deliberately set to null
      *
-     * @param string $apiKeyIdentifier API key identifier (authentication scheme)
-     *
-     * @return null|string
+     * @param boolean[] $openAPINullablesSetToNull
      */
-    public function getApiKeyPrefix($apiKeyIdentifier)
+    private function setOpenAPINullablesSetToNull(array $openAPINullablesSetToNull): void
     {
-        return isset($this->apiKeyPrefixes[$apiKeyIdentifier]) ? $this->apiKeyPrefixes[$apiKeyIdentifier] : null;
+        $this->openAPINullablesSetToNull = $openAPINullablesSetToNull;
     }
 
     /**
-     * Sets the access token for OAuth
+     * Checks if a property is nullable
      *
-     * @param string $accessToken Token for OAuth
-     *
-     * @return $this
-     */
-    public function setAccessToken($accessToken)
-    {
-        $this->accessToken = $accessToken;
-        return $this;
-    }
-
-    /**
-     * Gets the access token for OAuth
-     *
-     * @return string Access token for OAuth
-     */
-    public function getAccessToken()
-    {
-        return $this->accessToken;
-    }
-
-    /**
-     * Sets boolean format for query string.
-     *
-     * @param string $booleanFormatForQueryString Boolean format for query string
-     *
-     * @return $this
-     */
-    public function setBooleanFormatForQueryString(string $booleanFormat)
-    {
-        $this->booleanFormatForQueryString = $booleanFormat;
-
-        return $this;
-    }
-
-    /**
-     * Gets boolean format for query string.
-     *
-     * @return string Boolean format for query string
-     */
-    public function getBooleanFormatForQueryString(): string
-    {
-        return $this->booleanFormatForQueryString;
-    }
-
-    /**
-     * Sets the username for HTTP basic authentication
-     *
-     * @param string $username Username for HTTP basic authentication
-     *
-     * @return $this
-     */
-    public function setUsername($username)
-    {
-        $this->username = $username;
-        return $this;
-    }
-
-    /**
-     * Gets the username for HTTP basic authentication
-     *
-     * @return string Username for HTTP basic authentication
-     */
-    public function getUsername()
-    {
-        return $this->username;
-    }
-
-    /**
-     * Sets the password for HTTP basic authentication
-     *
-     * @param string $password Password for HTTP basic authentication
-     *
-     * @return $this
-     */
-    public function setPassword($password)
-    {
-        $this->password = $password;
-        return $this;
-    }
-
-    /**
-     * Gets the password for HTTP basic authentication
-     *
-     * @return string Password for HTTP basic authentication
-     */
-    public function getPassword()
-    {
-        return $this->password;
-    }
-
-    /**
-     * Sets the host
-     *
-     * @param string $host Host
-     *
-     * @return $this
-     */
-    public function setHost($host)
-    {
-        $this->host = $host;
-        return $this;
-    }
-
-    /**
-     * Gets the host
-     *
-     * @return string Host
-     */
-    public function getHost()
-    {
-        return $this->host;
-    }
-
-    /**
-     * Sets the user agent of the api client
-     *
-     * @param string $userAgent the user agent of the api client
-     *
-     * @throws \InvalidArgumentException
-     * @return $this
-     */
-    public function setUserAgent($userAgent)
-    {
-        if (!is_string($userAgent)) {
-            throw new \InvalidArgumentException('User-agent must be a string.');
-        }
-
-        $this->userAgent = $userAgent;
-        return $this;
-    }
-
-    /**
-     * Gets the user agent of the api client
-     *
-     * @return string user agent
-     */
-    public function getUserAgent()
-    {
-        return $this->userAgent;
-    }
-
-    /**
-     * Sets debug flag
-     *
-     * @param bool $debug Debug flag
-     *
-     * @return $this
-     */
-    public function setDebug($debug)
-    {
-        $this->debug = $debug;
-        return $this;
-    }
-
-    /**
-     * Gets the debug flag
-     *
+     * @param string $property
      * @return bool
      */
-    public function getDebug()
+    public static function isNullable(string $property): bool
     {
-        return $this->debug;
+        return self::openAPINullables()[$property] ?? false;
     }
 
     /**
-     * Sets the debug file
+     * Checks if a nullable property is set to null.
      *
-     * @param string $debugFile Debug file
-     *
-     * @return $this
+     * @param string $property
+     * @return bool
      */
-    public function setDebugFile($debugFile)
+    public function isNullableSetToNull(string $property): bool
     {
-        $this->debugFile = $debugFile;
-        return $this;
+        return in_array($property, $this->getOpenAPINullablesSetToNull(), true);
     }
 
     /**
-     * Gets the debug file
+     * Array of attributes where the key is the local name,
+     * and the value is the original name
+     *
+     * @var string[]
+     */
+    protected static $attributeMap = [
+        'type' => 'type',
+        'file' => 'file',
+        'caption' => 'caption',
+        'search_entity_id' => 'search_entity_id'
+    ];
+
+    /**
+     * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @var string[]
+     */
+    protected static $setters = [
+        'type' => 'setType',
+        'file' => 'setFile',
+        'caption' => 'setCaption',
+        'search_entity_id' => 'setSearchEntityId'
+    ];
+
+    /**
+     * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @var string[]
+     */
+    protected static $getters = [
+        'type' => 'getType',
+        'file' => 'getFile',
+        'caption' => 'getCaption',
+        'search_entity_id' => 'getSearchEntityId'
+    ];
+
+    /**
+     * Array of attributes where the key is the local name,
+     * and the value is the original name
+     *
+     * @return array
+     */
+    public static function attributeMap()
+    {
+        return self::$attributeMap;
+    }
+
+    /**
+     * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
+     */
+    public static function setters()
+    {
+        return self::$setters;
+    }
+
+    /**
+     * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
+     */
+    public static function getters()
+    {
+        return self::$getters;
+    }
+
+    /**
+     * The original name of the model.
      *
      * @return string
      */
-    public function getDebugFile()
+    public function getModelName()
     {
-        return $this->debugFile;
+        return self::$openAPIModelName;
     }
 
-    /**
-     * Sets the temp folder path
-     *
-     * @param string $tempFolderPath Temp folder path
-     *
-     * @return $this
-     */
-    public function setTempFolderPath($tempFolderPath)
-    {
-        $this->tempFolderPath = $tempFolderPath;
-        return $this;
-    }
+    public const TYPE_REGULAR = 'regular';
+    public const TYPE_AML_KYC = 'AML/KYC';
 
     /**
-     * Gets the temp folder path
+     * Gets allowable values of the enum
      *
-     * @return string Temp folder path
+     * @return string[]
      */
-    public function getTempFolderPath()
-    {
-        return $this->tempFolderPath;
-    }
-
-    /**
-     * Gets the default configuration instance
-     *
-     * @return Configuration
-     */
-    public static function getDefaultConfiguration()
-    {
-        if (self::$defaultConfiguration === null) {
-            self::$defaultConfiguration = new Configuration();
-        }
-
-        return self::$defaultConfiguration;
-    }
-
-    /**
-     * Sets the default configuration instance
-     *
-     * @param Configuration $config An instance of the Configuration Object
-     *
-     * @return void
-     */
-    public static function setDefaultConfiguration(Configuration $config)
-    {
-        self::$defaultConfiguration = $config;
-    }
-
-    /**
-     * Gets the essential information for debugging
-     *
-     * @return string The report for debugging
-     */
-    public static function toDebugReport()
-    {
-        $report  = 'PHP SDK (DealMaker) Debug Report:' . PHP_EOL;
-        $report .= '    OS: ' . php_uname() . PHP_EOL;
-        $report .= '    PHP Version: ' . PHP_VERSION . PHP_EOL;
-        $report .= '    The version of the OpenAPI document: 1.0.0' . PHP_EOL;
-        $report .= '    SDK Package Version: 0.79.2' . PHP_EOL;
-        $report .= '    Temp Folder Path: ' . self::getDefaultConfiguration()->getTempFolderPath() . PHP_EOL;
-
-        return $report;
-    }
-
-    /**
-     * Get API key (with prefix if set)
-     *
-     * @param  string $apiKeyIdentifier name of apikey
-     *
-     * @return null|string API key with the prefix
-     */
-    public function getApiKeyWithPrefix($apiKeyIdentifier)
-    {
-        $prefix = $this->getApiKeyPrefix($apiKeyIdentifier);
-        $apiKey = $this->getApiKey($apiKeyIdentifier);
-
-        if ($apiKey === null) {
-            return null;
-        }
-
-        if ($prefix === null) {
-            $keyWithPrefix = $apiKey;
-        } else {
-            $keyWithPrefix = $prefix . ' ' . $apiKey;
-        }
-
-        return $keyWithPrefix;
-    }
-
-    /**
-     * Returns an array of host settings
-     *
-     * @return array an array of host settings
-     */
-    public function getHostSettings()
+    public function getTypeAllowableValues()
     {
         return [
-            [
-                "url" => "//api.dealmaker.tech",
-                "description" => "No description provided",
-            ]
+            self::TYPE_REGULAR,
+            self::TYPE_AML_KYC,
         ];
     }
 
     /**
-    * Returns URL based on host settings, index and variables
-    *
-    * @param array      $hostSettings array of host settings, generated from getHostSettings() or equivalent from the API clients
-    * @param int        $hostIndex    index of the host settings
-    * @param array|null $variables    hash of variable and the corresponding value (optional)
-    * @return string URL based on host settings
-    */
-    public static function getHostString(array $hostsSettings, $hostIndex, array $variables = null)
+     * Associative array for storing property values
+     *
+     * @var mixed[]
+     */
+    protected $container = [];
+
+    /**
+     * Constructor
+     *
+     * @param mixed[] $data Associated array of property values
+     *                      initializing the model
+     */
+    public function __construct(array $data = null)
     {
-        if (null === $variables) {
-            $variables = [];
-        }
-
-        // check array index out of bound
-        if ($hostIndex < 0 || $hostIndex >= count($hostsSettings)) {
-            throw new \InvalidArgumentException("Invalid index $hostIndex when selecting the host. Must be less than ".count($hostsSettings));
-        }
-
-        $host = $hostsSettings[$hostIndex];
-        $url = $host["url"];
-
-        // go through variable and assign a value
-        foreach ($host["variables"] ?? [] as $name => $variable) {
-            if (array_key_exists($name, $variables)) { // check to see if it's in the variables provided by the user
-                if (!isset($variable['enum_values']) || in_array($variables[$name], $variable["enum_values"], true)) { // check to see if the value is in the enum
-                    $url = str_replace("{".$name."}", $variables[$name], $url);
-                } else {
-                    throw new \InvalidArgumentException("The variable `$name` in the host URL has invalid value ".$variables[$name].". Must be ".join(',', $variable["enum_values"]).".");
-                }
-            } else {
-                // use default value
-                $url = str_replace("{".$name."}", $variable["default_value"], $url);
-            }
-        }
-
-        return $url;
+        $this->setIfExists('type', $data ?? [], 'regular');
+        $this->setIfExists('file', $data ?? [], null);
+        $this->setIfExists('caption', $data ?? [], null);
+        $this->setIfExists('search_entity_id', $data ?? [], null);
     }
 
     /**
-     * Returns URL based on the index and variables
-     *
-     * @param int        $index     index of the host settings
-     * @param array|null $variables hash of variable and the corresponding value (optional)
-     * @return string URL based on host settings
-     */
-    public function getHostFromSettings($index, $variables = null)
+    * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
+    * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
+    * $this->openAPINullablesSetToNull array
+    *
+    * @param string $variableName
+    * @param array  $fields
+    * @param mixed  $defaultValue
+    */
+    private function setIfExists(string $variableName, array $fields, $defaultValue): void
     {
-        return self::getHostString($this->getHostSettings(), $index, $variables);
+        if (self::isNullable($variableName) && array_key_exists($variableName, $fields) && is_null($fields[$variableName])) {
+            $this->openAPINullablesSetToNull[] = $variableName;
+        }
+
+        $this->container[$variableName] = $fields[$variableName] ?? $defaultValue;
+    }
+
+    /**
+     * Show all the invalid properties with reasons.
+     *
+     * @return array invalid properties with reasons
+     */
+    public function listInvalidProperties()
+    {
+        $invalidProperties = [];
+
+        if ($this->container['type'] === null) {
+            $invalidProperties[] = "'type' can't be null";
+        }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'type', must be one of '%s'",
+                $this->container['type'],
+                implode("', '", $allowedValues)
+            );
+        }
+
+        if ($this->container['file'] === null) {
+            $invalidProperties[] = "'file' can't be null";
+        }
+        return $invalidProperties;
+    }
+
+    /**
+     * Validate all the properties in the model
+     * return true if all passed
+     *
+     * @return bool True if all properties are valid
+     */
+    public function valid()
+    {
+        return count($this->listInvalidProperties()) === 0;
+    }
+
+
+    /**
+     * Gets type
+     *
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->container['type'];
+    }
+
+    /**
+     * Sets type
+     *
+     * @param string $type Document type.
+     *
+     * @return self
+     */
+    public function setType($type)
+    {
+        if (is_null($type)) {
+            throw new \InvalidArgumentException('non-nullable type cannot be null');
+        }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!in_array($type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'type', must be one of '%s'",
+                    $type,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['type'] = $type;
+
+        return $this;
+    }
+
+    /**
+     * Gets file
+     *
+     * @return \SplFileObject
+     */
+    public function getFile()
+    {
+        return $this->container['file'];
+    }
+
+    /**
+     * Sets file
+     *
+     * @param \SplFileObject $file File to upload.
+     *
+     * @return self
+     */
+    public function setFile($file)
+    {
+        if (is_null($file)) {
+            throw new \InvalidArgumentException('non-nullable file cannot be null');
+        }
+        $this->container['file'] = $file;
+
+        return $this;
+    }
+
+    /**
+     * Gets caption
+     *
+     * @return string|null
+     */
+    public function getCaption()
+    {
+        return $this->container['caption'];
+    }
+
+    /**
+     * Sets caption
+     *
+     * @param string|null $caption The caption.
+     *
+     * @return self
+     */
+    public function setCaption($caption)
+    {
+        if (is_null($caption)) {
+            throw new \InvalidArgumentException('non-nullable caption cannot be null');
+        }
+        $this->container['caption'] = $caption;
+
+        return $this;
+    }
+
+    /**
+     * Gets search_entity_id
+     *
+     * @return int|null
+     */
+    public function getSearchEntityId()
+    {
+        return $this->container['search_entity_id'];
+    }
+
+    /**
+     * Sets search_entity_id
+     *
+     * @param int|null $search_entity_id Search entity id.
+     *
+     * @return self
+     */
+    public function setSearchEntityId($search_entity_id)
+    {
+        if (is_null($search_entity_id)) {
+            throw new \InvalidArgumentException('non-nullable search_entity_id cannot be null');
+        }
+        $this->container['search_entity_id'] = $search_entity_id;
+
+        return $this;
+    }
+    /**
+     * Returns true if offset exists. False otherwise.
+     *
+     * @param integer $offset Offset
+     *
+     * @return boolean
+     */
+    public function offsetExists($offset): bool
+    {
+        return isset($this->container[$offset]);
+    }
+
+    /**
+     * Gets offset.
+     *
+     * @param integer $offset Offset
+     *
+     * @return mixed|null
+     */
+    #[\ReturnTypeWillChange]
+    public function offsetGet($offset)
+    {
+        return $this->container[$offset] ?? null;
+    }
+
+    /**
+     * Sets value based on offset.
+     *
+     * @param int|null $offset Offset
+     * @param mixed    $value  Value to be set
+     *
+     * @return void
+     */
+    public function offsetSet($offset, $value): void
+    {
+        if (is_null($offset)) {
+            $this->container[] = $value;
+        } else {
+            $this->container[$offset] = $value;
+        }
+    }
+
+    /**
+     * Unsets offset.
+     *
+     * @param integer $offset Offset
+     *
+     * @return void
+     */
+    public function offsetUnset($offset): void
+    {
+        unset($this->container[$offset]);
+    }
+
+    /**
+     * Serializes the object to a value that can be serialized natively by json_encode().
+     * @link https://www.php.net/manual/en/jsonserializable.jsonserialize.php
+     *
+     * @return mixed Returns data which can be serialized by json_encode(), which is a value
+     * of any type other than a resource.
+     */
+    #[\ReturnTypeWillChange]
+    public function jsonSerialize()
+    {
+       return ObjectSerializer::sanitizeForSerialization($this);
+    }
+
+    /**
+     * Gets the string presentation of the object
+     *
+     * @return string
+     */
+    public function __toString()
+    {
+        return json_encode(
+            ObjectSerializer::sanitizeForSerialization($this),
+            JSON_PRETTY_PRINT
+        );
+    }
+
+    /**
+     * Gets a header-safe presentation of the object
+     *
+     * @return string
+     */
+    public function toHeaderValue()
+    {
+        return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
 }
+
+

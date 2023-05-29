@@ -48,10 +48,30 @@
   }
 
   describe('InvestorApi', function() {
+    describe('addDocument', function() {
+      it('should call addDocument successfully', function(done) {
+        //uncomment below and update the code to test addDocument
+        //instance.addDocument(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('createInvestor', function() {
       it('should call createInvestor successfully', function(done) {
         //uncomment below and update the code to test createInvestor
         //instance.createInvestor(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('deleteDocument', function() {
+      it('should call deleteDocument successfully', function(done) {
+        //uncomment below and update the code to test deleteDocument
+        //instance.deleteDocument(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});

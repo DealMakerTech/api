@@ -10,89 +10,287 @@ OpenAPI Generator version: 7.0.0-SNAPSHOT
 
 =end
 
-# Common files
-require 'DealMakerAPI/api_client'
-require 'DealMakerAPI/api_error'
-require 'DealMakerAPI/version'
-require 'DealMakerAPI/configuration'
-
-# Models
-require 'DealMakerAPI/models/add_document_request'
-require 'DealMakerAPI/models/create_company_request'
-require 'DealMakerAPI/models/create_corporation_profile_request'
-require 'DealMakerAPI/models/create_deal_setup_request'
-require 'DealMakerAPI/models/create_individual_profile_request'
-require 'DealMakerAPI/models/create_investor_request'
-require 'DealMakerAPI/models/create_joint_profile_request'
-require 'DealMakerAPI/models/create_trust_profile_request'
-require 'DealMakerAPI/models/patch_corporation_profile_request'
-require 'DealMakerAPI/models/patch_individual_profile_request'
-require 'DealMakerAPI/models/patch_investor_request'
-require 'DealMakerAPI/models/patch_joint_profile_request'
-require 'DealMakerAPI/models/patch_trust_profile_request'
-require 'DealMakerAPI/models/post_webhooks_request'
-require 'DealMakerAPI/models/put_webhooks_id_request'
-require 'DealMakerAPI/models/update_investor_request'
-require 'DealMakerAPI/models/v1_entities_address'
-require 'DealMakerAPI/models/v1_entities_addresses'
-require 'DealMakerAPI/models/v1_entities_attachment'
-require 'DealMakerAPI/models/v1_entities_background_check_search'
-require 'DealMakerAPI/models/v1_entities_company'
-require 'DealMakerAPI/models/v1_entities_company_deal'
-require 'DealMakerAPI/models/v1_entities_company_deals'
-require 'DealMakerAPI/models/v1_entities_deal'
-require 'DealMakerAPI/models/v1_entities_deal_enterprise'
-require 'DealMakerAPI/models/v1_entities_deal_funding_metrics'
-require 'DealMakerAPI/models/v1_entities_deal_investor_metrics'
-require 'DealMakerAPI/models/v1_entities_deal_issuer'
-require 'DealMakerAPI/models/v1_entities_deal_setup'
-require 'DealMakerAPI/models/v1_entities_deal_setup_user'
-require 'DealMakerAPI/models/v1_entities_deals'
-require 'DealMakerAPI/models/v1_entities_investor'
-require 'DealMakerAPI/models/v1_entities_investor_otp_access_link'
-require 'DealMakerAPI/models/v1_entities_investor_profile_address'
-require 'DealMakerAPI/models/v1_entities_investor_profile_corporation'
-require 'DealMakerAPI/models/v1_entities_investor_profile_fields_account_holder'
-require 'DealMakerAPI/models/v1_entities_investor_profile_fields_corporation'
-require 'DealMakerAPI/models/v1_entities_investor_profile_fields_primary_holder'
-require 'DealMakerAPI/models/v1_entities_investor_profile_fields_trust'
-require 'DealMakerAPI/models/v1_entities_investor_profile_individual'
-require 'DealMakerAPI/models/v1_entities_investor_profile_item'
-require 'DealMakerAPI/models/v1_entities_investor_profile_joint'
-require 'DealMakerAPI/models/v1_entities_investor_profile_owner'
-require 'DealMakerAPI/models/v1_entities_investor_profile_trust'
-require 'DealMakerAPI/models/v1_entities_investor_profiles'
-require 'DealMakerAPI/models/v1_entities_investor_user'
-require 'DealMakerAPI/models/v1_entities_investors'
-require 'DealMakerAPI/models/v1_entities_subscription_agreement'
-require 'DealMakerAPI/models/v1_entities_webhooks_deal'
-require 'DealMakerAPI/models/v1_entities_webhooks_security_token'
-require 'DealMakerAPI/models/v1_entities_webhooks_subscription'
-require 'DealMakerAPI/models/v1_entities_webhooks_subscription_deal'
-require 'DealMakerAPI/models/v1_entities_webhooks_subscription_deals'
-
-# APIs
-require 'DealMakerAPI/api/company_api'
-require 'DealMakerAPI/api/deal_api'
-require 'DealMakerAPI/api/deal_setup_api'
-require 'DealMakerAPI/api/default_api'
-require 'DealMakerAPI/api/investor_api'
-require 'DealMakerAPI/api/investor_profile_api'
+require 'date'
+require 'time'
 
 module DealMakerAPI
-  class << self
-    # Customize default settings for the SDK using block.
-    #   DealMakerAPI.configure do |config|
-    #     config.username = "xxx"
-    #     config.password = "xxx"
-    #   end
-    # If no block given, return the default Configuration object.
-    def configure
-      if block_given?
-        yield(Configuration.default)
-      else
-        Configuration.default
+  class AddDocumentRequest
+    # Document type.
+    attr_accessor :type
+
+    # File to upload.
+    attr_accessor :file
+
+    # The caption.
+    attr_accessor :caption
+
+    # Search entity id.
+    attr_accessor :search_entity_id
+
+    class EnumAttributeValidator
+      attr_reader :datatype
+      attr_reader :allowable_values
+
+      def initialize(datatype, allowable_values)
+        @allowable_values = allowable_values.map do |value|
+          case datatype.to_s
+          when /Integer/i
+            value.to_i
+          when /Float/i
+            value.to_f
+          else
+            value
+          end
+        end
+      end
+
+      def valid?(value)
+        !value || allowable_values.include?(value)
       end
     end
+
+    # Attribute mapping from ruby-style variable name to JSON key.
+    def self.attribute_map
+      {
+        :'type' => :'type',
+        :'file' => :'file',
+        :'caption' => :'caption',
+        :'search_entity_id' => :'search_entity_id'
+      }
+    end
+
+    # Returns all the JSON keys this model knows about
+    def self.acceptable_attributes
+      attribute_map.values
+    end
+
+    # Attribute type mapping.
+    def self.openapi_types
+      {
+        :'type' => :'String',
+        :'file' => :'File',
+        :'caption' => :'String',
+        :'search_entity_id' => :'Integer'
+      }
+    end
+
+    # List of attributes with nullable: true
+    def self.openapi_nullable
+      Set.new([
+      ])
+    end
+
+    # Initializes the object
+    # @param [Hash] attributes Model attributes in the form of hash
+    def initialize(attributes = {})
+      if (!attributes.is_a?(Hash))
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DealMakerAPI::AddDocumentRequest` initialize method"
+      end
+
+      # check to see if the attribute exists and convert string to symbol for hash key
+      attributes = attributes.each_with_object({}) { |(k, v), h|
+        if (!self.class.attribute_map.key?(k.to_sym))
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DealMakerAPI::AddDocumentRequest`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+        end
+        h[k.to_sym] = v
+      }
+
+      if attributes.key?(:'type')
+        self.type = attributes[:'type']
+      else
+        self.type = 'regular'
+      end
+
+      if attributes.key?(:'file')
+        self.file = attributes[:'file']
+      end
+
+      if attributes.key?(:'caption')
+        self.caption = attributes[:'caption']
+      end
+
+      if attributes.key?(:'search_entity_id')
+        self.search_entity_id = attributes[:'search_entity_id']
+      end
+    end
+
+    # Show invalid properties with the reasons. Usually used together with valid?
+    # @return Array for valid properties with the reasons
+    def list_invalid_properties
+      invalid_properties = Array.new
+      if @type.nil?
+        invalid_properties.push('invalid value for "type", type cannot be nil.')
+      end
+
+      if @file.nil?
+        invalid_properties.push('invalid value for "file", file cannot be nil.')
+      end
+
+      invalid_properties
+    end
+
+    # Check to see if the all the properties in the model are valid
+    # @return true if the model is valid
+    def valid?
+      return false if @type.nil?
+      type_validator = EnumAttributeValidator.new('String', ["regular", "AML/KYC"])
+      return false unless type_validator.valid?(@type)
+      return false if @file.nil?
+      true
+    end
+
+    # Custom attribute writer method checking allowed values (enum).
+    # @param [Object] type Object to be assigned
+    def type=(type)
+      validator = EnumAttributeValidator.new('String', ["regular", "AML/KYC"])
+      unless validator.valid?(type)
+        fail ArgumentError, "invalid value for \"type\", must be one of #{validator.allowable_values}."
+      end
+      @type = type
+    end
+
+    # Checks equality by comparing each attribute.
+    # @param [Object] Object to be compared
+    def ==(o)
+      return true if self.equal?(o)
+      self.class == o.class &&
+          type == o.type &&
+          file == o.file &&
+          caption == o.caption &&
+          search_entity_id == o.search_entity_id
+    end
+
+    # @see the `==` method
+    # @param [Object] Object to be compared
+    def eql?(o)
+      self == o
+    end
+
+    # Calculates hash code according to all attributes.
+    # @return [Integer] Hash code
+    def hash
+      [type, file, caption, search_entity_id].hash
+    end
+
+    # Builds the object from hash
+    # @param [Hash] attributes Model attributes in the form of hash
+    # @return [Object] Returns the model itself
+    def self.build_from_hash(attributes)
+      new.build_from_hash(attributes)
+    end
+
+    # Builds the object from hash
+    # @param [Hash] attributes Model attributes in the form of hash
+    # @return [Object] Returns the model itself
+    def build_from_hash(attributes)
+      return nil unless attributes.is_a?(Hash)
+      attributes = attributes.transform_keys(&:to_sym)
+      self.class.openapi_types.each_pair do |key, type|
+        if attributes[self.class.attribute_map[key]].nil? && self.class.openapi_nullable.include?(key)
+          self.send("#{key}=", nil)
+        elsif type =~ /\AArray<(.*)>/i
+          # check to ensure the input is an array given that the attribute
+          # is documented as an array but the input is not
+          if attributes[self.class.attribute_map[key]].is_a?(Array)
+            self.send("#{key}=", attributes[self.class.attribute_map[key]].map { |v| _deserialize($1, v) })
+          end
+        elsif !attributes[self.class.attribute_map[key]].nil?
+          self.send("#{key}=", _deserialize(type, attributes[self.class.attribute_map[key]]))
+        end
+      end
+
+      self
+    end
+
+    # Deserializes the data based on type
+    # @param string type Data type
+    # @param string value Value to be deserialized
+    # @return [Object] Deserialized data
+    def _deserialize(type, value)
+      case type.to_sym
+      when :Time
+        Time.parse(value)
+      when :Date
+        Date.parse(value)
+      when :String
+        value.to_s
+      when :Integer
+        value.to_i
+      when :Float
+        value.to_f
+      when :Boolean
+        if value.to_s =~ /\A(true|t|yes|y|1)\z/i
+          true
+        else
+          false
+        end
+      when :Object
+        # generic object (usually a Hash), return directly
+        value
+      when /\AArray<(?<inner_type>.+)>\z/
+        inner_type = Regexp.last_match[:inner_type]
+        value.map { |v| _deserialize(inner_type, v) }
+      when /\AHash<(?<k_type>.+?), (?<v_type>.+)>\z/
+        k_type = Regexp.last_match[:k_type]
+        v_type = Regexp.last_match[:v_type]
+        {}.tap do |hash|
+          value.each do |k, v|
+            hash[_deserialize(k_type, k)] = _deserialize(v_type, v)
+          end
+        end
+      else # model
+        # models (e.g. Pet) or oneOf
+        klass = DealMakerAPI.const_get(type)
+        klass.respond_to?(:openapi_one_of) ? klass.build(value) : klass.build_from_hash(value)
+      end
+    end
+
+    # Returns the string representation of the object
+    # @return [String] String presentation of the object
+    def to_s
+      to_hash.to_s
+    end
+
+    # to_body is an alias to to_hash (backward compatibility)
+    # @return [Hash] Returns the object in the form of hash
+    def to_body
+      to_hash
+    end
+
+    # Returns the object in the form of hash
+    # @return [Hash] Returns the object in the form of hash
+    def to_hash
+      hash = {}
+      self.class.attribute_map.each_pair do |attr, param|
+        value = self.send(attr)
+        if value.nil?
+          is_nullable = self.class.openapi_nullable.include?(attr)
+          next if !is_nullable || (is_nullable && !instance_variable_defined?(:"@#{attr}"))
+        end
+
+        hash[param] = _to_hash(value)
+      end
+      hash
+    end
+
+    # Outputs non-array value in the form of hash
+    # For object, use to_hash. Otherwise, just return the value
+    # @param [Object] value Any valid value
+    # @return [Hash] Returns the value in the form of hash
+    def _to_hash(value)
+      if value.is_a?(Array)
+        value.compact.map { |v| _to_hash(v) }
+      elsif value.is_a?(Hash)
+        {}.tap do |hash|
+          value.each { |k, v| hash[k] = _to_hash(v) }
+        end
+      elsif value.respond_to? :to_hash
+        value.to_hash
+      else
+        value
+      end
+    end
+
   end
+
 end

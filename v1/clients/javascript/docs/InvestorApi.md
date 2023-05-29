@@ -4,13 +4,65 @@ All URIs are relative to *http://api.dealmaker.tech*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**addDocument**](InvestorApi.md#addDocument) | **POST** /deals/{id}/investors/{investor_id}/add_document | Add document for deal investor
 [**createInvestor**](InvestorApi.md#createInvestor) | **POST** /deals/{id}/investors | Create a deal investor
+[**deleteDocument**](InvestorApi.md#deleteDocument) | **DELETE** /deals/{id}/investors/{investor_id}/delete_document/{document_id} | Delete document for deal investor
 [**getInvestor**](InvestorApi.md#getInvestor) | **GET** /deals/{id}/investors/{investor_id} | Get a deal investor by id
 [**getInvestorOtpLink**](InvestorApi.md#getInvestorOtpLink) | **GET** /deals/{id}/investors/{investor_id}/otp_access_link | Get OTP access link for deal investor
 [**listInvestors**](InvestorApi.md#listInvestors) | **GET** /deals/{id}/investors | List deal investors
 [**patchInvestor**](InvestorApi.md#patchInvestor) | **PATCH** /deals/{id}/investors/{investor_id} | Patch a deal investor
 [**updateInvestor**](InvestorApi.md#updateInvestor) | **PUT** /deals/{id}/investors/{investor_id} | Update a deal investor
 
+
+
+## addDocument
+
+> V1EntitiesInvestor addDocument(id, investorId, addDocumentRequest)
+
+Add document for deal investor
+
+Add document for deal investor
+
+### Example
+
+```javascript
+import Api from 'api';
+let defaultClient = Api.ApiClient.instance;
+
+let apiInstance = new Api.InvestorApi();
+let id = 56; // Number | The deal id.
+let investorId = 56; // Number | The investor id.
+let addDocumentRequest = new Api.AddDocumentRequest(); // AddDocumentRequest | 
+apiInstance.addDocument(id, investorId, addDocumentRequest, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Number**| The deal id. | 
+ **investorId** | **Number**| The investor id. | 
+ **addDocumentRequest** | [**AddDocumentRequest**](AddDocumentRequest.md)|  | 
+
+### Return type
+
+[**V1EntitiesInvestor**](V1EntitiesInvestor.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 
 ## createInvestor
@@ -59,6 +111,56 @@ No authorization required
 
 - **Content-Type**: application/json
 - **Accept**: application/json
+
+
+## deleteDocument
+
+> deleteDocument(id, investorId, documentId)
+
+Delete document for deal investor
+
+Delete document for deal investor
+
+### Example
+
+```javascript
+import Api from 'api';
+let defaultClient = Api.ApiClient.instance;
+
+let apiInstance = new Api.InvestorApi();
+let id = 56; // Number | 
+let investorId = 56; // Number | 
+let documentId = 56; // Number | 
+apiInstance.deleteDocument(id, investorId, documentId, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully.');
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Number**|  | 
+ **investorId** | **Number**|  | 
+ **documentId** | **Number**|  | 
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
 
 
 ## getInvestor

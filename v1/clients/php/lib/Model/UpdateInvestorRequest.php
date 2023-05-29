@@ -60,7 +60,8 @@ class UpdateInvestorRequest implements ModelInterface, ArrayAccess, \JsonSeriali
         'warrant_expiry_date' => '\DateTime',
         'warrant_certificate_number' => 'int',
         'allocated_amount' => 'float',
-        'allocation_unit' => 'string'
+        'allocation_unit' => 'string',
+        'investment_value' => 'float'
     ];
 
     /**
@@ -74,7 +75,8 @@ class UpdateInvestorRequest implements ModelInterface, ArrayAccess, \JsonSeriali
         'warrant_expiry_date' => 'date',
         'warrant_certificate_number' => 'int32',
         'allocated_amount' => 'float',
-        'allocation_unit' => null
+        'allocation_unit' => null,
+        'investment_value' => 'float'
     ];
 
     /**
@@ -86,7 +88,8 @@ class UpdateInvestorRequest implements ModelInterface, ArrayAccess, \JsonSeriali
         'warrant_expiry_date' => false,
 		'warrant_certificate_number' => false,
 		'allocated_amount' => false,
-		'allocation_unit' => false
+		'allocation_unit' => false,
+		'investment_value' => false
     ];
 
     /**
@@ -178,7 +181,8 @@ class UpdateInvestorRequest implements ModelInterface, ArrayAccess, \JsonSeriali
         'warrant_expiry_date' => 'warrant_expiry_date',
         'warrant_certificate_number' => 'warrant_certificate_number',
         'allocated_amount' => 'allocated_amount',
-        'allocation_unit' => 'allocation_unit'
+        'allocation_unit' => 'allocation_unit',
+        'investment_value' => 'investment_value'
     ];
 
     /**
@@ -190,7 +194,8 @@ class UpdateInvestorRequest implements ModelInterface, ArrayAccess, \JsonSeriali
         'warrant_expiry_date' => 'setWarrantExpiryDate',
         'warrant_certificate_number' => 'setWarrantCertificateNumber',
         'allocated_amount' => 'setAllocatedAmount',
-        'allocation_unit' => 'setAllocationUnit'
+        'allocation_unit' => 'setAllocationUnit',
+        'investment_value' => 'setInvestmentValue'
     ];
 
     /**
@@ -202,7 +207,8 @@ class UpdateInvestorRequest implements ModelInterface, ArrayAccess, \JsonSeriali
         'warrant_expiry_date' => 'getWarrantExpiryDate',
         'warrant_certificate_number' => 'getWarrantCertificateNumber',
         'allocated_amount' => 'getAllocatedAmount',
-        'allocation_unit' => 'getAllocationUnit'
+        'allocation_unit' => 'getAllocationUnit',
+        'investment_value' => 'getInvestmentValue'
     ];
 
     /**
@@ -281,6 +287,7 @@ class UpdateInvestorRequest implements ModelInterface, ArrayAccess, \JsonSeriali
         $this->setIfExists('warrant_certificate_number', $data ?? [], null);
         $this->setIfExists('allocated_amount', $data ?? [], null);
         $this->setIfExists('allocation_unit', $data ?? [], 'securities');
+        $this->setIfExists('investment_value', $data ?? [], null);
     }
 
     /**
@@ -448,6 +455,33 @@ class UpdateInvestorRequest implements ModelInterface, ArrayAccess, \JsonSeriali
             );
         }
         $this->container['allocation_unit'] = $allocation_unit;
+
+        return $this;
+    }
+
+    /**
+     * Gets investment_value
+     *
+     * @return float|null
+     */
+    public function getInvestmentValue()
+    {
+        return $this->container['investment_value'];
+    }
+
+    /**
+     * Sets investment_value
+     *
+     * @param float|null $investment_value The investment value of the investor.
+     *
+     * @return self
+     */
+    public function setInvestmentValue($investment_value)
+    {
+        if (is_null($investment_value)) {
+            throw new \InvalidArgumentException('non-nullable investment_value cannot be null');
+        }
+        $this->container['investment_value'] = $investment_value;
 
         return $this;
     }

@@ -8,6 +8,7 @@ DealMakerAPI.gemspec
 Gemfile
 README.md
 Rakefile
+docs/AddDocumentRequest.md
 docs/CompanyApi.md
 docs/CreateCompanyRequest.md
 docs/CreateCorporationProfileRequest.md
@@ -77,6 +78,7 @@ lib/DealMakerAPI/api/investor_profile_api.rb
 lib/DealMakerAPI/api_client.rb
 lib/DealMakerAPI/api_error.rb
 lib/DealMakerAPI/configuration.rb
+lib/DealMakerAPI/models/add_document_request.rb
 lib/DealMakerAPI/models/create_company_request.rb
 lib/DealMakerAPI/models/create_corporation_profile_request.rb
 lib/DealMakerAPI/models/create_deal_setup_request.rb
@@ -138,6 +140,7 @@ spec/api/investor_api_spec.rb
 spec/api/investor_profile_api_spec.rb
 spec/api_client_spec.rb
 spec/configuration_spec.rb
+spec/models/add_document_request_spec.rb
 spec/models/create_company_request_spec.rb
 spec/models/create_corporation_profile_request_spec.rb
 spec/models/create_deal_setup_request_spec.rb

@@ -13,6 +13,7 @@
 
 
 import ApiClient from './ApiClient';
+import AddDocumentRequest from './model/AddDocumentRequest';
 import CreateCompanyRequest from './model/CreateCompanyRequest';
 import CreateCorporationProfileRequest from './model/CreateCorporationProfileRequest';
 import CreateDealSetupRequest from './model/CreateDealSetupRequest';
@@ -102,7 +103,7 @@ import InvestorProfileApi from './api/InvestorProfileApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.79.1
+* @version 0.79.2
 */
 export {
     /**
@@ -110,6 +111,12 @@ export {
      * @property {module:ApiClient}
      */
     ApiClient,
+
+    /**
+     * The AddDocumentRequest model constructor.
+     * @property {module:model/AddDocumentRequest}
+     */
+    AddDocumentRequest,
 
     /**
      * The CreateCompanyRequest model constructor.

@@ -11,91 +11,73 @@
  *
  */
 
-import ApiClient from '../ApiClient';
+(function(root, factory) {
+  if (typeof define === 'function' && define.amd) {
+    // AMD.
+    define(['expect.js', process.cwd()+'/src/index'], factory);
+  } else if (typeof module === 'object' && module.exports) {
+    // CommonJS-like environments that support module.exports, like Node.
+    factory(require('expect.js'), require(process.cwd()+'/src/index'));
+  } else {
+    // Browser globals (root is window)
+    factory(root.expect, root.Api);
+  }
+}(this, function(expect, Api) {
+  'use strict';
 
-/**
- * The V1EntitiesSubscriptionAgreement model module.
- * @module model/V1EntitiesSubscriptionAgreement
- * @version 0.79.2
- */
-class V1EntitiesSubscriptionAgreement {
-    /**
-     * Constructs a new <code>V1EntitiesSubscriptionAgreement</code>.
-     * @alias module:model/V1EntitiesSubscriptionAgreement
-     */
-    constructor() { 
-        
-        V1EntitiesSubscriptionAgreement.initialize(this);
-    }
+  var instance;
 
-    /**
-     * Initializes the fields of this object.
-     * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
-     * Only for internal use.
-     */
-    static initialize(obj) { 
-    }
+  beforeEach(function() {
+    instance = new Api.AddDocumentRequest();
+  });
 
-    /**
-     * Constructs a <code>V1EntitiesSubscriptionAgreement</code> from a plain JavaScript object, optionally creating a new instance.
-     * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
-     * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @param {module:model/V1EntitiesSubscriptionAgreement} obj Optional instance to populate.
-     * @return {module:model/V1EntitiesSubscriptionAgreement} The populated <code>V1EntitiesSubscriptionAgreement</code> instance.
-     */
-    static constructFromObject(data, obj) {
-        if (data) {
-            obj = obj || new V1EntitiesSubscriptionAgreement();
+  var getProperty = function(object, getter, property) {
+    // Use getter method if present; otherwise, get the property directly.
+    if (typeof object[getter] === 'function')
+      return object[getter]();
+    else
+      return object[property];
+  }
 
-            if (data.hasOwnProperty('id')) {
-                obj['id'] = ApiClient.convertToType(data['id'], 'String');
-            }
-            if (data.hasOwnProperty('url')) {
-                obj['url'] = ApiClient.convertToType(data['url'], 'String');
-            }
-        }
-        return obj;
-    }
+  var setProperty = function(object, setter, property, value) {
+    // Use setter method if present; otherwise, set the property directly.
+    if (typeof object[setter] === 'function')
+      object[setter](value);
+    else
+      object[property] = value;
+  }
 
-    /**
-     * Validates the JSON data with respect to <code>V1EntitiesSubscriptionAgreement</code>.
-     * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>V1EntitiesSubscriptionAgreement</code>.
-     */
-    static validateJSON(data) {
-        // ensure the json data is a string
-        if (data['id'] && !(typeof data['id'] === 'string' || data['id'] instanceof String)) {
-            throw new Error("Expected the field `id` to be a primitive type in the JSON string but got " + data['id']);
-        }
-        // ensure the json data is a string
-        if (data['url'] && !(typeof data['url'] === 'string' || data['url'] instanceof String)) {
-            throw new Error("Expected the field `url` to be a primitive type in the JSON string but got " + data['url']);
-        }
+  describe('AddDocumentRequest', function() {
+    it('should create an instance of AddDocumentRequest', function() {
+      // uncomment below and update the code to test AddDocumentRequest
+      //var instance = new Api.AddDocumentRequest();
+      //expect(instance).to.be.a(Api.AddDocumentRequest);
+    });
 
-        return true;
-    }
+    it('should have the property type (base name: "type")', function() {
+      // uncomment below and update the code to test the property type
+      //var instance = new Api.AddDocumentRequest();
+      //expect(instance).to.be();
+    });
 
+    it('should have the property file (base name: "file")', function() {
+      // uncomment below and update the code to test the property file
+      //var instance = new Api.AddDocumentRequest();
+      //expect(instance).to.be();
+    });
 
-}
+    it('should have the property caption (base name: "caption")', function() {
+      // uncomment below and update the code to test the property caption
+      //var instance = new Api.AddDocumentRequest();
+      //expect(instance).to.be();
+    });
 
+    it('should have the property searchEntityId (base name: "search_entity_id")', function() {
+      // uncomment below and update the code to test the property searchEntityId
+      //var instance = new Api.AddDocumentRequest();
+      //expect(instance).to.be();
+    });
 
+  });
 
-/**
- * The subscription agreement id.
- * @member {String} id
- */
-V1EntitiesSubscriptionAgreement.prototype['id'] = undefined;
-
-/**
- * The subscription agreement url.
- * @member {String} url
- */
-V1EntitiesSubscriptionAgreement.prototype['url'] = undefined;
-
-
-
-
-
-
-export default V1EntitiesSubscriptionAgreement;
-
+}));

@@ -105,6 +105,169 @@
     }
   ],
   "paths": {
+    "/deals/{id}/investors/{investor_id}/delete_document/{document_id}": {
+      "delete": {
+        "summary": "Delete document for deal investor",
+        "description": "Delete document for deal investor",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          },
+          {
+            "in": "path",
+            "name": "investor_id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          },
+          {
+            "in": "path",
+            "name": "document_id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "security": [
+          {
+            "oauth": [
+              "deals.investors.write"
+            ]
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Document deleted successfuly"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "tags": [
+          "investor"
+        ],
+        "operationId": "deleteDocument",
+        "x-codeSamples": [
+          {
+            "lang": "javascript",
+            "source": ""
+          },
+          {
+            "lang": "ruby",
+            "source": ""
+          }
+        ]
+      }
+    },
+    "/deals/{id}/investors/{investor_id}/add_document": {
+      "post": {
+        "summary": "Add document for deal investor",
+        "description": "Add document for deal investor",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "description": "The deal id.",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          },
+          {
+            "in": "path",
+            "name": "investor_id",
+            "description": "The investor id.",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "type",
+            "description": "Document type.",
+            "type": "string",
+            "default": "regular",
+            "enum": [
+              "regular",
+              "AML/KYC"
+            ],
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "file",
+            "description": "File to upload.",
+            "type": "file",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "caption",
+            "description": "The caption.",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "search_entity_id",
+            "description": "Search entity id.",
+            "type": "integer",
+            "format": "int32",
+            "required": false
+          }
+        ],
+        "security": [
+          {
+            "oauth": [
+              "deals.investors.write"
+            ]
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Add document for deal investor",
+            "schema": {
+              "$ref": "#/definitions/V1_Entities_Investor"
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "tags": [
+          "investor"
+        ],
+        "operationId": "addDocument",
+        "x-codeSamples": [
+          {
+            "lang": "javascript",
+            "source": ""
+          },
+          {
+            "lang": "ruby",
+            "source": ""
+          }
+        ]
+      }
+    },
     "/deals/{id}/investors/{investor_id}/otp_access_link": {
       "get": {
         "summary": "Get OTP access link for deal investor",
@@ -577,6 +740,14 @@
               "securities",
               "amount"
             ],
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "investment_value",
+            "description": "The investment value of the investor.",
+            "type": "number",
+            "format": "float",
             "required": false
           }
         ],

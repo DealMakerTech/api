@@ -14,18 +14,20 @@
 import ApiClient from '../ApiClient';
 
 /**
- * The V1EntitiesSubscriptionAgreement model module.
- * @module model/V1EntitiesSubscriptionAgreement
+ * The AddDocumentRequest model module.
+ * @module model/AddDocumentRequest
  * @version 0.79.2
  */
-class V1EntitiesSubscriptionAgreement {
+class AddDocumentRequest {
     /**
-     * Constructs a new <code>V1EntitiesSubscriptionAgreement</code>.
-     * @alias module:model/V1EntitiesSubscriptionAgreement
+     * Constructs a new <code>AddDocumentRequest</code>.
+     * @alias module:model/AddDocumentRequest
+     * @param type {module:model/AddDocumentRequest.TypeEnum} Document type.
+     * @param file {File} File to upload.
      */
-    constructor() { 
+    constructor(type, file) { 
         
-        V1EntitiesSubscriptionAgreement.initialize(this);
+        AddDocumentRequest.initialize(this, type, file);
     }
 
     /**
@@ -33,43 +35,57 @@ class V1EntitiesSubscriptionAgreement {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) { 
+    static initialize(obj, type, file) { 
+        obj['type'] = type || 'regular';
+        obj['file'] = file;
     }
 
     /**
-     * Constructs a <code>V1EntitiesSubscriptionAgreement</code> from a plain JavaScript object, optionally creating a new instance.
+     * Constructs a <code>AddDocumentRequest</code> from a plain JavaScript object, optionally creating a new instance.
      * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @param {module:model/V1EntitiesSubscriptionAgreement} obj Optional instance to populate.
-     * @return {module:model/V1EntitiesSubscriptionAgreement} The populated <code>V1EntitiesSubscriptionAgreement</code> instance.
+     * @param {module:model/AddDocumentRequest} obj Optional instance to populate.
+     * @return {module:model/AddDocumentRequest} The populated <code>AddDocumentRequest</code> instance.
      */
     static constructFromObject(data, obj) {
         if (data) {
-            obj = obj || new V1EntitiesSubscriptionAgreement();
+            obj = obj || new AddDocumentRequest();
 
-            if (data.hasOwnProperty('id')) {
-                obj['id'] = ApiClient.convertToType(data['id'], 'String');
+            if (data.hasOwnProperty('type')) {
+                obj['type'] = ApiClient.convertToType(data['type'], 'String');
             }
-            if (data.hasOwnProperty('url')) {
-                obj['url'] = ApiClient.convertToType(data['url'], 'String');
+            if (data.hasOwnProperty('file')) {
+                obj['file'] = ApiClient.convertToType(data['file'], File);
+            }
+            if (data.hasOwnProperty('caption')) {
+                obj['caption'] = ApiClient.convertToType(data['caption'], 'String');
+            }
+            if (data.hasOwnProperty('search_entity_id')) {
+                obj['search_entity_id'] = ApiClient.convertToType(data['search_entity_id'], 'Number');
             }
         }
         return obj;
     }
 
     /**
-     * Validates the JSON data with respect to <code>V1EntitiesSubscriptionAgreement</code>.
+     * Validates the JSON data with respect to <code>AddDocumentRequest</code>.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>V1EntitiesSubscriptionAgreement</code>.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>AddDocumentRequest</code>.
      */
     static validateJSON(data) {
-        // ensure the json data is a string
-        if (data['id'] && !(typeof data['id'] === 'string' || data['id'] instanceof String)) {
-            throw new Error("Expected the field `id` to be a primitive type in the JSON string but got " + data['id']);
+        // check to make sure all required properties are present in the JSON string
+        for (const property of AddDocumentRequest.RequiredProperties) {
+            if (!data[property]) {
+                throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
+            }
         }
         // ensure the json data is a string
-        if (data['url'] && !(typeof data['url'] === 'string' || data['url'] instanceof String)) {
-            throw new Error("Expected the field `url` to be a primitive type in the JSON string but got " + data['url']);
+        if (data['type'] && !(typeof data['type'] === 'string' || data['type'] instanceof String)) {
+            throw new Error("Expected the field `type` to be a primitive type in the JSON string but got " + data['type']);
+        }
+        // ensure the json data is a string
+        if (data['caption'] && !(typeof data['caption'] === 'string' || data['caption'] instanceof String)) {
+            throw new Error("Expected the field `caption` to be a primitive type in the JSON string but got " + data['caption']);
         }
 
         return true;
@@ -78,24 +94,58 @@ class V1EntitiesSubscriptionAgreement {
 
 }
 
+AddDocumentRequest.RequiredProperties = ["type", "file"];
+
+/**
+ * Document type.
+ * @member {module:model/AddDocumentRequest.TypeEnum} type
+ * @default 'regular'
+ */
+AddDocumentRequest.prototype['type'] = 'regular';
+
+/**
+ * File to upload.
+ * @member {File} file
+ */
+AddDocumentRequest.prototype['file'] = undefined;
+
+/**
+ * The caption.
+ * @member {String} caption
+ */
+AddDocumentRequest.prototype['caption'] = undefined;
+
+/**
+ * Search entity id.
+ * @member {Number} search_entity_id
+ */
+AddDocumentRequest.prototype['search_entity_id'] = undefined;
+
+
+
 
 
 /**
- * The subscription agreement id.
- * @member {String} id
+ * Allowed values for the <code>type</code> property.
+ * @enum {String}
+ * @readonly
  */
-V1EntitiesSubscriptionAgreement.prototype['id'] = undefined;
+AddDocumentRequest['TypeEnum'] = {
 
-/**
- * The subscription agreement url.
- * @member {String} url
- */
-V1EntitiesSubscriptionAgreement.prototype['url'] = undefined;
+    /**
+     * value: "regular"
+     * @const
+     */
+    "regular": "regular",
+
+    /**
+     * value: "AML/KYC"
+     * @const
+     */
+    "AML/KYC": "AML/KYC"
+};
 
 
 
-
-
-
-export default V1EntitiesSubscriptionAgreement;
+export default AddDocumentRequest;
 

@@ -48,6 +48,16 @@
   }
 
   describe('DealApi', function() {
+    describe('getAnalyticsDashboardInfo', function() {
+      it('should call getAnalyticsDashboardInfo successfully', function(done) {
+        //uncomment below and update the code to test getAnalyticsDashboardInfo
+        //instance.getAnalyticsDashboardInfo(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('getDeal', function() {
       it('should call getDeal successfully', function(done) {
         //uncomment below and update the code to test getDeal

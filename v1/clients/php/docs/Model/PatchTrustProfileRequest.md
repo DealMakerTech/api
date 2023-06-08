@@ -4,7 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**us_accredited_category** | **string** | The accredited investor information. | [optional]
+**us_accredited_category** | **string** | The United States accredited investor information. | [optional]
+**ca_accredited_investor** | **string** | The Canadian accredited investor information. | [optional]
 **name** | **string** | The name of the trust. | [optional]
 **date** | **string** | The creation date of the trust. | [optional]
 **phone_number** | **string** | The phone number of the trust. | [optional]

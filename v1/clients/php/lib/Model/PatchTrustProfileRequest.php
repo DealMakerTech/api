@@ -58,6 +58,7 @@ class PatchTrustProfileRequest implements ModelInterface, ArrayAccess, \JsonSeri
       */
     protected static $openAPITypes = [
         'us_accredited_category' => 'string',
+        'ca_accredited_investor' => 'string',
         'name' => 'string',
         'date' => 'string',
         'phone_number' => 'string',
@@ -92,6 +93,7 @@ class PatchTrustProfileRequest implements ModelInterface, ArrayAccess, \JsonSeri
       */
     protected static $openAPIFormats = [
         'us_accredited_category' => null,
+        'ca_accredited_investor' => null,
         'name' => null,
         'date' => null,
         'phone_number' => null,
@@ -124,6 +126,7 @@ class PatchTrustProfileRequest implements ModelInterface, ArrayAccess, \JsonSeri
       */
     protected static array $openAPINullables = [
         'us_accredited_category' => false,
+		'ca_accredited_investor' => false,
 		'name' => false,
 		'date' => false,
 		'phone_number' => false,
@@ -236,6 +239,7 @@ class PatchTrustProfileRequest implements ModelInterface, ArrayAccess, \JsonSeri
      */
     protected static $attributeMap = [
         'us_accredited_category' => 'us_accredited_category',
+        'ca_accredited_investor' => 'ca_accredited_investor',
         'name' => 'name',
         'date' => 'date',
         'phone_number' => 'phone_number',
@@ -268,6 +272,7 @@ class PatchTrustProfileRequest implements ModelInterface, ArrayAccess, \JsonSeri
      */
     protected static $setters = [
         'us_accredited_category' => 'setUsAccreditedCategory',
+        'ca_accredited_investor' => 'setCaAccreditedInvestor',
         'name' => 'setName',
         'date' => 'setDate',
         'phone_number' => 'setPhoneNumber',
@@ -300,6 +305,7 @@ class PatchTrustProfileRequest implements ModelInterface, ArrayAccess, \JsonSeri
      */
     protected static $getters = [
         'us_accredited_category' => 'getUsAccreditedCategory',
+        'ca_accredited_investor' => 'getCaAccreditedInvestor',
         'name' => 'getName',
         'date' => 'getDate',
         'phone_number' => 'getPhoneNumber',
@@ -370,6 +376,8 @@ class PatchTrustProfileRequest implements ModelInterface, ArrayAccess, \JsonSeri
     public const US_ACCREDITED_CATEGORY_BROKER_OR_DEALER = 'broker_or_dealer';
     public const US_ACCREDITED_CATEGORY_ASSETS_TRUST = 'assets_trust';
     public const US_ACCREDITED_CATEGORY_NOT_ACCREDITED = 'not_accredited';
+    public const CA_ACCREDITED_INVESTOR_P = 'p';
+    public const CA_ACCREDITED_INVESTOR_W = 'w';
 
     /**
      * Gets allowable values of the enum
@@ -383,6 +391,19 @@ class PatchTrustProfileRequest implements ModelInterface, ArrayAccess, \JsonSeri
             self::US_ACCREDITED_CATEGORY_BROKER_OR_DEALER,
             self::US_ACCREDITED_CATEGORY_ASSETS_TRUST,
             self::US_ACCREDITED_CATEGORY_NOT_ACCREDITED,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getCaAccreditedInvestorAllowableValues()
+    {
+        return [
+            self::CA_ACCREDITED_INVESTOR_P,
+            self::CA_ACCREDITED_INVESTOR_W,
         ];
     }
 
@@ -402,6 +423,7 @@ class PatchTrustProfileRequest implements ModelInterface, ArrayAccess, \JsonSeri
     public function __construct(array $data = null)
     {
         $this->setIfExists('us_accredited_category', $data ?? [], null);
+        $this->setIfExists('ca_accredited_investor', $data ?? [], null);
         $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('date', $data ?? [], null);
         $this->setIfExists('phone_number', $data ?? [], null);
@@ -463,6 +485,15 @@ class PatchTrustProfileRequest implements ModelInterface, ArrayAccess, \JsonSeri
             );
         }
 
+        $allowedValues = $this->getCaAccreditedInvestorAllowableValues();
+        if (!is_null($this->container['ca_accredited_investor']) && !in_array($this->container['ca_accredited_investor'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'ca_accredited_investor', must be one of '%s'",
+                $this->container['ca_accredited_investor'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -491,7 +522,7 @@ class PatchTrustProfileRequest implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets us_accredited_category
      *
-     * @param string|null $us_accredited_category The accredited investor information.
+     * @param string|null $us_accredited_category The United States accredited investor information.
      *
      * @return self
      */
@@ -511,6 +542,43 @@ class PatchTrustProfileRequest implements ModelInterface, ArrayAccess, \JsonSeri
             );
         }
         $this->container['us_accredited_category'] = $us_accredited_category;
+
+        return $this;
+    }
+
+    /**
+     * Gets ca_accredited_investor
+     *
+     * @return string|null
+     */
+    public function getCaAccreditedInvestor()
+    {
+        return $this->container['ca_accredited_investor'];
+    }
+
+    /**
+     * Sets ca_accredited_investor
+     *
+     * @param string|null $ca_accredited_investor The Canadian accredited investor information.
+     *
+     * @return self
+     */
+    public function setCaAccreditedInvestor($ca_accredited_investor)
+    {
+        if (is_null($ca_accredited_investor)) {
+            throw new \InvalidArgumentException('non-nullable ca_accredited_investor cannot be null');
+        }
+        $allowedValues = $this->getCaAccreditedInvestorAllowableValues();
+        if (!in_array($ca_accredited_investor, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'ca_accredited_investor', must be one of '%s'",
+                    $ca_accredited_investor,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['ca_accredited_investor'] = $ca_accredited_investor;
 
         return $this;
     }

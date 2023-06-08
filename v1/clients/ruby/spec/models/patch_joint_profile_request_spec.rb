@@ -35,6 +35,16 @@ describe DealMakerAPI::PatchJointProfileRequest do
     end
   end
 
+  describe 'test attribute "ca_accredited_investor"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["d", "e", "e_1", "j", "j_1", "k", "l", "q", "v", "x"])
+      # validator.allowable_values.each do |value|
+      #   expect { instance.ca_accredited_investor = value }.not_to raise_error
+      # end
+    end
+  end
+
   describe 'test attribute "joint_type"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/

@@ -18,7 +18,7 @@ import V1EntitiesCompanyDeals from './V1EntitiesCompanyDeals';
 /**
  * The V1EntitiesCompany model module.
  * @module model/V1EntitiesCompany
- * @version 0.79.1
+ * @version 0.80.0
  */
 class V1EntitiesCompany {
     /**

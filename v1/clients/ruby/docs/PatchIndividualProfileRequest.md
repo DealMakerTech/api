@@ -4,7 +4,8 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **us_accredited_category** | **String** | The accredited investor information. | [optional] |
+| **us_accredited_category** | **String** | The United States accredited investor information. | [optional] |
+| **ca_accredited_investor** | **String** | The Canadian accredited investor information. | [optional] |
 | **first_name** | **String** | The first name of the individual investor profile. | [optional] |
 | **last_name** | **String** | The last name of the individual investor profile. | [optional] |
 | **suffix** | **String** | The suffix of the individual investor profile. | [optional] |
@@ -28,6 +29,7 @@ require 'DealMakerAPI'
 
 instance = DealMakerAPI::PatchIndividualProfileRequest.new(
   us_accredited_category: null,
+  ca_accredited_investor: null,
   first_name: null,
   last_name: null,
   suffix: null,

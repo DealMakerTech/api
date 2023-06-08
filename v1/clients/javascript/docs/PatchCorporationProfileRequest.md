@@ -4,7 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**usAccreditedCategory** | **String** | The accredited investor information. | [optional] 
+**usAccreditedCategory** | **String** | The United States accredited investor information. | [optional] 
+**caAccreditedInvestor** | **String** | The Canadian accredited investor information. | [optional] 
 **name** | **String** | Corporation name. | [optional] 
 **country** | **String** | Corporation country. | [optional] 
 **streetAddress** | **String** | Corporation street address. | [optional] 
@@ -65,6 +66,51 @@ Name | Type | Description | Notes
 * `family_client` (value: `"family_client"`)
 
 * `not_accredited` (value: `"not_accredited"`)
+
+
+
+
+
+## Enum: CaAccreditedInvestorEnum
+
+
+* `a` (value: `"a"`)
+
+* `b` (value: `"b"`)
+
+* `c` (value: `"c"`)
+
+* `d` (value: `"d"`)
+
+* `f` (value: `"f"`)
+
+* `g` (value: `"g"`)
+
+* `h` (value: `"h"`)
+
+* `i` (value: `"i"`)
+
+* `m` (value: `"m"`)
+
+* `n` (value: `"n"`)
+
+* `o` (value: `"o"`)
+
+* `p` (value: `"p"`)
+
+* `q` (value: `"q"`)
+
+* `r` (value: `"r"`)
+
+* `s` (value: `"s"`)
+
+* `t` (value: `"t"`)
+
+* `u` (value: `"u"`)
+
+* `v` (value: `"v"`)
+
+* `x` (value: `"x"`)
 
 
 

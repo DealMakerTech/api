@@ -13,6 +13,7 @@
 
 
 import ApiClient from "../ApiClient";
+import AddDocumentRequest from '../model/AddDocumentRequest';
 import CreateInvestorRequest from '../model/CreateInvestorRequest';
 import PatchInvestorRequest from '../model/PatchInvestorRequest';
 import UpdateInvestorRequest from '../model/UpdateInvestorRequest';
@@ -23,7 +24,7 @@ import V1EntitiesInvestors from '../model/V1EntitiesInvestors';
 /**
 * Investor service.
 * @module api/InvestorApi
-* @version 0.79.1
+* @version 0.80.0
 */
 export default class InvestorApi {
 
@@ -38,6 +39,60 @@ export default class InvestorApi {
         this.apiClient = apiClient || ApiClient.instance;
     }
 
+
+    /**
+     * Callback function to receive the result of the addDocument operation.
+     * @callback module:api/InvestorApi~addDocumentCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/V1EntitiesInvestor} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Add document for deal investor
+     * Add document for deal investor
+     * @param {Number} id The deal id.
+     * @param {Number} investorId The investor id.
+     * @param {module:model/AddDocumentRequest} addDocumentRequest 
+     * @param {module:api/InvestorApi~addDocumentCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/V1EntitiesInvestor}
+     */
+    addDocument(id, investorId, addDocumentRequest, callback) {
+      let postBody = addDocumentRequest;
+      // verify the required parameter 'id' is set
+      if (id === undefined || id === null) {
+        throw new Error("Missing the required parameter 'id' when calling addDocument");
+      }
+      // verify the required parameter 'investorId' is set
+      if (investorId === undefined || investorId === null) {
+        throw new Error("Missing the required parameter 'investorId' when calling addDocument");
+      }
+      // verify the required parameter 'addDocumentRequest' is set
+      if (addDocumentRequest === undefined || addDocumentRequest === null) {
+        throw new Error("Missing the required parameter 'addDocumentRequest' when calling addDocument");
+      }
+
+      let pathParams = {
+        'id': id,
+        'investor_id': investorId
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = V1EntitiesInvestor;
+      return this.apiClient.callApi(
+        '/deals/{id}/investors/{investor_id}/add_document', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
 
     /**
      * Callback function to receive the result of the createInvestor operation.
@@ -82,6 +137,60 @@ export default class InvestorApi {
       let returnType = V1EntitiesInvestor;
       return this.apiClient.callApi(
         '/deals/{id}/investors', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the deleteDocument operation.
+     * @callback module:api/InvestorApi~deleteDocumentCallback
+     * @param {String} error Error message, if any.
+     * @param data This operation does not return a value.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Delete document for deal investor
+     * Delete document for deal investor
+     * @param {Number} id 
+     * @param {Number} investorId 
+     * @param {Number} documentId 
+     * @param {module:api/InvestorApi~deleteDocumentCallback} callback The callback function, accepting three arguments: error, data, response
+     */
+    deleteDocument(id, investorId, documentId, callback) {
+      let postBody = null;
+      // verify the required parameter 'id' is set
+      if (id === undefined || id === null) {
+        throw new Error("Missing the required parameter 'id' when calling deleteDocument");
+      }
+      // verify the required parameter 'investorId' is set
+      if (investorId === undefined || investorId === null) {
+        throw new Error("Missing the required parameter 'investorId' when calling deleteDocument");
+      }
+      // verify the required parameter 'documentId' is set
+      if (documentId === undefined || documentId === null) {
+        throw new Error("Missing the required parameter 'documentId' when calling deleteDocument");
+      }
+
+      let pathParams = {
+        'id': id,
+        'investor_id': investorId,
+        'document_id': documentId
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = [];
+      let returnType = null;
+      return this.apiClient.callApi(
+        '/deals/{id}/investors/{investor_id}/delete_document/{document_id}', 'DELETE',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

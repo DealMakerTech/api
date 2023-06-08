@@ -4,7 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**us_accredited_category** | **string** | The accredited investor information. | [optional]
+**us_accredited_category** | **string** | The United States accredited investor information. | [optional]
+**ca_accredited_investor** | **string** | The Canadian accredited investor information. | [optional]
 **joint_type** | **string** | The kind of joint investor. | [optional]
 **first_name** | **string** | The first name of the investor profile. | [optional]
 **last_name** | **string** | The last name of the investor profile. | [optional]

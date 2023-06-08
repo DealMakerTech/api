@@ -4,9 +4,60 @@ All URIs are relative to *http://api.dealmaker.tech*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**getAnalyticsDashboardInfo**](DealApi.md#getAnalyticsDashboardInfo) | **GET** /deals/{id}/analytics_dashboard_info | Get Analytics Dashboard Info
 [**getDeal**](DealApi.md#getDeal) | **GET** /deals/{id} | Get deal by Deal ID
 [**listDeals**](DealApi.md#listDeals) | **GET** /deals | List available deals
 
+
+
+## getAnalyticsDashboardInfo
+
+> Object getAnalyticsDashboardInfo(id, opts)
+
+Get Analytics Dashboard Info
+
+Get Analytics Dashboard Info
+
+### Example
+
+```javascript
+import Api from 'api';
+let defaultClient = Api.ApiClient.instance;
+
+let apiInstance = new Api.DealApi();
+let id = 56; // Number | The deal id.
+let opts = {
+  'dashboardKey': "dashboardKey_example" // String | The dashboard key.
+};
+apiInstance.getAnalyticsDashboardInfo(id, opts, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Number**| The deal id. | 
+ **dashboardKey** | **String**| The dashboard key. | [optional] 
+
+### Return type
+
+**Object**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
 ## getDeal

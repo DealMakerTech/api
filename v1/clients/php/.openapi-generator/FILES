@@ -10,6 +10,7 @@ docs/Api/DealSetupApi.md
 docs/Api/DefaultApi.md
 docs/Api/InvestorApi.md
 docs/Api/InvestorProfileApi.md
+docs/Model/AddDocumentRequest.md
 docs/Model/CreateCompanyRequest.md
 docs/Model/CreateCorporationProfileRequest.md
 docs/Model/CreateDealSetupRequest.md
@@ -72,6 +73,7 @@ lib/Api/InvestorProfileApi.php
 lib/ApiException.php
 lib/Configuration.php
 lib/HeaderSelector.php
+lib/Model/AddDocumentRequest.php
 lib/Model/CreateCompanyRequest.php
 lib/Model/CreateCorporationProfileRequest.php
 lib/Model/CreateDealSetupRequest.php
@@ -133,6 +135,7 @@ test/Api/DealSetupApiTest.php
 test/Api/DefaultApiTest.php
 test/Api/InvestorApiTest.php
 test/Api/InvestorProfileApiTest.php
+test/Model/AddDocumentRequestTest.php
 test/Model/CreateCompanyRequestTest.php
 test/Model/CreateCorporationProfileRequestTest.php
 test/Model/CreateDealSetupRequestTest.php

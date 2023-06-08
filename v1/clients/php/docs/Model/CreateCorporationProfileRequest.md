@@ -5,7 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **email** | **string** | User email which is associated with investor profile (required). |
-**us_accredited_category** | **string** | The accredited investor information. | [optional]
+**us_accredited_category** | **string** | The United States accredited investor information. | [optional]
+**ca_accredited_investor** | **string** | The Canadian accredited investor information. | [optional]
 **name** | **string** | The name of the corporation (required). | [optional]
 **country** | **string** | The country of the corporation (required). | [optional]
 **street_address** | **string** | The street address of the corporation (required). | [optional]

@@ -17,6 +17,7 @@ require 'DealMakerAPI/version'
 require 'DealMakerAPI/configuration'
 
 # Models
+require 'DealMakerAPI/models/add_document_request'
 require 'DealMakerAPI/models/create_company_request'
 require 'DealMakerAPI/models/create_corporation_profile_request'
 require 'DealMakerAPI/models/create_deal_setup_request'

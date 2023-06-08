@@ -84,6 +84,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property caAccreditedInvestor (base name: "ca_accredited_investor")', function() {
+      // uncomment below and update the code to test the property caAccreditedInvestor
+      //var instance = new Api.V1EntitiesInvestorProfileIndividual();
+      //expect(instance).to.be();
+    });
+
     it('should have the property complete (base name: "complete")', function() {
       // uncomment below and update the code to test the property complete
       //var instance = new Api.V1EntitiesInvestorProfileIndividual();

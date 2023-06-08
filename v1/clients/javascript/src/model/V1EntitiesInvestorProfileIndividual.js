@@ -18,7 +18,7 @@ import V1EntitiesInvestorProfileOwner from './V1EntitiesInvestorProfileOwner';
 /**
  * The V1EntitiesInvestorProfileIndividual model module.
  * @module model/V1EntitiesInvestorProfileIndividual
- * @version 0.79.1
+ * @version 0.80.0
  */
 class V1EntitiesInvestorProfileIndividual {
     /**
@@ -65,6 +65,9 @@ class V1EntitiesInvestorProfileIndividual {
             if (data.hasOwnProperty('us_accredited_category')) {
                 obj['us_accredited_category'] = ApiClient.convertToType(data['us_accredited_category'], 'String');
             }
+            if (data.hasOwnProperty('ca_accredited_investor')) {
+                obj['ca_accredited_investor'] = ApiClient.convertToType(data['ca_accredited_investor'], 'String');
+            }
             if (data.hasOwnProperty('complete')) {
                 obj['complete'] = ApiClient.convertToType(data['complete'], 'Boolean');
             }
@@ -98,6 +101,10 @@ class V1EntitiesInvestorProfileIndividual {
         // ensure the json data is a string
         if (data['us_accredited_category'] && !(typeof data['us_accredited_category'] === 'string' || data['us_accredited_category'] instanceof String)) {
             throw new Error("Expected the field `us_accredited_category` to be a primitive type in the JSON string but got " + data['us_accredited_category']);
+        }
+        // ensure the json data is a string
+        if (data['ca_accredited_investor'] && !(typeof data['ca_accredited_investor'] === 'string' || data['ca_accredited_investor'] instanceof String)) {
+            throw new Error("Expected the field `ca_accredited_investor` to be a primitive type in the JSON string but got " + data['ca_accredited_investor']);
         }
         // ensure the json data is a string
         if (data['owner_type'] && !(typeof data['owner_type'] === 'string' || data['owner_type'] instanceof String)) {
@@ -145,10 +152,16 @@ V1EntitiesInvestorProfileIndividual.prototype['email'] = undefined;
 V1EntitiesInvestorProfileIndividual.prototype['type'] = undefined;
 
 /**
- * The accredited investor information
+ * The United States accredited investor information
  * @member {String} us_accredited_category
  */
 V1EntitiesInvestorProfileIndividual.prototype['us_accredited_category'] = undefined;
+
+/**
+ * The Canadian accredited investor information
+ * @member {String} ca_accredited_investor
+ */
+V1EntitiesInvestorProfileIndividual.prototype['ca_accredited_investor'] = undefined;
 
 /**
  * To check if the profile is complete or not

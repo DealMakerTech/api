@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The CreateCorporationProfileRequest model module.
  * @module model/CreateCorporationProfileRequest
- * @version 0.79.1
+ * @version 0.80.0
  */
 class CreateCorporationProfileRequest {
     /**
@@ -54,6 +54,9 @@ class CreateCorporationProfileRequest {
             }
             if (data.hasOwnProperty('us_accredited_category')) {
                 obj['us_accredited_category'] = ApiClient.convertToType(data['us_accredited_category'], 'String');
+            }
+            if (data.hasOwnProperty('ca_accredited_investor')) {
+                obj['ca_accredited_investor'] = ApiClient.convertToType(data['ca_accredited_investor'], 'String');
             }
             if (data.hasOwnProperty('name')) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
@@ -180,6 +183,10 @@ class CreateCorporationProfileRequest {
         // ensure the json data is a string
         if (data['us_accredited_category'] && !(typeof data['us_accredited_category'] === 'string' || data['us_accredited_category'] instanceof String)) {
             throw new Error("Expected the field `us_accredited_category` to be a primitive type in the JSON string but got " + data['us_accredited_category']);
+        }
+        // ensure the json data is a string
+        if (data['ca_accredited_investor'] && !(typeof data['ca_accredited_investor'] === 'string' || data['ca_accredited_investor'] instanceof String)) {
+            throw new Error("Expected the field `ca_accredited_investor` to be a primitive type in the JSON string but got " + data['ca_accredited_investor']);
         }
         // ensure the json data is a string
         if (data['name'] && !(typeof data['name'] === 'string' || data['name'] instanceof String)) {
@@ -321,10 +328,16 @@ CreateCorporationProfileRequest.RequiredProperties = ["email"];
 CreateCorporationProfileRequest.prototype['email'] = undefined;
 
 /**
- * The accredited investor information.
+ * The United States accredited investor information.
  * @member {module:model/CreateCorporationProfileRequest.UsAccreditedCategoryEnum} us_accredited_category
  */
 CreateCorporationProfileRequest.prototype['us_accredited_category'] = undefined;
+
+/**
+ * The Canadian accredited investor information.
+ * @member {module:model/CreateCorporationProfileRequest.CaAccreditedInvestorEnum} ca_accredited_investor
+ */
+CreateCorporationProfileRequest.prototype['ca_accredited_investor'] = undefined;
 
 /**
  * The name of the corporation (required).
@@ -636,6 +649,129 @@ CreateCorporationProfileRequest['UsAccreditedCategoryEnum'] = {
      * @const
      */
     "not_accredited": "not_accredited"
+};
+
+
+/**
+ * Allowed values for the <code>ca_accredited_investor</code> property.
+ * @enum {String}
+ * @readonly
+ */
+CreateCorporationProfileRequest['CaAccreditedInvestorEnum'] = {
+
+    /**
+     * value: "a"
+     * @const
+     */
+    "a": "a",
+
+    /**
+     * value: "b"
+     * @const
+     */
+    "b": "b",
+
+    /**
+     * value: "c"
+     * @const
+     */
+    "c": "c",
+
+    /**
+     * value: "d"
+     * @const
+     */
+    "d": "d",
+
+    /**
+     * value: "f"
+     * @const
+     */
+    "f": "f",
+
+    /**
+     * value: "g"
+     * @const
+     */
+    "g": "g",
+
+    /**
+     * value: "h"
+     * @const
+     */
+    "h": "h",
+
+    /**
+     * value: "i"
+     * @const
+     */
+    "i": "i",
+
+    /**
+     * value: "m"
+     * @const
+     */
+    "m": "m",
+
+    /**
+     * value: "n"
+     * @const
+     */
+    "n": "n",
+
+    /**
+     * value: "o"
+     * @const
+     */
+    "o": "o",
+
+    /**
+     * value: "p"
+     * @const
+     */
+    "p": "p",
+
+    /**
+     * value: "q"
+     * @const
+     */
+    "q": "q",
+
+    /**
+     * value: "r"
+     * @const
+     */
+    "r": "r",
+
+    /**
+     * value: "s"
+     * @const
+     */
+    "s": "s",
+
+    /**
+     * value: "t"
+     * @const
+     */
+    "t": "t",
+
+    /**
+     * value: "u"
+     * @const
+     */
+    "u": "u",
+
+    /**
+     * value: "v"
+     * @const
+     */
+    "v": "v",
+
+    /**
+     * value: "x"
+     * @const
+     */
+    "x": "x"
 };
 
 

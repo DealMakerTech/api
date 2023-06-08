@@ -4,7 +4,8 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **us_accredited_category** | **String** | The accredited investor information. | [optional] |
+| **us_accredited_category** | **String** | The United States accredited investor information. | [optional] |
+| **ca_accredited_investor** | **String** | The Canadian accredited investor information. | [optional] |
 | **name** | **String** | The name of the trust. | [optional] |
 | **date** | **String** | The creation date of the trust. | [optional] |
 | **phone_number** | **String** | The phone number of the trust. | [optional] |
@@ -36,6 +37,7 @@ require 'DealMakerAPI'
 
 instance = DealMakerAPI::PatchTrustProfileRequest.new(
   us_accredited_category: null,
+  ca_accredited_investor: null,
   name: null,
   date: null,
   phone_number: null,

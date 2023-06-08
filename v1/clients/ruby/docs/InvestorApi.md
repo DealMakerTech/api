@@ -4,12 +4,84 @@ All URIs are relative to *http://api.dealmaker.tech*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
+| [**add_document**](InvestorApi.md#add_document) | **POST** /deals/{id}/investors/{investor_id}/add_document | Add document for deal investor |
 | [**create_investor**](InvestorApi.md#create_investor) | **POST** /deals/{id}/investors | Create a deal investor |
+| [**delete_document**](InvestorApi.md#delete_document) | **DELETE** /deals/{id}/investors/{investor_id}/delete_document/{document_id} | Delete document for deal investor |
 | [**get_investor**](InvestorApi.md#get_investor) | **GET** /deals/{id}/investors/{investor_id} | Get a deal investor by id |
 | [**get_investor_otp_link**](InvestorApi.md#get_investor_otp_link) | **GET** /deals/{id}/investors/{investor_id}/otp_access_link | Get OTP access link for deal investor |
 | [**list_investors**](InvestorApi.md#list_investors) | **GET** /deals/{id}/investors | List deal investors |
 | [**patch_investor**](InvestorApi.md#patch_investor) | **PATCH** /deals/{id}/investors/{investor_id} | Patch a deal investor |
 | [**update_investor**](InvestorApi.md#update_investor) | **PUT** /deals/{id}/investors/{investor_id} | Update a deal investor |
+
+
+## add_document
+
+> <V1EntitiesInvestor> add_document(id, investor_id, add_document_request)
+
+Add document for deal investor
+
+Add document for deal investor
+
+### Examples
+
+```ruby
+require 'time'
+require 'DealMakerAPI'
+# setup authorization
+DealMakerAPI.configure do |config|end
+
+api_instance = DealMakerAPI::InvestorApi.new
+id = 56 # Integer | The deal id.
+investor_id = 56 # Integer | The investor id.
+add_document_request = DealMakerAPI::AddDocumentRequest.new({type: 'regular', file: File.new('/path/to/some/file')}) # AddDocumentRequest | 
+
+begin
+  # Add document for deal investor
+  result = api_instance.add_document(id, investor_id, add_document_request)
+  p result
+rescue DealMakerAPI::ApiError => e
+  puts "Error when calling InvestorApi->add_document: #{e}"
+end
+```
+
+#### Using the add_document_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<V1EntitiesInvestor>, Integer, Hash)> add_document_with_http_info(id, investor_id, add_document_request)
+
+```ruby
+begin
+  # Add document for deal investor
+  data, status_code, headers = api_instance.add_document_with_http_info(id, investor_id, add_document_request)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <V1EntitiesInvestor>
+rescue DealMakerAPI::ApiError => e
+  puts "Error when calling InvestorApi->add_document_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **id** | **Integer** | The deal id. |  |
+| **investor_id** | **Integer** | The investor id. |  |
+| **add_document_request** | [**AddDocumentRequest**](AddDocumentRequest.md) |  |  |
+
+### Return type
+
+[**V1EntitiesInvestor**](V1EntitiesInvestor.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 
 ## create_investor
@@ -78,6 +150,75 @@ No authorization required
 
 - **Content-Type**: application/json
 - **Accept**: application/json
+
+
+## delete_document
+
+> delete_document(id, investor_id, document_id)
+
+Delete document for deal investor
+
+Delete document for deal investor
+
+### Examples
+
+```ruby
+require 'time'
+require 'DealMakerAPI'
+# setup authorization
+DealMakerAPI.configure do |config|end
+
+api_instance = DealMakerAPI::InvestorApi.new
+id = 56 # Integer | 
+investor_id = 56 # Integer | 
+document_id = 56 # Integer | 
+
+begin
+  # Delete document for deal investor
+  api_instance.delete_document(id, investor_id, document_id)
+rescue DealMakerAPI::ApiError => e
+  puts "Error when calling InvestorApi->delete_document: #{e}"
+end
+```
+
+#### Using the delete_document_with_http_info variant
+
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
+
+> <Array(nil, Integer, Hash)> delete_document_with_http_info(id, investor_id, document_id)
+
+```ruby
+begin
+  # Delete document for deal investor
+  data, status_code, headers = api_instance.delete_document_with_http_info(id, investor_id, document_id)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => nil
+rescue DealMakerAPI::ApiError => e
+  puts "Error when calling InvestorApi->delete_document_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **id** | **Integer** |  |  |
+| **investor_id** | **Integer** |  |  |
+| **document_id** | **Integer** |  |  |
+
+### Return type
+
+nil (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
 
 
 ## get_investor

@@ -3,6 +3,7 @@
 .openapi-generator-ignore
 .travis.yml
 README.md
+docs/AddDocumentRequest.md
 docs/CompanyApi.md
 docs/CreateCompanyRequest.md
 docs/CreateCorporationProfileRequest.md
@@ -72,6 +73,7 @@ src/api/DefaultApi.js
 src/api/InvestorApi.js
 src/api/InvestorProfileApi.js
 src/index.js
+src/model/AddDocumentRequest.js
 src/model/CreateCompanyRequest.js
 src/model/CreateCorporationProfileRequest.js
 src/model/CreateDealSetupRequest.js
@@ -130,6 +132,7 @@ test/api/DealSetupApi.spec.js
 test/api/DefaultApi.spec.js
 test/api/InvestorApi.spec.js
 test/api/InvestorProfileApi.spec.js
+test/model/AddDocumentRequest.spec.js
 test/model/CreateCompanyRequest.spec.js
 test/model/CreateCorporationProfileRequest.spec.js
 test/model/CreateDealSetupRequest.spec.js

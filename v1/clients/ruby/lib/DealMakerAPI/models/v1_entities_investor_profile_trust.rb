@@ -28,8 +28,11 @@ module DealMakerAPI
     # Investor Profile type
     attr_accessor :type
 
-    # The accredited investor information
+    # The United States accredited investor information
     attr_accessor :us_accredited_category
+
+    # The Canadian accredited investor information
+    attr_accessor :ca_accredited_investor
 
     # To check if the profile is complete or not
     attr_accessor :complete
@@ -73,6 +76,7 @@ module DealMakerAPI
         :'email' => :'email',
         :'type' => :'type',
         :'us_accredited_category' => :'us_accredited_category',
+        :'ca_accredited_investor' => :'ca_accredited_investor',
         :'complete' => :'complete',
         :'owner_type' => :'owner_type',
         :'owner' => :'owner',
@@ -94,6 +98,7 @@ module DealMakerAPI
         :'email' => :'String',
         :'type' => :'String',
         :'us_accredited_category' => :'String',
+        :'ca_accredited_investor' => :'String',
         :'complete' => :'Boolean',
         :'owner_type' => :'String',
         :'owner' => :'V1EntitiesInvestorProfileOwner',
@@ -141,6 +146,10 @@ module DealMakerAPI
 
       if attributes.key?(:'us_accredited_category')
         self.us_accredited_category = attributes[:'us_accredited_category']
+      end
+
+      if attributes.key?(:'ca_accredited_investor')
+        self.ca_accredited_investor = attributes[:'ca_accredited_investor']
       end
 
       if attributes.key?(:'complete')
@@ -199,6 +208,7 @@ module DealMakerAPI
           email == o.email &&
           type == o.type &&
           us_accredited_category == o.us_accredited_category &&
+          ca_accredited_investor == o.ca_accredited_investor &&
           complete == o.complete &&
           owner_type == o.owner_type &&
           owner == o.owner &&
@@ -215,7 +225,7 @@ module DealMakerAPI
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, user_id, email, type, us_accredited_category, complete, owner_type, owner, trust_holder, trustees].hash
+      [id, user_id, email, type, us_accredited_category, ca_accredited_investor, complete, owner_type, owner, trust_holder, trustees].hash
     end
 
     # Builds the object from hash

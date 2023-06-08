@@ -5,7 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **email** | **String** | User email which is associated with investor profile. | 
-**usAccreditedCategory** | **String** | The accredited investor information. | [optional] 
+**usAccreditedCategory** | **String** | The United States accredited investor information. | [optional] 
+**caAccreditedInvestor** | **String** | The Canadian accredited investor information. | [optional] 
 **jointType** | **String** | The types of joint investor. | [optional] 
 **firstName** | **String** | The first name of the primary holder (required). | [optional] 
 **lastName** | **String** | The last name of the primary holder (required). | [optional] 
@@ -56,6 +57,33 @@ Name | Type | Description | Notes
 * `designated_accredited_investor` (value: `"designated_accredited_investor"`)
 
 * `not_accredited` (value: `"not_accredited"`)
+
+
+
+
+
+## Enum: CaAccreditedInvestorEnum
+
+
+* `d` (value: `"d"`)
+
+* `e` (value: `"e"`)
+
+* `e_1` (value: `"e_1"`)
+
+* `j` (value: `"j"`)
+
+* `j_1` (value: `"j_1"`)
+
+* `k` (value: `"k"`)
+
+* `l` (value: `"l"`)
+
+* `q` (value: `"q"`)
+
+* `v` (value: `"v"`)
+
+* `x` (value: `"x"`)
 
 
 

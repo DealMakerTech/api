@@ -78,6 +78,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property investmentValue (base name: "investment_value")', function() {
+      // uncomment below and update the code to test the property investmentValue
+      //var instance = new Api.UpdateInvestorRequest();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

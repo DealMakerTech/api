@@ -18,8 +18,11 @@ module DealMakerAPI
     # User email which is associated with investor profile (required).
     attr_accessor :email
 
-    # The accredited investor information.
+    # The United States accredited investor information.
     attr_accessor :us_accredited_category
+
+    # The Canadian accredited investor information.
+    attr_accessor :ca_accredited_investor
 
     # The name of the trust (required).
     attr_accessor :name
@@ -117,6 +120,7 @@ module DealMakerAPI
       {
         :'email' => :'email',
         :'us_accredited_category' => :'us_accredited_category',
+        :'ca_accredited_investor' => :'ca_accredited_investor',
         :'name' => :'name',
         :'date' => :'date',
         :'country' => :'country',
@@ -153,6 +157,7 @@ module DealMakerAPI
       {
         :'email' => :'String',
         :'us_accredited_category' => :'String',
+        :'ca_accredited_investor' => :'String',
         :'name' => :'String',
         :'date' => :'String',
         :'country' => :'String',
@@ -206,6 +211,10 @@ module DealMakerAPI
 
       if attributes.key?(:'us_accredited_category')
         self.us_accredited_category = attributes[:'us_accredited_category']
+      end
+
+      if attributes.key?(:'ca_accredited_investor')
+        self.ca_accredited_investor = attributes[:'ca_accredited_investor']
       end
 
       if attributes.key?(:'name')
@@ -340,6 +349,8 @@ module DealMakerAPI
       return false if @email.nil?
       us_accredited_category_validator = EnumAttributeValidator.new('String', ["entity_owned_by_accredited_investors", "broker_or_dealer", "assets_trust", "not_accredited"])
       return false unless us_accredited_category_validator.valid?(@us_accredited_category)
+      ca_accredited_investor_validator = EnumAttributeValidator.new('String', ["p", "w"])
+      return false unless ca_accredited_investor_validator.valid?(@ca_accredited_investor)
       true
     end
 
@@ -353,6 +364,16 @@ module DealMakerAPI
       @us_accredited_category = us_accredited_category
     end
 
+    # Custom attribute writer method checking allowed values (enum).
+    # @param [Object] ca_accredited_investor Object to be assigned
+    def ca_accredited_investor=(ca_accredited_investor)
+      validator = EnumAttributeValidator.new('String', ["p", "w"])
+      unless validator.valid?(ca_accredited_investor)
+        fail ArgumentError, "invalid value for \"ca_accredited_investor\", must be one of #{validator.allowable_values}."
+      end
+      @ca_accredited_investor = ca_accredited_investor
+    end
+
     # Checks equality by comparing each attribute.
     # @param [Object] Object to be compared
     def ==(o)
@@ -360,6 +381,7 @@ module DealMakerAPI
       self.class == o.class &&
           email == o.email &&
           us_accredited_category == o.us_accredited_category &&
+          ca_accredited_investor == o.ca_accredited_investor &&
           name == o.name &&
           date == o.date &&
           country == o.country &&
@@ -394,7 +416,7 @@ module DealMakerAPI
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [email, us_accredited_category, name, date, country, street_address, unit2, city, region, postal_code, phone_number, income, net_worth, reg_cf_prior_offerings_amount, trustees_first_name, trustees_last_name, trustees_suffix, trustees_country, trustees_street_address, trustees_unit_2, trustees_city, trustees_region, trustees_postal_code, trustees_date_of_birth, trustees_taxpayer_id].hash
+      [email, us_accredited_category, ca_accredited_investor, name, date, country, street_address, unit2, city, region, postal_code, phone_number, income, net_worth, reg_cf_prior_offerings_amount, trustees_first_name, trustees_last_name, trustees_suffix, trustees_country, trustees_street_address, trustees_unit_2, trustees_city, trustees_region, trustees_postal_code, trustees_date_of_birth, trustees_taxpayer_id].hash
     end
 
     # Builds the object from hash

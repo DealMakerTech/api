@@ -59,6 +59,7 @@ class CreateTrustProfileRequest implements ModelInterface, ArrayAccess, \JsonSer
     protected static $openAPITypes = [
         'email' => 'string',
         'us_accredited_category' => 'string',
+        'ca_accredited_investor' => 'string',
         'name' => 'string',
         'date' => 'string',
         'country' => 'string',
@@ -94,6 +95,7 @@ class CreateTrustProfileRequest implements ModelInterface, ArrayAccess, \JsonSer
     protected static $openAPIFormats = [
         'email' => null,
         'us_accredited_category' => null,
+        'ca_accredited_investor' => null,
         'name' => null,
         'date' => null,
         'country' => null,
@@ -127,6 +129,7 @@ class CreateTrustProfileRequest implements ModelInterface, ArrayAccess, \JsonSer
     protected static array $openAPINullables = [
         'email' => false,
 		'us_accredited_category' => false,
+		'ca_accredited_investor' => false,
 		'name' => false,
 		'date' => false,
 		'country' => false,
@@ -240,6 +243,7 @@ class CreateTrustProfileRequest implements ModelInterface, ArrayAccess, \JsonSer
     protected static $attributeMap = [
         'email' => 'email',
         'us_accredited_category' => 'us_accredited_category',
+        'ca_accredited_investor' => 'ca_accredited_investor',
         'name' => 'name',
         'date' => 'date',
         'country' => 'country',
@@ -273,6 +277,7 @@ class CreateTrustProfileRequest implements ModelInterface, ArrayAccess, \JsonSer
     protected static $setters = [
         'email' => 'setEmail',
         'us_accredited_category' => 'setUsAccreditedCategory',
+        'ca_accredited_investor' => 'setCaAccreditedInvestor',
         'name' => 'setName',
         'date' => 'setDate',
         'country' => 'setCountry',
@@ -306,6 +311,7 @@ class CreateTrustProfileRequest implements ModelInterface, ArrayAccess, \JsonSer
     protected static $getters = [
         'email' => 'getEmail',
         'us_accredited_category' => 'getUsAccreditedCategory',
+        'ca_accredited_investor' => 'getCaAccreditedInvestor',
         'name' => 'getName',
         'date' => 'getDate',
         'country' => 'getCountry',
@@ -376,6 +382,8 @@ class CreateTrustProfileRequest implements ModelInterface, ArrayAccess, \JsonSer
     public const US_ACCREDITED_CATEGORY_BROKER_OR_DEALER = 'broker_or_dealer';
     public const US_ACCREDITED_CATEGORY_ASSETS_TRUST = 'assets_trust';
     public const US_ACCREDITED_CATEGORY_NOT_ACCREDITED = 'not_accredited';
+    public const CA_ACCREDITED_INVESTOR_P = 'p';
+    public const CA_ACCREDITED_INVESTOR_W = 'w';
 
     /**
      * Gets allowable values of the enum
@@ -389,6 +397,19 @@ class CreateTrustProfileRequest implements ModelInterface, ArrayAccess, \JsonSer
             self::US_ACCREDITED_CATEGORY_BROKER_OR_DEALER,
             self::US_ACCREDITED_CATEGORY_ASSETS_TRUST,
             self::US_ACCREDITED_CATEGORY_NOT_ACCREDITED,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getCaAccreditedInvestorAllowableValues()
+    {
+        return [
+            self::CA_ACCREDITED_INVESTOR_P,
+            self::CA_ACCREDITED_INVESTOR_W,
         ];
     }
 
@@ -409,6 +430,7 @@ class CreateTrustProfileRequest implements ModelInterface, ArrayAccess, \JsonSer
     {
         $this->setIfExists('email', $data ?? [], null);
         $this->setIfExists('us_accredited_category', $data ?? [], null);
+        $this->setIfExists('ca_accredited_investor', $data ?? [], null);
         $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('date', $data ?? [], null);
         $this->setIfExists('country', $data ?? [], null);
@@ -473,6 +495,15 @@ class CreateTrustProfileRequest implements ModelInterface, ArrayAccess, \JsonSer
             );
         }
 
+        $allowedValues = $this->getCaAccreditedInvestorAllowableValues();
+        if (!is_null($this->container['ca_accredited_investor']) && !in_array($this->container['ca_accredited_investor'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'ca_accredited_investor', must be one of '%s'",
+                $this->container['ca_accredited_investor'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -528,7 +559,7 @@ class CreateTrustProfileRequest implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets us_accredited_category
      *
-     * @param string|null $us_accredited_category The accredited investor information.
+     * @param string|null $us_accredited_category The United States accredited investor information.
      *
      * @return self
      */
@@ -548,6 +579,43 @@ class CreateTrustProfileRequest implements ModelInterface, ArrayAccess, \JsonSer
             );
         }
         $this->container['us_accredited_category'] = $us_accredited_category;
+
+        return $this;
+    }
+
+    /**
+     * Gets ca_accredited_investor
+     *
+     * @return string|null
+     */
+    public function getCaAccreditedInvestor()
+    {
+        return $this->container['ca_accredited_investor'];
+    }
+
+    /**
+     * Sets ca_accredited_investor
+     *
+     * @param string|null $ca_accredited_investor The Canadian accredited investor information.
+     *
+     * @return self
+     */
+    public function setCaAccreditedInvestor($ca_accredited_investor)
+    {
+        if (is_null($ca_accredited_investor)) {
+            throw new \InvalidArgumentException('non-nullable ca_accredited_investor cannot be null');
+        }
+        $allowedValues = $this->getCaAccreditedInvestorAllowableValues();
+        if (!in_array($ca_accredited_investor, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'ca_accredited_investor', must be one of '%s'",
+                    $ca_accredited_investor,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['ca_accredited_investor'] = $ca_accredited_investor;
 
         return $this;
     }

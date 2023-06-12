@@ -3,6 +3,7 @@
 .openapi-generator-ignore
 .travis.yml
 README.md
+docs/AddDocumentRequest.md
 docs/CompanyApi.md
 docs/CreateCompanyRequest.md
 docs/CreateCorporationProfileRequest.md
@@ -23,6 +24,7 @@ docs/PatchJointProfileRequest.md
 docs/PatchTrustProfileRequest.md
 docs/PostWebhooksRequest.md
 docs/PutWebhooksIdRequest.md
+docs/ShareholderApi.md
 docs/UpdateInvestorRequest.md
 docs/V1EntitiesAddress.md
 docs/V1EntitiesAddresses.md
@@ -55,6 +57,8 @@ docs/V1EntitiesInvestorProfileTrust.md
 docs/V1EntitiesInvestorProfiles.md
 docs/V1EntitiesInvestorUser.md
 docs/V1EntitiesInvestors.md
+docs/V1EntitiesShareholder.md
+docs/V1EntitiesShareholders.md
 docs/V1EntitiesSubscriptionAgreement.md
 docs/V1EntitiesWebhooksDeal.md
 docs/V1EntitiesWebhooksSecurityToken.md
@@ -71,7 +75,9 @@ src/api/DealSetupApi.js
 src/api/DefaultApi.js
 src/api/InvestorApi.js
 src/api/InvestorProfileApi.js
+src/api/ShareholderApi.js
 src/index.js
+src/model/AddDocumentRequest.js
 src/model/CreateCompanyRequest.js
 src/model/CreateCorporationProfileRequest.js
 src/model/CreateDealSetupRequest.js
@@ -118,6 +124,8 @@ src/model/V1EntitiesInvestorProfileTrust.js
 src/model/V1EntitiesInvestorProfiles.js
 src/model/V1EntitiesInvestorUser.js
 src/model/V1EntitiesInvestors.js
+src/model/V1EntitiesShareholder.js
+src/model/V1EntitiesShareholders.js
 src/model/V1EntitiesSubscriptionAgreement.js
 src/model/V1EntitiesWebhooksDeal.js
 src/model/V1EntitiesWebhooksSecurityToken.js
@@ -130,6 +138,8 @@ test/api/DealSetupApi.spec.js
 test/api/DefaultApi.spec.js
 test/api/InvestorApi.spec.js
 test/api/InvestorProfileApi.spec.js
+test/api/ShareholderApi.spec.js
+test/model/AddDocumentRequest.spec.js
 test/model/CreateCompanyRequest.spec.js
 test/model/CreateCorporationProfileRequest.spec.js
 test/model/CreateDealSetupRequest.spec.js
@@ -176,6 +186,8 @@ test/model/V1EntitiesInvestorProfileTrust.spec.js
 test/model/V1EntitiesInvestorProfiles.spec.js
 test/model/V1EntitiesInvestorUser.spec.js
 test/model/V1EntitiesInvestors.spec.js
+test/model/V1EntitiesShareholder.spec.js
+test/model/V1EntitiesShareholders.spec.js
 test/model/V1EntitiesSubscriptionAgreement.spec.js
 test/model/V1EntitiesWebhooksDeal.spec.js
 test/model/V1EntitiesWebhooksSecurityToken.spec.js

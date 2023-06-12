@@ -66,6 +66,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property caAccreditedInvestor (base name: "ca_accredited_investor")', function() {
+      // uncomment below and update the code to test the property caAccreditedInvestor
+      //var instance = new Api.CreateIndividualProfileRequest();
+      //expect(instance).to.be();
+    });
+
     it('should have the property firstName (base name: "first_name")', function() {
       // uncomment below and update the code to test the property firstName
       //var instance = new Api.CreateIndividualProfileRequest();

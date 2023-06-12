@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The PatchJointProfileRequest model module.
  * @module model/PatchJointProfileRequest
- * @version 0.79.1
+ * @version 0.80.1
  */
 class PatchJointProfileRequest {
     /**
@@ -49,6 +49,9 @@ class PatchJointProfileRequest {
 
             if (data.hasOwnProperty('us_accredited_category')) {
                 obj['us_accredited_category'] = ApiClient.convertToType(data['us_accredited_category'], 'String');
+            }
+            if (data.hasOwnProperty('ca_accredited_investor')) {
+                obj['ca_accredited_investor'] = ApiClient.convertToType(data['ca_accredited_investor'], 'String');
             }
             if (data.hasOwnProperty('joint_type')) {
                 obj['joint_type'] = ApiClient.convertToType(data['joint_type'], 'String');
@@ -144,6 +147,10 @@ class PatchJointProfileRequest {
         // ensure the json data is a string
         if (data['us_accredited_category'] && !(typeof data['us_accredited_category'] === 'string' || data['us_accredited_category'] instanceof String)) {
             throw new Error("Expected the field `us_accredited_category` to be a primitive type in the JSON string but got " + data['us_accredited_category']);
+        }
+        // ensure the json data is a string
+        if (data['ca_accredited_investor'] && !(typeof data['ca_accredited_investor'] === 'string' || data['ca_accredited_investor'] instanceof String)) {
+            throw new Error("Expected the field `ca_accredited_investor` to be a primitive type in the JSON string but got " + data['ca_accredited_investor']);
         }
         // ensure the json data is a string
         if (data['joint_type'] && !(typeof data['joint_type'] === 'string' || data['joint_type'] instanceof String)) {
@@ -251,10 +258,16 @@ class PatchJointProfileRequest {
 
 
 /**
- * The accredited investor information.
+ * The United States accredited investor information.
  * @member {module:model/PatchJointProfileRequest.UsAccreditedCategoryEnum} us_accredited_category
  */
 PatchJointProfileRequest.prototype['us_accredited_category'] = undefined;
+
+/**
+ * The Canadian accredited investor information.
+ * @member {module:model/PatchJointProfileRequest.CaAccreditedInvestorEnum} ca_accredited_investor
+ */
+PatchJointProfileRequest.prototype['ca_accredited_investor'] = undefined;
 
 /**
  * The kind of joint investor.
@@ -482,6 +495,75 @@ PatchJointProfileRequest['UsAccreditedCategoryEnum'] = {
      * @const
      */
     "not_accredited": "not_accredited"
+};
+
+
+/**
+ * Allowed values for the <code>ca_accredited_investor</code> property.
+ * @enum {String}
+ * @readonly
+ */
+PatchJointProfileRequest['CaAccreditedInvestorEnum'] = {
+
+    /**
+     * value: "d"
+     * @const
+     */
+    "d": "d",
+
+    /**
+     * value: "e"
+     * @const
+     */
+    "e": "e",
+
+    /**
+     * value: "e_1"
+     * @const
+     */
+    "e_1": "e_1",
+
+    /**
+     * value: "j"
+     * @const
+     */
+    "j": "j",
+
+    /**
+     * value: "j_1"
+     * @const
+     */
+    "j_1": "j_1",
+
+    /**
+     * value: "k"
+     * @const
+     */
+    "k": "k",
+
+    /**
+     * value: "l"
+     * @const
+     */
+    "l": "l",
+
+    /**
+     * value: "q"
+     * @const
+     */
+    "q": "q",
+
+    /**
+     * value: "v"
+     * @const
+     */
+    "v": "v",
+
+    /**
+     * value: "x"
+     * @const
+     */
+    "x": "x"
 };
 
 

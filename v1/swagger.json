@@ -55,6 +55,10 @@
   ],
   "tags": [
     {
+      "name": "shareholder",
+      "description": "Operations about shareholders"
+    },
+    {
       "name": "deal_setup",
       "description": "Operations about deal_setups"
     },
@@ -105,6 +109,230 @@
     }
   ],
   "paths": {
+    "/deals/{id}/investors/{investor_id}/delete_document/{document_id}": {
+      "delete": {
+        "summary": "Delete document for deal investor",
+        "description": "Delete document for deal investor",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          },
+          {
+            "in": "path",
+            "name": "investor_id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          },
+          {
+            "in": "path",
+            "name": "document_id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "security": [
+          {
+            "oauth": [
+              "deals.investors.write"
+            ]
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Document deleted successfuly"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "tags": [
+          "investor"
+        ],
+        "operationId": "deleteDocument",
+        "x-codeSamples": [
+          {
+            "lang": "javascript",
+            "source": ""
+          },
+          {
+            "lang": "ruby",
+            "source": ""
+          }
+        ]
+      }
+    },
+    "/deals/{id}/investors/{investor_id}/add_document": {
+      "post": {
+        "summary": "Add document for deal investor",
+        "description": "Add document for deal investor",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "description": "The deal id.",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          },
+          {
+            "in": "path",
+            "name": "investor_id",
+            "description": "The investor id.",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "type",
+            "description": "Document type.",
+            "type": "string",
+            "default": "regular",
+            "enum": [
+              "regular",
+              "AML/KYC"
+            ],
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "file",
+            "description": "File to upload.",
+            "type": "file",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "caption",
+            "description": "The caption.",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "search_entity_id",
+            "description": "Search entity id.",
+            "type": "integer",
+            "format": "int32",
+            "required": false
+          }
+        ],
+        "security": [
+          {
+            "oauth": [
+              "deals.investors.write"
+            ]
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Add document for deal investor",
+            "schema": {
+              "$ref": "#/definitions/V1_Entities_Investor"
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "tags": [
+          "investor"
+        ],
+        "operationId": "addDocument",
+        "x-codeSamples": [
+          {
+            "lang": "javascript",
+            "source": ""
+          },
+          {
+            "lang": "ruby",
+            "source": ""
+          }
+        ]
+      }
+    },
+    "/deals/{id}/analytics_dashboard_info": {
+      "get": {
+        "summary": "Get Analytics Dashboard Info",
+        "description": "Get Analytics Dashboard Info",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "description": "The deal id.",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          },
+          {
+            "in": "query",
+            "name": "dashboard_key",
+            "description": "The dashboard key.",
+            "type": "string",
+            "required": false
+          }
+        ],
+        "security": [
+          {
+            "oauth": [
+              "internal"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get Analytics Dashboard Info",
+            "schema": {
+              "$ref": "#/definitions/V1_Entities_AnalyticsDashboardInfo"
+            }
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not found"
+          }
+        },
+        "tags": [
+          "deal"
+        ],
+        "operationId": "getAnalyticsDashboardInfo",
+        "x-codeSamples": [
+          {
+            "lang": "javascript",
+            "source": ""
+          },
+          {
+            "lang": "ruby",
+            "source": ""
+          }
+        ]
+      }
+    },
     "/deals/{id}/investors/{investor_id}/otp_access_link": {
       "get": {
         "summary": "Get OTP access link for deal investor",
@@ -578,6 +806,14 @@
               "amount"
             ],
             "required": false
+          },
+          {
+            "in": "formData",
+            "name": "investment_value",
+            "description": "The investment value of the investor.",
+            "type": "number",
+            "format": "float",
+            "required": false
           }
         ],
         "security": [
@@ -798,6 +1034,60 @@
           "deal"
         ],
         "operationId": "listDeals",
+        "x-codeSamples": [
+          {
+            "lang": "javascript",
+            "source": ""
+          },
+          {
+            "lang": "ruby",
+            "source": ""
+          }
+        ]
+      }
+    },
+    "/companies/{id}/shareholders": {
+      "get": {
+        "summary": "Get a company shareholders list",
+        "description": "Gets a list of company shareholders.",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "description": "The company id.",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "security": [
+          {
+            "oauth": [
+              "internal"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List company shareholders",
+            "schema": {
+              "$ref": "#/definitions/V1_Entities_Shareholders"
+            }
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not found"
+          }
+        },
+        "tags": [
+          "shareholder"
+        ],
+        "operationId": "getShareholders",
         "x-codeSamples": [
           {
             "lang": "javascript",
@@ -1191,13 +1481,24 @@
           {
             "in": "formData",
             "name": "us_accredited_category",
-            "description": "The accredited investor information.",
+            "description": "The United States accredited investor information.",
             "type": "string",
             "enum": [
               "entity_owned_by_accredited_investors",
               "broker_or_dealer",
               "assets_trust",
               "not_accredited"
+            ],
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "ca_accredited_investor",
+            "description": "The Canadian accredited investor information.",
+            "type": "string",
+            "enum": [
+              "p",
+              "w"
             ],
             "required": false
           },
@@ -1434,13 +1735,24 @@
           {
             "in": "formData",
             "name": "us_accredited_category",
-            "description": "The accredited investor information.",
+            "description": "The United States accredited investor information.",
             "type": "string",
             "enum": [
               "entity_owned_by_accredited_investors",
               "broker_or_dealer",
               "assets_trust",
               "not_accredited"
+            ],
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "ca_accredited_investor",
+            "description": "The Canadian accredited investor information.",
+            "type": "string",
+            "enum": [
+              "p",
+              "w"
             ],
             "required": false
           },
@@ -1693,7 +2005,7 @@
           {
             "in": "formData",
             "name": "us_accredited_category",
-            "description": "The accredited investor information.",
+            "description": "The United States accredited investor information.",
             "type": "string",
             "enum": [
               "income_individual",
@@ -1705,6 +2017,25 @@
               "investment_advisor_relying",
               "designated_accredited_investor",
               "not_accredited"
+            ],
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "ca_accredited_investor",
+            "description": "The Canadian accredited investor information.",
+            "type": "string",
+            "enum": [
+              "d",
+              "e",
+              "e_1",
+              "j",
+              "j_1",
+              "k",
+              "l",
+              "q",
+              "v",
+              "x"
             ],
             "required": false
           },
@@ -1885,7 +2216,7 @@
           {
             "in": "formData",
             "name": "us_accredited_category",
-            "description": "The accredited investor information.",
+            "description": "The United States accredited investor information.",
             "type": "string",
             "enum": [
               "income_individual",
@@ -1897,6 +2228,25 @@
               "investment_advisor_relying",
               "designated_accredited_investor",
               "not_accredited"
+            ],
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "ca_accredited_investor",
+            "description": "The Canadian accredited investor information.",
+            "type": "string",
+            "enum": [
+              "d",
+              "e",
+              "e_1",
+              "j",
+              "j_1",
+              "k",
+              "l",
+              "q",
+              "v",
+              "x"
             ],
             "required": false
           },
@@ -2060,7 +2410,7 @@
           {
             "in": "formData",
             "name": "us_accredited_category",
-            "description": "The accredited investor information.",
+            "description": "The United States accredited investor information.",
             "type": "string",
             "enum": [
               "income_individual",
@@ -2072,6 +2422,25 @@
               "investment_advisor_relying",
               "designated_accredited_investor",
               "not_accredited"
+            ],
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "ca_accredited_investor",
+            "description": "The Canadian accredited investor information.",
+            "type": "string",
+            "enum": [
+              "d",
+              "e",
+              "e_1",
+              "j",
+              "j_1",
+              "k",
+              "l",
+              "q",
+              "v",
+              "x"
             ],
             "required": false
           },
@@ -2341,7 +2710,7 @@
           {
             "in": "formData",
             "name": "us_accredited_category",
-            "description": "The accredited investor information.",
+            "description": "The United States accredited investor information.",
             "type": "string",
             "enum": [
               "income_individual",
@@ -2353,6 +2722,25 @@
               "investment_advisor_relying",
               "designated_accredited_investor",
               "not_accredited"
+            ],
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "ca_accredited_investor",
+            "description": "The Canadian accredited investor information.",
+            "type": "string",
+            "enum": [
+              "d",
+              "e",
+              "e_1",
+              "j",
+              "j_1",
+              "k",
+              "l",
+              "q",
+              "v",
+              "x"
             ],
             "required": false
           },
@@ -2602,7 +2990,7 @@
           {
             "in": "formData",
             "name": "us_accredited_category",
-            "description": "The accredited investor information.",
+            "description": "The United States accredited investor information.",
             "type": "string",
             "enum": [
               "entity_owned_by_accredited_investors",
@@ -2621,6 +3009,34 @@
               "insurance_company",
               "family_client",
               "not_accredited"
+            ],
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "ca_accredited_investor",
+            "description": "The Canadian accredited investor information.",
+            "type": "string",
+            "enum": [
+              "a",
+              "b",
+              "c",
+              "d",
+              "f",
+              "g",
+              "h",
+              "i",
+              "m",
+              "n",
+              "o",
+              "p",
+              "q",
+              "r",
+              "s",
+              "t",
+              "u",
+              "v",
+              "x"
             ],
             "required": false
           },
@@ -2857,7 +3273,7 @@
           {
             "in": "formData",
             "name": "us_accredited_category",
-            "description": "The accredited investor information.",
+            "description": "The United States accredited investor information.",
             "type": "string",
             "enum": [
               "entity_owned_by_accredited_investors",
@@ -2876,6 +3292,34 @@
               "insurance_company",
               "family_client",
               "not_accredited"
+            ],
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "ca_accredited_investor",
+            "description": "The Canadian accredited investor information.",
+            "type": "string",
+            "enum": [
+              "a",
+              "b",
+              "c",
+              "d",
+              "f",
+              "g",
+              "h",
+              "i",
+              "m",
+              "n",
+              "o",
+              "p",
+              "q",
+              "r",
+              "s",
+              "t",
+              "u",
+              "v",
+              "x"
             ],
             "required": false
           },
@@ -4201,7 +4645,11 @@
         },
         "us_accredited_category": {
           "type": "string",
-          "description": "The accredited investor information"
+          "description": "The United States accredited investor information"
+        },
+        "ca_accredited_investor": {
+          "type": "string",
+          "description": "The Canadian accredited investor information"
         },
         "complete": {
           "type": "boolean",
@@ -4342,7 +4790,11 @@
         },
         "us_accredited_category": {
           "type": "string",
-          "description": "The accredited investor information"
+          "description": "The United States accredited investor information"
+        },
+        "ca_accredited_investor": {
+          "type": "string",
+          "description": "The Canadian accredited investor information"
         },
         "complete": {
           "type": "boolean",
@@ -4425,7 +4877,11 @@
         },
         "us_accredited_category": {
           "type": "string",
-          "description": "The accredited investor information"
+          "description": "The United States accredited investor information"
+        },
+        "ca_accredited_investor": {
+          "type": "string",
+          "description": "The Canadian accredited investor information"
         },
         "complete": {
           "type": "boolean",
@@ -4514,7 +4970,11 @@
         },
         "us_accredited_category": {
           "type": "string",
-          "description": "The accredited investor information"
+          "description": "The United States accredited investor information"
+        },
+        "ca_accredited_investor": {
+          "type": "string",
+          "description": "The Canadian accredited investor information"
         },
         "complete": {
           "type": "boolean",
@@ -4672,6 +5132,16 @@
         }
       }
     },
+    "V1_Entities_AnalyticsDashboardInfo": {
+      "type": "object",
+      "properties": {
+        "dashboard_embed_url_object": {
+          "type": "Object",
+          "description": "The object containing dashboard embed urls and titles."
+        }
+      },
+      "description": "V1_Entities_AnalyticsDashboardInfo model"
+    },
     "V1_Entities_InvestorOtpAccessLink": {
       "type": "object",
       "properties": {
@@ -4690,6 +5160,37 @@
         }
       },
       "description": "V1_Entities_Deals model"
+    },
+    "V1_Entities_Shareholders": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "$ref": "#/definitions/V1_Entities_Shareholder"
+        }
+      },
+      "description": "V1_Entities_Shareholders model"
+    },
+    "V1_Entities_Shareholder": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Shareholder id."
+        },
+        "email": {
+          "type": "string",
+          "description": "Shareholder email address."
+        },
+        "fullName": {
+          "type": "string",
+          "description": "Shareholder first name."
+        },
+        "tags": {
+          "type": "Array[String]",
+          "description": "Shareholder tags."
+        }
+      }
     },
     "V1_Entities_DealSetup": {
       "type": "object",

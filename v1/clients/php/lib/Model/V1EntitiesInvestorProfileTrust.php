@@ -63,6 +63,7 @@ class V1EntitiesInvestorProfileTrust implements ModelInterface, ArrayAccess, \Js
         'email' => 'string',
         'type' => 'string',
         'us_accredited_category' => 'string',
+        'ca_accredited_investor' => 'string',
         'complete' => 'bool',
         'owner_type' => 'string',
         'owner' => '\DealMaker\Model\V1EntitiesInvestorProfileOwner',
@@ -83,6 +84,7 @@ class V1EntitiesInvestorProfileTrust implements ModelInterface, ArrayAccess, \Js
         'email' => null,
         'type' => null,
         'us_accredited_category' => null,
+        'ca_accredited_investor' => null,
         'complete' => null,
         'owner_type' => null,
         'owner' => null,
@@ -101,6 +103,7 @@ class V1EntitiesInvestorProfileTrust implements ModelInterface, ArrayAccess, \Js
 		'email' => false,
 		'type' => false,
 		'us_accredited_category' => false,
+		'ca_accredited_investor' => false,
 		'complete' => false,
 		'owner_type' => false,
 		'owner' => false,
@@ -199,6 +202,7 @@ class V1EntitiesInvestorProfileTrust implements ModelInterface, ArrayAccess, \Js
         'email' => 'email',
         'type' => 'type',
         'us_accredited_category' => 'us_accredited_category',
+        'ca_accredited_investor' => 'ca_accredited_investor',
         'complete' => 'complete',
         'owner_type' => 'owner_type',
         'owner' => 'owner',
@@ -217,6 +221,7 @@ class V1EntitiesInvestorProfileTrust implements ModelInterface, ArrayAccess, \Js
         'email' => 'setEmail',
         'type' => 'setType',
         'us_accredited_category' => 'setUsAccreditedCategory',
+        'ca_accredited_investor' => 'setCaAccreditedInvestor',
         'complete' => 'setComplete',
         'owner_type' => 'setOwnerType',
         'owner' => 'setOwner',
@@ -235,6 +240,7 @@ class V1EntitiesInvestorProfileTrust implements ModelInterface, ArrayAccess, \Js
         'email' => 'getEmail',
         'type' => 'getType',
         'us_accredited_category' => 'getUsAccreditedCategory',
+        'ca_accredited_investor' => 'getCaAccreditedInvestor',
         'complete' => 'getComplete',
         'owner_type' => 'getOwnerType',
         'owner' => 'getOwner',
@@ -323,6 +329,7 @@ class V1EntitiesInvestorProfileTrust implements ModelInterface, ArrayAccess, \Js
         $this->setIfExists('email', $data ?? [], null);
         $this->setIfExists('type', $data ?? [], null);
         $this->setIfExists('us_accredited_category', $data ?? [], null);
+        $this->setIfExists('ca_accredited_investor', $data ?? [], null);
         $this->setIfExists('complete', $data ?? [], null);
         $this->setIfExists('owner_type', $data ?? [], null);
         $this->setIfExists('owner', $data ?? [], null);
@@ -512,7 +519,7 @@ class V1EntitiesInvestorProfileTrust implements ModelInterface, ArrayAccess, \Js
     /**
      * Sets us_accredited_category
      *
-     * @param string|null $us_accredited_category The accredited investor information
+     * @param string|null $us_accredited_category The United States accredited investor information
      *
      * @return self
      */
@@ -522,6 +529,33 @@ class V1EntitiesInvestorProfileTrust implements ModelInterface, ArrayAccess, \Js
             throw new \InvalidArgumentException('non-nullable us_accredited_category cannot be null');
         }
         $this->container['us_accredited_category'] = $us_accredited_category;
+
+        return $this;
+    }
+
+    /**
+     * Gets ca_accredited_investor
+     *
+     * @return string|null
+     */
+    public function getCaAccreditedInvestor()
+    {
+        return $this->container['ca_accredited_investor'];
+    }
+
+    /**
+     * Sets ca_accredited_investor
+     *
+     * @param string|null $ca_accredited_investor The Canadian accredited investor information
+     *
+     * @return self
+     */
+    public function setCaAccreditedInvestor($ca_accredited_investor)
+    {
+        if (is_null($ca_accredited_investor)) {
+            throw new \InvalidArgumentException('non-nullable ca_accredited_investor cannot be null');
+        }
+        $this->container['ca_accredited_investor'] = $ca_accredited_investor;
 
         return $this;
     }

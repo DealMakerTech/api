@@ -58,6 +58,7 @@ class PatchCorporationProfileRequest implements ModelInterface, ArrayAccess, \Js
       */
     protected static $openAPITypes = [
         'us_accredited_category' => 'string',
+        'ca_accredited_investor' => 'string',
         'name' => 'string',
         'country' => 'string',
         'street_address' => 'string',
@@ -92,6 +93,7 @@ class PatchCorporationProfileRequest implements ModelInterface, ArrayAccess, \Js
       */
     protected static $openAPIFormats = [
         'us_accredited_category' => null,
+        'ca_accredited_investor' => null,
         'name' => null,
         'country' => null,
         'street_address' => null,
@@ -124,6 +126,7 @@ class PatchCorporationProfileRequest implements ModelInterface, ArrayAccess, \Js
       */
     protected static array $openAPINullables = [
         'us_accredited_category' => false,
+		'ca_accredited_investor' => false,
 		'name' => false,
 		'country' => false,
 		'street_address' => false,
@@ -236,6 +239,7 @@ class PatchCorporationProfileRequest implements ModelInterface, ArrayAccess, \Js
      */
     protected static $attributeMap = [
         'us_accredited_category' => 'us_accredited_category',
+        'ca_accredited_investor' => 'ca_accredited_investor',
         'name' => 'name',
         'country' => 'country',
         'street_address' => 'street_address',
@@ -268,6 +272,7 @@ class PatchCorporationProfileRequest implements ModelInterface, ArrayAccess, \Js
      */
     protected static $setters = [
         'us_accredited_category' => 'setUsAccreditedCategory',
+        'ca_accredited_investor' => 'setCaAccreditedInvestor',
         'name' => 'setName',
         'country' => 'setCountry',
         'street_address' => 'setStreetAddress',
@@ -300,6 +305,7 @@ class PatchCorporationProfileRequest implements ModelInterface, ArrayAccess, \Js
      */
     protected static $getters = [
         'us_accredited_category' => 'getUsAccreditedCategory',
+        'ca_accredited_investor' => 'getCaAccreditedInvestor',
         'name' => 'getName',
         'country' => 'getCountry',
         'street_address' => 'getStreetAddress',
@@ -382,6 +388,25 @@ class PatchCorporationProfileRequest implements ModelInterface, ArrayAccess, \Js
     public const US_ACCREDITED_CATEGORY_INSURANCE_COMPANY = 'insurance_company';
     public const US_ACCREDITED_CATEGORY_FAMILY_CLIENT = 'family_client';
     public const US_ACCREDITED_CATEGORY_NOT_ACCREDITED = 'not_accredited';
+    public const CA_ACCREDITED_INVESTOR_A = 'a';
+    public const CA_ACCREDITED_INVESTOR_B = 'b';
+    public const CA_ACCREDITED_INVESTOR_C = 'c';
+    public const CA_ACCREDITED_INVESTOR_D = 'd';
+    public const CA_ACCREDITED_INVESTOR_F = 'f';
+    public const CA_ACCREDITED_INVESTOR_G = 'g';
+    public const CA_ACCREDITED_INVESTOR_H = 'h';
+    public const CA_ACCREDITED_INVESTOR_I = 'i';
+    public const CA_ACCREDITED_INVESTOR_M = 'm';
+    public const CA_ACCREDITED_INVESTOR_N = 'n';
+    public const CA_ACCREDITED_INVESTOR_O = 'o';
+    public const CA_ACCREDITED_INVESTOR_P = 'p';
+    public const CA_ACCREDITED_INVESTOR_Q = 'q';
+    public const CA_ACCREDITED_INVESTOR_R = 'r';
+    public const CA_ACCREDITED_INVESTOR_S = 's';
+    public const CA_ACCREDITED_INVESTOR_T = 't';
+    public const CA_ACCREDITED_INVESTOR_U = 'u';
+    public const CA_ACCREDITED_INVESTOR_V = 'v';
+    public const CA_ACCREDITED_INVESTOR_X = 'x';
 
     /**
      * Gets allowable values of the enum
@@ -411,6 +436,36 @@ class PatchCorporationProfileRequest implements ModelInterface, ArrayAccess, \Js
     }
 
     /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getCaAccreditedInvestorAllowableValues()
+    {
+        return [
+            self::CA_ACCREDITED_INVESTOR_A,
+            self::CA_ACCREDITED_INVESTOR_B,
+            self::CA_ACCREDITED_INVESTOR_C,
+            self::CA_ACCREDITED_INVESTOR_D,
+            self::CA_ACCREDITED_INVESTOR_F,
+            self::CA_ACCREDITED_INVESTOR_G,
+            self::CA_ACCREDITED_INVESTOR_H,
+            self::CA_ACCREDITED_INVESTOR_I,
+            self::CA_ACCREDITED_INVESTOR_M,
+            self::CA_ACCREDITED_INVESTOR_N,
+            self::CA_ACCREDITED_INVESTOR_O,
+            self::CA_ACCREDITED_INVESTOR_P,
+            self::CA_ACCREDITED_INVESTOR_Q,
+            self::CA_ACCREDITED_INVESTOR_R,
+            self::CA_ACCREDITED_INVESTOR_S,
+            self::CA_ACCREDITED_INVESTOR_T,
+            self::CA_ACCREDITED_INVESTOR_U,
+            self::CA_ACCREDITED_INVESTOR_V,
+            self::CA_ACCREDITED_INVESTOR_X,
+        ];
+    }
+
+    /**
      * Associative array for storing property values
      *
      * @var mixed[]
@@ -426,6 +481,7 @@ class PatchCorporationProfileRequest implements ModelInterface, ArrayAccess, \Js
     public function __construct(array $data = null)
     {
         $this->setIfExists('us_accredited_category', $data ?? [], null);
+        $this->setIfExists('ca_accredited_investor', $data ?? [], null);
         $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('country', $data ?? [], null);
         $this->setIfExists('street_address', $data ?? [], null);
@@ -487,6 +543,15 @@ class PatchCorporationProfileRequest implements ModelInterface, ArrayAccess, \Js
             );
         }
 
+        $allowedValues = $this->getCaAccreditedInvestorAllowableValues();
+        if (!is_null($this->container['ca_accredited_investor']) && !in_array($this->container['ca_accredited_investor'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'ca_accredited_investor', must be one of '%s'",
+                $this->container['ca_accredited_investor'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -515,7 +580,7 @@ class PatchCorporationProfileRequest implements ModelInterface, ArrayAccess, \Js
     /**
      * Sets us_accredited_category
      *
-     * @param string|null $us_accredited_category The accredited investor information.
+     * @param string|null $us_accredited_category The United States accredited investor information.
      *
      * @return self
      */
@@ -535,6 +600,43 @@ class PatchCorporationProfileRequest implements ModelInterface, ArrayAccess, \Js
             );
         }
         $this->container['us_accredited_category'] = $us_accredited_category;
+
+        return $this;
+    }
+
+    /**
+     * Gets ca_accredited_investor
+     *
+     * @return string|null
+     */
+    public function getCaAccreditedInvestor()
+    {
+        return $this->container['ca_accredited_investor'];
+    }
+
+    /**
+     * Sets ca_accredited_investor
+     *
+     * @param string|null $ca_accredited_investor The Canadian accredited investor information.
+     *
+     * @return self
+     */
+    public function setCaAccreditedInvestor($ca_accredited_investor)
+    {
+        if (is_null($ca_accredited_investor)) {
+            throw new \InvalidArgumentException('non-nullable ca_accredited_investor cannot be null');
+        }
+        $allowedValues = $this->getCaAccreditedInvestorAllowableValues();
+        if (!in_array($ca_accredited_investor, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'ca_accredited_investor', must be one of '%s'",
+                    $ca_accredited_investor,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['ca_accredited_investor'] = $ca_accredited_investor;
 
         return $this;
     }

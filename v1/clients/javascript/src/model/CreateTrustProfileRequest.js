@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The CreateTrustProfileRequest model module.
  * @module model/CreateTrustProfileRequest
- * @version 0.79.1
+ * @version 0.80.1
  */
 class CreateTrustProfileRequest {
     /**
@@ -54,6 +54,9 @@ class CreateTrustProfileRequest {
             }
             if (data.hasOwnProperty('us_accredited_category')) {
                 obj['us_accredited_category'] = ApiClient.convertToType(data['us_accredited_category'], 'String');
+            }
+            if (data.hasOwnProperty('ca_accredited_investor')) {
+                obj['ca_accredited_investor'] = ApiClient.convertToType(data['ca_accredited_investor'], 'String');
             }
             if (data.hasOwnProperty('name')) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
@@ -147,6 +150,10 @@ class CreateTrustProfileRequest {
         // ensure the json data is a string
         if (data['us_accredited_category'] && !(typeof data['us_accredited_category'] === 'string' || data['us_accredited_category'] instanceof String)) {
             throw new Error("Expected the field `us_accredited_category` to be a primitive type in the JSON string but got " + data['us_accredited_category']);
+        }
+        // ensure the json data is a string
+        if (data['ca_accredited_investor'] && !(typeof data['ca_accredited_investor'] === 'string' || data['ca_accredited_investor'] instanceof String)) {
+            throw new Error("Expected the field `ca_accredited_investor` to be a primitive type in the JSON string but got " + data['ca_accredited_investor']);
         }
         // ensure the json data is a string
         if (data['name'] && !(typeof data['name'] === 'string' || data['name'] instanceof String)) {
@@ -244,10 +251,16 @@ CreateTrustProfileRequest.RequiredProperties = ["email"];
 CreateTrustProfileRequest.prototype['email'] = undefined;
 
 /**
- * The accredited investor information.
+ * The United States accredited investor information.
  * @member {module:model/CreateTrustProfileRequest.UsAccreditedCategoryEnum} us_accredited_category
  */
 CreateTrustProfileRequest.prototype['us_accredited_category'] = undefined;
+
+/**
+ * The Canadian accredited investor information.
+ * @member {module:model/CreateTrustProfileRequest.CaAccreditedInvestorEnum} ca_accredited_investor
+ */
+CreateTrustProfileRequest.prototype['ca_accredited_investor'] = undefined;
 
 /**
  * The name of the trust (required).
@@ -421,6 +434,27 @@ CreateTrustProfileRequest['UsAccreditedCategoryEnum'] = {
      * @const
      */
     "not_accredited": "not_accredited"
+};
+
+
+/**
+ * Allowed values for the <code>ca_accredited_investor</code> property.
+ * @enum {String}
+ * @readonly
+ */
+CreateTrustProfileRequest['CaAccreditedInvestorEnum'] = {
+
+    /**
+     * value: "p"
+     * @const
+     */
+    "p": "p",
+
+    /**
+     * value: "w"
+     * @const
+     */
+    "w": "w"
 };
 
 

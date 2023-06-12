@@ -72,12 +72,36 @@ class InvestorApiTest extends TestCase
     }
 
     /**
+     * Test case for addDocument
+     *
+     * Add document for deal investor.
+     *
+     */
+    public function testAddDocument()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for createInvestor
      *
      * Create a deal investor.
      *
      */
     public function testCreateInvestor()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for deleteDocument
+     *
+     * Delete document for deal investor.
+     *
+     */
+    public function testDeleteDocument()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

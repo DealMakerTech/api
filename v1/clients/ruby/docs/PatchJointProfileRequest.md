@@ -4,7 +4,8 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **us_accredited_category** | **String** | The accredited investor information. | [optional] |
+| **us_accredited_category** | **String** | The United States accredited investor information. | [optional] |
+| **ca_accredited_investor** | **String** | The Canadian accredited investor information. | [optional] |
 | **joint_type** | **String** | The kind of joint investor. | [optional] |
 | **first_name** | **String** | The first name of the investor profile. | [optional] |
 | **last_name** | **String** | The last name of the investor profile. | [optional] |
@@ -40,6 +41,7 @@ require 'DealMakerAPI'
 
 instance = DealMakerAPI::PatchJointProfileRequest.new(
   us_accredited_category: null,
+  ca_accredited_investor: null,
   joint_type: null,
   first_name: null,
   last_name: null,

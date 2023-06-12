@@ -125,6 +125,15 @@ class V1EntitiesInvestorProfileJointTest extends TestCase
     }
 
     /**
+     * Test attribute "ca_accredited_investor"
+     */
+    public function testPropertyCaAccreditedInvestor()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "complete"
      */
     public function testPropertyComplete()

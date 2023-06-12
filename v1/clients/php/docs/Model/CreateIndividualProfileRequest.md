@@ -5,7 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **email** | **string** | User email which is associated with individual investor profile. |
-**us_accredited_category** | **string** | The accredited investor information. | [optional]
+**us_accredited_category** | **string** | The United States accredited investor information. | [optional]
+**ca_accredited_investor** | **string** | The Canadian accredited investor information. | [optional]
 **first_name** | **string** | The first name of the individual investor profile (required). | [optional]
 **last_name** | **string** | The last name of the individual investor profile (required) | [optional]
 **suffix** | **string** | The suffix of the individual investor profile | [optional]

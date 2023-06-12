@@ -4,7 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**us_accredited_category** | **string** | The accredited investor information. | [optional]
+**us_accredited_category** | **string** | The United States accredited investor information. | [optional]
+**ca_accredited_investor** | **string** | The Canadian accredited investor information. | [optional]
 **name** | **string** | Corporation name. | [optional]
 **country** | **string** | Corporation country. | [optional]
 **street_address** | **string** | Corporation street address. | [optional]

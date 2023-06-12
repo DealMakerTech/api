@@ -4,7 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**usAccreditedCategory** | **String** | The accredited investor information. | [optional] 
+**usAccreditedCategory** | **String** | The United States accredited investor information. | [optional] 
+**caAccreditedInvestor** | **String** | The Canadian accredited investor information. | [optional] 
 **name** | **String** | The name of the trust. | [optional] 
 **date** | **String** | The creation date of the trust. | [optional] 
 **phoneNumber** | **String** | The phone number of the trust. | [optional] 
@@ -41,6 +42,17 @@ Name | Type | Description | Notes
 * `assets_trust` (value: `"assets_trust"`)
 
 * `not_accredited` (value: `"not_accredited"`)
+
+
+
+
+
+## Enum: CaAccreditedInvestorEnum
+
+
+* `p` (value: `"p"`)
+
+* `w` (value: `"w"`)
 
 
 

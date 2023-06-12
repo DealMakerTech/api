@@ -58,6 +58,7 @@ class PatchJointProfileRequest implements ModelInterface, ArrayAccess, \JsonSeri
       */
     protected static $openAPITypes = [
         'us_accredited_category' => 'string',
+        'ca_accredited_investor' => 'string',
         'joint_type' => 'string',
         'first_name' => 'string',
         'last_name' => 'string',
@@ -96,6 +97,7 @@ class PatchJointProfileRequest implements ModelInterface, ArrayAccess, \JsonSeri
       */
     protected static $openAPIFormats = [
         'us_accredited_category' => null,
+        'ca_accredited_investor' => null,
         'joint_type' => null,
         'first_name' => null,
         'last_name' => null,
@@ -132,6 +134,7 @@ class PatchJointProfileRequest implements ModelInterface, ArrayAccess, \JsonSeri
       */
     protected static array $openAPINullables = [
         'us_accredited_category' => false,
+		'ca_accredited_investor' => false,
 		'joint_type' => false,
 		'first_name' => false,
 		'last_name' => false,
@@ -248,6 +251,7 @@ class PatchJointProfileRequest implements ModelInterface, ArrayAccess, \JsonSeri
      */
     protected static $attributeMap = [
         'us_accredited_category' => 'us_accredited_category',
+        'ca_accredited_investor' => 'ca_accredited_investor',
         'joint_type' => 'joint_type',
         'first_name' => 'first_name',
         'last_name' => 'last_name',
@@ -284,6 +288,7 @@ class PatchJointProfileRequest implements ModelInterface, ArrayAccess, \JsonSeri
      */
     protected static $setters = [
         'us_accredited_category' => 'setUsAccreditedCategory',
+        'ca_accredited_investor' => 'setCaAccreditedInvestor',
         'joint_type' => 'setJointType',
         'first_name' => 'setFirstName',
         'last_name' => 'setLastName',
@@ -320,6 +325,7 @@ class PatchJointProfileRequest implements ModelInterface, ArrayAccess, \JsonSeri
      */
     protected static $getters = [
         'us_accredited_category' => 'getUsAccreditedCategory',
+        'ca_accredited_investor' => 'getCaAccreditedInvestor',
         'joint_type' => 'getJointType',
         'first_name' => 'getFirstName',
         'last_name' => 'getLastName',
@@ -399,6 +405,16 @@ class PatchJointProfileRequest implements ModelInterface, ArrayAccess, \JsonSeri
     public const US_ACCREDITED_CATEGORY_INVESTMENT_ADVISOR_RELYING = 'investment_advisor_relying';
     public const US_ACCREDITED_CATEGORY_DESIGNATED_ACCREDITED_INVESTOR = 'designated_accredited_investor';
     public const US_ACCREDITED_CATEGORY_NOT_ACCREDITED = 'not_accredited';
+    public const CA_ACCREDITED_INVESTOR_D = 'd';
+    public const CA_ACCREDITED_INVESTOR_E = 'e';
+    public const CA_ACCREDITED_INVESTOR_E_1 = 'e_1';
+    public const CA_ACCREDITED_INVESTOR_J = 'j';
+    public const CA_ACCREDITED_INVESTOR_J_1 = 'j_1';
+    public const CA_ACCREDITED_INVESTOR_K = 'k';
+    public const CA_ACCREDITED_INVESTOR_L = 'l';
+    public const CA_ACCREDITED_INVESTOR_Q = 'q';
+    public const CA_ACCREDITED_INVESTOR_V = 'v';
+    public const CA_ACCREDITED_INVESTOR_X = 'x';
     public const JOINT_TYPE_JOINT_TENANT = 'joint_tenant';
     public const JOINT_TYPE_TENANTS_IN_COMMON = 'tenants_in_common';
     public const JOINT_TYPE_COMMUNITY_PROPERTY = 'community_property';
@@ -420,6 +436,27 @@ class PatchJointProfileRequest implements ModelInterface, ArrayAccess, \JsonSeri
             self::US_ACCREDITED_CATEGORY_INVESTMENT_ADVISOR_RELYING,
             self::US_ACCREDITED_CATEGORY_DESIGNATED_ACCREDITED_INVESTOR,
             self::US_ACCREDITED_CATEGORY_NOT_ACCREDITED,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getCaAccreditedInvestorAllowableValues()
+    {
+        return [
+            self::CA_ACCREDITED_INVESTOR_D,
+            self::CA_ACCREDITED_INVESTOR_E,
+            self::CA_ACCREDITED_INVESTOR_E_1,
+            self::CA_ACCREDITED_INVESTOR_J,
+            self::CA_ACCREDITED_INVESTOR_J_1,
+            self::CA_ACCREDITED_INVESTOR_K,
+            self::CA_ACCREDITED_INVESTOR_L,
+            self::CA_ACCREDITED_INVESTOR_Q,
+            self::CA_ACCREDITED_INVESTOR_V,
+            self::CA_ACCREDITED_INVESTOR_X,
         ];
     }
 
@@ -453,6 +490,7 @@ class PatchJointProfileRequest implements ModelInterface, ArrayAccess, \JsonSeri
     public function __construct(array $data = null)
     {
         $this->setIfExists('us_accredited_category', $data ?? [], null);
+        $this->setIfExists('ca_accredited_investor', $data ?? [], null);
         $this->setIfExists('joint_type', $data ?? [], null);
         $this->setIfExists('first_name', $data ?? [], null);
         $this->setIfExists('last_name', $data ?? [], null);
@@ -518,6 +556,15 @@ class PatchJointProfileRequest implements ModelInterface, ArrayAccess, \JsonSeri
             );
         }
 
+        $allowedValues = $this->getCaAccreditedInvestorAllowableValues();
+        if (!is_null($this->container['ca_accredited_investor']) && !in_array($this->container['ca_accredited_investor'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'ca_accredited_investor', must be one of '%s'",
+                $this->container['ca_accredited_investor'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         $allowedValues = $this->getJointTypeAllowableValues();
         if (!is_null($this->container['joint_type']) && !in_array($this->container['joint_type'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -555,7 +602,7 @@ class PatchJointProfileRequest implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets us_accredited_category
      *
-     * @param string|null $us_accredited_category The accredited investor information.
+     * @param string|null $us_accredited_category The United States accredited investor information.
      *
      * @return self
      */
@@ -575,6 +622,43 @@ class PatchJointProfileRequest implements ModelInterface, ArrayAccess, \JsonSeri
             );
         }
         $this->container['us_accredited_category'] = $us_accredited_category;
+
+        return $this;
+    }
+
+    /**
+     * Gets ca_accredited_investor
+     *
+     * @return string|null
+     */
+    public function getCaAccreditedInvestor()
+    {
+        return $this->container['ca_accredited_investor'];
+    }
+
+    /**
+     * Sets ca_accredited_investor
+     *
+     * @param string|null $ca_accredited_investor The Canadian accredited investor information.
+     *
+     * @return self
+     */
+    public function setCaAccreditedInvestor($ca_accredited_investor)
+    {
+        if (is_null($ca_accredited_investor)) {
+            throw new \InvalidArgumentException('non-nullable ca_accredited_investor cannot be null');
+        }
+        $allowedValues = $this->getCaAccreditedInvestorAllowableValues();
+        if (!in_array($ca_accredited_investor, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'ca_accredited_investor', must be one of '%s'",
+                    $ca_accredited_investor,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['ca_accredited_investor'] = $ca_accredited_investor;
 
         return $this;
     }

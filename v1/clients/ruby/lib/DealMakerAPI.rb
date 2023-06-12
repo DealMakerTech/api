@@ -17,6 +17,7 @@ require 'DealMakerAPI/version'
 require 'DealMakerAPI/configuration'
 
 # Models
+require 'DealMakerAPI/models/add_document_request'
 require 'DealMakerAPI/models/create_company_request'
 require 'DealMakerAPI/models/create_corporation_profile_request'
 require 'DealMakerAPI/models/create_deal_setup_request'
@@ -63,6 +64,8 @@ require 'DealMakerAPI/models/v1_entities_investor_profile_trust'
 require 'DealMakerAPI/models/v1_entities_investor_profiles'
 require 'DealMakerAPI/models/v1_entities_investor_user'
 require 'DealMakerAPI/models/v1_entities_investors'
+require 'DealMakerAPI/models/v1_entities_shareholder'
+require 'DealMakerAPI/models/v1_entities_shareholders'
 require 'DealMakerAPI/models/v1_entities_subscription_agreement'
 require 'DealMakerAPI/models/v1_entities_webhooks_deal'
 require 'DealMakerAPI/models/v1_entities_webhooks_security_token'
@@ -77,6 +80,7 @@ require 'DealMakerAPI/api/deal_setup_api'
 require 'DealMakerAPI/api/default_api'
 require 'DealMakerAPI/api/investor_api'
 require 'DealMakerAPI/api/investor_profile_api'
+require 'DealMakerAPI/api/shareholder_api'
 
 module DealMakerAPI
   class << self

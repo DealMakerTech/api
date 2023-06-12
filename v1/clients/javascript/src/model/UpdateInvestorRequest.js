@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The UpdateInvestorRequest model module.
  * @module model/UpdateInvestorRequest
- * @version 0.79.1
+ * @version 0.80.1
  */
 class UpdateInvestorRequest {
     /**
@@ -58,6 +58,9 @@ class UpdateInvestorRequest {
             }
             if (data.hasOwnProperty('allocation_unit')) {
                 obj['allocation_unit'] = ApiClient.convertToType(data['allocation_unit'], 'String');
+            }
+            if (data.hasOwnProperty('investment_value')) {
+                obj['investment_value'] = ApiClient.convertToType(data['investment_value'], 'Number');
             }
         }
         return obj;
@@ -106,6 +109,12 @@ UpdateInvestorRequest.prototype['allocated_amount'] = undefined;
  * @default 'securities'
  */
 UpdateInvestorRequest.prototype['allocation_unit'] = 'securities';
+
+/**
+ * The investment value of the investor.
+ * @member {Number} investment_value
+ */
+UpdateInvestorRequest.prototype['investment_value'] = undefined;
 
 
 

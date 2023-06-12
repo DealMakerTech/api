@@ -13,6 +13,7 @@
 
 
 import ApiClient from './ApiClient';
+import AddDocumentRequest from './model/AddDocumentRequest';
 import CreateCompanyRequest from './model/CreateCompanyRequest';
 import CreateCorporationProfileRequest from './model/CreateCorporationProfileRequest';
 import CreateDealSetupRequest from './model/CreateDealSetupRequest';
@@ -59,6 +60,8 @@ import V1EntitiesInvestorProfileTrust from './model/V1EntitiesInvestorProfileTru
 import V1EntitiesInvestorProfiles from './model/V1EntitiesInvestorProfiles';
 import V1EntitiesInvestorUser from './model/V1EntitiesInvestorUser';
 import V1EntitiesInvestors from './model/V1EntitiesInvestors';
+import V1EntitiesShareholder from './model/V1EntitiesShareholder';
+import V1EntitiesShareholders from './model/V1EntitiesShareholders';
 import V1EntitiesSubscriptionAgreement from './model/V1EntitiesSubscriptionAgreement';
 import V1EntitiesWebhooksDeal from './model/V1EntitiesWebhooksDeal';
 import V1EntitiesWebhooksSecurityToken from './model/V1EntitiesWebhooksSecurityToken';
@@ -71,6 +74,7 @@ import DealSetupApi from './api/DealSetupApi';
 import DefaultApi from './api/DefaultApi';
 import InvestorApi from './api/InvestorApi';
 import InvestorProfileApi from './api/InvestorProfileApi';
+import ShareholderApi from './api/ShareholderApi';
 
 
 /**
@@ -102,7 +106,7 @@ import InvestorProfileApi from './api/InvestorProfileApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.79.1
+* @version 0.80.1
 */
 export {
     /**
@@ -110,6 +114,12 @@ export {
      * @property {module:ApiClient}
      */
     ApiClient,
+
+    /**
+     * The AddDocumentRequest model constructor.
+     * @property {module:model/AddDocumentRequest}
+     */
+    AddDocumentRequest,
 
     /**
      * The CreateCompanyRequest model constructor.
@@ -388,6 +398,18 @@ export {
     V1EntitiesInvestors,
 
     /**
+     * The V1EntitiesShareholder model constructor.
+     * @property {module:model/V1EntitiesShareholder}
+     */
+    V1EntitiesShareholder,
+
+    /**
+     * The V1EntitiesShareholders model constructor.
+     * @property {module:model/V1EntitiesShareholders}
+     */
+    V1EntitiesShareholders,
+
+    /**
      * The V1EntitiesSubscriptionAgreement model constructor.
      * @property {module:model/V1EntitiesSubscriptionAgreement}
      */
@@ -457,5 +479,11 @@ export {
     * The InvestorProfileApi service constructor.
     * @property {module:api/InvestorProfileApi}
     */
-    InvestorProfileApi
+    InvestorProfileApi,
+
+    /**
+    * The ShareholderApi service constructor.
+    * @property {module:api/ShareholderApi}
+    */
+    ShareholderApi
 };

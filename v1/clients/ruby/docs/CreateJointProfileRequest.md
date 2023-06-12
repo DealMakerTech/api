@@ -5,7 +5,8 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **email** | **String** | User email which is associated with investor profile. |  |
-| **us_accredited_category** | **String** | The accredited investor information. | [optional] |
+| **us_accredited_category** | **String** | The United States accredited investor information. | [optional] |
+| **ca_accredited_investor** | **String** | The Canadian accredited investor information. | [optional] |
 | **joint_type** | **String** | The types of joint investor. | [optional] |
 | **first_name** | **String** | The first name of the primary holder (required). | [optional] |
 | **last_name** | **String** | The last name of the primary holder (required). | [optional] |
@@ -42,6 +43,7 @@ require 'DealMakerAPI'
 instance = DealMakerAPI::CreateJointProfileRequest.new(
   email: null,
   us_accredited_category: null,
+  ca_accredited_investor: null,
   joint_type: null,
   first_name: null,
   last_name: null,

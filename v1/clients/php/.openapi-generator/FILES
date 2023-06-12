@@ -10,6 +10,8 @@ docs/Api/DealSetupApi.md
 docs/Api/DefaultApi.md
 docs/Api/InvestorApi.md
 docs/Api/InvestorProfileApi.md
+docs/Api/ShareholderApi.md
+docs/Model/AddDocumentRequest.md
 docs/Model/CreateCompanyRequest.md
 docs/Model/CreateCorporationProfileRequest.md
 docs/Model/CreateDealSetupRequest.md
@@ -56,6 +58,8 @@ docs/Model/V1EntitiesInvestorProfileTrust.md
 docs/Model/V1EntitiesInvestorProfiles.md
 docs/Model/V1EntitiesInvestorUser.md
 docs/Model/V1EntitiesInvestors.md
+docs/Model/V1EntitiesShareholder.md
+docs/Model/V1EntitiesShareholders.md
 docs/Model/V1EntitiesSubscriptionAgreement.md
 docs/Model/V1EntitiesWebhooksDeal.md
 docs/Model/V1EntitiesWebhooksSecurityToken.md
@@ -69,9 +73,11 @@ lib/Api/DealSetupApi.php
 lib/Api/DefaultApi.php
 lib/Api/InvestorApi.php
 lib/Api/InvestorProfileApi.php
+lib/Api/ShareholderApi.php
 lib/ApiException.php
 lib/Configuration.php
 lib/HeaderSelector.php
+lib/Model/AddDocumentRequest.php
 lib/Model/CreateCompanyRequest.php
 lib/Model/CreateCorporationProfileRequest.php
 lib/Model/CreateDealSetupRequest.php
@@ -119,6 +125,8 @@ lib/Model/V1EntitiesInvestorProfileTrust.php
 lib/Model/V1EntitiesInvestorProfiles.php
 lib/Model/V1EntitiesInvestorUser.php
 lib/Model/V1EntitiesInvestors.php
+lib/Model/V1EntitiesShareholder.php
+lib/Model/V1EntitiesShareholders.php
 lib/Model/V1EntitiesSubscriptionAgreement.php
 lib/Model/V1EntitiesWebhooksDeal.php
 lib/Model/V1EntitiesWebhooksSecurityToken.php
@@ -133,6 +141,8 @@ test/Api/DealSetupApiTest.php
 test/Api/DefaultApiTest.php
 test/Api/InvestorApiTest.php
 test/Api/InvestorProfileApiTest.php
+test/Api/ShareholderApiTest.php
+test/Model/AddDocumentRequestTest.php
 test/Model/CreateCompanyRequestTest.php
 test/Model/CreateCorporationProfileRequestTest.php
 test/Model/CreateDealSetupRequestTest.php
@@ -179,6 +189,8 @@ test/Model/V1EntitiesInvestorProfilesTest.php
 test/Model/V1EntitiesInvestorTest.php
 test/Model/V1EntitiesInvestorUserTest.php
 test/Model/V1EntitiesInvestorsTest.php
+test/Model/V1EntitiesShareholderTest.php
+test/Model/V1EntitiesShareholdersTest.php
 test/Model/V1EntitiesSubscriptionAgreementTest.php
 test/Model/V1EntitiesWebhooksDealTest.php
 test/Model/V1EntitiesWebhooksSecurityTokenTest.php

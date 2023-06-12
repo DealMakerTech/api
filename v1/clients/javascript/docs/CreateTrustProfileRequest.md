@@ -5,7 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **email** | **String** | User email which is associated with investor profile (required). | 
-**usAccreditedCategory** | **String** | The accredited investor information. | [optional] 
+**usAccreditedCategory** | **String** | The United States accredited investor information. | [optional] 
+**caAccreditedInvestor** | **String** | The Canadian accredited investor information. | [optional] 
 **name** | **String** | The name of the trust (required). | [optional] 
 **date** | **String** | The creation date of the trust (required). | [optional] 
 **country** | **String** | The country of the trust (required). | [optional] 
@@ -42,6 +43,17 @@ Name | Type | Description | Notes
 * `assets_trust` (value: `"assets_trust"`)
 
 * `not_accredited` (value: `"not_accredited"`)
+
+
+
+
+
+## Enum: CaAccreditedInvestorEnum
+
+
+* `p` (value: `"p"`)
+
+* `w` (value: `"w"`)
 
 
 

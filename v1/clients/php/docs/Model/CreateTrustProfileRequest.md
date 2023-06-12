@@ -5,7 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **email** | **string** | User email which is associated with investor profile (required). |
-**us_accredited_category** | **string** | The accredited investor information. | [optional]
+**us_accredited_category** | **string** | The United States accredited investor information. | [optional]
+**ca_accredited_investor** | **string** | The Canadian accredited investor information. | [optional]
 **name** | **string** | The name of the trust (required). | [optional]
 **date** | **string** | The creation date of the trust (required). | [optional]
 **country** | **string** | The country of the trust (required). | [optional]

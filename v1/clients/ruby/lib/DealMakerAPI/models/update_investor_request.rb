@@ -27,6 +27,9 @@ module DealMakerAPI
     # The allocation unit of the investor.
     attr_accessor :allocation_unit
 
+    # The investment value of the investor.
+    attr_accessor :investment_value
+
     class EnumAttributeValidator
       attr_reader :datatype
       attr_reader :allowable_values
@@ -55,7 +58,8 @@ module DealMakerAPI
         :'warrant_expiry_date' => :'warrant_expiry_date',
         :'warrant_certificate_number' => :'warrant_certificate_number',
         :'allocated_amount' => :'allocated_amount',
-        :'allocation_unit' => :'allocation_unit'
+        :'allocation_unit' => :'allocation_unit',
+        :'investment_value' => :'investment_value'
       }
     end
 
@@ -70,7 +74,8 @@ module DealMakerAPI
         :'warrant_expiry_date' => :'Date',
         :'warrant_certificate_number' => :'Integer',
         :'allocated_amount' => :'Float',
-        :'allocation_unit' => :'String'
+        :'allocation_unit' => :'String',
+        :'investment_value' => :'Float'
       }
     end
 
@@ -112,6 +117,10 @@ module DealMakerAPI
       else
         self.allocation_unit = 'securities'
       end
+
+      if attributes.key?(:'investment_value')
+        self.investment_value = attributes[:'investment_value']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -147,7 +156,8 @@ module DealMakerAPI
           warrant_expiry_date == o.warrant_expiry_date &&
           warrant_certificate_number == o.warrant_certificate_number &&
           allocated_amount == o.allocated_amount &&
-          allocation_unit == o.allocation_unit
+          allocation_unit == o.allocation_unit &&
+          investment_value == o.investment_value
     end
 
     # @see the `==` method
@@ -159,7 +169,7 @@ module DealMakerAPI
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [warrant_expiry_date, warrant_certificate_number, allocated_amount, allocation_unit].hash
+      [warrant_expiry_date, warrant_certificate_number, allocated_amount, allocation_unit, investment_value].hash
     end
 
     # Builds the object from hash

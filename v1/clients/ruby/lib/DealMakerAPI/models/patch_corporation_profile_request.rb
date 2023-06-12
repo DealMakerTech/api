@@ -15,8 +15,11 @@ require 'time'
 
 module DealMakerAPI
   class PatchCorporationProfileRequest
-    # The accredited investor information.
+    # The United States accredited investor information.
     attr_accessor :us_accredited_category
+
+    # The Canadian accredited investor information.
+    attr_accessor :ca_accredited_investor
 
     # Corporation name.
     attr_accessor :name
@@ -113,6 +116,7 @@ module DealMakerAPI
     def self.attribute_map
       {
         :'us_accredited_category' => :'us_accredited_category',
+        :'ca_accredited_investor' => :'ca_accredited_investor',
         :'name' => :'name',
         :'country' => :'country',
         :'street_address' => :'street_address',
@@ -148,6 +152,7 @@ module DealMakerAPI
     def self.openapi_types
       {
         :'us_accredited_category' => :'String',
+        :'ca_accredited_investor' => :'String',
         :'name' => :'String',
         :'country' => :'String',
         :'street_address' => :'String',
@@ -197,6 +202,10 @@ module DealMakerAPI
 
       if attributes.key?(:'us_accredited_category')
         self.us_accredited_category = attributes[:'us_accredited_category']
+      end
+
+      if attributes.key?(:'ca_accredited_investor')
+        self.ca_accredited_investor = attributes[:'ca_accredited_investor']
       end
 
       if attributes.key?(:'name')
@@ -304,6 +313,8 @@ module DealMakerAPI
     def valid?
       us_accredited_category_validator = EnumAttributeValidator.new('String', ["entity_owned_by_accredited_investors", "assets_other", "assets_family_office", "assets_benefit_plan", "assets_state_plan", "assets_501_c_3", "assets_corporation", "broker_or_dealer", "bank_3_a_2", "business_development_company", "private_business_development_company", "investment_company", "rural_business_investment_company", "insurance_company", "family_client", "not_accredited"])
       return false unless us_accredited_category_validator.valid?(@us_accredited_category)
+      ca_accredited_investor_validator = EnumAttributeValidator.new('String', ["a", "b", "c", "d", "f", "g", "h", "i", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "x"])
+      return false unless ca_accredited_investor_validator.valid?(@ca_accredited_investor)
       true
     end
 
@@ -317,12 +328,23 @@ module DealMakerAPI
       @us_accredited_category = us_accredited_category
     end
 
+    # Custom attribute writer method checking allowed values (enum).
+    # @param [Object] ca_accredited_investor Object to be assigned
+    def ca_accredited_investor=(ca_accredited_investor)
+      validator = EnumAttributeValidator.new('String', ["a", "b", "c", "d", "f", "g", "h", "i", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "x"])
+      unless validator.valid?(ca_accredited_investor)
+        fail ArgumentError, "invalid value for \"ca_accredited_investor\", must be one of #{validator.allowable_values}."
+      end
+      @ca_accredited_investor = ca_accredited_investor
+    end
+
     # Checks equality by comparing each attribute.
     # @param [Object] Object to be compared
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
           us_accredited_category == o.us_accredited_category &&
+          ca_accredited_investor == o.ca_accredited_investor &&
           name == o.name &&
           country == o.country &&
           street_address == o.street_address &&
@@ -357,7 +379,7 @@ module DealMakerAPI
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [us_accredited_category, name, country, street_address, unit2, city, region, postal_code, business_number, phone_number, income, net_worth, reg_cf_prior_offerings_amount, signing_officer_first_name, signing_officer_last_name, signing_officer_suffix, signing_officer_country, signing_officer_street_address, signing_officer_unit2, signing_officer_city, signing_officer_region, signing_officer_postal_code, signing_officer_date_of_birth, signing_officer_taxpayer_id].hash
+      [us_accredited_category, ca_accredited_investor, name, country, street_address, unit2, city, region, postal_code, business_number, phone_number, income, net_worth, reg_cf_prior_offerings_amount, signing_officer_first_name, signing_officer_last_name, signing_officer_suffix, signing_officer_country, signing_officer_street_address, signing_officer_unit2, signing_officer_city, signing_officer_region, signing_officer_postal_code, signing_officer_date_of_birth, signing_officer_taxpayer_id].hash
     end
 
     # Builds the object from hash

@@ -32,6 +32,19 @@ describe 'DealApi' do
     end
   end
 
+  # unit tests for get_analytics_dashboard_info
+  # Get Analytics Dashboard Info
+  # Get Analytics Dashboard Info
+  # @param id The deal id.
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :dashboard_key The dashboard key.
+  # @return [Object]
+  describe 'get_analytics_dashboard_info test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for get_deal
   # Get deal by Deal ID
   # Gets a single deal using the Deal ID

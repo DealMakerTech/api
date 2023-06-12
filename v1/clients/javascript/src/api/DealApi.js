@@ -19,7 +19,7 @@ import V1EntitiesDeals from '../model/V1EntitiesDeals';
 /**
 * Deal service.
 * @module api/DealApi
-* @version 0.79.1
+* @version 0.80.1
 */
 export default class DealApi {
 
@@ -34,6 +34,53 @@ export default class DealApi {
         this.apiClient = apiClient || ApiClient.instance;
     }
 
+
+    /**
+     * Callback function to receive the result of the getAnalyticsDashboardInfo operation.
+     * @callback module:api/DealApi~getAnalyticsDashboardInfoCallback
+     * @param {String} error Error message, if any.
+     * @param {Object} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Get Analytics Dashboard Info
+     * Get Analytics Dashboard Info
+     * @param {Number} id The deal id.
+     * @param {Object} opts Optional parameters
+     * @param {String} [dashboardKey] The dashboard key.
+     * @param {module:api/DealApi~getAnalyticsDashboardInfoCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link Object}
+     */
+    getAnalyticsDashboardInfo(id, opts, callback) {
+      opts = opts || {};
+      let postBody = null;
+      // verify the required parameter 'id' is set
+      if (id === undefined || id === null) {
+        throw new Error("Missing the required parameter 'id' when calling getAnalyticsDashboardInfo");
+      }
+
+      let pathParams = {
+        'id': id
+      };
+      let queryParams = {
+        'dashboard_key': opts['dashboardKey']
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = Object;
+      return this.apiClient.callApi(
+        '/deals/{id}/analytics_dashboard_info', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
 
     /**
      * Callback function to receive the result of the getDeal operation.

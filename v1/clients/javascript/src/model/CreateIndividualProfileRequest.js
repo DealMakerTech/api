@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The CreateIndividualProfileRequest model module.
  * @module model/CreateIndividualProfileRequest
- * @version 0.79.1
+ * @version 0.80.1
  */
 class CreateIndividualProfileRequest {
     /**
@@ -54,6 +54,9 @@ class CreateIndividualProfileRequest {
             }
             if (data.hasOwnProperty('us_accredited_category')) {
                 obj['us_accredited_category'] = ApiClient.convertToType(data['us_accredited_category'], 'String');
+            }
+            if (data.hasOwnProperty('ca_accredited_investor')) {
+                obj['ca_accredited_investor'] = ApiClient.convertToType(data['ca_accredited_investor'], 'String');
             }
             if (data.hasOwnProperty('first_name')) {
                 obj['first_name'] = ApiClient.convertToType(data['first_name'], 'String');
@@ -125,6 +128,10 @@ class CreateIndividualProfileRequest {
             throw new Error("Expected the field `us_accredited_category` to be a primitive type in the JSON string but got " + data['us_accredited_category']);
         }
         // ensure the json data is a string
+        if (data['ca_accredited_investor'] && !(typeof data['ca_accredited_investor'] === 'string' || data['ca_accredited_investor'] instanceof String)) {
+            throw new Error("Expected the field `ca_accredited_investor` to be a primitive type in the JSON string but got " + data['ca_accredited_investor']);
+        }
+        // ensure the json data is a string
         if (data['first_name'] && !(typeof data['first_name'] === 'string' || data['first_name'] instanceof String)) {
             throw new Error("Expected the field `first_name` to be a primitive type in the JSON string but got " + data['first_name']);
         }
@@ -188,10 +195,16 @@ CreateIndividualProfileRequest.RequiredProperties = ["email"];
 CreateIndividualProfileRequest.prototype['email'] = undefined;
 
 /**
- * The accredited investor information.
+ * The United States accredited investor information.
  * @member {module:model/CreateIndividualProfileRequest.UsAccreditedCategoryEnum} us_accredited_category
  */
 CreateIndividualProfileRequest.prototype['us_accredited_category'] = undefined;
+
+/**
+ * The Canadian accredited investor information.
+ * @member {module:model/CreateIndividualProfileRequest.CaAccreditedInvestorEnum} ca_accredited_investor
+ */
+CreateIndividualProfileRequest.prototype['ca_accredited_investor'] = undefined;
 
 /**
  * The first name of the individual investor profile (required).
@@ -347,6 +360,75 @@ CreateIndividualProfileRequest['UsAccreditedCategoryEnum'] = {
      * @const
      */
     "not_accredited": "not_accredited"
+};
+
+
+/**
+ * Allowed values for the <code>ca_accredited_investor</code> property.
+ * @enum {String}
+ * @readonly
+ */
+CreateIndividualProfileRequest['CaAccreditedInvestorEnum'] = {
+
+    /**
+     * value: "d"
+     * @const
+     */
+    "d": "d",
+
+    /**
+     * value: "e"
+     * @const
+     */
+    "e": "e",
+
+    /**
+     * value: "e_1"
+     * @const
+     */
+    "e_1": "e_1",
+
+    /**
+     * value: "j"
+     * @const
+     */
+    "j": "j",
+
+    /**
+     * value: "j_1"
+     * @const
+     */
+    "j_1": "j_1",
+
+    /**
+     * value: "k"
+     * @const
+     */
+    "k": "k",
+
+    /**
+     * value: "l"
+     * @const
+     */
+    "l": "l",
+
+    /**
+     * value: "q"
+     * @const
+     */
+    "q": "q",
+
+    /**
+     * value: "v"
+     * @const
+     */
+    "v": "v",
+
+    /**
+     * value: "x"
+     * @const
+     */
+    "x": "x"
 };
 
 

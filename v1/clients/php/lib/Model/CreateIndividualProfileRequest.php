@@ -59,6 +59,7 @@ class CreateIndividualProfileRequest implements ModelInterface, ArrayAccess, \Js
     protected static $openAPITypes = [
         'email' => 'string',
         'us_accredited_category' => 'string',
+        'ca_accredited_investor' => 'string',
         'first_name' => 'string',
         'last_name' => 'string',
         'suffix' => 'string',
@@ -86,6 +87,7 @@ class CreateIndividualProfileRequest implements ModelInterface, ArrayAccess, \Js
     protected static $openAPIFormats = [
         'email' => null,
         'us_accredited_category' => null,
+        'ca_accredited_investor' => null,
         'first_name' => null,
         'last_name' => null,
         'suffix' => null,
@@ -111,6 +113,7 @@ class CreateIndividualProfileRequest implements ModelInterface, ArrayAccess, \Js
     protected static array $openAPINullables = [
         'email' => false,
 		'us_accredited_category' => false,
+		'ca_accredited_investor' => false,
 		'first_name' => false,
 		'last_name' => false,
 		'suffix' => false,
@@ -216,6 +219,7 @@ class CreateIndividualProfileRequest implements ModelInterface, ArrayAccess, \Js
     protected static $attributeMap = [
         'email' => 'email',
         'us_accredited_category' => 'us_accredited_category',
+        'ca_accredited_investor' => 'ca_accredited_investor',
         'first_name' => 'first_name',
         'last_name' => 'last_name',
         'suffix' => 'suffix',
@@ -241,6 +245,7 @@ class CreateIndividualProfileRequest implements ModelInterface, ArrayAccess, \Js
     protected static $setters = [
         'email' => 'setEmail',
         'us_accredited_category' => 'setUsAccreditedCategory',
+        'ca_accredited_investor' => 'setCaAccreditedInvestor',
         'first_name' => 'setFirstName',
         'last_name' => 'setLastName',
         'suffix' => 'setSuffix',
@@ -266,6 +271,7 @@ class CreateIndividualProfileRequest implements ModelInterface, ArrayAccess, \Js
     protected static $getters = [
         'email' => 'getEmail',
         'us_accredited_category' => 'getUsAccreditedCategory',
+        'ca_accredited_investor' => 'getCaAccreditedInvestor',
         'first_name' => 'getFirstName',
         'last_name' => 'getLastName',
         'suffix' => 'getSuffix',
@@ -333,6 +339,16 @@ class CreateIndividualProfileRequest implements ModelInterface, ArrayAccess, \Js
     public const US_ACCREDITED_CATEGORY_INVESTMENT_ADVISOR_RELYING = 'investment_advisor_relying';
     public const US_ACCREDITED_CATEGORY_DESIGNATED_ACCREDITED_INVESTOR = 'designated_accredited_investor';
     public const US_ACCREDITED_CATEGORY_NOT_ACCREDITED = 'not_accredited';
+    public const CA_ACCREDITED_INVESTOR_D = 'd';
+    public const CA_ACCREDITED_INVESTOR_E = 'e';
+    public const CA_ACCREDITED_INVESTOR_E_1 = 'e_1';
+    public const CA_ACCREDITED_INVESTOR_J = 'j';
+    public const CA_ACCREDITED_INVESTOR_J_1 = 'j_1';
+    public const CA_ACCREDITED_INVESTOR_K = 'k';
+    public const CA_ACCREDITED_INVESTOR_L = 'l';
+    public const CA_ACCREDITED_INVESTOR_Q = 'q';
+    public const CA_ACCREDITED_INVESTOR_V = 'v';
+    public const CA_ACCREDITED_INVESTOR_X = 'x';
 
     /**
      * Gets allowable values of the enum
@@ -355,6 +371,27 @@ class CreateIndividualProfileRequest implements ModelInterface, ArrayAccess, \Js
     }
 
     /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getCaAccreditedInvestorAllowableValues()
+    {
+        return [
+            self::CA_ACCREDITED_INVESTOR_D,
+            self::CA_ACCREDITED_INVESTOR_E,
+            self::CA_ACCREDITED_INVESTOR_E_1,
+            self::CA_ACCREDITED_INVESTOR_J,
+            self::CA_ACCREDITED_INVESTOR_J_1,
+            self::CA_ACCREDITED_INVESTOR_K,
+            self::CA_ACCREDITED_INVESTOR_L,
+            self::CA_ACCREDITED_INVESTOR_Q,
+            self::CA_ACCREDITED_INVESTOR_V,
+            self::CA_ACCREDITED_INVESTOR_X,
+        ];
+    }
+
+    /**
      * Associative array for storing property values
      *
      * @var mixed[]
@@ -371,6 +408,7 @@ class CreateIndividualProfileRequest implements ModelInterface, ArrayAccess, \Js
     {
         $this->setIfExists('email', $data ?? [], null);
         $this->setIfExists('us_accredited_category', $data ?? [], null);
+        $this->setIfExists('ca_accredited_investor', $data ?? [], null);
         $this->setIfExists('first_name', $data ?? [], null);
         $this->setIfExists('last_name', $data ?? [], null);
         $this->setIfExists('suffix', $data ?? [], null);
@@ -423,6 +461,15 @@ class CreateIndividualProfileRequest implements ModelInterface, ArrayAccess, \Js
             $invalidProperties[] = sprintf(
                 "invalid value '%s' for 'us_accredited_category', must be one of '%s'",
                 $this->container['us_accredited_category'],
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getCaAccreditedInvestorAllowableValues();
+        if (!is_null($this->container['ca_accredited_investor']) && !in_array($this->container['ca_accredited_investor'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'ca_accredited_investor', must be one of '%s'",
+                $this->container['ca_accredited_investor'],
                 implode("', '", $allowedValues)
             );
         }
@@ -482,7 +529,7 @@ class CreateIndividualProfileRequest implements ModelInterface, ArrayAccess, \Js
     /**
      * Sets us_accredited_category
      *
-     * @param string|null $us_accredited_category The accredited investor information.
+     * @param string|null $us_accredited_category The United States accredited investor information.
      *
      * @return self
      */
@@ -502,6 +549,43 @@ class CreateIndividualProfileRequest implements ModelInterface, ArrayAccess, \Js
             );
         }
         $this->container['us_accredited_category'] = $us_accredited_category;
+
+        return $this;
+    }
+
+    /**
+     * Gets ca_accredited_investor
+     *
+     * @return string|null
+     */
+    public function getCaAccreditedInvestor()
+    {
+        return $this->container['ca_accredited_investor'];
+    }
+
+    /**
+     * Sets ca_accredited_investor
+     *
+     * @param string|null $ca_accredited_investor The Canadian accredited investor information.
+     *
+     * @return self
+     */
+    public function setCaAccreditedInvestor($ca_accredited_investor)
+    {
+        if (is_null($ca_accredited_investor)) {
+            throw new \InvalidArgumentException('non-nullable ca_accredited_investor cannot be null');
+        }
+        $allowedValues = $this->getCaAccreditedInvestorAllowableValues();
+        if (!in_array($ca_accredited_investor, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'ca_accredited_investor', must be one of '%s'",
+                    $ca_accredited_investor,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['ca_accredited_investor'] = $ca_accredited_investor;
 
         return $this;
     }

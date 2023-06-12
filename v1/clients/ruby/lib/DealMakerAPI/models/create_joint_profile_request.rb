@@ -18,8 +18,11 @@ module DealMakerAPI
     # User email which is associated with investor profile.
     attr_accessor :email
 
-    # The accredited investor information.
+    # The United States accredited investor information.
     attr_accessor :us_accredited_category
+
+    # The Canadian accredited investor information.
+    attr_accessor :ca_accredited_investor
 
     # The types of joint investor.
     attr_accessor :joint_type
@@ -129,6 +132,7 @@ module DealMakerAPI
       {
         :'email' => :'email',
         :'us_accredited_category' => :'us_accredited_category',
+        :'ca_accredited_investor' => :'ca_accredited_investor',
         :'joint_type' => :'joint_type',
         :'first_name' => :'first_name',
         :'last_name' => :'last_name',
@@ -169,6 +173,7 @@ module DealMakerAPI
       {
         :'email' => :'String',
         :'us_accredited_category' => :'String',
+        :'ca_accredited_investor' => :'String',
         :'joint_type' => :'String',
         :'first_name' => :'String',
         :'last_name' => :'String',
@@ -226,6 +231,10 @@ module DealMakerAPI
 
       if attributes.key?(:'us_accredited_category')
         self.us_accredited_category = attributes[:'us_accredited_category']
+      end
+
+      if attributes.key?(:'ca_accredited_investor')
+        self.ca_accredited_investor = attributes[:'ca_accredited_investor']
       end
 
       if attributes.key?(:'joint_type')
@@ -354,6 +363,8 @@ module DealMakerAPI
       return false if @email.nil?
       us_accredited_category_validator = EnumAttributeValidator.new('String', ["income_individual", "assets_individual", "director", "knowledgable_employee", "broker_or_dealer", "investment_advisor_registered", "investment_advisor_relying", "designated_accredited_investor", "not_accredited"])
       return false unless us_accredited_category_validator.valid?(@us_accredited_category)
+      ca_accredited_investor_validator = EnumAttributeValidator.new('String', ["d", "e", "e_1", "j", "j_1", "k", "l", "q", "v", "x"])
+      return false unless ca_accredited_investor_validator.valid?(@ca_accredited_investor)
       joint_type_validator = EnumAttributeValidator.new('String', ["joint_tenant", "tenants_in_common", "community_property"])
       return false unless joint_type_validator.valid?(@joint_type)
       true
@@ -367,6 +378,16 @@ module DealMakerAPI
         fail ArgumentError, "invalid value for \"us_accredited_category\", must be one of #{validator.allowable_values}."
       end
       @us_accredited_category = us_accredited_category
+    end
+
+    # Custom attribute writer method checking allowed values (enum).
+    # @param [Object] ca_accredited_investor Object to be assigned
+    def ca_accredited_investor=(ca_accredited_investor)
+      validator = EnumAttributeValidator.new('String', ["d", "e", "e_1", "j", "j_1", "k", "l", "q", "v", "x"])
+      unless validator.valid?(ca_accredited_investor)
+        fail ArgumentError, "invalid value for \"ca_accredited_investor\", must be one of #{validator.allowable_values}."
+      end
+      @ca_accredited_investor = ca_accredited_investor
     end
 
     # Custom attribute writer method checking allowed values (enum).
@@ -386,6 +407,7 @@ module DealMakerAPI
       self.class == o.class &&
           email == o.email &&
           us_accredited_category == o.us_accredited_category &&
+          ca_accredited_investor == o.ca_accredited_investor &&
           joint_type == o.joint_type &&
           first_name == o.first_name &&
           last_name == o.last_name &&
@@ -424,7 +446,7 @@ module DealMakerAPI
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [email, us_accredited_category, joint_type, first_name, last_name, suffix, country, street_address, unit2, city, region, postal_code, date_of_birth, taxpayer_id, phone_number, income, net_worth, reg_cf_prior_offerings_amount, joint_holder_first_name, joint_holder_last_name, joint_holder_suffix, joint_holder_country, joint_holder_street_address, joint_holder_unit2, joint_holder_city, joint_holder_region, joint_holder_postal_code, joint_holder_date_of_birth, joint_holder_taxpayer_id].hash
+      [email, us_accredited_category, ca_accredited_investor, joint_type, first_name, last_name, suffix, country, street_address, unit2, city, region, postal_code, date_of_birth, taxpayer_id, phone_number, income, net_worth, reg_cf_prior_offerings_amount, joint_holder_first_name, joint_holder_last_name, joint_holder_suffix, joint_holder_country, joint_holder_street_address, joint_holder_unit2, joint_holder_city, joint_holder_region, joint_holder_postal_code, joint_holder_date_of_birth, joint_holder_taxpayer_id].hash
     end
 
     # Builds the object from hash

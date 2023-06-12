@@ -60,6 +60,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property caAccreditedInvestor (base name: "ca_accredited_investor")', function() {
+      // uncomment below and update the code to test the property caAccreditedInvestor
+      //var instance = new Api.PatchJointProfileRequest();
+      //expect(instance).to.be();
+    });
+
     it('should have the property jointType (base name: "joint_type")', function() {
       // uncomment below and update the code to test the property jointType
       //var instance = new Api.PatchJointProfileRequest();

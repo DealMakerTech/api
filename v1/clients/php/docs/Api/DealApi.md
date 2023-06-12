@@ -4,9 +4,69 @@ All URIs are relative to http://api.dealmaker.tech, except if the operation defi
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
+| [**getAnalyticsDashboardInfo()**](DealApi.md#getAnalyticsDashboardInfo) | **GET** /deals/{id}/analytics_dashboard_info | Get Analytics Dashboard Info |
 | [**getDeal()**](DealApi.md#getDeal) | **GET** /deals/{id} | Get deal by Deal ID |
 | [**listDeals()**](DealApi.md#listDeals) | **GET** /deals | List available deals |
 
+
+## `getAnalyticsDashboardInfo()`
+
+```php
+getAnalyticsDashboardInfo($id, $dashboard_key): object
+```
+
+Get Analytics Dashboard Info
+
+Get Analytics Dashboard Info
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new DealMaker\Api\DealApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = 56; // int | The deal id.
+$dashboard_key = 'dashboard_key_example'; // string | The dashboard key.
+
+try {
+    $result = $apiInstance->getAnalyticsDashboardInfo($id, $dashboard_key);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling DealApi->getAnalyticsDashboardInfo: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **int**| The deal id. | |
+| **dashboard_key** | **string**| The dashboard key. | [optional] |
+
+### Return type
+
+**object**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
 
 ## `getDeal()`
 

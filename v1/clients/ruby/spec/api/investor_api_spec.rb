@@ -32,6 +32,20 @@ describe 'InvestorApi' do
     end
   end
 
+  # unit tests for add_document
+  # Add document for deal investor
+  # Add document for deal investor
+  # @param id The deal id.
+  # @param investor_id The investor id.
+  # @param add_document_request 
+  # @param [Hash] opts the optional parameters
+  # @return [V1EntitiesInvestor]
+  describe 'add_document test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for create_investor
   # Create a deal investor
   # Create a single deal investor.
@@ -40,6 +54,20 @@ describe 'InvestorApi' do
   # @param [Hash] opts the optional parameters
   # @return [V1EntitiesInvestor]
   describe 'create_investor test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for delete_document
+  # Delete document for deal investor
+  # Delete document for deal investor
+  # @param id 
+  # @param investor_id 
+  # @param document_id 
+  # @param [Hash] opts the optional parameters
+  # @return [nil]
+  describe 'delete_document test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end

@@ -59,6 +59,12 @@ describe DealMakerAPI::V1EntitiesInvestorProfileCorporation do
     end
   end
 
+  describe 'test attribute "ca_accredited_investor"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   describe 'test attribute "complete"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/

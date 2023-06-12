@@ -89,6 +89,15 @@ class PatchJointProfileRequestTest extends TestCase
     }
 
     /**
+     * Test attribute "ca_accredited_investor"
+     */
+    public function testPropertyCaAccreditedInvestor()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "joint_type"
      */
     public function testPropertyJointType()

@@ -5,7 +5,8 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **email** | **String** | User email which is associated with investor profile (required). |  |
-| **us_accredited_category** | **String** | The accredited investor information. | [optional] |
+| **us_accredited_category** | **String** | The United States accredited investor information. | [optional] |
+| **ca_accredited_investor** | **String** | The Canadian accredited investor information. | [optional] |
 | **name** | **String** | The name of the corporation (required). | [optional] |
 | **country** | **String** | The country of the corporation (required). | [optional] |
 | **street_address** | **String** | The street address of the corporation (required). | [optional] |
@@ -49,6 +50,7 @@ require 'DealMakerAPI'
 instance = DealMakerAPI::CreateCorporationProfileRequest.new(
   email: null,
   us_accredited_category: null,
+  ca_accredited_investor: null,
   name: null,
   country: null,
   street_address: null,

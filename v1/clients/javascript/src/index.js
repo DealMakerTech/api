@@ -106,7 +106,7 @@ import ShareholderApi from './api/ShareholderApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.80.1
+* @version 0.80.3
 */
 export {
     /**

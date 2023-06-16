@@ -18,7 +18,7 @@ import V1EntitiesShareholders from '../model/V1EntitiesShareholders';
 /**
 * Shareholder service.
 * @module api/ShareholderApi
-* @version 0.80.1
+* @version 0.80.4
 */
 export default class ShareholderApi {
 

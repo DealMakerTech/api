@@ -14,11 +14,12 @@
 
 import ApiClient from "../ApiClient";
 import V1EntitiesShareholders from '../model/V1EntitiesShareholders';
+import V1EntitiesShareholdersTags from '../model/V1EntitiesShareholdersTags';
 
 /**
 * Shareholder service.
 * @module api/ShareholderApi
-* @version 0.80.1
+* @version 0.80.5
 */
 export default class ShareholderApi {
 
@@ -72,6 +73,49 @@ export default class ShareholderApi {
       let returnType = V1EntitiesShareholders;
       return this.apiClient.callApi(
         '/companies/{id}/shareholders', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the getShareholdersTags operation.
+     * @callback module:api/ShareholderApi~getShareholdersTagsCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/V1EntitiesShareholdersTags} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Get a company shareholders list grouped by tags
+     * Gets a list of company shareholders grouped by tags.
+     * @param {Number} id The company id.
+     * @param {module:api/ShareholderApi~getShareholdersTagsCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/V1EntitiesShareholdersTags}
+     */
+    getShareholdersTags(id, callback) {
+      let postBody = null;
+      // verify the required parameter 'id' is set
+      if (id === undefined || id === null) {
+        throw new Error("Missing the required parameter 'id' when calling getShareholdersTags");
+      }
+
+      let pathParams = {
+        'id': id
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = V1EntitiesShareholdersTags;
+      return this.apiClient.callApi(
+        '/companies/{id}/shareholders/tags', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

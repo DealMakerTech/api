@@ -82,4 +82,16 @@ class ShareholderApiTest extends TestCase
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test case for getShareholdersTags
+     *
+     * Get a company shareholders list grouped by tags.
+     *
+     */
+    public function testGetShareholdersTags()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
 }

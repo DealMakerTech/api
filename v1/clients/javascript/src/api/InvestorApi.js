@@ -15,6 +15,7 @@
 import ApiClient from "../ApiClient";
 import AddDocumentRequest from '../model/AddDocumentRequest';
 import CreateInvestorRequest from '../model/CreateInvestorRequest';
+import EditInvestorTagsRequest from '../model/EditInvestorTagsRequest';
 import PatchInvestorRequest from '../model/PatchInvestorRequest';
 import UpdateInvestorRequest from '../model/UpdateInvestorRequest';
 import V1EntitiesInvestor from '../model/V1EntitiesInvestor';
@@ -24,7 +25,7 @@ import V1EntitiesInvestors from '../model/V1EntitiesInvestors';
 /**
 * Investor service.
 * @module api/InvestorApi
-* @version 0.80.1
+* @version 0.80.5
 */
 export default class InvestorApi {
 
@@ -191,6 +192,60 @@ export default class InvestorApi {
       let returnType = null;
       return this.apiClient.callApi(
         '/deals/{id}/investors/{investor_id}/delete_document/{document_id}', 'DELETE',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the editInvestorTags operation.
+     * @callback module:api/InvestorApi~editInvestorTagsCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/V1EntitiesInvestor} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Append or replace tag(s) for a specific investor
+     * Edit investor tag
+     * @param {Number} id 
+     * @param {Number} investorId 
+     * @param {module:model/EditInvestorTagsRequest} editInvestorTagsRequest 
+     * @param {module:api/InvestorApi~editInvestorTagsCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/V1EntitiesInvestor}
+     */
+    editInvestorTags(id, investorId, editInvestorTagsRequest, callback) {
+      let postBody = editInvestorTagsRequest;
+      // verify the required parameter 'id' is set
+      if (id === undefined || id === null) {
+        throw new Error("Missing the required parameter 'id' when calling editInvestorTags");
+      }
+      // verify the required parameter 'investorId' is set
+      if (investorId === undefined || investorId === null) {
+        throw new Error("Missing the required parameter 'investorId' when calling editInvestorTags");
+      }
+      // verify the required parameter 'editInvestorTagsRequest' is set
+      if (editInvestorTagsRequest === undefined || editInvestorTagsRequest === null) {
+        throw new Error("Missing the required parameter 'editInvestorTagsRequest' when calling editInvestorTags");
+      }
+
+      let pathParams = {
+        'id': id,
+        'investor_id': investorId
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = V1EntitiesInvestor;
+      return this.apiClient.callApi(
+        '/deals/{id}/investors/{investor_id}/edit_tags', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

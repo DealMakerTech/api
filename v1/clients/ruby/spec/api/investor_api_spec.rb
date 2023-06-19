@@ -73,6 +73,20 @@ describe 'InvestorApi' do
     end
   end
 
+  # unit tests for edit_investor_tags
+  # Append or replace tag(s) for a specific investor
+  # Edit investor tag
+  # @param id 
+  # @param investor_id 
+  # @param edit_investor_tags_request 
+  # @param [Hash] opts the optional parameters
+  # @return [V1EntitiesInvestor]
+  describe 'edit_investor_tags test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for get_investor
   # Get a deal investor by id
   # Gets a single investor by the id.

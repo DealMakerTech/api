@@ -108,6 +108,18 @@ class InvestorApiTest extends TestCase
     }
 
     /**
+     * Test case for editInvestorTags
+     *
+     * Append or replace tag(s) for a specific investor.
+     *
+     */
+    public function testEditInvestorTags()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for getInvestor
      *
      * Get a deal investor by id.

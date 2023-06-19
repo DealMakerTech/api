@@ -44,4 +44,16 @@ describe 'ShareholderApi' do
     end
   end
 
+  # unit tests for get_shareholders_tags
+  # Get a company shareholders list grouped by tags
+  # Gets a list of company shareholders grouped by tags.
+  # @param id The company id.
+  # @param [Hash] opts the optional parameters
+  # @return [V1EntitiesShareholdersTags]
+  describe 'get_shareholders_tags test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
 end

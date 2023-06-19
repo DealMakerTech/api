@@ -148,7 +148,7 @@
         ],
         "responses": {
           "204": {
-            "description": "Document deleted successfuly"
+            "description": "Document deleted successfully"
           },
           "400": {
             "description": "Bad Request"
@@ -1034,6 +1034,145 @@
           "deal"
         ],
         "operationId": "listDeals",
+        "x-codeSamples": [
+          {
+            "lang": "javascript",
+            "source": ""
+          },
+          {
+            "lang": "ruby",
+            "source": ""
+          }
+        ]
+      }
+    },
+    "/deals/{id}/investors/{investor_id}/edit_tags": {
+      "post": {
+        "summary": "Append or replace tag(s) for a specific investor",
+        "description": "Edit investor tag",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "formData",
+            "name": "tags",
+            "description": "The list of tags.",
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "mode",
+            "description": "The type of request for the tag(s): \"append\" or \"replace\".",
+            "type": "string",
+            "default": "append",
+            "enum": [
+              "append",
+              "replace"
+            ],
+            "required": false
+          },
+          {
+            "in": "path",
+            "name": "id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          },
+          {
+            "in": "path",
+            "name": "investor_id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "security": [
+          {
+            "oauth": [
+              "deals.investors.write"
+            ]
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Edit investor tag",
+            "schema": {
+              "$ref": "#/definitions/V1_Entities_Investor"
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "tags": [
+          "investor"
+        ],
+        "operationId": "editInvestorTags",
+        "x-codeSamples": [
+          {
+            "lang": "javascript",
+            "source": ""
+          },
+          {
+            "lang": "ruby",
+            "source": ""
+          }
+        ]
+      }
+    },
+    "/companies/{id}/shareholders/tags": {
+      "get": {
+        "summary": "Get a company shareholders list grouped by tags",
+        "description": "Gets a list of company shareholders grouped by tags.",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "description": "The company id.",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "security": [
+          {
+            "oauth": [
+              "internal"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List company shareholders grouped by tags",
+            "schema": {
+              "$ref": "#/definitions/V1_Entities_ShareholdersTags"
+            }
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not found"
+          }
+        },
+        "tags": [
+          "shareholder"
+        ],
+        "operationId": "getShareholdersTags",
         "x-codeSamples": [
           {
             "lang": "javascript",
@@ -5160,6 +5299,18 @@
         }
       },
       "description": "V1_Entities_Deals model"
+    },
+    "V1_Entities_ShareholdersTags": {
+      "type": "object",
+      "properties": {
+        "tagName": {
+          "type": "string"
+        },
+        "shareholders": {
+          "type": "string"
+        }
+      },
+      "description": "V1_Entities_ShareholdersTags model"
     },
     "V1_Entities_Shareholders": {
       "type": "object",

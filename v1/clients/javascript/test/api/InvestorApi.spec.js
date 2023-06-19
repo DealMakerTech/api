@@ -78,6 +78,16 @@
         done();
       });
     });
+    describe('editInvestorTags', function() {
+      it('should call editInvestorTags successfully', function(done) {
+        //uncomment below and update the code to test editInvestorTags
+        //instance.editInvestorTags(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('getInvestor', function() {
       it('should call getInvestor successfully', function(done) {
         //uncomment below and update the code to test getInvestor

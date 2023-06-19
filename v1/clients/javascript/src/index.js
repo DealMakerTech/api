@@ -21,6 +21,7 @@ import CreateIndividualProfileRequest from './model/CreateIndividualProfileReque
 import CreateInvestorRequest from './model/CreateInvestorRequest';
 import CreateJointProfileRequest from './model/CreateJointProfileRequest';
 import CreateTrustProfileRequest from './model/CreateTrustProfileRequest';
+import EditInvestorTagsRequest from './model/EditInvestorTagsRequest';
 import PatchCorporationProfileRequest from './model/PatchCorporationProfileRequest';
 import PatchIndividualProfileRequest from './model/PatchIndividualProfileRequest';
 import PatchInvestorRequest from './model/PatchInvestorRequest';
@@ -62,6 +63,7 @@ import V1EntitiesInvestorUser from './model/V1EntitiesInvestorUser';
 import V1EntitiesInvestors from './model/V1EntitiesInvestors';
 import V1EntitiesShareholder from './model/V1EntitiesShareholder';
 import V1EntitiesShareholders from './model/V1EntitiesShareholders';
+import V1EntitiesShareholdersTags from './model/V1EntitiesShareholdersTags';
 import V1EntitiesSubscriptionAgreement from './model/V1EntitiesSubscriptionAgreement';
 import V1EntitiesWebhooksDeal from './model/V1EntitiesWebhooksDeal';
 import V1EntitiesWebhooksSecurityToken from './model/V1EntitiesWebhooksSecurityToken';
@@ -106,7 +108,7 @@ import ShareholderApi from './api/ShareholderApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.80.1
+* @version 0.80.5
 */
 export {
     /**
@@ -162,6 +164,12 @@ export {
      * @property {module:model/CreateTrustProfileRequest}
      */
     CreateTrustProfileRequest,
+
+    /**
+     * The EditInvestorTagsRequest model constructor.
+     * @property {module:model/EditInvestorTagsRequest}
+     */
+    EditInvestorTagsRequest,
 
     /**
      * The PatchCorporationProfileRequest model constructor.
@@ -408,6 +416,12 @@ export {
      * @property {module:model/V1EntitiesShareholders}
      */
     V1EntitiesShareholders,
+
+    /**
+     * The V1EntitiesShareholdersTags model constructor.
+     * @property {module:model/V1EntitiesShareholdersTags}
+     */
+    V1EntitiesShareholdersTags,
 
     /**
      * The V1EntitiesSubscriptionAgreement model constructor.

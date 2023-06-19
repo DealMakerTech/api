@@ -58,6 +58,16 @@
         done();
       });
     });
+    describe('getShareholdersTags', function() {
+      it('should call getShareholdersTags successfully', function(done) {
+        //uncomment below and update the code to test getShareholdersTags
+        //instance.getShareholdersTags(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
   });
 
 }));

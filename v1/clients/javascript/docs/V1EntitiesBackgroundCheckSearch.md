@@ -4,6 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **String** | The background check search id. | [optional] 
+**externalId** | **String** | The background check search id. | [optional] 
+**id** | **Number** | The search entity id. | [optional] 
+**status** | **String** | The per-entity result. | [optional] 
 
 

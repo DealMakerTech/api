@@ -19,6 +19,7 @@ docs/Model/CreateIndividualProfileRequest.md
 docs/Model/CreateInvestorRequest.md
 docs/Model/CreateJointProfileRequest.md
 docs/Model/CreateTrustProfileRequest.md
+docs/Model/EditInvestorTagsRequest.md
 docs/Model/PatchCorporationProfileRequest.md
 docs/Model/PatchIndividualProfileRequest.md
 docs/Model/PatchInvestorRequest.md
@@ -60,6 +61,7 @@ docs/Model/V1EntitiesInvestorUser.md
 docs/Model/V1EntitiesInvestors.md
 docs/Model/V1EntitiesShareholder.md
 docs/Model/V1EntitiesShareholders.md
+docs/Model/V1EntitiesShareholdersTags.md
 docs/Model/V1EntitiesSubscriptionAgreement.md
 docs/Model/V1EntitiesWebhooksDeal.md
 docs/Model/V1EntitiesWebhooksSecurityToken.md
@@ -85,6 +87,7 @@ lib/Model/CreateIndividualProfileRequest.php
 lib/Model/CreateInvestorRequest.php
 lib/Model/CreateJointProfileRequest.php
 lib/Model/CreateTrustProfileRequest.php
+lib/Model/EditInvestorTagsRequest.php
 lib/Model/ModelInterface.php
 lib/Model/PatchCorporationProfileRequest.php
 lib/Model/PatchIndividualProfileRequest.php
@@ -127,6 +130,7 @@ lib/Model/V1EntitiesInvestorUser.php
 lib/Model/V1EntitiesInvestors.php
 lib/Model/V1EntitiesShareholder.php
 lib/Model/V1EntitiesShareholders.php
+lib/Model/V1EntitiesShareholdersTags.php
 lib/Model/V1EntitiesSubscriptionAgreement.php
 lib/Model/V1EntitiesWebhooksDeal.php
 lib/Model/V1EntitiesWebhooksSecurityToken.php
@@ -150,6 +154,7 @@ test/Model/CreateIndividualProfileRequestTest.php
 test/Model/CreateInvestorRequestTest.php
 test/Model/CreateJointProfileRequestTest.php
 test/Model/CreateTrustProfileRequestTest.php
+test/Model/EditInvestorTagsRequestTest.php
 test/Model/PatchCorporationProfileRequestTest.php
 test/Model/PatchIndividualProfileRequestTest.php
 test/Model/PatchInvestorRequestTest.php
@@ -190,6 +195,7 @@ test/Model/V1EntitiesInvestorTest.php
 test/Model/V1EntitiesInvestorUserTest.php
 test/Model/V1EntitiesInvestorsTest.php
 test/Model/V1EntitiesShareholderTest.php
+test/Model/V1EntitiesShareholdersTagsTest.php
 test/Model/V1EntitiesShareholdersTest.php
 test/Model/V1EntitiesSubscriptionAgreementTest.php
 test/Model/V1EntitiesWebhooksDealTest.php

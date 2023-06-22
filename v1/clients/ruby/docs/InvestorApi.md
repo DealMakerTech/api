@@ -7,6 +7,7 @@ All URIs are relative to *http://api.dealmaker.tech*
 | [**add_document**](InvestorApi.md#add_document) | **POST** /deals/{id}/investors/{investor_id}/add_document | Add document for deal investor |
 | [**create_investor**](InvestorApi.md#create_investor) | **POST** /deals/{id}/investors | Create a deal investor |
 | [**delete_document**](InvestorApi.md#delete_document) | **DELETE** /deals/{id}/investors/{investor_id}/delete_document/{document_id} | Delete document for deal investor |
+| [**edit_investor_tags**](InvestorApi.md#edit_investor_tags) | **POST** /deals/{id}/investors/{investor_id}/edit_tags | Append or replace tag(s) for a specific investor |
 | [**get_investor**](InvestorApi.md#get_investor) | **GET** /deals/{id}/investors/{investor_id} | Get a deal investor by id |
 | [**get_investor_otp_link**](InvestorApi.md#get_investor_otp_link) | **GET** /deals/{id}/investors/{investor_id}/otp_access_link | Get OTP access link for deal investor |
 | [**list_investors**](InvestorApi.md#list_investors) | **GET** /deals/{id}/investors | List deal investors |
@@ -219,6 +220,76 @@ No authorization required
 
 - **Content-Type**: Not defined
 - **Accept**: Not defined
+
+
+## edit_investor_tags
+
+> <V1EntitiesInvestor> edit_investor_tags(id, investor_id, edit_investor_tags_request)
+
+Append or replace tag(s) for a specific investor
+
+Edit investor tag
+
+### Examples
+
+```ruby
+require 'time'
+require 'DealMakerAPI'
+# setup authorization
+DealMakerAPI.configure do |config|end
+
+api_instance = DealMakerAPI::InvestorApi.new
+id = 56 # Integer | 
+investor_id = 56 # Integer | 
+edit_investor_tags_request = DealMakerAPI::EditInvestorTagsRequest.new({tags: ['tags_example']}) # EditInvestorTagsRequest | 
+
+begin
+  # Append or replace tag(s) for a specific investor
+  result = api_instance.edit_investor_tags(id, investor_id, edit_investor_tags_request)
+  p result
+rescue DealMakerAPI::ApiError => e
+  puts "Error when calling InvestorApi->edit_investor_tags: #{e}"
+end
+```
+
+#### Using the edit_investor_tags_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<V1EntitiesInvestor>, Integer, Hash)> edit_investor_tags_with_http_info(id, investor_id, edit_investor_tags_request)
+
+```ruby
+begin
+  # Append or replace tag(s) for a specific investor
+  data, status_code, headers = api_instance.edit_investor_tags_with_http_info(id, investor_id, edit_investor_tags_request)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <V1EntitiesInvestor>
+rescue DealMakerAPI::ApiError => e
+  puts "Error when calling InvestorApi->edit_investor_tags_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **id** | **Integer** |  |  |
+| **investor_id** | **Integer** |  |  |
+| **edit_investor_tags_request** | [**EditInvestorTagsRequest**](EditInvestorTagsRequest.md) |  |  |
+
+### Return type
+
+[**V1EntitiesInvestor**](V1EntitiesInvestor.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 
 ## get_investor

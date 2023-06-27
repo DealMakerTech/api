@@ -4,7 +4,9 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **id** | **String** | The background check search id. | [optional] |
+| **external_id** | **String** | The background check search id. | [optional] |
+| **id** | **Integer** | The search entity id. | [optional] |
+| **status** | **String** | The per-entity result. | [optional] |
 
 ## Example
 
@@ -12,7 +14,9 @@
 require 'DealMakerAPI'
 
 instance = DealMakerAPI::V1EntitiesBackgroundCheckSearch.new(
-  id: null
+  external_id: null,
+  id: null,
+  status: null
 )
 ```
 

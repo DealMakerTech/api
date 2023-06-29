@@ -15,6 +15,7 @@ docs/CreateTrustProfileRequest.md
 docs/DealApi.md
 docs/DealSetupApi.md
 docs/DefaultApi.md
+docs/EditInvestorTagsRequest.md
 docs/InvestorApi.md
 docs/InvestorProfileApi.md
 docs/PatchCorporationProfileRequest.md
@@ -59,6 +60,7 @@ docs/V1EntitiesInvestorUser.md
 docs/V1EntitiesInvestors.md
 docs/V1EntitiesShareholder.md
 docs/V1EntitiesShareholders.md
+docs/V1EntitiesShareholdersTags.md
 docs/V1EntitiesSubscriptionAgreement.md
 docs/V1EntitiesWebhooksDeal.md
 docs/V1EntitiesWebhooksSecurityToken.md
@@ -85,6 +87,7 @@ src/model/CreateIndividualProfileRequest.js
 src/model/CreateInvestorRequest.js
 src/model/CreateJointProfileRequest.js
 src/model/CreateTrustProfileRequest.js
+src/model/EditInvestorTagsRequest.js
 src/model/PatchCorporationProfileRequest.js
 src/model/PatchIndividualProfileRequest.js
 src/model/PatchInvestorRequest.js
@@ -126,6 +129,7 @@ src/model/V1EntitiesInvestorUser.js
 src/model/V1EntitiesInvestors.js
 src/model/V1EntitiesShareholder.js
 src/model/V1EntitiesShareholders.js
+src/model/V1EntitiesShareholdersTags.js
 src/model/V1EntitiesSubscriptionAgreement.js
 src/model/V1EntitiesWebhooksDeal.js
 src/model/V1EntitiesWebhooksSecurityToken.js
@@ -147,6 +151,7 @@ test/model/CreateIndividualProfileRequest.spec.js
 test/model/CreateInvestorRequest.spec.js
 test/model/CreateJointProfileRequest.spec.js
 test/model/CreateTrustProfileRequest.spec.js
+test/model/EditInvestorTagsRequest.spec.js
 test/model/PatchCorporationProfileRequest.spec.js
 test/model/PatchIndividualProfileRequest.spec.js
 test/model/PatchInvestorRequest.spec.js
@@ -188,6 +193,7 @@ test/model/V1EntitiesInvestorUser.spec.js
 test/model/V1EntitiesInvestors.spec.js
 test/model/V1EntitiesShareholder.spec.js
 test/model/V1EntitiesShareholders.spec.js
+test/model/V1EntitiesShareholdersTags.spec.js
 test/model/V1EntitiesSubscriptionAgreement.spec.js
 test/model/V1EntitiesWebhooksDeal.spec.js
 test/model/V1EntitiesWebhooksSecurityToken.spec.js

@@ -20,6 +20,7 @@ docs/CreateTrustProfileRequest.md
 docs/DealApi.md
 docs/DealSetupApi.md
 docs/DefaultApi.md
+docs/EditInvestorTagsRequest.md
 docs/InvestorApi.md
 docs/InvestorProfileApi.md
 docs/PatchCorporationProfileRequest.md
@@ -64,6 +65,7 @@ docs/V1EntitiesInvestorUser.md
 docs/V1EntitiesInvestors.md
 docs/V1EntitiesShareholder.md
 docs/V1EntitiesShareholders.md
+docs/V1EntitiesShareholdersTags.md
 docs/V1EntitiesSubscriptionAgreement.md
 docs/V1EntitiesWebhooksDeal.md
 docs/V1EntitiesWebhooksSecurityToken.md
@@ -90,6 +92,7 @@ lib/DealMakerAPI/models/create_individual_profile_request.rb
 lib/DealMakerAPI/models/create_investor_request.rb
 lib/DealMakerAPI/models/create_joint_profile_request.rb
 lib/DealMakerAPI/models/create_trust_profile_request.rb
+lib/DealMakerAPI/models/edit_investor_tags_request.rb
 lib/DealMakerAPI/models/patch_corporation_profile_request.rb
 lib/DealMakerAPI/models/patch_individual_profile_request.rb
 lib/DealMakerAPI/models/patch_investor_request.rb
@@ -131,6 +134,7 @@ lib/DealMakerAPI/models/v1_entities_investor_user.rb
 lib/DealMakerAPI/models/v1_entities_investors.rb
 lib/DealMakerAPI/models/v1_entities_shareholder.rb
 lib/DealMakerAPI/models/v1_entities_shareholders.rb
+lib/DealMakerAPI/models/v1_entities_shareholders_tags.rb
 lib/DealMakerAPI/models/v1_entities_subscription_agreement.rb
 lib/DealMakerAPI/models/v1_entities_webhooks_deal.rb
 lib/DealMakerAPI/models/v1_entities_webhooks_security_token.rb
@@ -155,6 +159,7 @@ spec/models/create_individual_profile_request_spec.rb
 spec/models/create_investor_request_spec.rb
 spec/models/create_joint_profile_request_spec.rb
 spec/models/create_trust_profile_request_spec.rb
+spec/models/edit_investor_tags_request_spec.rb
 spec/models/patch_corporation_profile_request_spec.rb
 spec/models/patch_individual_profile_request_spec.rb
 spec/models/patch_investor_request_spec.rb
@@ -196,6 +201,7 @@ spec/models/v1_entities_investor_user_spec.rb
 spec/models/v1_entities_investors_spec.rb
 spec/models/v1_entities_shareholder_spec.rb
 spec/models/v1_entities_shareholders_spec.rb
+spec/models/v1_entities_shareholders_tags_spec.rb
 spec/models/v1_entities_subscription_agreement_spec.rb
 spec/models/v1_entities_webhooks_deal_spec.rb
 spec/models/v1_entities_webhooks_security_token_spec.rb

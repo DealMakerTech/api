@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The CreateCorporationProfileRequest model module.
  * @module model/CreateCorporationProfileRequest
- * @version 0.81.2
+ * @version 0.81.3
  */
 class CreateCorporationProfileRequest {
     /**

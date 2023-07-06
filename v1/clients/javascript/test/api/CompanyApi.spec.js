@@ -48,6 +48,16 @@
   }
 
   describe('CompanyApi', function() {
+    describe('createBulkUpload', function() {
+      it('should call createBulkUpload successfully', function(done) {
+        //uncomment below and update the code to test createBulkUpload
+        //instance.createBulkUpload(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('createCompany', function() {
       it('should call createCompany successfully', function(done) {
         //uncomment below and update the code to test createCompany

@@ -12,6 +12,7 @@ docs/Api/InvestorApi.md
 docs/Api/InvestorProfileApi.md
 docs/Api/ShareholderApi.md
 docs/Model/AddDocumentRequest.md
+docs/Model/CreateBulkUploadRequest.md
 docs/Model/CreateCompanyRequest.md
 docs/Model/CreateCorporationProfileRequest.md
 docs/Model/CreateDealSetupRequest.md
@@ -32,6 +33,7 @@ docs/Model/V1EntitiesAddress.md
 docs/Model/V1EntitiesAddresses.md
 docs/Model/V1EntitiesAttachment.md
 docs/Model/V1EntitiesBackgroundCheckSearch.md
+docs/Model/V1EntitiesBulkUpload.md
 docs/Model/V1EntitiesCompany.md
 docs/Model/V1EntitiesCompanyDeal.md
 docs/Model/V1EntitiesCompanyDeals.md
@@ -80,6 +82,7 @@ lib/ApiException.php
 lib/Configuration.php
 lib/HeaderSelector.php
 lib/Model/AddDocumentRequest.php
+lib/Model/CreateBulkUploadRequest.php
 lib/Model/CreateCompanyRequest.php
 lib/Model/CreateCorporationProfileRequest.php
 lib/Model/CreateDealSetupRequest.php
@@ -101,6 +104,7 @@ lib/Model/V1EntitiesAddress.php
 lib/Model/V1EntitiesAddresses.php
 lib/Model/V1EntitiesAttachment.php
 lib/Model/V1EntitiesBackgroundCheckSearch.php
+lib/Model/V1EntitiesBulkUpload.php
 lib/Model/V1EntitiesCompany.php
 lib/Model/V1EntitiesCompanyDeal.php
 lib/Model/V1EntitiesCompanyDeals.php
@@ -147,6 +151,7 @@ test/Api/InvestorApiTest.php
 test/Api/InvestorProfileApiTest.php
 test/Api/ShareholderApiTest.php
 test/Model/AddDocumentRequestTest.php
+test/Model/CreateBulkUploadRequestTest.php
 test/Model/CreateCompanyRequestTest.php
 test/Model/CreateCorporationProfileRequestTest.php
 test/Model/CreateDealSetupRequestTest.php
@@ -167,6 +172,7 @@ test/Model/V1EntitiesAddressTest.php
 test/Model/V1EntitiesAddressesTest.php
 test/Model/V1EntitiesAttachmentTest.php
 test/Model/V1EntitiesBackgroundCheckSearchTest.php
+test/Model/V1EntitiesBulkUploadTest.php
 test/Model/V1EntitiesCompanyDealTest.php
 test/Model/V1EntitiesCompanyDealsTest.php
 test/Model/V1EntitiesCompanyTest.php

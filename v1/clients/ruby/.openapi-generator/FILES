@@ -10,6 +10,7 @@ README.md
 Rakefile
 docs/AddDocumentRequest.md
 docs/CompanyApi.md
+docs/CreateBulkUploadRequest.md
 docs/CreateCompanyRequest.md
 docs/CreateCorporationProfileRequest.md
 docs/CreateDealSetupRequest.md
@@ -36,6 +37,7 @@ docs/V1EntitiesAddress.md
 docs/V1EntitiesAddresses.md
 docs/V1EntitiesAttachment.md
 docs/V1EntitiesBackgroundCheckSearch.md
+docs/V1EntitiesBulkUpload.md
 docs/V1EntitiesCompany.md
 docs/V1EntitiesCompanyDeal.md
 docs/V1EntitiesCompanyDeals.md
@@ -85,6 +87,7 @@ lib/DealMakerAPI/api_client.rb
 lib/DealMakerAPI/api_error.rb
 lib/DealMakerAPI/configuration.rb
 lib/DealMakerAPI/models/add_document_request.rb
+lib/DealMakerAPI/models/create_bulk_upload_request.rb
 lib/DealMakerAPI/models/create_company_request.rb
 lib/DealMakerAPI/models/create_corporation_profile_request.rb
 lib/DealMakerAPI/models/create_deal_setup_request.rb
@@ -105,6 +108,7 @@ lib/DealMakerAPI/models/v1_entities_address.rb
 lib/DealMakerAPI/models/v1_entities_addresses.rb
 lib/DealMakerAPI/models/v1_entities_attachment.rb
 lib/DealMakerAPI/models/v1_entities_background_check_search.rb
+lib/DealMakerAPI/models/v1_entities_bulk_upload.rb
 lib/DealMakerAPI/models/v1_entities_company.rb
 lib/DealMakerAPI/models/v1_entities_company_deal.rb
 lib/DealMakerAPI/models/v1_entities_company_deals.rb
@@ -152,6 +156,7 @@ spec/api/shareholder_api_spec.rb
 spec/api_client_spec.rb
 spec/configuration_spec.rb
 spec/models/add_document_request_spec.rb
+spec/models/create_bulk_upload_request_spec.rb
 spec/models/create_company_request_spec.rb
 spec/models/create_corporation_profile_request_spec.rb
 spec/models/create_deal_setup_request_spec.rb
@@ -172,6 +177,7 @@ spec/models/v1_entities_address_spec.rb
 spec/models/v1_entities_addresses_spec.rb
 spec/models/v1_entities_attachment_spec.rb
 spec/models/v1_entities_background_check_search_spec.rb
+spec/models/v1_entities_bulk_upload_spec.rb
 spec/models/v1_entities_company_deal_spec.rb
 spec/models/v1_entities_company_deals_spec.rb
 spec/models/v1_entities_company_spec.rb

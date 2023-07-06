@@ -14,6 +14,7 @@
 
 import ApiClient from './ApiClient';
 import AddDocumentRequest from './model/AddDocumentRequest';
+import CreateBulkUploadRequest from './model/CreateBulkUploadRequest';
 import CreateCompanyRequest from './model/CreateCompanyRequest';
 import CreateCorporationProfileRequest from './model/CreateCorporationProfileRequest';
 import CreateDealSetupRequest from './model/CreateDealSetupRequest';
@@ -34,6 +35,7 @@ import V1EntitiesAddress from './model/V1EntitiesAddress';
 import V1EntitiesAddresses from './model/V1EntitiesAddresses';
 import V1EntitiesAttachment from './model/V1EntitiesAttachment';
 import V1EntitiesBackgroundCheckSearch from './model/V1EntitiesBackgroundCheckSearch';
+import V1EntitiesBulkUpload from './model/V1EntitiesBulkUpload';
 import V1EntitiesCompany from './model/V1EntitiesCompany';
 import V1EntitiesCompanyDeal from './model/V1EntitiesCompanyDeal';
 import V1EntitiesCompanyDeals from './model/V1EntitiesCompanyDeals';
@@ -108,7 +110,7 @@ import ShareholderApi from './api/ShareholderApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.81.3
+* @version 0.82.0
 */
 export {
     /**
@@ -122,6 +124,12 @@ export {
      * @property {module:model/AddDocumentRequest}
      */
     AddDocumentRequest,
+
+    /**
+     * The CreateBulkUploadRequest model constructor.
+     * @property {module:model/CreateBulkUploadRequest}
+     */
+    CreateBulkUploadRequest,
 
     /**
      * The CreateCompanyRequest model constructor.
@@ -242,6 +250,12 @@ export {
      * @property {module:model/V1EntitiesBackgroundCheckSearch}
      */
     V1EntitiesBackgroundCheckSearch,
+
+    /**
+     * The V1EntitiesBulkUpload model constructor.
+     * @property {module:model/V1EntitiesBulkUpload}
+     */
+    V1EntitiesBulkUpload,
 
     /**
      * The V1EntitiesCompany model constructor.

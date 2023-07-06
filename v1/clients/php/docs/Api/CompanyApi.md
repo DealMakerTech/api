@@ -4,10 +4,70 @@ All URIs are relative to http://api.dealmaker.tech, except if the operation defi
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
+| [**createBulkUpload()**](CompanyApi.md#createBulkUpload) | **POST** /companies/{id}/documents/bulk_uploads | Create bulk upload record |
 | [**createCompany()**](CompanyApi.md#createCompany) | **POST** /companies | Create new company |
 | [**getCompanies()**](CompanyApi.md#getCompanies) | **GET** /companies | Get list of Companies |
 | [**getCompany()**](CompanyApi.md#getCompany) | **GET** /companies/{id} | Get a Company |
 
+
+## `createBulkUpload()`
+
+```php
+createBulkUpload($id, $create_bulk_upload_request): \DealMaker\Model\V1EntitiesBulkUpload
+```
+
+Create bulk upload record
+
+Create bulk upload record
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new DealMaker\Api\CompanyApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = 56; // int | The company id
+$create_bulk_upload_request = new \DealMaker\Model\CreateBulkUploadRequest(); // \DealMaker\Model\CreateBulkUploadRequest
+
+try {
+    $result = $apiInstance->createBulkUpload($id, $create_bulk_upload_request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CompanyApi->createBulkUpload: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **int**| The company id | |
+| **create_bulk_upload_request** | [**\DealMaker\Model\CreateBulkUploadRequest**](../Model/CreateBulkUploadRequest.md)|  | |
+
+### Return type
+
+[**\DealMaker\Model\V1EntitiesBulkUpload**](../Model/V1EntitiesBulkUpload.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
 
 ## `createCompany()`
 

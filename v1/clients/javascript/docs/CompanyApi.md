@@ -4,10 +4,59 @@ All URIs are relative to *http://api.dealmaker.tech*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**createBulkUpload**](CompanyApi.md#createBulkUpload) | **POST** /companies/{id}/documents/bulk_uploads | Create bulk upload record
 [**createCompany**](CompanyApi.md#createCompany) | **POST** /companies | Create new company
 [**getCompanies**](CompanyApi.md#getCompanies) | **GET** /companies | Get list of Companies
 [**getCompany**](CompanyApi.md#getCompany) | **GET** /companies/{id} | Get a Company
 
+
+
+## createBulkUpload
+
+> V1EntitiesBulkUpload createBulkUpload(id, createBulkUploadRequest)
+
+Create bulk upload record
+
+Create bulk upload record
+
+### Example
+
+```javascript
+import Api from 'api';
+let defaultClient = Api.ApiClient.instance;
+
+let apiInstance = new Api.CompanyApi();
+let id = 56; // Number | The company id
+let createBulkUploadRequest = new Api.CreateBulkUploadRequest(); // CreateBulkUploadRequest | 
+apiInstance.createBulkUpload(id, createBulkUploadRequest, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Number**| The company id | 
+ **createBulkUploadRequest** | [**CreateBulkUploadRequest**](CreateBulkUploadRequest.md)|  | 
+
+### Return type
+
+[**V1EntitiesBulkUpload**](V1EntitiesBulkUpload.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 
 ## createCompany

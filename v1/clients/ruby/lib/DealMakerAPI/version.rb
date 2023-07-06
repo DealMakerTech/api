@@ -11,5 +11,5 @@ OpenAPI Generator version: 7.0.0-SNAPSHOT
 =end
 
 module DealMakerAPI
-  VERSION = '0.81.3'
+  VERSION = '0.82.0'
 end

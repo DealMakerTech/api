@@ -1468,6 +1468,84 @@
         ]
       }
     },
+    "/companies/{id}/documents/bulk_uploads": {
+      "post": {
+        "summary": "Create bulk upload record",
+        "description": "Create bulk upload record",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "description": "The company id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "file",
+            "description": "The ZIP file.",
+            "type": "file",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "file_identifier",
+            "description": "The file identifier",
+            "type": "string",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "document_type",
+            "description": "The document type",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "security": [
+          {
+            "oauth": [
+              "internal"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/V1_Entities_BulkUpload"
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "tags": [
+          "company"
+        ],
+        "operationId": "createBulkUpload",
+        "x-codeSamples": [
+          {
+            "lang": "javascript",
+            "source": ""
+          },
+          {
+            "lang": "ruby",
+            "source": ""
+          }
+        ]
+      }
+    },
     "/deal_setups": {
       "post": {
         "summary": "Create deal setup",
@@ -5351,6 +5429,42 @@
           "description": "Shareholder tags."
         }
       }
+    },
+    "V1_Entities_BulkUpload": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32",
+          "description": "The bulk upload ID"
+        },
+        "company_id": {
+          "type": "integer",
+          "format": "int32",
+          "description": "The company ID"
+        },
+        "file_identifier": {
+          "type": "string",
+          "description": "The file identifier [shareholder, investor]"
+        },
+        "document_type": {
+          "type": "string",
+          "description": "The document type [drs_statement, shareholder_statement, book_entry_statement]"
+        },
+        "status": {
+          "type": "string",
+          "description": "The status [pending, processing, completed, failed]"
+        },
+        "created_at": {
+          "type": "string",
+          "description": "The created at timestamp"
+        },
+        "updated_at": {
+          "type": "string",
+          "description": "The updated at timestamp"
+        }
+      },
+      "description": "V1_Entities_BulkUpload model"
     },
     "V1_Entities_DealSetup": {
       "type": "object",

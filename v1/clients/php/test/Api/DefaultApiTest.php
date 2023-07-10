@@ -72,6 +72,30 @@ class DefaultApiTest extends TestCase
     }
 
     /**
+     * Test case for getDealsIdInvestorsInvestorIdPaymentsExpressWireInstructions
+     *
+     * Displays the express wire instructions for an investor on a deal.
+     *
+     */
+    public function testGetDealsIdInvestorsInvestorIdPaymentsExpressWireInstructions()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for getDealsIdInvestorsPaymentsExpressWireInstructions
+     *
+     * Displays the express wire instructions for all the investors on a deal.
+     *
+     */
+    public function testGetDealsIdInvestorsPaymentsExpressWireInstructions()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for getWebhooks
      *
      * Returns a list of webhook subscription which is associated to the user.

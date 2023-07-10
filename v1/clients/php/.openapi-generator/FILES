@@ -11,7 +11,9 @@ docs/Api/DefaultApi.md
 docs/Api/InvestorApi.md
 docs/Api/InvestorProfileApi.md
 docs/Api/ShareholderApi.md
+docs/Api/UploadApi.md
 docs/Model/AddDocumentRequest.md
+docs/Model/CreateBulkUploadRequest.md
 docs/Model/CreateCompanyRequest.md
 docs/Model/CreateCorporationProfileRequest.md
 docs/Model/CreateDealSetupRequest.md
@@ -20,6 +22,7 @@ docs/Model/CreateInvestorRequest.md
 docs/Model/CreateJointProfileRequest.md
 docs/Model/CreateTrustProfileRequest.md
 docs/Model/EditInvestorTagsRequest.md
+docs/Model/GenerateUrlRequest.md
 docs/Model/PatchCorporationProfileRequest.md
 docs/Model/PatchIndividualProfileRequest.md
 docs/Model/PatchInvestorRequest.md
@@ -32,6 +35,7 @@ docs/Model/V1EntitiesAddress.md
 docs/Model/V1EntitiesAddresses.md
 docs/Model/V1EntitiesAttachment.md
 docs/Model/V1EntitiesBackgroundCheckSearch.md
+docs/Model/V1EntitiesBulkUpload.md
 docs/Model/V1EntitiesCompany.md
 docs/Model/V1EntitiesCompanyDeal.md
 docs/Model/V1EntitiesCompanyDeals.md
@@ -43,6 +47,8 @@ docs/Model/V1EntitiesDealIssuer.md
 docs/Model/V1EntitiesDealSetup.md
 docs/Model/V1EntitiesDealSetupUser.md
 docs/Model/V1EntitiesDeals.md
+docs/Model/V1EntitiesExpressWireInstruction.md
+docs/Model/V1EntitiesExpressWireInstructions.md
 docs/Model/V1EntitiesInvestor.md
 docs/Model/V1EntitiesInvestorOtpAccessLink.md
 docs/Model/V1EntitiesInvestorProfileAddress.md
@@ -76,10 +82,12 @@ lib/Api/DefaultApi.php
 lib/Api/InvestorApi.php
 lib/Api/InvestorProfileApi.php
 lib/Api/ShareholderApi.php
+lib/Api/UploadApi.php
 lib/ApiException.php
 lib/Configuration.php
 lib/HeaderSelector.php
 lib/Model/AddDocumentRequest.php
+lib/Model/CreateBulkUploadRequest.php
 lib/Model/CreateCompanyRequest.php
 lib/Model/CreateCorporationProfileRequest.php
 lib/Model/CreateDealSetupRequest.php
@@ -88,6 +96,7 @@ lib/Model/CreateInvestorRequest.php
 lib/Model/CreateJointProfileRequest.php
 lib/Model/CreateTrustProfileRequest.php
 lib/Model/EditInvestorTagsRequest.php
+lib/Model/GenerateUrlRequest.php
 lib/Model/ModelInterface.php
 lib/Model/PatchCorporationProfileRequest.php
 lib/Model/PatchIndividualProfileRequest.php
@@ -101,6 +110,7 @@ lib/Model/V1EntitiesAddress.php
 lib/Model/V1EntitiesAddresses.php
 lib/Model/V1EntitiesAttachment.php
 lib/Model/V1EntitiesBackgroundCheckSearch.php
+lib/Model/V1EntitiesBulkUpload.php
 lib/Model/V1EntitiesCompany.php
 lib/Model/V1EntitiesCompanyDeal.php
 lib/Model/V1EntitiesCompanyDeals.php
@@ -112,6 +122,8 @@ lib/Model/V1EntitiesDealIssuer.php
 lib/Model/V1EntitiesDealSetup.php
 lib/Model/V1EntitiesDealSetupUser.php
 lib/Model/V1EntitiesDeals.php
+lib/Model/V1EntitiesExpressWireInstruction.php
+lib/Model/V1EntitiesExpressWireInstructions.php
 lib/Model/V1EntitiesInvestor.php
 lib/Model/V1EntitiesInvestorOtpAccessLink.php
 lib/Model/V1EntitiesInvestorProfileAddress.php
@@ -146,7 +158,9 @@ test/Api/DefaultApiTest.php
 test/Api/InvestorApiTest.php
 test/Api/InvestorProfileApiTest.php
 test/Api/ShareholderApiTest.php
+test/Api/UploadApiTest.php
 test/Model/AddDocumentRequestTest.php
+test/Model/CreateBulkUploadRequestTest.php
 test/Model/CreateCompanyRequestTest.php
 test/Model/CreateCorporationProfileRequestTest.php
 test/Model/CreateDealSetupRequestTest.php
@@ -155,6 +169,7 @@ test/Model/CreateInvestorRequestTest.php
 test/Model/CreateJointProfileRequestTest.php
 test/Model/CreateTrustProfileRequestTest.php
 test/Model/EditInvestorTagsRequestTest.php
+test/Model/GenerateUrlRequestTest.php
 test/Model/PatchCorporationProfileRequestTest.php
 test/Model/PatchIndividualProfileRequestTest.php
 test/Model/PatchInvestorRequestTest.php
@@ -167,6 +182,7 @@ test/Model/V1EntitiesAddressTest.php
 test/Model/V1EntitiesAddressesTest.php
 test/Model/V1EntitiesAttachmentTest.php
 test/Model/V1EntitiesBackgroundCheckSearchTest.php
+test/Model/V1EntitiesBulkUploadTest.php
 test/Model/V1EntitiesCompanyDealTest.php
 test/Model/V1EntitiesCompanyDealsTest.php
 test/Model/V1EntitiesCompanyTest.php
@@ -178,6 +194,8 @@ test/Model/V1EntitiesDealSetupTest.php
 test/Model/V1EntitiesDealSetupUserTest.php
 test/Model/V1EntitiesDealTest.php
 test/Model/V1EntitiesDealsTest.php
+test/Model/V1EntitiesExpressWireInstructionTest.php
+test/Model/V1EntitiesExpressWireInstructionsTest.php
 test/Model/V1EntitiesInvestorOtpAccessLinkTest.php
 test/Model/V1EntitiesInvestorProfileAddressTest.php
 test/Model/V1EntitiesInvestorProfileCorporationTest.php

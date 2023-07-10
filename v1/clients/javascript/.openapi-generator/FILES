@@ -5,6 +5,7 @@
 README.md
 docs/AddDocumentRequest.md
 docs/CompanyApi.md
+docs/CreateBulkUploadRequest.md
 docs/CreateCompanyRequest.md
 docs/CreateCorporationProfileRequest.md
 docs/CreateDealSetupRequest.md
@@ -16,6 +17,7 @@ docs/DealApi.md
 docs/DealSetupApi.md
 docs/DefaultApi.md
 docs/EditInvestorTagsRequest.md
+docs/GenerateUrlRequest.md
 docs/InvestorApi.md
 docs/InvestorProfileApi.md
 docs/PatchCorporationProfileRequest.md
@@ -27,10 +29,12 @@ docs/PostWebhooksRequest.md
 docs/PutWebhooksIdRequest.md
 docs/ShareholderApi.md
 docs/UpdateInvestorRequest.md
+docs/UploadApi.md
 docs/V1EntitiesAddress.md
 docs/V1EntitiesAddresses.md
 docs/V1EntitiesAttachment.md
 docs/V1EntitiesBackgroundCheckSearch.md
+docs/V1EntitiesBulkUpload.md
 docs/V1EntitiesCompany.md
 docs/V1EntitiesCompanyDeal.md
 docs/V1EntitiesCompanyDeals.md
@@ -42,6 +46,8 @@ docs/V1EntitiesDealIssuer.md
 docs/V1EntitiesDealSetup.md
 docs/V1EntitiesDealSetupUser.md
 docs/V1EntitiesDeals.md
+docs/V1EntitiesExpressWireInstruction.md
+docs/V1EntitiesExpressWireInstructions.md
 docs/V1EntitiesInvestor.md
 docs/V1EntitiesInvestorOtpAccessLink.md
 docs/V1EntitiesInvestorProfileAddress.md
@@ -78,8 +84,10 @@ src/api/DefaultApi.js
 src/api/InvestorApi.js
 src/api/InvestorProfileApi.js
 src/api/ShareholderApi.js
+src/api/UploadApi.js
 src/index.js
 src/model/AddDocumentRequest.js
+src/model/CreateBulkUploadRequest.js
 src/model/CreateCompanyRequest.js
 src/model/CreateCorporationProfileRequest.js
 src/model/CreateDealSetupRequest.js
@@ -88,6 +96,7 @@ src/model/CreateInvestorRequest.js
 src/model/CreateJointProfileRequest.js
 src/model/CreateTrustProfileRequest.js
 src/model/EditInvestorTagsRequest.js
+src/model/GenerateUrlRequest.js
 src/model/PatchCorporationProfileRequest.js
 src/model/PatchIndividualProfileRequest.js
 src/model/PatchInvestorRequest.js
@@ -100,6 +109,7 @@ src/model/V1EntitiesAddress.js
 src/model/V1EntitiesAddresses.js
 src/model/V1EntitiesAttachment.js
 src/model/V1EntitiesBackgroundCheckSearch.js
+src/model/V1EntitiesBulkUpload.js
 src/model/V1EntitiesCompany.js
 src/model/V1EntitiesCompanyDeal.js
 src/model/V1EntitiesCompanyDeals.js
@@ -111,6 +121,8 @@ src/model/V1EntitiesDealIssuer.js
 src/model/V1EntitiesDealSetup.js
 src/model/V1EntitiesDealSetupUser.js
 src/model/V1EntitiesDeals.js
+src/model/V1EntitiesExpressWireInstruction.js
+src/model/V1EntitiesExpressWireInstructions.js
 src/model/V1EntitiesInvestor.js
 src/model/V1EntitiesInvestorOtpAccessLink.js
 src/model/V1EntitiesInvestorProfileAddress.js
@@ -143,7 +155,9 @@ test/api/DefaultApi.spec.js
 test/api/InvestorApi.spec.js
 test/api/InvestorProfileApi.spec.js
 test/api/ShareholderApi.spec.js
+test/api/UploadApi.spec.js
 test/model/AddDocumentRequest.spec.js
+test/model/CreateBulkUploadRequest.spec.js
 test/model/CreateCompanyRequest.spec.js
 test/model/CreateCorporationProfileRequest.spec.js
 test/model/CreateDealSetupRequest.spec.js
@@ -152,6 +166,7 @@ test/model/CreateInvestorRequest.spec.js
 test/model/CreateJointProfileRequest.spec.js
 test/model/CreateTrustProfileRequest.spec.js
 test/model/EditInvestorTagsRequest.spec.js
+test/model/GenerateUrlRequest.spec.js
 test/model/PatchCorporationProfileRequest.spec.js
 test/model/PatchIndividualProfileRequest.spec.js
 test/model/PatchInvestorRequest.spec.js
@@ -164,6 +179,7 @@ test/model/V1EntitiesAddress.spec.js
 test/model/V1EntitiesAddresses.spec.js
 test/model/V1EntitiesAttachment.spec.js
 test/model/V1EntitiesBackgroundCheckSearch.spec.js
+test/model/V1EntitiesBulkUpload.spec.js
 test/model/V1EntitiesCompany.spec.js
 test/model/V1EntitiesCompanyDeal.spec.js
 test/model/V1EntitiesCompanyDeals.spec.js
@@ -175,6 +191,8 @@ test/model/V1EntitiesDealIssuer.spec.js
 test/model/V1EntitiesDealSetup.spec.js
 test/model/V1EntitiesDealSetupUser.spec.js
 test/model/V1EntitiesDeals.spec.js
+test/model/V1EntitiesExpressWireInstruction.spec.js
+test/model/V1EntitiesExpressWireInstructions.spec.js
 test/model/V1EntitiesInvestor.spec.js
 test/model/V1EntitiesInvestorOtpAccessLink.spec.js
 test/model/V1EntitiesInvestorProfileAddress.spec.js

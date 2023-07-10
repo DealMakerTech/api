@@ -106,6 +106,11 @@
       "name": "address_model",
       "description": "<SchemaDefinition schemaRef=\"#/components/schemas/V1_Entities_Address\" />",
       "x-displayName": "Address"
+    },
+    {
+      "name": "upload",
+      "description": "Presigned url for interacting with a defined S3 buckets",
+      "x-displayName": "Upload"
     }
   ],
   "paths": {
@@ -1131,6 +1136,99 @@
         ]
       }
     },
+    "/deals/{id}/investors/{investor_id}/payments/express_wire/instructions": {
+      "get": {
+        "summary": "Displays the express wire instructions for an investor on a deal",
+        "description": "Get express wire instructions",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          },
+          {
+            "in": "path",
+            "name": "investor_id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "security": [
+          {
+            "oauth": [
+              "deals.investors.read"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get express wire instructions",
+            "schema": {
+              "$ref": "#/definitions/V1_Entities_ExpressWireInstruction"
+            }
+          },
+          "404": {
+            "description": "Not found"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "tags": [
+
+        ],
+        "operationId": "getDealsIdInvestorsInvestorIdPaymentsExpressWireInstructions"
+      }
+    },
+    "/deals/{id}/investors/payments/express_wire/instructions": {
+      "get": {
+        "summary": "Displays the express wire instructions for all the investors on a deal",
+        "description": "Get list of express wire instructions",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "security": [
+          {
+            "oauth": [
+              "deals.investors.read"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get list of express wire instructions",
+            "schema": {
+              "$ref": "#/definitions/V1_Entities_ExpressWireInstructions"
+            }
+          },
+          "404": {
+            "description": "Not found"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "tags": [
+
+        ],
+        "operationId": "getDealsIdInvestorsPaymentsExpressWireInstructions"
+      }
+    },
     "/companies/{id}/shareholders/tags": {
       "get": {
         "summary": "Get a company shareholders list grouped by tags",
@@ -1456,6 +1554,84 @@
           "company"
         ],
         "operationId": "getCompany",
+        "x-codeSamples": [
+          {
+            "lang": "javascript",
+            "source": ""
+          },
+          {
+            "lang": "ruby",
+            "source": ""
+          }
+        ]
+      }
+    },
+    "/companies/{id}/documents/bulk_uploads": {
+      "post": {
+        "summary": "Create bulk upload record",
+        "description": "Create bulk upload record",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "description": "The company id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "file",
+            "description": "The ZIP file.",
+            "type": "file",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "file_identifier",
+            "description": "The file identifier",
+            "type": "string",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "document_type",
+            "description": "The document type",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "security": [
+          {
+            "oauth": [
+              "internal"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/V1_Entities_BulkUpload"
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "tags": [
+          "company"
+        ],
+        "operationId": "createBulkUpload",
         "x-codeSamples": [
           {
             "lang": "javascript",
@@ -4342,6 +4518,59 @@
         ],
         "operationId": "postWebhooks"
       }
+    },
+    "/uploads/generate_url": {
+      "post": {
+        "summary": "Create a presigned URL for Amazon S3",
+        "description": "Create a presigned URL for Amazon S3",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "formData",
+            "name": "filename",
+            "description": "The name of the file to be uploaded to S3.",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "security": [
+          {
+            "oauth": [
+              "internal"
+            ]
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Create a presigned URL for Amazon S3"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "tags": [
+          "upload"
+        ],
+        "operationId": "generateUrl",
+        "x-codeSamples": [
+          {
+            "lang": "javascript",
+            "source": ""
+          },
+          {
+            "lang": "ruby",
+            "source": ""
+          }
+        ]
+      }
     }
   },
   "definitions": {
@@ -5309,6 +5538,53 @@
       },
       "description": "V1_Entities_Deals model"
     },
+    "V1_Entities_ExpressWireInstruction": {
+      "type": "object",
+      "properties": {
+        "investor_id": {
+          "type": "string",
+          "description": "The id of the investor"
+        },
+        "bank_name": {
+          "type": "string",
+          "description": "Name of the bank for the payment"
+        },
+        "bank_address": {
+          "type": "string",
+          "description": "Address of the bank for the payment"
+        },
+        "beneficiary_address": {
+          "type": "string",
+          "description": "Address of the beneficiary for the payment"
+        },
+        "beneficiary_name": {
+          "type": "string",
+          "description": "Name of the beneficiary for the payment"
+        },
+        "account_number": {
+          "type": "string",
+          "description": "Account number for the payment"
+        },
+        "aba_routing": {
+          "type": "string",
+          "description": "Aba routing number for the payment"
+        },
+        "swift_code": {
+          "type": "string",
+          "description": "Swift code for the payment"
+        }
+      },
+      "description": "V1_Entities_ExpressWireInstruction model"
+    },
+    "V1_Entities_ExpressWireInstructions": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "$ref": "#/definitions/V1_Entities_ExpressWireInstruction"
+        }
+      },
+      "description": "V1_Entities_ExpressWireInstructions model"
+    },
     "V1_Entities_ShareholdersTags": {
       "type": "object",
       "properties": {
@@ -5351,6 +5627,42 @@
           "description": "Shareholder tags."
         }
       }
+    },
+    "V1_Entities_BulkUpload": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32",
+          "description": "The bulk upload ID"
+        },
+        "company_id": {
+          "type": "integer",
+          "format": "int32",
+          "description": "The company ID"
+        },
+        "file_identifier": {
+          "type": "string",
+          "description": "The file identifier [shareholder, investor]"
+        },
+        "document_type": {
+          "type": "string",
+          "description": "The document type [drs_statement, shareholder_statement, book_entry_statement]"
+        },
+        "status": {
+          "type": "string",
+          "description": "The status [pending, processing, completed, failed]"
+        },
+        "created_at": {
+          "type": "string",
+          "description": "The created at timestamp"
+        },
+        "updated_at": {
+          "type": "string",
+          "description": "The updated at timestamp"
+        }
+      },
+      "description": "V1_Entities_BulkUpload model"
     },
     "V1_Entities_DealSetup": {
       "type": "object",

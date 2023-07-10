@@ -71,6 +71,12 @@ class DefaultApi
 
     /** @var string[] $contentTypes **/
     public const contentTypes = [
+        'getDealsIdInvestorsInvestorIdPaymentsExpressWireInstructions' => [
+            'application/json',
+        ],
+        'getDealsIdInvestorsPaymentsExpressWireInstructions' => [
+            'application/json',
+        ],
         'getWebhooks' => [
             'application/json',
         ],
@@ -135,6 +141,592 @@ class DefaultApi
     public function getConfig()
     {
         return $this->config;
+    }
+
+    /**
+     * Operation getDealsIdInvestorsInvestorIdPaymentsExpressWireInstructions
+     *
+     * Displays the express wire instructions for an investor on a deal
+     *
+     * @param  int $id id (required)
+     * @param  int $investor_id investor_id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDealsIdInvestorsInvestorIdPaymentsExpressWireInstructions'] to see the possible values for this operation
+     *
+     * @throws \DealMaker\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \DealMaker\Model\V1EntitiesExpressWireInstruction
+     */
+    public function getDealsIdInvestorsInvestorIdPaymentsExpressWireInstructions($id, $investor_id, string $contentType = self::contentTypes['getDealsIdInvestorsInvestorIdPaymentsExpressWireInstructions'][0])
+    {
+        list($response) = $this->getDealsIdInvestorsInvestorIdPaymentsExpressWireInstructionsWithHttpInfo($id, $investor_id, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation getDealsIdInvestorsInvestorIdPaymentsExpressWireInstructionsWithHttpInfo
+     *
+     * Displays the express wire instructions for an investor on a deal
+     *
+     * @param  int $id (required)
+     * @param  int $investor_id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDealsIdInvestorsInvestorIdPaymentsExpressWireInstructions'] to see the possible values for this operation
+     *
+     * @throws \DealMaker\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \DealMaker\Model\V1EntitiesExpressWireInstruction, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getDealsIdInvestorsInvestorIdPaymentsExpressWireInstructionsWithHttpInfo($id, $investor_id, string $contentType = self::contentTypes['getDealsIdInvestorsInvestorIdPaymentsExpressWireInstructions'][0])
+    {
+        $request = $this->getDealsIdInvestorsInvestorIdPaymentsExpressWireInstructionsRequest($id, $investor_id, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\DealMaker\Model\V1EntitiesExpressWireInstruction' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\DealMaker\Model\V1EntitiesExpressWireInstruction' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\DealMaker\Model\V1EntitiesExpressWireInstruction', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\DealMaker\Model\V1EntitiesExpressWireInstruction';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\DealMaker\Model\V1EntitiesExpressWireInstruction',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getDealsIdInvestorsInvestorIdPaymentsExpressWireInstructionsAsync
+     *
+     * Displays the express wire instructions for an investor on a deal
+     *
+     * @param  int $id (required)
+     * @param  int $investor_id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDealsIdInvestorsInvestorIdPaymentsExpressWireInstructions'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getDealsIdInvestorsInvestorIdPaymentsExpressWireInstructionsAsync($id, $investor_id, string $contentType = self::contentTypes['getDealsIdInvestorsInvestorIdPaymentsExpressWireInstructions'][0])
+    {
+        return $this->getDealsIdInvestorsInvestorIdPaymentsExpressWireInstructionsAsyncWithHttpInfo($id, $investor_id, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getDealsIdInvestorsInvestorIdPaymentsExpressWireInstructionsAsyncWithHttpInfo
+     *
+     * Displays the express wire instructions for an investor on a deal
+     *
+     * @param  int $id (required)
+     * @param  int $investor_id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDealsIdInvestorsInvestorIdPaymentsExpressWireInstructions'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getDealsIdInvestorsInvestorIdPaymentsExpressWireInstructionsAsyncWithHttpInfo($id, $investor_id, string $contentType = self::contentTypes['getDealsIdInvestorsInvestorIdPaymentsExpressWireInstructions'][0])
+    {
+        $returnType = '\DealMaker\Model\V1EntitiesExpressWireInstruction';
+        $request = $this->getDealsIdInvestorsInvestorIdPaymentsExpressWireInstructionsRequest($id, $investor_id, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getDealsIdInvestorsInvestorIdPaymentsExpressWireInstructions'
+     *
+     * @param  int $id (required)
+     * @param  int $investor_id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDealsIdInvestorsInvestorIdPaymentsExpressWireInstructions'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getDealsIdInvestorsInvestorIdPaymentsExpressWireInstructionsRequest($id, $investor_id, string $contentType = self::contentTypes['getDealsIdInvestorsInvestorIdPaymentsExpressWireInstructions'][0])
+    {
+
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling getDealsIdInvestorsInvestorIdPaymentsExpressWireInstructions'
+            );
+        }
+
+        // verify the required parameter 'investor_id' is set
+        if ($investor_id === null || (is_array($investor_id) && count($investor_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $investor_id when calling getDealsIdInvestorsInvestorIdPaymentsExpressWireInstructions'
+            );
+        }
+
+
+        $resourcePath = '/deals/{id}/investors/{investor_id}/payments/express_wire/instructions';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'id' . '}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($investor_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'investor_id' . '}',
+                ObjectSerializer::toPathValue($investor_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getDealsIdInvestorsPaymentsExpressWireInstructions
+     *
+     * Displays the express wire instructions for all the investors on a deal
+     *
+     * @param  int $id id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDealsIdInvestorsPaymentsExpressWireInstructions'] to see the possible values for this operation
+     *
+     * @throws \DealMaker\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \DealMaker\Model\V1EntitiesExpressWireInstructions
+     */
+    public function getDealsIdInvestorsPaymentsExpressWireInstructions($id, string $contentType = self::contentTypes['getDealsIdInvestorsPaymentsExpressWireInstructions'][0])
+    {
+        list($response) = $this->getDealsIdInvestorsPaymentsExpressWireInstructionsWithHttpInfo($id, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation getDealsIdInvestorsPaymentsExpressWireInstructionsWithHttpInfo
+     *
+     * Displays the express wire instructions for all the investors on a deal
+     *
+     * @param  int $id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDealsIdInvestorsPaymentsExpressWireInstructions'] to see the possible values for this operation
+     *
+     * @throws \DealMaker\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \DealMaker\Model\V1EntitiesExpressWireInstructions, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getDealsIdInvestorsPaymentsExpressWireInstructionsWithHttpInfo($id, string $contentType = self::contentTypes['getDealsIdInvestorsPaymentsExpressWireInstructions'][0])
+    {
+        $request = $this->getDealsIdInvestorsPaymentsExpressWireInstructionsRequest($id, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\DealMaker\Model\V1EntitiesExpressWireInstructions' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\DealMaker\Model\V1EntitiesExpressWireInstructions' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\DealMaker\Model\V1EntitiesExpressWireInstructions', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\DealMaker\Model\V1EntitiesExpressWireInstructions';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\DealMaker\Model\V1EntitiesExpressWireInstructions',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getDealsIdInvestorsPaymentsExpressWireInstructionsAsync
+     *
+     * Displays the express wire instructions for all the investors on a deal
+     *
+     * @param  int $id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDealsIdInvestorsPaymentsExpressWireInstructions'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getDealsIdInvestorsPaymentsExpressWireInstructionsAsync($id, string $contentType = self::contentTypes['getDealsIdInvestorsPaymentsExpressWireInstructions'][0])
+    {
+        return $this->getDealsIdInvestorsPaymentsExpressWireInstructionsAsyncWithHttpInfo($id, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getDealsIdInvestorsPaymentsExpressWireInstructionsAsyncWithHttpInfo
+     *
+     * Displays the express wire instructions for all the investors on a deal
+     *
+     * @param  int $id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDealsIdInvestorsPaymentsExpressWireInstructions'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getDealsIdInvestorsPaymentsExpressWireInstructionsAsyncWithHttpInfo($id, string $contentType = self::contentTypes['getDealsIdInvestorsPaymentsExpressWireInstructions'][0])
+    {
+        $returnType = '\DealMaker\Model\V1EntitiesExpressWireInstructions';
+        $request = $this->getDealsIdInvestorsPaymentsExpressWireInstructionsRequest($id, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getDealsIdInvestorsPaymentsExpressWireInstructions'
+     *
+     * @param  int $id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDealsIdInvestorsPaymentsExpressWireInstructions'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getDealsIdInvestorsPaymentsExpressWireInstructionsRequest($id, string $contentType = self::contentTypes['getDealsIdInvestorsPaymentsExpressWireInstructions'][0])
+    {
+
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling getDealsIdInvestorsPaymentsExpressWireInstructions'
+            );
+        }
+
+
+        $resourcePath = '/deals/{id}/investors/payments/express_wire/instructions';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'id' . '}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
     }
 
     /**

@@ -4,9 +4,78 @@ All URIs are relative to *http://api.dealmaker.tech*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
+| [**create_bulk_upload**](CompanyApi.md#create_bulk_upload) | **POST** /companies/{id}/documents/bulk_uploads | Create bulk upload record |
 | [**create_company**](CompanyApi.md#create_company) | **POST** /companies | Create new company |
 | [**get_companies**](CompanyApi.md#get_companies) | **GET** /companies | Get list of Companies |
 | [**get_company**](CompanyApi.md#get_company) | **GET** /companies/{id} | Get a Company |
+
+
+## create_bulk_upload
+
+> <V1EntitiesBulkUpload> create_bulk_upload(id, create_bulk_upload_request)
+
+Create bulk upload record
+
+Create bulk upload record
+
+### Examples
+
+```ruby
+require 'time'
+require 'DealMakerAPI'
+# setup authorization
+DealMakerAPI.configure do |config|end
+
+api_instance = DealMakerAPI::CompanyApi.new
+id = 56 # Integer | The company id
+create_bulk_upload_request = DealMakerAPI::CreateBulkUploadRequest.new({file: File.new('/path/to/some/file'), file_identifier: 'file_identifier_example', document_type: 'document_type_example'}) # CreateBulkUploadRequest | 
+
+begin
+  # Create bulk upload record
+  result = api_instance.create_bulk_upload(id, create_bulk_upload_request)
+  p result
+rescue DealMakerAPI::ApiError => e
+  puts "Error when calling CompanyApi->create_bulk_upload: #{e}"
+end
+```
+
+#### Using the create_bulk_upload_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<V1EntitiesBulkUpload>, Integer, Hash)> create_bulk_upload_with_http_info(id, create_bulk_upload_request)
+
+```ruby
+begin
+  # Create bulk upload record
+  data, status_code, headers = api_instance.create_bulk_upload_with_http_info(id, create_bulk_upload_request)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <V1EntitiesBulkUpload>
+rescue DealMakerAPI::ApiError => e
+  puts "Error when calling CompanyApi->create_bulk_upload_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **id** | **Integer** | The company id |  |
+| **create_bulk_upload_request** | [**CreateBulkUploadRequest**](CreateBulkUploadRequest.md) |  |  |
+
+### Return type
+
+[**V1EntitiesBulkUpload**](V1EntitiesBulkUpload.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 
 ## create_company

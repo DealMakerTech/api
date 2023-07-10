@@ -19,6 +19,138 @@ module DealMakerAPI
     def initialize(api_client = ApiClient.default)
       @api_client = api_client
     end
+    # Displays the express wire instructions for an investor on a deal
+    # Get express wire instructions
+    # @param id [Integer] 
+    # @param investor_id [Integer] 
+    # @param [Hash] opts the optional parameters
+    # @return [V1EntitiesExpressWireInstruction]
+    def get_deals_id_investors_investor_id_payments_express_wire_instructions(id, investor_id, opts = {})
+      data, _status_code, _headers = get_deals_id_investors_investor_id_payments_express_wire_instructions_with_http_info(id, investor_id, opts)
+      data
+    end
+
+    # Displays the express wire instructions for an investor on a deal
+    # Get express wire instructions
+    # @param id [Integer] 
+    # @param investor_id [Integer] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(V1EntitiesExpressWireInstruction, Integer, Hash)>] V1EntitiesExpressWireInstruction data, response status code and response headers
+    def get_deals_id_investors_investor_id_payments_express_wire_instructions_with_http_info(id, investor_id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: DefaultApi.get_deals_id_investors_investor_id_payments_express_wire_instructions ...'
+      end
+      # verify the required parameter 'id' is set
+      if @api_client.config.client_side_validation && id.nil?
+        fail ArgumentError, "Missing the required parameter 'id' when calling DefaultApi.get_deals_id_investors_investor_id_payments_express_wire_instructions"
+      end
+      # verify the required parameter 'investor_id' is set
+      if @api_client.config.client_side_validation && investor_id.nil?
+        fail ArgumentError, "Missing the required parameter 'investor_id' when calling DefaultApi.get_deals_id_investors_investor_id_payments_express_wire_instructions"
+      end
+      # resource path
+      local_var_path = '/deals/{id}/investors/{investor_id}/payments/express_wire/instructions'.sub('{' + 'id' + '}', CGI.escape(id.to_s)).sub('{' + 'investor_id' + '}', CGI.escape(investor_id.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'V1EntitiesExpressWireInstruction'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"DefaultApi.get_deals_id_investors_investor_id_payments_express_wire_instructions",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: DefaultApi#get_deals_id_investors_investor_id_payments_express_wire_instructions\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Displays the express wire instructions for all the investors on a deal
+    # Get list of express wire instructions
+    # @param id [Integer] 
+    # @param [Hash] opts the optional parameters
+    # @return [V1EntitiesExpressWireInstructions]
+    def get_deals_id_investors_payments_express_wire_instructions(id, opts = {})
+      data, _status_code, _headers = get_deals_id_investors_payments_express_wire_instructions_with_http_info(id, opts)
+      data
+    end
+
+    # Displays the express wire instructions for all the investors on a deal
+    # Get list of express wire instructions
+    # @param id [Integer] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(V1EntitiesExpressWireInstructions, Integer, Hash)>] V1EntitiesExpressWireInstructions data, response status code and response headers
+    def get_deals_id_investors_payments_express_wire_instructions_with_http_info(id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: DefaultApi.get_deals_id_investors_payments_express_wire_instructions ...'
+      end
+      # verify the required parameter 'id' is set
+      if @api_client.config.client_side_validation && id.nil?
+        fail ArgumentError, "Missing the required parameter 'id' when calling DefaultApi.get_deals_id_investors_payments_express_wire_instructions"
+      end
+      # resource path
+      local_var_path = '/deals/{id}/investors/payments/express_wire/instructions'.sub('{' + 'id' + '}', CGI.escape(id.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'V1EntitiesExpressWireInstructions'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"DefaultApi.get_deals_id_investors_payments_express_wire_instructions",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: DefaultApi#get_deals_id_investors_payments_express_wire_instructions\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Returns a list of webhook subscription which is associated to the user
     # Returns a list of webhook subscription
     # @param [Hash] opts the optional parameters

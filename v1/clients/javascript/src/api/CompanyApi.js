@@ -13,13 +13,15 @@
 
 
 import ApiClient from "../ApiClient";
+import CreateBulkUploadRequest from '../model/CreateBulkUploadRequest';
 import CreateCompanyRequest from '../model/CreateCompanyRequest';
+import V1EntitiesBulkUpload from '../model/V1EntitiesBulkUpload';
 import V1EntitiesCompany from '../model/V1EntitiesCompany';
 
 /**
 * Company service.
 * @module api/CompanyApi
-* @version 0.81.3
+* @version 0.82.1
 */
 export default class CompanyApi {
 
@@ -34,6 +36,54 @@ export default class CompanyApi {
         this.apiClient = apiClient || ApiClient.instance;
     }
 
+
+    /**
+     * Callback function to receive the result of the createBulkUpload operation.
+     * @callback module:api/CompanyApi~createBulkUploadCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/V1EntitiesBulkUpload} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Create bulk upload record
+     * Create bulk upload record
+     * @param {Number} id The company id
+     * @param {module:model/CreateBulkUploadRequest} createBulkUploadRequest 
+     * @param {module:api/CompanyApi~createBulkUploadCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/V1EntitiesBulkUpload}
+     */
+    createBulkUpload(id, createBulkUploadRequest, callback) {
+      let postBody = createBulkUploadRequest;
+      // verify the required parameter 'id' is set
+      if (id === undefined || id === null) {
+        throw new Error("Missing the required parameter 'id' when calling createBulkUpload");
+      }
+      // verify the required parameter 'createBulkUploadRequest' is set
+      if (createBulkUploadRequest === undefined || createBulkUploadRequest === null) {
+        throw new Error("Missing the required parameter 'createBulkUploadRequest' when calling createBulkUpload");
+      }
+
+      let pathParams = {
+        'id': id
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = V1EntitiesBulkUpload;
+      return this.apiClient.callApi(
+        '/companies/{id}/documents/bulk_uploads', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
 
     /**
      * Callback function to receive the result of the createCompany operation.

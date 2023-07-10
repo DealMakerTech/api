@@ -14,6 +14,7 @@
 
 import ApiClient from './ApiClient';
 import AddDocumentRequest from './model/AddDocumentRequest';
+import CreateBulkUploadRequest from './model/CreateBulkUploadRequest';
 import CreateCompanyRequest from './model/CreateCompanyRequest';
 import CreateCorporationProfileRequest from './model/CreateCorporationProfileRequest';
 import CreateDealSetupRequest from './model/CreateDealSetupRequest';
@@ -22,6 +23,7 @@ import CreateInvestorRequest from './model/CreateInvestorRequest';
 import CreateJointProfileRequest from './model/CreateJointProfileRequest';
 import CreateTrustProfileRequest from './model/CreateTrustProfileRequest';
 import EditInvestorTagsRequest from './model/EditInvestorTagsRequest';
+import GenerateUrlRequest from './model/GenerateUrlRequest';
 import PatchCorporationProfileRequest from './model/PatchCorporationProfileRequest';
 import PatchIndividualProfileRequest from './model/PatchIndividualProfileRequest';
 import PatchInvestorRequest from './model/PatchInvestorRequest';
@@ -34,6 +36,7 @@ import V1EntitiesAddress from './model/V1EntitiesAddress';
 import V1EntitiesAddresses from './model/V1EntitiesAddresses';
 import V1EntitiesAttachment from './model/V1EntitiesAttachment';
 import V1EntitiesBackgroundCheckSearch from './model/V1EntitiesBackgroundCheckSearch';
+import V1EntitiesBulkUpload from './model/V1EntitiesBulkUpload';
 import V1EntitiesCompany from './model/V1EntitiesCompany';
 import V1EntitiesCompanyDeal from './model/V1EntitiesCompanyDeal';
 import V1EntitiesCompanyDeals from './model/V1EntitiesCompanyDeals';
@@ -45,6 +48,8 @@ import V1EntitiesDealIssuer from './model/V1EntitiesDealIssuer';
 import V1EntitiesDealSetup from './model/V1EntitiesDealSetup';
 import V1EntitiesDealSetupUser from './model/V1EntitiesDealSetupUser';
 import V1EntitiesDeals from './model/V1EntitiesDeals';
+import V1EntitiesExpressWireInstruction from './model/V1EntitiesExpressWireInstruction';
+import V1EntitiesExpressWireInstructions from './model/V1EntitiesExpressWireInstructions';
 import V1EntitiesInvestor from './model/V1EntitiesInvestor';
 import V1EntitiesInvestorOtpAccessLink from './model/V1EntitiesInvestorOtpAccessLink';
 import V1EntitiesInvestorProfileAddress from './model/V1EntitiesInvestorProfileAddress';
@@ -77,6 +82,7 @@ import DefaultApi from './api/DefaultApi';
 import InvestorApi from './api/InvestorApi';
 import InvestorProfileApi from './api/InvestorProfileApi';
 import ShareholderApi from './api/ShareholderApi';
+import UploadApi from './api/UploadApi';
 
 
 /**
@@ -108,7 +114,7 @@ import ShareholderApi from './api/ShareholderApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.81.3
+* @version 0.82.1
 */
 export {
     /**
@@ -122,6 +128,12 @@ export {
      * @property {module:model/AddDocumentRequest}
      */
     AddDocumentRequest,
+
+    /**
+     * The CreateBulkUploadRequest model constructor.
+     * @property {module:model/CreateBulkUploadRequest}
+     */
+    CreateBulkUploadRequest,
 
     /**
      * The CreateCompanyRequest model constructor.
@@ -170,6 +182,12 @@ export {
      * @property {module:model/EditInvestorTagsRequest}
      */
     EditInvestorTagsRequest,
+
+    /**
+     * The GenerateUrlRequest model constructor.
+     * @property {module:model/GenerateUrlRequest}
+     */
+    GenerateUrlRequest,
 
     /**
      * The PatchCorporationProfileRequest model constructor.
@@ -244,6 +262,12 @@ export {
     V1EntitiesBackgroundCheckSearch,
 
     /**
+     * The V1EntitiesBulkUpload model constructor.
+     * @property {module:model/V1EntitiesBulkUpload}
+     */
+    V1EntitiesBulkUpload,
+
+    /**
      * The V1EntitiesCompany model constructor.
      * @property {module:model/V1EntitiesCompany}
      */
@@ -308,6 +332,18 @@ export {
      * @property {module:model/V1EntitiesDeals}
      */
     V1EntitiesDeals,
+
+    /**
+     * The V1EntitiesExpressWireInstruction model constructor.
+     * @property {module:model/V1EntitiesExpressWireInstruction}
+     */
+    V1EntitiesExpressWireInstruction,
+
+    /**
+     * The V1EntitiesExpressWireInstructions model constructor.
+     * @property {module:model/V1EntitiesExpressWireInstructions}
+     */
+    V1EntitiesExpressWireInstructions,
 
     /**
      * The V1EntitiesInvestor model constructor.
@@ -499,5 +535,11 @@ export {
     * The ShareholderApi service constructor.
     * @property {module:api/ShareholderApi}
     */
-    ShareholderApi
+    ShareholderApi,
+
+    /**
+    * The UploadApi service constructor.
+    * @property {module:api/UploadApi}
+    */
+    UploadApi
 };

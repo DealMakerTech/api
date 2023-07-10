@@ -32,6 +32,31 @@ describe 'DefaultApi' do
     end
   end
 
+  # unit tests for get_deals_id_investors_investor_id_payments_express_wire_instructions
+  # Displays the express wire instructions for an investor on a deal
+  # Get express wire instructions
+  # @param id 
+  # @param investor_id 
+  # @param [Hash] opts the optional parameters
+  # @return [V1EntitiesExpressWireInstruction]
+  describe 'get_deals_id_investors_investor_id_payments_express_wire_instructions test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for get_deals_id_investors_payments_express_wire_instructions
+  # Displays the express wire instructions for all the investors on a deal
+  # Get list of express wire instructions
+  # @param id 
+  # @param [Hash] opts the optional parameters
+  # @return [V1EntitiesExpressWireInstructions]
+  describe 'get_deals_id_investors_payments_express_wire_instructions test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for get_webhooks
   # Returns a list of webhook subscription which is associated to the user
   # Returns a list of webhook subscription

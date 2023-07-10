@@ -15,6 +15,8 @@
 import ApiClient from "../ApiClient";
 import PostWebhooksRequest from '../model/PostWebhooksRequest';
 import PutWebhooksIdRequest from '../model/PutWebhooksIdRequest';
+import V1EntitiesExpressWireInstruction from '../model/V1EntitiesExpressWireInstruction';
+import V1EntitiesExpressWireInstructions from '../model/V1EntitiesExpressWireInstructions';
 import V1EntitiesWebhooksDeal from '../model/V1EntitiesWebhooksDeal';
 import V1EntitiesWebhooksSecurityToken from '../model/V1EntitiesWebhooksSecurityToken';
 import V1EntitiesWebhooksSubscription from '../model/V1EntitiesWebhooksSubscription';
@@ -22,7 +24,7 @@ import V1EntitiesWebhooksSubscription from '../model/V1EntitiesWebhooksSubscript
 /**
 * Default service.
 * @module api/DefaultApi
-* @version 0.81.3
+* @version 0.82.1
 */
 export default class DefaultApi {
 
@@ -37,6 +39,98 @@ export default class DefaultApi {
         this.apiClient = apiClient || ApiClient.instance;
     }
 
+
+    /**
+     * Callback function to receive the result of the getDealsIdInvestorsInvestorIdPaymentsExpressWireInstructions operation.
+     * @callback module:api/DefaultApi~getDealsIdInvestorsInvestorIdPaymentsExpressWireInstructionsCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/V1EntitiesExpressWireInstruction} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Displays the express wire instructions for an investor on a deal
+     * Get express wire instructions
+     * @param {Number} id 
+     * @param {Number} investorId 
+     * @param {module:api/DefaultApi~getDealsIdInvestorsInvestorIdPaymentsExpressWireInstructionsCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/V1EntitiesExpressWireInstruction}
+     */
+    getDealsIdInvestorsInvestorIdPaymentsExpressWireInstructions(id, investorId, callback) {
+      let postBody = null;
+      // verify the required parameter 'id' is set
+      if (id === undefined || id === null) {
+        throw new Error("Missing the required parameter 'id' when calling getDealsIdInvestorsInvestorIdPaymentsExpressWireInstructions");
+      }
+      // verify the required parameter 'investorId' is set
+      if (investorId === undefined || investorId === null) {
+        throw new Error("Missing the required parameter 'investorId' when calling getDealsIdInvestorsInvestorIdPaymentsExpressWireInstructions");
+      }
+
+      let pathParams = {
+        'id': id,
+        'investor_id': investorId
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = V1EntitiesExpressWireInstruction;
+      return this.apiClient.callApi(
+        '/deals/{id}/investors/{investor_id}/payments/express_wire/instructions', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the getDealsIdInvestorsPaymentsExpressWireInstructions operation.
+     * @callback module:api/DefaultApi~getDealsIdInvestorsPaymentsExpressWireInstructionsCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/V1EntitiesExpressWireInstructions} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Displays the express wire instructions for all the investors on a deal
+     * Get list of express wire instructions
+     * @param {Number} id 
+     * @param {module:api/DefaultApi~getDealsIdInvestorsPaymentsExpressWireInstructionsCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/V1EntitiesExpressWireInstructions}
+     */
+    getDealsIdInvestorsPaymentsExpressWireInstructions(id, callback) {
+      let postBody = null;
+      // verify the required parameter 'id' is set
+      if (id === undefined || id === null) {
+        throw new Error("Missing the required parameter 'id' when calling getDealsIdInvestorsPaymentsExpressWireInstructions");
+      }
+
+      let pathParams = {
+        'id': id
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = V1EntitiesExpressWireInstructions;
+      return this.apiClient.callApi(
+        '/deals/{id}/investors/payments/express_wire/instructions', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
 
     /**
      * Callback function to receive the result of the getWebhooks operation.

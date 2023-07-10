@@ -4,6 +4,8 @@ All URIs are relative to *http://api.dealmaker.tech*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**getDealsIdInvestorsInvestorIdPaymentsExpressWireInstructions**](DefaultApi.md#getDealsIdInvestorsInvestorIdPaymentsExpressWireInstructions) | **GET** /deals/{id}/investors/{investor_id}/payments/express_wire/instructions | Displays the express wire instructions for an investor on a deal
+[**getDealsIdInvestorsPaymentsExpressWireInstructions**](DefaultApi.md#getDealsIdInvestorsPaymentsExpressWireInstructions) | **GET** /deals/{id}/investors/payments/express_wire/instructions | Displays the express wire instructions for all the investors on a deal
 [**getWebhooks**](DefaultApi.md#getWebhooks) | **GET** /webhooks | Returns a list of webhook subscription which is associated to the user
 [**getWebhooksDealId**](DefaultApi.md#getWebhooksDealId) | **GET** /webhooks/deal/{id} | Finds a deal using the id
 [**getWebhooksDealsSearch**](DefaultApi.md#getWebhooksDealsSearch) | **GET** /webhooks/deals/search | Searches for deals for a given user
@@ -11,6 +13,100 @@ Method | HTTP request | Description
 [**postWebhooks**](DefaultApi.md#postWebhooks) | **POST** /webhooks | Creates a webhook subscription which is associated to the user
 [**putWebhooksId**](DefaultApi.md#putWebhooksId) | **PUT** /webhooks/{id} | Updates webhook subscription and webhooks subcription deals
 
+
+
+## getDealsIdInvestorsInvestorIdPaymentsExpressWireInstructions
+
+> V1EntitiesExpressWireInstruction getDealsIdInvestorsInvestorIdPaymentsExpressWireInstructions(id, investorId)
+
+Displays the express wire instructions for an investor on a deal
+
+Get express wire instructions
+
+### Example
+
+```javascript
+import Api from 'api';
+let defaultClient = Api.ApiClient.instance;
+
+let apiInstance = new Api.DefaultApi();
+let id = 56; // Number | 
+let investorId = 56; // Number | 
+apiInstance.getDealsIdInvestorsInvestorIdPaymentsExpressWireInstructions(id, investorId, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Number**|  | 
+ **investorId** | **Number**|  | 
+
+### Return type
+
+[**V1EntitiesExpressWireInstruction**](V1EntitiesExpressWireInstruction.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## getDealsIdInvestorsPaymentsExpressWireInstructions
+
+> V1EntitiesExpressWireInstructions getDealsIdInvestorsPaymentsExpressWireInstructions(id)
+
+Displays the express wire instructions for all the investors on a deal
+
+Get list of express wire instructions
+
+### Example
+
+```javascript
+import Api from 'api';
+let defaultClient = Api.ApiClient.instance;
+
+let apiInstance = new Api.DefaultApi();
+let id = 56; // Number | 
+apiInstance.getDealsIdInvestorsPaymentsExpressWireInstructions(id, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Number**|  | 
+
+### Return type
+
+[**V1EntitiesExpressWireInstructions**](V1EntitiesExpressWireInstructions.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
 ## getWebhooks

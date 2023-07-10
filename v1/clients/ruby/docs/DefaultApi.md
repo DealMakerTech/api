@@ -4,12 +4,148 @@ All URIs are relative to *http://api.dealmaker.tech*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
+| [**get_deals_id_investors_investor_id_payments_express_wire_instructions**](DefaultApi.md#get_deals_id_investors_investor_id_payments_express_wire_instructions) | **GET** /deals/{id}/investors/{investor_id}/payments/express_wire/instructions | Displays the express wire instructions for an investor on a deal |
+| [**get_deals_id_investors_payments_express_wire_instructions**](DefaultApi.md#get_deals_id_investors_payments_express_wire_instructions) | **GET** /deals/{id}/investors/payments/express_wire/instructions | Displays the express wire instructions for all the investors on a deal |
 | [**get_webhooks**](DefaultApi.md#get_webhooks) | **GET** /webhooks | Returns a list of webhook subscription which is associated to the user |
 | [**get_webhooks_deal_id**](DefaultApi.md#get_webhooks_deal_id) | **GET** /webhooks/deal/{id} | Finds a deal using the id |
 | [**get_webhooks_deals_search**](DefaultApi.md#get_webhooks_deals_search) | **GET** /webhooks/deals/search | Searches for deals for a given user |
 | [**get_webhooks_security_token**](DefaultApi.md#get_webhooks_security_token) | **GET** /webhooks/security_token | Creates a new security token for webhook subscription |
 | [**post_webhooks**](DefaultApi.md#post_webhooks) | **POST** /webhooks | Creates a webhook subscription which is associated to the user |
 | [**put_webhooks_id**](DefaultApi.md#put_webhooks_id) | **PUT** /webhooks/{id} | Updates webhook subscription and webhooks subcription deals |
+
+
+## get_deals_id_investors_investor_id_payments_express_wire_instructions
+
+> <V1EntitiesExpressWireInstruction> get_deals_id_investors_investor_id_payments_express_wire_instructions(id, investor_id)
+
+Displays the express wire instructions for an investor on a deal
+
+Get express wire instructions
+
+### Examples
+
+```ruby
+require 'time'
+require 'DealMakerAPI'
+# setup authorization
+DealMakerAPI.configure do |config|end
+
+api_instance = DealMakerAPI::DefaultApi.new
+id = 56 # Integer | 
+investor_id = 56 # Integer | 
+
+begin
+  # Displays the express wire instructions for an investor on a deal
+  result = api_instance.get_deals_id_investors_investor_id_payments_express_wire_instructions(id, investor_id)
+  p result
+rescue DealMakerAPI::ApiError => e
+  puts "Error when calling DefaultApi->get_deals_id_investors_investor_id_payments_express_wire_instructions: #{e}"
+end
+```
+
+#### Using the get_deals_id_investors_investor_id_payments_express_wire_instructions_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<V1EntitiesExpressWireInstruction>, Integer, Hash)> get_deals_id_investors_investor_id_payments_express_wire_instructions_with_http_info(id, investor_id)
+
+```ruby
+begin
+  # Displays the express wire instructions for an investor on a deal
+  data, status_code, headers = api_instance.get_deals_id_investors_investor_id_payments_express_wire_instructions_with_http_info(id, investor_id)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <V1EntitiesExpressWireInstruction>
+rescue DealMakerAPI::ApiError => e
+  puts "Error when calling DefaultApi->get_deals_id_investors_investor_id_payments_express_wire_instructions_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **id** | **Integer** |  |  |
+| **investor_id** | **Integer** |  |  |
+
+### Return type
+
+[**V1EntitiesExpressWireInstruction**](V1EntitiesExpressWireInstruction.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## get_deals_id_investors_payments_express_wire_instructions
+
+> <V1EntitiesExpressWireInstructions> get_deals_id_investors_payments_express_wire_instructions(id)
+
+Displays the express wire instructions for all the investors on a deal
+
+Get list of express wire instructions
+
+### Examples
+
+```ruby
+require 'time'
+require 'DealMakerAPI'
+# setup authorization
+DealMakerAPI.configure do |config|end
+
+api_instance = DealMakerAPI::DefaultApi.new
+id = 56 # Integer | 
+
+begin
+  # Displays the express wire instructions for all the investors on a deal
+  result = api_instance.get_deals_id_investors_payments_express_wire_instructions(id)
+  p result
+rescue DealMakerAPI::ApiError => e
+  puts "Error when calling DefaultApi->get_deals_id_investors_payments_express_wire_instructions: #{e}"
+end
+```
+
+#### Using the get_deals_id_investors_payments_express_wire_instructions_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<V1EntitiesExpressWireInstructions>, Integer, Hash)> get_deals_id_investors_payments_express_wire_instructions_with_http_info(id)
+
+```ruby
+begin
+  # Displays the express wire instructions for all the investors on a deal
+  data, status_code, headers = api_instance.get_deals_id_investors_payments_express_wire_instructions_with_http_info(id)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <V1EntitiesExpressWireInstructions>
+rescue DealMakerAPI::ApiError => e
+  puts "Error when calling DefaultApi->get_deals_id_investors_payments_express_wire_instructions_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **id** | **Integer** |  |  |
+
+### Return type
+
+[**V1EntitiesExpressWireInstructions**](V1EntitiesExpressWireInstructions.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
 ## get_webhooks

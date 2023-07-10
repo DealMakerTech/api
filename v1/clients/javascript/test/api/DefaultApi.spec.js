@@ -48,6 +48,26 @@
   }
 
   describe('DefaultApi', function() {
+    describe('getDealsIdInvestorsInvestorIdPaymentsExpressWireInstructions', function() {
+      it('should call getDealsIdInvestorsInvestorIdPaymentsExpressWireInstructions successfully', function(done) {
+        //uncomment below and update the code to test getDealsIdInvestorsInvestorIdPaymentsExpressWireInstructions
+        //instance.getDealsIdInvestorsInvestorIdPaymentsExpressWireInstructions(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('getDealsIdInvestorsPaymentsExpressWireInstructions', function() {
+      it('should call getDealsIdInvestorsPaymentsExpressWireInstructions successfully', function(done) {
+        //uncomment below and update the code to test getDealsIdInvestorsPaymentsExpressWireInstructions
+        //instance.getDealsIdInvestorsPaymentsExpressWireInstructions(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('getWebhooks', function() {
       it('should call getWebhooks successfully', function(done) {
         //uncomment below and update the code to test getWebhooks

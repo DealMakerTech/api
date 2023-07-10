@@ -387,13 +387,14 @@ $apiInstance = new DealMaker\Api\CompanyApi(
     new GuzzleHttp\Client(),
     $config
 );
-$create_company_request = new \DealMaker\Model\CreateCompanyRequest(); // \DealMaker\Model\CreateCompanyRequest
+$id = 56; // int | The company id
+$create_bulk_upload_request = new \DealMaker\Model\CreateBulkUploadRequest(); // \DealMaker\Model\CreateBulkUploadRequest
 
 try {
-    $result = $apiInstance->createCompany($create_company_request);
+    $result = $apiInstance->createBulkUpload($id, $create_bulk_upload_request);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling CompanyApi->createCompany: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling CompanyApi->createBulkUpload: ', $e->getMessage(), PHP_EOL;
 }
 
 ```
@@ -404,6 +405,7 @@ All URIs are relative to *http://api.dealmaker.tech*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*CompanyApi* | [**createBulkUpload**](docs/Api/CompanyApi.md#createbulkupload) | **POST** /companies/{id}/documents/bulk_uploads | Create bulk upload record
 *CompanyApi* | [**createCompany**](docs/Api/CompanyApi.md#createcompany) | **POST** /companies | Create new company
 *CompanyApi* | [**getCompanies**](docs/Api/CompanyApi.md#getcompanies) | **GET** /companies | Get list of Companies
 *CompanyApi* | [**getCompany**](docs/Api/CompanyApi.md#getcompany) | **GET** /companies/{id} | Get a Company
@@ -411,6 +413,8 @@ Class | Method | HTTP request | Description
 *DealApi* | [**getDeal**](docs/Api/DealApi.md#getdeal) | **GET** /deals/{id} | Get deal by Deal ID
 *DealApi* | [**listDeals**](docs/Api/DealApi.md#listdeals) | **GET** /deals | List available deals
 *DealSetupApi* | [**createDealSetup**](docs/Api/DealSetupApi.md#createdealsetup) | **POST** /deal_setups | Create deal setup
+*DefaultApi* | [**getDealsIdInvestorsInvestorIdPaymentsExpressWireInstructions**](docs/Api/DefaultApi.md#getdealsidinvestorsinvestoridpaymentsexpresswireinstructions) | **GET** /deals/{id}/investors/{investor_id}/payments/express_wire/instructions | Displays the express wire instructions for an investor on a deal
+*DefaultApi* | [**getDealsIdInvestorsPaymentsExpressWireInstructions**](docs/Api/DefaultApi.md#getdealsidinvestorspaymentsexpresswireinstructions) | **GET** /deals/{id}/investors/payments/express_wire/instructions | Displays the express wire instructions for all the investors on a deal
 *DefaultApi* | [**getWebhooks**](docs/Api/DefaultApi.md#getwebhooks) | **GET** /webhooks | Returns a list of webhook subscription which is associated to the user
 *DefaultApi* | [**getWebhooksDealId**](docs/Api/DefaultApi.md#getwebhooksdealid) | **GET** /webhooks/deal/{id} | Finds a deal using the id
 *DefaultApi* | [**getWebhooksDealsSearch**](docs/Api/DefaultApi.md#getwebhooksdealssearch) | **GET** /webhooks/deals/search | Searches for deals for a given user
@@ -439,10 +443,12 @@ Class | Method | HTTP request | Description
 *InvestorProfileApi* | [**patchTrustProfile**](docs/Api/InvestorProfileApi.md#patchtrustprofile) | **PATCH** /investor_profiles/trusts/{investor_profile_id} | Patch a trust investor profile
 *ShareholderApi* | [**getShareholders**](docs/Api/ShareholderApi.md#getshareholders) | **GET** /companies/{id}/shareholders | Get a company shareholders list
 *ShareholderApi* | [**getShareholdersTags**](docs/Api/ShareholderApi.md#getshareholderstags) | **GET** /companies/{id}/shareholders/tags | Get a company shareholders list grouped by tags
+*UploadApi* | [**generateUrl**](docs/Api/UploadApi.md#generateurl) | **POST** /uploads/generate_url | Create a presigned URL for Amazon S3
 
 ## Models
 
 - [AddDocumentRequest](docs/Model/AddDocumentRequest.md)
+- [CreateBulkUploadRequest](docs/Model/CreateBulkUploadRequest.md)
 - [CreateCompanyRequest](docs/Model/CreateCompanyRequest.md)
 - [CreateCorporationProfileRequest](docs/Model/CreateCorporationProfileRequest.md)
 - [CreateDealSetupRequest](docs/Model/CreateDealSetupRequest.md)
@@ -451,6 +457,7 @@ Class | Method | HTTP request | Description
 - [CreateJointProfileRequest](docs/Model/CreateJointProfileRequest.md)
 - [CreateTrustProfileRequest](docs/Model/CreateTrustProfileRequest.md)
 - [EditInvestorTagsRequest](docs/Model/EditInvestorTagsRequest.md)
+- [GenerateUrlRequest](docs/Model/GenerateUrlRequest.md)
 - [PatchCorporationProfileRequest](docs/Model/PatchCorporationProfileRequest.md)
 - [PatchIndividualProfileRequest](docs/Model/PatchIndividualProfileRequest.md)
 - [PatchInvestorRequest](docs/Model/PatchInvestorRequest.md)
@@ -463,6 +470,7 @@ Class | Method | HTTP request | Description
 - [V1EntitiesAddresses](docs/Model/V1EntitiesAddresses.md)
 - [V1EntitiesAttachment](docs/Model/V1EntitiesAttachment.md)
 - [V1EntitiesBackgroundCheckSearch](docs/Model/V1EntitiesBackgroundCheckSearch.md)
+- [V1EntitiesBulkUpload](docs/Model/V1EntitiesBulkUpload.md)
 - [V1EntitiesCompany](docs/Model/V1EntitiesCompany.md)
 - [V1EntitiesCompanyDeal](docs/Model/V1EntitiesCompanyDeal.md)
 - [V1EntitiesCompanyDeals](docs/Model/V1EntitiesCompanyDeals.md)
@@ -474,6 +482,8 @@ Class | Method | HTTP request | Description
 - [V1EntitiesDealSetup](docs/Model/V1EntitiesDealSetup.md)
 - [V1EntitiesDealSetupUser](docs/Model/V1EntitiesDealSetupUser.md)
 - [V1EntitiesDeals](docs/Model/V1EntitiesDeals.md)
+- [V1EntitiesExpressWireInstruction](docs/Model/V1EntitiesExpressWireInstruction.md)
+- [V1EntitiesExpressWireInstructions](docs/Model/V1EntitiesExpressWireInstructions.md)
 - [V1EntitiesInvestor](docs/Model/V1EntitiesInvestor.md)
 - [V1EntitiesInvestorOtpAccessLink](docs/Model/V1EntitiesInvestorOtpAccessLink.md)
 - [V1EntitiesInvestorProfileAddress](docs/Model/V1EntitiesInvestorProfileAddress.md)
@@ -521,5 +531,5 @@ vendor/bin/phpunit
 This PHP package is automatically generated by the [OpenAPI Generator](https://openapi-generator.tech) project:
 
 - API version: `1.75.0`
-    - Package version: `0.81.3`
+    - Package version: `0.82.1`
 - Build package: `org.openapitools.codegen.languages.PhpClientCodegen`

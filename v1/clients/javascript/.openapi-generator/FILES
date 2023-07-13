@@ -64,6 +64,7 @@ docs/V1EntitiesInvestorProfileTrust.md
 docs/V1EntitiesInvestorProfiles.md
 docs/V1EntitiesInvestorUser.md
 docs/V1EntitiesInvestors.md
+docs/V1EntitiesPresignedUrlResult.md
 docs/V1EntitiesShareholder.md
 docs/V1EntitiesShareholders.md
 docs/V1EntitiesShareholdersTags.md
@@ -139,6 +140,7 @@ src/model/V1EntitiesInvestorProfileTrust.js
 src/model/V1EntitiesInvestorProfiles.js
 src/model/V1EntitiesInvestorUser.js
 src/model/V1EntitiesInvestors.js
+src/model/V1EntitiesPresignedUrlResult.js
 src/model/V1EntitiesShareholder.js
 src/model/V1EntitiesShareholders.js
 src/model/V1EntitiesShareholdersTags.js
@@ -209,6 +211,7 @@ test/model/V1EntitiesInvestorProfileTrust.spec.js
 test/model/V1EntitiesInvestorProfiles.spec.js
 test/model/V1EntitiesInvestorUser.spec.js
 test/model/V1EntitiesInvestors.spec.js
+test/model/V1EntitiesPresignedUrlResult.spec.js
 test/model/V1EntitiesShareholder.spec.js
 test/model/V1EntitiesShareholders.spec.js
 test/model/V1EntitiesShareholdersTags.spec.js

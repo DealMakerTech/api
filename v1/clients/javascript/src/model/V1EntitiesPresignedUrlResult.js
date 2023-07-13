@@ -14,19 +14,19 @@
 import ApiClient from '../ApiClient';
 
 /**
- * The PatchInvestorRequest model module.
- * @module model/PatchInvestorRequest
+ * The V1EntitiesPresignedUrlResult model module.
+ * @module model/V1EntitiesPresignedUrlResult
  * @version 0.82.2
  */
-class PatchInvestorRequest {
+class V1EntitiesPresignedUrlResult {
     /**
-     * Constructs a new <code>PatchInvestorRequest</code>.
-     * @alias module:model/PatchInvestorRequest
-     * @param investorProfileId {Number} Investor profile id that needs to be set on investor
+     * Constructs a new <code>V1EntitiesPresignedUrlResult</code>.
+     * V1_Entities_PresignedUrlResult model
+     * @alias module:model/V1EntitiesPresignedUrlResult
      */
-    constructor(investorProfileId) { 
+    constructor() { 
         
-        PatchInvestorRequest.initialize(this, investorProfileId);
+        V1EntitiesPresignedUrlResult.initialize(this);
     }
 
     /**
@@ -34,46 +34,43 @@ class PatchInvestorRequest {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, investorProfileId) { 
-        obj['investor_profile_id'] = investorProfileId;
+    static initialize(obj) { 
     }
 
     /**
-     * Constructs a <code>PatchInvestorRequest</code> from a plain JavaScript object, optionally creating a new instance.
+     * Constructs a <code>V1EntitiesPresignedUrlResult</code> from a plain JavaScript object, optionally creating a new instance.
      * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @param {module:model/PatchInvestorRequest} obj Optional instance to populate.
-     * @return {module:model/PatchInvestorRequest} The populated <code>PatchInvestorRequest</code> instance.
+     * @param {module:model/V1EntitiesPresignedUrlResult} obj Optional instance to populate.
+     * @return {module:model/V1EntitiesPresignedUrlResult} The populated <code>V1EntitiesPresignedUrlResult</code> instance.
      */
     static constructFromObject(data, obj) {
         if (data) {
-            obj = obj || new PatchInvestorRequest();
+            obj = obj || new V1EntitiesPresignedUrlResult();
 
-            if (data.hasOwnProperty('investor_profile_id')) {
-                obj['investor_profile_id'] = ApiClient.convertToType(data['investor_profile_id'], 'Number');
+            if (data.hasOwnProperty('file_key')) {
+                obj['file_key'] = ApiClient.convertToType(data['file_key'], 'String');
             }
-            if (data.hasOwnProperty('current_step')) {
-                obj['current_step'] = ApiClient.convertToType(data['current_step'], 'String');
+            if (data.hasOwnProperty('presigned_url')) {
+                obj['presigned_url'] = ApiClient.convertToType(data['presigned_url'], 'String');
             }
         }
         return obj;
     }
 
     /**
-     * Validates the JSON data with respect to <code>PatchInvestorRequest</code>.
+     * Validates the JSON data with respect to <code>V1EntitiesPresignedUrlResult</code>.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>PatchInvestorRequest</code>.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>V1EntitiesPresignedUrlResult</code>.
      */
     static validateJSON(data) {
-        // check to make sure all required properties are present in the JSON string
-        for (const property of PatchInvestorRequest.RequiredProperties) {
-            if (!data[property]) {
-                throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
-            }
+        // ensure the json data is a string
+        if (data['file_key'] && !(typeof data['file_key'] === 'string' || data['file_key'] instanceof String)) {
+            throw new Error("Expected the field `file_key` to be a primitive type in the JSON string but got " + data['file_key']);
         }
         // ensure the json data is a string
-        if (data['current_step'] && !(typeof data['current_step'] === 'string' || data['current_step'] instanceof String)) {
-            throw new Error("Expected the field `current_step` to be a primitive type in the JSON string but got " + data['current_step']);
+        if (data['presigned_url'] && !(typeof data['presigned_url'] === 'string' || data['presigned_url'] instanceof String)) {
+            throw new Error("Expected the field `presigned_url` to be a primitive type in the JSON string but got " + data['presigned_url']);
         }
 
         return true;
@@ -82,46 +79,24 @@ class PatchInvestorRequest {
 
 }
 
-PatchInvestorRequest.RequiredProperties = ["investor_profile_id"];
-
-/**
- * Investor profile id that needs to be set on investor
- * @member {Number} investor_profile_id
- */
-PatchInvestorRequest.prototype['investor_profile_id'] = undefined;
-
-/**
- * Step on checkout page.
- * @member {module:model/PatchInvestorRequest.CurrentStepEnum} current_step
- * @default 'contact-information'
- */
-PatchInvestorRequest.prototype['current_step'] = 'contact-information';
-
-
-
 
 
 /**
- * Allowed values for the <code>current_step</code> property.
- * @enum {String}
- * @readonly
+ * The file UUID generated value.
+ * @member {String} file_key
  */
-PatchInvestorRequest['CurrentStepEnum'] = {
+V1EntitiesPresignedUrlResult.prototype['file_key'] = undefined;
 
-    /**
-     * value: "contact-information"
-     * @const
-     */
-    "contact-information": "contact-information",
-
-    /**
-     * value: "investor-confirmation"
-     * @const
-     */
-    "investor-confirmation": "investor-confirmation"
-};
+/**
+ * A pre-signed url by aws for interacting with a S3 bucket.
+ * @member {String} presigned_url
+ */
+V1EntitiesPresignedUrlResult.prototype['presigned_url'] = undefined;
 
 
 
-export default PatchInvestorRequest;
+
+
+
+export default V1EntitiesPresignedUrlResult;
 

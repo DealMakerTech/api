@@ -66,6 +66,7 @@ import V1EntitiesInvestorProfileTrust from './model/V1EntitiesInvestorProfileTru
 import V1EntitiesInvestorProfiles from './model/V1EntitiesInvestorProfiles';
 import V1EntitiesInvestorUser from './model/V1EntitiesInvestorUser';
 import V1EntitiesInvestors from './model/V1EntitiesInvestors';
+import V1EntitiesPresignedUrlResult from './model/V1EntitiesPresignedUrlResult';
 import V1EntitiesShareholder from './model/V1EntitiesShareholder';
 import V1EntitiesShareholders from './model/V1EntitiesShareholders';
 import V1EntitiesShareholdersTags from './model/V1EntitiesShareholdersTags';
@@ -114,7 +115,7 @@ import UploadApi from './api/UploadApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.82.1
+* @version 0.82.2
 */
 export {
     /**
@@ -440,6 +441,12 @@ export {
      * @property {module:model/V1EntitiesInvestors}
      */
     V1EntitiesInvestors,
+
+    /**
+     * The V1EntitiesPresignedUrlResult model constructor.
+     * @property {module:model/V1EntitiesPresignedUrlResult}
+     */
+    V1EntitiesPresignedUrlResult,
 
     /**
      * The V1EntitiesShareholder model constructor.

@@ -14,11 +14,12 @@
 
 import ApiClient from "../ApiClient";
 import GenerateUrlRequest from '../model/GenerateUrlRequest';
+import V1EntitiesPresignedUrlResult from '../model/V1EntitiesPresignedUrlResult';
 
 /**
 * Upload service.
 * @module api/UploadApi
-* @version 0.82.1
+* @version 0.82.2
 */
 export default class UploadApi {
 
@@ -38,15 +39,16 @@ export default class UploadApi {
      * Callback function to receive the result of the generateUrl operation.
      * @callback module:api/UploadApi~generateUrlCallback
      * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
+     * @param {module:model/V1EntitiesPresignedUrlResult} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
     /**
      * Create a presigned URL for Amazon S3
-     * Create a presigned URL for Amazon S3
+     * Create a presigned URL for uploading file to Amazon S3 bucket
      * @param {module:model/GenerateUrlRequest} generateUrlRequest 
      * @param {module:api/UploadApi~generateUrlCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/V1EntitiesPresignedUrlResult}
      */
     generateUrl(generateUrlRequest, callback) {
       let postBody = generateUrlRequest;
@@ -66,8 +68,8 @@ export default class UploadApi {
 
       let authNames = [];
       let contentTypes = ['application/json'];
-      let accepts = [];
-      let returnType = null;
+      let accepts = ['application/json'];
+      let returnType = V1EntitiesPresignedUrlResult;
       return this.apiClient.callApi(
         '/uploads/generate_url', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,

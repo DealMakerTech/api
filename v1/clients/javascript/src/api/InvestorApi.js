@@ -25,7 +25,7 @@ import V1EntitiesInvestors from '../model/V1EntitiesInvestors';
 /**
 * Investor service.
 * @module api/InvestorApi
-* @version 0.82.1
+* @version 0.82.2
 */
 export default class InvestorApi {
 
@@ -192,6 +192,54 @@ export default class InvestorApi {
       let returnType = null;
       return this.apiClient.callApi(
         '/deals/{id}/investors/{investor_id}/delete_document/{document_id}', 'DELETE',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the deleteInvestorProfile operation.
+     * @callback module:api/InvestorApi~deleteInvestorProfileCallback
+     * @param {String} error Error message, if any.
+     * @param data This operation does not return a value.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Delete investor profile.
+     * Deletes the investor profile.
+     * @param {Number} type 
+     * @param {Number} id 
+     * @param {module:api/InvestorApi~deleteInvestorProfileCallback} callback The callback function, accepting three arguments: error, data, response
+     */
+    deleteInvestorProfile(type, id, callback) {
+      let postBody = null;
+      // verify the required parameter 'type' is set
+      if (type === undefined || type === null) {
+        throw new Error("Missing the required parameter 'type' when calling deleteInvestorProfile");
+      }
+      // verify the required parameter 'id' is set
+      if (id === undefined || id === null) {
+        throw new Error("Missing the required parameter 'id' when calling deleteInvestorProfile");
+      }
+
+      let pathParams = {
+        'type': type,
+        'id': id
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = [];
+      let returnType = null;
+      return this.apiClient.callApi(
+        '/investor_profiles/{type}/{id}', 'DELETE',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

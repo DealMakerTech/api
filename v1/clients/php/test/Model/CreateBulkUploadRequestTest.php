@@ -80,15 +80,6 @@ class CreateBulkUploadRequestTest extends TestCase
     }
 
     /**
-     * Test attribute "file"
-     */
-    public function testPropertyFile()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
      * Test attribute "file_identifier"
      */
     public function testPropertyFileIdentifier()

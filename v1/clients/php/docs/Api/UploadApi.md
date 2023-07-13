@@ -10,12 +10,12 @@ All URIs are relative to http://api.dealmaker.tech, except if the operation defi
 ## `generateUrl()`
 
 ```php
-generateUrl($generate_url_request)
+generateUrl($generate_url_request): \DealMaker\Model\V1EntitiesPresignedUrlResult
 ```
 
 Create a presigned URL for Amazon S3
 
-Create a presigned URL for Amazon S3
+Create a presigned URL for uploading file to Amazon S3 bucket
 
 ### Example
 
@@ -34,7 +34,8 @@ $apiInstance = new DealMaker\Api\UploadApi(
 $generate_url_request = new \DealMaker\Model\GenerateUrlRequest(); // \DealMaker\Model\GenerateUrlRequest
 
 try {
-    $apiInstance->generateUrl($generate_url_request);
+    $result = $apiInstance->generateUrl($generate_url_request);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling UploadApi->generateUrl: ', $e->getMessage(), PHP_EOL;
 }
@@ -48,7 +49,7 @@ try {
 
 ### Return type
 
-void (empty response body)
+[**\DealMaker\Model\V1EntitiesPresignedUrlResult**](../Model/V1EntitiesPresignedUrlResult.md)
 
 ### Authorization
 
@@ -57,7 +58,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: `application/json`
-- **Accept**: Not defined
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)

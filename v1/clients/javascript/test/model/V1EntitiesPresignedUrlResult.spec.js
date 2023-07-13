@@ -11,117 +11,61 @@
  *
  */
 
-import ApiClient from '../ApiClient';
+(function(root, factory) {
+  if (typeof define === 'function' && define.amd) {
+    // AMD.
+    define(['expect.js', process.cwd()+'/src/index'], factory);
+  } else if (typeof module === 'object' && module.exports) {
+    // CommonJS-like environments that support module.exports, like Node.
+    factory(require('expect.js'), require(process.cwd()+'/src/index'));
+  } else {
+    // Browser globals (root is window)
+    factory(root.expect, root.Api);
+  }
+}(this, function(expect, Api) {
+  'use strict';
 
-/**
- * The PatchInvestorRequest model module.
- * @module model/PatchInvestorRequest
- * @version 0.82.2
- */
-class PatchInvestorRequest {
-    /**
-     * Constructs a new <code>PatchInvestorRequest</code>.
-     * @alias module:model/PatchInvestorRequest
-     * @param investorProfileId {Number} Investor profile id that needs to be set on investor
-     */
-    constructor(investorProfileId) { 
-        
-        PatchInvestorRequest.initialize(this, investorProfileId);
-    }
+  var instance;
 
-    /**
-     * Initializes the fields of this object.
-     * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
-     * Only for internal use.
-     */
-    static initialize(obj, investorProfileId) { 
-        obj['investor_profile_id'] = investorProfileId;
-    }
+  beforeEach(function() {
+    instance = new Api.V1EntitiesPresignedUrlResult();
+  });
 
-    /**
-     * Constructs a <code>PatchInvestorRequest</code> from a plain JavaScript object, optionally creating a new instance.
-     * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
-     * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @param {module:model/PatchInvestorRequest} obj Optional instance to populate.
-     * @return {module:model/PatchInvestorRequest} The populated <code>PatchInvestorRequest</code> instance.
-     */
-    static constructFromObject(data, obj) {
-        if (data) {
-            obj = obj || new PatchInvestorRequest();
+  var getProperty = function(object, getter, property) {
+    // Use getter method if present; otherwise, get the property directly.
+    if (typeof object[getter] === 'function')
+      return object[getter]();
+    else
+      return object[property];
+  }
 
-            if (data.hasOwnProperty('investor_profile_id')) {
-                obj['investor_profile_id'] = ApiClient.convertToType(data['investor_profile_id'], 'Number');
-            }
-            if (data.hasOwnProperty('current_step')) {
-                obj['current_step'] = ApiClient.convertToType(data['current_step'], 'String');
-            }
-        }
-        return obj;
-    }
+  var setProperty = function(object, setter, property, value) {
+    // Use setter method if present; otherwise, set the property directly.
+    if (typeof object[setter] === 'function')
+      object[setter](value);
+    else
+      object[property] = value;
+  }
 
-    /**
-     * Validates the JSON data with respect to <code>PatchInvestorRequest</code>.
-     * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>PatchInvestorRequest</code>.
-     */
-    static validateJSON(data) {
-        // check to make sure all required properties are present in the JSON string
-        for (const property of PatchInvestorRequest.RequiredProperties) {
-            if (!data[property]) {
-                throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
-            }
-        }
-        // ensure the json data is a string
-        if (data['current_step'] && !(typeof data['current_step'] === 'string' || data['current_step'] instanceof String)) {
-            throw new Error("Expected the field `current_step` to be a primitive type in the JSON string but got " + data['current_step']);
-        }
+  describe('V1EntitiesPresignedUrlResult', function() {
+    it('should create an instance of V1EntitiesPresignedUrlResult', function() {
+      // uncomment below and update the code to test V1EntitiesPresignedUrlResult
+      //var instance = new Api.V1EntitiesPresignedUrlResult();
+      //expect(instance).to.be.a(Api.V1EntitiesPresignedUrlResult);
+    });
 
-        return true;
-    }
+    it('should have the property fileKey (base name: "file_key")', function() {
+      // uncomment below and update the code to test the property fileKey
+      //var instance = new Api.V1EntitiesPresignedUrlResult();
+      //expect(instance).to.be();
+    });
 
+    it('should have the property presignedUrl (base name: "presigned_url")', function() {
+      // uncomment below and update the code to test the property presignedUrl
+      //var instance = new Api.V1EntitiesPresignedUrlResult();
+      //expect(instance).to.be();
+    });
 
-}
+  });
 
-PatchInvestorRequest.RequiredProperties = ["investor_profile_id"];
-
-/**
- * Investor profile id that needs to be set on investor
- * @member {Number} investor_profile_id
- */
-PatchInvestorRequest.prototype['investor_profile_id'] = undefined;
-
-/**
- * Step on checkout page.
- * @member {module:model/PatchInvestorRequest.CurrentStepEnum} current_step
- * @default 'contact-information'
- */
-PatchInvestorRequest.prototype['current_step'] = 'contact-information';
-
-
-
-
-
-/**
- * Allowed values for the <code>current_step</code> property.
- * @enum {String}
- * @readonly
- */
-PatchInvestorRequest['CurrentStepEnum'] = {
-
-    /**
-     * value: "contact-information"
-     * @const
-     */
-    "contact-information": "contact-information",
-
-    /**
-     * value: "investor-confirmation"
-     * @const
-     */
-    "investor-confirmation": "investor-confirmation"
-};
-
-
-
-export default PatchInvestorRequest;
-
+}));

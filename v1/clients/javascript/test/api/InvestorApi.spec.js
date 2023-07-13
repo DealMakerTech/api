@@ -78,6 +78,16 @@
         done();
       });
     });
+    describe('deleteInvestorProfile', function() {
+      it('should call deleteInvestorProfile successfully', function(done) {
+        //uncomment below and update the code to test deleteInvestorProfile
+        //instance.deleteInvestorProfile(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('editInvestorTags', function() {
       it('should call editInvestorTags successfully', function(done) {
         //uncomment below and update the code to test editInvestorTags

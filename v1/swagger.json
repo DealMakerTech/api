@@ -1587,13 +1587,6 @@
           },
           {
             "in": "formData",
-            "name": "file",
-            "description": "The ZIP file.",
-            "type": "file",
-            "required": true
-          },
-          {
-            "in": "formData",
             "name": "file_identifier",
             "description": "The file identifier",
             "type": "string",
@@ -1770,6 +1763,63 @@
           "deal_setup"
         ],
         "operationId": "createDealSetup",
+        "x-codeSamples": [
+          {
+            "lang": "javascript",
+            "source": ""
+          },
+          {
+            "lang": "ruby",
+            "source": ""
+          }
+        ]
+      }
+    },
+    "/investor_profiles/{type}/{id}": {
+      "delete": {
+        "summary": "Delete investor profile.",
+        "description": "Deletes the investor profile.",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "type",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          },
+          {
+            "in": "path",
+            "name": "id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "security": [
+          {
+            "oauth": [
+              "deals.write"
+            ]
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Investor profile deleted successfully."
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "tags": [
+          "investor"
+        ],
+        "operationId": "deleteInvestorProfile",
         "x-codeSamples": [
           {
             "lang": "javascript",
@@ -4522,7 +4572,7 @@
     "/uploads/generate_url": {
       "post": {
         "summary": "Create a presigned URL for Amazon S3",
-        "description": "Create a presigned URL for Amazon S3",
+        "description": "Create a presigned URL for uploading file to Amazon S3 bucket",
         "produces": [
           "application/json"
         ],
@@ -4547,7 +4597,10 @@
         ],
         "responses": {
           "201": {
-            "description": "Create a presigned URL for Amazon S3"
+            "description": "Create a presigned URL for uploading file to Amazon S3 bucket",
+            "schema": {
+              "$ref": "#/definitions/V1_Entities_PresignedUrlResult"
+            }
           },
           "400": {
             "description": "Bad Request"
@@ -5827,6 +5880,20 @@
         }
       },
       "description": "V1_Entities_Webhooks_Deal model"
+    },
+    "V1_Entities_PresignedUrlResult": {
+      "type": "object",
+      "properties": {
+        "file_key": {
+          "type": "string",
+          "description": "The file UUID generated value."
+        },
+        "presigned_url": {
+          "type": "string",
+          "description": "A pre-signed url by aws for interacting with a S3 bucket."
+        }
+      },
+      "description": "V1_Entities_PresignedUrlResult model"
     }
   }
 }

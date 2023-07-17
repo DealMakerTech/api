@@ -7,6 +7,7 @@ All URIs are relative to *http://api.dealmaker.tech*
 | [**add_document**](InvestorApi.md#add_document) | **POST** /deals/{id}/investors/{investor_id}/add_document | Add document for deal investor |
 | [**create_investor**](InvestorApi.md#create_investor) | **POST** /deals/{id}/investors | Create a deal investor |
 | [**delete_document**](InvestorApi.md#delete_document) | **DELETE** /deals/{id}/investors/{investor_id}/delete_document/{document_id} | Delete document for deal investor |
+| [**delete_investor_profile**](InvestorApi.md#delete_investor_profile) | **DELETE** /investor_profiles/{type}/{id} | Delete investor profile. |
 | [**edit_investor_tags**](InvestorApi.md#edit_investor_tags) | **POST** /deals/{id}/investors/{investor_id}/edit_tags | Append or replace tag(s) for a specific investor |
 | [**get_investor**](InvestorApi.md#get_investor) | **GET** /deals/{id}/investors/{investor_id} | Get a deal investor by id |
 | [**get_investor_otp_link**](InvestorApi.md#get_investor_otp_link) | **GET** /deals/{id}/investors/{investor_id}/otp_access_link | Get OTP access link for deal investor |
@@ -207,6 +208,73 @@ end
 | **id** | **Integer** |  |  |
 | **investor_id** | **Integer** |  |  |
 | **document_id** | **Integer** |  |  |
+
+### Return type
+
+nil (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
+
+
+## delete_investor_profile
+
+> delete_investor_profile(type, id)
+
+Delete investor profile.
+
+Deletes the investor profile.
+
+### Examples
+
+```ruby
+require 'time'
+require 'DealMakerAPI'
+# setup authorization
+DealMakerAPI.configure do |config|end
+
+api_instance = DealMakerAPI::InvestorApi.new
+type = 56 # Integer | 
+id = 56 # Integer | 
+
+begin
+  # Delete investor profile.
+  api_instance.delete_investor_profile(type, id)
+rescue DealMakerAPI::ApiError => e
+  puts "Error when calling InvestorApi->delete_investor_profile: #{e}"
+end
+```
+
+#### Using the delete_investor_profile_with_http_info variant
+
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
+
+> <Array(nil, Integer, Hash)> delete_investor_profile_with_http_info(type, id)
+
+```ruby
+begin
+  # Delete investor profile.
+  data, status_code, headers = api_instance.delete_investor_profile_with_http_info(type, id)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => nil
+rescue DealMakerAPI::ApiError => e
+  puts "Error when calling InvestorApi->delete_investor_profile_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **type** | **Integer** |  |  |
+| **id** | **Integer** |  |  |
 
 ### Return type
 

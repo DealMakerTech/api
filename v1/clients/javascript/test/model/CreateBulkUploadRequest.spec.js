@@ -54,12 +54,6 @@
       //expect(instance).to.be.a(Api.CreateBulkUploadRequest);
     });
 
-    it('should have the property file (base name: "file")', function() {
-      // uncomment below and update the code to test the property file
-      //var instance = new Api.CreateBulkUploadRequest();
-      //expect(instance).to.be();
-    });
-
     it('should have the property fileIdentifier (base name: "file_identifier")', function() {
       // uncomment below and update the code to test the property fileIdentifier
       //var instance = new Api.CreateBulkUploadRequest();

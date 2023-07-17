@@ -57,7 +57,6 @@ class CreateBulkUploadRequest implements ModelInterface, ArrayAccess, \JsonSeria
       * @var string[]
       */
     protected static $openAPITypes = [
-        'file' => '\SplFileObject',
         'file_identifier' => 'string',
         'document_type' => 'string'
     ];
@@ -70,7 +69,6 @@ class CreateBulkUploadRequest implements ModelInterface, ArrayAccess, \JsonSeria
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'file' => 'binary',
         'file_identifier' => null,
         'document_type' => null
     ];
@@ -81,8 +79,7 @@ class CreateBulkUploadRequest implements ModelInterface, ArrayAccess, \JsonSeria
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'file' => false,
-		'file_identifier' => false,
+        'file_identifier' => false,
 		'document_type' => false
     ];
 
@@ -172,7 +169,6 @@ class CreateBulkUploadRequest implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $attributeMap = [
-        'file' => 'file',
         'file_identifier' => 'file_identifier',
         'document_type' => 'document_type'
     ];
@@ -183,7 +179,6 @@ class CreateBulkUploadRequest implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $setters = [
-        'file' => 'setFile',
         'file_identifier' => 'setFileIdentifier',
         'document_type' => 'setDocumentType'
     ];
@@ -194,7 +189,6 @@ class CreateBulkUploadRequest implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $getters = [
-        'file' => 'getFile',
         'file_identifier' => 'getFileIdentifier',
         'document_type' => 'getDocumentType'
     ];
@@ -256,7 +250,6 @@ class CreateBulkUploadRequest implements ModelInterface, ArrayAccess, \JsonSeria
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('file', $data ?? [], null);
         $this->setIfExists('file_identifier', $data ?? [], null);
         $this->setIfExists('document_type', $data ?? [], null);
     }
@@ -288,9 +281,6 @@ class CreateBulkUploadRequest implements ModelInterface, ArrayAccess, \JsonSeria
     {
         $invalidProperties = [];
 
-        if ($this->container['file'] === null) {
-            $invalidProperties[] = "'file' can't be null";
-        }
         if ($this->container['file_identifier'] === null) {
             $invalidProperties[] = "'file_identifier' can't be null";
         }
@@ -311,33 +301,6 @@ class CreateBulkUploadRequest implements ModelInterface, ArrayAccess, \JsonSeria
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets file
-     *
-     * @return \SplFileObject
-     */
-    public function getFile()
-    {
-        return $this->container['file'];
-    }
-
-    /**
-     * Sets file
-     *
-     * @param \SplFileObject $file The ZIP file.
-     *
-     * @return self
-     */
-    public function setFile($file)
-    {
-        if (is_null($file)) {
-            throw new \InvalidArgumentException('non-nullable file cannot be null');
-        }
-        $this->container['file'] = $file;
-
-        return $this;
-    }
 
     /**
      * Gets file_identifier

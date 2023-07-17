@@ -73,6 +73,19 @@ describe 'InvestorApi' do
     end
   end
 
+  # unit tests for delete_investor_profile
+  # Delete investor profile.
+  # Deletes the investor profile.
+  # @param type 
+  # @param id 
+  # @param [Hash] opts the optional parameters
+  # @return [nil]
+  describe 'delete_investor_profile test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for edit_investor_tags
   # Append or replace tag(s) for a specific investor
   # Edit investor tag

@@ -65,6 +65,7 @@ docs/Model/V1EntitiesInvestorProfileTrust.md
 docs/Model/V1EntitiesInvestorProfiles.md
 docs/Model/V1EntitiesInvestorUser.md
 docs/Model/V1EntitiesInvestors.md
+docs/Model/V1EntitiesPresignedUrlResult.md
 docs/Model/V1EntitiesShareholder.md
 docs/Model/V1EntitiesShareholders.md
 docs/Model/V1EntitiesShareholdersTags.md
@@ -140,6 +141,7 @@ lib/Model/V1EntitiesInvestorProfileTrust.php
 lib/Model/V1EntitiesInvestorProfiles.php
 lib/Model/V1EntitiesInvestorUser.php
 lib/Model/V1EntitiesInvestors.php
+lib/Model/V1EntitiesPresignedUrlResult.php
 lib/Model/V1EntitiesShareholder.php
 lib/Model/V1EntitiesShareholders.php
 lib/Model/V1EntitiesShareholdersTags.php
@@ -212,6 +214,7 @@ test/Model/V1EntitiesInvestorProfilesTest.php
 test/Model/V1EntitiesInvestorTest.php
 test/Model/V1EntitiesInvestorUserTest.php
 test/Model/V1EntitiesInvestorsTest.php
+test/Model/V1EntitiesPresignedUrlResultTest.php
 test/Model/V1EntitiesShareholderTest.php
 test/Model/V1EntitiesShareholdersTagsTest.php
 test/Model/V1EntitiesShareholdersTest.php

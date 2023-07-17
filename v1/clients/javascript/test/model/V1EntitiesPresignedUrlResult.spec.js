@@ -11,138 +11,61 @@
  *
  */
 
-import ApiClient from '../ApiClient';
+(function(root, factory) {
+  if (typeof define === 'function' && define.amd) {
+    // AMD.
+    define(['expect.js', process.cwd()+'/src/index'], factory);
+  } else if (typeof module === 'object' && module.exports) {
+    // CommonJS-like environments that support module.exports, like Node.
+    factory(require('expect.js'), require(process.cwd()+'/src/index'));
+  } else {
+    // Browser globals (root is window)
+    factory(root.expect, root.Api);
+  }
+}(this, function(expect, Api) {
+  'use strict';
 
-/**
- * The PostWebhooksRequest model module.
- * @module model/PostWebhooksRequest
- * @version 0.82.3
- */
-class PostWebhooksRequest {
-    /**
-     * Constructs a new <code>PostWebhooksRequest</code>.
-     * @alias module:model/PostWebhooksRequest
-     * @param name {String} Endpoint name
-     * @param enabled {Boolean} Endpoint status
-     * @param webhookSubscriptionDealsDealId {Array.<Number>} The id of the deal to link
-     */
-    constructor(name, enabled, webhookSubscriptionDealsDealId) { 
-        
-        PostWebhooksRequest.initialize(this, name, enabled, webhookSubscriptionDealsDealId);
-    }
+  var instance;
 
-    /**
-     * Initializes the fields of this object.
-     * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
-     * Only for internal use.
-     */
-    static initialize(obj, name, enabled, webhookSubscriptionDealsDealId) { 
-        obj['name'] = name;
-        obj['enabled'] = enabled;
-        obj['webhook_subscription_deals[deal_id]'] = webhookSubscriptionDealsDealId;
-    }
+  beforeEach(function() {
+    instance = new Api.V1EntitiesPresignedUrlResult();
+  });
 
-    /**
-     * Constructs a <code>PostWebhooksRequest</code> from a plain JavaScript object, optionally creating a new instance.
-     * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
-     * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @param {module:model/PostWebhooksRequest} obj Optional instance to populate.
-     * @return {module:model/PostWebhooksRequest} The populated <code>PostWebhooksRequest</code> instance.
-     */
-    static constructFromObject(data, obj) {
-        if (data) {
-            obj = obj || new PostWebhooksRequest();
+  var getProperty = function(object, getter, property) {
+    // Use getter method if present; otherwise, get the property directly.
+    if (typeof object[getter] === 'function')
+      return object[getter]();
+    else
+      return object[property];
+  }
 
-            if (data.hasOwnProperty('name')) {
-                obj['name'] = ApiClient.convertToType(data['name'], 'String');
-            }
-            if (data.hasOwnProperty('enabled')) {
-                obj['enabled'] = ApiClient.convertToType(data['enabled'], 'Boolean');
-            }
-            if (data.hasOwnProperty('url')) {
-                obj['url'] = ApiClient.convertToType(data['url'], 'String');
-            }
-            if (data.hasOwnProperty('security_token')) {
-                obj['security_token'] = ApiClient.convertToType(data['security_token'], 'String');
-            }
-            if (data.hasOwnProperty('webhook_subscription_deals[deal_id]')) {
-                obj['webhook_subscription_deals[deal_id]'] = ApiClient.convertToType(data['webhook_subscription_deals[deal_id]'], ['Number']);
-            }
-        }
-        return obj;
-    }
+  var setProperty = function(object, setter, property, value) {
+    // Use setter method if present; otherwise, set the property directly.
+    if (typeof object[setter] === 'function')
+      object[setter](value);
+    else
+      object[property] = value;
+  }
 
-    /**
-     * Validates the JSON data with respect to <code>PostWebhooksRequest</code>.
-     * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>PostWebhooksRequest</code>.
-     */
-    static validateJSON(data) {
-        // check to make sure all required properties are present in the JSON string
-        for (const property of PostWebhooksRequest.RequiredProperties) {
-            if (!data[property]) {
-                throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
-            }
-        }
-        // ensure the json data is a string
-        if (data['name'] && !(typeof data['name'] === 'string' || data['name'] instanceof String)) {
-            throw new Error("Expected the field `name` to be a primitive type in the JSON string but got " + data['name']);
-        }
-        // ensure the json data is a string
-        if (data['url'] && !(typeof data['url'] === 'string' || data['url'] instanceof String)) {
-            throw new Error("Expected the field `url` to be a primitive type in the JSON string but got " + data['url']);
-        }
-        // ensure the json data is a string
-        if (data['security_token'] && !(typeof data['security_token'] === 'string' || data['security_token'] instanceof String)) {
-            throw new Error("Expected the field `security_token` to be a primitive type in the JSON string but got " + data['security_token']);
-        }
-        // ensure the json data is an array
-        if (!Array.isArray(data['webhook_subscription_deals[deal_id]'])) {
-            throw new Error("Expected the field `webhook_subscription_deals[deal_id]` to be an array in the JSON data but got " + data['webhook_subscription_deals[deal_id]']);
-        }
+  describe('V1EntitiesPresignedUrlResult', function() {
+    it('should create an instance of V1EntitiesPresignedUrlResult', function() {
+      // uncomment below and update the code to test V1EntitiesPresignedUrlResult
+      //var instance = new Api.V1EntitiesPresignedUrlResult();
+      //expect(instance).to.be.a(Api.V1EntitiesPresignedUrlResult);
+    });
 
-        return true;
-    }
+    it('should have the property fileKey (base name: "file_key")', function() {
+      // uncomment below and update the code to test the property fileKey
+      //var instance = new Api.V1EntitiesPresignedUrlResult();
+      //expect(instance).to.be();
+    });
 
+    it('should have the property presignedUrl (base name: "presigned_url")', function() {
+      // uncomment below and update the code to test the property presignedUrl
+      //var instance = new Api.V1EntitiesPresignedUrlResult();
+      //expect(instance).to.be();
+    });
 
-}
+  });
 
-PostWebhooksRequest.RequiredProperties = ["name", "enabled", "webhook_subscription_deals[deal_id]"];
-
-/**
- * Endpoint name
- * @member {String} name
- */
-PostWebhooksRequest.prototype['name'] = undefined;
-
-/**
- * Endpoint status
- * @member {Boolean} enabled
- */
-PostWebhooksRequest.prototype['enabled'] = undefined;
-
-/**
- * Payload URL
- * @member {String} url
- */
-PostWebhooksRequest.prototype['url'] = undefined;
-
-/**
- * Secret key
- * @member {String} security_token
- */
-PostWebhooksRequest.prototype['security_token'] = undefined;
-
-/**
- * The id of the deal to link
- * @member {Array.<Number>} webhook_subscription_deals[deal_id]
- */
-PostWebhooksRequest.prototype['webhook_subscription_deals[deal_id]'] = undefined;
-
-
-
-
-
-
-export default PostWebhooksRequest;
-
+}));

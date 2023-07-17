@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The V1EntitiesBulkUpload model module.
  * @module model/V1EntitiesBulkUpload
- * @version 0.82.1
+ * @version 0.82.3
  */
 class V1EntitiesBulkUpload {
     /**

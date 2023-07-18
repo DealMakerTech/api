@@ -16,19 +16,18 @@ import ApiClient from '../ApiClient';
 /**
  * The CreateBulkUploadRequest model module.
  * @module model/CreateBulkUploadRequest
- * @version 0.82.1
+ * @version 0.82.4
  */
 class CreateBulkUploadRequest {
     /**
      * Constructs a new <code>CreateBulkUploadRequest</code>.
      * @alias module:model/CreateBulkUploadRequest
-     * @param file {File} The ZIP file.
      * @param fileIdentifier {String} The file identifier
      * @param documentType {String} The document type
      */
-    constructor(file, fileIdentifier, documentType) { 
+    constructor(fileIdentifier, documentType) { 
         
-        CreateBulkUploadRequest.initialize(this, file, fileIdentifier, documentType);
+        CreateBulkUploadRequest.initialize(this, fileIdentifier, documentType);
     }
 
     /**
@@ -36,8 +35,7 @@ class CreateBulkUploadRequest {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, file, fileIdentifier, documentType) { 
-        obj['file'] = file;
+    static initialize(obj, fileIdentifier, documentType) { 
         obj['file_identifier'] = fileIdentifier;
         obj['document_type'] = documentType;
     }
@@ -53,9 +51,6 @@ class CreateBulkUploadRequest {
         if (data) {
             obj = obj || new CreateBulkUploadRequest();
 
-            if (data.hasOwnProperty('file')) {
-                obj['file'] = ApiClient.convertToType(data['file'], File);
-            }
             if (data.hasOwnProperty('file_identifier')) {
                 obj['file_identifier'] = ApiClient.convertToType(data['file_identifier'], 'String');
             }
@@ -93,13 +88,7 @@ class CreateBulkUploadRequest {
 
 }
 
-CreateBulkUploadRequest.RequiredProperties = ["file", "file_identifier", "document_type"];
-
-/**
- * The ZIP file.
- * @member {File} file
- */
-CreateBulkUploadRequest.prototype['file'] = undefined;
+CreateBulkUploadRequest.RequiredProperties = ["file_identifier", "document_type"];
 
 /**
  * The file identifier

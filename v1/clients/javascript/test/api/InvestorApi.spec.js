@@ -48,6 +48,16 @@
   }
 
   describe('InvestorApi', function() {
+    describe('add506cDocument', function() {
+      it('should call add506cDocument successfully', function(done) {
+        //uncomment below and update the code to test add506cDocument
+        //instance.add506cDocument(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('addDocument', function() {
       it('should call addDocument successfully', function(done) {
         //uncomment below and update the code to test addDocument
@@ -72,6 +82,16 @@
       it('should call deleteDocument successfully', function(done) {
         //uncomment below and update the code to test deleteDocument
         //instance.deleteDocument(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('deleteInvestorProfile', function() {
+      it('should call deleteInvestorProfile successfully', function(done) {
+        //uncomment below and update the code to test deleteInvestorProfile
+        //instance.deleteInvestorProfile(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});

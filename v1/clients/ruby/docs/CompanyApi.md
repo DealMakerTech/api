@@ -28,7 +28,7 @@ DealMakerAPI.configure do |config|end
 
 api_instance = DealMakerAPI::CompanyApi.new
 id = 56 # Integer | The company id
-create_bulk_upload_request = DealMakerAPI::CreateBulkUploadRequest.new({file: File.new('/path/to/some/file'), file_identifier: 'file_identifier_example', document_type: 'document_type_example'}) # CreateBulkUploadRequest | 
+create_bulk_upload_request = DealMakerAPI::CreateBulkUploadRequest.new({file_identifier: 'file_identifier_example', document_type: 'document_type_example'}) # CreateBulkUploadRequest | 
 
 begin
   # Create bulk upload record

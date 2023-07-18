@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The UpdateInvestorRequest model module.
  * @module model/UpdateInvestorRequest
- * @version 0.82.1
+ * @version 0.82.4
  */
 class UpdateInvestorRequest {
     /**
@@ -62,6 +62,9 @@ class UpdateInvestorRequest {
             if (data.hasOwnProperty('investment_value')) {
                 obj['investment_value'] = ApiClient.convertToType(data['investment_value'], 'Number');
             }
+            if (data.hasOwnProperty('notes')) {
+                obj['notes'] = ApiClient.convertToType(data['notes'], 'String');
+            }
         }
         return obj;
     }
@@ -75,6 +78,10 @@ class UpdateInvestorRequest {
         // ensure the json data is a string
         if (data['allocation_unit'] && !(typeof data['allocation_unit'] === 'string' || data['allocation_unit'] instanceof String)) {
             throw new Error("Expected the field `allocation_unit` to be a primitive type in the JSON string but got " + data['allocation_unit']);
+        }
+        // ensure the json data is a string
+        if (data['notes'] && !(typeof data['notes'] === 'string' || data['notes'] instanceof String)) {
+            throw new Error("Expected the field `notes` to be a primitive type in the JSON string but got " + data['notes']);
         }
 
         return true;
@@ -115,6 +122,12 @@ UpdateInvestorRequest.prototype['allocation_unit'] = 'securities';
  * @member {Number} investment_value
  */
 UpdateInvestorRequest.prototype['investment_value'] = undefined;
+
+/**
+ * The notes of the investor.
+ * @member {String} notes
+ */
+UpdateInvestorRequest.prototype['notes'] = undefined;
 
 
 

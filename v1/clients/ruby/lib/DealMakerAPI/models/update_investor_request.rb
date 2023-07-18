@@ -30,6 +30,9 @@ module DealMakerAPI
     # The investment value of the investor.
     attr_accessor :investment_value
 
+    # The notes of the investor.
+    attr_accessor :notes
+
     class EnumAttributeValidator
       attr_reader :datatype
       attr_reader :allowable_values
@@ -59,7 +62,8 @@ module DealMakerAPI
         :'warrant_certificate_number' => :'warrant_certificate_number',
         :'allocated_amount' => :'allocated_amount',
         :'allocation_unit' => :'allocation_unit',
-        :'investment_value' => :'investment_value'
+        :'investment_value' => :'investment_value',
+        :'notes' => :'notes'
       }
     end
 
@@ -75,7 +79,8 @@ module DealMakerAPI
         :'warrant_certificate_number' => :'Integer',
         :'allocated_amount' => :'Float',
         :'allocation_unit' => :'String',
-        :'investment_value' => :'Float'
+        :'investment_value' => :'Float',
+        :'notes' => :'String'
       }
     end
 
@@ -121,6 +126,10 @@ module DealMakerAPI
       if attributes.key?(:'investment_value')
         self.investment_value = attributes[:'investment_value']
       end
+
+      if attributes.key?(:'notes')
+        self.notes = attributes[:'notes']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -157,7 +166,8 @@ module DealMakerAPI
           warrant_certificate_number == o.warrant_certificate_number &&
           allocated_amount == o.allocated_amount &&
           allocation_unit == o.allocation_unit &&
-          investment_value == o.investment_value
+          investment_value == o.investment_value &&
+          notes == o.notes
     end
 
     # @see the `==` method
@@ -169,7 +179,7 @@ module DealMakerAPI
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [warrant_expiry_date, warrant_certificate_number, allocated_amount, allocation_unit, investment_value].hash
+      [warrant_expiry_date, warrant_certificate_number, allocated_amount, allocation_unit, investment_value, notes].hash
     end
 
     # Builds the object from hash

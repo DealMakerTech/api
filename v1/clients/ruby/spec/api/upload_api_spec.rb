@@ -34,10 +34,10 @@ describe 'UploadApi' do
 
   # unit tests for generate_url
   # Create a presigned URL for Amazon S3
-  # Create a presigned URL for Amazon S3
+  # Create a presigned URL for uploading file to Amazon S3 bucket
   # @param generate_url_request 
   # @param [Hash] opts the optional parameters
-  # @return [nil]
+  # @return [V1EntitiesPresignedUrlResult]
   describe 'generate_url test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/

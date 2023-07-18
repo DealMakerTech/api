@@ -15,9 +15,6 @@ require 'time'
 
 module DealMakerAPI
   class CreateBulkUploadRequest
-    # The ZIP file.
-    attr_accessor :file
-
     # The file identifier
     attr_accessor :file_identifier
 
@@ -27,7 +24,6 @@ module DealMakerAPI
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'file' => :'file',
         :'file_identifier' => :'file_identifier',
         :'document_type' => :'document_type'
       }
@@ -41,7 +37,6 @@ module DealMakerAPI
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'file' => :'File',
         :'file_identifier' => :'String',
         :'document_type' => :'String'
       }
@@ -68,10 +63,6 @@ module DealMakerAPI
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'file')
-        self.file = attributes[:'file']
-      end
-
       if attributes.key?(:'file_identifier')
         self.file_identifier = attributes[:'file_identifier']
       end
@@ -85,10 +76,6 @@ module DealMakerAPI
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @file.nil?
-        invalid_properties.push('invalid value for "file", file cannot be nil.')
-      end
-
       if @file_identifier.nil?
         invalid_properties.push('invalid value for "file_identifier", file_identifier cannot be nil.')
       end
@@ -103,7 +90,6 @@ module DealMakerAPI
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @file.nil?
       return false if @file_identifier.nil?
       return false if @document_type.nil?
       true
@@ -114,7 +100,6 @@ module DealMakerAPI
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          file == o.file &&
           file_identifier == o.file_identifier &&
           document_type == o.document_type
     end
@@ -128,7 +113,7 @@ module DealMakerAPI
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [file, file_identifier, document_type].hash
+      [file_identifier, document_type].hash
     end
 
     # Builds the object from hash

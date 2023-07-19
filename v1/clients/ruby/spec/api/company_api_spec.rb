@@ -45,6 +45,20 @@ describe 'CompanyApi' do
     end
   end
 
+  # unit tests for create_bulk_upload_detail
+  # Create a BulkUploadDetail class record
+  # Create a BulkUploadDetail class record
+  # @param bulk_upload_id The Bulk upload ID from which detail is associated with
+  # @param company_id 
+  # @param create_bulk_upload_detail_request 
+  # @param [Hash] opts the optional parameters
+  # @return [V1EntitiesBulkUploadDetail]
+  describe 'create_bulk_upload_detail test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for create_company
   # Create new company
   # Creates a new company.

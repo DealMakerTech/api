@@ -74,6 +74,9 @@ class CompanyApi
         'createBulkUpload' => [
             'application/json',
         ],
+        'createBulkUploadDetail' => [
+            'application/json',
+        ],
         'createCompany' => [
             'application/json',
         ],
@@ -386,6 +389,328 @@ class CompanyApi
                 $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($create_bulk_upload_request));
             } else {
                 $httpBody = $create_bulk_upload_request;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation createBulkUploadDetail
+     *
+     * Create a BulkUploadDetail class record
+     *
+     * @param  string $bulk_upload_id The Bulk upload ID from which detail is associated with (required)
+     * @param  int $company_id company_id (required)
+     * @param  \DealMaker\Model\CreateBulkUploadDetailRequest $create_bulk_upload_detail_request create_bulk_upload_detail_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createBulkUploadDetail'] to see the possible values for this operation
+     *
+     * @throws \DealMaker\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \DealMaker\Model\V1EntitiesBulkUploadDetail
+     */
+    public function createBulkUploadDetail($bulk_upload_id, $company_id, $create_bulk_upload_detail_request, string $contentType = self::contentTypes['createBulkUploadDetail'][0])
+    {
+        list($response) = $this->createBulkUploadDetailWithHttpInfo($bulk_upload_id, $company_id, $create_bulk_upload_detail_request, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation createBulkUploadDetailWithHttpInfo
+     *
+     * Create a BulkUploadDetail class record
+     *
+     * @param  string $bulk_upload_id The Bulk upload ID from which detail is associated with (required)
+     * @param  int $company_id (required)
+     * @param  \DealMaker\Model\CreateBulkUploadDetailRequest $create_bulk_upload_detail_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createBulkUploadDetail'] to see the possible values for this operation
+     *
+     * @throws \DealMaker\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \DealMaker\Model\V1EntitiesBulkUploadDetail, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function createBulkUploadDetailWithHttpInfo($bulk_upload_id, $company_id, $create_bulk_upload_detail_request, string $contentType = self::contentTypes['createBulkUploadDetail'][0])
+    {
+        $request = $this->createBulkUploadDetailRequest($bulk_upload_id, $company_id, $create_bulk_upload_detail_request, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 201:
+                    if ('\DealMaker\Model\V1EntitiesBulkUploadDetail' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\DealMaker\Model\V1EntitiesBulkUploadDetail' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\DealMaker\Model\V1EntitiesBulkUploadDetail', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\DealMaker\Model\V1EntitiesBulkUploadDetail';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 201:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\DealMaker\Model\V1EntitiesBulkUploadDetail',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation createBulkUploadDetailAsync
+     *
+     * Create a BulkUploadDetail class record
+     *
+     * @param  string $bulk_upload_id The Bulk upload ID from which detail is associated with (required)
+     * @param  int $company_id (required)
+     * @param  \DealMaker\Model\CreateBulkUploadDetailRequest $create_bulk_upload_detail_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createBulkUploadDetail'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function createBulkUploadDetailAsync($bulk_upload_id, $company_id, $create_bulk_upload_detail_request, string $contentType = self::contentTypes['createBulkUploadDetail'][0])
+    {
+        return $this->createBulkUploadDetailAsyncWithHttpInfo($bulk_upload_id, $company_id, $create_bulk_upload_detail_request, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation createBulkUploadDetailAsyncWithHttpInfo
+     *
+     * Create a BulkUploadDetail class record
+     *
+     * @param  string $bulk_upload_id The Bulk upload ID from which detail is associated with (required)
+     * @param  int $company_id (required)
+     * @param  \DealMaker\Model\CreateBulkUploadDetailRequest $create_bulk_upload_detail_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createBulkUploadDetail'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function createBulkUploadDetailAsyncWithHttpInfo($bulk_upload_id, $company_id, $create_bulk_upload_detail_request, string $contentType = self::contentTypes['createBulkUploadDetail'][0])
+    {
+        $returnType = '\DealMaker\Model\V1EntitiesBulkUploadDetail';
+        $request = $this->createBulkUploadDetailRequest($bulk_upload_id, $company_id, $create_bulk_upload_detail_request, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'createBulkUploadDetail'
+     *
+     * @param  string $bulk_upload_id The Bulk upload ID from which detail is associated with (required)
+     * @param  int $company_id (required)
+     * @param  \DealMaker\Model\CreateBulkUploadDetailRequest $create_bulk_upload_detail_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createBulkUploadDetail'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function createBulkUploadDetailRequest($bulk_upload_id, $company_id, $create_bulk_upload_detail_request, string $contentType = self::contentTypes['createBulkUploadDetail'][0])
+    {
+
+        // verify the required parameter 'bulk_upload_id' is set
+        if ($bulk_upload_id === null || (is_array($bulk_upload_id) && count($bulk_upload_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $bulk_upload_id when calling createBulkUploadDetail'
+            );
+        }
+
+        // verify the required parameter 'company_id' is set
+        if ($company_id === null || (is_array($company_id) && count($company_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $company_id when calling createBulkUploadDetail'
+            );
+        }
+
+        // verify the required parameter 'create_bulk_upload_detail_request' is set
+        if ($create_bulk_upload_detail_request === null || (is_array($create_bulk_upload_detail_request) && count($create_bulk_upload_detail_request) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $create_bulk_upload_detail_request when calling createBulkUploadDetail'
+            );
+        }
+
+
+        $resourcePath = '/companies/{company_id}/documents/bulk_uploads/{bulk_upload_id}/details';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($bulk_upload_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'bulk_upload_id' . '}',
+                ObjectSerializer::toPathValue($bulk_upload_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($company_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'company_id' . '}',
+                ObjectSerializer::toPathValue($company_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($create_bulk_upload_detail_request)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($create_bulk_upload_detail_request));
+            } else {
+                $httpBody = $create_bulk_upload_detail_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

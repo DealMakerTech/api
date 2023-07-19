@@ -132,11 +132,12 @@ class UploadApi
      *
      * @throws \DealMaker\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return void
+     * @return \DealMaker\Model\V1EntitiesPresignedUrlResult
      */
     public function generateUrl($generate_url_request, string $contentType = self::contentTypes['generateUrl'][0])
     {
-        $this->generateUrlWithHttpInfo($generate_url_request, $contentType);
+        list($response) = $this->generateUrlWithHttpInfo($generate_url_request, $contentType);
+        return $response;
     }
 
     /**
@@ -149,7 +150,7 @@ class UploadApi
      *
      * @throws \DealMaker\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \DealMaker\Model\V1EntitiesPresignedUrlResult, HTTP status code, HTTP response headers (array of strings)
      */
     public function generateUrlWithHttpInfo($generate_url_request, string $contentType = self::contentTypes['generateUrl'][0])
     {
@@ -190,10 +191,50 @@ class UploadApi
                 );
             }
 
-            return [null, $statusCode, $response->getHeaders()];
+            switch($statusCode) {
+                case 201:
+                    if ('\DealMaker\Model\V1EntitiesPresignedUrlResult' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\DealMaker\Model\V1EntitiesPresignedUrlResult' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\DealMaker\Model\V1EntitiesPresignedUrlResult', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\DealMaker\Model\V1EntitiesPresignedUrlResult';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
 
         } catch (ApiException $e) {
             switch ($e->getCode()) {
+                case 201:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\DealMaker\Model\V1EntitiesPresignedUrlResult',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
             }
             throw $e;
         }
@@ -233,14 +274,27 @@ class UploadApi
      */
     public function generateUrlAsyncWithHttpInfo($generate_url_request, string $contentType = self::contentTypes['generateUrl'][0])
     {
-        $returnType = '';
+        $returnType = '\DealMaker\Model\V1EntitiesPresignedUrlResult';
         $request = $this->generateUrlRequest($generate_url_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
                 },
                 function ($exception) {
                     $response = $exception->getResponse();
@@ -291,7 +345,7 @@ class UploadApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            [],
+            ['application/json', ],
             $contentType,
             $multipart
         );

@@ -4,7 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**file** | **\SplFileObject** | The ZIP file. |
 **file_identifier** | **string** | The file identifier |
 **document_type** | **string** | The document type |
 

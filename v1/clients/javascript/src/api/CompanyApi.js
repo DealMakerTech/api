@@ -13,15 +13,17 @@
 
 
 import ApiClient from "../ApiClient";
+import CreateBulkUploadDetailRequest from '../model/CreateBulkUploadDetailRequest';
 import CreateBulkUploadRequest from '../model/CreateBulkUploadRequest';
 import CreateCompanyRequest from '../model/CreateCompanyRequest';
 import V1EntitiesBulkUpload from '../model/V1EntitiesBulkUpload';
+import V1EntitiesBulkUploadDetail from '../model/V1EntitiesBulkUploadDetail';
 import V1EntitiesCompany from '../model/V1EntitiesCompany';
 
 /**
 * Company service.
 * @module api/CompanyApi
-* @version 0.82.1
+* @version 0.83.0
 */
 export default class CompanyApi {
 
@@ -80,6 +82,60 @@ export default class CompanyApi {
       let returnType = V1EntitiesBulkUpload;
       return this.apiClient.callApi(
         '/companies/{id}/documents/bulk_uploads', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the createBulkUploadDetail operation.
+     * @callback module:api/CompanyApi~createBulkUploadDetailCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/V1EntitiesBulkUploadDetail} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Create a BulkUploadDetail class record
+     * Create a BulkUploadDetail class record
+     * @param {String} bulkUploadId The Bulk upload ID from which detail is associated with
+     * @param {Number} companyId 
+     * @param {module:model/CreateBulkUploadDetailRequest} createBulkUploadDetailRequest 
+     * @param {module:api/CompanyApi~createBulkUploadDetailCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/V1EntitiesBulkUploadDetail}
+     */
+    createBulkUploadDetail(bulkUploadId, companyId, createBulkUploadDetailRequest, callback) {
+      let postBody = createBulkUploadDetailRequest;
+      // verify the required parameter 'bulkUploadId' is set
+      if (bulkUploadId === undefined || bulkUploadId === null) {
+        throw new Error("Missing the required parameter 'bulkUploadId' when calling createBulkUploadDetail");
+      }
+      // verify the required parameter 'companyId' is set
+      if (companyId === undefined || companyId === null) {
+        throw new Error("Missing the required parameter 'companyId' when calling createBulkUploadDetail");
+      }
+      // verify the required parameter 'createBulkUploadDetailRequest' is set
+      if (createBulkUploadDetailRequest === undefined || createBulkUploadDetailRequest === null) {
+        throw new Error("Missing the required parameter 'createBulkUploadDetailRequest' when calling createBulkUploadDetail");
+      }
+
+      let pathParams = {
+        'bulk_upload_id': bulkUploadId,
+        'company_id': companyId
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = V1EntitiesBulkUploadDetail;
+      return this.apiClient.callApi(
+        '/companies/{company_id}/documents/bulk_uploads/{bulk_upload_id}/details', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

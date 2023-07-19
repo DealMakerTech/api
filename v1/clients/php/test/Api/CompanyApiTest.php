@@ -84,6 +84,18 @@ class CompanyApiTest extends TestCase
     }
 
     /**
+     * Test case for createBulkUploadDetail
+     *
+     * Create a BulkUploadDetail class record.
+     *
+     */
+    public function testCreateBulkUploadDetail()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for createCompany
      *
      * Create new company.

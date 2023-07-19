@@ -5,6 +5,7 @@ All URIs are relative to *http://api.dealmaker.tech*
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
 | [**create_bulk_upload**](CompanyApi.md#create_bulk_upload) | **POST** /companies/{id}/documents/bulk_uploads | Create bulk upload record |
+| [**create_bulk_upload_detail**](CompanyApi.md#create_bulk_upload_detail) | **POST** /companies/{company_id}/documents/bulk_uploads/{bulk_upload_id}/details | Create a BulkUploadDetail class record |
 | [**create_company**](CompanyApi.md#create_company) | **POST** /companies | Create new company |
 | [**get_companies**](CompanyApi.md#get_companies) | **GET** /companies | Get list of Companies |
 | [**get_company**](CompanyApi.md#get_company) | **GET** /companies/{id} | Get a Company |
@@ -28,7 +29,7 @@ DealMakerAPI.configure do |config|end
 
 api_instance = DealMakerAPI::CompanyApi.new
 id = 56 # Integer | The company id
-create_bulk_upload_request = DealMakerAPI::CreateBulkUploadRequest.new({file: File.new('/path/to/some/file'), file_identifier: 'file_identifier_example', document_type: 'document_type_example'}) # CreateBulkUploadRequest | 
+create_bulk_upload_request = DealMakerAPI::CreateBulkUploadRequest.new({file_identifier: 'file_identifier_example', document_type: 'document_type_example'}) # CreateBulkUploadRequest | 
 
 begin
   # Create bulk upload record
@@ -67,6 +68,76 @@ end
 ### Return type
 
 [**V1EntitiesBulkUpload**](V1EntitiesBulkUpload.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## create_bulk_upload_detail
+
+> <V1EntitiesBulkUploadDetail> create_bulk_upload_detail(bulk_upload_id, company_id, create_bulk_upload_detail_request)
+
+Create a BulkUploadDetail class record
+
+Create a BulkUploadDetail class record
+
+### Examples
+
+```ruby
+require 'time'
+require 'DealMakerAPI'
+# setup authorization
+DealMakerAPI.configure do |config|end
+
+api_instance = DealMakerAPI::CompanyApi.new
+bulk_upload_id = 'bulk_upload_id_example' # String | The Bulk upload ID from which detail is associated with
+company_id = 56 # Integer | 
+create_bulk_upload_detail_request = DealMakerAPI::CreateBulkUploadDetailRequest.new({file_key: 'file_key_example', file_name: 'file_name_example'}) # CreateBulkUploadDetailRequest | 
+
+begin
+  # Create a BulkUploadDetail class record
+  result = api_instance.create_bulk_upload_detail(bulk_upload_id, company_id, create_bulk_upload_detail_request)
+  p result
+rescue DealMakerAPI::ApiError => e
+  puts "Error when calling CompanyApi->create_bulk_upload_detail: #{e}"
+end
+```
+
+#### Using the create_bulk_upload_detail_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<V1EntitiesBulkUploadDetail>, Integer, Hash)> create_bulk_upload_detail_with_http_info(bulk_upload_id, company_id, create_bulk_upload_detail_request)
+
+```ruby
+begin
+  # Create a BulkUploadDetail class record
+  data, status_code, headers = api_instance.create_bulk_upload_detail_with_http_info(bulk_upload_id, company_id, create_bulk_upload_detail_request)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <V1EntitiesBulkUploadDetail>
+rescue DealMakerAPI::ApiError => e
+  puts "Error when calling CompanyApi->create_bulk_upload_detail_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **bulk_upload_id** | **String** | The Bulk upload ID from which detail is associated with |  |
+| **company_id** | **Integer** |  |  |
+| **create_bulk_upload_detail_request** | [**CreateBulkUploadDetailRequest**](CreateBulkUploadDetailRequest.md) |  |  |
+
+### Return type
+
+[**V1EntitiesBulkUploadDetail**](V1EntitiesBulkUploadDetail.md)
 
 ### Authorization
 

@@ -9,6 +9,7 @@
 | **allocated_amount** | **Float** | The allocation amount of the investor. | [optional] |
 | **allocation_unit** | **String** | The allocation unit of the investor. | [optional][default to &#39;securities&#39;] |
 | **investment_value** | **Float** | The investment value of the investor. | [optional] |
+| **notes** | **String** | The notes of the investor. | [optional] |
 
 ## Example
 
@@ -20,7 +21,8 @@ instance = DealMakerAPI::UpdateInvestorRequest.new(
   warrant_certificate_number: null,
   allocated_amount: null,
   allocation_unit: null,
-  investment_value: null
+  investment_value: null,
+  notes: null
 )
 ```
 

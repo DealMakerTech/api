@@ -123,4 +123,13 @@ class UpdateInvestorRequestTest extends TestCase
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test attribute "notes"
+     */
+    public function testPropertyNotes()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
 }

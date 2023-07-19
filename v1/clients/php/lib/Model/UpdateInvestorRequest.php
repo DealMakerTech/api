@@ -61,7 +61,8 @@ class UpdateInvestorRequest implements ModelInterface, ArrayAccess, \JsonSeriali
         'warrant_certificate_number' => 'int',
         'allocated_amount' => 'float',
         'allocation_unit' => 'string',
-        'investment_value' => 'float'
+        'investment_value' => 'float',
+        'notes' => 'string'
     ];
 
     /**
@@ -76,7 +77,8 @@ class UpdateInvestorRequest implements ModelInterface, ArrayAccess, \JsonSeriali
         'warrant_certificate_number' => 'int32',
         'allocated_amount' => 'float',
         'allocation_unit' => null,
-        'investment_value' => 'float'
+        'investment_value' => 'float',
+        'notes' => null
     ];
 
     /**
@@ -89,7 +91,8 @@ class UpdateInvestorRequest implements ModelInterface, ArrayAccess, \JsonSeriali
 		'warrant_certificate_number' => false,
 		'allocated_amount' => false,
 		'allocation_unit' => false,
-		'investment_value' => false
+		'investment_value' => false,
+		'notes' => false
     ];
 
     /**
@@ -182,7 +185,8 @@ class UpdateInvestorRequest implements ModelInterface, ArrayAccess, \JsonSeriali
         'warrant_certificate_number' => 'warrant_certificate_number',
         'allocated_amount' => 'allocated_amount',
         'allocation_unit' => 'allocation_unit',
-        'investment_value' => 'investment_value'
+        'investment_value' => 'investment_value',
+        'notes' => 'notes'
     ];
 
     /**
@@ -195,7 +199,8 @@ class UpdateInvestorRequest implements ModelInterface, ArrayAccess, \JsonSeriali
         'warrant_certificate_number' => 'setWarrantCertificateNumber',
         'allocated_amount' => 'setAllocatedAmount',
         'allocation_unit' => 'setAllocationUnit',
-        'investment_value' => 'setInvestmentValue'
+        'investment_value' => 'setInvestmentValue',
+        'notes' => 'setNotes'
     ];
 
     /**
@@ -208,7 +213,8 @@ class UpdateInvestorRequest implements ModelInterface, ArrayAccess, \JsonSeriali
         'warrant_certificate_number' => 'getWarrantCertificateNumber',
         'allocated_amount' => 'getAllocatedAmount',
         'allocation_unit' => 'getAllocationUnit',
-        'investment_value' => 'getInvestmentValue'
+        'investment_value' => 'getInvestmentValue',
+        'notes' => 'getNotes'
     ];
 
     /**
@@ -288,6 +294,7 @@ class UpdateInvestorRequest implements ModelInterface, ArrayAccess, \JsonSeriali
         $this->setIfExists('allocated_amount', $data ?? [], null);
         $this->setIfExists('allocation_unit', $data ?? [], 'securities');
         $this->setIfExists('investment_value', $data ?? [], null);
+        $this->setIfExists('notes', $data ?? [], null);
     }
 
     /**
@@ -482,6 +489,33 @@ class UpdateInvestorRequest implements ModelInterface, ArrayAccess, \JsonSeriali
             throw new \InvalidArgumentException('non-nullable investment_value cannot be null');
         }
         $this->container['investment_value'] = $investment_value;
+
+        return $this;
+    }
+
+    /**
+     * Gets notes
+     *
+     * @return string|null
+     */
+    public function getNotes()
+    {
+        return $this->container['notes'];
+    }
+
+    /**
+     * Sets notes
+     *
+     * @param string|null $notes The notes of the investor.
+     *
+     * @return self
+     */
+    public function setNotes($notes)
+    {
+        if (is_null($notes)) {
+            throw new \InvalidArgumentException('non-nullable notes cannot be null');
+        }
+        $this->container['notes'] = $notes;
 
         return $this;
     }

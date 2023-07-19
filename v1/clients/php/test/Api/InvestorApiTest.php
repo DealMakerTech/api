@@ -72,6 +72,18 @@ class InvestorApiTest extends TestCase
     }
 
     /**
+     * Test case for add506cDocument
+     *
+     * Add 506c document for deal investor.
+     *
+     */
+    public function testAdd506cDocument()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for addDocument
      *
      * Add document for deal investor.
@@ -102,6 +114,18 @@ class InvestorApiTest extends TestCase
      *
      */
     public function testDeleteDocument()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for deleteInvestorProfile
+     *
+     * Delete investor profile..
+     *
+     */
+    public function testDeleteInvestorProfile()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

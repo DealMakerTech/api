@@ -819,6 +819,13 @@
             "type": "number",
             "format": "float",
             "required": false
+          },
+          {
+            "in": "formData",
+            "name": "notes",
+            "description": "The notes of the investor.",
+            "type": "string",
+            "required": false
           }
         ],
         "security": [
@@ -1124,6 +1131,85 @@
           "investor"
         ],
         "operationId": "editInvestorTags",
+        "x-codeSamples": [
+          {
+            "lang": "javascript",
+            "source": ""
+          },
+          {
+            "lang": "ruby",
+            "source": ""
+          }
+        ]
+      }
+    },
+    "/deals/{id}/investors/{investor_id}/add_506c_document": {
+      "post": {
+        "summary": "Add 506c document for deal investor",
+        "description": "Add 506c document for deal investor",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "description": "The deal id.",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          },
+          {
+            "in": "path",
+            "name": "investor_id",
+            "description": "The investor id.",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "file",
+            "description": "File to upload",
+            "type": "file",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "caption",
+            "description": "The caption",
+            "type": "string",
+            "required": false
+          }
+        ],
+        "security": [
+          {
+            "oauth": [
+              "deals.investors.write"
+            ]
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Add 506c document for deal investor",
+            "schema": {
+              "$ref": "#/definitions/V1_Entities_Investor"
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "tags": [
+          "investor"
+        ],
+        "operationId": "add506cDocument",
         "x-codeSamples": [
           {
             "lang": "javascript",
@@ -1587,13 +1673,6 @@
           },
           {
             "in": "formData",
-            "name": "file",
-            "description": "The ZIP file.",
-            "type": "file",
-            "required": true
-          },
-          {
-            "in": "formData",
             "name": "file_identifier",
             "description": "The file identifier",
             "type": "string",
@@ -1632,6 +1711,94 @@
           "company"
         ],
         "operationId": "createBulkUpload",
+        "x-codeSamples": [
+          {
+            "lang": "javascript",
+            "source": ""
+          },
+          {
+            "lang": "ruby",
+            "source": ""
+          }
+        ]
+      }
+    },
+    "/companies/{company_id}/documents/bulk_uploads/{bulk_upload_id}/details": {
+      "post": {
+        "summary": "Create a BulkUploadDetail class record",
+        "description": "Create a BulkUploadDetail class record",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "bulk_upload_id",
+            "description": "The Bulk upload ID from which detail is associated with",
+            "type": "string",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "file_key",
+            "description": "The file ID",
+            "type": "string",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "file_name",
+            "description": "The name of the file",
+            "type": "string",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "status",
+            "description": "The status of the bulk upload detail",
+            "type": "integer",
+            "format": "int32",
+            "required": false
+          },
+          {
+            "in": "path",
+            "name": "company_id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "security": [
+          {
+            "oauth": [
+              "internal"
+            ]
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Create a BulkUploadDetail class record",
+            "schema": {
+              "$ref": "#/definitions/V1_Entities_BulkUploadDetail"
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not found"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "tags": [
+          "company"
+        ],
+        "operationId": "createBulkUploadDetail",
         "x-codeSamples": [
           {
             "lang": "javascript",
@@ -1770,6 +1937,63 @@
           "deal_setup"
         ],
         "operationId": "createDealSetup",
+        "x-codeSamples": [
+          {
+            "lang": "javascript",
+            "source": ""
+          },
+          {
+            "lang": "ruby",
+            "source": ""
+          }
+        ]
+      }
+    },
+    "/investor_profiles/{type}/{id}": {
+      "delete": {
+        "summary": "Delete investor profile.",
+        "description": "Deletes the investor profile.",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "type",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          },
+          {
+            "in": "path",
+            "name": "id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "security": [
+          {
+            "oauth": [
+              "deals.write"
+            ]
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Investor profile deleted successfully."
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "tags": [
+          "investor"
+        ],
+        "operationId": "deleteInvestorProfile",
         "x-codeSamples": [
           {
             "lang": "javascript",
@@ -4522,7 +4746,7 @@
     "/uploads/generate_url": {
       "post": {
         "summary": "Create a presigned URL for Amazon S3",
-        "description": "Create a presigned URL for Amazon S3",
+        "description": "Create a presigned URL for uploading file to Amazon S3 bucket",
         "produces": [
           "application/json"
         ],
@@ -4547,7 +4771,10 @@
         ],
         "responses": {
           "201": {
-            "description": "Create a presigned URL for Amazon S3"
+            "description": "Create a presigned URL for uploading file to Amazon S3 bucket",
+            "schema": {
+              "$ref": "#/definitions/V1_Entities_PresignedUrlResult"
+            }
           },
           "400": {
             "description": "Bad Request"
@@ -5664,6 +5891,43 @@
       },
       "description": "V1_Entities_BulkUpload model"
     },
+    "V1_Entities_BulkUploadDetail": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32",
+          "description": "The ID for the bulk upload detail"
+        },
+        "bulk_upload_id": {
+          "type": "integer",
+          "format": "int32",
+          "description": "The bulk upload ID"
+        },
+        "file_key": {
+          "type": "string",
+          "description": "The generated identifier for the file"
+        },
+        "file_name": {
+          "type": "string",
+          "description": "The name of the file"
+        },
+        "status": {
+          "type": "integer",
+          "format": "int32",
+          "description": "The status of the bulk upload detail"
+        },
+        "created_at": {
+          "type": "string",
+          "description": "The created at date"
+        },
+        "updated_at": {
+          "type": "string",
+          "description": "The updated at date"
+        }
+      },
+      "description": "V1_Entities_BulkUploadDetail model"
+    },
     "V1_Entities_DealSetup": {
       "type": "object",
       "properties": {
@@ -5827,6 +6091,20 @@
         }
       },
       "description": "V1_Entities_Webhooks_Deal model"
+    },
+    "V1_Entities_PresignedUrlResult": {
+      "type": "object",
+      "properties": {
+        "file_key": {
+          "type": "string",
+          "description": "The file UUID generated value."
+        },
+        "presigned_url": {
+          "type": "string",
+          "description": "A pre-signed url by aws for interacting with a S3 bucket."
+        }
+      },
+      "description": "V1_Entities_PresignedUrlResult model"
     }
   }
 }

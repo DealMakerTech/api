@@ -9,11 +9,11 @@ All URIs are relative to *http://api.dealmaker.tech*
 
 ## generate_url
 
-> generate_url(generate_url_request)
+> <V1EntitiesPresignedUrlResult> generate_url(generate_url_request)
 
 Create a presigned URL for Amazon S3
 
-Create a presigned URL for Amazon S3
+Create a presigned URL for uploading file to Amazon S3 bucket
 
 ### Examples
 
@@ -28,7 +28,8 @@ generate_url_request = DealMakerAPI::GenerateUrlRequest.new({filename: 'filename
 
 begin
   # Create a presigned URL for Amazon S3
-  api_instance.generate_url(generate_url_request)
+  result = api_instance.generate_url(generate_url_request)
+  p result
 rescue DealMakerAPI::ApiError => e
   puts "Error when calling UploadApi->generate_url: #{e}"
 end
@@ -36,9 +37,9 @@ end
 
 #### Using the generate_url_with_http_info variant
 
-This returns an Array which contains the response data (`nil` in this case), status code and headers.
+This returns an Array which contains the response data, status code and headers.
 
-> <Array(nil, Integer, Hash)> generate_url_with_http_info(generate_url_request)
+> <Array(<V1EntitiesPresignedUrlResult>, Integer, Hash)> generate_url_with_http_info(generate_url_request)
 
 ```ruby
 begin
@@ -46,7 +47,7 @@ begin
   data, status_code, headers = api_instance.generate_url_with_http_info(generate_url_request)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => nil
+  p data # => <V1EntitiesPresignedUrlResult>
 rescue DealMakerAPI::ApiError => e
   puts "Error when calling UploadApi->generate_url_with_http_info: #{e}"
 end
@@ -60,7 +61,7 @@ end
 
 ### Return type
 
-nil (empty response body)
+[**V1EntitiesPresignedUrlResult**](V1EntitiesPresignedUrlResult.md)
 
 ### Authorization
 
@@ -69,5 +70,5 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: application/json
-- **Accept**: Not defined
+- **Accept**: application/json
 

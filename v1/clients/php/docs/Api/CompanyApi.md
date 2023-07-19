@@ -5,6 +5,7 @@ All URIs are relative to http://api.dealmaker.tech, except if the operation defi
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
 | [**createBulkUpload()**](CompanyApi.md#createBulkUpload) | **POST** /companies/{id}/documents/bulk_uploads | Create bulk upload record |
+| [**createBulkUploadDetail()**](CompanyApi.md#createBulkUploadDetail) | **POST** /companies/{company_id}/documents/bulk_uploads/{bulk_upload_id}/details | Create a BulkUploadDetail class record |
 | [**createCompany()**](CompanyApi.md#createCompany) | **POST** /companies | Create new company |
 | [**getCompanies()**](CompanyApi.md#getCompanies) | **GET** /companies | Get list of Companies |
 | [**getCompany()**](CompanyApi.md#getCompany) | **GET** /companies/{id} | Get a Company |
@@ -55,6 +56,67 @@ try {
 ### Return type
 
 [**\DealMaker\Model\V1EntitiesBulkUpload**](../Model/V1EntitiesBulkUpload.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `createBulkUploadDetail()`
+
+```php
+createBulkUploadDetail($bulk_upload_id, $company_id, $create_bulk_upload_detail_request): \DealMaker\Model\V1EntitiesBulkUploadDetail
+```
+
+Create a BulkUploadDetail class record
+
+Create a BulkUploadDetail class record
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new DealMaker\Api\CompanyApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$bulk_upload_id = 'bulk_upload_id_example'; // string | The Bulk upload ID from which detail is associated with
+$company_id = 56; // int
+$create_bulk_upload_detail_request = new \DealMaker\Model\CreateBulkUploadDetailRequest(); // \DealMaker\Model\CreateBulkUploadDetailRequest
+
+try {
+    $result = $apiInstance->createBulkUploadDetail($bulk_upload_id, $company_id, $create_bulk_upload_detail_request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CompanyApi->createBulkUploadDetail: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **bulk_upload_id** | **string**| The Bulk upload ID from which detail is associated with | |
+| **company_id** | **int**|  | |
+| **create_bulk_upload_detail_request** | [**\DealMaker\Model\CreateBulkUploadDetailRequest**](../Model/CreateBulkUploadDetailRequest.md)|  | |
+
+### Return type
+
+[**\DealMaker\Model\V1EntitiesBulkUploadDetail**](../Model/V1EntitiesBulkUploadDetail.md)
 
 ### Authorization
 

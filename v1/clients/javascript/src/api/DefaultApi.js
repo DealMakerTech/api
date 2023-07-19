@@ -24,7 +24,7 @@ import V1EntitiesWebhooksSubscription from '../model/V1EntitiesWebhooksSubscript
 /**
 * Default service.
 * @module api/DefaultApi
-* @version 0.82.1
+* @version 0.83.0
 */
 export default class DefaultApi {
 

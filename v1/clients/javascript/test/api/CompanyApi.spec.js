@@ -58,6 +58,16 @@
         done();
       });
     });
+    describe('createBulkUploadDetail', function() {
+      it('should call createBulkUploadDetail successfully', function(done) {
+        //uncomment below and update the code to test createBulkUploadDetail
+        //instance.createBulkUploadDetail(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('createCompany', function() {
       it('should call createCompany successfully', function(done) {
         //uncomment below and update the code to test createCompany

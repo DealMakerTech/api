@@ -5,6 +5,7 @@ All URIs are relative to *http://api.dealmaker.tech*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**createBulkUpload**](CompanyApi.md#createBulkUpload) | **POST** /companies/{id}/documents/bulk_uploads | Create bulk upload record
+[**createBulkUploadDetail**](CompanyApi.md#createBulkUploadDetail) | **POST** /companies/{company_id}/documents/bulk_uploads/{bulk_upload_id}/details | Create a BulkUploadDetail class record
 [**createCompany**](CompanyApi.md#createCompany) | **POST** /companies | Create new company
 [**getCompanies**](CompanyApi.md#getCompanies) | **GET** /companies | Get list of Companies
 [**getCompany**](CompanyApi.md#getCompany) | **GET** /companies/{id} | Get a Company
@@ -48,6 +49,56 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**V1EntitiesBulkUpload**](V1EntitiesBulkUpload.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## createBulkUploadDetail
+
+> V1EntitiesBulkUploadDetail createBulkUploadDetail(bulkUploadId, companyId, createBulkUploadDetailRequest)
+
+Create a BulkUploadDetail class record
+
+Create a BulkUploadDetail class record
+
+### Example
+
+```javascript
+import Api from 'api';
+let defaultClient = Api.ApiClient.instance;
+
+let apiInstance = new Api.CompanyApi();
+let bulkUploadId = "bulkUploadId_example"; // String | The Bulk upload ID from which detail is associated with
+let companyId = 56; // Number | 
+let createBulkUploadDetailRequest = new Api.CreateBulkUploadDetailRequest(); // CreateBulkUploadDetailRequest | 
+apiInstance.createBulkUploadDetail(bulkUploadId, companyId, createBulkUploadDetailRequest, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **bulkUploadId** | **String**| The Bulk upload ID from which detail is associated with | 
+ **companyId** | **Number**|  | 
+ **createBulkUploadDetailRequest** | [**CreateBulkUploadDetailRequest**](CreateBulkUploadDetailRequest.md)|  | 
+
+### Return type
+
+[**V1EntitiesBulkUploadDetail**](V1EntitiesBulkUploadDetail.md)
 
 ### Authorization
 

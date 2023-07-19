@@ -13,7 +13,9 @@
 
 
 import ApiClient from './ApiClient';
+import Add506cDocumentRequest from './model/Add506cDocumentRequest';
 import AddDocumentRequest from './model/AddDocumentRequest';
+import CreateBulkUploadDetailRequest from './model/CreateBulkUploadDetailRequest';
 import CreateBulkUploadRequest from './model/CreateBulkUploadRequest';
 import CreateCompanyRequest from './model/CreateCompanyRequest';
 import CreateCorporationProfileRequest from './model/CreateCorporationProfileRequest';
@@ -37,6 +39,7 @@ import V1EntitiesAddresses from './model/V1EntitiesAddresses';
 import V1EntitiesAttachment from './model/V1EntitiesAttachment';
 import V1EntitiesBackgroundCheckSearch from './model/V1EntitiesBackgroundCheckSearch';
 import V1EntitiesBulkUpload from './model/V1EntitiesBulkUpload';
+import V1EntitiesBulkUploadDetail from './model/V1EntitiesBulkUploadDetail';
 import V1EntitiesCompany from './model/V1EntitiesCompany';
 import V1EntitiesCompanyDeal from './model/V1EntitiesCompanyDeal';
 import V1EntitiesCompanyDeals from './model/V1EntitiesCompanyDeals';
@@ -66,6 +69,7 @@ import V1EntitiesInvestorProfileTrust from './model/V1EntitiesInvestorProfileTru
 import V1EntitiesInvestorProfiles from './model/V1EntitiesInvestorProfiles';
 import V1EntitiesInvestorUser from './model/V1EntitiesInvestorUser';
 import V1EntitiesInvestors from './model/V1EntitiesInvestors';
+import V1EntitiesPresignedUrlResult from './model/V1EntitiesPresignedUrlResult';
 import V1EntitiesShareholder from './model/V1EntitiesShareholder';
 import V1EntitiesShareholders from './model/V1EntitiesShareholders';
 import V1EntitiesShareholdersTags from './model/V1EntitiesShareholdersTags';
@@ -114,7 +118,7 @@ import UploadApi from './api/UploadApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.82.1
+* @version 0.83.0
 */
 export {
     /**
@@ -124,10 +128,22 @@ export {
     ApiClient,
 
     /**
+     * The Add506cDocumentRequest model constructor.
+     * @property {module:model/Add506cDocumentRequest}
+     */
+    Add506cDocumentRequest,
+
+    /**
      * The AddDocumentRequest model constructor.
      * @property {module:model/AddDocumentRequest}
      */
     AddDocumentRequest,
+
+    /**
+     * The CreateBulkUploadDetailRequest model constructor.
+     * @property {module:model/CreateBulkUploadDetailRequest}
+     */
+    CreateBulkUploadDetailRequest,
 
     /**
      * The CreateBulkUploadRequest model constructor.
@@ -266,6 +282,12 @@ export {
      * @property {module:model/V1EntitiesBulkUpload}
      */
     V1EntitiesBulkUpload,
+
+    /**
+     * The V1EntitiesBulkUploadDetail model constructor.
+     * @property {module:model/V1EntitiesBulkUploadDetail}
+     */
+    V1EntitiesBulkUploadDetail,
 
     /**
      * The V1EntitiesCompany model constructor.
@@ -440,6 +462,12 @@ export {
      * @property {module:model/V1EntitiesInvestors}
      */
     V1EntitiesInvestors,
+
+    /**
+     * The V1EntitiesPresignedUrlResult model constructor.
+     * @property {module:model/V1EntitiesPresignedUrlResult}
+     */
+    V1EntitiesPresignedUrlResult,
 
     /**
      * The V1EntitiesShareholder model constructor.

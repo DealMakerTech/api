@@ -20,20 +20,20 @@ module DealMakerAPI
       @api_client = api_client
     end
     # Create a presigned URL for Amazon S3
-    # Create a presigned URL for Amazon S3
+    # Create a presigned URL for uploading file to Amazon S3 bucket
     # @param generate_url_request [GenerateUrlRequest] 
     # @param [Hash] opts the optional parameters
-    # @return [nil]
+    # @return [V1EntitiesPresignedUrlResult]
     def generate_url(generate_url_request, opts = {})
-      generate_url_with_http_info(generate_url_request, opts)
-      nil
+      data, _status_code, _headers = generate_url_with_http_info(generate_url_request, opts)
+      data
     end
 
     # Create a presigned URL for Amazon S3
-    # Create a presigned URL for Amazon S3
+    # Create a presigned URL for uploading file to Amazon S3 bucket
     # @param generate_url_request [GenerateUrlRequest] 
     # @param [Hash] opts the optional parameters
-    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    # @return [Array<(V1EntitiesPresignedUrlResult, Integer, Hash)>] V1EntitiesPresignedUrlResult data, response status code and response headers
     def generate_url_with_http_info(generate_url_request, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UploadApi.generate_url ...'
@@ -50,6 +50,8 @@ module DealMakerAPI
 
       # header parameters
       header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
       content_type = @api_client.select_header_content_type(['application/json'])
       if !content_type.nil?
@@ -63,7 +65,7 @@ module DealMakerAPI
       post_body = opts[:debug_body] || @api_client.object_to_http_body(generate_url_request)
 
       # return_type
-      return_type = opts[:debug_return_type]
+      return_type = opts[:debug_return_type] || 'V1EntitiesPresignedUrlResult'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || []

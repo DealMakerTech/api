@@ -93,6 +93,86 @@ module DealMakerAPI
       return data, status_code, headers
     end
 
+    # Create a BulkUploadDetail class record
+    # Create a BulkUploadDetail class record
+    # @param bulk_upload_id [String] The Bulk upload ID from which detail is associated with
+    # @param company_id [Integer] 
+    # @param create_bulk_upload_detail_request [CreateBulkUploadDetailRequest] 
+    # @param [Hash] opts the optional parameters
+    # @return [V1EntitiesBulkUploadDetail]
+    def create_bulk_upload_detail(bulk_upload_id, company_id, create_bulk_upload_detail_request, opts = {})
+      data, _status_code, _headers = create_bulk_upload_detail_with_http_info(bulk_upload_id, company_id, create_bulk_upload_detail_request, opts)
+      data
+    end
+
+    # Create a BulkUploadDetail class record
+    # Create a BulkUploadDetail class record
+    # @param bulk_upload_id [String] The Bulk upload ID from which detail is associated with
+    # @param company_id [Integer] 
+    # @param create_bulk_upload_detail_request [CreateBulkUploadDetailRequest] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(V1EntitiesBulkUploadDetail, Integer, Hash)>] V1EntitiesBulkUploadDetail data, response status code and response headers
+    def create_bulk_upload_detail_with_http_info(bulk_upload_id, company_id, create_bulk_upload_detail_request, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CompanyApi.create_bulk_upload_detail ...'
+      end
+      # verify the required parameter 'bulk_upload_id' is set
+      if @api_client.config.client_side_validation && bulk_upload_id.nil?
+        fail ArgumentError, "Missing the required parameter 'bulk_upload_id' when calling CompanyApi.create_bulk_upload_detail"
+      end
+      # verify the required parameter 'company_id' is set
+      if @api_client.config.client_side_validation && company_id.nil?
+        fail ArgumentError, "Missing the required parameter 'company_id' when calling CompanyApi.create_bulk_upload_detail"
+      end
+      # verify the required parameter 'create_bulk_upload_detail_request' is set
+      if @api_client.config.client_side_validation && create_bulk_upload_detail_request.nil?
+        fail ArgumentError, "Missing the required parameter 'create_bulk_upload_detail_request' when calling CompanyApi.create_bulk_upload_detail"
+      end
+      # resource path
+      local_var_path = '/companies/{company_id}/documents/bulk_uploads/{bulk_upload_id}/details'.sub('{' + 'bulk_upload_id' + '}', CGI.escape(bulk_upload_id.to_s)).sub('{' + 'company_id' + '}', CGI.escape(company_id.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(create_bulk_upload_detail_request)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'V1EntitiesBulkUploadDetail'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"CompanyApi.create_bulk_upload_detail",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CompanyApi#create_bulk_upload_detail\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Create new company
     # Creates a new company.
     # @param create_company_request [CreateCompanyRequest] 

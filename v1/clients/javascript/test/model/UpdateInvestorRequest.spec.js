@@ -84,6 +84,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property notes (base name: "notes")', function() {
+      // uncomment below and update the code to test the property notes
+      //var instance = new Api.UpdateInvestorRequest();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

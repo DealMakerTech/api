@@ -10,11 +10,11 @@ Method | HTTP request | Description
 
 ## generateUrl
 
-> generateUrl(generateUrlRequest)
+> V1EntitiesPresignedUrlResult generateUrl(generateUrlRequest)
 
 Create a presigned URL for Amazon S3
 
-Create a presigned URL for Amazon S3
+Create a presigned URL for uploading file to Amazon S3 bucket
 
 ### Example
 
@@ -28,7 +28,7 @@ apiInstance.generateUrl(generateUrlRequest, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
-    console.log('API called successfully.');
+    console.log('API called successfully. Returned data: ' + data);
   }
 });
 ```
@@ -42,7 +42,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-null (empty response body)
+[**V1EntitiesPresignedUrlResult**](V1EntitiesPresignedUrlResult.md)
 
 ### Authorization
 
@@ -51,5 +51,5 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: application/json
-- **Accept**: Not defined
+- **Accept**: application/json
 

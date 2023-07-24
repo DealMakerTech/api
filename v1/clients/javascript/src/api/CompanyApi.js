@@ -23,7 +23,7 @@ import V1EntitiesCompany from '../model/V1EntitiesCompany';
 /**
 * Company service.
 * @module api/CompanyApi
-* @version 0.83.0
+* @version 0.83.1
 */
 export default class CompanyApi {
 

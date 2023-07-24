@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The V1EntitiesSubscriptionAgreement model module.
  * @module model/V1EntitiesSubscriptionAgreement
- * @version 0.83.0
+ * @version 0.83.1
  */
 class V1EntitiesSubscriptionAgreement {
     /**

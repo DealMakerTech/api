@@ -118,7 +118,7 @@ import UploadApi from './api/UploadApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.83.0
+* @version 0.83.1
 */
 export {
     /**

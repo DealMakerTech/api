@@ -17,7 +17,7 @@ import V1EntitiesInvestorProfileAddress from './V1EntitiesInvestorProfileAddress
 /**
  * The V1EntitiesInvestorProfileFieldsTrust model module.
  * @module model/V1EntitiesInvestorProfileFieldsTrust
- * @version 0.83.1
+ * @version 0.83.2
  */
 class V1EntitiesInvestorProfileFieldsTrust {
     /**

@@ -71,6 +71,47 @@ describe 'CompanyApi' do
     end
   end
 
+  # unit tests for get_bulk_upload_details
+  # Return full list of bulk upload details order by status desc and id asc
+  # Return full list of bulk upload details
+  # @param company_id 
+  # @param bulk_upload_id 
+  # @param [Hash] opts the optional parameters
+  # @return [V1EntitiesBulkUploadDetails]
+  describe 'get_bulk_upload_details test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for get_bulk_upload_details_by_status
+  # Return bulk upload details grouped by status
+  # Return bulk upload details grouped by status
+  # @param company_id 
+  # @param bulk_upload_id 
+  # @param [Hash] opts the optional parameters
+  # @return [V1EntitiesBulkUploadDetails]
+  describe 'get_bulk_upload_details_by_status test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for get_bulk_uploads
+  # Return bulk uploads
+  # Return bulk uploads
+  # @param id 
+  # @param [Hash] opts the optional parameters
+  # @option opts [Integer] :page Page offset to fetch.
+  # @option opts [Integer] :per_page Number of results to return per page.
+  # @option opts [Integer] :offset Pad a number of results.
+  # @return [V1EntitiesBulkUploads]
+  describe 'get_bulk_uploads test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for get_companies
   # Get list of Companies
   # Get companies

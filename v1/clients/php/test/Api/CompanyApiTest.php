@@ -108,6 +108,42 @@ class CompanyApiTest extends TestCase
     }
 
     /**
+     * Test case for getBulkUploadDetails
+     *
+     * Return full list of bulk upload details order by status desc and id asc.
+     *
+     */
+    public function testGetBulkUploadDetails()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for getBulkUploadDetailsByStatus
+     *
+     * Return bulk upload details grouped by status.
+     *
+     */
+    public function testGetBulkUploadDetailsByStatus()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for getBulkUploads
+     *
+     * Return bulk uploads.
+     *
+     */
+    public function testGetBulkUploads()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for getCompanies
      *
      * Get list of Companies.

@@ -7,6 +7,9 @@ All URIs are relative to http://api.dealmaker.tech, except if the operation defi
 | [**createBulkUpload()**](CompanyApi.md#createBulkUpload) | **POST** /companies/{id}/documents/bulk_uploads | Create bulk upload record |
 | [**createBulkUploadDetail()**](CompanyApi.md#createBulkUploadDetail) | **POST** /companies/{company_id}/documents/bulk_uploads/{bulk_upload_id}/details | Create a BulkUploadDetail class record |
 | [**createCompany()**](CompanyApi.md#createCompany) | **POST** /companies | Create new company |
+| [**getBulkUploadDetails()**](CompanyApi.md#getBulkUploadDetails) | **GET** /companies/{company_id}/documents/bulk_uploads/{bulk_upload_id}/details | Return full list of bulk upload details order by status desc and id asc |
+| [**getBulkUploadDetailsByStatus()**](CompanyApi.md#getBulkUploadDetailsByStatus) | **GET** /companies/{company_id}/documents/bulk_uploads/{bulk_upload_id}/details/group_by_status | Return bulk upload details grouped by status |
+| [**getBulkUploads()**](CompanyApi.md#getBulkUploads) | **GET** /companies/{id}/documents/bulk_uploads | Return bulk uploads |
 | [**getCompanies()**](CompanyApi.md#getCompanies) | **GET** /companies | Get list of Companies |
 | [**getCompany()**](CompanyApi.md#getCompany) | **GET** /companies/{id} | Get a Company |
 
@@ -182,6 +185,187 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getBulkUploadDetails()`
+
+```php
+getBulkUploadDetails($company_id, $bulk_upload_id): \DealMaker\Model\V1EntitiesBulkUploadDetails
+```
+
+Return full list of bulk upload details order by status desc and id asc
+
+Return full list of bulk upload details
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new DealMaker\Api\CompanyApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$company_id = 56; // int
+$bulk_upload_id = 56; // int
+
+try {
+    $result = $apiInstance->getBulkUploadDetails($company_id, $bulk_upload_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CompanyApi->getBulkUploadDetails: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **company_id** | **int**|  | |
+| **bulk_upload_id** | **int**|  | |
+
+### Return type
+
+[**\DealMaker\Model\V1EntitiesBulkUploadDetails**](../Model/V1EntitiesBulkUploadDetails.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getBulkUploadDetailsByStatus()`
+
+```php
+getBulkUploadDetailsByStatus($company_id, $bulk_upload_id): \DealMaker\Model\V1EntitiesBulkUploadDetails
+```
+
+Return bulk upload details grouped by status
+
+Return bulk upload details grouped by status
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new DealMaker\Api\CompanyApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$company_id = 56; // int
+$bulk_upload_id = 56; // int
+
+try {
+    $result = $apiInstance->getBulkUploadDetailsByStatus($company_id, $bulk_upload_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CompanyApi->getBulkUploadDetailsByStatus: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **company_id** | **int**|  | |
+| **bulk_upload_id** | **int**|  | |
+
+### Return type
+
+[**\DealMaker\Model\V1EntitiesBulkUploadDetails**](../Model/V1EntitiesBulkUploadDetails.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getBulkUploads()`
+
+```php
+getBulkUploads($id, $page, $per_page, $offset): \DealMaker\Model\V1EntitiesBulkUploads
+```
+
+Return bulk uploads
+
+Return bulk uploads
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new DealMaker\Api\CompanyApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = 56; // int
+$page = 1; // int | Page offset to fetch.
+$per_page = 25; // int | Number of results to return per page.
+$offset = 0; // int | Pad a number of results.
+
+try {
+    $result = $apiInstance->getBulkUploads($id, $page, $per_page, $offset);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CompanyApi->getBulkUploads: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **int**|  | |
+| **page** | **int**| Page offset to fetch. | [optional] [default to 1] |
+| **per_page** | **int**| Number of results to return per page. | [optional] [default to 25] |
+| **offset** | **int**| Pad a number of results. | [optional] [default to 0] |
+
+### Return type
+
+[**\DealMaker\Model\V1EntitiesBulkUploads**](../Model/V1EntitiesBulkUploads.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

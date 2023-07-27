@@ -40,6 +40,8 @@ import V1EntitiesAttachment from './model/V1EntitiesAttachment';
 import V1EntitiesBackgroundCheckSearch from './model/V1EntitiesBackgroundCheckSearch';
 import V1EntitiesBulkUpload from './model/V1EntitiesBulkUpload';
 import V1EntitiesBulkUploadDetail from './model/V1EntitiesBulkUploadDetail';
+import V1EntitiesBulkUploadDetails from './model/V1EntitiesBulkUploadDetails';
+import V1EntitiesBulkUploads from './model/V1EntitiesBulkUploads';
 import V1EntitiesCompany from './model/V1EntitiesCompany';
 import V1EntitiesCompanyDeal from './model/V1EntitiesCompanyDeal';
 import V1EntitiesCompanyDeals from './model/V1EntitiesCompanyDeals';
@@ -118,7 +120,7 @@ import UploadApi from './api/UploadApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.83.1
+* @version 0.83.2
 */
 export {
     /**
@@ -288,6 +290,18 @@ export {
      * @property {module:model/V1EntitiesBulkUploadDetail}
      */
     V1EntitiesBulkUploadDetail,
+
+    /**
+     * The V1EntitiesBulkUploadDetails model constructor.
+     * @property {module:model/V1EntitiesBulkUploadDetails}
+     */
+    V1EntitiesBulkUploadDetails,
+
+    /**
+     * The V1EntitiesBulkUploads model constructor.
+     * @property {module:model/V1EntitiesBulkUploads}
+     */
+    V1EntitiesBulkUploads,
 
     /**
      * The V1EntitiesCompany model constructor.

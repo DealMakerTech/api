@@ -39,6 +39,8 @@ docs/Model/V1EntitiesAttachment.md
 docs/Model/V1EntitiesBackgroundCheckSearch.md
 docs/Model/V1EntitiesBulkUpload.md
 docs/Model/V1EntitiesBulkUploadDetail.md
+docs/Model/V1EntitiesBulkUploadDetails.md
+docs/Model/V1EntitiesBulkUploads.md
 docs/Model/V1EntitiesCompany.md
 docs/Model/V1EntitiesCompanyDeal.md
 docs/Model/V1EntitiesCompanyDeals.md
@@ -118,6 +120,8 @@ lib/Model/V1EntitiesAttachment.php
 lib/Model/V1EntitiesBackgroundCheckSearch.php
 lib/Model/V1EntitiesBulkUpload.php
 lib/Model/V1EntitiesBulkUploadDetail.php
+lib/Model/V1EntitiesBulkUploadDetails.php
+lib/Model/V1EntitiesBulkUploads.php
 lib/Model/V1EntitiesCompany.php
 lib/Model/V1EntitiesCompanyDeal.php
 lib/Model/V1EntitiesCompanyDeals.php
@@ -193,7 +197,9 @@ test/Model/V1EntitiesAddressesTest.php
 test/Model/V1EntitiesAttachmentTest.php
 test/Model/V1EntitiesBackgroundCheckSearchTest.php
 test/Model/V1EntitiesBulkUploadDetailTest.php
+test/Model/V1EntitiesBulkUploadDetailsTest.php
 test/Model/V1EntitiesBulkUploadTest.php
+test/Model/V1EntitiesBulkUploadsTest.php
 test/Model/V1EntitiesCompanyDealTest.php
 test/Model/V1EntitiesCompanyDealsTest.php
 test/Model/V1EntitiesCompanyTest.php

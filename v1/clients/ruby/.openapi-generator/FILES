@@ -43,6 +43,8 @@ docs/V1EntitiesAttachment.md
 docs/V1EntitiesBackgroundCheckSearch.md
 docs/V1EntitiesBulkUpload.md
 docs/V1EntitiesBulkUploadDetail.md
+docs/V1EntitiesBulkUploadDetails.md
+docs/V1EntitiesBulkUploads.md
 docs/V1EntitiesCompany.md
 docs/V1EntitiesCompanyDeal.md
 docs/V1EntitiesCompanyDeals.md
@@ -122,6 +124,8 @@ lib/DealMakerAPI/models/v1_entities_attachment.rb
 lib/DealMakerAPI/models/v1_entities_background_check_search.rb
 lib/DealMakerAPI/models/v1_entities_bulk_upload.rb
 lib/DealMakerAPI/models/v1_entities_bulk_upload_detail.rb
+lib/DealMakerAPI/models/v1_entities_bulk_upload_details.rb
+lib/DealMakerAPI/models/v1_entities_bulk_uploads.rb
 lib/DealMakerAPI/models/v1_entities_company.rb
 lib/DealMakerAPI/models/v1_entities_company_deal.rb
 lib/DealMakerAPI/models/v1_entities_company_deals.rb
@@ -198,7 +202,9 @@ spec/models/v1_entities_addresses_spec.rb
 spec/models/v1_entities_attachment_spec.rb
 spec/models/v1_entities_background_check_search_spec.rb
 spec/models/v1_entities_bulk_upload_detail_spec.rb
+spec/models/v1_entities_bulk_upload_details_spec.rb
 spec/models/v1_entities_bulk_upload_spec.rb
+spec/models/v1_entities_bulk_uploads_spec.rb
 spec/models/v1_entities_company_deal_spec.rb
 spec/models/v1_entities_company_deals_spec.rb
 spec/models/v1_entities_company_spec.rb

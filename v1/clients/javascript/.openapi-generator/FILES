@@ -38,6 +38,8 @@ docs/V1EntitiesAttachment.md
 docs/V1EntitiesBackgroundCheckSearch.md
 docs/V1EntitiesBulkUpload.md
 docs/V1EntitiesBulkUploadDetail.md
+docs/V1EntitiesBulkUploadDetails.md
+docs/V1EntitiesBulkUploads.md
 docs/V1EntitiesCompany.md
 docs/V1EntitiesCompanyDeal.md
 docs/V1EntitiesCompanyDeals.md
@@ -117,6 +119,8 @@ src/model/V1EntitiesAttachment.js
 src/model/V1EntitiesBackgroundCheckSearch.js
 src/model/V1EntitiesBulkUpload.js
 src/model/V1EntitiesBulkUploadDetail.js
+src/model/V1EntitiesBulkUploadDetails.js
+src/model/V1EntitiesBulkUploads.js
 src/model/V1EntitiesCompany.js
 src/model/V1EntitiesCompanyDeal.js
 src/model/V1EntitiesCompanyDeals.js
@@ -191,6 +195,8 @@ test/model/V1EntitiesAttachment.spec.js
 test/model/V1EntitiesBackgroundCheckSearch.spec.js
 test/model/V1EntitiesBulkUpload.spec.js
 test/model/V1EntitiesBulkUploadDetail.spec.js
+test/model/V1EntitiesBulkUploadDetails.spec.js
+test/model/V1EntitiesBulkUploads.spec.js
 test/model/V1EntitiesCompany.spec.js
 test/model/V1EntitiesCompanyDeal.spec.js
 test/model/V1EntitiesCompanyDeals.spec.js

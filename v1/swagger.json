@@ -1721,6 +1721,81 @@
             "source": ""
           }
         ]
+      },
+      "get": {
+        "summary": "Return bulk uploads",
+        "description": "Return bulk uploads",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "page",
+            "description": "Page offset to fetch.",
+            "type": "integer",
+            "format": "int32",
+            "default": 1,
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "per_page",
+            "description": "Number of results to return per page.",
+            "type": "integer",
+            "format": "int32",
+            "default": 25,
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "description": "Pad a number of results.",
+            "type": "integer",
+            "format": "int32",
+            "default": 0,
+            "required": false
+          },
+          {
+            "in": "path",
+            "name": "id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "security": [
+          {
+            "oauth": [
+              "internal"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/V1_Entities_BulkUploads"
+            }
+          },
+          "403": {
+            "description": "Access to this resource requires scope \"internal\"."
+          }
+        },
+        "tags": [
+          "company"
+        ],
+        "operationId": "getBulkUploads",
+        "x-codeSamples": [
+          {
+            "lang": "javascript",
+            "source": ""
+          },
+          {
+            "lang": "ruby",
+            "source": ""
+          }
+        ]
       }
     },
     "/companies/{company_id}/documents/bulk_uploads/{bulk_upload_id}/details": {
@@ -1799,6 +1874,124 @@
           "company"
         ],
         "operationId": "createBulkUploadDetail",
+        "x-codeSamples": [
+          {
+            "lang": "javascript",
+            "source": ""
+          },
+          {
+            "lang": "ruby",
+            "source": ""
+          }
+        ]
+      },
+      "get": {
+        "summary": "Return full list of bulk upload details order by status desc and id asc",
+        "description": "Return full list of bulk upload details",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "company_id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          },
+          {
+            "in": "path",
+            "name": "bulk_upload_id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "security": [
+          {
+            "oauth": [
+              "internal"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/V1_Entities_BulkUploadDetails"
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "tags": [
+          "company"
+        ],
+        "operationId": "getBulkUploadDetails",
+        "x-codeSamples": [
+          {
+            "lang": "javascript",
+            "source": ""
+          },
+          {
+            "lang": "ruby",
+            "source": ""
+          }
+        ]
+      }
+    },
+    "/companies/{company_id}/documents/bulk_uploads/{bulk_upload_id}/details/group_by_status": {
+      "get": {
+        "summary": "Return bulk upload details grouped by status",
+        "description": "Return bulk upload details grouped by status",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "company_id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          },
+          {
+            "in": "path",
+            "name": "bulk_upload_id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "security": [
+          {
+            "oauth": [
+              "internal"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/V1_Entities_BulkUploadDetails"
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "tags": [
+          "company"
+        ],
+        "operationId": "getBulkUploadDetailsByStatus",
         "x-codeSamples": [
           {
             "lang": "javascript",
@@ -5891,6 +6084,15 @@
       },
       "description": "V1_Entities_BulkUpload model"
     },
+    "V1_Entities_BulkUploads": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "$ref": "#/definitions/V1_Entities_BulkUpload"
+        }
+      },
+      "description": "V1_Entities_BulkUploads model"
+    },
     "V1_Entities_BulkUploadDetail": {
       "type": "object",
       "properties": {
@@ -5927,6 +6129,15 @@
         }
       },
       "description": "V1_Entities_BulkUploadDetail model"
+    },
+    "V1_Entities_BulkUploadDetails": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "$ref": "#/definitions/V1_Entities_BulkUploadDetail"
+        }
+      },
+      "description": "V1_Entities_BulkUploadDetails model"
     },
     "V1_Entities_DealSetup": {
       "type": "object",

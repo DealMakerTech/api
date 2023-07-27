@@ -7,6 +7,9 @@ Method | HTTP request | Description
 [**createBulkUpload**](CompanyApi.md#createBulkUpload) | **POST** /companies/{id}/documents/bulk_uploads | Create bulk upload record
 [**createBulkUploadDetail**](CompanyApi.md#createBulkUploadDetail) | **POST** /companies/{company_id}/documents/bulk_uploads/{bulk_upload_id}/details | Create a BulkUploadDetail class record
 [**createCompany**](CompanyApi.md#createCompany) | **POST** /companies | Create new company
+[**getBulkUploadDetails**](CompanyApi.md#getBulkUploadDetails) | **GET** /companies/{company_id}/documents/bulk_uploads/{bulk_upload_id}/details | Return full list of bulk upload details order by status desc and id asc
+[**getBulkUploadDetailsByStatus**](CompanyApi.md#getBulkUploadDetailsByStatus) | **GET** /companies/{company_id}/documents/bulk_uploads/{bulk_upload_id}/details/group_by_status | Return bulk upload details grouped by status
+[**getBulkUploads**](CompanyApi.md#getBulkUploads) | **GET** /companies/{id}/documents/bulk_uploads | Return bulk uploads
 [**getCompanies**](CompanyApi.md#getCompanies) | **GET** /companies | Get list of Companies
 [**getCompany**](CompanyApi.md#getCompany) | **GET** /companies/{id} | Get a Company
 
@@ -153,6 +156,156 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## getBulkUploadDetails
+
+> V1EntitiesBulkUploadDetails getBulkUploadDetails(companyId, bulkUploadId)
+
+Return full list of bulk upload details order by status desc and id asc
+
+Return full list of bulk upload details
+
+### Example
+
+```javascript
+import Api from 'api';
+let defaultClient = Api.ApiClient.instance;
+
+let apiInstance = new Api.CompanyApi();
+let companyId = 56; // Number | 
+let bulkUploadId = 56; // Number | 
+apiInstance.getBulkUploadDetails(companyId, bulkUploadId, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **companyId** | **Number**|  | 
+ **bulkUploadId** | **Number**|  | 
+
+### Return type
+
+[**V1EntitiesBulkUploadDetails**](V1EntitiesBulkUploadDetails.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## getBulkUploadDetailsByStatus
+
+> V1EntitiesBulkUploadDetails getBulkUploadDetailsByStatus(companyId, bulkUploadId)
+
+Return bulk upload details grouped by status
+
+Return bulk upload details grouped by status
+
+### Example
+
+```javascript
+import Api from 'api';
+let defaultClient = Api.ApiClient.instance;
+
+let apiInstance = new Api.CompanyApi();
+let companyId = 56; // Number | 
+let bulkUploadId = 56; // Number | 
+apiInstance.getBulkUploadDetailsByStatus(companyId, bulkUploadId, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **companyId** | **Number**|  | 
+ **bulkUploadId** | **Number**|  | 
+
+### Return type
+
+[**V1EntitiesBulkUploadDetails**](V1EntitiesBulkUploadDetails.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## getBulkUploads
+
+> V1EntitiesBulkUploads getBulkUploads(id, opts)
+
+Return bulk uploads
+
+Return bulk uploads
+
+### Example
+
+```javascript
+import Api from 'api';
+let defaultClient = Api.ApiClient.instance;
+
+let apiInstance = new Api.CompanyApi();
+let id = 56; // Number | 
+let opts = {
+  'page': 1, // Number | Page offset to fetch.
+  'perPage': 25, // Number | Number of results to return per page.
+  'offset': 0 // Number | Pad a number of results.
+};
+apiInstance.getBulkUploads(id, opts, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Number**|  | 
+ **page** | **Number**| Page offset to fetch. | [optional] [default to 1]
+ **perPage** | **Number**| Number of results to return per page. | [optional] [default to 25]
+ **offset** | **Number**| Pad a number of results. | [optional] [default to 0]
+
+### Return type
+
+[**V1EntitiesBulkUploads**](V1EntitiesBulkUploads.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 

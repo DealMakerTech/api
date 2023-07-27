@@ -78,6 +78,36 @@
         done();
       });
     });
+    describe('getBulkUploadDetails', function() {
+      it('should call getBulkUploadDetails successfully', function(done) {
+        //uncomment below and update the code to test getBulkUploadDetails
+        //instance.getBulkUploadDetails(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('getBulkUploadDetailsByStatus', function() {
+      it('should call getBulkUploadDetailsByStatus successfully', function(done) {
+        //uncomment below and update the code to test getBulkUploadDetailsByStatus
+        //instance.getBulkUploadDetailsByStatus(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('getBulkUploads', function() {
+      it('should call getBulkUploads successfully', function(done) {
+        //uncomment below and update the code to test getBulkUploads
+        //instance.getBulkUploads(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('getCompanies', function() {
       it('should call getCompanies successfully', function(done) {
         //uncomment below and update the code to test getCompanies

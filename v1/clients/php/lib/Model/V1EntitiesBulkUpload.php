@@ -62,6 +62,7 @@ class V1EntitiesBulkUpload implements ModelInterface, ArrayAccess, \JsonSerializ
         'company_id' => 'int',
         'file_identifier' => 'string',
         'document_type' => 'string',
+        'upload_name' => 'string',
         'status' => 'string',
         'created_at' => 'string',
         'updated_at' => 'string'
@@ -79,6 +80,7 @@ class V1EntitiesBulkUpload implements ModelInterface, ArrayAccess, \JsonSerializ
         'company_id' => 'int32',
         'file_identifier' => null,
         'document_type' => null,
+        'upload_name' => null,
         'status' => null,
         'created_at' => null,
         'updated_at' => null
@@ -94,6 +96,7 @@ class V1EntitiesBulkUpload implements ModelInterface, ArrayAccess, \JsonSerializ
 		'company_id' => false,
 		'file_identifier' => false,
 		'document_type' => false,
+		'upload_name' => false,
 		'status' => false,
 		'created_at' => false,
 		'updated_at' => false
@@ -189,6 +192,7 @@ class V1EntitiesBulkUpload implements ModelInterface, ArrayAccess, \JsonSerializ
         'company_id' => 'company_id',
         'file_identifier' => 'file_identifier',
         'document_type' => 'document_type',
+        'upload_name' => 'upload_name',
         'status' => 'status',
         'created_at' => 'created_at',
         'updated_at' => 'updated_at'
@@ -204,6 +208,7 @@ class V1EntitiesBulkUpload implements ModelInterface, ArrayAccess, \JsonSerializ
         'company_id' => 'setCompanyId',
         'file_identifier' => 'setFileIdentifier',
         'document_type' => 'setDocumentType',
+        'upload_name' => 'setUploadName',
         'status' => 'setStatus',
         'created_at' => 'setCreatedAt',
         'updated_at' => 'setUpdatedAt'
@@ -219,6 +224,7 @@ class V1EntitiesBulkUpload implements ModelInterface, ArrayAccess, \JsonSerializ
         'company_id' => 'getCompanyId',
         'file_identifier' => 'getFileIdentifier',
         'document_type' => 'getDocumentType',
+        'upload_name' => 'getUploadName',
         'status' => 'getStatus',
         'created_at' => 'getCreatedAt',
         'updated_at' => 'getUpdatedAt'
@@ -285,6 +291,7 @@ class V1EntitiesBulkUpload implements ModelInterface, ArrayAccess, \JsonSerializ
         $this->setIfExists('company_id', $data ?? [], null);
         $this->setIfExists('file_identifier', $data ?? [], null);
         $this->setIfExists('document_type', $data ?? [], null);
+        $this->setIfExists('upload_name', $data ?? [], null);
         $this->setIfExists('status', $data ?? [], null);
         $this->setIfExists('created_at', $data ?? [], null);
         $this->setIfExists('updated_at', $data ?? [], null);
@@ -436,6 +443,33 @@ class V1EntitiesBulkUpload implements ModelInterface, ArrayAccess, \JsonSerializ
             throw new \InvalidArgumentException('non-nullable document_type cannot be null');
         }
         $this->container['document_type'] = $document_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets upload_name
+     *
+     * @return string|null
+     */
+    public function getUploadName()
+    {
+        return $this->container['upload_name'];
+    }
+
+    /**
+     * Sets upload_name
+     *
+     * @param string|null $upload_name The bulk upload name
+     *
+     * @return self
+     */
+    public function setUploadName($upload_name)
+    {
+        if (is_null($upload_name)) {
+            throw new \InvalidArgumentException('non-nullable upload_name cannot be null');
+        }
+        $this->container['upload_name'] = $upload_name;
 
         return $this;
     }

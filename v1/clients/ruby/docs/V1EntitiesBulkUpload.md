@@ -8,6 +8,7 @@
 | **company_id** | **Integer** | The company ID | [optional] |
 | **file_identifier** | **String** | The file identifier [shareholder, investor] | [optional] |
 | **document_type** | **String** | The document type [drs_statement, shareholder_statement, book_entry_statement] | [optional] |
+| **upload_name** | **String** | The bulk upload name | [optional] |
 | **status** | **String** | The status [pending, processing, completed, failed] | [optional] |
 | **created_at** | **String** | The created at timestamp | [optional] |
 | **updated_at** | **String** | The updated at timestamp | [optional] |
@@ -22,6 +23,7 @@ instance = DealMakerAPI::V1EntitiesBulkUpload.new(
   company_id: null,
   file_identifier: null,
   document_type: null,
+  upload_name: null,
   status: null,
   created_at: null,
   updated_at: null

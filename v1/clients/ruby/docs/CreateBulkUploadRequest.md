@@ -6,6 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **file_identifier** | **String** | The file identifier |  |
 | **document_type** | **String** | The document type |  |
+| **upload_name** | **String** | The bulk upload name |  |
 
 ## Example
 
@@ -14,7 +15,8 @@ require 'DealMakerAPI'
 
 instance = DealMakerAPI::CreateBulkUploadRequest.new(
   file_identifier: null,
-  document_type: null
+  document_type: null,
+  upload_name: null
 )
 ```
 

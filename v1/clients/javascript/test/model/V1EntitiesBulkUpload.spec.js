@@ -78,6 +78,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property uploadName (base name: "upload_name")', function() {
+      // uncomment below and update the code to test the property uploadName
+      //var instance = new Api.V1EntitiesBulkUpload();
+      //expect(instance).to.be();
+    });
+
     it('should have the property status (base name: "status")', function() {
       // uncomment below and update the code to test the property status
       //var instance = new Api.V1EntitiesBulkUpload();

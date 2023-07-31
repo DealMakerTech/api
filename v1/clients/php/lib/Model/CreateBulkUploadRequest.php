@@ -58,7 +58,8 @@ class CreateBulkUploadRequest implements ModelInterface, ArrayAccess, \JsonSeria
       */
     protected static $openAPITypes = [
         'file_identifier' => 'string',
-        'document_type' => 'string'
+        'document_type' => 'string',
+        'upload_name' => 'string'
     ];
 
     /**
@@ -70,7 +71,8 @@ class CreateBulkUploadRequest implements ModelInterface, ArrayAccess, \JsonSeria
       */
     protected static $openAPIFormats = [
         'file_identifier' => null,
-        'document_type' => null
+        'document_type' => null,
+        'upload_name' => null
     ];
 
     /**
@@ -80,7 +82,8 @@ class CreateBulkUploadRequest implements ModelInterface, ArrayAccess, \JsonSeria
       */
     protected static array $openAPINullables = [
         'file_identifier' => false,
-		'document_type' => false
+		'document_type' => false,
+		'upload_name' => false
     ];
 
     /**
@@ -170,7 +173,8 @@ class CreateBulkUploadRequest implements ModelInterface, ArrayAccess, \JsonSeria
      */
     protected static $attributeMap = [
         'file_identifier' => 'file_identifier',
-        'document_type' => 'document_type'
+        'document_type' => 'document_type',
+        'upload_name' => 'upload_name'
     ];
 
     /**
@@ -180,7 +184,8 @@ class CreateBulkUploadRequest implements ModelInterface, ArrayAccess, \JsonSeria
      */
     protected static $setters = [
         'file_identifier' => 'setFileIdentifier',
-        'document_type' => 'setDocumentType'
+        'document_type' => 'setDocumentType',
+        'upload_name' => 'setUploadName'
     ];
 
     /**
@@ -190,7 +195,8 @@ class CreateBulkUploadRequest implements ModelInterface, ArrayAccess, \JsonSeria
      */
     protected static $getters = [
         'file_identifier' => 'getFileIdentifier',
-        'document_type' => 'getDocumentType'
+        'document_type' => 'getDocumentType',
+        'upload_name' => 'getUploadName'
     ];
 
     /**
@@ -252,6 +258,7 @@ class CreateBulkUploadRequest implements ModelInterface, ArrayAccess, \JsonSeria
     {
         $this->setIfExists('file_identifier', $data ?? [], null);
         $this->setIfExists('document_type', $data ?? [], null);
+        $this->setIfExists('upload_name', $data ?? [], null);
     }
 
     /**
@@ -286,6 +293,9 @@ class CreateBulkUploadRequest implements ModelInterface, ArrayAccess, \JsonSeria
         }
         if ($this->container['document_type'] === null) {
             $invalidProperties[] = "'document_type' can't be null";
+        }
+        if ($this->container['upload_name'] === null) {
+            $invalidProperties[] = "'upload_name' can't be null";
         }
         return $invalidProperties;
     }
@@ -352,6 +362,33 @@ class CreateBulkUploadRequest implements ModelInterface, ArrayAccess, \JsonSeria
             throw new \InvalidArgumentException('non-nullable document_type cannot be null');
         }
         $this->container['document_type'] = $document_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets upload_name
+     *
+     * @return string
+     */
+    public function getUploadName()
+    {
+        return $this->container['upload_name'];
+    }
+
+    /**
+     * Sets upload_name
+     *
+     * @param string $upload_name The bulk upload name
+     *
+     * @return self
+     */
+    public function setUploadName($upload_name)
+    {
+        if (is_null($upload_name)) {
+            throw new \InvalidArgumentException('non-nullable upload_name cannot be null');
+        }
+        $this->container['upload_name'] = $upload_name;
 
         return $this;
     }

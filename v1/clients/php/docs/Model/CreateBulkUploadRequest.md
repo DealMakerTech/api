@@ -6,5 +6,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **file_identifier** | **string** | The file identifier |
 **document_type** | **string** | The document type |
+**upload_name** | **string** | The bulk upload name |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

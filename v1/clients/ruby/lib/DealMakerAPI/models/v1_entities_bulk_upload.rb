@@ -28,6 +28,9 @@ module DealMakerAPI
     # The document type [drs_statement, shareholder_statement, book_entry_statement]
     attr_accessor :document_type
 
+    # The bulk upload name
+    attr_accessor :upload_name
+
     # The status [pending, processing, completed, failed]
     attr_accessor :status
 
@@ -44,6 +47,7 @@ module DealMakerAPI
         :'company_id' => :'company_id',
         :'file_identifier' => :'file_identifier',
         :'document_type' => :'document_type',
+        :'upload_name' => :'upload_name',
         :'status' => :'status',
         :'created_at' => :'created_at',
         :'updated_at' => :'updated_at'
@@ -62,6 +66,7 @@ module DealMakerAPI
         :'company_id' => :'Integer',
         :'file_identifier' => :'String',
         :'document_type' => :'String',
+        :'upload_name' => :'String',
         :'status' => :'String',
         :'created_at' => :'String',
         :'updated_at' => :'String'
@@ -105,6 +110,10 @@ module DealMakerAPI
         self.document_type = attributes[:'document_type']
       end
 
+      if attributes.key?(:'upload_name')
+        self.upload_name = attributes[:'upload_name']
+      end
+
       if attributes.key?(:'status')
         self.status = attributes[:'status']
       end
@@ -142,6 +151,7 @@ module DealMakerAPI
           company_id == o.company_id &&
           file_identifier == o.file_identifier &&
           document_type == o.document_type &&
+          upload_name == o.upload_name &&
           status == o.status &&
           created_at == o.created_at &&
           updated_at == o.updated_at
@@ -156,7 +166,7 @@ module DealMakerAPI
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, company_id, file_identifier, document_type, status, created_at, updated_at].hash
+      [id, company_id, file_identifier, document_type, upload_name, status, created_at, updated_at].hash
     end
 
     # Builds the object from hash

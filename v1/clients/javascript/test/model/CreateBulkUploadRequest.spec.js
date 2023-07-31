@@ -66,6 +66,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property uploadName (base name: "upload_name")', function() {
+      // uncomment below and update the code to test the property uploadName
+      //var instance = new Api.CreateBulkUploadRequest();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

@@ -116,6 +116,15 @@ class V1EntitiesBulkUploadTest extends TestCase
     }
 
     /**
+     * Test attribute "upload_name"
+     */
+    public function testPropertyUploadName()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "status"
      */
     public function testPropertyStatus()

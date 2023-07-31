@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The CreateBulkUploadRequest model module.
  * @module model/CreateBulkUploadRequest
- * @version 0.83.2
+ * @version 0.83.3
  */
 class CreateBulkUploadRequest {
     /**
@@ -24,10 +24,11 @@ class CreateBulkUploadRequest {
      * @alias module:model/CreateBulkUploadRequest
      * @param fileIdentifier {String} The file identifier
      * @param documentType {String} The document type
+     * @param uploadName {String} The bulk upload name
      */
-    constructor(fileIdentifier, documentType) { 
+    constructor(fileIdentifier, documentType, uploadName) { 
         
-        CreateBulkUploadRequest.initialize(this, fileIdentifier, documentType);
+        CreateBulkUploadRequest.initialize(this, fileIdentifier, documentType, uploadName);
     }
 
     /**
@@ -35,9 +36,10 @@ class CreateBulkUploadRequest {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, fileIdentifier, documentType) { 
+    static initialize(obj, fileIdentifier, documentType, uploadName) { 
         obj['file_identifier'] = fileIdentifier;
         obj['document_type'] = documentType;
+        obj['upload_name'] = uploadName;
     }
 
     /**
@@ -56,6 +58,9 @@ class CreateBulkUploadRequest {
             }
             if (data.hasOwnProperty('document_type')) {
                 obj['document_type'] = ApiClient.convertToType(data['document_type'], 'String');
+            }
+            if (data.hasOwnProperty('upload_name')) {
+                obj['upload_name'] = ApiClient.convertToType(data['upload_name'], 'String');
             }
         }
         return obj;
@@ -81,6 +86,10 @@ class CreateBulkUploadRequest {
         if (data['document_type'] && !(typeof data['document_type'] === 'string' || data['document_type'] instanceof String)) {
             throw new Error("Expected the field `document_type` to be a primitive type in the JSON string but got " + data['document_type']);
         }
+        // ensure the json data is a string
+        if (data['upload_name'] && !(typeof data['upload_name'] === 'string' || data['upload_name'] instanceof String)) {
+            throw new Error("Expected the field `upload_name` to be a primitive type in the JSON string but got " + data['upload_name']);
+        }
 
         return true;
     }
@@ -88,7 +97,7 @@ class CreateBulkUploadRequest {
 
 }
 
-CreateBulkUploadRequest.RequiredProperties = ["file_identifier", "document_type"];
+CreateBulkUploadRequest.RequiredProperties = ["file_identifier", "document_type", "upload_name"];
 
 /**
  * The file identifier
@@ -101,6 +110,12 @@ CreateBulkUploadRequest.prototype['file_identifier'] = undefined;
  * @member {String} document_type
  */
 CreateBulkUploadRequest.prototype['document_type'] = undefined;
+
+/**
+ * The bulk upload name
+ * @member {String} upload_name
+ */
+CreateBulkUploadRequest.prototype['upload_name'] = undefined;
 
 
 

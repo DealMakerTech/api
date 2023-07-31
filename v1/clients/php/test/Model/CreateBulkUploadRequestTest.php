@@ -96,4 +96,13 @@ class CreateBulkUploadRequestTest extends TestCase
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test attribute "upload_name"
+     */
+    public function testPropertyUploadName()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
 }

@@ -1684,6 +1684,13 @@
             "description": "The document type",
             "type": "string",
             "required": true
+          },
+          {
+            "in": "formData",
+            "name": "upload_name",
+            "description": "The bulk upload name",
+            "type": "string",
+            "required": true
           }
         ],
         "security": [
@@ -6068,6 +6075,10 @@
         "document_type": {
           "type": "string",
           "description": "The document type [drs_statement, shareholder_statement, book_entry_statement]"
+        },
+        "upload_name": {
+          "type": "string",
+          "description": "The bulk upload name"
         },
         "status": {
           "type": "string",

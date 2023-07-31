@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The V1EntitiesBulkUpload model module.
  * @module model/V1EntitiesBulkUpload
- * @version 0.83.2
+ * @version 0.83.3
  */
 class V1EntitiesBulkUpload {
     /**
@@ -60,6 +60,9 @@ class V1EntitiesBulkUpload {
             if (data.hasOwnProperty('document_type')) {
                 obj['document_type'] = ApiClient.convertToType(data['document_type'], 'String');
             }
+            if (data.hasOwnProperty('upload_name')) {
+                obj['upload_name'] = ApiClient.convertToType(data['upload_name'], 'String');
+            }
             if (data.hasOwnProperty('status')) {
                 obj['status'] = ApiClient.convertToType(data['status'], 'String');
             }
@@ -86,6 +89,10 @@ class V1EntitiesBulkUpload {
         // ensure the json data is a string
         if (data['document_type'] && !(typeof data['document_type'] === 'string' || data['document_type'] instanceof String)) {
             throw new Error("Expected the field `document_type` to be a primitive type in the JSON string but got " + data['document_type']);
+        }
+        // ensure the json data is a string
+        if (data['upload_name'] && !(typeof data['upload_name'] === 'string' || data['upload_name'] instanceof String)) {
+            throw new Error("Expected the field `upload_name` to be a primitive type in the JSON string but got " + data['upload_name']);
         }
         // ensure the json data is a string
         if (data['status'] && !(typeof data['status'] === 'string' || data['status'] instanceof String)) {
@@ -131,6 +138,12 @@ V1EntitiesBulkUpload.prototype['file_identifier'] = undefined;
  * @member {String} document_type
  */
 V1EntitiesBulkUpload.prototype['document_type'] = undefined;
+
+/**
+ * The bulk upload name
+ * @member {String} upload_name
+ */
+V1EntitiesBulkUpload.prototype['upload_name'] = undefined;
 
 /**
  * The status [pending, processing, completed, failed]

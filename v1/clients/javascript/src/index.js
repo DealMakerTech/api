@@ -120,7 +120,7 @@ import UploadApi from './api/UploadApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.83.3
+* @version 0.83.4
 */
 export {
     /**

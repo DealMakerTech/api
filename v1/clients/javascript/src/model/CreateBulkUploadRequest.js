@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The CreateBulkUploadRequest model module.
  * @module model/CreateBulkUploadRequest
- * @version 0.83.3
+ * @version 0.83.5
  */
 class CreateBulkUploadRequest {
     /**

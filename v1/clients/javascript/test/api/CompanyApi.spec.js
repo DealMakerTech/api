@@ -88,16 +88,6 @@
         done();
       });
     });
-    describe('getBulkUploadDetailsByStatus', function() {
-      it('should call getBulkUploadDetailsByStatus successfully', function(done) {
-        //uncomment below and update the code to test getBulkUploadDetailsByStatus
-        //instance.getBulkUploadDetailsByStatus(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
     describe('getBulkUploads', function() {
       it('should call getBulkUploads successfully', function(done) {
         //uncomment below and update the code to test getBulkUploads
@@ -122,6 +112,16 @@
       it('should call getCompany successfully', function(done) {
         //uncomment below and update the code to test getCompany
         //instance.getCompany(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('getDetailsErrorsGrouped', function() {
+      it('should call getDetailsErrorsGrouped successfully', function(done) {
+        //uncomment below and update the code to test getDetailsErrorsGrouped
+        //instance.getDetailsErrorsGrouped(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});

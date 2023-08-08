@@ -25,7 +25,7 @@ import V1EntitiesCompany from '../model/V1EntitiesCompany';
 /**
 * Company service.
 * @module api/CompanyApi
-* @version 0.83.3
+* @version 0.84.1
 */
 export default class CompanyApi {
 
@@ -235,55 +235,6 @@ export default class CompanyApi {
     }
 
     /**
-     * Callback function to receive the result of the getBulkUploadDetailsByStatus operation.
-     * @callback module:api/CompanyApi~getBulkUploadDetailsByStatusCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/V1EntitiesBulkUploadDetails} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * Return bulk upload details grouped by status
-     * Return bulk upload details grouped by status
-     * @param {Number} companyId 
-     * @param {Number} bulkUploadId 
-     * @param {module:api/CompanyApi~getBulkUploadDetailsByStatusCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/V1EntitiesBulkUploadDetails}
-     */
-    getBulkUploadDetailsByStatus(companyId, bulkUploadId, callback) {
-      let postBody = null;
-      // verify the required parameter 'companyId' is set
-      if (companyId === undefined || companyId === null) {
-        throw new Error("Missing the required parameter 'companyId' when calling getBulkUploadDetailsByStatus");
-      }
-      // verify the required parameter 'bulkUploadId' is set
-      if (bulkUploadId === undefined || bulkUploadId === null) {
-        throw new Error("Missing the required parameter 'bulkUploadId' when calling getBulkUploadDetailsByStatus");
-      }
-
-      let pathParams = {
-        'company_id': companyId,
-        'bulk_upload_id': bulkUploadId
-      };
-      let queryParams = {
-      };
-      let headerParams = {
-      };
-      let formParams = {
-      };
-
-      let authNames = [];
-      let contentTypes = [];
-      let accepts = ['application/json'];
-      let returnType = V1EntitiesBulkUploadDetails;
-      return this.apiClient.callApi(
-        '/companies/{company_id}/documents/bulk_uploads/{bulk_upload_id}/details/group_by_status', 'GET',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
-      );
-    }
-
-    /**
      * Callback function to receive the result of the getBulkUploads operation.
      * @callback module:api/CompanyApi~getBulkUploadsCallback
      * @param {String} error Error message, if any.
@@ -417,6 +368,55 @@ export default class CompanyApi {
       let returnType = V1EntitiesCompany;
       return this.apiClient.callApi(
         '/companies/{id}', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the getDetailsErrorsGrouped operation.
+     * @callback module:api/CompanyApi~getDetailsErrorsGroupedCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/V1EntitiesBulkUploadDetails} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Return bulk upload details grouped by status
+     * Return bulk upload details grouped by status
+     * @param {Number} companyId 
+     * @param {Number} bulkUploadId 
+     * @param {module:api/CompanyApi~getDetailsErrorsGroupedCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/V1EntitiesBulkUploadDetails}
+     */
+    getDetailsErrorsGrouped(companyId, bulkUploadId, callback) {
+      let postBody = null;
+      // verify the required parameter 'companyId' is set
+      if (companyId === undefined || companyId === null) {
+        throw new Error("Missing the required parameter 'companyId' when calling getDetailsErrorsGrouped");
+      }
+      // verify the required parameter 'bulkUploadId' is set
+      if (bulkUploadId === undefined || bulkUploadId === null) {
+        throw new Error("Missing the required parameter 'bulkUploadId' when calling getDetailsErrorsGrouped");
+      }
+
+      let pathParams = {
+        'company_id': companyId,
+        'bulk_upload_id': bulkUploadId
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = V1EntitiesBulkUploadDetails;
+      return this.apiClient.callApi(
+        '/companies/{company_id}/documents/bulk_uploads/{bulk_upload_id}/details/grouped_errors', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

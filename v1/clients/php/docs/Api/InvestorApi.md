@@ -6,6 +6,7 @@ All URIs are relative to http://api.dealmaker.tech, except if the operation defi
 | ------------- | ------------- | ------------- |
 | [**add506cDocument()**](InvestorApi.md#add506cDocument) | **POST** /deals/{id}/investors/{investor_id}/add_506c_document | Add 506c document for deal investor |
 | [**addDocument()**](InvestorApi.md#addDocument) | **POST** /deals/{id}/investors/{investor_id}/add_document | Add document for deal investor |
+| [**bulkUploadInvestors()**](InvestorApi.md#bulkUploadInvestors) | **POST** /deals/{id}/investors/bulk_upload | Bulk upload investors for deal investor |
 | [**createInvestor()**](InvestorApi.md#createInvestor) | **POST** /deals/{id}/investors | Create a deal investor |
 | [**deleteDocument()**](InvestorApi.md#deleteDocument) | **DELETE** /deals/{id}/investors/{investor_id}/delete_document/{document_id} | Delete document for deal investor |
 | [**deleteInvestorProfile()**](InvestorApi.md#deleteInvestorProfile) | **DELETE** /investor_profiles/{type}/{id} | Delete investor profile. |
@@ -121,6 +122,65 @@ try {
 | **id** | **int**| The deal id. | |
 | **investor_id** | **int**| The investor id. | |
 | **add_document_request** | [**\DealMaker\Model\AddDocumentRequest**](../Model/AddDocumentRequest.md)|  | |
+
+### Return type
+
+[**\DealMaker\Model\V1EntitiesInvestor**](../Model/V1EntitiesInvestor.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `bulkUploadInvestors()`
+
+```php
+bulkUploadInvestors($id, $bulk_upload_investors_request): \DealMaker\Model\V1EntitiesInvestor
+```
+
+Bulk upload investors for deal investor
+
+Bulk upload investors
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new DealMaker\Api\InvestorApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = 56; // int | The deal id.
+$bulk_upload_investors_request = new \DealMaker\Model\BulkUploadInvestorsRequest(); // \DealMaker\Model\BulkUploadInvestorsRequest
+
+try {
+    $result = $apiInstance->bulkUploadInvestors($id, $bulk_upload_investors_request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling InvestorApi->bulkUploadInvestors: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **int**| The deal id. | |
+| **bulk_upload_investors_request** | [**\DealMaker\Model\BulkUploadInvestorsRequest**](../Model/BulkUploadInvestorsRequest.md)|  | |
 
 ### Return type
 

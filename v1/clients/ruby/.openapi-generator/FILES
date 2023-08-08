@@ -10,6 +10,7 @@ README.md
 Rakefile
 docs/Add506cDocumentRequest.md
 docs/AddDocumentRequest.md
+docs/BulkUploadInvestorsRequest.md
 docs/CompanyApi.md
 docs/CreateBulkUploadDetailRequest.md
 docs/CreateBulkUploadRequest.md
@@ -99,6 +100,7 @@ lib/DealMakerAPI/api_error.rb
 lib/DealMakerAPI/configuration.rb
 lib/DealMakerAPI/models/add506c_document_request.rb
 lib/DealMakerAPI/models/add_document_request.rb
+lib/DealMakerAPI/models/bulk_upload_investors_request.rb
 lib/DealMakerAPI/models/create_bulk_upload_detail_request.rb
 lib/DealMakerAPI/models/create_bulk_upload_request.rb
 lib/DealMakerAPI/models/create_company_request.rb
@@ -178,6 +180,7 @@ spec/api_client_spec.rb
 spec/configuration_spec.rb
 spec/models/add506c_document_request_spec.rb
 spec/models/add_document_request_spec.rb
+spec/models/bulk_upload_investors_request_spec.rb
 spec/models/create_bulk_upload_detail_request_spec.rb
 spec/models/create_bulk_upload_request_spec.rb
 spec/models/create_company_request_spec.rb

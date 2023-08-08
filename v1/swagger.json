@@ -1222,6 +1222,70 @@
         ]
       }
     },
+    "/deals/{id}/investors/bulk_upload": {
+      "post": {
+        "summary": "Bulk upload investors for deal investor",
+        "description": "Bulk upload investors",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "description": "The deal id.",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "import_file",
+            "description": "The CSV file with data to upload.",
+            "type": "file",
+            "required": true
+          }
+        ],
+        "security": [
+          {
+            "oauth": [
+              "deals.write"
+            ]
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Bulk upload investors",
+            "schema": {
+              "$ref": "#/definitions/V1_Entities_Investor"
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "tags": [
+          "investor"
+        ],
+        "operationId": "bulkUploadInvestors",
+        "x-codeSamples": [
+          {
+            "lang": "javascript",
+            "source": ""
+          },
+          {
+            "lang": "ruby",
+            "source": ""
+          }
+        ]
+      }
+    },
     "/deals/{id}/investors/{investor_id}/payments/express_wire/instructions": {
       "get": {
         "summary": "Displays the express wire instructions for an investor on a deal",
@@ -1951,7 +2015,7 @@
         ]
       }
     },
-    "/companies/{company_id}/documents/bulk_uploads/{bulk_upload_id}/details/group_by_status": {
+    "/companies/{company_id}/documents/bulk_uploads/{bulk_upload_id}/details/grouped_errors": {
       "get": {
         "summary": "Return bulk upload details grouped by status",
         "description": "Return bulk upload details grouped by status",
@@ -1998,7 +2062,7 @@
         "tags": [
           "company"
         ],
-        "operationId": "getBulkUploadDetailsByStatus",
+        "operationId": "getDetailsErrorsGrouped",
         "x-codeSamples": [
           {
             "lang": "javascript",

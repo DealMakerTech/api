@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**add506cDocument**](InvestorApi.md#add506cDocument) | **POST** /deals/{id}/investors/{investor_id}/add_506c_document | Add 506c document for deal investor
 [**addDocument**](InvestorApi.md#addDocument) | **POST** /deals/{id}/investors/{investor_id}/add_document | Add document for deal investor
+[**bulkUploadInvestors**](InvestorApi.md#bulkUploadInvestors) | **POST** /deals/{id}/investors/bulk_upload | Bulk upload investors for deal investor
 [**createInvestor**](InvestorApi.md#createInvestor) | **POST** /deals/{id}/investors | Create a deal investor
 [**deleteDocument**](InvestorApi.md#deleteDocument) | **DELETE** /deals/{id}/investors/{investor_id}/delete_document/{document_id} | Delete document for deal investor
 [**deleteInvestorProfile**](InvestorApi.md#deleteInvestorProfile) | **DELETE** /investor_profiles/{type}/{id} | Delete investor profile.
@@ -103,6 +104,54 @@ Name | Type | Description  | Notes
  **id** | **Number**| The deal id. | 
  **investorId** | **Number**| The investor id. | 
  **addDocumentRequest** | [**AddDocumentRequest**](AddDocumentRequest.md)|  | 
+
+### Return type
+
+[**V1EntitiesInvestor**](V1EntitiesInvestor.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## bulkUploadInvestors
+
+> V1EntitiesInvestor bulkUploadInvestors(id, bulkUploadInvestorsRequest)
+
+Bulk upload investors for deal investor
+
+Bulk upload investors
+
+### Example
+
+```javascript
+import Api from 'api';
+let defaultClient = Api.ApiClient.instance;
+
+let apiInstance = new Api.InvestorApi();
+let id = 56; // Number | The deal id.
+let bulkUploadInvestorsRequest = new Api.BulkUploadInvestorsRequest(); // BulkUploadInvestorsRequest | 
+apiInstance.bulkUploadInvestors(id, bulkUploadInvestorsRequest, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Number**| The deal id. | 
+ **bulkUploadInvestorsRequest** | [**BulkUploadInvestorsRequest**](BulkUploadInvestorsRequest.md)|  | 
 
 ### Return type
 

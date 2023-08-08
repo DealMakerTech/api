@@ -84,19 +84,6 @@ describe 'CompanyApi' do
     end
   end
 
-  # unit tests for get_bulk_upload_details_by_status
-  # Return bulk upload details grouped by status
-  # Return bulk upload details grouped by status
-  # @param company_id 
-  # @param bulk_upload_id 
-  # @param [Hash] opts the optional parameters
-  # @return [V1EntitiesBulkUploadDetails]
-  describe 'get_bulk_upload_details_by_status test' do
-    it 'should work' do
-      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
-    end
-  end
-
   # unit tests for get_bulk_uploads
   # Return bulk uploads
   # Return bulk uploads
@@ -133,6 +120,19 @@ describe 'CompanyApi' do
   # @param [Hash] opts the optional parameters
   # @return [V1EntitiesCompany]
   describe 'get_company test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for get_details_errors_grouped
+  # Return bulk upload details grouped by status
+  # Return bulk upload details grouped by status
+  # @param company_id 
+  # @param bulk_upload_id 
+  # @param [Hash] opts the optional parameters
+  # @return [V1EntitiesBulkUploadDetails]
+  describe 'get_details_errors_grouped test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end

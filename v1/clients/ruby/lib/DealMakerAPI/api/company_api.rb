@@ -310,75 +310,6 @@ module DealMakerAPI
       return data, status_code, headers
     end
 
-    # Return bulk upload details grouped by status
-    # Return bulk upload details grouped by status
-    # @param company_id [Integer] 
-    # @param bulk_upload_id [Integer] 
-    # @param [Hash] opts the optional parameters
-    # @return [V1EntitiesBulkUploadDetails]
-    def get_bulk_upload_details_by_status(company_id, bulk_upload_id, opts = {})
-      data, _status_code, _headers = get_bulk_upload_details_by_status_with_http_info(company_id, bulk_upload_id, opts)
-      data
-    end
-
-    # Return bulk upload details grouped by status
-    # Return bulk upload details grouped by status
-    # @param company_id [Integer] 
-    # @param bulk_upload_id [Integer] 
-    # @param [Hash] opts the optional parameters
-    # @return [Array<(V1EntitiesBulkUploadDetails, Integer, Hash)>] V1EntitiesBulkUploadDetails data, response status code and response headers
-    def get_bulk_upload_details_by_status_with_http_info(company_id, bulk_upload_id, opts = {})
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: CompanyApi.get_bulk_upload_details_by_status ...'
-      end
-      # verify the required parameter 'company_id' is set
-      if @api_client.config.client_side_validation && company_id.nil?
-        fail ArgumentError, "Missing the required parameter 'company_id' when calling CompanyApi.get_bulk_upload_details_by_status"
-      end
-      # verify the required parameter 'bulk_upload_id' is set
-      if @api_client.config.client_side_validation && bulk_upload_id.nil?
-        fail ArgumentError, "Missing the required parameter 'bulk_upload_id' when calling CompanyApi.get_bulk_upload_details_by_status"
-      end
-      # resource path
-      local_var_path = '/companies/{company_id}/documents/bulk_uploads/{bulk_upload_id}/details/group_by_status'.sub('{' + 'company_id' + '}', CGI.escape(company_id.to_s)).sub('{' + 'bulk_upload_id' + '}', CGI.escape(bulk_upload_id.to_s))
-
-      # query parameters
-      query_params = opts[:query_params] || {}
-
-      # header parameters
-      header_params = opts[:header_params] || {}
-      # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
-
-      # form parameters
-      form_params = opts[:form_params] || {}
-
-      # http body (model)
-      post_body = opts[:debug_body]
-
-      # return_type
-      return_type = opts[:debug_return_type] || 'V1EntitiesBulkUploadDetails'
-
-      # auth_names
-      auth_names = opts[:debug_auth_names] || []
-
-      new_options = opts.merge(
-        :operation => :"CompanyApi.get_bulk_upload_details_by_status",
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => return_type
-      )
-
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: CompanyApi#get_bulk_upload_details_by_status\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
-
     # Return bulk uploads
     # Return bulk uploads
     # @param id [Integer] 
@@ -576,6 +507,75 @@ module DealMakerAPI
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: CompanyApi#get_company\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Return bulk upload details grouped by status
+    # Return bulk upload details grouped by status
+    # @param company_id [Integer] 
+    # @param bulk_upload_id [Integer] 
+    # @param [Hash] opts the optional parameters
+    # @return [V1EntitiesBulkUploadDetails]
+    def get_details_errors_grouped(company_id, bulk_upload_id, opts = {})
+      data, _status_code, _headers = get_details_errors_grouped_with_http_info(company_id, bulk_upload_id, opts)
+      data
+    end
+
+    # Return bulk upload details grouped by status
+    # Return bulk upload details grouped by status
+    # @param company_id [Integer] 
+    # @param bulk_upload_id [Integer] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(V1EntitiesBulkUploadDetails, Integer, Hash)>] V1EntitiesBulkUploadDetails data, response status code and response headers
+    def get_details_errors_grouped_with_http_info(company_id, bulk_upload_id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CompanyApi.get_details_errors_grouped ...'
+      end
+      # verify the required parameter 'company_id' is set
+      if @api_client.config.client_side_validation && company_id.nil?
+        fail ArgumentError, "Missing the required parameter 'company_id' when calling CompanyApi.get_details_errors_grouped"
+      end
+      # verify the required parameter 'bulk_upload_id' is set
+      if @api_client.config.client_side_validation && bulk_upload_id.nil?
+        fail ArgumentError, "Missing the required parameter 'bulk_upload_id' when calling CompanyApi.get_details_errors_grouped"
+      end
+      # resource path
+      local_var_path = '/companies/{company_id}/documents/bulk_uploads/{bulk_upload_id}/details/grouped_errors'.sub('{' + 'company_id' + '}', CGI.escape(company_id.to_s)).sub('{' + 'bulk_upload_id' + '}', CGI.escape(bulk_upload_id.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'V1EntitiesBulkUploadDetails'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"CompanyApi.get_details_errors_grouped",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CompanyApi#get_details_errors_grouped\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

@@ -19,6 +19,7 @@ require 'DealMakerAPI/configuration'
 # Models
 require 'DealMakerAPI/models/add506c_document_request'
 require 'DealMakerAPI/models/add_document_request'
+require 'DealMakerAPI/models/bulk_upload_investors_request'
 require 'DealMakerAPI/models/create_bulk_upload_detail_request'
 require 'DealMakerAPI/models/create_bulk_upload_request'
 require 'DealMakerAPI/models/create_company_request'

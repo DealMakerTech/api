@@ -14,6 +14,7 @@ docs/Api/ShareholderApi.md
 docs/Api/UploadApi.md
 docs/Model/Add506cDocumentRequest.md
 docs/Model/AddDocumentRequest.md
+docs/Model/BulkUploadInvestorsRequest.md
 docs/Model/CreateBulkUploadDetailRequest.md
 docs/Model/CreateBulkUploadRequest.md
 docs/Model/CreateCompanyRequest.md
@@ -94,6 +95,7 @@ lib/Configuration.php
 lib/HeaderSelector.php
 lib/Model/Add506cDocumentRequest.php
 lib/Model/AddDocumentRequest.php
+lib/Model/BulkUploadInvestorsRequest.php
 lib/Model/CreateBulkUploadDetailRequest.php
 lib/Model/CreateBulkUploadRequest.php
 lib/Model/CreateCompanyRequest.php
@@ -173,6 +175,7 @@ test/Api/ShareholderApiTest.php
 test/Api/UploadApiTest.php
 test/Model/Add506cDocumentRequestTest.php
 test/Model/AddDocumentRequestTest.php
+test/Model/BulkUploadInvestorsRequestTest.php
 test/Model/CreateBulkUploadDetailRequestTest.php
 test/Model/CreateBulkUploadRequestTest.php
 test/Model/CreateCompanyRequestTest.php

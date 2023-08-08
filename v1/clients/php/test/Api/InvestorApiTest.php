@@ -96,6 +96,18 @@ class InvestorApiTest extends TestCase
     }
 
     /**
+     * Test case for bulkUploadInvestors
+     *
+     * Bulk upload investors for deal investor.
+     *
+     */
+    public function testBulkUploadInvestors()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for createInvestor
      *
      * Create a deal investor.

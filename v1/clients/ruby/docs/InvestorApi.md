@@ -6,6 +6,7 @@ All URIs are relative to *http://api.dealmaker.tech*
 | ------ | ------------ | ----------- |
 | [**add506c_document**](InvestorApi.md#add506c_document) | **POST** /deals/{id}/investors/{investor_id}/add_506c_document | Add 506c document for deal investor |
 | [**add_document**](InvestorApi.md#add_document) | **POST** /deals/{id}/investors/{investor_id}/add_document | Add document for deal investor |
+| [**bulk_upload_investors**](InvestorApi.md#bulk_upload_investors) | **POST** /deals/{id}/investors/bulk_upload | Bulk upload investors for deal investor |
 | [**create_investor**](InvestorApi.md#create_investor) | **POST** /deals/{id}/investors | Create a deal investor |
 | [**delete_document**](InvestorApi.md#delete_document) | **DELETE** /deals/{id}/investors/{investor_id}/delete_document/{document_id} | Delete document for deal investor |
 | [**delete_investor_profile**](InvestorApi.md#delete_investor_profile) | **DELETE** /investor_profiles/{type}/{id} | Delete investor profile. |
@@ -142,6 +143,74 @@ end
 | **id** | **Integer** | The deal id. |  |
 | **investor_id** | **Integer** | The investor id. |  |
 | **add_document_request** | [**AddDocumentRequest**](AddDocumentRequest.md) |  |  |
+
+### Return type
+
+[**V1EntitiesInvestor**](V1EntitiesInvestor.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## bulk_upload_investors
+
+> <V1EntitiesInvestor> bulk_upload_investors(id, bulk_upload_investors_request)
+
+Bulk upload investors for deal investor
+
+Bulk upload investors
+
+### Examples
+
+```ruby
+require 'time'
+require 'DealMakerAPI'
+# setup authorization
+DealMakerAPI.configure do |config|end
+
+api_instance = DealMakerAPI::InvestorApi.new
+id = 56 # Integer | The deal id.
+bulk_upload_investors_request = DealMakerAPI::BulkUploadInvestorsRequest.new({import_file: File.new('/path/to/some/file')}) # BulkUploadInvestorsRequest | 
+
+begin
+  # Bulk upload investors for deal investor
+  result = api_instance.bulk_upload_investors(id, bulk_upload_investors_request)
+  p result
+rescue DealMakerAPI::ApiError => e
+  puts "Error when calling InvestorApi->bulk_upload_investors: #{e}"
+end
+```
+
+#### Using the bulk_upload_investors_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<V1EntitiesInvestor>, Integer, Hash)> bulk_upload_investors_with_http_info(id, bulk_upload_investors_request)
+
+```ruby
+begin
+  # Bulk upload investors for deal investor
+  data, status_code, headers = api_instance.bulk_upload_investors_with_http_info(id, bulk_upload_investors_request)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <V1EntitiesInvestor>
+rescue DealMakerAPI::ApiError => e
+  puts "Error when calling InvestorApi->bulk_upload_investors_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **id** | **Integer** | The deal id. |  |
+| **bulk_upload_investors_request** | [**BulkUploadInvestorsRequest**](BulkUploadInvestorsRequest.md) |  |  |
 
 ### Return type
 

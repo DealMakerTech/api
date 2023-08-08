@@ -179,6 +179,80 @@ module DealMakerAPI
       return data, status_code, headers
     end
 
+    # Bulk upload investors for deal investor
+    # Bulk upload investors
+    # @param id [Integer] The deal id.
+    # @param bulk_upload_investors_request [BulkUploadInvestorsRequest] 
+    # @param [Hash] opts the optional parameters
+    # @return [V1EntitiesInvestor]
+    def bulk_upload_investors(id, bulk_upload_investors_request, opts = {})
+      data, _status_code, _headers = bulk_upload_investors_with_http_info(id, bulk_upload_investors_request, opts)
+      data
+    end
+
+    # Bulk upload investors for deal investor
+    # Bulk upload investors
+    # @param id [Integer] The deal id.
+    # @param bulk_upload_investors_request [BulkUploadInvestorsRequest] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(V1EntitiesInvestor, Integer, Hash)>] V1EntitiesInvestor data, response status code and response headers
+    def bulk_upload_investors_with_http_info(id, bulk_upload_investors_request, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: InvestorApi.bulk_upload_investors ...'
+      end
+      # verify the required parameter 'id' is set
+      if @api_client.config.client_side_validation && id.nil?
+        fail ArgumentError, "Missing the required parameter 'id' when calling InvestorApi.bulk_upload_investors"
+      end
+      # verify the required parameter 'bulk_upload_investors_request' is set
+      if @api_client.config.client_side_validation && bulk_upload_investors_request.nil?
+        fail ArgumentError, "Missing the required parameter 'bulk_upload_investors_request' when calling InvestorApi.bulk_upload_investors"
+      end
+      # resource path
+      local_var_path = '/deals/{id}/investors/bulk_upload'.sub('{' + 'id' + '}', CGI.escape(id.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(bulk_upload_investors_request)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'V1EntitiesInvestor'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"InvestorApi.bulk_upload_investors",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: InvestorApi#bulk_upload_investors\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Create a deal investor
     # Create a single deal investor.
     # @param id [Integer] The deal id.

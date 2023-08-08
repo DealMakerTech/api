@@ -8,10 +8,10 @@ Method | HTTP request | Description
 [**createBulkUploadDetail**](CompanyApi.md#createBulkUploadDetail) | **POST** /companies/{company_id}/documents/bulk_uploads/{bulk_upload_id}/details | Create a BulkUploadDetail class record
 [**createCompany**](CompanyApi.md#createCompany) | **POST** /companies | Create new company
 [**getBulkUploadDetails**](CompanyApi.md#getBulkUploadDetails) | **GET** /companies/{company_id}/documents/bulk_uploads/{bulk_upload_id}/details | Return full list of bulk upload details order by status desc and id asc
-[**getBulkUploadDetailsByStatus**](CompanyApi.md#getBulkUploadDetailsByStatus) | **GET** /companies/{company_id}/documents/bulk_uploads/{bulk_upload_id}/details/group_by_status | Return bulk upload details grouped by status
 [**getBulkUploads**](CompanyApi.md#getBulkUploads) | **GET** /companies/{id}/documents/bulk_uploads | Return bulk uploads
 [**getCompanies**](CompanyApi.md#getCompanies) | **GET** /companies | Get list of Companies
 [**getCompany**](CompanyApi.md#getCompany) | **GET** /companies/{id} | Get a Company
+[**getDetailsErrorsGrouped**](CompanyApi.md#getDetailsErrorsGrouped) | **GET** /companies/{company_id}/documents/bulk_uploads/{bulk_upload_id}/details/grouped_errors | Return bulk upload details grouped by status
 
 
 
@@ -207,54 +207,6 @@ No authorization required
 - **Accept**: application/json
 
 
-## getBulkUploadDetailsByStatus
-
-> V1EntitiesBulkUploadDetails getBulkUploadDetailsByStatus(companyId, bulkUploadId)
-
-Return bulk upload details grouped by status
-
-Return bulk upload details grouped by status
-
-### Example
-
-```javascript
-import Api from 'api';
-let defaultClient = Api.ApiClient.instance;
-
-let apiInstance = new Api.CompanyApi();
-let companyId = 56; // Number | 
-let bulkUploadId = 56; // Number | 
-apiInstance.getBulkUploadDetailsByStatus(companyId, bulkUploadId, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
-});
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **companyId** | **Number**|  | 
- **bulkUploadId** | **Number**|  | 
-
-### Return type
-
-[**V1EntitiesBulkUploadDetails**](V1EntitiesBulkUploadDetails.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
 ## getBulkUploads
 
 > V1EntitiesBulkUploads getBulkUploads(id, opts)
@@ -396,6 +348,54 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**V1EntitiesCompany**](V1EntitiesCompany.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## getDetailsErrorsGrouped
+
+> V1EntitiesBulkUploadDetails getDetailsErrorsGrouped(companyId, bulkUploadId)
+
+Return bulk upload details grouped by status
+
+Return bulk upload details grouped by status
+
+### Example
+
+```javascript
+import Api from 'api';
+let defaultClient = Api.ApiClient.instance;
+
+let apiInstance = new Api.CompanyApi();
+let companyId = 56; // Number | 
+let bulkUploadId = 56; // Number | 
+apiInstance.getDetailsErrorsGrouped(companyId, bulkUploadId, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **companyId** | **Number**|  | 
+ **bulkUploadId** | **Number**|  | 
+
+### Return type
+
+[**V1EntitiesBulkUploadDetails**](V1EntitiesBulkUploadDetails.md)
 
 ### Authorization
 

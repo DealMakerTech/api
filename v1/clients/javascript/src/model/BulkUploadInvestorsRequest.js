@@ -11,376 +11,82 @@
  *
  */
 
-
-import ApiClient from "../ApiClient";
-import PostWebhooksRequest from '../model/PostWebhooksRequest';
-import PutWebhooksIdRequest from '../model/PutWebhooksIdRequest';
-import V1EntitiesExpressWireInstruction from '../model/V1EntitiesExpressWireInstruction';
-import V1EntitiesExpressWireInstructions from '../model/V1EntitiesExpressWireInstructions';
-import V1EntitiesWebhooksDeal from '../model/V1EntitiesWebhooksDeal';
-import V1EntitiesWebhooksSecurityToken from '../model/V1EntitiesWebhooksSecurityToken';
-import V1EntitiesWebhooksSubscription from '../model/V1EntitiesWebhooksSubscription';
+import ApiClient from '../ApiClient';
 
 /**
-* Default service.
-* @module api/DefaultApi
-* @version 0.84.1
-*/
-export default class DefaultApi {
-
+ * The BulkUploadInvestorsRequest model module.
+ * @module model/BulkUploadInvestorsRequest
+ * @version 0.84.1
+ */
+class BulkUploadInvestorsRequest {
     /**
-    * Constructs a new DefaultApi. 
-    * @alias module:api/DefaultApi
-    * @class
-    * @param {module:ApiClient} [apiClient] Optional API client implementation to use,
-    * default to {@link module:ApiClient#instance} if unspecified.
-    */
-    constructor(apiClient) {
-        this.apiClient = apiClient || ApiClient.instance;
-    }
-
-
-    /**
-     * Callback function to receive the result of the getDealsIdInvestorsInvestorIdPaymentsExpressWireInstructions operation.
-     * @callback module:api/DefaultApi~getDealsIdInvestorsInvestorIdPaymentsExpressWireInstructionsCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/V1EntitiesExpressWireInstruction} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * Constructs a new <code>BulkUploadInvestorsRequest</code>.
+     * @alias module:model/BulkUploadInvestorsRequest
+     * @param importFile {File} The CSV file with data to upload.
      */
-
-    /**
-     * Displays the express wire instructions for an investor on a deal
-     * Get express wire instructions
-     * @param {Number} id 
-     * @param {Number} investorId 
-     * @param {module:api/DefaultApi~getDealsIdInvestorsInvestorIdPaymentsExpressWireInstructionsCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/V1EntitiesExpressWireInstruction}
-     */
-    getDealsIdInvestorsInvestorIdPaymentsExpressWireInstructions(id, investorId, callback) {
-      let postBody = null;
-      // verify the required parameter 'id' is set
-      if (id === undefined || id === null) {
-        throw new Error("Missing the required parameter 'id' when calling getDealsIdInvestorsInvestorIdPaymentsExpressWireInstructions");
-      }
-      // verify the required parameter 'investorId' is set
-      if (investorId === undefined || investorId === null) {
-        throw new Error("Missing the required parameter 'investorId' when calling getDealsIdInvestorsInvestorIdPaymentsExpressWireInstructions");
-      }
-
-      let pathParams = {
-        'id': id,
-        'investor_id': investorId
-      };
-      let queryParams = {
-      };
-      let headerParams = {
-      };
-      let formParams = {
-      };
-
-      let authNames = [];
-      let contentTypes = [];
-      let accepts = ['application/json'];
-      let returnType = V1EntitiesExpressWireInstruction;
-      return this.apiClient.callApi(
-        '/deals/{id}/investors/{investor_id}/payments/express_wire/instructions', 'GET',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
-      );
+    constructor(importFile) { 
+        
+        BulkUploadInvestorsRequest.initialize(this, importFile);
     }
 
     /**
-     * Callback function to receive the result of the getDealsIdInvestorsPaymentsExpressWireInstructions operation.
-     * @callback module:api/DefaultApi~getDealsIdInvestorsPaymentsExpressWireInstructionsCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/V1EntitiesExpressWireInstructions} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * Initializes the fields of this object.
+     * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
+     * Only for internal use.
      */
-
-    /**
-     * Displays the express wire instructions for all the investors on a deal
-     * Get list of express wire instructions
-     * @param {Number} id 
-     * @param {module:api/DefaultApi~getDealsIdInvestorsPaymentsExpressWireInstructionsCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/V1EntitiesExpressWireInstructions}
-     */
-    getDealsIdInvestorsPaymentsExpressWireInstructions(id, callback) {
-      let postBody = null;
-      // verify the required parameter 'id' is set
-      if (id === undefined || id === null) {
-        throw new Error("Missing the required parameter 'id' when calling getDealsIdInvestorsPaymentsExpressWireInstructions");
-      }
-
-      let pathParams = {
-        'id': id
-      };
-      let queryParams = {
-      };
-      let headerParams = {
-      };
-      let formParams = {
-      };
-
-      let authNames = [];
-      let contentTypes = [];
-      let accepts = ['application/json'];
-      let returnType = V1EntitiesExpressWireInstructions;
-      return this.apiClient.callApi(
-        '/deals/{id}/investors/payments/express_wire/instructions', 'GET',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
-      );
+    static initialize(obj, importFile) { 
+        obj['import_file'] = importFile;
     }
 
     /**
-     * Callback function to receive the result of the getWebhooks operation.
-     * @callback module:api/DefaultApi~getWebhooksCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/V1EntitiesWebhooksSubscription} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * Constructs a <code>BulkUploadInvestorsRequest</code> from a plain JavaScript object, optionally creating a new instance.
+     * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @param {module:model/BulkUploadInvestorsRequest} obj Optional instance to populate.
+     * @return {module:model/BulkUploadInvestorsRequest} The populated <code>BulkUploadInvestorsRequest</code> instance.
      */
+    static constructFromObject(data, obj) {
+        if (data) {
+            obj = obj || new BulkUploadInvestorsRequest();
 
-    /**
-     * Returns a list of webhook subscription which is associated to the user
-     * Returns a list of webhook subscription
-     * @param {Object} opts Optional parameters
-     * @param {Number} [page = 1)] Page offset to fetch.
-     * @param {Number} [perPage = 25)] Number of results to return per page.
-     * @param {Number} [offset = 0)] Pad a number of results.
-     * @param {module:api/DefaultApi~getWebhooksCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/V1EntitiesWebhooksSubscription}
-     */
-    getWebhooks(opts, callback) {
-      opts = opts || {};
-      let postBody = null;
-
-      let pathParams = {
-      };
-      let queryParams = {
-        'page': opts['page'],
-        'per_page': opts['perPage'],
-        'offset': opts['offset']
-      };
-      let headerParams = {
-      };
-      let formParams = {
-      };
-
-      let authNames = [];
-      let contentTypes = [];
-      let accepts = ['application/json'];
-      let returnType = V1EntitiesWebhooksSubscription;
-      return this.apiClient.callApi(
-        '/webhooks', 'GET',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
-      );
+            if (data.hasOwnProperty('import_file')) {
+                obj['import_file'] = ApiClient.convertToType(data['import_file'], File);
+            }
+        }
+        return obj;
     }
 
     /**
-     * Callback function to receive the result of the getWebhooksDealId operation.
-     * @callback module:api/DefaultApi~getWebhooksDealIdCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/V1EntitiesWebhooksDeal} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * Validates the JSON data with respect to <code>BulkUploadInvestorsRequest</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>BulkUploadInvestorsRequest</code>.
      */
+    static validateJSON(data) {
+        // check to make sure all required properties are present in the JSON string
+        for (const property of BulkUploadInvestorsRequest.RequiredProperties) {
+            if (!data[property]) {
+                throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
+            }
+        }
 
-    /**
-     * Finds a deal using the id
-     * Returns a deal
-     * @param {Number} id 
-     * @param {module:api/DefaultApi~getWebhooksDealIdCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/V1EntitiesWebhooksDeal}
-     */
-    getWebhooksDealId(id, callback) {
-      let postBody = null;
-      // verify the required parameter 'id' is set
-      if (id === undefined || id === null) {
-        throw new Error("Missing the required parameter 'id' when calling getWebhooksDealId");
-      }
-
-      let pathParams = {
-        'id': id
-      };
-      let queryParams = {
-      };
-      let headerParams = {
-      };
-      let formParams = {
-      };
-
-      let authNames = [];
-      let contentTypes = [];
-      let accepts = ['application/json'];
-      let returnType = V1EntitiesWebhooksDeal;
-      return this.apiClient.callApi(
-        '/webhooks/deal/{id}', 'GET',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
-      );
-    }
-
-    /**
-     * Callback function to receive the result of the getWebhooksDealsSearch operation.
-     * @callback module:api/DefaultApi~getWebhooksDealsSearchCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/V1EntitiesWebhooksSecurityToken} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * Searches for deals for a given user
-     * Searches for deals for a given user
-     * @param {module:api/DefaultApi~getWebhooksDealsSearchCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/V1EntitiesWebhooksSecurityToken}
-     */
-    getWebhooksDealsSearch(callback) {
-      let postBody = null;
-
-      let pathParams = {
-      };
-      let queryParams = {
-      };
-      let headerParams = {
-      };
-      let formParams = {
-      };
-
-      let authNames = [];
-      let contentTypes = [];
-      let accepts = ['application/json'];
-      let returnType = V1EntitiesWebhooksSecurityToken;
-      return this.apiClient.callApi(
-        '/webhooks/deals/search', 'GET',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
-      );
-    }
-
-    /**
-     * Callback function to receive the result of the getWebhooksSecurityToken operation.
-     * @callback module:api/DefaultApi~getWebhooksSecurityTokenCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/V1EntitiesWebhooksSecurityToken} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * Creates a new security token for webhook subscription
-     * Creates a new security token for webhook subscription
-     * @param {module:api/DefaultApi~getWebhooksSecurityTokenCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/V1EntitiesWebhooksSecurityToken}
-     */
-    getWebhooksSecurityToken(callback) {
-      let postBody = null;
-
-      let pathParams = {
-      };
-      let queryParams = {
-      };
-      let headerParams = {
-      };
-      let formParams = {
-      };
-
-      let authNames = [];
-      let contentTypes = [];
-      let accepts = ['application/json'];
-      let returnType = V1EntitiesWebhooksSecurityToken;
-      return this.apiClient.callApi(
-        '/webhooks/security_token', 'GET',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
-      );
-    }
-
-    /**
-     * Callback function to receive the result of the postWebhooks operation.
-     * @callback module:api/DefaultApi~postWebhooksCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/V1EntitiesWebhooksSubscription} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * Creates a webhook subscription which is associated to the user
-     * Creates new webhook subscription
-     * @param {module:model/PostWebhooksRequest} postWebhooksRequest 
-     * @param {module:api/DefaultApi~postWebhooksCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/V1EntitiesWebhooksSubscription}
-     */
-    postWebhooks(postWebhooksRequest, callback) {
-      let postBody = postWebhooksRequest;
-      // verify the required parameter 'postWebhooksRequest' is set
-      if (postWebhooksRequest === undefined || postWebhooksRequest === null) {
-        throw new Error("Missing the required parameter 'postWebhooksRequest' when calling postWebhooks");
-      }
-
-      let pathParams = {
-      };
-      let queryParams = {
-      };
-      let headerParams = {
-      };
-      let formParams = {
-      };
-
-      let authNames = [];
-      let contentTypes = ['application/json'];
-      let accepts = ['application/json'];
-      let returnType = V1EntitiesWebhooksSubscription;
-      return this.apiClient.callApi(
-        '/webhooks', 'POST',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
-      );
-    }
-
-    /**
-     * Callback function to receive the result of the putWebhooksId operation.
-     * @callback module:api/DefaultApi~putWebhooksIdCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/V1EntitiesWebhooksSubscription} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * Updates webhook subscription and webhooks subcription deals
-     * Updates webhook subscription
-     * @param {Number} id 
-     * @param {Object} opts Optional parameters
-     * @param {module:model/PutWebhooksIdRequest} [putWebhooksIdRequest] 
-     * @param {module:api/DefaultApi~putWebhooksIdCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/V1EntitiesWebhooksSubscription}
-     */
-    putWebhooksId(id, opts, callback) {
-      opts = opts || {};
-      let postBody = opts['putWebhooksIdRequest'];
-      // verify the required parameter 'id' is set
-      if (id === undefined || id === null) {
-        throw new Error("Missing the required parameter 'id' when calling putWebhooksId");
-      }
-
-      let pathParams = {
-        'id': id
-      };
-      let queryParams = {
-      };
-      let headerParams = {
-      };
-      let formParams = {
-      };
-
-      let authNames = [];
-      let contentTypes = ['application/json'];
-      let accepts = ['application/json'];
-      let returnType = V1EntitiesWebhooksSubscription;
-      return this.apiClient.callApi(
-        '/webhooks/{id}', 'PUT',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
-      );
+        return true;
     }
 
 
 }
+
+BulkUploadInvestorsRequest.RequiredProperties = ["import_file"];
+
+/**
+ * The CSV file with data to upload.
+ * @member {File} import_file
+ */
+BulkUploadInvestorsRequest.prototype['import_file'] = undefined;
+
+
+
+
+
+
+export default BulkUploadInvestorsRequest;
+

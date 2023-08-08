@@ -15,6 +15,7 @@
 import ApiClient from './ApiClient';
 import Add506cDocumentRequest from './model/Add506cDocumentRequest';
 import AddDocumentRequest from './model/AddDocumentRequest';
+import BulkUploadInvestorsRequest from './model/BulkUploadInvestorsRequest';
 import CreateBulkUploadDetailRequest from './model/CreateBulkUploadDetailRequest';
 import CreateBulkUploadRequest from './model/CreateBulkUploadRequest';
 import CreateCompanyRequest from './model/CreateCompanyRequest';
@@ -120,7 +121,7 @@ import UploadApi from './api/UploadApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.83.3
+* @version 0.84.1
 */
 export {
     /**
@@ -140,6 +141,12 @@ export {
      * @property {module:model/AddDocumentRequest}
      */
     AddDocumentRequest,
+
+    /**
+     * The BulkUploadInvestorsRequest model constructor.
+     * @property {module:model/BulkUploadInvestorsRequest}
+     */
+    BulkUploadInvestorsRequest,
 
     /**
      * The CreateBulkUploadDetailRequest model constructor.

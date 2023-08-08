@@ -8,10 +8,10 @@ All URIs are relative to http://api.dealmaker.tech, except if the operation defi
 | [**createBulkUploadDetail()**](CompanyApi.md#createBulkUploadDetail) | **POST** /companies/{company_id}/documents/bulk_uploads/{bulk_upload_id}/details | Create a BulkUploadDetail class record |
 | [**createCompany()**](CompanyApi.md#createCompany) | **POST** /companies | Create new company |
 | [**getBulkUploadDetails()**](CompanyApi.md#getBulkUploadDetails) | **GET** /companies/{company_id}/documents/bulk_uploads/{bulk_upload_id}/details | Return full list of bulk upload details order by status desc and id asc |
-| [**getBulkUploadDetailsByStatus()**](CompanyApi.md#getBulkUploadDetailsByStatus) | **GET** /companies/{company_id}/documents/bulk_uploads/{bulk_upload_id}/details/group_by_status | Return bulk upload details grouped by status |
 | [**getBulkUploads()**](CompanyApi.md#getBulkUploads) | **GET** /companies/{id}/documents/bulk_uploads | Return bulk uploads |
 | [**getCompanies()**](CompanyApi.md#getCompanies) | **GET** /companies | Get list of Companies |
 | [**getCompany()**](CompanyApi.md#getCompany) | **GET** /companies/{id} | Get a Company |
+| [**getDetailsErrorsGrouped()**](CompanyApi.md#getDetailsErrorsGrouped) | **GET** /companies/{company_id}/documents/bulk_uploads/{bulk_upload_id}/details/grouped_errors | Return bulk upload details grouped by status |
 
 
 ## `createBulkUpload()`
@@ -250,65 +250,6 @@ No authorization required
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `getBulkUploadDetailsByStatus()`
-
-```php
-getBulkUploadDetailsByStatus($company_id, $bulk_upload_id): \DealMaker\Model\V1EntitiesBulkUploadDetails
-```
-
-Return bulk upload details grouped by status
-
-Return bulk upload details grouped by status
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-
-$apiInstance = new DealMaker\Api\CompanyApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$company_id = 56; // int
-$bulk_upload_id = 56; // int
-
-try {
-    $result = $apiInstance->getBulkUploadDetailsByStatus($company_id, $bulk_upload_id);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling CompanyApi->getBulkUploadDetailsByStatus: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **company_id** | **int**|  | |
-| **bulk_upload_id** | **int**|  | |
-
-### Return type
-
-[**\DealMaker\Model\V1EntitiesBulkUploadDetails**](../Model/V1EntitiesBulkUploadDetails.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
 ## `getBulkUploads()`
 
 ```php
@@ -476,6 +417,65 @@ try {
 ### Return type
 
 [**\DealMaker\Model\V1EntitiesCompany**](../Model/V1EntitiesCompany.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getDetailsErrorsGrouped()`
+
+```php
+getDetailsErrorsGrouped($company_id, $bulk_upload_id): \DealMaker\Model\V1EntitiesBulkUploadDetails
+```
+
+Return bulk upload details grouped by status
+
+Return bulk upload details grouped by status
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new DealMaker\Api\CompanyApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$company_id = 56; // int
+$bulk_upload_id = 56; // int
+
+try {
+    $result = $apiInstance->getDetailsErrorsGrouped($company_id, $bulk_upload_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CompanyApi->getDetailsErrorsGrouped: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **company_id** | **int**|  | |
+| **bulk_upload_id** | **int**|  | |
+
+### Return type
+
+[**\DealMaker\Model\V1EntitiesBulkUploadDetails**](../Model/V1EntitiesBulkUploadDetails.md)
 
 ### Authorization
 

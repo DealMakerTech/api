@@ -17,7 +17,7 @@ import V1EntitiesAddress from './V1EntitiesAddress';
 /**
  * The V1EntitiesAddresses model module.
  * @module model/V1EntitiesAddresses
- * @version 0.83.3
+ * @version 0.84.1
  */
 class V1EntitiesAddresses {
     /**

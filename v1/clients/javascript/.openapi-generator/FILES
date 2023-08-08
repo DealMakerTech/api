@@ -5,6 +5,7 @@
 README.md
 docs/Add506cDocumentRequest.md
 docs/AddDocumentRequest.md
+docs/BulkUploadInvestorsRequest.md
 docs/CompanyApi.md
 docs/CreateBulkUploadDetailRequest.md
 docs/CreateBulkUploadRequest.md
@@ -94,6 +95,7 @@ src/api/UploadApi.js
 src/index.js
 src/model/Add506cDocumentRequest.js
 src/model/AddDocumentRequest.js
+src/model/BulkUploadInvestorsRequest.js
 src/model/CreateBulkUploadDetailRequest.js
 src/model/CreateBulkUploadRequest.js
 src/model/CreateCompanyRequest.js
@@ -170,6 +172,7 @@ test/api/ShareholderApi.spec.js
 test/api/UploadApi.spec.js
 test/model/Add506cDocumentRequest.spec.js
 test/model/AddDocumentRequest.spec.js
+test/model/BulkUploadInvestorsRequest.spec.js
 test/model/CreateBulkUploadDetailRequest.spec.js
 test/model/CreateBulkUploadRequest.spec.js
 test/model/CreateCompanyRequest.spec.js

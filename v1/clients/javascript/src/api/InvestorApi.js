@@ -15,6 +15,7 @@
 import ApiClient from "../ApiClient";
 import Add506cDocumentRequest from '../model/Add506cDocumentRequest';
 import AddDocumentRequest from '../model/AddDocumentRequest';
+import BulkUploadInvestorsRequest from '../model/BulkUploadInvestorsRequest';
 import CreateInvestorRequest from '../model/CreateInvestorRequest';
 import EditInvestorTagsRequest from '../model/EditInvestorTagsRequest';
 import PatchInvestorRequest from '../model/PatchInvestorRequest';
@@ -26,7 +27,7 @@ import V1EntitiesInvestors from '../model/V1EntitiesInvestors';
 /**
 * Investor service.
 * @module api/InvestorApi
-* @version 0.83.3
+* @version 0.84.1
 */
 export default class InvestorApi {
 
@@ -145,6 +146,54 @@ export default class InvestorApi {
       let returnType = V1EntitiesInvestor;
       return this.apiClient.callApi(
         '/deals/{id}/investors/{investor_id}/add_document', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the bulkUploadInvestors operation.
+     * @callback module:api/InvestorApi~bulkUploadInvestorsCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/V1EntitiesInvestor} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Bulk upload investors for deal investor
+     * Bulk upload investors
+     * @param {Number} id The deal id.
+     * @param {module:model/BulkUploadInvestorsRequest} bulkUploadInvestorsRequest 
+     * @param {module:api/InvestorApi~bulkUploadInvestorsCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/V1EntitiesInvestor}
+     */
+    bulkUploadInvestors(id, bulkUploadInvestorsRequest, callback) {
+      let postBody = bulkUploadInvestorsRequest;
+      // verify the required parameter 'id' is set
+      if (id === undefined || id === null) {
+        throw new Error("Missing the required parameter 'id' when calling bulkUploadInvestors");
+      }
+      // verify the required parameter 'bulkUploadInvestorsRequest' is set
+      if (bulkUploadInvestorsRequest === undefined || bulkUploadInvestorsRequest === null) {
+        throw new Error("Missing the required parameter 'bulkUploadInvestorsRequest' when calling bulkUploadInvestors");
+      }
+
+      let pathParams = {
+        'id': id
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = V1EntitiesInvestor;
+      return this.apiClient.callApi(
+        '/deals/{id}/investors/bulk_upload', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

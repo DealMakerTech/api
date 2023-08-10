@@ -241,37 +241,37 @@ module DealMakerAPI
       return data, status_code, headers
     end
 
-    # Return full list of bulk upload details order by status desc and id asc
-    # Return full list of bulk upload details
+    # Returns a full list of details with errors of the given bulk upload ordered by status desc and id asc
+    # Returns a full list of details with errors of the given bulk upload
     # @param company_id [Integer] 
     # @param bulk_upload_id [Integer] 
     # @param [Hash] opts the optional parameters
     # @return [V1EntitiesBulkUploadDetails]
-    def get_bulk_upload_details(company_id, bulk_upload_id, opts = {})
-      data, _status_code, _headers = get_bulk_upload_details_with_http_info(company_id, bulk_upload_id, opts)
+    def get_bulk_upload_details_errors(company_id, bulk_upload_id, opts = {})
+      data, _status_code, _headers = get_bulk_upload_details_errors_with_http_info(company_id, bulk_upload_id, opts)
       data
     end
 
-    # Return full list of bulk upload details order by status desc and id asc
-    # Return full list of bulk upload details
+    # Returns a full list of details with errors of the given bulk upload ordered by status desc and id asc
+    # Returns a full list of details with errors of the given bulk upload
     # @param company_id [Integer] 
     # @param bulk_upload_id [Integer] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(V1EntitiesBulkUploadDetails, Integer, Hash)>] V1EntitiesBulkUploadDetails data, response status code and response headers
-    def get_bulk_upload_details_with_http_info(company_id, bulk_upload_id, opts = {})
+    def get_bulk_upload_details_errors_with_http_info(company_id, bulk_upload_id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: CompanyApi.get_bulk_upload_details ...'
+        @api_client.config.logger.debug 'Calling API: CompanyApi.get_bulk_upload_details_errors ...'
       end
       # verify the required parameter 'company_id' is set
       if @api_client.config.client_side_validation && company_id.nil?
-        fail ArgumentError, "Missing the required parameter 'company_id' when calling CompanyApi.get_bulk_upload_details"
+        fail ArgumentError, "Missing the required parameter 'company_id' when calling CompanyApi.get_bulk_upload_details_errors"
       end
       # verify the required parameter 'bulk_upload_id' is set
       if @api_client.config.client_side_validation && bulk_upload_id.nil?
-        fail ArgumentError, "Missing the required parameter 'bulk_upload_id' when calling CompanyApi.get_bulk_upload_details"
+        fail ArgumentError, "Missing the required parameter 'bulk_upload_id' when calling CompanyApi.get_bulk_upload_details_errors"
       end
       # resource path
-      local_var_path = '/companies/{company_id}/documents/bulk_uploads/{bulk_upload_id}/details'.sub('{' + 'company_id' + '}', CGI.escape(company_id.to_s)).sub('{' + 'bulk_upload_id' + '}', CGI.escape(bulk_upload_id.to_s))
+      local_var_path = '/companies/{company_id}/documents/bulk_uploads/{bulk_upload_id}/details/errors'.sub('{' + 'company_id' + '}', CGI.escape(company_id.to_s)).sub('{' + 'bulk_upload_id' + '}', CGI.escape(bulk_upload_id.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -294,7 +294,7 @@ module DealMakerAPI
       auth_names = opts[:debug_auth_names] || []
 
       new_options = opts.merge(
-        :operation => :"CompanyApi.get_bulk_upload_details",
+        :operation => :"CompanyApi.get_bulk_upload_details_errors",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -305,7 +305,7 @@ module DealMakerAPI
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: CompanyApi#get_bulk_upload_details\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: CompanyApi#get_bulk_upload_details_errors\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

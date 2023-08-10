@@ -7,7 +7,7 @@ All URIs are relative to http://api.dealmaker.tech, except if the operation defi
 | [**createBulkUpload()**](CompanyApi.md#createBulkUpload) | **POST** /companies/{id}/documents/bulk_uploads | Create bulk upload record |
 | [**createBulkUploadDetail()**](CompanyApi.md#createBulkUploadDetail) | **POST** /companies/{company_id}/documents/bulk_uploads/{bulk_upload_id}/details | Create a BulkUploadDetail class record |
 | [**createCompany()**](CompanyApi.md#createCompany) | **POST** /companies | Create new company |
-| [**getBulkUploadDetails()**](CompanyApi.md#getBulkUploadDetails) | **GET** /companies/{company_id}/documents/bulk_uploads/{bulk_upload_id}/details | Return full list of bulk upload details order by status desc and id asc |
+| [**getBulkUploadDetailsErrors()**](CompanyApi.md#getBulkUploadDetailsErrors) | **GET** /companies/{company_id}/documents/bulk_uploads/{bulk_upload_id}/details/errors | Returns a full list of details with errors of the given bulk upload ordered by status desc and id asc |
 | [**getBulkUploads()**](CompanyApi.md#getBulkUploads) | **GET** /companies/{id}/documents/bulk_uploads | Return bulk uploads |
 | [**getCompanies()**](CompanyApi.md#getCompanies) | **GET** /companies | Get list of Companies |
 | [**getCompany()**](CompanyApi.md#getCompany) | **GET** /companies/{id} | Get a Company |
@@ -191,15 +191,15 @@ No authorization required
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `getBulkUploadDetails()`
+## `getBulkUploadDetailsErrors()`
 
 ```php
-getBulkUploadDetails($company_id, $bulk_upload_id): \DealMaker\Model\V1EntitiesBulkUploadDetails
+getBulkUploadDetailsErrors($company_id, $bulk_upload_id): \DealMaker\Model\V1EntitiesBulkUploadDetails
 ```
 
-Return full list of bulk upload details order by status desc and id asc
+Returns a full list of details with errors of the given bulk upload ordered by status desc and id asc
 
-Return full list of bulk upload details
+Returns a full list of details with errors of the given bulk upload
 
 ### Example
 
@@ -219,10 +219,10 @@ $company_id = 56; // int
 $bulk_upload_id = 56; // int
 
 try {
-    $result = $apiInstance->getBulkUploadDetails($company_id, $bulk_upload_id);
+    $result = $apiInstance->getBulkUploadDetailsErrors($company_id, $bulk_upload_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling CompanyApi->getBulkUploadDetails: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling CompanyApi->getBulkUploadDetailsErrors: ', $e->getMessage(), PHP_EOL;
 }
 ```
 

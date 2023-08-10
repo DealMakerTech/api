@@ -78,10 +78,10 @@
         done();
       });
     });
-    describe('getBulkUploadDetails', function() {
-      it('should call getBulkUploadDetails successfully', function(done) {
-        //uncomment below and update the code to test getBulkUploadDetails
-        //instance.getBulkUploadDetails(function(error) {
+    describe('getBulkUploadDetailsErrors', function() {
+      it('should call getBulkUploadDetailsErrors successfully', function(done) {
+        //uncomment below and update the code to test getBulkUploadDetailsErrors
+        //instance.getBulkUploadDetailsErrors(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});

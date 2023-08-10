@@ -7,7 +7,7 @@ All URIs are relative to *http://api.dealmaker.tech*
 | [**create_bulk_upload**](CompanyApi.md#create_bulk_upload) | **POST** /companies/{id}/documents/bulk_uploads | Create bulk upload record |
 | [**create_bulk_upload_detail**](CompanyApi.md#create_bulk_upload_detail) | **POST** /companies/{company_id}/documents/bulk_uploads/{bulk_upload_id}/details | Create a BulkUploadDetail class record |
 | [**create_company**](CompanyApi.md#create_company) | **POST** /companies | Create new company |
-| [**get_bulk_upload_details**](CompanyApi.md#get_bulk_upload_details) | **GET** /companies/{company_id}/documents/bulk_uploads/{bulk_upload_id}/details | Return full list of bulk upload details order by status desc and id asc |
+| [**get_bulk_upload_details_errors**](CompanyApi.md#get_bulk_upload_details_errors) | **GET** /companies/{company_id}/documents/bulk_uploads/{bulk_upload_id}/details/errors | Returns a full list of details with errors of the given bulk upload ordered by status desc and id asc |
 | [**get_bulk_uploads**](CompanyApi.md#get_bulk_uploads) | **GET** /companies/{id}/documents/bulk_uploads | Return bulk uploads |
 | [**get_companies**](CompanyApi.md#get_companies) | **GET** /companies | Get list of Companies |
 | [**get_company**](CompanyApi.md#get_company) | **GET** /companies/{id} | Get a Company |
@@ -218,13 +218,13 @@ No authorization required
 - **Accept**: application/json
 
 
-## get_bulk_upload_details
+## get_bulk_upload_details_errors
 
-> <V1EntitiesBulkUploadDetails> get_bulk_upload_details(company_id, bulk_upload_id)
+> <V1EntitiesBulkUploadDetails> get_bulk_upload_details_errors(company_id, bulk_upload_id)
 
-Return full list of bulk upload details order by status desc and id asc
+Returns a full list of details with errors of the given bulk upload ordered by status desc and id asc
 
-Return full list of bulk upload details
+Returns a full list of details with errors of the given bulk upload
 
 ### Examples
 
@@ -239,29 +239,29 @@ company_id = 56 # Integer |
 bulk_upload_id = 56 # Integer | 
 
 begin
-  # Return full list of bulk upload details order by status desc and id asc
-  result = api_instance.get_bulk_upload_details(company_id, bulk_upload_id)
+  # Returns a full list of details with errors of the given bulk upload ordered by status desc and id asc
+  result = api_instance.get_bulk_upload_details_errors(company_id, bulk_upload_id)
   p result
 rescue DealMakerAPI::ApiError => e
-  puts "Error when calling CompanyApi->get_bulk_upload_details: #{e}"
+  puts "Error when calling CompanyApi->get_bulk_upload_details_errors: #{e}"
 end
 ```
 
-#### Using the get_bulk_upload_details_with_http_info variant
+#### Using the get_bulk_upload_details_errors_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<V1EntitiesBulkUploadDetails>, Integer, Hash)> get_bulk_upload_details_with_http_info(company_id, bulk_upload_id)
+> <Array(<V1EntitiesBulkUploadDetails>, Integer, Hash)> get_bulk_upload_details_errors_with_http_info(company_id, bulk_upload_id)
 
 ```ruby
 begin
-  # Return full list of bulk upload details order by status desc and id asc
-  data, status_code, headers = api_instance.get_bulk_upload_details_with_http_info(company_id, bulk_upload_id)
+  # Returns a full list of details with errors of the given bulk upload ordered by status desc and id asc
+  data, status_code, headers = api_instance.get_bulk_upload_details_errors_with_http_info(company_id, bulk_upload_id)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <V1EntitiesBulkUploadDetails>
 rescue DealMakerAPI::ApiError => e
-  puts "Error when calling CompanyApi->get_bulk_upload_details_with_http_info: #{e}"
+  puts "Error when calling CompanyApi->get_bulk_upload_details_errors_with_http_info: #{e}"
 end
 ```
 

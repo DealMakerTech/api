@@ -71,14 +71,14 @@ describe 'CompanyApi' do
     end
   end
 
-  # unit tests for get_bulk_upload_details
-  # Return full list of bulk upload details order by status desc and id asc
-  # Return full list of bulk upload details
+  # unit tests for get_bulk_upload_details_errors
+  # Returns a full list of details with errors of the given bulk upload ordered by status desc and id asc
+  # Returns a full list of details with errors of the given bulk upload
   # @param company_id 
   # @param bulk_upload_id 
   # @param [Hash] opts the optional parameters
   # @return [V1EntitiesBulkUploadDetails]
-  describe 'get_bulk_upload_details test' do
+  describe 'get_bulk_upload_details_errors test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end

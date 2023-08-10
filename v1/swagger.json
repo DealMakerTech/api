@@ -55,6 +55,10 @@
   ],
   "tags": [
     {
+      "name": "deals",
+      "description": "Operations about deals"
+    },
+    {
       "name": "shareholder",
       "description": "Operations about shareholders"
     },
@@ -1379,6 +1383,57 @@
         "operationId": "getDealsIdInvestorsPaymentsExpressWireInstructions"
       }
     },
+    "/deals/{id}/script_tag_environment": {
+      "put": {
+        "summary": "Update script tag environment for the deal.",
+        "description": "Update script tag environment for the deal.",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "description": "The deal id.",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "is_production",
+            "description": "True if environment is production.",
+            "type": "boolean",
+            "required": true
+          }
+        ],
+        "security": [
+          {
+            "oauth": [
+              "deals.write"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "tags": [
+          "deals"
+        ],
+        "operationId": "putDealsIdScriptTagEnvironment"
+      }
+    },
     "/companies/{id}/shareholders/tags": {
       "get": {
         "summary": "Get a company shareholders list grouped by tags",
@@ -1955,10 +2010,12 @@
             "source": ""
           }
         ]
-      },
+      }
+    },
+    "/companies/{company_id}/documents/bulk_uploads/{bulk_upload_id}/details/errors": {
       "get": {
-        "summary": "Return full list of bulk upload details order by status desc and id asc",
-        "description": "Return full list of bulk upload details",
+        "summary": "Returns a full list of details with errors of the given bulk upload ordered by status desc and id asc",
+        "description": "Returns a full list of details with errors of the given bulk upload",
         "produces": [
           "application/json"
         ],
@@ -2002,7 +2059,7 @@
         "tags": [
           "company"
         ],
-        "operationId": "getBulkUploadDetails",
+        "operationId": "getBulkUploadDetailsErrors",
         "x-codeSamples": [
           {
             "lang": "javascript",

@@ -23,6 +23,7 @@ docs/CreateJointProfileRequest.md
 docs/CreateTrustProfileRequest.md
 docs/DealApi.md
 docs/DealSetupApi.md
+docs/DealsApi.md
 docs/DefaultApi.md
 docs/EditInvestorTagsRequest.md
 docs/GenerateUrlRequest.md
@@ -34,6 +35,7 @@ docs/PatchInvestorRequest.md
 docs/PatchJointProfileRequest.md
 docs/PatchTrustProfileRequest.md
 docs/PostWebhooksRequest.md
+docs/PutDealsIdScriptTagEnvironmentRequest.md
 docs/PutWebhooksIdRequest.md
 docs/ShareholderApi.md
 docs/UpdateInvestorRequest.md
@@ -90,6 +92,7 @@ lib/DealMakerAPI.rb
 lib/DealMakerAPI/api/company_api.rb
 lib/DealMakerAPI/api/deal_api.rb
 lib/DealMakerAPI/api/deal_setup_api.rb
+lib/DealMakerAPI/api/deals_api.rb
 lib/DealMakerAPI/api/default_api.rb
 lib/DealMakerAPI/api/investor_api.rb
 lib/DealMakerAPI/api/investor_profile_api.rb
@@ -118,6 +121,7 @@ lib/DealMakerAPI/models/patch_investor_request.rb
 lib/DealMakerAPI/models/patch_joint_profile_request.rb
 lib/DealMakerAPI/models/patch_trust_profile_request.rb
 lib/DealMakerAPI/models/post_webhooks_request.rb
+lib/DealMakerAPI/models/put_deals_id_script_tag_environment_request.rb
 lib/DealMakerAPI/models/put_webhooks_id_request.rb
 lib/DealMakerAPI/models/update_investor_request.rb
 lib/DealMakerAPI/models/v1_entities_address.rb
@@ -171,6 +175,7 @@ lib/DealMakerAPI/version.rb
 spec/api/company_api_spec.rb
 spec/api/deal_api_spec.rb
 spec/api/deal_setup_api_spec.rb
+spec/api/deals_api_spec.rb
 spec/api/default_api_spec.rb
 spec/api/investor_api_spec.rb
 spec/api/investor_profile_api_spec.rb
@@ -198,6 +203,7 @@ spec/models/patch_investor_request_spec.rb
 spec/models/patch_joint_profile_request_spec.rb
 spec/models/patch_trust_profile_request_spec.rb
 spec/models/post_webhooks_request_spec.rb
+spec/models/put_deals_id_script_tag_environment_request_spec.rb
 spec/models/put_webhooks_id_request_spec.rb
 spec/models/update_investor_request_spec.rb
 spec/models/v1_entities_address_spec.rb

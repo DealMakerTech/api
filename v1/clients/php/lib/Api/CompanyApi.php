@@ -80,7 +80,7 @@ class CompanyApi
         'createCompany' => [
             'application/json',
         ],
-        'getBulkUploadDetails' => [
+        'getBulkUploadDetailsErrors' => [
             'application/json',
         ],
         'getBulkUploads' => [
@@ -1050,40 +1050,40 @@ class CompanyApi
     }
 
     /**
-     * Operation getBulkUploadDetails
+     * Operation getBulkUploadDetailsErrors
      *
-     * Return full list of bulk upload details order by status desc and id asc
+     * Returns a full list of details with errors of the given bulk upload ordered by status desc and id asc
      *
      * @param  int $company_id company_id (required)
      * @param  int $bulk_upload_id bulk_upload_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkUploadDetails'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkUploadDetailsErrors'] to see the possible values for this operation
      *
      * @throws \DealMaker\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \DealMaker\Model\V1EntitiesBulkUploadDetails
      */
-    public function getBulkUploadDetails($company_id, $bulk_upload_id, string $contentType = self::contentTypes['getBulkUploadDetails'][0])
+    public function getBulkUploadDetailsErrors($company_id, $bulk_upload_id, string $contentType = self::contentTypes['getBulkUploadDetailsErrors'][0])
     {
-        list($response) = $this->getBulkUploadDetailsWithHttpInfo($company_id, $bulk_upload_id, $contentType);
+        list($response) = $this->getBulkUploadDetailsErrorsWithHttpInfo($company_id, $bulk_upload_id, $contentType);
         return $response;
     }
 
     /**
-     * Operation getBulkUploadDetailsWithHttpInfo
+     * Operation getBulkUploadDetailsErrorsWithHttpInfo
      *
-     * Return full list of bulk upload details order by status desc and id asc
+     * Returns a full list of details with errors of the given bulk upload ordered by status desc and id asc
      *
      * @param  int $company_id (required)
      * @param  int $bulk_upload_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkUploadDetails'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkUploadDetailsErrors'] to see the possible values for this operation
      *
      * @throws \DealMaker\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \DealMaker\Model\V1EntitiesBulkUploadDetails, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getBulkUploadDetailsWithHttpInfo($company_id, $bulk_upload_id, string $contentType = self::contentTypes['getBulkUploadDetails'][0])
+    public function getBulkUploadDetailsErrorsWithHttpInfo($company_id, $bulk_upload_id, string $contentType = self::contentTypes['getBulkUploadDetailsErrors'][0])
     {
-        $request = $this->getBulkUploadDetailsRequest($company_id, $bulk_upload_id, $contentType);
+        $request = $this->getBulkUploadDetailsErrorsRequest($company_id, $bulk_upload_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1170,20 +1170,20 @@ class CompanyApi
     }
 
     /**
-     * Operation getBulkUploadDetailsAsync
+     * Operation getBulkUploadDetailsErrorsAsync
      *
-     * Return full list of bulk upload details order by status desc and id asc
+     * Returns a full list of details with errors of the given bulk upload ordered by status desc and id asc
      *
      * @param  int $company_id (required)
      * @param  int $bulk_upload_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkUploadDetails'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkUploadDetailsErrors'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getBulkUploadDetailsAsync($company_id, $bulk_upload_id, string $contentType = self::contentTypes['getBulkUploadDetails'][0])
+    public function getBulkUploadDetailsErrorsAsync($company_id, $bulk_upload_id, string $contentType = self::contentTypes['getBulkUploadDetailsErrors'][0])
     {
-        return $this->getBulkUploadDetailsAsyncWithHttpInfo($company_id, $bulk_upload_id, $contentType)
+        return $this->getBulkUploadDetailsErrorsAsyncWithHttpInfo($company_id, $bulk_upload_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1192,21 +1192,21 @@ class CompanyApi
     }
 
     /**
-     * Operation getBulkUploadDetailsAsyncWithHttpInfo
+     * Operation getBulkUploadDetailsErrorsAsyncWithHttpInfo
      *
-     * Return full list of bulk upload details order by status desc and id asc
+     * Returns a full list of details with errors of the given bulk upload ordered by status desc and id asc
      *
      * @param  int $company_id (required)
      * @param  int $bulk_upload_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkUploadDetails'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkUploadDetailsErrors'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getBulkUploadDetailsAsyncWithHttpInfo($company_id, $bulk_upload_id, string $contentType = self::contentTypes['getBulkUploadDetails'][0])
+    public function getBulkUploadDetailsErrorsAsyncWithHttpInfo($company_id, $bulk_upload_id, string $contentType = self::contentTypes['getBulkUploadDetailsErrors'][0])
     {
         $returnType = '\DealMaker\Model\V1EntitiesBulkUploadDetails';
-        $request = $this->getBulkUploadDetailsRequest($company_id, $bulk_upload_id, $contentType);
+        $request = $this->getBulkUploadDetailsErrorsRequest($company_id, $bulk_upload_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1245,34 +1245,34 @@ class CompanyApi
     }
 
     /**
-     * Create request for operation 'getBulkUploadDetails'
+     * Create request for operation 'getBulkUploadDetailsErrors'
      *
      * @param  int $company_id (required)
      * @param  int $bulk_upload_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkUploadDetails'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkUploadDetailsErrors'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getBulkUploadDetailsRequest($company_id, $bulk_upload_id, string $contentType = self::contentTypes['getBulkUploadDetails'][0])
+    public function getBulkUploadDetailsErrorsRequest($company_id, $bulk_upload_id, string $contentType = self::contentTypes['getBulkUploadDetailsErrors'][0])
     {
 
         // verify the required parameter 'company_id' is set
         if ($company_id === null || (is_array($company_id) && count($company_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $company_id when calling getBulkUploadDetails'
+                'Missing the required parameter $company_id when calling getBulkUploadDetailsErrors'
             );
         }
 
         // verify the required parameter 'bulk_upload_id' is set
         if ($bulk_upload_id === null || (is_array($bulk_upload_id) && count($bulk_upload_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $bulk_upload_id when calling getBulkUploadDetails'
+                'Missing the required parameter $bulk_upload_id when calling getBulkUploadDetailsErrors'
             );
         }
 
 
-        $resourcePath = '/companies/{company_id}/documents/bulk_uploads/{bulk_upload_id}/details';
+        $resourcePath = '/companies/{company_id}/documents/bulk_uploads/{bulk_upload_id}/details/errors';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];

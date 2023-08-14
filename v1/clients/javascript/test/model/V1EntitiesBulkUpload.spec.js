@@ -84,6 +84,24 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property filesCount (base name: "files_count")', function() {
+      // uncomment below and update the code to test the property filesCount
+      //var instance = new Api.V1EntitiesBulkUpload();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property errorsCount (base name: "errors_count")', function() {
+      // uncomment below and update the code to test the property errorsCount
+      //var instance = new Api.V1EntitiesBulkUpload();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property successCount (base name: "success_count")', function() {
+      // uncomment below and update the code to test the property successCount
+      //var instance = new Api.V1EntitiesBulkUpload();
+      //expect(instance).to.be();
+    });
+
     it('should have the property status (base name: "status")', function() {
       // uncomment below and update the code to test the property status
       //var instance = new Api.V1EntitiesBulkUpload();

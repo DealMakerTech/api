@@ -80,7 +80,10 @@ class CompanyApi
         'createCompany' => [
             'application/json',
         ],
-        'getBulkUploadDetails' => [
+        'getBulkUpload' => [
+            'application/json',
+        ],
+        'getBulkUploadDetailsErrors' => [
             'application/json',
         ],
         'getBulkUploads' => [
@@ -1050,40 +1053,388 @@ class CompanyApi
     }
 
     /**
-     * Operation getBulkUploadDetails
+     * Operation getBulkUpload
      *
-     * Return full list of bulk upload details order by status desc and id asc
+     * Return a given bulk upload by id
+     *
+     * @param  int $id id (required)
+     * @param  int $bulk_upload_id bulk_upload_id (required)
+     * @param  int $page Page offset to fetch. (optional, default to 1)
+     * @param  int $per_page Number of results to return per page. (optional, default to 25)
+     * @param  int $offset Pad a number of results. (optional, default to 0)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkUpload'] to see the possible values for this operation
+     *
+     * @throws \DealMaker\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \DealMaker\Model\V1EntitiesBulkUpload
+     */
+    public function getBulkUpload($id, $bulk_upload_id, $page = 1, $per_page = 25, $offset = 0, string $contentType = self::contentTypes['getBulkUpload'][0])
+    {
+        list($response) = $this->getBulkUploadWithHttpInfo($id, $bulk_upload_id, $page, $per_page, $offset, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation getBulkUploadWithHttpInfo
+     *
+     * Return a given bulk upload by id
+     *
+     * @param  int $id (required)
+     * @param  int $bulk_upload_id (required)
+     * @param  int $page Page offset to fetch. (optional, default to 1)
+     * @param  int $per_page Number of results to return per page. (optional, default to 25)
+     * @param  int $offset Pad a number of results. (optional, default to 0)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkUpload'] to see the possible values for this operation
+     *
+     * @throws \DealMaker\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \DealMaker\Model\V1EntitiesBulkUpload, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getBulkUploadWithHttpInfo($id, $bulk_upload_id, $page = 1, $per_page = 25, $offset = 0, string $contentType = self::contentTypes['getBulkUpload'][0])
+    {
+        $request = $this->getBulkUploadRequest($id, $bulk_upload_id, $page, $per_page, $offset, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\DealMaker\Model\V1EntitiesBulkUpload' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\DealMaker\Model\V1EntitiesBulkUpload' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\DealMaker\Model\V1EntitiesBulkUpload', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\DealMaker\Model\V1EntitiesBulkUpload';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\DealMaker\Model\V1EntitiesBulkUpload',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getBulkUploadAsync
+     *
+     * Return a given bulk upload by id
+     *
+     * @param  int $id (required)
+     * @param  int $bulk_upload_id (required)
+     * @param  int $page Page offset to fetch. (optional, default to 1)
+     * @param  int $per_page Number of results to return per page. (optional, default to 25)
+     * @param  int $offset Pad a number of results. (optional, default to 0)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkUpload'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getBulkUploadAsync($id, $bulk_upload_id, $page = 1, $per_page = 25, $offset = 0, string $contentType = self::contentTypes['getBulkUpload'][0])
+    {
+        return $this->getBulkUploadAsyncWithHttpInfo($id, $bulk_upload_id, $page, $per_page, $offset, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getBulkUploadAsyncWithHttpInfo
+     *
+     * Return a given bulk upload by id
+     *
+     * @param  int $id (required)
+     * @param  int $bulk_upload_id (required)
+     * @param  int $page Page offset to fetch. (optional, default to 1)
+     * @param  int $per_page Number of results to return per page. (optional, default to 25)
+     * @param  int $offset Pad a number of results. (optional, default to 0)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkUpload'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getBulkUploadAsyncWithHttpInfo($id, $bulk_upload_id, $page = 1, $per_page = 25, $offset = 0, string $contentType = self::contentTypes['getBulkUpload'][0])
+    {
+        $returnType = '\DealMaker\Model\V1EntitiesBulkUpload';
+        $request = $this->getBulkUploadRequest($id, $bulk_upload_id, $page, $per_page, $offset, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getBulkUpload'
+     *
+     * @param  int $id (required)
+     * @param  int $bulk_upload_id (required)
+     * @param  int $page Page offset to fetch. (optional, default to 1)
+     * @param  int $per_page Number of results to return per page. (optional, default to 25)
+     * @param  int $offset Pad a number of results. (optional, default to 0)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkUpload'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getBulkUploadRequest($id, $bulk_upload_id, $page = 1, $per_page = 25, $offset = 0, string $contentType = self::contentTypes['getBulkUpload'][0])
+    {
+
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling getBulkUpload'
+            );
+        }
+
+        // verify the required parameter 'bulk_upload_id' is set
+        if ($bulk_upload_id === null || (is_array($bulk_upload_id) && count($bulk_upload_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $bulk_upload_id when calling getBulkUpload'
+            );
+        }
+
+
+
+
+
+        $resourcePath = '/companies/{id}/documents/bulk_uploads/{bulk_upload_id}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $page,
+            'page', // param base name
+            'integer', // openApiType
+            '', // style
+            false, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $per_page,
+            'per_page', // param base name
+            'integer', // openApiType
+            '', // style
+            false, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $offset,
+            'offset', // param base name
+            'integer', // openApiType
+            '', // style
+            false, // explode
+            false // required
+        ) ?? []);
+
+
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'id' . '}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($bulk_upload_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'bulk_upload_id' . '}',
+                ObjectSerializer::toPathValue($bulk_upload_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getBulkUploadDetailsErrors
+     *
+     * Returns a full list of details with errors of the given bulk upload ordered by status desc and id asc
      *
      * @param  int $company_id company_id (required)
      * @param  int $bulk_upload_id bulk_upload_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkUploadDetails'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkUploadDetailsErrors'] to see the possible values for this operation
      *
      * @throws \DealMaker\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \DealMaker\Model\V1EntitiesBulkUploadDetails
      */
-    public function getBulkUploadDetails($company_id, $bulk_upload_id, string $contentType = self::contentTypes['getBulkUploadDetails'][0])
+    public function getBulkUploadDetailsErrors($company_id, $bulk_upload_id, string $contentType = self::contentTypes['getBulkUploadDetailsErrors'][0])
     {
-        list($response) = $this->getBulkUploadDetailsWithHttpInfo($company_id, $bulk_upload_id, $contentType);
+        list($response) = $this->getBulkUploadDetailsErrorsWithHttpInfo($company_id, $bulk_upload_id, $contentType);
         return $response;
     }
 
     /**
-     * Operation getBulkUploadDetailsWithHttpInfo
+     * Operation getBulkUploadDetailsErrorsWithHttpInfo
      *
-     * Return full list of bulk upload details order by status desc and id asc
+     * Returns a full list of details with errors of the given bulk upload ordered by status desc and id asc
      *
      * @param  int $company_id (required)
      * @param  int $bulk_upload_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkUploadDetails'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkUploadDetailsErrors'] to see the possible values for this operation
      *
      * @throws \DealMaker\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \DealMaker\Model\V1EntitiesBulkUploadDetails, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getBulkUploadDetailsWithHttpInfo($company_id, $bulk_upload_id, string $contentType = self::contentTypes['getBulkUploadDetails'][0])
+    public function getBulkUploadDetailsErrorsWithHttpInfo($company_id, $bulk_upload_id, string $contentType = self::contentTypes['getBulkUploadDetailsErrors'][0])
     {
-        $request = $this->getBulkUploadDetailsRequest($company_id, $bulk_upload_id, $contentType);
+        $request = $this->getBulkUploadDetailsErrorsRequest($company_id, $bulk_upload_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1170,20 +1521,20 @@ class CompanyApi
     }
 
     /**
-     * Operation getBulkUploadDetailsAsync
+     * Operation getBulkUploadDetailsErrorsAsync
      *
-     * Return full list of bulk upload details order by status desc and id asc
+     * Returns a full list of details with errors of the given bulk upload ordered by status desc and id asc
      *
      * @param  int $company_id (required)
      * @param  int $bulk_upload_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkUploadDetails'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkUploadDetailsErrors'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getBulkUploadDetailsAsync($company_id, $bulk_upload_id, string $contentType = self::contentTypes['getBulkUploadDetails'][0])
+    public function getBulkUploadDetailsErrorsAsync($company_id, $bulk_upload_id, string $contentType = self::contentTypes['getBulkUploadDetailsErrors'][0])
     {
-        return $this->getBulkUploadDetailsAsyncWithHttpInfo($company_id, $bulk_upload_id, $contentType)
+        return $this->getBulkUploadDetailsErrorsAsyncWithHttpInfo($company_id, $bulk_upload_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1192,21 +1543,21 @@ class CompanyApi
     }
 
     /**
-     * Operation getBulkUploadDetailsAsyncWithHttpInfo
+     * Operation getBulkUploadDetailsErrorsAsyncWithHttpInfo
      *
-     * Return full list of bulk upload details order by status desc and id asc
+     * Returns a full list of details with errors of the given bulk upload ordered by status desc and id asc
      *
      * @param  int $company_id (required)
      * @param  int $bulk_upload_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkUploadDetails'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkUploadDetailsErrors'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getBulkUploadDetailsAsyncWithHttpInfo($company_id, $bulk_upload_id, string $contentType = self::contentTypes['getBulkUploadDetails'][0])
+    public function getBulkUploadDetailsErrorsAsyncWithHttpInfo($company_id, $bulk_upload_id, string $contentType = self::contentTypes['getBulkUploadDetailsErrors'][0])
     {
         $returnType = '\DealMaker\Model\V1EntitiesBulkUploadDetails';
-        $request = $this->getBulkUploadDetailsRequest($company_id, $bulk_upload_id, $contentType);
+        $request = $this->getBulkUploadDetailsErrorsRequest($company_id, $bulk_upload_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1245,34 +1596,34 @@ class CompanyApi
     }
 
     /**
-     * Create request for operation 'getBulkUploadDetails'
+     * Create request for operation 'getBulkUploadDetailsErrors'
      *
      * @param  int $company_id (required)
      * @param  int $bulk_upload_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkUploadDetails'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkUploadDetailsErrors'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getBulkUploadDetailsRequest($company_id, $bulk_upload_id, string $contentType = self::contentTypes['getBulkUploadDetails'][0])
+    public function getBulkUploadDetailsErrorsRequest($company_id, $bulk_upload_id, string $contentType = self::contentTypes['getBulkUploadDetailsErrors'][0])
     {
 
         // verify the required parameter 'company_id' is set
         if ($company_id === null || (is_array($company_id) && count($company_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $company_id when calling getBulkUploadDetails'
+                'Missing the required parameter $company_id when calling getBulkUploadDetailsErrors'
             );
         }
 
         // verify the required parameter 'bulk_upload_id' is set
         if ($bulk_upload_id === null || (is_array($bulk_upload_id) && count($bulk_upload_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $bulk_upload_id when calling getBulkUploadDetails'
+                'Missing the required parameter $bulk_upload_id when calling getBulkUploadDetailsErrors'
             );
         }
 
 
-        $resourcePath = '/companies/{company_id}/documents/bulk_uploads/{bulk_upload_id}/details';
+        $resourcePath = '/companies/{company_id}/documents/bulk_uploads/{bulk_upload_id}/details/errors';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];

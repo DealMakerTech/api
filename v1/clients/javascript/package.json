@@ -1,6 +1,6 @@
 {
   "name": "@dealmakertech/api",
-  "version": "0.84.1",
+  "version": "0.84.3",
   "description": "A javascript wrapper for the DealMaker API",
   "license": "MIT",
   "main": "dist/index.js",

@@ -7,7 +7,8 @@ Method | HTTP request | Description
 [**createBulkUpload**](CompanyApi.md#createBulkUpload) | **POST** /companies/{id}/documents/bulk_uploads | Create bulk upload record
 [**createBulkUploadDetail**](CompanyApi.md#createBulkUploadDetail) | **POST** /companies/{company_id}/documents/bulk_uploads/{bulk_upload_id}/details | Create a BulkUploadDetail class record
 [**createCompany**](CompanyApi.md#createCompany) | **POST** /companies | Create new company
-[**getBulkUploadDetails**](CompanyApi.md#getBulkUploadDetails) | **GET** /companies/{company_id}/documents/bulk_uploads/{bulk_upload_id}/details | Return full list of bulk upload details order by status desc and id asc
+[**getBulkUpload**](CompanyApi.md#getBulkUpload) | **GET** /companies/{id}/documents/bulk_uploads/{bulk_upload_id} | Return a given bulk upload by id
+[**getBulkUploadDetailsErrors**](CompanyApi.md#getBulkUploadDetailsErrors) | **GET** /companies/{company_id}/documents/bulk_uploads/{bulk_upload_id}/details/errors | Returns a full list of details with errors of the given bulk upload ordered by status desc and id asc
 [**getBulkUploads**](CompanyApi.md#getBulkUploads) | **GET** /companies/{id}/documents/bulk_uploads | Return bulk uploads
 [**getCompanies**](CompanyApi.md#getCompanies) | **GET** /companies | Get list of Companies
 [**getCompany**](CompanyApi.md#getCompany) | **GET** /companies/{id} | Get a Company
@@ -159,13 +160,69 @@ No authorization required
 - **Accept**: application/json
 
 
-## getBulkUploadDetails
+## getBulkUpload
 
-> V1EntitiesBulkUploadDetails getBulkUploadDetails(companyId, bulkUploadId)
+> V1EntitiesBulkUpload getBulkUpload(id, bulkUploadId, opts)
 
-Return full list of bulk upload details order by status desc and id asc
+Return a given bulk upload by id
 
-Return full list of bulk upload details
+Return a given bulk upload by id
+
+### Example
+
+```javascript
+import Api from 'api';
+let defaultClient = Api.ApiClient.instance;
+
+let apiInstance = new Api.CompanyApi();
+let id = 56; // Number | 
+let bulkUploadId = 56; // Number | 
+let opts = {
+  'page': 1, // Number | Page offset to fetch.
+  'perPage': 25, // Number | Number of results to return per page.
+  'offset': 0 // Number | Pad a number of results.
+};
+apiInstance.getBulkUpload(id, bulkUploadId, opts, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Number**|  | 
+ **bulkUploadId** | **Number**|  | 
+ **page** | **Number**| Page offset to fetch. | [optional] [default to 1]
+ **perPage** | **Number**| Number of results to return per page. | [optional] [default to 25]
+ **offset** | **Number**| Pad a number of results. | [optional] [default to 0]
+
+### Return type
+
+[**V1EntitiesBulkUpload**](V1EntitiesBulkUpload.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## getBulkUploadDetailsErrors
+
+> V1EntitiesBulkUploadDetails getBulkUploadDetailsErrors(companyId, bulkUploadId)
+
+Returns a full list of details with errors of the given bulk upload ordered by status desc and id asc
+
+Returns a full list of details with errors of the given bulk upload
 
 ### Example
 
@@ -176,7 +233,7 @@ let defaultClient = Api.ApiClient.instance;
 let apiInstance = new Api.CompanyApi();
 let companyId = 56; // Number | 
 let bulkUploadId = 56; // Number | 
-apiInstance.getBulkUploadDetails(companyId, bulkUploadId, (error, data, response) => {
+apiInstance.getBulkUploadDetailsErrors(companyId, bulkUploadId, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {

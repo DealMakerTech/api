@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The PatchIndividualProfileRequest model module.
  * @module model/PatchIndividualProfileRequest
- * @version 0.84.1
+ * @version 0.84.3
  */
 class PatchIndividualProfileRequest {
     /**
@@ -380,10 +380,16 @@ PatchIndividualProfileRequest['CaAccreditedInvestorEnum'] = {
     "j_1": "j_1",
 
     /**
-     * value: "k"
+     * value: "k_alone"
      * @const
      */
-    "k": "k",
+    "k_alone": "k_alone",
+
+    /**
+     * value: "k_spouse"
+     * @const
+     */
+    "k_spouse": "k_spouse",
 
     /**
      * value: "l"

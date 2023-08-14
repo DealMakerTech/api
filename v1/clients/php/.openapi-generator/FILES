@@ -7,6 +7,7 @@ composer.json
 docs/Api/CompanyApi.md
 docs/Api/DealApi.md
 docs/Api/DealSetupApi.md
+docs/Api/DealsApi.md
 docs/Api/DefaultApi.md
 docs/Api/InvestorApi.md
 docs/Api/InvestorProfileApi.md
@@ -32,6 +33,7 @@ docs/Model/PatchInvestorRequest.md
 docs/Model/PatchJointProfileRequest.md
 docs/Model/PatchTrustProfileRequest.md
 docs/Model/PostWebhooksRequest.md
+docs/Model/PutDealsIdScriptTagEnvironmentRequest.md
 docs/Model/PutWebhooksIdRequest.md
 docs/Model/UpdateInvestorRequest.md
 docs/Model/V1EntitiesAddress.md
@@ -85,6 +87,7 @@ git_push.sh
 lib/Api/CompanyApi.php
 lib/Api/DealApi.php
 lib/Api/DealSetupApi.php
+lib/Api/DealsApi.php
 lib/Api/DefaultApi.php
 lib/Api/InvestorApi.php
 lib/Api/InvestorProfileApi.php
@@ -114,6 +117,7 @@ lib/Model/PatchInvestorRequest.php
 lib/Model/PatchJointProfileRequest.php
 lib/Model/PatchTrustProfileRequest.php
 lib/Model/PostWebhooksRequest.php
+lib/Model/PutDealsIdScriptTagEnvironmentRequest.php
 lib/Model/PutWebhooksIdRequest.php
 lib/Model/UpdateInvestorRequest.php
 lib/Model/V1EntitiesAddress.php
@@ -168,6 +172,7 @@ phpunit.xml.dist
 test/Api/CompanyApiTest.php
 test/Api/DealApiTest.php
 test/Api/DealSetupApiTest.php
+test/Api/DealsApiTest.php
 test/Api/DefaultApiTest.php
 test/Api/InvestorApiTest.php
 test/Api/InvestorProfileApiTest.php
@@ -193,6 +198,7 @@ test/Model/PatchInvestorRequestTest.php
 test/Model/PatchJointProfileRequestTest.php
 test/Model/PatchTrustProfileRequestTest.php
 test/Model/PostWebhooksRequestTest.php
+test/Model/PutDealsIdScriptTagEnvironmentRequestTest.php
 test/Model/PutWebhooksIdRequestTest.php
 test/Model/UpdateInvestorRequestTest.php
 test/Model/V1EntitiesAddressTest.php

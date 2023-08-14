@@ -33,6 +33,7 @@ import PatchInvestorRequest from './model/PatchInvestorRequest';
 import PatchJointProfileRequest from './model/PatchJointProfileRequest';
 import PatchTrustProfileRequest from './model/PatchTrustProfileRequest';
 import PostWebhooksRequest from './model/PostWebhooksRequest';
+import PutDealsIdScriptTagEnvironmentRequest from './model/PutDealsIdScriptTagEnvironmentRequest';
 import PutWebhooksIdRequest from './model/PutWebhooksIdRequest';
 import UpdateInvestorRequest from './model/UpdateInvestorRequest';
 import V1EntitiesAddress from './model/V1EntitiesAddress';
@@ -85,6 +86,7 @@ import V1EntitiesWebhooksSubscriptionDeals from './model/V1EntitiesWebhooksSubsc
 import CompanyApi from './api/CompanyApi';
 import DealApi from './api/DealApi';
 import DealSetupApi from './api/DealSetupApi';
+import DealsApi from './api/DealsApi';
 import DefaultApi from './api/DefaultApi';
 import InvestorApi from './api/InvestorApi';
 import InvestorProfileApi from './api/InvestorProfileApi';
@@ -121,7 +123,7 @@ import UploadApi from './api/UploadApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.84.1
+* @version 0.84.3
 */
 export {
     /**
@@ -249,6 +251,12 @@ export {
      * @property {module:model/PostWebhooksRequest}
      */
     PostWebhooksRequest,
+
+    /**
+     * The PutDealsIdScriptTagEnvironmentRequest model constructor.
+     * @property {module:model/PutDealsIdScriptTagEnvironmentRequest}
+     */
+    PutDealsIdScriptTagEnvironmentRequest,
 
     /**
      * The PutWebhooksIdRequest model constructor.
@@ -561,6 +569,12 @@ export {
     * @property {module:api/DealSetupApi}
     */
     DealSetupApi,
+
+    /**
+    * The DealsApi service constructor.
+    * @property {module:api/DealsApi}
+    */
+    DealsApi,
 
     /**
     * The DefaultApi service constructor.

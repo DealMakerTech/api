@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The V1EntitiesBulkUpload model module.
  * @module model/V1EntitiesBulkUpload
- * @version 0.84.1
+ * @version 0.84.3
  */
 class V1EntitiesBulkUpload {
     /**
@@ -62,6 +62,15 @@ class V1EntitiesBulkUpload {
             }
             if (data.hasOwnProperty('upload_name')) {
                 obj['upload_name'] = ApiClient.convertToType(data['upload_name'], 'String');
+            }
+            if (data.hasOwnProperty('files_count')) {
+                obj['files_count'] = ApiClient.convertToType(data['files_count'], 'Number');
+            }
+            if (data.hasOwnProperty('errors_count')) {
+                obj['errors_count'] = ApiClient.convertToType(data['errors_count'], 'Number');
+            }
+            if (data.hasOwnProperty('success_count')) {
+                obj['success_count'] = ApiClient.convertToType(data['success_count'], 'Number');
             }
             if (data.hasOwnProperty('status')) {
                 obj['status'] = ApiClient.convertToType(data['status'], 'String');
@@ -144,6 +153,24 @@ V1EntitiesBulkUpload.prototype['document_type'] = undefined;
  * @member {String} upload_name
  */
 V1EntitiesBulkUpload.prototype['upload_name'] = undefined;
+
+/**
+ * The number of files in the bulk upload
+ * @member {Number} files_count
+ */
+V1EntitiesBulkUpload.prototype['files_count'] = undefined;
+
+/**
+ * The number of errors in the bulk upload
+ * @member {Number} errors_count
+ */
+V1EntitiesBulkUpload.prototype['errors_count'] = undefined;
+
+/**
+ * The number of succeeded files in the bulk upload
+ * @member {Number} success_count
+ */
+V1EntitiesBulkUpload.prototype['success_count'] = undefined;
 
 /**
  * The status [pending, processing, completed, failed]

@@ -20,9 +20,11 @@ docs/CreateDealSetupRequest.md
 docs/CreateIndividualProfileRequest.md
 docs/CreateInvestorRequest.md
 docs/CreateJointProfileRequest.md
+docs/CreateShareholderActionRequest.md
 docs/CreateTrustProfileRequest.md
 docs/DealApi.md
 docs/DealSetupApi.md
+docs/DealsApi.md
 docs/DefaultApi.md
 docs/EditInvestorTagsRequest.md
 docs/GenerateUrlRequest.md
@@ -34,6 +36,7 @@ docs/PatchInvestorRequest.md
 docs/PatchJointProfileRequest.md
 docs/PatchTrustProfileRequest.md
 docs/PostWebhooksRequest.md
+docs/PutDealsIdScriptTagEnvironmentRequest.md
 docs/PutWebhooksIdRequest.md
 docs/ShareholderApi.md
 docs/UpdateInvestorRequest.md
@@ -59,6 +62,7 @@ docs/V1EntitiesDealSetupUser.md
 docs/V1EntitiesDeals.md
 docs/V1EntitiesExpressWireInstruction.md
 docs/V1EntitiesExpressWireInstructions.md
+docs/V1EntitiesGenericResponse.md
 docs/V1EntitiesInvestor.md
 docs/V1EntitiesInvestorOtpAccessLink.md
 docs/V1EntitiesInvestorProfileAddress.md
@@ -90,6 +94,7 @@ lib/DealMakerAPI.rb
 lib/DealMakerAPI/api/company_api.rb
 lib/DealMakerAPI/api/deal_api.rb
 lib/DealMakerAPI/api/deal_setup_api.rb
+lib/DealMakerAPI/api/deals_api.rb
 lib/DealMakerAPI/api/default_api.rb
 lib/DealMakerAPI/api/investor_api.rb
 lib/DealMakerAPI/api/investor_profile_api.rb
@@ -109,6 +114,7 @@ lib/DealMakerAPI/models/create_deal_setup_request.rb
 lib/DealMakerAPI/models/create_individual_profile_request.rb
 lib/DealMakerAPI/models/create_investor_request.rb
 lib/DealMakerAPI/models/create_joint_profile_request.rb
+lib/DealMakerAPI/models/create_shareholder_action_request.rb
 lib/DealMakerAPI/models/create_trust_profile_request.rb
 lib/DealMakerAPI/models/edit_investor_tags_request.rb
 lib/DealMakerAPI/models/generate_url_request.rb
@@ -118,6 +124,7 @@ lib/DealMakerAPI/models/patch_investor_request.rb
 lib/DealMakerAPI/models/patch_joint_profile_request.rb
 lib/DealMakerAPI/models/patch_trust_profile_request.rb
 lib/DealMakerAPI/models/post_webhooks_request.rb
+lib/DealMakerAPI/models/put_deals_id_script_tag_environment_request.rb
 lib/DealMakerAPI/models/put_webhooks_id_request.rb
 lib/DealMakerAPI/models/update_investor_request.rb
 lib/DealMakerAPI/models/v1_entities_address.rb
@@ -141,6 +148,7 @@ lib/DealMakerAPI/models/v1_entities_deal_setup_user.rb
 lib/DealMakerAPI/models/v1_entities_deals.rb
 lib/DealMakerAPI/models/v1_entities_express_wire_instruction.rb
 lib/DealMakerAPI/models/v1_entities_express_wire_instructions.rb
+lib/DealMakerAPI/models/v1_entities_generic_response.rb
 lib/DealMakerAPI/models/v1_entities_investor.rb
 lib/DealMakerAPI/models/v1_entities_investor_otp_access_link.rb
 lib/DealMakerAPI/models/v1_entities_investor_profile_address.rb
@@ -171,6 +179,7 @@ lib/DealMakerAPI/version.rb
 spec/api/company_api_spec.rb
 spec/api/deal_api_spec.rb
 spec/api/deal_setup_api_spec.rb
+spec/api/deals_api_spec.rb
 spec/api/default_api_spec.rb
 spec/api/investor_api_spec.rb
 spec/api/investor_profile_api_spec.rb
@@ -189,6 +198,7 @@ spec/models/create_deal_setup_request_spec.rb
 spec/models/create_individual_profile_request_spec.rb
 spec/models/create_investor_request_spec.rb
 spec/models/create_joint_profile_request_spec.rb
+spec/models/create_shareholder_action_request_spec.rb
 spec/models/create_trust_profile_request_spec.rb
 spec/models/edit_investor_tags_request_spec.rb
 spec/models/generate_url_request_spec.rb
@@ -198,6 +208,7 @@ spec/models/patch_investor_request_spec.rb
 spec/models/patch_joint_profile_request_spec.rb
 spec/models/patch_trust_profile_request_spec.rb
 spec/models/post_webhooks_request_spec.rb
+spec/models/put_deals_id_script_tag_environment_request_spec.rb
 spec/models/put_webhooks_id_request_spec.rb
 spec/models/update_investor_request_spec.rb
 spec/models/v1_entities_address_spec.rb
@@ -221,6 +232,7 @@ spec/models/v1_entities_deal_spec.rb
 spec/models/v1_entities_deals_spec.rb
 spec/models/v1_entities_express_wire_instruction_spec.rb
 spec/models/v1_entities_express_wire_instructions_spec.rb
+spec/models/v1_entities_generic_response_spec.rb
 spec/models/v1_entities_investor_otp_access_link_spec.rb
 spec/models/v1_entities_investor_profile_address_spec.rb
 spec/models/v1_entities_investor_profile_corporation_spec.rb

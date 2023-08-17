@@ -66,6 +66,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property logo (base name: "logo")', function() {
+      // uncomment below and update the code to test the property logo
+      //var instance = new Api.V1EntitiesDealIssuer();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

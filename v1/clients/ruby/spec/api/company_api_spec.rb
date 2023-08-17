@@ -71,14 +71,44 @@ describe 'CompanyApi' do
     end
   end
 
-  # unit tests for get_bulk_upload_details
-  # Return full list of bulk upload details order by status desc and id asc
-  # Return full list of bulk upload details
+  # unit tests for create_shareholder_action
+  # Create a shareholder action
+  # Create a shareholder action
+  # @param company_id The company id
+  # @param shareholder_id The shareholder id
+  # @param create_shareholder_action_request 
+  # @param [Hash] opts the optional parameters
+  # @return [V1EntitiesGenericResponse]
+  describe 'create_shareholder_action test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for get_bulk_upload
+  # Return a given bulk upload by id
+  # Return a given bulk upload by id
+  # @param id 
+  # @param bulk_upload_id 
+  # @param [Hash] opts the optional parameters
+  # @option opts [Integer] :page Page offset to fetch.
+  # @option opts [Integer] :per_page Number of results to return per page.
+  # @option opts [Integer] :offset Pad a number of results.
+  # @return [V1EntitiesBulkUpload]
+  describe 'get_bulk_upload test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for get_bulk_upload_details_errors
+  # Returns a full list of details with errors of the given bulk upload ordered by status desc and id asc
+  # Returns a full list of details with errors of the given bulk upload
   # @param company_id 
   # @param bulk_upload_id 
   # @param [Hash] opts the optional parameters
   # @return [V1EntitiesBulkUploadDetails]
-  describe 'get_bulk_upload_details test' do
+  describe 'get_bulk_upload_details_errors test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end

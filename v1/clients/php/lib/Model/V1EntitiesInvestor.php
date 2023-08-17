@@ -1061,7 +1061,7 @@ class V1EntitiesInvestor implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets access_link
      *
-     * @param string|null $access_link The access link for the investor. This is the access link for the specific investment, not the user. If the same user has multiple investments, each one will have a different access link.
+     * @param string|null $access_link The access link for the investor. This is the access link for the specific investment, not the user. If the same user has multiple investments, each one will have a different access link. Please note that this access link expires every hour. In order to redirect the investor into their authentication screen, use the https://app.dealmaker.tech/deals/{{deal_id}}/investors/{{investor_id}}/otp_access url.
      *
      * @return self
      */

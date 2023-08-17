@@ -20,7 +20,7 @@ import V1EntitiesSubscriptionAgreement from './V1EntitiesSubscriptionAgreement';
 /**
  * The V1EntitiesInvestor model module.
  * @module model/V1EntitiesInvestor
- * @version 0.84.1
+ * @version 0.84.4
  */
 class V1EntitiesInvestor {
     /**
@@ -308,7 +308,7 @@ V1EntitiesInvestor.prototype['allocated_amount'] = undefined;
 V1EntitiesInvestor.prototype['funds_value'] = undefined;
 
 /**
- * The access link for the investor. This is the access link for the specific investment, not the user. If the same user has multiple investments, each one will have a different access link.
+ * The access link for the investor. This is the access link for the specific investment, not the user. If the same user has multiple investments, each one will have a different access link. Please note that this access link expires every hour. In order to redirect the investor into their authentication screen, use the https://app.dealmaker.tech/deals/{{deal_id}}/investors/{{investor_id}}/otp_access url.
  * @member {String} access_link
  */
 V1EntitiesInvestor.prototype['access_link'] = undefined;

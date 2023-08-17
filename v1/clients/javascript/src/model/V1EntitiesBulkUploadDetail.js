@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The V1EntitiesBulkUploadDetail model module.
  * @module model/V1EntitiesBulkUploadDetail
- * @version 0.84.1
+ * @version 0.84.4
  */
 class V1EntitiesBulkUploadDetail {
     /**
@@ -63,6 +63,9 @@ class V1EntitiesBulkUploadDetail {
             if (data.hasOwnProperty('status')) {
                 obj['status'] = ApiClient.convertToType(data['status'], 'Number');
             }
+            if (data.hasOwnProperty('readable_status')) {
+                obj['readable_status'] = ApiClient.convertToType(data['readable_status'], 'String');
+            }
             if (data.hasOwnProperty('created_at')) {
                 obj['created_at'] = ApiClient.convertToType(data['created_at'], 'String');
             }
@@ -86,6 +89,10 @@ class V1EntitiesBulkUploadDetail {
         // ensure the json data is a string
         if (data['file_name'] && !(typeof data['file_name'] === 'string' || data['file_name'] instanceof String)) {
             throw new Error("Expected the field `file_name` to be a primitive type in the JSON string but got " + data['file_name']);
+        }
+        // ensure the json data is a string
+        if (data['readable_status'] && !(typeof data['readable_status'] === 'string' || data['readable_status'] instanceof String)) {
+            throw new Error("Expected the field `readable_status` to be a primitive type in the JSON string but got " + data['readable_status']);
         }
         // ensure the json data is a string
         if (data['created_at'] && !(typeof data['created_at'] === 'string' || data['created_at'] instanceof String)) {
@@ -133,6 +140,12 @@ V1EntitiesBulkUploadDetail.prototype['file_name'] = undefined;
  * @member {Number} status
  */
 V1EntitiesBulkUploadDetail.prototype['status'] = undefined;
+
+/**
+ * The readable status of the bulk upload detail
+ * @member {String} readable_status
+ */
+V1EntitiesBulkUploadDetail.prototype['readable_status'] = undefined;
 
 /**
  * The created at date

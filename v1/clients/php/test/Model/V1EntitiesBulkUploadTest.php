@@ -125,6 +125,33 @@ class V1EntitiesBulkUploadTest extends TestCase
     }
 
     /**
+     * Test attribute "files_count"
+     */
+    public function testPropertyFilesCount()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "errors_count"
+     */
+    public function testPropertyErrorsCount()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "success_count"
+     */
+    public function testPropertySuccessCount()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "status"
      */
     public function testPropertyStatus()

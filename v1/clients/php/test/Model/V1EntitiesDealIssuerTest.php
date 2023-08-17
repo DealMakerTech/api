@@ -96,4 +96,13 @@ class V1EntitiesDealIssuerTest extends TestCase
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test attribute "logo"
+     */
+    public function testPropertyLogo()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
 }

@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The V1EntitiesDealIssuer model module.
  * @module model/V1EntitiesDealIssuer
- * @version 0.84.1
+ * @version 0.84.4
  */
 class V1EntitiesDealIssuer {
     /**
@@ -53,6 +53,9 @@ class V1EntitiesDealIssuer {
             if (data.hasOwnProperty('name')) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
+            if (data.hasOwnProperty('logo')) {
+                obj['logo'] = ApiClient.convertToType(data['logo'], 'String');
+            }
         }
         return obj;
     }
@@ -66,6 +69,10 @@ class V1EntitiesDealIssuer {
         // ensure the json data is a string
         if (data['name'] && !(typeof data['name'] === 'string' || data['name'] instanceof String)) {
             throw new Error("Expected the field `name` to be a primitive type in the JSON string but got " + data['name']);
+        }
+        // ensure the json data is a string
+        if (data['logo'] && !(typeof data['logo'] === 'string' || data['logo'] instanceof String)) {
+            throw new Error("Expected the field `logo` to be a primitive type in the JSON string but got " + data['logo']);
         }
 
         return true;
@@ -87,6 +94,12 @@ V1EntitiesDealIssuer.prototype['id'] = undefined;
  * @member {String} name
  */
 V1EntitiesDealIssuer.prototype['name'] = undefined;
+
+/**
+ * The issuer's logo.
+ * @member {String} logo
+ */
+V1EntitiesDealIssuer.prototype['logo'] = undefined;
 
 
 

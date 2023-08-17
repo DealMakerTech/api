@@ -31,6 +31,15 @@ module DealMakerAPI
     # The bulk upload name
     attr_accessor :upload_name
 
+    # The number of files in the bulk upload
+    attr_accessor :files_count
+
+    # The number of errors in the bulk upload
+    attr_accessor :errors_count
+
+    # The number of succeeded files in the bulk upload
+    attr_accessor :success_count
+
     # The status [pending, processing, completed, failed]
     attr_accessor :status
 
@@ -48,6 +57,9 @@ module DealMakerAPI
         :'file_identifier' => :'file_identifier',
         :'document_type' => :'document_type',
         :'upload_name' => :'upload_name',
+        :'files_count' => :'files_count',
+        :'errors_count' => :'errors_count',
+        :'success_count' => :'success_count',
         :'status' => :'status',
         :'created_at' => :'created_at',
         :'updated_at' => :'updated_at'
@@ -67,6 +79,9 @@ module DealMakerAPI
         :'file_identifier' => :'String',
         :'document_type' => :'String',
         :'upload_name' => :'String',
+        :'files_count' => :'Integer',
+        :'errors_count' => :'Integer',
+        :'success_count' => :'Integer',
         :'status' => :'String',
         :'created_at' => :'String',
         :'updated_at' => :'String'
@@ -114,6 +129,18 @@ module DealMakerAPI
         self.upload_name = attributes[:'upload_name']
       end
 
+      if attributes.key?(:'files_count')
+        self.files_count = attributes[:'files_count']
+      end
+
+      if attributes.key?(:'errors_count')
+        self.errors_count = attributes[:'errors_count']
+      end
+
+      if attributes.key?(:'success_count')
+        self.success_count = attributes[:'success_count']
+      end
+
       if attributes.key?(:'status')
         self.status = attributes[:'status']
       end
@@ -152,6 +179,9 @@ module DealMakerAPI
           file_identifier == o.file_identifier &&
           document_type == o.document_type &&
           upload_name == o.upload_name &&
+          files_count == o.files_count &&
+          errors_count == o.errors_count &&
+          success_count == o.success_count &&
           status == o.status &&
           created_at == o.created_at &&
           updated_at == o.updated_at
@@ -166,7 +196,7 @@ module DealMakerAPI
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, company_id, file_identifier, document_type, upload_name, status, created_at, updated_at].hash
+      [id, company_id, file_identifier, document_type, upload_name, files_count, errors_count, success_count, status, created_at, updated_at].hash
     end
 
     # Builds the object from hash

@@ -16,16 +16,18 @@ import ApiClient from "../ApiClient";
 import CreateBulkUploadDetailRequest from '../model/CreateBulkUploadDetailRequest';
 import CreateBulkUploadRequest from '../model/CreateBulkUploadRequest';
 import CreateCompanyRequest from '../model/CreateCompanyRequest';
+import CreateShareholderActionRequest from '../model/CreateShareholderActionRequest';
 import V1EntitiesBulkUpload from '../model/V1EntitiesBulkUpload';
 import V1EntitiesBulkUploadDetail from '../model/V1EntitiesBulkUploadDetail';
 import V1EntitiesBulkUploadDetails from '../model/V1EntitiesBulkUploadDetails';
 import V1EntitiesBulkUploads from '../model/V1EntitiesBulkUploads';
 import V1EntitiesCompany from '../model/V1EntitiesCompany';
+import V1EntitiesGenericResponse from '../model/V1EntitiesGenericResponse';
 
 /**
 * Company service.
 * @module api/CompanyApi
-* @version 0.84.1
+* @version 0.84.4
 */
 export default class CompanyApi {
 
@@ -186,30 +188,141 @@ export default class CompanyApi {
     }
 
     /**
-     * Callback function to receive the result of the getBulkUploadDetails operation.
-     * @callback module:api/CompanyApi~getBulkUploadDetailsCallback
+     * Callback function to receive the result of the createShareholderAction operation.
+     * @callback module:api/CompanyApi~createShareholderActionCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/V1EntitiesGenericResponse} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Create a shareholder action
+     * Create a shareholder action
+     * @param {Number} companyId The company id
+     * @param {Number} shareholderId The shareholder id
+     * @param {module:model/CreateShareholderActionRequest} createShareholderActionRequest 
+     * @param {module:api/CompanyApi~createShareholderActionCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/V1EntitiesGenericResponse}
+     */
+    createShareholderAction(companyId, shareholderId, createShareholderActionRequest, callback) {
+      let postBody = createShareholderActionRequest;
+      // verify the required parameter 'companyId' is set
+      if (companyId === undefined || companyId === null) {
+        throw new Error("Missing the required parameter 'companyId' when calling createShareholderAction");
+      }
+      // verify the required parameter 'shareholderId' is set
+      if (shareholderId === undefined || shareholderId === null) {
+        throw new Error("Missing the required parameter 'shareholderId' when calling createShareholderAction");
+      }
+      // verify the required parameter 'createShareholderActionRequest' is set
+      if (createShareholderActionRequest === undefined || createShareholderActionRequest === null) {
+        throw new Error("Missing the required parameter 'createShareholderActionRequest' when calling createShareholderAction");
+      }
+
+      let pathParams = {
+        'company_id': companyId,
+        'shareholder_id': shareholderId
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = V1EntitiesGenericResponse;
+      return this.apiClient.callApi(
+        '/companies/{company_id}/shareholders/{shareholder_id}/actions', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the getBulkUpload operation.
+     * @callback module:api/CompanyApi~getBulkUploadCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/V1EntitiesBulkUpload} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Return a given bulk upload by id
+     * Return a given bulk upload by id
+     * @param {Number} id 
+     * @param {Number} bulkUploadId 
+     * @param {Object} opts Optional parameters
+     * @param {Number} [page = 1)] Page offset to fetch.
+     * @param {Number} [perPage = 25)] Number of results to return per page.
+     * @param {Number} [offset = 0)] Pad a number of results.
+     * @param {module:api/CompanyApi~getBulkUploadCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/V1EntitiesBulkUpload}
+     */
+    getBulkUpload(id, bulkUploadId, opts, callback) {
+      opts = opts || {};
+      let postBody = null;
+      // verify the required parameter 'id' is set
+      if (id === undefined || id === null) {
+        throw new Error("Missing the required parameter 'id' when calling getBulkUpload");
+      }
+      // verify the required parameter 'bulkUploadId' is set
+      if (bulkUploadId === undefined || bulkUploadId === null) {
+        throw new Error("Missing the required parameter 'bulkUploadId' when calling getBulkUpload");
+      }
+
+      let pathParams = {
+        'id': id,
+        'bulk_upload_id': bulkUploadId
+      };
+      let queryParams = {
+        'page': opts['page'],
+        'per_page': opts['perPage'],
+        'offset': opts['offset']
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = V1EntitiesBulkUpload;
+      return this.apiClient.callApi(
+        '/companies/{id}/documents/bulk_uploads/{bulk_upload_id}', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the getBulkUploadDetailsErrors operation.
+     * @callback module:api/CompanyApi~getBulkUploadDetailsErrorsCallback
      * @param {String} error Error message, if any.
      * @param {module:model/V1EntitiesBulkUploadDetails} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
     /**
-     * Return full list of bulk upload details order by status desc and id asc
-     * Return full list of bulk upload details
+     * Returns a full list of details with errors of the given bulk upload ordered by status desc and id asc
+     * Returns a full list of details with errors of the given bulk upload
      * @param {Number} companyId 
      * @param {Number} bulkUploadId 
-     * @param {module:api/CompanyApi~getBulkUploadDetailsCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/CompanyApi~getBulkUploadDetailsErrorsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/V1EntitiesBulkUploadDetails}
      */
-    getBulkUploadDetails(companyId, bulkUploadId, callback) {
+    getBulkUploadDetailsErrors(companyId, bulkUploadId, callback) {
       let postBody = null;
       // verify the required parameter 'companyId' is set
       if (companyId === undefined || companyId === null) {
-        throw new Error("Missing the required parameter 'companyId' when calling getBulkUploadDetails");
+        throw new Error("Missing the required parameter 'companyId' when calling getBulkUploadDetailsErrors");
       }
       // verify the required parameter 'bulkUploadId' is set
       if (bulkUploadId === undefined || bulkUploadId === null) {
-        throw new Error("Missing the required parameter 'bulkUploadId' when calling getBulkUploadDetails");
+        throw new Error("Missing the required parameter 'bulkUploadId' when calling getBulkUploadDetailsErrors");
       }
 
       let pathParams = {
@@ -228,7 +341,7 @@ export default class CompanyApi {
       let accepts = ['application/json'];
       let returnType = V1EntitiesBulkUploadDetails;
       return this.apiClient.callApi(
-        '/companies/{company_id}/documents/bulk_uploads/{bulk_upload_id}/details', 'GET',
+        '/companies/{company_id}/documents/bulk_uploads/{bulk_upload_id}/details/errors', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

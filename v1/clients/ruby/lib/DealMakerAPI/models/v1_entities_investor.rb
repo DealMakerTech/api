@@ -63,7 +63,7 @@ module DealMakerAPI
     # The current amount that has been funded.
     attr_accessor :funds_value
 
-    # The access link for the investor. This is the access link for the specific investment, not the user. If the same user has multiple investments, each one will have a different access link.
+    # The access link for the investor. This is the access link for the specific investment, not the user. If the same user has multiple investments, each one will have a different access link. Please note that this access link expires every hour. In order to redirect the investor into their authentication screen, use the https://app.dealmaker.tech/deals/{{deal_id}}/investors/{{investor_id}}/otp_access url.
     attr_accessor :access_link
 
     attr_accessor :subscription_agreement

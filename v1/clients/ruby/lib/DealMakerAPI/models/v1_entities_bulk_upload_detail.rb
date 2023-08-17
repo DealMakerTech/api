@@ -31,6 +31,9 @@ module DealMakerAPI
     # The status of the bulk upload detail
     attr_accessor :status
 
+    # The readable status of the bulk upload detail
+    attr_accessor :readable_status
+
     # The created at date
     attr_accessor :created_at
 
@@ -45,6 +48,7 @@ module DealMakerAPI
         :'file_key' => :'file_key',
         :'file_name' => :'file_name',
         :'status' => :'status',
+        :'readable_status' => :'readable_status',
         :'created_at' => :'created_at',
         :'updated_at' => :'updated_at'
       }
@@ -63,6 +67,7 @@ module DealMakerAPI
         :'file_key' => :'String',
         :'file_name' => :'String',
         :'status' => :'Integer',
+        :'readable_status' => :'String',
         :'created_at' => :'String',
         :'updated_at' => :'String'
       }
@@ -109,6 +114,10 @@ module DealMakerAPI
         self.status = attributes[:'status']
       end
 
+      if attributes.key?(:'readable_status')
+        self.readable_status = attributes[:'readable_status']
+      end
+
       if attributes.key?(:'created_at')
         self.created_at = attributes[:'created_at']
       end
@@ -143,6 +152,7 @@ module DealMakerAPI
           file_key == o.file_key &&
           file_name == o.file_name &&
           status == o.status &&
+          readable_status == o.readable_status &&
           created_at == o.created_at &&
           updated_at == o.updated_at
     end
@@ -156,7 +166,7 @@ module DealMakerAPI
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, bulk_upload_id, file_key, file_name, status, created_at, updated_at].hash
+      [id, bulk_upload_id, file_key, file_name, status, readable_status, created_at, updated_at].hash
     end
 
     # Builds the object from hash

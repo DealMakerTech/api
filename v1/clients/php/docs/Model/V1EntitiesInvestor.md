@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 **investment_value** | **float** | The current investment value. | [optional]
 **allocated_amount** | **float** | The amount allocated. | [optional]
 **funds_value** | **float** | The current amount that has been funded. | [optional]
-**access_link** | **string** | The access link for the investor. This is the access link for the specific investment, not the user. If the same user has multiple investments, each one will have a different access link. | [optional]
+**access_link** | **string** | The access link for the investor. This is the access link for the specific investment, not the user. If the same user has multiple investments, each one will have a different access link. Please note that this access link expires every hour. In order to redirect the investor into their authentication screen, use the https://app.dealmaker.tech/deals/{{deal_id}}/investors/{{investor_id}}/otp_access url. | [optional]
 **subscription_agreement** | [**\DealMaker\Model\V1EntitiesSubscriptionAgreement**](V1EntitiesSubscriptionAgreement.md) |  | [optional]
 **attachments** | [**\DealMaker\Model\V1EntitiesAttachment**](V1EntitiesAttachment.md) |  | [optional]
 **background_check_searches** | [**\DealMaker\Model\V1EntitiesBackgroundCheckSearch**](V1EntitiesBackgroundCheckSearch.md) |  | [optional]

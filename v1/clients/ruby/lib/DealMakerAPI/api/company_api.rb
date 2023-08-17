@@ -241,37 +241,195 @@ module DealMakerAPI
       return data, status_code, headers
     end
 
-    # Return full list of bulk upload details order by status desc and id asc
-    # Return full list of bulk upload details
+    # Create a shareholder action
+    # Create a shareholder action
+    # @param company_id [Integer] The company id
+    # @param shareholder_id [Integer] The shareholder id
+    # @param create_shareholder_action_request [CreateShareholderActionRequest] 
+    # @param [Hash] opts the optional parameters
+    # @return [V1EntitiesGenericResponse]
+    def create_shareholder_action(company_id, shareholder_id, create_shareholder_action_request, opts = {})
+      data, _status_code, _headers = create_shareholder_action_with_http_info(company_id, shareholder_id, create_shareholder_action_request, opts)
+      data
+    end
+
+    # Create a shareholder action
+    # Create a shareholder action
+    # @param company_id [Integer] The company id
+    # @param shareholder_id [Integer] The shareholder id
+    # @param create_shareholder_action_request [CreateShareholderActionRequest] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(V1EntitiesGenericResponse, Integer, Hash)>] V1EntitiesGenericResponse data, response status code and response headers
+    def create_shareholder_action_with_http_info(company_id, shareholder_id, create_shareholder_action_request, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CompanyApi.create_shareholder_action ...'
+      end
+      # verify the required parameter 'company_id' is set
+      if @api_client.config.client_side_validation && company_id.nil?
+        fail ArgumentError, "Missing the required parameter 'company_id' when calling CompanyApi.create_shareholder_action"
+      end
+      # verify the required parameter 'shareholder_id' is set
+      if @api_client.config.client_side_validation && shareholder_id.nil?
+        fail ArgumentError, "Missing the required parameter 'shareholder_id' when calling CompanyApi.create_shareholder_action"
+      end
+      # verify the required parameter 'create_shareholder_action_request' is set
+      if @api_client.config.client_side_validation && create_shareholder_action_request.nil?
+        fail ArgumentError, "Missing the required parameter 'create_shareholder_action_request' when calling CompanyApi.create_shareholder_action"
+      end
+      # resource path
+      local_var_path = '/companies/{company_id}/shareholders/{shareholder_id}/actions'.sub('{' + 'company_id' + '}', CGI.escape(company_id.to_s)).sub('{' + 'shareholder_id' + '}', CGI.escape(shareholder_id.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(create_shareholder_action_request)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'V1EntitiesGenericResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"CompanyApi.create_shareholder_action",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CompanyApi#create_shareholder_action\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Return a given bulk upload by id
+    # Return a given bulk upload by id
+    # @param id [Integer] 
+    # @param bulk_upload_id [Integer] 
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :page Page offset to fetch. (default to 1)
+    # @option opts [Integer] :per_page Number of results to return per page. (default to 25)
+    # @option opts [Integer] :offset Pad a number of results. (default to 0)
+    # @return [V1EntitiesBulkUpload]
+    def get_bulk_upload(id, bulk_upload_id, opts = {})
+      data, _status_code, _headers = get_bulk_upload_with_http_info(id, bulk_upload_id, opts)
+      data
+    end
+
+    # Return a given bulk upload by id
+    # Return a given bulk upload by id
+    # @param id [Integer] 
+    # @param bulk_upload_id [Integer] 
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :page Page offset to fetch. (default to 1)
+    # @option opts [Integer] :per_page Number of results to return per page. (default to 25)
+    # @option opts [Integer] :offset Pad a number of results. (default to 0)
+    # @return [Array<(V1EntitiesBulkUpload, Integer, Hash)>] V1EntitiesBulkUpload data, response status code and response headers
+    def get_bulk_upload_with_http_info(id, bulk_upload_id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CompanyApi.get_bulk_upload ...'
+      end
+      # verify the required parameter 'id' is set
+      if @api_client.config.client_side_validation && id.nil?
+        fail ArgumentError, "Missing the required parameter 'id' when calling CompanyApi.get_bulk_upload"
+      end
+      # verify the required parameter 'bulk_upload_id' is set
+      if @api_client.config.client_side_validation && bulk_upload_id.nil?
+        fail ArgumentError, "Missing the required parameter 'bulk_upload_id' when calling CompanyApi.get_bulk_upload"
+      end
+      # resource path
+      local_var_path = '/companies/{id}/documents/bulk_uploads/{bulk_upload_id}'.sub('{' + 'id' + '}', CGI.escape(id.to_s)).sub('{' + 'bulk_upload_id' + '}', CGI.escape(bulk_upload_id.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'page'] = opts[:'page'] if !opts[:'page'].nil?
+      query_params[:'per_page'] = opts[:'per_page'] if !opts[:'per_page'].nil?
+      query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'V1EntitiesBulkUpload'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"CompanyApi.get_bulk_upload",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CompanyApi#get_bulk_upload\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Returns a full list of details with errors of the given bulk upload ordered by status desc and id asc
+    # Returns a full list of details with errors of the given bulk upload
     # @param company_id [Integer] 
     # @param bulk_upload_id [Integer] 
     # @param [Hash] opts the optional parameters
     # @return [V1EntitiesBulkUploadDetails]
-    def get_bulk_upload_details(company_id, bulk_upload_id, opts = {})
-      data, _status_code, _headers = get_bulk_upload_details_with_http_info(company_id, bulk_upload_id, opts)
+    def get_bulk_upload_details_errors(company_id, bulk_upload_id, opts = {})
+      data, _status_code, _headers = get_bulk_upload_details_errors_with_http_info(company_id, bulk_upload_id, opts)
       data
     end
 
-    # Return full list of bulk upload details order by status desc and id asc
-    # Return full list of bulk upload details
+    # Returns a full list of details with errors of the given bulk upload ordered by status desc and id asc
+    # Returns a full list of details with errors of the given bulk upload
     # @param company_id [Integer] 
     # @param bulk_upload_id [Integer] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(V1EntitiesBulkUploadDetails, Integer, Hash)>] V1EntitiesBulkUploadDetails data, response status code and response headers
-    def get_bulk_upload_details_with_http_info(company_id, bulk_upload_id, opts = {})
+    def get_bulk_upload_details_errors_with_http_info(company_id, bulk_upload_id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: CompanyApi.get_bulk_upload_details ...'
+        @api_client.config.logger.debug 'Calling API: CompanyApi.get_bulk_upload_details_errors ...'
       end
       # verify the required parameter 'company_id' is set
       if @api_client.config.client_side_validation && company_id.nil?
-        fail ArgumentError, "Missing the required parameter 'company_id' when calling CompanyApi.get_bulk_upload_details"
+        fail ArgumentError, "Missing the required parameter 'company_id' when calling CompanyApi.get_bulk_upload_details_errors"
       end
       # verify the required parameter 'bulk_upload_id' is set
       if @api_client.config.client_side_validation && bulk_upload_id.nil?
-        fail ArgumentError, "Missing the required parameter 'bulk_upload_id' when calling CompanyApi.get_bulk_upload_details"
+        fail ArgumentError, "Missing the required parameter 'bulk_upload_id' when calling CompanyApi.get_bulk_upload_details_errors"
       end
       # resource path
-      local_var_path = '/companies/{company_id}/documents/bulk_uploads/{bulk_upload_id}/details'.sub('{' + 'company_id' + '}', CGI.escape(company_id.to_s)).sub('{' + 'bulk_upload_id' + '}', CGI.escape(bulk_upload_id.to_s))
+      local_var_path = '/companies/{company_id}/documents/bulk_uploads/{bulk_upload_id}/details/errors'.sub('{' + 'company_id' + '}', CGI.escape(company_id.to_s)).sub('{' + 'bulk_upload_id' + '}', CGI.escape(bulk_upload_id.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -294,7 +452,7 @@ module DealMakerAPI
       auth_names = opts[:debug_auth_names] || []
 
       new_options = opts.merge(
-        :operation => :"CompanyApi.get_bulk_upload_details",
+        :operation => :"CompanyApi.get_bulk_upload_details_errors",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -305,7 +463,7 @@ module DealMakerAPI
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: CompanyApi#get_bulk_upload_details\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: CompanyApi#get_bulk_upload_details_errors\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

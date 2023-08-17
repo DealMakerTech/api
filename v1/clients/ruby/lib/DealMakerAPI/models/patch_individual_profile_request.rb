@@ -243,7 +243,7 @@ module DealMakerAPI
       warn '[DEPRECATED] the `valid?` method is obsolete'
       us_accredited_category_validator = EnumAttributeValidator.new('String', ["income_individual", "assets_individual", "director", "knowledgable_employee", "broker_or_dealer", "investment_advisor_registered", "investment_advisor_relying", "designated_accredited_investor", "not_accredited"])
       return false unless us_accredited_category_validator.valid?(@us_accredited_category)
-      ca_accredited_investor_validator = EnumAttributeValidator.new('String', ["d", "e", "e_1", "j", "j_1", "k", "l", "q", "v", "x"])
+      ca_accredited_investor_validator = EnumAttributeValidator.new('String', ["d", "e", "e_1", "j", "j_1", "k_alone", "k_spouse", "l", "q", "v", "x"])
       return false unless ca_accredited_investor_validator.valid?(@ca_accredited_investor)
       true
     end
@@ -261,7 +261,7 @@ module DealMakerAPI
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] ca_accredited_investor Object to be assigned
     def ca_accredited_investor=(ca_accredited_investor)
-      validator = EnumAttributeValidator.new('String', ["d", "e", "e_1", "j", "j_1", "k", "l", "q", "v", "x"])
+      validator = EnumAttributeValidator.new('String', ["d", "e", "e_1", "j", "j_1", "k_alone", "k_spouse", "l", "q", "v", "x"])
       unless validator.valid?(ca_accredited_investor)
         fail ArgumentError, "invalid value for \"ca_accredited_investor\", must be one of #{validator.allowable_values}."
       end

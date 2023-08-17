@@ -55,6 +55,10 @@
   ],
   "tags": [
     {
+      "name": "deals",
+      "description": "Operations about deals"
+    },
+    {
       "name": "shareholder",
       "description": "Operations about shareholders"
     },
@@ -1379,6 +1383,57 @@
         "operationId": "getDealsIdInvestorsPaymentsExpressWireInstructions"
       }
     },
+    "/deals/{id}/script_tag_environment": {
+      "put": {
+        "summary": "Update script tag environment for the deal.",
+        "description": "Update script tag environment for the deal.",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "description": "The deal id.",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "is_production",
+            "description": "True if environment is production.",
+            "type": "boolean",
+            "required": true
+          }
+        ],
+        "security": [
+          {
+            "oauth": [
+              "deals.write"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "tags": [
+          "deals"
+        ],
+        "operationId": "putDealsIdScriptTagEnvironment"
+      }
+    },
     "/companies/{id}/shareholders/tags": {
       "get": {
         "summary": "Get a company shareholders list grouped by tags",
@@ -1869,6 +1924,93 @@
         ]
       }
     },
+    "/companies/{id}/documents/bulk_uploads/{bulk_upload_id}": {
+      "get": {
+        "summary": "Return a given bulk upload by id",
+        "description": "Return a given bulk upload by id",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "page",
+            "description": "Page offset to fetch.",
+            "type": "integer",
+            "format": "int32",
+            "default": 1,
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "per_page",
+            "description": "Number of results to return per page.",
+            "type": "integer",
+            "format": "int32",
+            "default": 25,
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "description": "Pad a number of results.",
+            "type": "integer",
+            "format": "int32",
+            "default": 0,
+            "required": false
+          },
+          {
+            "in": "path",
+            "name": "id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          },
+          {
+            "in": "path",
+            "name": "bulk_upload_id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "security": [
+          {
+            "oauth": [
+              "internal"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/V1_Entities_BulkUpload"
+            }
+          },
+          "403": {
+            "description": "Access to this resource requires scope \"internal\"."
+          },
+          "404": {
+            "description": "Not found"
+          }
+        },
+        "tags": [
+          "company"
+        ],
+        "operationId": "getBulkUpload",
+        "x-codeSamples": [
+          {
+            "lang": "javascript",
+            "source": ""
+          },
+          {
+            "lang": "ruby",
+            "source": ""
+          }
+        ]
+      }
+    },
     "/companies/{company_id}/documents/bulk_uploads/{bulk_upload_id}/details": {
       "post": {
         "summary": "Create a BulkUploadDetail class record",
@@ -1955,10 +2097,12 @@
             "source": ""
           }
         ]
-      },
+      }
+    },
+    "/companies/{company_id}/documents/bulk_uploads/{bulk_upload_id}/details/errors": {
       "get": {
-        "summary": "Return full list of bulk upload details order by status desc and id asc",
-        "description": "Return full list of bulk upload details",
+        "summary": "Returns a full list of details with errors of the given bulk upload ordered by status desc and id asc",
+        "description": "Returns a full list of details with errors of the given bulk upload",
         "produces": [
           "application/json"
         ],
@@ -2002,7 +2146,7 @@
         "tags": [
           "company"
         ],
-        "operationId": "getBulkUploadDetails",
+        "operationId": "getBulkUploadDetailsErrors",
         "x-codeSamples": [
           {
             "lang": "javascript",
@@ -2063,6 +2207,85 @@
           "company"
         ],
         "operationId": "getDetailsErrorsGrouped",
+        "x-codeSamples": [
+          {
+            "lang": "javascript",
+            "source": ""
+          },
+          {
+            "lang": "ruby",
+            "source": ""
+          }
+        ]
+      }
+    },
+    "/companies/{company_id}/shareholders/{shareholder_id}/actions": {
+      "post": {
+        "summary": "Create a shareholder action",
+        "description": "Create a shareholder action",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "company_id",
+            "description": "The company id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          },
+          {
+            "in": "path",
+            "name": "shareholder_id",
+            "description": "The shareholder id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "request_type",
+            "description": "The request type of the shareholder action",
+            "type": "string",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "description",
+            "description": "The description of the shareholder action",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "security": [
+          {
+            "oauth": [
+              "internal"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/V1_Entities_GenericResponse"
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "tags": [
+          "company"
+        ],
+        "operationId": "createShareholderAction",
         "x-codeSamples": [
           {
             "lang": "javascript",
@@ -2834,7 +3057,8 @@
               "e_1",
               "j",
               "j_1",
-              "k",
+              "k_alone",
+              "k_spouse",
               "l",
               "q",
               "v",
@@ -3045,7 +3269,8 @@
               "e_1",
               "j",
               "j_1",
-              "k",
+              "k_alone",
+              "k_spouse",
               "l",
               "q",
               "v",
@@ -3239,7 +3464,8 @@
               "e_1",
               "j",
               "j_1",
-              "k",
+              "k_alone",
+              "k_spouse",
               "l",
               "q",
               "v",
@@ -3539,7 +3765,8 @@
               "e_1",
               "j",
               "j_1",
-              "k",
+              "k_alone",
+              "k_spouse",
               "l",
               "q",
               "v",
@@ -5153,6 +5380,10 @@
         "name": {
           "type": "string",
           "description": "The issuer name."
+        },
+        "logo": {
+          "type": "string",
+          "description": "The issuer's logo."
         }
       }
     },
@@ -5349,7 +5580,7 @@
         },
         "access_link": {
           "type": "string",
-          "description": "The access link for the investor. This is the access link for the specific investment, not the user. If the same user has multiple investments, each one will have a different access link."
+          "description": "The access link for the investor. This is the access link for the specific investment, not the user. If the same user has multiple investments, each one will have a different access link. Please note that this access link expires every hour. In order to redirect the investor into their authentication screen, use the https://app.dealmaker.tech/deals/{{deal_id}}/investors/{{investor_id}}/otp_access url."
         },
         "subscription_agreement": {
           "$ref": "#/definitions/V1_Entities_SubscriptionAgreement",
@@ -6144,6 +6375,21 @@
           "type": "string",
           "description": "The bulk upload name"
         },
+        "files_count": {
+          "type": "integer",
+          "format": "int32",
+          "description": "The number of files in the bulk upload"
+        },
+        "errors_count": {
+          "type": "integer",
+          "format": "int32",
+          "description": "The number of errors in the bulk upload"
+        },
+        "success_count": {
+          "type": "integer",
+          "format": "int32",
+          "description": "The number of succeeded files in the bulk upload"
+        },
         "status": {
           "type": "string",
           "description": "The status [pending, processing, completed, failed]"
@@ -6194,6 +6440,10 @@
           "format": "int32",
           "description": "The status of the bulk upload detail"
         },
+        "readable_status": {
+          "type": "string",
+          "description": "The readable status of the bulk upload detail"
+        },
         "created_at": {
           "type": "string",
           "description": "The created at date"
@@ -6213,6 +6463,20 @@
         }
       },
       "description": "V1_Entities_BulkUploadDetails model"
+    },
+    "V1_Entities_GenericResponse": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean",
+          "description": "The status of the creation response"
+        },
+        "message": {
+          "type": "string",
+          "description": "The message of the creation response"
+        }
+      },
+      "description": "V1_Entities_GenericResponse model"
     },
     "V1_Entities_DealSetup": {
       "type": "object",

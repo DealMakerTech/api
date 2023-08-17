@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **file_key** | **string** | The generated identifier for the file | [optional]
 **file_name** | **string** | The name of the file | [optional]
 **status** | **int** | The status of the bulk upload detail | [optional]
+**readable_status** | **string** | The readable status of the bulk upload detail | [optional]
 **created_at** | **string** | The created at date | [optional]
 **updated_at** | **string** | The updated at date | [optional]
 

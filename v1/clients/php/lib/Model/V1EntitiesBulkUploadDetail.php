@@ -63,6 +63,7 @@ class V1EntitiesBulkUploadDetail implements ModelInterface, ArrayAccess, \JsonSe
         'file_key' => 'string',
         'file_name' => 'string',
         'status' => 'int',
+        'readable_status' => 'string',
         'created_at' => 'string',
         'updated_at' => 'string'
     ];
@@ -80,6 +81,7 @@ class V1EntitiesBulkUploadDetail implements ModelInterface, ArrayAccess, \JsonSe
         'file_key' => null,
         'file_name' => null,
         'status' => 'int32',
+        'readable_status' => null,
         'created_at' => null,
         'updated_at' => null
     ];
@@ -95,6 +97,7 @@ class V1EntitiesBulkUploadDetail implements ModelInterface, ArrayAccess, \JsonSe
 		'file_key' => false,
 		'file_name' => false,
 		'status' => false,
+		'readable_status' => false,
 		'created_at' => false,
 		'updated_at' => false
     ];
@@ -190,6 +193,7 @@ class V1EntitiesBulkUploadDetail implements ModelInterface, ArrayAccess, \JsonSe
         'file_key' => 'file_key',
         'file_name' => 'file_name',
         'status' => 'status',
+        'readable_status' => 'readable_status',
         'created_at' => 'created_at',
         'updated_at' => 'updated_at'
     ];
@@ -205,6 +209,7 @@ class V1EntitiesBulkUploadDetail implements ModelInterface, ArrayAccess, \JsonSe
         'file_key' => 'setFileKey',
         'file_name' => 'setFileName',
         'status' => 'setStatus',
+        'readable_status' => 'setReadableStatus',
         'created_at' => 'setCreatedAt',
         'updated_at' => 'setUpdatedAt'
     ];
@@ -220,6 +225,7 @@ class V1EntitiesBulkUploadDetail implements ModelInterface, ArrayAccess, \JsonSe
         'file_key' => 'getFileKey',
         'file_name' => 'getFileName',
         'status' => 'getStatus',
+        'readable_status' => 'getReadableStatus',
         'created_at' => 'getCreatedAt',
         'updated_at' => 'getUpdatedAt'
     ];
@@ -286,6 +292,7 @@ class V1EntitiesBulkUploadDetail implements ModelInterface, ArrayAccess, \JsonSe
         $this->setIfExists('file_key', $data ?? [], null);
         $this->setIfExists('file_name', $data ?? [], null);
         $this->setIfExists('status', $data ?? [], null);
+        $this->setIfExists('readable_status', $data ?? [], null);
         $this->setIfExists('created_at', $data ?? [], null);
         $this->setIfExists('updated_at', $data ?? [], null);
     }
@@ -463,6 +470,33 @@ class V1EntitiesBulkUploadDetail implements ModelInterface, ArrayAccess, \JsonSe
             throw new \InvalidArgumentException('non-nullable status cannot be null');
         }
         $this->container['status'] = $status;
+
+        return $this;
+    }
+
+    /**
+     * Gets readable_status
+     *
+     * @return string|null
+     */
+    public function getReadableStatus()
+    {
+        return $this->container['readable_status'];
+    }
+
+    /**
+     * Sets readable_status
+     *
+     * @param string|null $readable_status The readable status of the bulk upload detail
+     *
+     * @return self
+     */
+    public function setReadableStatus($readable_status)
+    {
+        if (is_null($readable_status)) {
+            throw new \InvalidArgumentException('non-nullable readable_status cannot be null');
+        }
+        $this->container['readable_status'] = $readable_status;
 
         return $this;
     }

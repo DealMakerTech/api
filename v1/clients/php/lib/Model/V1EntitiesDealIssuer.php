@@ -58,7 +58,8 @@ class V1EntitiesDealIssuer implements ModelInterface, ArrayAccess, \JsonSerializ
       */
     protected static $openAPITypes = [
         'id' => 'int',
-        'name' => 'string'
+        'name' => 'string',
+        'logo' => 'string'
     ];
 
     /**
@@ -70,7 +71,8 @@ class V1EntitiesDealIssuer implements ModelInterface, ArrayAccess, \JsonSerializ
       */
     protected static $openAPIFormats = [
         'id' => 'int32',
-        'name' => null
+        'name' => null,
+        'logo' => null
     ];
 
     /**
@@ -80,7 +82,8 @@ class V1EntitiesDealIssuer implements ModelInterface, ArrayAccess, \JsonSerializ
       */
     protected static array $openAPINullables = [
         'id' => false,
-		'name' => false
+		'name' => false,
+		'logo' => false
     ];
 
     /**
@@ -170,7 +173,8 @@ class V1EntitiesDealIssuer implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     protected static $attributeMap = [
         'id' => 'id',
-        'name' => 'name'
+        'name' => 'name',
+        'logo' => 'logo'
     ];
 
     /**
@@ -180,7 +184,8 @@ class V1EntitiesDealIssuer implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     protected static $setters = [
         'id' => 'setId',
-        'name' => 'setName'
+        'name' => 'setName',
+        'logo' => 'setLogo'
     ];
 
     /**
@@ -190,7 +195,8 @@ class V1EntitiesDealIssuer implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     protected static $getters = [
         'id' => 'getId',
-        'name' => 'getName'
+        'name' => 'getName',
+        'logo' => 'getLogo'
     ];
 
     /**
@@ -252,6 +258,7 @@ class V1EntitiesDealIssuer implements ModelInterface, ArrayAccess, \JsonSerializ
     {
         $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('name', $data ?? [], null);
+        $this->setIfExists('logo', $data ?? [], null);
     }
 
     /**
@@ -346,6 +353,33 @@ class V1EntitiesDealIssuer implements ModelInterface, ArrayAccess, \JsonSerializ
             throw new \InvalidArgumentException('non-nullable name cannot be null');
         }
         $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets logo
+     *
+     * @return string|null
+     */
+    public function getLogo()
+    {
+        return $this->container['logo'];
+    }
+
+    /**
+     * Sets logo
+     *
+     * @param string|null $logo The issuer's logo.
+     *
+     * @return self
+     */
+    public function setLogo($logo)
+    {
+        if (is_null($logo)) {
+            throw new \InvalidArgumentException('non-nullable logo cannot be null');
+        }
+        $this->container['logo'] = $logo;
 
         return $this;
     }

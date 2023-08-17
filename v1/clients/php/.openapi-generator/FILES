@@ -7,6 +7,7 @@ composer.json
 docs/Api/CompanyApi.md
 docs/Api/DealApi.md
 docs/Api/DealSetupApi.md
+docs/Api/DealsApi.md
 docs/Api/DefaultApi.md
 docs/Api/InvestorApi.md
 docs/Api/InvestorProfileApi.md
@@ -23,6 +24,7 @@ docs/Model/CreateDealSetupRequest.md
 docs/Model/CreateIndividualProfileRequest.md
 docs/Model/CreateInvestorRequest.md
 docs/Model/CreateJointProfileRequest.md
+docs/Model/CreateShareholderActionRequest.md
 docs/Model/CreateTrustProfileRequest.md
 docs/Model/EditInvestorTagsRequest.md
 docs/Model/GenerateUrlRequest.md
@@ -32,6 +34,7 @@ docs/Model/PatchInvestorRequest.md
 docs/Model/PatchJointProfileRequest.md
 docs/Model/PatchTrustProfileRequest.md
 docs/Model/PostWebhooksRequest.md
+docs/Model/PutDealsIdScriptTagEnvironmentRequest.md
 docs/Model/PutWebhooksIdRequest.md
 docs/Model/UpdateInvestorRequest.md
 docs/Model/V1EntitiesAddress.md
@@ -55,6 +58,7 @@ docs/Model/V1EntitiesDealSetupUser.md
 docs/Model/V1EntitiesDeals.md
 docs/Model/V1EntitiesExpressWireInstruction.md
 docs/Model/V1EntitiesExpressWireInstructions.md
+docs/Model/V1EntitiesGenericResponse.md
 docs/Model/V1EntitiesInvestor.md
 docs/Model/V1EntitiesInvestorOtpAccessLink.md
 docs/Model/V1EntitiesInvestorProfileAddress.md
@@ -85,6 +89,7 @@ git_push.sh
 lib/Api/CompanyApi.php
 lib/Api/DealApi.php
 lib/Api/DealSetupApi.php
+lib/Api/DealsApi.php
 lib/Api/DefaultApi.php
 lib/Api/InvestorApi.php
 lib/Api/InvestorProfileApi.php
@@ -104,6 +109,7 @@ lib/Model/CreateDealSetupRequest.php
 lib/Model/CreateIndividualProfileRequest.php
 lib/Model/CreateInvestorRequest.php
 lib/Model/CreateJointProfileRequest.php
+lib/Model/CreateShareholderActionRequest.php
 lib/Model/CreateTrustProfileRequest.php
 lib/Model/EditInvestorTagsRequest.php
 lib/Model/GenerateUrlRequest.php
@@ -114,6 +120,7 @@ lib/Model/PatchInvestorRequest.php
 lib/Model/PatchJointProfileRequest.php
 lib/Model/PatchTrustProfileRequest.php
 lib/Model/PostWebhooksRequest.php
+lib/Model/PutDealsIdScriptTagEnvironmentRequest.php
 lib/Model/PutWebhooksIdRequest.php
 lib/Model/UpdateInvestorRequest.php
 lib/Model/V1EntitiesAddress.php
@@ -137,6 +144,7 @@ lib/Model/V1EntitiesDealSetupUser.php
 lib/Model/V1EntitiesDeals.php
 lib/Model/V1EntitiesExpressWireInstruction.php
 lib/Model/V1EntitiesExpressWireInstructions.php
+lib/Model/V1EntitiesGenericResponse.php
 lib/Model/V1EntitiesInvestor.php
 lib/Model/V1EntitiesInvestorOtpAccessLink.php
 lib/Model/V1EntitiesInvestorProfileAddress.php
@@ -168,6 +176,7 @@ phpunit.xml.dist
 test/Api/CompanyApiTest.php
 test/Api/DealApiTest.php
 test/Api/DealSetupApiTest.php
+test/Api/DealsApiTest.php
 test/Api/DefaultApiTest.php
 test/Api/InvestorApiTest.php
 test/Api/InvestorProfileApiTest.php
@@ -184,6 +193,7 @@ test/Model/CreateDealSetupRequestTest.php
 test/Model/CreateIndividualProfileRequestTest.php
 test/Model/CreateInvestorRequestTest.php
 test/Model/CreateJointProfileRequestTest.php
+test/Model/CreateShareholderActionRequestTest.php
 test/Model/CreateTrustProfileRequestTest.php
 test/Model/EditInvestorTagsRequestTest.php
 test/Model/GenerateUrlRequestTest.php
@@ -193,6 +203,7 @@ test/Model/PatchInvestorRequestTest.php
 test/Model/PatchJointProfileRequestTest.php
 test/Model/PatchTrustProfileRequestTest.php
 test/Model/PostWebhooksRequestTest.php
+test/Model/PutDealsIdScriptTagEnvironmentRequestTest.php
 test/Model/PutWebhooksIdRequestTest.php
 test/Model/UpdateInvestorRequestTest.php
 test/Model/V1EntitiesAddressTest.php
@@ -216,6 +227,7 @@ test/Model/V1EntitiesDealTest.php
 test/Model/V1EntitiesDealsTest.php
 test/Model/V1EntitiesExpressWireInstructionTest.php
 test/Model/V1EntitiesExpressWireInstructionsTest.php
+test/Model/V1EntitiesGenericResponseTest.php
 test/Model/V1EntitiesInvestorOtpAccessLinkTest.php
 test/Model/V1EntitiesInvestorProfileAddressTest.php
 test/Model/V1EntitiesInvestorProfileCorporationTest.php

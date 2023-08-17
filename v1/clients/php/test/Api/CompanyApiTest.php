@@ -108,12 +108,36 @@ class CompanyApiTest extends TestCase
     }
 
     /**
-     * Test case for getBulkUploadDetails
+     * Test case for createShareholderAction
      *
-     * Return full list of bulk upload details order by status desc and id asc.
+     * Create a shareholder action.
      *
      */
-    public function testGetBulkUploadDetails()
+    public function testCreateShareholderAction()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for getBulkUpload
+     *
+     * Return a given bulk upload by id.
+     *
+     */
+    public function testGetBulkUpload()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for getBulkUploadDetailsErrors
+     *
+     * Returns a full list of details with errors of the given bulk upload ordered by status desc and id asc.
+     *
+     */
+    public function testGetBulkUploadDetailsErrors()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

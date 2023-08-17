@@ -55,6 +55,12 @@ describe DealMakerAPI::V1EntitiesBulkUploadDetail do
     end
   end
 
+  describe 'test attribute "readable_status"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   describe 'test attribute "created_at"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/

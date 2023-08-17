@@ -24,6 +24,7 @@ import CreateDealSetupRequest from './model/CreateDealSetupRequest';
 import CreateIndividualProfileRequest from './model/CreateIndividualProfileRequest';
 import CreateInvestorRequest from './model/CreateInvestorRequest';
 import CreateJointProfileRequest from './model/CreateJointProfileRequest';
+import CreateShareholderActionRequest from './model/CreateShareholderActionRequest';
 import CreateTrustProfileRequest from './model/CreateTrustProfileRequest';
 import EditInvestorTagsRequest from './model/EditInvestorTagsRequest';
 import GenerateUrlRequest from './model/GenerateUrlRequest';
@@ -33,6 +34,7 @@ import PatchInvestorRequest from './model/PatchInvestorRequest';
 import PatchJointProfileRequest from './model/PatchJointProfileRequest';
 import PatchTrustProfileRequest from './model/PatchTrustProfileRequest';
 import PostWebhooksRequest from './model/PostWebhooksRequest';
+import PutDealsIdScriptTagEnvironmentRequest from './model/PutDealsIdScriptTagEnvironmentRequest';
 import PutWebhooksIdRequest from './model/PutWebhooksIdRequest';
 import UpdateInvestorRequest from './model/UpdateInvestorRequest';
 import V1EntitiesAddress from './model/V1EntitiesAddress';
@@ -56,6 +58,7 @@ import V1EntitiesDealSetupUser from './model/V1EntitiesDealSetupUser';
 import V1EntitiesDeals from './model/V1EntitiesDeals';
 import V1EntitiesExpressWireInstruction from './model/V1EntitiesExpressWireInstruction';
 import V1EntitiesExpressWireInstructions from './model/V1EntitiesExpressWireInstructions';
+import V1EntitiesGenericResponse from './model/V1EntitiesGenericResponse';
 import V1EntitiesInvestor from './model/V1EntitiesInvestor';
 import V1EntitiesInvestorOtpAccessLink from './model/V1EntitiesInvestorOtpAccessLink';
 import V1EntitiesInvestorProfileAddress from './model/V1EntitiesInvestorProfileAddress';
@@ -85,6 +88,7 @@ import V1EntitiesWebhooksSubscriptionDeals from './model/V1EntitiesWebhooksSubsc
 import CompanyApi from './api/CompanyApi';
 import DealApi from './api/DealApi';
 import DealSetupApi from './api/DealSetupApi';
+import DealsApi from './api/DealsApi';
 import DefaultApi from './api/DefaultApi';
 import InvestorApi from './api/InvestorApi';
 import InvestorProfileApi from './api/InvestorProfileApi';
@@ -121,7 +125,7 @@ import UploadApi from './api/UploadApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.84.1
+* @version 0.84.4
 */
 export {
     /**
@@ -197,6 +201,12 @@ export {
     CreateJointProfileRequest,
 
     /**
+     * The CreateShareholderActionRequest model constructor.
+     * @property {module:model/CreateShareholderActionRequest}
+     */
+    CreateShareholderActionRequest,
+
+    /**
      * The CreateTrustProfileRequest model constructor.
      * @property {module:model/CreateTrustProfileRequest}
      */
@@ -249,6 +259,12 @@ export {
      * @property {module:model/PostWebhooksRequest}
      */
     PostWebhooksRequest,
+
+    /**
+     * The PutDealsIdScriptTagEnvironmentRequest model constructor.
+     * @property {module:model/PutDealsIdScriptTagEnvironmentRequest}
+     */
+    PutDealsIdScriptTagEnvironmentRequest,
 
     /**
      * The PutWebhooksIdRequest model constructor.
@@ -387,6 +403,12 @@ export {
      * @property {module:model/V1EntitiesExpressWireInstructions}
      */
     V1EntitiesExpressWireInstructions,
+
+    /**
+     * The V1EntitiesGenericResponse model constructor.
+     * @property {module:model/V1EntitiesGenericResponse}
+     */
+    V1EntitiesGenericResponse,
 
     /**
      * The V1EntitiesInvestor model constructor.
@@ -561,6 +583,12 @@ export {
     * @property {module:api/DealSetupApi}
     */
     DealSetupApi,
+
+    /**
+    * The DealsApi service constructor.
+    * @property {module:api/DealsApi}
+    */
+    DealsApi,
 
     /**
     * The DefaultApi service constructor.

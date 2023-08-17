@@ -62,7 +62,9 @@ Name | Type | Description | Notes
 
 * `j_1` (value: `"j_1"`)
 
-* `k` (value: `"k"`)
+* `k_alone` (value: `"k_alone"`)
+
+* `k_spouse` (value: `"k_spouse"`)
 
 * `l` (value: `"l"`)
 

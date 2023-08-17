@@ -78,10 +78,30 @@
         done();
       });
     });
-    describe('getBulkUploadDetails', function() {
-      it('should call getBulkUploadDetails successfully', function(done) {
-        //uncomment below and update the code to test getBulkUploadDetails
-        //instance.getBulkUploadDetails(function(error) {
+    describe('createShareholderAction', function() {
+      it('should call createShareholderAction successfully', function(done) {
+        //uncomment below and update the code to test createShareholderAction
+        //instance.createShareholderAction(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('getBulkUpload', function() {
+      it('should call getBulkUpload successfully', function(done) {
+        //uncomment below and update the code to test getBulkUpload
+        //instance.getBulkUpload(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('getBulkUploadDetailsErrors', function() {
+      it('should call getBulkUploadDetailsErrors successfully', function(done) {
+        //uncomment below and update the code to test getBulkUploadDetailsErrors
+        //instance.getBulkUploadDetailsErrors(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});

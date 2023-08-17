@@ -21,11 +21,15 @@ module DealMakerAPI
     # The issuer name.
     attr_accessor :name
 
+    # The issuer's logo.
+    attr_accessor :logo
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'id' => :'id',
-        :'name' => :'name'
+        :'name' => :'name',
+        :'logo' => :'logo'
       }
     end
 
@@ -38,7 +42,8 @@ module DealMakerAPI
     def self.openapi_types
       {
         :'id' => :'Integer',
-        :'name' => :'String'
+        :'name' => :'String',
+        :'logo' => :'String'
       }
     end
 
@@ -70,6 +75,10 @@ module DealMakerAPI
       if attributes.key?(:'name')
         self.name = attributes[:'name']
       end
+
+      if attributes.key?(:'logo')
+        self.logo = attributes[:'logo']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -93,7 +102,8 @@ module DealMakerAPI
       return true if self.equal?(o)
       self.class == o.class &&
           id == o.id &&
-          name == o.name
+          name == o.name &&
+          logo == o.logo
     end
 
     # @see the `==` method
@@ -105,7 +115,7 @@ module DealMakerAPI
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, name].hash
+      [id, name, logo].hash
     end
 
     # Builds the object from hash

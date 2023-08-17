@@ -7,7 +7,9 @@ All URIs are relative to http://api.dealmaker.tech, except if the operation defi
 | [**createBulkUpload()**](CompanyApi.md#createBulkUpload) | **POST** /companies/{id}/documents/bulk_uploads | Create bulk upload record |
 | [**createBulkUploadDetail()**](CompanyApi.md#createBulkUploadDetail) | **POST** /companies/{company_id}/documents/bulk_uploads/{bulk_upload_id}/details | Create a BulkUploadDetail class record |
 | [**createCompany()**](CompanyApi.md#createCompany) | **POST** /companies | Create new company |
-| [**getBulkUploadDetails()**](CompanyApi.md#getBulkUploadDetails) | **GET** /companies/{company_id}/documents/bulk_uploads/{bulk_upload_id}/details | Return full list of bulk upload details order by status desc and id asc |
+| [**createShareholderAction()**](CompanyApi.md#createShareholderAction) | **POST** /companies/{company_id}/shareholders/{shareholder_id}/actions | Create a shareholder action |
+| [**getBulkUpload()**](CompanyApi.md#getBulkUpload) | **GET** /companies/{id}/documents/bulk_uploads/{bulk_upload_id} | Return a given bulk upload by id |
+| [**getBulkUploadDetailsErrors()**](CompanyApi.md#getBulkUploadDetailsErrors) | **GET** /companies/{company_id}/documents/bulk_uploads/{bulk_upload_id}/details/errors | Returns a full list of details with errors of the given bulk upload ordered by status desc and id asc |
 | [**getBulkUploads()**](CompanyApi.md#getBulkUploads) | **GET** /companies/{id}/documents/bulk_uploads | Return bulk uploads |
 | [**getCompanies()**](CompanyApi.md#getCompanies) | **GET** /companies | Get list of Companies |
 | [**getCompany()**](CompanyApi.md#getCompany) | **GET** /companies/{id} | Get a Company |
@@ -191,15 +193,141 @@ No authorization required
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `getBulkUploadDetails()`
+## `createShareholderAction()`
 
 ```php
-getBulkUploadDetails($company_id, $bulk_upload_id): \DealMaker\Model\V1EntitiesBulkUploadDetails
+createShareholderAction($company_id, $shareholder_id, $create_shareholder_action_request): \DealMaker\Model\V1EntitiesGenericResponse
 ```
 
-Return full list of bulk upload details order by status desc and id asc
+Create a shareholder action
 
-Return full list of bulk upload details
+Create a shareholder action
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new DealMaker\Api\CompanyApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$company_id = 56; // int | The company id
+$shareholder_id = 56; // int | The shareholder id
+$create_shareholder_action_request = new \DealMaker\Model\CreateShareholderActionRequest(); // \DealMaker\Model\CreateShareholderActionRequest
+
+try {
+    $result = $apiInstance->createShareholderAction($company_id, $shareholder_id, $create_shareholder_action_request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CompanyApi->createShareholderAction: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **company_id** | **int**| The company id | |
+| **shareholder_id** | **int**| The shareholder id | |
+| **create_shareholder_action_request** | [**\DealMaker\Model\CreateShareholderActionRequest**](../Model/CreateShareholderActionRequest.md)|  | |
+
+### Return type
+
+[**\DealMaker\Model\V1EntitiesGenericResponse**](../Model/V1EntitiesGenericResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getBulkUpload()`
+
+```php
+getBulkUpload($id, $bulk_upload_id, $page, $per_page, $offset): \DealMaker\Model\V1EntitiesBulkUpload
+```
+
+Return a given bulk upload by id
+
+Return a given bulk upload by id
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new DealMaker\Api\CompanyApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = 56; // int
+$bulk_upload_id = 56; // int
+$page = 1; // int | Page offset to fetch.
+$per_page = 25; // int | Number of results to return per page.
+$offset = 0; // int | Pad a number of results.
+
+try {
+    $result = $apiInstance->getBulkUpload($id, $bulk_upload_id, $page, $per_page, $offset);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CompanyApi->getBulkUpload: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **int**|  | |
+| **bulk_upload_id** | **int**|  | |
+| **page** | **int**| Page offset to fetch. | [optional] [default to 1] |
+| **per_page** | **int**| Number of results to return per page. | [optional] [default to 25] |
+| **offset** | **int**| Pad a number of results. | [optional] [default to 0] |
+
+### Return type
+
+[**\DealMaker\Model\V1EntitiesBulkUpload**](../Model/V1EntitiesBulkUpload.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getBulkUploadDetailsErrors()`
+
+```php
+getBulkUploadDetailsErrors($company_id, $bulk_upload_id): \DealMaker\Model\V1EntitiesBulkUploadDetails
+```
+
+Returns a full list of details with errors of the given bulk upload ordered by status desc and id asc
+
+Returns a full list of details with errors of the given bulk upload
 
 ### Example
 
@@ -219,10 +347,10 @@ $company_id = 56; // int
 $bulk_upload_id = 56; // int
 
 try {
-    $result = $apiInstance->getBulkUploadDetails($company_id, $bulk_upload_id);
+    $result = $apiInstance->getBulkUploadDetailsErrors($company_id, $bulk_upload_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling CompanyApi->getBulkUploadDetails: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling CompanyApi->getBulkUploadDetailsErrors: ', $e->getMessage(), PHP_EOL;
 }
 ```
 

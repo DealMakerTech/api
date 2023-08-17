@@ -63,6 +63,9 @@ class V1EntitiesBulkUpload implements ModelInterface, ArrayAccess, \JsonSerializ
         'file_identifier' => 'string',
         'document_type' => 'string',
         'upload_name' => 'string',
+        'files_count' => 'int',
+        'errors_count' => 'int',
+        'success_count' => 'int',
         'status' => 'string',
         'created_at' => 'string',
         'updated_at' => 'string'
@@ -81,6 +84,9 @@ class V1EntitiesBulkUpload implements ModelInterface, ArrayAccess, \JsonSerializ
         'file_identifier' => null,
         'document_type' => null,
         'upload_name' => null,
+        'files_count' => 'int32',
+        'errors_count' => 'int32',
+        'success_count' => 'int32',
         'status' => null,
         'created_at' => null,
         'updated_at' => null
@@ -97,6 +103,9 @@ class V1EntitiesBulkUpload implements ModelInterface, ArrayAccess, \JsonSerializ
 		'file_identifier' => false,
 		'document_type' => false,
 		'upload_name' => false,
+		'files_count' => false,
+		'errors_count' => false,
+		'success_count' => false,
 		'status' => false,
 		'created_at' => false,
 		'updated_at' => false
@@ -193,6 +202,9 @@ class V1EntitiesBulkUpload implements ModelInterface, ArrayAccess, \JsonSerializ
         'file_identifier' => 'file_identifier',
         'document_type' => 'document_type',
         'upload_name' => 'upload_name',
+        'files_count' => 'files_count',
+        'errors_count' => 'errors_count',
+        'success_count' => 'success_count',
         'status' => 'status',
         'created_at' => 'created_at',
         'updated_at' => 'updated_at'
@@ -209,6 +221,9 @@ class V1EntitiesBulkUpload implements ModelInterface, ArrayAccess, \JsonSerializ
         'file_identifier' => 'setFileIdentifier',
         'document_type' => 'setDocumentType',
         'upload_name' => 'setUploadName',
+        'files_count' => 'setFilesCount',
+        'errors_count' => 'setErrorsCount',
+        'success_count' => 'setSuccessCount',
         'status' => 'setStatus',
         'created_at' => 'setCreatedAt',
         'updated_at' => 'setUpdatedAt'
@@ -225,6 +240,9 @@ class V1EntitiesBulkUpload implements ModelInterface, ArrayAccess, \JsonSerializ
         'file_identifier' => 'getFileIdentifier',
         'document_type' => 'getDocumentType',
         'upload_name' => 'getUploadName',
+        'files_count' => 'getFilesCount',
+        'errors_count' => 'getErrorsCount',
+        'success_count' => 'getSuccessCount',
         'status' => 'getStatus',
         'created_at' => 'getCreatedAt',
         'updated_at' => 'getUpdatedAt'
@@ -292,6 +310,9 @@ class V1EntitiesBulkUpload implements ModelInterface, ArrayAccess, \JsonSerializ
         $this->setIfExists('file_identifier', $data ?? [], null);
         $this->setIfExists('document_type', $data ?? [], null);
         $this->setIfExists('upload_name', $data ?? [], null);
+        $this->setIfExists('files_count', $data ?? [], null);
+        $this->setIfExists('errors_count', $data ?? [], null);
+        $this->setIfExists('success_count', $data ?? [], null);
         $this->setIfExists('status', $data ?? [], null);
         $this->setIfExists('created_at', $data ?? [], null);
         $this->setIfExists('updated_at', $data ?? [], null);
@@ -470,6 +491,87 @@ class V1EntitiesBulkUpload implements ModelInterface, ArrayAccess, \JsonSerializ
             throw new \InvalidArgumentException('non-nullable upload_name cannot be null');
         }
         $this->container['upload_name'] = $upload_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets files_count
+     *
+     * @return int|null
+     */
+    public function getFilesCount()
+    {
+        return $this->container['files_count'];
+    }
+
+    /**
+     * Sets files_count
+     *
+     * @param int|null $files_count The number of files in the bulk upload
+     *
+     * @return self
+     */
+    public function setFilesCount($files_count)
+    {
+        if (is_null($files_count)) {
+            throw new \InvalidArgumentException('non-nullable files_count cannot be null');
+        }
+        $this->container['files_count'] = $files_count;
+
+        return $this;
+    }
+
+    /**
+     * Gets errors_count
+     *
+     * @return int|null
+     */
+    public function getErrorsCount()
+    {
+        return $this->container['errors_count'];
+    }
+
+    /**
+     * Sets errors_count
+     *
+     * @param int|null $errors_count The number of errors in the bulk upload
+     *
+     * @return self
+     */
+    public function setErrorsCount($errors_count)
+    {
+        if (is_null($errors_count)) {
+            throw new \InvalidArgumentException('non-nullable errors_count cannot be null');
+        }
+        $this->container['errors_count'] = $errors_count;
+
+        return $this;
+    }
+
+    /**
+     * Gets success_count
+     *
+     * @return int|null
+     */
+    public function getSuccessCount()
+    {
+        return $this->container['success_count'];
+    }
+
+    /**
+     * Sets success_count
+     *
+     * @param int|null $success_count The number of succeeded files in the bulk upload
+     *
+     * @return self
+     */
+    public function setSuccessCount($success_count)
+    {
+        if (is_null($success_count)) {
+            throw new \InvalidArgumentException('non-nullable success_count cannot be null');
+        }
+        $this->container['success_count'] = $success_count;
 
         return $this;
     }

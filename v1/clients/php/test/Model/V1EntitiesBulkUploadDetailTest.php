@@ -125,6 +125,15 @@ class V1EntitiesBulkUploadDetailTest extends TestCase
     }
 
     /**
+     * Test attribute "readable_status"
+     */
+    public function testPropertyReadableStatus()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "created_at"
      */
     public function testPropertyCreatedAt()

@@ -358,7 +358,7 @@ No authorization required
 
 ## patchCorporationProfile
 
-> V1EntitiesInvestorProfileCorporation patchCorporationProfile(investorProfileId, opts)
+> V1EntitiesInvestorProfileCorporation patchCorporationProfile(investorProfileId, patchCorporationProfileRequest)
 
 Patch a corporation investor profile
 
@@ -372,10 +372,8 @@ let defaultClient = Api.ApiClient.instance;
 
 let apiInstance = new Api.InvestorProfileApi();
 let investorProfileId = 56; // Number | 
-let opts = {
-  'patchCorporationProfileRequest': new Api.PatchCorporationProfileRequest() // PatchCorporationProfileRequest | 
-};
-apiInstance.patchCorporationProfile(investorProfileId, opts, (error, data, response) => {
+let patchCorporationProfileRequest = new Api.PatchCorporationProfileRequest(); // PatchCorporationProfileRequest | 
+apiInstance.patchCorporationProfile(investorProfileId, patchCorporationProfileRequest, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -390,7 +388,7 @@ apiInstance.patchCorporationProfile(investorProfileId, opts, (error, data, respo
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **investorProfileId** | **Number**|  | 
- **patchCorporationProfileRequest** | [**PatchCorporationProfileRequest**](PatchCorporationProfileRequest.md)|  | [optional] 
+ **patchCorporationProfileRequest** | [**PatchCorporationProfileRequest**](PatchCorporationProfileRequest.md)|  | 
 
 ### Return type
 

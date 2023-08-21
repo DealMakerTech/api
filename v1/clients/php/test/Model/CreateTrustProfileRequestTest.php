@@ -260,7 +260,7 @@ class CreateTrustProfileRequestTest extends TestCase
     }
 
     /**
-     * Test attribute "trustees_unit_2"
+     * Test attribute "trustees_unit2"
      */
     public function testPropertyTrusteesUnit2()
     {

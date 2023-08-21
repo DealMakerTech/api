@@ -105,4 +105,22 @@ class CreateBulkUploadRequestTest extends TestCase
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test attribute "send_notification"
+     */
+    public function testPropertySendNotification()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "notification_message"
+     */
+    public function testPropertyNotificationMessage()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
 }

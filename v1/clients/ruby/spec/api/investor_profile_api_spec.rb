@@ -126,8 +126,8 @@ describe 'InvestorProfileApi' do
   # Patch a corporation investor profile
   # Patch corporation investor profile
   # @param investor_profile_id 
+  # @param patch_corporation_profile_request 
   # @param [Hash] opts the optional parameters
-  # @option opts [PatchCorporationProfileRequest] :patch_corporation_profile_request 
   # @return [V1EntitiesInvestorProfileCorporation]
   describe 'patch_corporation_profile test' do
     it 'should work' do

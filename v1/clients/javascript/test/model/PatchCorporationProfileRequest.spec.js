@@ -204,6 +204,84 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property beneficialOwnersIndex (base name: "beneficial_owners[index]")', function() {
+      // uncomment below and update the code to test the property beneficialOwnersIndex
+      //var instance = new Api.PatchCorporationProfileRequest();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property beneficialOwnersDelete (base name: "beneficial_owners[_delete]")', function() {
+      // uncomment below and update the code to test the property beneficialOwnersDelete
+      //var instance = new Api.PatchCorporationProfileRequest();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property beneficialOwnersFirstName (base name: "beneficial_owners[first_name]")', function() {
+      // uncomment below and update the code to test the property beneficialOwnersFirstName
+      //var instance = new Api.PatchCorporationProfileRequest();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property beneficialOwnersLastName (base name: "beneficial_owners[last_name]")', function() {
+      // uncomment below and update the code to test the property beneficialOwnersLastName
+      //var instance = new Api.PatchCorporationProfileRequest();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property beneficialOwnersSuffix (base name: "beneficial_owners[suffix]")', function() {
+      // uncomment below and update the code to test the property beneficialOwnersSuffix
+      //var instance = new Api.PatchCorporationProfileRequest();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property beneficialOwnersCountry (base name: "beneficial_owners[country]")', function() {
+      // uncomment below and update the code to test the property beneficialOwnersCountry
+      //var instance = new Api.PatchCorporationProfileRequest();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property beneficialOwnersStreetAddress (base name: "beneficial_owners[street_address]")', function() {
+      // uncomment below and update the code to test the property beneficialOwnersStreetAddress
+      //var instance = new Api.PatchCorporationProfileRequest();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property beneficialOwnersUnit2 (base name: "beneficial_owners[unit2]")', function() {
+      // uncomment below and update the code to test the property beneficialOwnersUnit2
+      //var instance = new Api.PatchCorporationProfileRequest();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property beneficialOwnersCity (base name: "beneficial_owners[city]")', function() {
+      // uncomment below and update the code to test the property beneficialOwnersCity
+      //var instance = new Api.PatchCorporationProfileRequest();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property beneficialOwnersRegion (base name: "beneficial_owners[region]")', function() {
+      // uncomment below and update the code to test the property beneficialOwnersRegion
+      //var instance = new Api.PatchCorporationProfileRequest();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property beneficialOwnersPostalCode (base name: "beneficial_owners[postal_code]")', function() {
+      // uncomment below and update the code to test the property beneficialOwnersPostalCode
+      //var instance = new Api.PatchCorporationProfileRequest();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property beneficialOwnersDateOfBirth (base name: "beneficial_owners[date_of_birth]")', function() {
+      // uncomment below and update the code to test the property beneficialOwnersDateOfBirth
+      //var instance = new Api.PatchCorporationProfileRequest();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property beneficialOwnersTaxpayerId (base name: "beneficial_owners[taxpayer_id]")', function() {
+      // uncomment below and update the code to test the property beneficialOwnersTaxpayerId
+      //var instance = new Api.PatchCorporationProfileRequest();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

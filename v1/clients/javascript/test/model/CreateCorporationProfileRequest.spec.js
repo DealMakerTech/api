@@ -240,7 +240,7 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property beneficialOwnersUnit2 (base name: "beneficial_owners[unit_2]")', function() {
+    it('should have the property beneficialOwnersUnit2 (base name: "beneficial_owners[unit2]")', function() {
       // uncomment below and update the code to test the property beneficialOwnersUnit2
       //var instance = new Api.CreateCorporationProfileRequest();
       //expect(instance).to.be();

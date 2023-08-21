@@ -90,6 +90,45 @@ module DealMakerAPI
     # The taxpayer identification number of the investor profile.
     attr_accessor :signing_officer_taxpayer_id
 
+    # The index of the beneficial owner.
+    attr_accessor :beneficial_owners_index
+
+    # If true, this entry will be cleared.
+    attr_accessor :beneficial_owners__delete
+
+    # The list of first names for the beneficial owners (required for beneficial owner 1).
+    attr_accessor :beneficial_owners_first_name
+
+    # The list of last names for the beneficial owners (required for beneficial owner 1).
+    attr_accessor :beneficial_owners_last_name
+
+    # The list of suffixes for the beneficial owners.
+    attr_accessor :beneficial_owners_suffix
+
+    # The list of countries for the beneficial owners (required for beneficial owner 1).
+    attr_accessor :beneficial_owners_country
+
+    # The list of street addresses for the beneficial owners (required for beneficial owner 1).
+    attr_accessor :beneficial_owners_street_address
+
+    # The list of street address line 2 for the beneficial owners.
+    attr_accessor :beneficial_owners_unit2
+
+    # The list of cities for the beneficial owners (required for beneficial owner 1).
+    attr_accessor :beneficial_owners_city
+
+    # The list of region or states for the beneficial owners (required for beneficial owner 1).
+    attr_accessor :beneficial_owners_region
+
+    # The list of postal codes or zipcodes for the beneficial owners (required for beneficial owner 1).
+    attr_accessor :beneficial_owners_postal_code
+
+    # The list of dates of birth for the beneficial owners (required for beneficial owner 1).
+    attr_accessor :beneficial_owners_date_of_birth
+
+    # The list of taxpayer identification numbers for the beneficial owners (required for beneficial owner 1).
+    attr_accessor :beneficial_owners_taxpayer_id
+
     class EnumAttributeValidator
       attr_reader :datatype
       attr_reader :allowable_values
@@ -139,7 +178,20 @@ module DealMakerAPI
         :'signing_officer_region' => :'signing_officer_region',
         :'signing_officer_postal_code' => :'signing_officer_postal_code',
         :'signing_officer_date_of_birth' => :'signing_officer_date_of_birth',
-        :'signing_officer_taxpayer_id' => :'signing_officer_taxpayer_id'
+        :'signing_officer_taxpayer_id' => :'signing_officer_taxpayer_id',
+        :'beneficial_owners_index' => :'beneficial_owners[index]',
+        :'beneficial_owners__delete' => :'beneficial_owners[_delete]',
+        :'beneficial_owners_first_name' => :'beneficial_owners[first_name]',
+        :'beneficial_owners_last_name' => :'beneficial_owners[last_name]',
+        :'beneficial_owners_suffix' => :'beneficial_owners[suffix]',
+        :'beneficial_owners_country' => :'beneficial_owners[country]',
+        :'beneficial_owners_street_address' => :'beneficial_owners[street_address]',
+        :'beneficial_owners_unit2' => :'beneficial_owners[unit2]',
+        :'beneficial_owners_city' => :'beneficial_owners[city]',
+        :'beneficial_owners_region' => :'beneficial_owners[region]',
+        :'beneficial_owners_postal_code' => :'beneficial_owners[postal_code]',
+        :'beneficial_owners_date_of_birth' => :'beneficial_owners[date_of_birth]',
+        :'beneficial_owners_taxpayer_id' => :'beneficial_owners[taxpayer_id]'
       }
     end
 
@@ -175,7 +227,20 @@ module DealMakerAPI
         :'signing_officer_region' => :'String',
         :'signing_officer_postal_code' => :'String',
         :'signing_officer_date_of_birth' => :'String',
-        :'signing_officer_taxpayer_id' => :'String'
+        :'signing_officer_taxpayer_id' => :'String',
+        :'beneficial_owners_index' => :'Array<Integer>',
+        :'beneficial_owners__delete' => :'Array<Boolean>',
+        :'beneficial_owners_first_name' => :'Array<String>',
+        :'beneficial_owners_last_name' => :'Array<String>',
+        :'beneficial_owners_suffix' => :'Array<String>',
+        :'beneficial_owners_country' => :'Array<String>',
+        :'beneficial_owners_street_address' => :'Array<String>',
+        :'beneficial_owners_unit2' => :'Array<String>',
+        :'beneficial_owners_city' => :'Array<String>',
+        :'beneficial_owners_region' => :'Array<String>',
+        :'beneficial_owners_postal_code' => :'Array<String>',
+        :'beneficial_owners_date_of_birth' => :'Array<String>',
+        :'beneficial_owners_taxpayer_id' => :'Array<String>'
       }
     end
 
@@ -299,6 +364,86 @@ module DealMakerAPI
       if attributes.key?(:'signing_officer_taxpayer_id')
         self.signing_officer_taxpayer_id = attributes[:'signing_officer_taxpayer_id']
       end
+
+      if attributes.key?(:'beneficial_owners_index')
+        if (value = attributes[:'beneficial_owners_index']).is_a?(Array)
+          self.beneficial_owners_index = value
+        end
+      else
+        self.beneficial_owners_index = nil
+      end
+
+      if attributes.key?(:'beneficial_owners__delete')
+        if (value = attributes[:'beneficial_owners__delete']).is_a?(Array)
+          self.beneficial_owners__delete = value
+        end
+      end
+
+      if attributes.key?(:'beneficial_owners_first_name')
+        if (value = attributes[:'beneficial_owners_first_name']).is_a?(Array)
+          self.beneficial_owners_first_name = value
+        end
+      end
+
+      if attributes.key?(:'beneficial_owners_last_name')
+        if (value = attributes[:'beneficial_owners_last_name']).is_a?(Array)
+          self.beneficial_owners_last_name = value
+        end
+      end
+
+      if attributes.key?(:'beneficial_owners_suffix')
+        if (value = attributes[:'beneficial_owners_suffix']).is_a?(Array)
+          self.beneficial_owners_suffix = value
+        end
+      end
+
+      if attributes.key?(:'beneficial_owners_country')
+        if (value = attributes[:'beneficial_owners_country']).is_a?(Array)
+          self.beneficial_owners_country = value
+        end
+      end
+
+      if attributes.key?(:'beneficial_owners_street_address')
+        if (value = attributes[:'beneficial_owners_street_address']).is_a?(Array)
+          self.beneficial_owners_street_address = value
+        end
+      end
+
+      if attributes.key?(:'beneficial_owners_unit2')
+        if (value = attributes[:'beneficial_owners_unit2']).is_a?(Array)
+          self.beneficial_owners_unit2 = value
+        end
+      end
+
+      if attributes.key?(:'beneficial_owners_city')
+        if (value = attributes[:'beneficial_owners_city']).is_a?(Array)
+          self.beneficial_owners_city = value
+        end
+      end
+
+      if attributes.key?(:'beneficial_owners_region')
+        if (value = attributes[:'beneficial_owners_region']).is_a?(Array)
+          self.beneficial_owners_region = value
+        end
+      end
+
+      if attributes.key?(:'beneficial_owners_postal_code')
+        if (value = attributes[:'beneficial_owners_postal_code']).is_a?(Array)
+          self.beneficial_owners_postal_code = value
+        end
+      end
+
+      if attributes.key?(:'beneficial_owners_date_of_birth')
+        if (value = attributes[:'beneficial_owners_date_of_birth']).is_a?(Array)
+          self.beneficial_owners_date_of_birth = value
+        end
+      end
+
+      if attributes.key?(:'beneficial_owners_taxpayer_id')
+        if (value = attributes[:'beneficial_owners_taxpayer_id']).is_a?(Array)
+          self.beneficial_owners_taxpayer_id = value
+        end
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -306,6 +451,10 @@ module DealMakerAPI
     def list_invalid_properties
       warn '[DEPRECATED] the `list_invalid_properties` method is obsolete'
       invalid_properties = Array.new
+      if @beneficial_owners_index.nil?
+        invalid_properties.push('invalid value for "beneficial_owners_index", beneficial_owners_index cannot be nil.')
+      end
+
       invalid_properties
     end
 
@@ -317,6 +466,7 @@ module DealMakerAPI
       return false unless us_accredited_category_validator.valid?(@us_accredited_category)
       ca_accredited_investor_validator = EnumAttributeValidator.new('String', ["a", "b", "c", "d", "f", "g", "h", "i", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "x"])
       return false unless ca_accredited_investor_validator.valid?(@ca_accredited_investor)
+      return false if @beneficial_owners_index.nil?
       true
     end
 
@@ -369,7 +519,20 @@ module DealMakerAPI
           signing_officer_region == o.signing_officer_region &&
           signing_officer_postal_code == o.signing_officer_postal_code &&
           signing_officer_date_of_birth == o.signing_officer_date_of_birth &&
-          signing_officer_taxpayer_id == o.signing_officer_taxpayer_id
+          signing_officer_taxpayer_id == o.signing_officer_taxpayer_id &&
+          beneficial_owners_index == o.beneficial_owners_index &&
+          beneficial_owners__delete == o.beneficial_owners__delete &&
+          beneficial_owners_first_name == o.beneficial_owners_first_name &&
+          beneficial_owners_last_name == o.beneficial_owners_last_name &&
+          beneficial_owners_suffix == o.beneficial_owners_suffix &&
+          beneficial_owners_country == o.beneficial_owners_country &&
+          beneficial_owners_street_address == o.beneficial_owners_street_address &&
+          beneficial_owners_unit2 == o.beneficial_owners_unit2 &&
+          beneficial_owners_city == o.beneficial_owners_city &&
+          beneficial_owners_region == o.beneficial_owners_region &&
+          beneficial_owners_postal_code == o.beneficial_owners_postal_code &&
+          beneficial_owners_date_of_birth == o.beneficial_owners_date_of_birth &&
+          beneficial_owners_taxpayer_id == o.beneficial_owners_taxpayer_id
     end
 
     # @see the `==` method
@@ -381,7 +544,7 @@ module DealMakerAPI
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [us_accredited_category, ca_accredited_investor, name, country, street_address, unit2, city, region, postal_code, business_number, phone_number, income, net_worth, reg_cf_prior_offerings_amount, signing_officer_first_name, signing_officer_last_name, signing_officer_suffix, signing_officer_country, signing_officer_street_address, signing_officer_unit2, signing_officer_city, signing_officer_region, signing_officer_postal_code, signing_officer_date_of_birth, signing_officer_taxpayer_id].hash
+      [us_accredited_category, ca_accredited_investor, name, country, street_address, unit2, city, region, postal_code, business_number, phone_number, income, net_worth, reg_cf_prior_offerings_amount, signing_officer_first_name, signing_officer_last_name, signing_officer_suffix, signing_officer_country, signing_officer_street_address, signing_officer_unit2, signing_officer_city, signing_officer_region, signing_officer_postal_code, signing_officer_date_of_birth, signing_officer_taxpayer_id, beneficial_owners_index, beneficial_owners__delete, beneficial_owners_first_name, beneficial_owners_last_name, beneficial_owners_suffix, beneficial_owners_country, beneficial_owners_street_address, beneficial_owners_unit2, beneficial_owners_city, beneficial_owners_region, beneficial_owners_postal_code, beneficial_owners_date_of_birth, beneficial_owners_taxpayer_id].hash
     end
 
     # Builds the object from hash

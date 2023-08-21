@@ -109,7 +109,7 @@ module DealMakerAPI
     attr_accessor :beneficial_owners_street_address
 
     # The list of street address line 2 for the beneficial owners.
-    attr_accessor :beneficial_owners_unit_2
+    attr_accessor :beneficial_owners_unit2
 
     # The list of cities for the beneficial owners (required for beneficial owner 1).
     attr_accessor :beneficial_owners_city
@@ -182,7 +182,7 @@ module DealMakerAPI
         :'beneficial_owners_suffix' => :'beneficial_owners[suffix]',
         :'beneficial_owners_country' => :'beneficial_owners[country]',
         :'beneficial_owners_street_address' => :'beneficial_owners[street_address]',
-        :'beneficial_owners_unit_2' => :'beneficial_owners[unit_2]',
+        :'beneficial_owners_unit2' => :'beneficial_owners[unit2]',
         :'beneficial_owners_city' => :'beneficial_owners[city]',
         :'beneficial_owners_region' => :'beneficial_owners[region]',
         :'beneficial_owners_postal_code' => :'beneficial_owners[postal_code]',
@@ -230,7 +230,7 @@ module DealMakerAPI
         :'beneficial_owners_suffix' => :'Array<String>',
         :'beneficial_owners_country' => :'Array<String>',
         :'beneficial_owners_street_address' => :'Array<String>',
-        :'beneficial_owners_unit_2' => :'Array<String>',
+        :'beneficial_owners_unit2' => :'Array<String>',
         :'beneficial_owners_city' => :'Array<String>',
         :'beneficial_owners_region' => :'Array<String>',
         :'beneficial_owners_postal_code' => :'Array<String>',
@@ -396,9 +396,9 @@ module DealMakerAPI
         end
       end
 
-      if attributes.key?(:'beneficial_owners_unit_2')
-        if (value = attributes[:'beneficial_owners_unit_2']).is_a?(Array)
-          self.beneficial_owners_unit_2 = value
+      if attributes.key?(:'beneficial_owners_unit2')
+        if (value = attributes[:'beneficial_owners_unit2']).is_a?(Array)
+          self.beneficial_owners_unit2 = value
         end
       end
 
@@ -513,7 +513,7 @@ module DealMakerAPI
           beneficial_owners_suffix == o.beneficial_owners_suffix &&
           beneficial_owners_country == o.beneficial_owners_country &&
           beneficial_owners_street_address == o.beneficial_owners_street_address &&
-          beneficial_owners_unit_2 == o.beneficial_owners_unit_2 &&
+          beneficial_owners_unit2 == o.beneficial_owners_unit2 &&
           beneficial_owners_city == o.beneficial_owners_city &&
           beneficial_owners_region == o.beneficial_owners_region &&
           beneficial_owners_postal_code == o.beneficial_owners_postal_code &&
@@ -530,7 +530,7 @@ module DealMakerAPI
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [email, us_accredited_category, ca_accredited_investor, name, country, street_address, unit2, city, region, postal_code, business_number, phone_number, income, net_worth, reg_cf_prior_offerings_amount, signing_officer_first_name, signing_officer_last_name, signing_officer_suffix, signing_officer_country, signing_officer_street_address, signing_officer_unit2, signing_officer_city, signing_officer_region, signing_officer_postal_code, signing_officer_date_of_birth, signing_officer_taxpayer_id, beneficial_owners_first_name, beneficial_owners_last_name, beneficial_owners_suffix, beneficial_owners_country, beneficial_owners_street_address, beneficial_owners_unit_2, beneficial_owners_city, beneficial_owners_region, beneficial_owners_postal_code, beneficial_owners_date_of_birth, beneficial_owners_taxpayer_id].hash
+      [email, us_accredited_category, ca_accredited_investor, name, country, street_address, unit2, city, region, postal_code, business_number, phone_number, income, net_worth, reg_cf_prior_offerings_amount, signing_officer_first_name, signing_officer_last_name, signing_officer_suffix, signing_officer_country, signing_officer_street_address, signing_officer_unit2, signing_officer_city, signing_officer_region, signing_officer_postal_code, signing_officer_date_of_birth, signing_officer_taxpayer_id, beneficial_owners_first_name, beneficial_owners_last_name, beneficial_owners_suffix, beneficial_owners_country, beneficial_owners_street_address, beneficial_owners_unit2, beneficial_owners_city, beneficial_owners_region, beneficial_owners_postal_code, beneficial_owners_date_of_birth, beneficial_owners_taxpayer_id].hash
     end
 
     # Builds the object from hash

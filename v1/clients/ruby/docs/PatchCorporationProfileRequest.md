@@ -29,6 +29,19 @@
 | **signing_officer_postal_code** | **String** | Signing officer postal code or zipcode. | [optional] |
 | **signing_officer_date_of_birth** | **String** | Signing officer date of birth. | [optional] |
 | **signing_officer_taxpayer_id** | **String** | The taxpayer identification number of the investor profile. | [optional] |
+| **beneficial_owners_index** | **Array&lt;Integer&gt;** | The index of the beneficial owner. |  |
+| **beneficial_owners__delete** | **Array&lt;Boolean&gt;** | If true, this entry will be cleared. | [optional] |
+| **beneficial_owners_first_name** | **Array&lt;String&gt;** | The list of first names for the beneficial owners (required for beneficial owner 1). | [optional] |
+| **beneficial_owners_last_name** | **Array&lt;String&gt;** | The list of last names for the beneficial owners (required for beneficial owner 1). | [optional] |
+| **beneficial_owners_suffix** | **Array&lt;String&gt;** | The list of suffixes for the beneficial owners. | [optional] |
+| **beneficial_owners_country** | **Array&lt;String&gt;** | The list of countries for the beneficial owners (required for beneficial owner 1). | [optional] |
+| **beneficial_owners_street_address** | **Array&lt;String&gt;** | The list of street addresses for the beneficial owners (required for beneficial owner 1). | [optional] |
+| **beneficial_owners_unit2** | **Array&lt;String&gt;** | The list of street address line 2 for the beneficial owners. | [optional] |
+| **beneficial_owners_city** | **Array&lt;String&gt;** | The list of cities for the beneficial owners (required for beneficial owner 1). | [optional] |
+| **beneficial_owners_region** | **Array&lt;String&gt;** | The list of region or states for the beneficial owners (required for beneficial owner 1). | [optional] |
+| **beneficial_owners_postal_code** | **Array&lt;String&gt;** | The list of postal codes or zipcodes for the beneficial owners (required for beneficial owner 1). | [optional] |
+| **beneficial_owners_date_of_birth** | **Array&lt;String&gt;** | The list of dates of birth for the beneficial owners (required for beneficial owner 1). | [optional] |
+| **beneficial_owners_taxpayer_id** | **Array&lt;String&gt;** | The list of taxpayer identification numbers for the beneficial owners (required for beneficial owner 1). | [optional] |
 
 ## Example
 
@@ -60,7 +73,20 @@ instance = DealMakerAPI::PatchCorporationProfileRequest.new(
   signing_officer_region: null,
   signing_officer_postal_code: null,
   signing_officer_date_of_birth: null,
-  signing_officer_taxpayer_id: null
+  signing_officer_taxpayer_id: null,
+  beneficial_owners_index: null,
+  beneficial_owners__delete: null,
+  beneficial_owners_first_name: null,
+  beneficial_owners_last_name: null,
+  beneficial_owners_suffix: null,
+  beneficial_owners_country: null,
+  beneficial_owners_street_address: null,
+  beneficial_owners_unit2: null,
+  beneficial_owners_city: null,
+  beneficial_owners_region: null,
+  beneficial_owners_postal_code: null,
+  beneficial_owners_date_of_birth: null,
+  beneficial_owners_taxpayer_id: null
 )
 ```
 

@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The CreateBulkUploadRequest model module.
  * @module model/CreateBulkUploadRequest
- * @version 0.84.4
+ * @version 0.85.0
  */
 class CreateBulkUploadRequest {
     /**
@@ -25,10 +25,12 @@ class CreateBulkUploadRequest {
      * @param fileIdentifier {String} The file identifier
      * @param documentType {String} The document type
      * @param uploadName {String} The bulk upload name
+     * @param sendNotification {Boolean} Send notification to the user
+     * @param notificationMessage {String} Notification message
      */
-    constructor(fileIdentifier, documentType, uploadName) { 
+    constructor(fileIdentifier, documentType, uploadName, sendNotification, notificationMessage) { 
         
-        CreateBulkUploadRequest.initialize(this, fileIdentifier, documentType, uploadName);
+        CreateBulkUploadRequest.initialize(this, fileIdentifier, documentType, uploadName, sendNotification, notificationMessage);
     }
 
     /**
@@ -36,10 +38,12 @@ class CreateBulkUploadRequest {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, fileIdentifier, documentType, uploadName) { 
+    static initialize(obj, fileIdentifier, documentType, uploadName, sendNotification, notificationMessage) { 
         obj['file_identifier'] = fileIdentifier;
         obj['document_type'] = documentType;
         obj['upload_name'] = uploadName;
+        obj['send_notification'] = sendNotification;
+        obj['notification_message'] = notificationMessage;
     }
 
     /**
@@ -61,6 +65,12 @@ class CreateBulkUploadRequest {
             }
             if (data.hasOwnProperty('upload_name')) {
                 obj['upload_name'] = ApiClient.convertToType(data['upload_name'], 'String');
+            }
+            if (data.hasOwnProperty('send_notification')) {
+                obj['send_notification'] = ApiClient.convertToType(data['send_notification'], 'Boolean');
+            }
+            if (data.hasOwnProperty('notification_message')) {
+                obj['notification_message'] = ApiClient.convertToType(data['notification_message'], 'String');
             }
         }
         return obj;
@@ -90,6 +100,10 @@ class CreateBulkUploadRequest {
         if (data['upload_name'] && !(typeof data['upload_name'] === 'string' || data['upload_name'] instanceof String)) {
             throw new Error("Expected the field `upload_name` to be a primitive type in the JSON string but got " + data['upload_name']);
         }
+        // ensure the json data is a string
+        if (data['notification_message'] && !(typeof data['notification_message'] === 'string' || data['notification_message'] instanceof String)) {
+            throw new Error("Expected the field `notification_message` to be a primitive type in the JSON string but got " + data['notification_message']);
+        }
 
         return true;
     }
@@ -97,7 +111,7 @@ class CreateBulkUploadRequest {
 
 }
 
-CreateBulkUploadRequest.RequiredProperties = ["file_identifier", "document_type", "upload_name"];
+CreateBulkUploadRequest.RequiredProperties = ["file_identifier", "document_type", "upload_name", "send_notification", "notification_message"];
 
 /**
  * The file identifier
@@ -116,6 +130,18 @@ CreateBulkUploadRequest.prototype['document_type'] = undefined;
  * @member {String} upload_name
  */
 CreateBulkUploadRequest.prototype['upload_name'] = undefined;
+
+/**
+ * Send notification to the user
+ * @member {Boolean} send_notification
+ */
+CreateBulkUploadRequest.prototype['send_notification'] = undefined;
+
+/**
+ * Notification message
+ * @member {String} notification_message
+ */
+CreateBulkUploadRequest.prototype['notification_message'] = undefined;
 
 
 

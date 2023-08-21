@@ -153,7 +153,7 @@ describe DealMakerAPI::CreateTrustProfileRequest do
     end
   end
 
-  describe 'test attribute "trustees_unit_2"' do
+  describe 'test attribute "trustees_unit2"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end

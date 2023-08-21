@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The CreateCorporationProfileRequest model module.
  * @module model/CreateCorporationProfileRequest
- * @version 0.84.4
+ * @version 0.85.0
  */
 class CreateCorporationProfileRequest {
     /**
@@ -142,8 +142,8 @@ class CreateCorporationProfileRequest {
             if (data.hasOwnProperty('beneficial_owners[street_address]')) {
                 obj['beneficial_owners[street_address]'] = ApiClient.convertToType(data['beneficial_owners[street_address]'], ['String']);
             }
-            if (data.hasOwnProperty('beneficial_owners[unit_2]')) {
-                obj['beneficial_owners[unit_2]'] = ApiClient.convertToType(data['beneficial_owners[unit_2]'], ['String']);
+            if (data.hasOwnProperty('beneficial_owners[unit2]')) {
+                obj['beneficial_owners[unit2]'] = ApiClient.convertToType(data['beneficial_owners[unit2]'], ['String']);
             }
             if (data.hasOwnProperty('beneficial_owners[city]')) {
                 obj['beneficial_owners[city]'] = ApiClient.convertToType(data['beneficial_owners[city]'], ['String']);
@@ -289,8 +289,8 @@ class CreateCorporationProfileRequest {
             throw new Error("Expected the field `beneficial_owners[street_address]` to be an array in the JSON data but got " + data['beneficial_owners[street_address]']);
         }
         // ensure the json data is an array
-        if (!Array.isArray(data['beneficial_owners[unit_2]'])) {
-            throw new Error("Expected the field `beneficial_owners[unit_2]` to be an array in the JSON data but got " + data['beneficial_owners[unit_2]']);
+        if (!Array.isArray(data['beneficial_owners[unit2]'])) {
+            throw new Error("Expected the field `beneficial_owners[unit2]` to be an array in the JSON data but got " + data['beneficial_owners[unit2]']);
         }
         // ensure the json data is an array
         if (!Array.isArray(data['beneficial_owners[city]'])) {
@@ -509,9 +509,9 @@ CreateCorporationProfileRequest.prototype['beneficial_owners[street_address]'] =
 
 /**
  * The list of street address line 2 for the beneficial owners.
- * @member {Array.<String>} beneficial_owners[unit_2]
+ * @member {Array.<String>} beneficial_owners[unit2]
  */
-CreateCorporationProfileRequest.prototype['beneficial_owners[unit_2]'] = undefined;
+CreateCorporationProfileRequest.prototype['beneficial_owners[unit2]'] = undefined;
 
 /**
  * The list of cities for the beneficial owners (required for beneficial owner 1).

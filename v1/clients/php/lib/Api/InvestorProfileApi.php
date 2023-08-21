@@ -2220,14 +2220,14 @@ class InvestorProfileApi
      * Patch a corporation investor profile
      *
      * @param  int $investor_profile_id investor_profile_id (required)
-     * @param  \DealMaker\Model\PatchCorporationProfileRequest $patch_corporation_profile_request patch_corporation_profile_request (optional)
+     * @param  \DealMaker\Model\PatchCorporationProfileRequest $patch_corporation_profile_request patch_corporation_profile_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchCorporationProfile'] to see the possible values for this operation
      *
      * @throws \DealMaker\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \DealMaker\Model\V1EntitiesInvestorProfileCorporation
      */
-    public function patchCorporationProfile($investor_profile_id, $patch_corporation_profile_request = null, string $contentType = self::contentTypes['patchCorporationProfile'][0])
+    public function patchCorporationProfile($investor_profile_id, $patch_corporation_profile_request, string $contentType = self::contentTypes['patchCorporationProfile'][0])
     {
         list($response) = $this->patchCorporationProfileWithHttpInfo($investor_profile_id, $patch_corporation_profile_request, $contentType);
         return $response;
@@ -2239,14 +2239,14 @@ class InvestorProfileApi
      * Patch a corporation investor profile
      *
      * @param  int $investor_profile_id (required)
-     * @param  \DealMaker\Model\PatchCorporationProfileRequest $patch_corporation_profile_request (optional)
+     * @param  \DealMaker\Model\PatchCorporationProfileRequest $patch_corporation_profile_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchCorporationProfile'] to see the possible values for this operation
      *
      * @throws \DealMaker\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \DealMaker\Model\V1EntitiesInvestorProfileCorporation, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchCorporationProfileWithHttpInfo($investor_profile_id, $patch_corporation_profile_request = null, string $contentType = self::contentTypes['patchCorporationProfile'][0])
+    public function patchCorporationProfileWithHttpInfo($investor_profile_id, $patch_corporation_profile_request, string $contentType = self::contentTypes['patchCorporationProfile'][0])
     {
         $request = $this->patchCorporationProfileRequest($investor_profile_id, $patch_corporation_profile_request, $contentType);
 
@@ -2340,13 +2340,13 @@ class InvestorProfileApi
      * Patch a corporation investor profile
      *
      * @param  int $investor_profile_id (required)
-     * @param  \DealMaker\Model\PatchCorporationProfileRequest $patch_corporation_profile_request (optional)
+     * @param  \DealMaker\Model\PatchCorporationProfileRequest $patch_corporation_profile_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchCorporationProfile'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchCorporationProfileAsync($investor_profile_id, $patch_corporation_profile_request = null, string $contentType = self::contentTypes['patchCorporationProfile'][0])
+    public function patchCorporationProfileAsync($investor_profile_id, $patch_corporation_profile_request, string $contentType = self::contentTypes['patchCorporationProfile'][0])
     {
         return $this->patchCorporationProfileAsyncWithHttpInfo($investor_profile_id, $patch_corporation_profile_request, $contentType)
             ->then(
@@ -2362,13 +2362,13 @@ class InvestorProfileApi
      * Patch a corporation investor profile
      *
      * @param  int $investor_profile_id (required)
-     * @param  \DealMaker\Model\PatchCorporationProfileRequest $patch_corporation_profile_request (optional)
+     * @param  \DealMaker\Model\PatchCorporationProfileRequest $patch_corporation_profile_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchCorporationProfile'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchCorporationProfileAsyncWithHttpInfo($investor_profile_id, $patch_corporation_profile_request = null, string $contentType = self::contentTypes['patchCorporationProfile'][0])
+    public function patchCorporationProfileAsyncWithHttpInfo($investor_profile_id, $patch_corporation_profile_request, string $contentType = self::contentTypes['patchCorporationProfile'][0])
     {
         $returnType = '\DealMaker\Model\V1EntitiesInvestorProfileCorporation';
         $request = $this->patchCorporationProfileRequest($investor_profile_id, $patch_corporation_profile_request, $contentType);
@@ -2413,13 +2413,13 @@ class InvestorProfileApi
      * Create request for operation 'patchCorporationProfile'
      *
      * @param  int $investor_profile_id (required)
-     * @param  \DealMaker\Model\PatchCorporationProfileRequest $patch_corporation_profile_request (optional)
+     * @param  \DealMaker\Model\PatchCorporationProfileRequest $patch_corporation_profile_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchCorporationProfile'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchCorporationProfileRequest($investor_profile_id, $patch_corporation_profile_request = null, string $contentType = self::contentTypes['patchCorporationProfile'][0])
+    public function patchCorporationProfileRequest($investor_profile_id, $patch_corporation_profile_request, string $contentType = self::contentTypes['patchCorporationProfile'][0])
     {
 
         // verify the required parameter 'investor_profile_id' is set
@@ -2429,6 +2429,12 @@ class InvestorProfileApi
             );
         }
 
+        // verify the required parameter 'patch_corporation_profile_request' is set
+        if ($patch_corporation_profile_request === null || (is_array($patch_corporation_profile_request) && count($patch_corporation_profile_request) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $patch_corporation_profile_request when calling patchCorporationProfile'
+            );
+        }
 
 
         $resourcePath = '/investor_profiles/corporations/{investor_profile_id}';

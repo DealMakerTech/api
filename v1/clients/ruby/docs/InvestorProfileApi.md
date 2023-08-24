@@ -497,7 +497,7 @@ No authorization required
 
 ## patch_corporation_profile
 
-> <V1EntitiesInvestorProfileCorporation> patch_corporation_profile(investor_profile_id, opts)
+> <V1EntitiesInvestorProfileCorporation> patch_corporation_profile(investor_profile_id, patch_corporation_profile_request)
 
 Patch a corporation investor profile
 
@@ -513,13 +513,11 @@ DealMakerAPI.configure do |config|end
 
 api_instance = DealMakerAPI::InvestorProfileApi.new
 investor_profile_id = 56 # Integer | 
-opts = {
-  patch_corporation_profile_request: DealMakerAPI::PatchCorporationProfileRequest.new # PatchCorporationProfileRequest | 
-}
+patch_corporation_profile_request = DealMakerAPI::PatchCorporationProfileRequest.new({beneficial_owners_index: [37]}) # PatchCorporationProfileRequest | 
 
 begin
   # Patch a corporation investor profile
-  result = api_instance.patch_corporation_profile(investor_profile_id, opts)
+  result = api_instance.patch_corporation_profile(investor_profile_id, patch_corporation_profile_request)
   p result
 rescue DealMakerAPI::ApiError => e
   puts "Error when calling InvestorProfileApi->patch_corporation_profile: #{e}"
@@ -530,12 +528,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<V1EntitiesInvestorProfileCorporation>, Integer, Hash)> patch_corporation_profile_with_http_info(investor_profile_id, opts)
+> <Array(<V1EntitiesInvestorProfileCorporation>, Integer, Hash)> patch_corporation_profile_with_http_info(investor_profile_id, patch_corporation_profile_request)
 
 ```ruby
 begin
   # Patch a corporation investor profile
-  data, status_code, headers = api_instance.patch_corporation_profile_with_http_info(investor_profile_id, opts)
+  data, status_code, headers = api_instance.patch_corporation_profile_with_http_info(investor_profile_id, patch_corporation_profile_request)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <V1EntitiesInvestorProfileCorporation>
@@ -549,7 +547,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **investor_profile_id** | **Integer** |  |  |
-| **patch_corporation_profile_request** | [**PatchCorporationProfileRequest**](PatchCorporationProfileRequest.md) |  | [optional] |
+| **patch_corporation_profile_request** | [**PatchCorporationProfileRequest**](PatchCorporationProfileRequest.md) |  |  |
 
 ### Return type
 

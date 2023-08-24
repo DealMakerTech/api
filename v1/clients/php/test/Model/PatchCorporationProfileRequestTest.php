@@ -303,4 +303,121 @@ class PatchCorporationProfileRequestTest extends TestCase
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test attribute "beneficial_owners_index"
+     */
+    public function testPropertyBeneficialOwnersIndex()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "beneficial_owners__delete"
+     */
+    public function testPropertyBeneficialOwnersDelete()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "beneficial_owners_first_name"
+     */
+    public function testPropertyBeneficialOwnersFirstName()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "beneficial_owners_last_name"
+     */
+    public function testPropertyBeneficialOwnersLastName()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "beneficial_owners_suffix"
+     */
+    public function testPropertyBeneficialOwnersSuffix()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "beneficial_owners_country"
+     */
+    public function testPropertyBeneficialOwnersCountry()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "beneficial_owners_street_address"
+     */
+    public function testPropertyBeneficialOwnersStreetAddress()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "beneficial_owners_unit2"
+     */
+    public function testPropertyBeneficialOwnersUnit2()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "beneficial_owners_city"
+     */
+    public function testPropertyBeneficialOwnersCity()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "beneficial_owners_region"
+     */
+    public function testPropertyBeneficialOwnersRegion()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "beneficial_owners_postal_code"
+     */
+    public function testPropertyBeneficialOwnersPostalCode()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "beneficial_owners_date_of_birth"
+     */
+    public function testPropertyBeneficialOwnersDateOfBirth()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "beneficial_owners_taxpayer_id"
+     */
+    public function testPropertyBeneficialOwnersTaxpayerId()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
 }

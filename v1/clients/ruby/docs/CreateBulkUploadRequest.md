@@ -7,6 +7,8 @@
 | **file_identifier** | **String** | The file identifier |  |
 | **document_type** | **String** | The document type |  |
 | **upload_name** | **String** | The bulk upload name |  |
+| **send_notification** | **Boolean** | Send notification to the user |  |
+| **notification_message** | **String** | Notification message |  |
 
 ## Example
 
@@ -16,7 +18,9 @@ require 'DealMakerAPI'
 instance = DealMakerAPI::CreateBulkUploadRequest.new(
   file_identifier: null,
   document_type: null,
-  upload_name: null
+  upload_name: null,
+  send_notification: null,
+  notification_message: null
 )
 ```
 

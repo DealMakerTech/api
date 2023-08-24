@@ -1810,6 +1810,20 @@
             "description": "The bulk upload name",
             "type": "string",
             "required": true
+          },
+          {
+            "in": "formData",
+            "name": "send_notification",
+            "description": "Send notification to the user",
+            "type": "boolean",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "notification_message",
+            "description": "Notification message",
+            "type": "string",
+            "required": true
           }
         ],
         "security": [
@@ -2921,7 +2935,7 @@
           },
           {
             "in": "formData",
-            "name": "trustees[unit_2]",
+            "name": "trustees[unit2]",
             "description": "The list of street address line 2 for the trustees.",
             "type": "array",
             "required": false,
@@ -4235,6 +4249,137 @@
             "required": false
           },
           {
+            "in": "formData",
+            "name": "beneficial_owners[index]",
+            "description": "The index of the beneficial owner.",
+            "type": "array",
+            "required": true,
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "in": "formData",
+            "name": "beneficial_owners[_delete]",
+            "description": "If true, this entry will be cleared.",
+            "type": "array",
+            "required": false,
+            "items": {
+              "type": "boolean"
+            }
+          },
+          {
+            "in": "formData",
+            "name": "beneficial_owners[first_name]",
+            "description": "The list of first names for the beneficial owners (required for beneficial owner 1).",
+            "type": "array",
+            "required": false,
+            "items": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "formData",
+            "name": "beneficial_owners[last_name]",
+            "description": "The list of last names for the beneficial owners (required for beneficial owner 1).",
+            "type": "array",
+            "required": false,
+            "items": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "formData",
+            "name": "beneficial_owners[suffix]",
+            "description": "The list of suffixes for the beneficial owners.",
+            "type": "array",
+            "required": false,
+            "items": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "formData",
+            "name": "beneficial_owners[country]",
+            "description": "The list of countries for the beneficial owners (required for beneficial owner 1).",
+            "type": "array",
+            "required": false,
+            "items": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "formData",
+            "name": "beneficial_owners[street_address]",
+            "description": "The list of street addresses for the beneficial owners (required for beneficial owner 1).",
+            "type": "array",
+            "required": false,
+            "items": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "formData",
+            "name": "beneficial_owners[unit2]",
+            "description": "The list of street address line 2 for the beneficial owners.",
+            "type": "array",
+            "required": false,
+            "items": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "formData",
+            "name": "beneficial_owners[city]",
+            "description": "The list of cities for the beneficial owners (required for beneficial owner 1).",
+            "type": "array",
+            "required": false,
+            "items": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "formData",
+            "name": "beneficial_owners[region]",
+            "description": "The list of region or states for the beneficial owners (required for beneficial owner 1).",
+            "type": "array",
+            "required": false,
+            "items": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "formData",
+            "name": "beneficial_owners[postal_code]",
+            "description": "The list of postal codes or zipcodes for the beneficial owners (required for beneficial owner 1).",
+            "type": "array",
+            "required": false,
+            "items": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "formData",
+            "name": "beneficial_owners[date_of_birth]",
+            "description": "The list of dates of birth for the beneficial owners (required for beneficial owner 1).",
+            "type": "array",
+            "required": false,
+            "items": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "formData",
+            "name": "beneficial_owners[taxpayer_id]",
+            "description": "The list of taxpayer identification numbers for the beneficial owners (required for beneficial owner 1).",
+            "type": "array",
+            "required": false,
+            "items": {
+              "type": "string"
+            }
+          },
+          {
             "in": "path",
             "name": "investor_profile_id",
             "type": "integer",
@@ -4569,7 +4714,7 @@
           },
           {
             "in": "formData",
-            "name": "beneficial_owners[unit_2]",
+            "name": "beneficial_owners[unit2]",
             "description": "The list of street address line 2 for the beneficial owners.",
             "type": "array",
             "required": false,

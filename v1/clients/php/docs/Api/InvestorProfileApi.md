@@ -468,7 +468,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **investor_profile_id** | **int**|  | |
-| **patch_corporation_profile_request** | [**\DealMaker\Model\PatchCorporationProfileRequest**](../Model/PatchCorporationProfileRequest.md)|  | [optional] |
+| **patch_corporation_profile_request** | [**\DealMaker\Model\PatchCorporationProfileRequest**](../Model/PatchCorporationProfileRequest.md)|  | |
 
 ### Return type
 

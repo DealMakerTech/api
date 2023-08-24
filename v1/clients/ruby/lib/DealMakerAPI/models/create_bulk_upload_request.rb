@@ -24,12 +24,20 @@ module DealMakerAPI
     # The bulk upload name
     attr_accessor :upload_name
 
+    # Send notification to the user
+    attr_accessor :send_notification
+
+    # Notification message
+    attr_accessor :notification_message
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'file_identifier' => :'file_identifier',
         :'document_type' => :'document_type',
-        :'upload_name' => :'upload_name'
+        :'upload_name' => :'upload_name',
+        :'send_notification' => :'send_notification',
+        :'notification_message' => :'notification_message'
       }
     end
 
@@ -43,7 +51,9 @@ module DealMakerAPI
       {
         :'file_identifier' => :'String',
         :'document_type' => :'String',
-        :'upload_name' => :'String'
+        :'upload_name' => :'String',
+        :'send_notification' => :'Boolean',
+        :'notification_message' => :'String'
       }
     end
 
@@ -85,6 +95,18 @@ module DealMakerAPI
       else
         self.upload_name = nil
       end
+
+      if attributes.key?(:'send_notification')
+        self.send_notification = attributes[:'send_notification']
+      else
+        self.send_notification = nil
+      end
+
+      if attributes.key?(:'notification_message')
+        self.notification_message = attributes[:'notification_message']
+      else
+        self.notification_message = nil
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -104,6 +126,14 @@ module DealMakerAPI
         invalid_properties.push('invalid value for "upload_name", upload_name cannot be nil.')
       end
 
+      if @send_notification.nil?
+        invalid_properties.push('invalid value for "send_notification", send_notification cannot be nil.')
+      end
+
+      if @notification_message.nil?
+        invalid_properties.push('invalid value for "notification_message", notification_message cannot be nil.')
+      end
+
       invalid_properties
     end
 
@@ -114,6 +144,8 @@ module DealMakerAPI
       return false if @file_identifier.nil?
       return false if @document_type.nil?
       return false if @upload_name.nil?
+      return false if @send_notification.nil?
+      return false if @notification_message.nil?
       true
     end
 
@@ -124,7 +156,9 @@ module DealMakerAPI
       self.class == o.class &&
           file_identifier == o.file_identifier &&
           document_type == o.document_type &&
-          upload_name == o.upload_name
+          upload_name == o.upload_name &&
+          send_notification == o.send_notification &&
+          notification_message == o.notification_message
     end
 
     # @see the `==` method
@@ -136,7 +170,7 @@ module DealMakerAPI
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [file_identifier, document_type, upload_name].hash
+      [file_identifier, document_type, upload_name, send_notification, notification_message].hash
     end
 
     # Builds the object from hash

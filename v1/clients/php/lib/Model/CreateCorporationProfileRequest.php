@@ -88,7 +88,7 @@ class CreateCorporationProfileRequest implements ModelInterface, ArrayAccess, \J
         'beneficial_owners_suffix' => 'string[]',
         'beneficial_owners_country' => 'string[]',
         'beneficial_owners_street_address' => 'string[]',
-        'beneficial_owners_unit_2' => 'string[]',
+        'beneficial_owners_unit2' => 'string[]',
         'beneficial_owners_city' => 'string[]',
         'beneficial_owners_region' => 'string[]',
         'beneficial_owners_postal_code' => 'string[]',
@@ -135,7 +135,7 @@ class CreateCorporationProfileRequest implements ModelInterface, ArrayAccess, \J
         'beneficial_owners_suffix' => null,
         'beneficial_owners_country' => null,
         'beneficial_owners_street_address' => null,
-        'beneficial_owners_unit_2' => null,
+        'beneficial_owners_unit2' => null,
         'beneficial_owners_city' => null,
         'beneficial_owners_region' => null,
         'beneficial_owners_postal_code' => null,
@@ -180,7 +180,7 @@ class CreateCorporationProfileRequest implements ModelInterface, ArrayAccess, \J
 		'beneficial_owners_suffix' => false,
 		'beneficial_owners_country' => false,
 		'beneficial_owners_street_address' => false,
-		'beneficial_owners_unit_2' => false,
+		'beneficial_owners_unit2' => false,
 		'beneficial_owners_city' => false,
 		'beneficial_owners_region' => false,
 		'beneficial_owners_postal_code' => false,
@@ -305,7 +305,7 @@ class CreateCorporationProfileRequest implements ModelInterface, ArrayAccess, \J
         'beneficial_owners_suffix' => 'beneficial_owners[suffix]',
         'beneficial_owners_country' => 'beneficial_owners[country]',
         'beneficial_owners_street_address' => 'beneficial_owners[street_address]',
-        'beneficial_owners_unit_2' => 'beneficial_owners[unit_2]',
+        'beneficial_owners_unit2' => 'beneficial_owners[unit2]',
         'beneficial_owners_city' => 'beneficial_owners[city]',
         'beneficial_owners_region' => 'beneficial_owners[region]',
         'beneficial_owners_postal_code' => 'beneficial_owners[postal_code]',
@@ -350,7 +350,7 @@ class CreateCorporationProfileRequest implements ModelInterface, ArrayAccess, \J
         'beneficial_owners_suffix' => 'setBeneficialOwnersSuffix',
         'beneficial_owners_country' => 'setBeneficialOwnersCountry',
         'beneficial_owners_street_address' => 'setBeneficialOwnersStreetAddress',
-        'beneficial_owners_unit_2' => 'setBeneficialOwnersUnit2',
+        'beneficial_owners_unit2' => 'setBeneficialOwnersUnit2',
         'beneficial_owners_city' => 'setBeneficialOwnersCity',
         'beneficial_owners_region' => 'setBeneficialOwnersRegion',
         'beneficial_owners_postal_code' => 'setBeneficialOwnersPostalCode',
@@ -395,7 +395,7 @@ class CreateCorporationProfileRequest implements ModelInterface, ArrayAccess, \J
         'beneficial_owners_suffix' => 'getBeneficialOwnersSuffix',
         'beneficial_owners_country' => 'getBeneficialOwnersCountry',
         'beneficial_owners_street_address' => 'getBeneficialOwnersStreetAddress',
-        'beneficial_owners_unit_2' => 'getBeneficialOwnersUnit2',
+        'beneficial_owners_unit2' => 'getBeneficialOwnersUnit2',
         'beneficial_owners_city' => 'getBeneficialOwnersCity',
         'beneficial_owners_region' => 'getBeneficialOwnersRegion',
         'beneficial_owners_postal_code' => 'getBeneficialOwnersPostalCode',
@@ -583,7 +583,7 @@ class CreateCorporationProfileRequest implements ModelInterface, ArrayAccess, \J
         $this->setIfExists('beneficial_owners_suffix', $data ?? [], null);
         $this->setIfExists('beneficial_owners_country', $data ?? [], null);
         $this->setIfExists('beneficial_owners_street_address', $data ?? [], null);
-        $this->setIfExists('beneficial_owners_unit_2', $data ?? [], null);
+        $this->setIfExists('beneficial_owners_unit2', $data ?? [], null);
         $this->setIfExists('beneficial_owners_city', $data ?? [], null);
         $this->setIfExists('beneficial_owners_region', $data ?? [], null);
         $this->setIfExists('beneficial_owners_postal_code', $data ?? [], null);
@@ -1512,28 +1512,28 @@ class CreateCorporationProfileRequest implements ModelInterface, ArrayAccess, \J
     }
 
     /**
-     * Gets beneficial_owners_unit_2
+     * Gets beneficial_owners_unit2
      *
      * @return string[]|null
      */
     public function getBeneficialOwnersUnit2()
     {
-        return $this->container['beneficial_owners_unit_2'];
+        return $this->container['beneficial_owners_unit2'];
     }
 
     /**
-     * Sets beneficial_owners_unit_2
+     * Sets beneficial_owners_unit2
      *
-     * @param string[]|null $beneficial_owners_unit_2 The list of street address line 2 for the beneficial owners.
+     * @param string[]|null $beneficial_owners_unit2 The list of street address line 2 for the beneficial owners.
      *
      * @return self
      */
-    public function setBeneficialOwnersUnit2($beneficial_owners_unit_2)
+    public function setBeneficialOwnersUnit2($beneficial_owners_unit2)
     {
-        if (is_null($beneficial_owners_unit_2)) {
-            throw new \InvalidArgumentException('non-nullable beneficial_owners_unit_2 cannot be null');
+        if (is_null($beneficial_owners_unit2)) {
+            throw new \InvalidArgumentException('non-nullable beneficial_owners_unit2 cannot be null');
         }
-        $this->container['beneficial_owners_unit_2'] = $beneficial_owners_unit_2;
+        $this->container['beneficial_owners_unit2'] = $beneficial_owners_unit2;
 
         return $this;
     }

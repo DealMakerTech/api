@@ -18,10 +18,14 @@ module DealMakerAPI
     # The CSV file with data to upload.
     attr_accessor :import_file
 
+    # The email to send alerts to.
+    attr_accessor :alerts_email
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'import_file' => :'import_file'
+        :'import_file' => :'import_file',
+        :'alerts_email' => :'alerts_email'
       }
     end
 
@@ -33,7 +37,8 @@ module DealMakerAPI
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'import_file' => :'File'
+        :'import_file' => :'File',
+        :'alerts_email' => :'String'
       }
     end
 
@@ -63,6 +68,10 @@ module DealMakerAPI
       else
         self.import_file = nil
       end
+
+      if attributes.key?(:'alerts_email')
+        self.alerts_email = attributes[:'alerts_email']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -90,7 +99,8 @@ module DealMakerAPI
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          import_file == o.import_file
+          import_file == o.import_file &&
+          alerts_email == o.alerts_email
     end
 
     # @see the `==` method
@@ -102,7 +112,7 @@ module DealMakerAPI
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [import_file].hash
+      [import_file, alerts_email].hash
     end
 
     # Builds the object from hash

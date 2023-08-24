@@ -81,7 +81,20 @@ class PatchCorporationProfileRequest implements ModelInterface, ArrayAccess, \Js
         'signing_officer_region' => 'string',
         'signing_officer_postal_code' => 'string',
         'signing_officer_date_of_birth' => 'string',
-        'signing_officer_taxpayer_id' => 'string'
+        'signing_officer_taxpayer_id' => 'string',
+        'beneficial_owners_index' => 'int[]',
+        'beneficial_owners__delete' => 'bool[]',
+        'beneficial_owners_first_name' => 'string[]',
+        'beneficial_owners_last_name' => 'string[]',
+        'beneficial_owners_suffix' => 'string[]',
+        'beneficial_owners_country' => 'string[]',
+        'beneficial_owners_street_address' => 'string[]',
+        'beneficial_owners_unit2' => 'string[]',
+        'beneficial_owners_city' => 'string[]',
+        'beneficial_owners_region' => 'string[]',
+        'beneficial_owners_postal_code' => 'string[]',
+        'beneficial_owners_date_of_birth' => 'string[]',
+        'beneficial_owners_taxpayer_id' => 'string[]'
     ];
 
     /**
@@ -116,7 +129,20 @@ class PatchCorporationProfileRequest implements ModelInterface, ArrayAccess, \Js
         'signing_officer_region' => null,
         'signing_officer_postal_code' => null,
         'signing_officer_date_of_birth' => null,
-        'signing_officer_taxpayer_id' => null
+        'signing_officer_taxpayer_id' => null,
+        'beneficial_owners_index' => 'int32',
+        'beneficial_owners__delete' => null,
+        'beneficial_owners_first_name' => null,
+        'beneficial_owners_last_name' => null,
+        'beneficial_owners_suffix' => null,
+        'beneficial_owners_country' => null,
+        'beneficial_owners_street_address' => null,
+        'beneficial_owners_unit2' => null,
+        'beneficial_owners_city' => null,
+        'beneficial_owners_region' => null,
+        'beneficial_owners_postal_code' => null,
+        'beneficial_owners_date_of_birth' => null,
+        'beneficial_owners_taxpayer_id' => null
     ];
 
     /**
@@ -149,7 +175,20 @@ class PatchCorporationProfileRequest implements ModelInterface, ArrayAccess, \Js
 		'signing_officer_region' => false,
 		'signing_officer_postal_code' => false,
 		'signing_officer_date_of_birth' => false,
-		'signing_officer_taxpayer_id' => false
+		'signing_officer_taxpayer_id' => false,
+		'beneficial_owners_index' => false,
+		'beneficial_owners__delete' => false,
+		'beneficial_owners_first_name' => false,
+		'beneficial_owners_last_name' => false,
+		'beneficial_owners_suffix' => false,
+		'beneficial_owners_country' => false,
+		'beneficial_owners_street_address' => false,
+		'beneficial_owners_unit2' => false,
+		'beneficial_owners_city' => false,
+		'beneficial_owners_region' => false,
+		'beneficial_owners_postal_code' => false,
+		'beneficial_owners_date_of_birth' => false,
+		'beneficial_owners_taxpayer_id' => false
     ];
 
     /**
@@ -262,7 +301,20 @@ class PatchCorporationProfileRequest implements ModelInterface, ArrayAccess, \Js
         'signing_officer_region' => 'signing_officer_region',
         'signing_officer_postal_code' => 'signing_officer_postal_code',
         'signing_officer_date_of_birth' => 'signing_officer_date_of_birth',
-        'signing_officer_taxpayer_id' => 'signing_officer_taxpayer_id'
+        'signing_officer_taxpayer_id' => 'signing_officer_taxpayer_id',
+        'beneficial_owners_index' => 'beneficial_owners[index]',
+        'beneficial_owners__delete' => 'beneficial_owners[_delete]',
+        'beneficial_owners_first_name' => 'beneficial_owners[first_name]',
+        'beneficial_owners_last_name' => 'beneficial_owners[last_name]',
+        'beneficial_owners_suffix' => 'beneficial_owners[suffix]',
+        'beneficial_owners_country' => 'beneficial_owners[country]',
+        'beneficial_owners_street_address' => 'beneficial_owners[street_address]',
+        'beneficial_owners_unit2' => 'beneficial_owners[unit2]',
+        'beneficial_owners_city' => 'beneficial_owners[city]',
+        'beneficial_owners_region' => 'beneficial_owners[region]',
+        'beneficial_owners_postal_code' => 'beneficial_owners[postal_code]',
+        'beneficial_owners_date_of_birth' => 'beneficial_owners[date_of_birth]',
+        'beneficial_owners_taxpayer_id' => 'beneficial_owners[taxpayer_id]'
     ];
 
     /**
@@ -295,7 +347,20 @@ class PatchCorporationProfileRequest implements ModelInterface, ArrayAccess, \Js
         'signing_officer_region' => 'setSigningOfficerRegion',
         'signing_officer_postal_code' => 'setSigningOfficerPostalCode',
         'signing_officer_date_of_birth' => 'setSigningOfficerDateOfBirth',
-        'signing_officer_taxpayer_id' => 'setSigningOfficerTaxpayerId'
+        'signing_officer_taxpayer_id' => 'setSigningOfficerTaxpayerId',
+        'beneficial_owners_index' => 'setBeneficialOwnersIndex',
+        'beneficial_owners__delete' => 'setBeneficialOwnersDelete',
+        'beneficial_owners_first_name' => 'setBeneficialOwnersFirstName',
+        'beneficial_owners_last_name' => 'setBeneficialOwnersLastName',
+        'beneficial_owners_suffix' => 'setBeneficialOwnersSuffix',
+        'beneficial_owners_country' => 'setBeneficialOwnersCountry',
+        'beneficial_owners_street_address' => 'setBeneficialOwnersStreetAddress',
+        'beneficial_owners_unit2' => 'setBeneficialOwnersUnit2',
+        'beneficial_owners_city' => 'setBeneficialOwnersCity',
+        'beneficial_owners_region' => 'setBeneficialOwnersRegion',
+        'beneficial_owners_postal_code' => 'setBeneficialOwnersPostalCode',
+        'beneficial_owners_date_of_birth' => 'setBeneficialOwnersDateOfBirth',
+        'beneficial_owners_taxpayer_id' => 'setBeneficialOwnersTaxpayerId'
     ];
 
     /**
@@ -328,7 +393,20 @@ class PatchCorporationProfileRequest implements ModelInterface, ArrayAccess, \Js
         'signing_officer_region' => 'getSigningOfficerRegion',
         'signing_officer_postal_code' => 'getSigningOfficerPostalCode',
         'signing_officer_date_of_birth' => 'getSigningOfficerDateOfBirth',
-        'signing_officer_taxpayer_id' => 'getSigningOfficerTaxpayerId'
+        'signing_officer_taxpayer_id' => 'getSigningOfficerTaxpayerId',
+        'beneficial_owners_index' => 'getBeneficialOwnersIndex',
+        'beneficial_owners__delete' => 'getBeneficialOwnersDelete',
+        'beneficial_owners_first_name' => 'getBeneficialOwnersFirstName',
+        'beneficial_owners_last_name' => 'getBeneficialOwnersLastName',
+        'beneficial_owners_suffix' => 'getBeneficialOwnersSuffix',
+        'beneficial_owners_country' => 'getBeneficialOwnersCountry',
+        'beneficial_owners_street_address' => 'getBeneficialOwnersStreetAddress',
+        'beneficial_owners_unit2' => 'getBeneficialOwnersUnit2',
+        'beneficial_owners_city' => 'getBeneficialOwnersCity',
+        'beneficial_owners_region' => 'getBeneficialOwnersRegion',
+        'beneficial_owners_postal_code' => 'getBeneficialOwnersPostalCode',
+        'beneficial_owners_date_of_birth' => 'getBeneficialOwnersDateOfBirth',
+        'beneficial_owners_taxpayer_id' => 'getBeneficialOwnersTaxpayerId'
     ];
 
     /**
@@ -505,6 +583,19 @@ class PatchCorporationProfileRequest implements ModelInterface, ArrayAccess, \Js
         $this->setIfExists('signing_officer_postal_code', $data ?? [], null);
         $this->setIfExists('signing_officer_date_of_birth', $data ?? [], null);
         $this->setIfExists('signing_officer_taxpayer_id', $data ?? [], null);
+        $this->setIfExists('beneficial_owners_index', $data ?? [], null);
+        $this->setIfExists('beneficial_owners__delete', $data ?? [], null);
+        $this->setIfExists('beneficial_owners_first_name', $data ?? [], null);
+        $this->setIfExists('beneficial_owners_last_name', $data ?? [], null);
+        $this->setIfExists('beneficial_owners_suffix', $data ?? [], null);
+        $this->setIfExists('beneficial_owners_country', $data ?? [], null);
+        $this->setIfExists('beneficial_owners_street_address', $data ?? [], null);
+        $this->setIfExists('beneficial_owners_unit2', $data ?? [], null);
+        $this->setIfExists('beneficial_owners_city', $data ?? [], null);
+        $this->setIfExists('beneficial_owners_region', $data ?? [], null);
+        $this->setIfExists('beneficial_owners_postal_code', $data ?? [], null);
+        $this->setIfExists('beneficial_owners_date_of_birth', $data ?? [], null);
+        $this->setIfExists('beneficial_owners_taxpayer_id', $data ?? [], null);
     }
 
     /**
@@ -552,6 +643,9 @@ class PatchCorporationProfileRequest implements ModelInterface, ArrayAccess, \Js
             );
         }
 
+        if ($this->container['beneficial_owners_index'] === null) {
+            $invalidProperties[] = "'beneficial_owners_index' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -1258,6 +1352,357 @@ class PatchCorporationProfileRequest implements ModelInterface, ArrayAccess, \Js
             throw new \InvalidArgumentException('non-nullable signing_officer_taxpayer_id cannot be null');
         }
         $this->container['signing_officer_taxpayer_id'] = $signing_officer_taxpayer_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets beneficial_owners_index
+     *
+     * @return int[]
+     */
+    public function getBeneficialOwnersIndex()
+    {
+        return $this->container['beneficial_owners_index'];
+    }
+
+    /**
+     * Sets beneficial_owners_index
+     *
+     * @param int[] $beneficial_owners_index The index of the beneficial owner.
+     *
+     * @return self
+     */
+    public function setBeneficialOwnersIndex($beneficial_owners_index)
+    {
+        if (is_null($beneficial_owners_index)) {
+            throw new \InvalidArgumentException('non-nullable beneficial_owners_index cannot be null');
+        }
+        $this->container['beneficial_owners_index'] = $beneficial_owners_index;
+
+        return $this;
+    }
+
+    /**
+     * Gets beneficial_owners__delete
+     *
+     * @return bool[]|null
+     */
+    public function getBeneficialOwnersDelete()
+    {
+        return $this->container['beneficial_owners__delete'];
+    }
+
+    /**
+     * Sets beneficial_owners__delete
+     *
+     * @param bool[]|null $beneficial_owners__delete If true, this entry will be cleared.
+     *
+     * @return self
+     */
+    public function setBeneficialOwnersDelete($beneficial_owners__delete)
+    {
+        if (is_null($beneficial_owners__delete)) {
+            throw new \InvalidArgumentException('non-nullable beneficial_owners__delete cannot be null');
+        }
+        $this->container['beneficial_owners__delete'] = $beneficial_owners__delete;
+
+        return $this;
+    }
+
+    /**
+     * Gets beneficial_owners_first_name
+     *
+     * @return string[]|null
+     */
+    public function getBeneficialOwnersFirstName()
+    {
+        return $this->container['beneficial_owners_first_name'];
+    }
+
+    /**
+     * Sets beneficial_owners_first_name
+     *
+     * @param string[]|null $beneficial_owners_first_name The list of first names for the beneficial owners (required for beneficial owner 1).
+     *
+     * @return self
+     */
+    public function setBeneficialOwnersFirstName($beneficial_owners_first_name)
+    {
+        if (is_null($beneficial_owners_first_name)) {
+            throw new \InvalidArgumentException('non-nullable beneficial_owners_first_name cannot be null');
+        }
+        $this->container['beneficial_owners_first_name'] = $beneficial_owners_first_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets beneficial_owners_last_name
+     *
+     * @return string[]|null
+     */
+    public function getBeneficialOwnersLastName()
+    {
+        return $this->container['beneficial_owners_last_name'];
+    }
+
+    /**
+     * Sets beneficial_owners_last_name
+     *
+     * @param string[]|null $beneficial_owners_last_name The list of last names for the beneficial owners (required for beneficial owner 1).
+     *
+     * @return self
+     */
+    public function setBeneficialOwnersLastName($beneficial_owners_last_name)
+    {
+        if (is_null($beneficial_owners_last_name)) {
+            throw new \InvalidArgumentException('non-nullable beneficial_owners_last_name cannot be null');
+        }
+        $this->container['beneficial_owners_last_name'] = $beneficial_owners_last_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets beneficial_owners_suffix
+     *
+     * @return string[]|null
+     */
+    public function getBeneficialOwnersSuffix()
+    {
+        return $this->container['beneficial_owners_suffix'];
+    }
+
+    /**
+     * Sets beneficial_owners_suffix
+     *
+     * @param string[]|null $beneficial_owners_suffix The list of suffixes for the beneficial owners.
+     *
+     * @return self
+     */
+    public function setBeneficialOwnersSuffix($beneficial_owners_suffix)
+    {
+        if (is_null($beneficial_owners_suffix)) {
+            throw new \InvalidArgumentException('non-nullable beneficial_owners_suffix cannot be null');
+        }
+        $this->container['beneficial_owners_suffix'] = $beneficial_owners_suffix;
+
+        return $this;
+    }
+
+    /**
+     * Gets beneficial_owners_country
+     *
+     * @return string[]|null
+     */
+    public function getBeneficialOwnersCountry()
+    {
+        return $this->container['beneficial_owners_country'];
+    }
+
+    /**
+     * Sets beneficial_owners_country
+     *
+     * @param string[]|null $beneficial_owners_country The list of countries for the beneficial owners (required for beneficial owner 1).
+     *
+     * @return self
+     */
+    public function setBeneficialOwnersCountry($beneficial_owners_country)
+    {
+        if (is_null($beneficial_owners_country)) {
+            throw new \InvalidArgumentException('non-nullable beneficial_owners_country cannot be null');
+        }
+        $this->container['beneficial_owners_country'] = $beneficial_owners_country;
+
+        return $this;
+    }
+
+    /**
+     * Gets beneficial_owners_street_address
+     *
+     * @return string[]|null
+     */
+    public function getBeneficialOwnersStreetAddress()
+    {
+        return $this->container['beneficial_owners_street_address'];
+    }
+
+    /**
+     * Sets beneficial_owners_street_address
+     *
+     * @param string[]|null $beneficial_owners_street_address The list of street addresses for the beneficial owners (required for beneficial owner 1).
+     *
+     * @return self
+     */
+    public function setBeneficialOwnersStreetAddress($beneficial_owners_street_address)
+    {
+        if (is_null($beneficial_owners_street_address)) {
+            throw new \InvalidArgumentException('non-nullable beneficial_owners_street_address cannot be null');
+        }
+        $this->container['beneficial_owners_street_address'] = $beneficial_owners_street_address;
+
+        return $this;
+    }
+
+    /**
+     * Gets beneficial_owners_unit2
+     *
+     * @return string[]|null
+     */
+    public function getBeneficialOwnersUnit2()
+    {
+        return $this->container['beneficial_owners_unit2'];
+    }
+
+    /**
+     * Sets beneficial_owners_unit2
+     *
+     * @param string[]|null $beneficial_owners_unit2 The list of street address line 2 for the beneficial owners.
+     *
+     * @return self
+     */
+    public function setBeneficialOwnersUnit2($beneficial_owners_unit2)
+    {
+        if (is_null($beneficial_owners_unit2)) {
+            throw new \InvalidArgumentException('non-nullable beneficial_owners_unit2 cannot be null');
+        }
+        $this->container['beneficial_owners_unit2'] = $beneficial_owners_unit2;
+
+        return $this;
+    }
+
+    /**
+     * Gets beneficial_owners_city
+     *
+     * @return string[]|null
+     */
+    public function getBeneficialOwnersCity()
+    {
+        return $this->container['beneficial_owners_city'];
+    }
+
+    /**
+     * Sets beneficial_owners_city
+     *
+     * @param string[]|null $beneficial_owners_city The list of cities for the beneficial owners (required for beneficial owner 1).
+     *
+     * @return self
+     */
+    public function setBeneficialOwnersCity($beneficial_owners_city)
+    {
+        if (is_null($beneficial_owners_city)) {
+            throw new \InvalidArgumentException('non-nullable beneficial_owners_city cannot be null');
+        }
+        $this->container['beneficial_owners_city'] = $beneficial_owners_city;
+
+        return $this;
+    }
+
+    /**
+     * Gets beneficial_owners_region
+     *
+     * @return string[]|null
+     */
+    public function getBeneficialOwnersRegion()
+    {
+        return $this->container['beneficial_owners_region'];
+    }
+
+    /**
+     * Sets beneficial_owners_region
+     *
+     * @param string[]|null $beneficial_owners_region The list of region or states for the beneficial owners (required for beneficial owner 1).
+     *
+     * @return self
+     */
+    public function setBeneficialOwnersRegion($beneficial_owners_region)
+    {
+        if (is_null($beneficial_owners_region)) {
+            throw new \InvalidArgumentException('non-nullable beneficial_owners_region cannot be null');
+        }
+        $this->container['beneficial_owners_region'] = $beneficial_owners_region;
+
+        return $this;
+    }
+
+    /**
+     * Gets beneficial_owners_postal_code
+     *
+     * @return string[]|null
+     */
+    public function getBeneficialOwnersPostalCode()
+    {
+        return $this->container['beneficial_owners_postal_code'];
+    }
+
+    /**
+     * Sets beneficial_owners_postal_code
+     *
+     * @param string[]|null $beneficial_owners_postal_code The list of postal codes or zipcodes for the beneficial owners (required for beneficial owner 1).
+     *
+     * @return self
+     */
+    public function setBeneficialOwnersPostalCode($beneficial_owners_postal_code)
+    {
+        if (is_null($beneficial_owners_postal_code)) {
+            throw new \InvalidArgumentException('non-nullable beneficial_owners_postal_code cannot be null');
+        }
+        $this->container['beneficial_owners_postal_code'] = $beneficial_owners_postal_code;
+
+        return $this;
+    }
+
+    /**
+     * Gets beneficial_owners_date_of_birth
+     *
+     * @return string[]|null
+     */
+    public function getBeneficialOwnersDateOfBirth()
+    {
+        return $this->container['beneficial_owners_date_of_birth'];
+    }
+
+    /**
+     * Sets beneficial_owners_date_of_birth
+     *
+     * @param string[]|null $beneficial_owners_date_of_birth The list of dates of birth for the beneficial owners (required for beneficial owner 1).
+     *
+     * @return self
+     */
+    public function setBeneficialOwnersDateOfBirth($beneficial_owners_date_of_birth)
+    {
+        if (is_null($beneficial_owners_date_of_birth)) {
+            throw new \InvalidArgumentException('non-nullable beneficial_owners_date_of_birth cannot be null');
+        }
+        $this->container['beneficial_owners_date_of_birth'] = $beneficial_owners_date_of_birth;
+
+        return $this;
+    }
+
+    /**
+     * Gets beneficial_owners_taxpayer_id
+     *
+     * @return string[]|null
+     */
+    public function getBeneficialOwnersTaxpayerId()
+    {
+        return $this->container['beneficial_owners_taxpayer_id'];
+    }
+
+    /**
+     * Sets beneficial_owners_taxpayer_id
+     *
+     * @param string[]|null $beneficial_owners_taxpayer_id The list of taxpayer identification numbers for the beneficial owners (required for beneficial owner 1).
+     *
+     * @return self
+     */
+    public function setBeneficialOwnersTaxpayerId($beneficial_owners_taxpayer_id)
+    {
+        if (is_null($beneficial_owners_taxpayer_id)) {
+            throw new \InvalidArgumentException('non-nullable beneficial_owners_taxpayer_id cannot be null');
+        }
+        $this->container['beneficial_owners_taxpayer_id'] = $beneficial_owners_taxpayer_id;
 
         return $this;
     }

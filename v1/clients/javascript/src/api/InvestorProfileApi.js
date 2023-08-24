@@ -31,7 +31,7 @@ import V1EntitiesInvestorProfiles from '../model/V1EntitiesInvestorProfiles';
 /**
 * InvestorProfile service.
 * @module api/InvestorProfileApi
-* @version 0.84.4
+* @version 0.85.2
 */
 export default class InvestorProfileApi {
 
@@ -368,17 +368,19 @@ export default class InvestorProfileApi {
      * Patch a corporation investor profile
      * Patch corporation investor profile
      * @param {Number} investorProfileId 
-     * @param {Object} opts Optional parameters
-     * @param {module:model/PatchCorporationProfileRequest} [patchCorporationProfileRequest] 
+     * @param {module:model/PatchCorporationProfileRequest} patchCorporationProfileRequest 
      * @param {module:api/InvestorProfileApi~patchCorporationProfileCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/V1EntitiesInvestorProfileCorporation}
      */
-    patchCorporationProfile(investorProfileId, opts, callback) {
-      opts = opts || {};
-      let postBody = opts['patchCorporationProfileRequest'];
+    patchCorporationProfile(investorProfileId, patchCorporationProfileRequest, callback) {
+      let postBody = patchCorporationProfileRequest;
       // verify the required parameter 'investorProfileId' is set
       if (investorProfileId === undefined || investorProfileId === null) {
         throw new Error("Missing the required parameter 'investorProfileId' when calling patchCorporationProfile");
+      }
+      // verify the required parameter 'patchCorporationProfileRequest' is set
+      if (patchCorporationProfileRequest === undefined || patchCorporationProfileRequest === null) {
+        throw new Error("Missing the required parameter 'patchCorporationProfileRequest' when calling patchCorporationProfile");
       }
 
       let pathParams = {

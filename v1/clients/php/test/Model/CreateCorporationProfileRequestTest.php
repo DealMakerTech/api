@@ -359,7 +359,7 @@ class CreateCorporationProfileRequestTest extends TestCase
     }
 
     /**
-     * Test attribute "beneficial_owners_unit_2"
+     * Test attribute "beneficial_owners_unit2"
      */
     public function testPropertyBeneficialOwnersUnit2()
     {

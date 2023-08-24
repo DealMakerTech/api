@@ -87,4 +87,13 @@ class BulkUploadInvestorsRequestTest extends TestCase
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test attribute "alerts_email"
+     */
+    public function testPropertyAlertsEmail()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
 }

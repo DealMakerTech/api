@@ -76,7 +76,7 @@ module DealMakerAPI
     attr_accessor :trustees_street_address
 
     # The list of street address line 2 for the trustees.
-    attr_accessor :trustees_unit_2
+    attr_accessor :trustees_unit2
 
     # The list of cities for the trustees (required for trustee 1).
     attr_accessor :trustees_city
@@ -138,7 +138,7 @@ module DealMakerAPI
         :'trustees_suffix' => :'trustees[suffix]',
         :'trustees_country' => :'trustees[country]',
         :'trustees_street_address' => :'trustees[street_address]',
-        :'trustees_unit_2' => :'trustees[unit_2]',
+        :'trustees_unit2' => :'trustees[unit2]',
         :'trustees_city' => :'trustees[city]',
         :'trustees_region' => :'trustees[region]',
         :'trustees_postal_code' => :'trustees[postal_code]',
@@ -175,7 +175,7 @@ module DealMakerAPI
         :'trustees_suffix' => :'Array<String>',
         :'trustees_country' => :'Array<String>',
         :'trustees_street_address' => :'Array<String>',
-        :'trustees_unit_2' => :'Array<String>',
+        :'trustees_unit2' => :'Array<String>',
         :'trustees_city' => :'Array<String>',
         :'trustees_region' => :'Array<String>',
         :'trustees_postal_code' => :'Array<String>',
@@ -297,9 +297,9 @@ module DealMakerAPI
         end
       end
 
-      if attributes.key?(:'trustees_unit_2')
-        if (value = attributes[:'trustees_unit_2']).is_a?(Array)
-          self.trustees_unit_2 = value
+      if attributes.key?(:'trustees_unit2')
+        if (value = attributes[:'trustees_unit2']).is_a?(Array)
+          self.trustees_unit2 = value
         end
       end
 
@@ -403,7 +403,7 @@ module DealMakerAPI
           trustees_suffix == o.trustees_suffix &&
           trustees_country == o.trustees_country &&
           trustees_street_address == o.trustees_street_address &&
-          trustees_unit_2 == o.trustees_unit_2 &&
+          trustees_unit2 == o.trustees_unit2 &&
           trustees_city == o.trustees_city &&
           trustees_region == o.trustees_region &&
           trustees_postal_code == o.trustees_postal_code &&
@@ -420,7 +420,7 @@ module DealMakerAPI
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [email, us_accredited_category, ca_accredited_investor, name, date, country, street_address, unit2, city, region, postal_code, phone_number, income, net_worth, reg_cf_prior_offerings_amount, trustees_first_name, trustees_last_name, trustees_suffix, trustees_country, trustees_street_address, trustees_unit_2, trustees_city, trustees_region, trustees_postal_code, trustees_date_of_birth, trustees_taxpayer_id].hash
+      [email, us_accredited_category, ca_accredited_investor, name, date, country, street_address, unit2, city, region, postal_code, phone_number, income, net_worth, reg_cf_prior_offerings_amount, trustees_first_name, trustees_last_name, trustees_suffix, trustees_country, trustees_street_address, trustees_unit2, trustees_city, trustees_region, trustees_postal_code, trustees_date_of_birth, trustees_taxpayer_id].hash
     end
 
     # Builds the object from hash

@@ -60,6 +60,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property alertsEmail (base name: "alerts_email")', function() {
+      // uncomment below and update the code to test the property alertsEmail
+      //var instance = new Api.BulkUploadInvestorsRequest();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

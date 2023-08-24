@@ -498,27 +498,31 @@ module DealMakerAPI
     # Patch a corporation investor profile
     # Patch corporation investor profile
     # @param investor_profile_id [Integer] 
+    # @param patch_corporation_profile_request [PatchCorporationProfileRequest] 
     # @param [Hash] opts the optional parameters
-    # @option opts [PatchCorporationProfileRequest] :patch_corporation_profile_request 
     # @return [V1EntitiesInvestorProfileCorporation]
-    def patch_corporation_profile(investor_profile_id, opts = {})
-      data, _status_code, _headers = patch_corporation_profile_with_http_info(investor_profile_id, opts)
+    def patch_corporation_profile(investor_profile_id, patch_corporation_profile_request, opts = {})
+      data, _status_code, _headers = patch_corporation_profile_with_http_info(investor_profile_id, patch_corporation_profile_request, opts)
       data
     end
 
     # Patch a corporation investor profile
     # Patch corporation investor profile
     # @param investor_profile_id [Integer] 
+    # @param patch_corporation_profile_request [PatchCorporationProfileRequest] 
     # @param [Hash] opts the optional parameters
-    # @option opts [PatchCorporationProfileRequest] :patch_corporation_profile_request 
     # @return [Array<(V1EntitiesInvestorProfileCorporation, Integer, Hash)>] V1EntitiesInvestorProfileCorporation data, response status code and response headers
-    def patch_corporation_profile_with_http_info(investor_profile_id, opts = {})
+    def patch_corporation_profile_with_http_info(investor_profile_id, patch_corporation_profile_request, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: InvestorProfileApi.patch_corporation_profile ...'
       end
       # verify the required parameter 'investor_profile_id' is set
       if @api_client.config.client_side_validation && investor_profile_id.nil?
         fail ArgumentError, "Missing the required parameter 'investor_profile_id' when calling InvestorProfileApi.patch_corporation_profile"
+      end
+      # verify the required parameter 'patch_corporation_profile_request' is set
+      if @api_client.config.client_side_validation && patch_corporation_profile_request.nil?
+        fail ArgumentError, "Missing the required parameter 'patch_corporation_profile_request' when calling InvestorProfileApi.patch_corporation_profile"
       end
       # resource path
       local_var_path = '/investor_profiles/corporations/{investor_profile_id}'.sub('{' + 'investor_profile_id' + '}', CGI.escape(investor_profile_id.to_s))
@@ -540,7 +544,7 @@ module DealMakerAPI
       form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = opts[:debug_body] || @api_client.object_to_http_body(opts[:'patch_corporation_profile_request'])
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(patch_corporation_profile_request)
 
       # return_type
       return_type = opts[:debug_return_type] || 'V1EntitiesInvestorProfileCorporation'

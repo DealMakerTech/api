@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The BulkUploadInvestorsRequest model module.
  * @module model/BulkUploadInvestorsRequest
- * @version 0.84.4
+ * @version 0.85.2
  */
 class BulkUploadInvestorsRequest {
     /**
@@ -52,6 +52,9 @@ class BulkUploadInvestorsRequest {
             if (data.hasOwnProperty('import_file')) {
                 obj['import_file'] = ApiClient.convertToType(data['import_file'], File);
             }
+            if (data.hasOwnProperty('alerts_email')) {
+                obj['alerts_email'] = ApiClient.convertToType(data['alerts_email'], 'String');
+            }
         }
         return obj;
     }
@@ -68,6 +71,10 @@ class BulkUploadInvestorsRequest {
                 throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
             }
         }
+        // ensure the json data is a string
+        if (data['alerts_email'] && !(typeof data['alerts_email'] === 'string' || data['alerts_email'] instanceof String)) {
+            throw new Error("Expected the field `alerts_email` to be a primitive type in the JSON string but got " + data['alerts_email']);
+        }
 
         return true;
     }
@@ -82,6 +89,12 @@ BulkUploadInvestorsRequest.RequiredProperties = ["import_file"];
  * @member {File} import_file
  */
 BulkUploadInvestorsRequest.prototype['import_file'] = undefined;
+
+/**
+ * The email to send alerts to.
+ * @member {String} alerts_email
+ */
+BulkUploadInvestorsRequest.prototype['alerts_email'] = undefined;
 
 
 

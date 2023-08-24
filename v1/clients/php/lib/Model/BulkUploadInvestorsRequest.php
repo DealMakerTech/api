@@ -57,7 +57,8 @@ class BulkUploadInvestorsRequest implements ModelInterface, ArrayAccess, \JsonSe
       * @var string[]
       */
     protected static $openAPITypes = [
-        'import_file' => '\SplFileObject'
+        'import_file' => '\SplFileObject',
+        'alerts_email' => 'string'
     ];
 
     /**
@@ -68,7 +69,8 @@ class BulkUploadInvestorsRequest implements ModelInterface, ArrayAccess, \JsonSe
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'import_file' => 'binary'
+        'import_file' => 'binary',
+        'alerts_email' => null
     ];
 
     /**
@@ -77,7 +79,8 @@ class BulkUploadInvestorsRequest implements ModelInterface, ArrayAccess, \JsonSe
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'import_file' => false
+        'import_file' => false,
+		'alerts_email' => false
     ];
 
     /**
@@ -166,7 +169,8 @@ class BulkUploadInvestorsRequest implements ModelInterface, ArrayAccess, \JsonSe
      * @var string[]
      */
     protected static $attributeMap = [
-        'import_file' => 'import_file'
+        'import_file' => 'import_file',
+        'alerts_email' => 'alerts_email'
     ];
 
     /**
@@ -175,7 +179,8 @@ class BulkUploadInvestorsRequest implements ModelInterface, ArrayAccess, \JsonSe
      * @var string[]
      */
     protected static $setters = [
-        'import_file' => 'setImportFile'
+        'import_file' => 'setImportFile',
+        'alerts_email' => 'setAlertsEmail'
     ];
 
     /**
@@ -184,7 +189,8 @@ class BulkUploadInvestorsRequest implements ModelInterface, ArrayAccess, \JsonSe
      * @var string[]
      */
     protected static $getters = [
-        'import_file' => 'getImportFile'
+        'import_file' => 'getImportFile',
+        'alerts_email' => 'getAlertsEmail'
     ];
 
     /**
@@ -245,6 +251,7 @@ class BulkUploadInvestorsRequest implements ModelInterface, ArrayAccess, \JsonSe
     public function __construct(array $data = null)
     {
         $this->setIfExists('import_file', $data ?? [], null);
+        $this->setIfExists('alerts_email', $data ?? [], null);
     }
 
     /**
@@ -315,6 +322,33 @@ class BulkUploadInvestorsRequest implements ModelInterface, ArrayAccess, \JsonSe
             throw new \InvalidArgumentException('non-nullable import_file cannot be null');
         }
         $this->container['import_file'] = $import_file;
+
+        return $this;
+    }
+
+    /**
+     * Gets alerts_email
+     *
+     * @return string|null
+     */
+    public function getAlertsEmail()
+    {
+        return $this->container['alerts_email'];
+    }
+
+    /**
+     * Sets alerts_email
+     *
+     * @param string|null $alerts_email The email to send alerts to.
+     *
+     * @return self
+     */
+    public function setAlertsEmail($alerts_email)
+    {
+        if (is_null($alerts_email)) {
+            throw new \InvalidArgumentException('non-nullable alerts_email cannot be null');
+        }
+        $this->container['alerts_email'] = $alerts_email;
 
         return $this;
     }

@@ -77,7 +77,7 @@ class CreateTrustProfileRequest implements ModelInterface, ArrayAccess, \JsonSer
         'trustees_suffix' => 'string[]',
         'trustees_country' => 'string[]',
         'trustees_street_address' => 'string[]',
-        'trustees_unit_2' => 'string[]',
+        'trustees_unit2' => 'string[]',
         'trustees_city' => 'string[]',
         'trustees_region' => 'string[]',
         'trustees_postal_code' => 'string[]',
@@ -113,7 +113,7 @@ class CreateTrustProfileRequest implements ModelInterface, ArrayAccess, \JsonSer
         'trustees_suffix' => null,
         'trustees_country' => null,
         'trustees_street_address' => null,
-        'trustees_unit_2' => null,
+        'trustees_unit2' => null,
         'trustees_city' => null,
         'trustees_region' => null,
         'trustees_postal_code' => null,
@@ -147,7 +147,7 @@ class CreateTrustProfileRequest implements ModelInterface, ArrayAccess, \JsonSer
 		'trustees_suffix' => false,
 		'trustees_country' => false,
 		'trustees_street_address' => false,
-		'trustees_unit_2' => false,
+		'trustees_unit2' => false,
 		'trustees_city' => false,
 		'trustees_region' => false,
 		'trustees_postal_code' => false,
@@ -261,7 +261,7 @@ class CreateTrustProfileRequest implements ModelInterface, ArrayAccess, \JsonSer
         'trustees_suffix' => 'trustees[suffix]',
         'trustees_country' => 'trustees[country]',
         'trustees_street_address' => 'trustees[street_address]',
-        'trustees_unit_2' => 'trustees[unit_2]',
+        'trustees_unit2' => 'trustees[unit2]',
         'trustees_city' => 'trustees[city]',
         'trustees_region' => 'trustees[region]',
         'trustees_postal_code' => 'trustees[postal_code]',
@@ -295,7 +295,7 @@ class CreateTrustProfileRequest implements ModelInterface, ArrayAccess, \JsonSer
         'trustees_suffix' => 'setTrusteesSuffix',
         'trustees_country' => 'setTrusteesCountry',
         'trustees_street_address' => 'setTrusteesStreetAddress',
-        'trustees_unit_2' => 'setTrusteesUnit2',
+        'trustees_unit2' => 'setTrusteesUnit2',
         'trustees_city' => 'setTrusteesCity',
         'trustees_region' => 'setTrusteesRegion',
         'trustees_postal_code' => 'setTrusteesPostalCode',
@@ -329,7 +329,7 @@ class CreateTrustProfileRequest implements ModelInterface, ArrayAccess, \JsonSer
         'trustees_suffix' => 'getTrusteesSuffix',
         'trustees_country' => 'getTrusteesCountry',
         'trustees_street_address' => 'getTrusteesStreetAddress',
-        'trustees_unit_2' => 'getTrusteesUnit2',
+        'trustees_unit2' => 'getTrusteesUnit2',
         'trustees_city' => 'getTrusteesCity',
         'trustees_region' => 'getTrusteesRegion',
         'trustees_postal_code' => 'getTrusteesPostalCode',
@@ -448,7 +448,7 @@ class CreateTrustProfileRequest implements ModelInterface, ArrayAccess, \JsonSer
         $this->setIfExists('trustees_suffix', $data ?? [], null);
         $this->setIfExists('trustees_country', $data ?? [], null);
         $this->setIfExists('trustees_street_address', $data ?? [], null);
-        $this->setIfExists('trustees_unit_2', $data ?? [], null);
+        $this->setIfExists('trustees_unit2', $data ?? [], null);
         $this->setIfExists('trustees_city', $data ?? [], null);
         $this->setIfExists('trustees_region', $data ?? [], null);
         $this->setIfExists('trustees_postal_code', $data ?? [], null);
@@ -1080,28 +1080,28 @@ class CreateTrustProfileRequest implements ModelInterface, ArrayAccess, \JsonSer
     }
 
     /**
-     * Gets trustees_unit_2
+     * Gets trustees_unit2
      *
      * @return string[]|null
      */
     public function getTrusteesUnit2()
     {
-        return $this->container['trustees_unit_2'];
+        return $this->container['trustees_unit2'];
     }
 
     /**
-     * Sets trustees_unit_2
+     * Sets trustees_unit2
      *
-     * @param string[]|null $trustees_unit_2 The list of street address line 2 for the trustees.
+     * @param string[]|null $trustees_unit2 The list of street address line 2 for the trustees.
      *
      * @return self
      */
-    public function setTrusteesUnit2($trustees_unit_2)
+    public function setTrusteesUnit2($trustees_unit2)
     {
-        if (is_null($trustees_unit_2)) {
-            throw new \InvalidArgumentException('non-nullable trustees_unit_2 cannot be null');
+        if (is_null($trustees_unit2)) {
+            throw new \InvalidArgumentException('non-nullable trustees_unit2 cannot be null');
         }
-        $this->container['trustees_unit_2'] = $trustees_unit_2;
+        $this->container['trustees_unit2'] = $trustees_unit2;
 
         return $this;
     }

@@ -72,6 +72,18 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property sendNotification (base name: "send_notification")', function() {
+      // uncomment below and update the code to test the property sendNotification
+      //var instance = new Api.CreateBulkUploadRequest();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property notificationMessage (base name: "notification_message")', function() {
+      // uncomment below and update the code to test the property notificationMessage
+      //var instance = new Api.CreateBulkUploadRequest();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

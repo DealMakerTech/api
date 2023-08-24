@@ -174,7 +174,7 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property trusteesUnit2 (base name: "trustees[unit_2]")', function() {
+    it('should have the property trusteesUnit2 (base name: "trustees[unit2]")', function() {
       // uncomment below and update the code to test the property trusteesUnit2
       //var instance = new Api.CreateTrustProfileRequest();
       //expect(instance).to.be();

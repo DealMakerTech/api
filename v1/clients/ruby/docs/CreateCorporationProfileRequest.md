@@ -35,7 +35,7 @@
 | **beneficial_owners_suffix** | **Array&lt;String&gt;** | The list of suffixes for the beneficial owners. | [optional] |
 | **beneficial_owners_country** | **Array&lt;String&gt;** | The list of countries for the beneficial owners (required for beneficial owner 1). | [optional] |
 | **beneficial_owners_street_address** | **Array&lt;String&gt;** | The list of street addresses for the beneficial owners (required for beneficial owner 1). | [optional] |
-| **beneficial_owners_unit_2** | **Array&lt;String&gt;** | The list of street address line 2 for the beneficial owners. | [optional] |
+| **beneficial_owners_unit2** | **Array&lt;String&gt;** | The list of street address line 2 for the beneficial owners. | [optional] |
 | **beneficial_owners_city** | **Array&lt;String&gt;** | The list of cities for the beneficial owners (required for beneficial owner 1). | [optional] |
 | **beneficial_owners_region** | **Array&lt;String&gt;** | The list of region or states for the beneficial owners (required for beneficial owner 1). | [optional] |
 | **beneficial_owners_postal_code** | **Array&lt;String&gt;** | The list of postal codes or zipcodes for the beneficial owners (required for beneficial owner 1). | [optional] |
@@ -79,7 +79,7 @@ instance = DealMakerAPI::CreateCorporationProfileRequest.new(
   beneficial_owners_suffix: null,
   beneficial_owners_country: null,
   beneficial_owners_street_address: null,
-  beneficial_owners_unit_2: null,
+  beneficial_owners_unit2: null,
   beneficial_owners_city: null,
   beneficial_owners_region: null,
   beneficial_owners_postal_code: null,

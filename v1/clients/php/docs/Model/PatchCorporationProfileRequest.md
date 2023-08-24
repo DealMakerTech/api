@@ -29,5 +29,18 @@ Name | Type | Description | Notes
 **signing_officer_postal_code** | **string** | Signing officer postal code or zipcode. | [optional]
 **signing_officer_date_of_birth** | **string** | Signing officer date of birth. | [optional]
 **signing_officer_taxpayer_id** | **string** | The taxpayer identification number of the investor profile. | [optional]
+**beneficial_owners_index** | **int[]** | The index of the beneficial owner. |
+**beneficial_owners__delete** | **bool[]** | If true, this entry will be cleared. | [optional]
+**beneficial_owners_first_name** | **string[]** | The list of first names for the beneficial owners (required for beneficial owner 1). | [optional]
+**beneficial_owners_last_name** | **string[]** | The list of last names for the beneficial owners (required for beneficial owner 1). | [optional]
+**beneficial_owners_suffix** | **string[]** | The list of suffixes for the beneficial owners. | [optional]
+**beneficial_owners_country** | **string[]** | The list of countries for the beneficial owners (required for beneficial owner 1). | [optional]
+**beneficial_owners_street_address** | **string[]** | The list of street addresses for the beneficial owners (required for beneficial owner 1). | [optional]
+**beneficial_owners_unit2** | **string[]** | The list of street address line 2 for the beneficial owners. | [optional]
+**beneficial_owners_city** | **string[]** | The list of cities for the beneficial owners (required for beneficial owner 1). | [optional]
+**beneficial_owners_region** | **string[]** | The list of region or states for the beneficial owners (required for beneficial owner 1). | [optional]
+**beneficial_owners_postal_code** | **string[]** | The list of postal codes or zipcodes for the beneficial owners (required for beneficial owner 1). | [optional]
+**beneficial_owners_date_of_birth** | **string[]** | The list of dates of birth for the beneficial owners (required for beneficial owner 1). | [optional]
+**beneficial_owners_taxpayer_id** | **string[]** | The list of taxpayer identification numbers for the beneficial owners (required for beneficial owner 1). | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

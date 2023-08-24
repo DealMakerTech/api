@@ -24,7 +24,7 @@
 | **trustees_suffix** | **Array&lt;String&gt;** | The list of suffixes for the trustees. | [optional] |
 | **trustees_country** | **Array&lt;String&gt;** | The list of countries for the trustees (required for trustee 1). | [optional] |
 | **trustees_street_address** | **Array&lt;String&gt;** | The list of street addresses for the trustees (required for trustee 1). | [optional] |
-| **trustees_unit_2** | **Array&lt;String&gt;** | The list of street address line 2 for the trustees. | [optional] |
+| **trustees_unit2** | **Array&lt;String&gt;** | The list of street address line 2 for the trustees. | [optional] |
 | **trustees_city** | **Array&lt;String&gt;** | The list of cities for the trustees (required for trustee 1). | [optional] |
 | **trustees_region** | **Array&lt;String&gt;** | The list of regions or states for the trustees (required for trustee 1). | [optional] |
 | **trustees_postal_code** | **Array&lt;String&gt;** | The list of postal codes or zipcodes for the trustees (required) for trustee 1. | [optional] |
@@ -57,7 +57,7 @@ instance = DealMakerAPI::CreateTrustProfileRequest.new(
   trustees_suffix: null,
   trustees_country: null,
   trustees_street_address: null,
-  trustees_unit_2: null,
+  trustees_unit2: null,
   trustees_city: null,
   trustees_region: null,
   trustees_postal_code: null,

@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The CreateTrustProfileRequest model module.
  * @module model/CreateTrustProfileRequest
- * @version 0.84.4
+ * @version 0.85.2
  */
 class CreateTrustProfileRequest {
     /**
@@ -109,8 +109,8 @@ class CreateTrustProfileRequest {
             if (data.hasOwnProperty('trustees[street_address]')) {
                 obj['trustees[street_address]'] = ApiClient.convertToType(data['trustees[street_address]'], ['String']);
             }
-            if (data.hasOwnProperty('trustees[unit_2]')) {
-                obj['trustees[unit_2]'] = ApiClient.convertToType(data['trustees[unit_2]'], ['String']);
+            if (data.hasOwnProperty('trustees[unit2]')) {
+                obj['trustees[unit2]'] = ApiClient.convertToType(data['trustees[unit2]'], ['String']);
             }
             if (data.hasOwnProperty('trustees[city]')) {
                 obj['trustees[city]'] = ApiClient.convertToType(data['trustees[city]'], ['String']);
@@ -212,8 +212,8 @@ class CreateTrustProfileRequest {
             throw new Error("Expected the field `trustees[street_address]` to be an array in the JSON data but got " + data['trustees[street_address]']);
         }
         // ensure the json data is an array
-        if (!Array.isArray(data['trustees[unit_2]'])) {
-            throw new Error("Expected the field `trustees[unit_2]` to be an array in the JSON data but got " + data['trustees[unit_2]']);
+        if (!Array.isArray(data['trustees[unit2]'])) {
+            throw new Error("Expected the field `trustees[unit2]` to be an array in the JSON data but got " + data['trustees[unit2]']);
         }
         // ensure the json data is an array
         if (!Array.isArray(data['trustees[city]'])) {
@@ -366,9 +366,9 @@ CreateTrustProfileRequest.prototype['trustees[street_address]'] = undefined;
 
 /**
  * The list of street address line 2 for the trustees.
- * @member {Array.<String>} trustees[unit_2]
+ * @member {Array.<String>} trustees[unit2]
  */
-CreateTrustProfileRequest.prototype['trustees[unit_2]'] = undefined;
+CreateTrustProfileRequest.prototype['trustees[unit2]'] = undefined;
 
 /**
  * The list of cities for the trustees (required for trustee 1).

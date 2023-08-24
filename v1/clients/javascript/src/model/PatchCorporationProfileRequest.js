@@ -16,16 +16,17 @@ import ApiClient from '../ApiClient';
 /**
  * The PatchCorporationProfileRequest model module.
  * @module model/PatchCorporationProfileRequest
- * @version 0.84.4
+ * @version 0.85.2
  */
 class PatchCorporationProfileRequest {
     /**
      * Constructs a new <code>PatchCorporationProfileRequest</code>.
      * @alias module:model/PatchCorporationProfileRequest
+     * @param beneficialOwnersIndex {Array.<Number>} The index of the beneficial owner.
      */
-    constructor() { 
+    constructor(beneficialOwnersIndex) { 
         
-        PatchCorporationProfileRequest.initialize(this);
+        PatchCorporationProfileRequest.initialize(this, beneficialOwnersIndex);
     }
 
     /**
@@ -33,7 +34,8 @@ class PatchCorporationProfileRequest {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) { 
+    static initialize(obj, beneficialOwnersIndex) { 
+        obj['beneficial_owners[index]'] = beneficialOwnersIndex;
     }
 
     /**
@@ -122,6 +124,45 @@ class PatchCorporationProfileRequest {
             if (data.hasOwnProperty('signing_officer_taxpayer_id')) {
                 obj['signing_officer_taxpayer_id'] = ApiClient.convertToType(data['signing_officer_taxpayer_id'], 'String');
             }
+            if (data.hasOwnProperty('beneficial_owners[index]')) {
+                obj['beneficial_owners[index]'] = ApiClient.convertToType(data['beneficial_owners[index]'], ['Number']);
+            }
+            if (data.hasOwnProperty('beneficial_owners[_delete]')) {
+                obj['beneficial_owners[_delete]'] = ApiClient.convertToType(data['beneficial_owners[_delete]'], ['Boolean']);
+            }
+            if (data.hasOwnProperty('beneficial_owners[first_name]')) {
+                obj['beneficial_owners[first_name]'] = ApiClient.convertToType(data['beneficial_owners[first_name]'], ['String']);
+            }
+            if (data.hasOwnProperty('beneficial_owners[last_name]')) {
+                obj['beneficial_owners[last_name]'] = ApiClient.convertToType(data['beneficial_owners[last_name]'], ['String']);
+            }
+            if (data.hasOwnProperty('beneficial_owners[suffix]')) {
+                obj['beneficial_owners[suffix]'] = ApiClient.convertToType(data['beneficial_owners[suffix]'], ['String']);
+            }
+            if (data.hasOwnProperty('beneficial_owners[country]')) {
+                obj['beneficial_owners[country]'] = ApiClient.convertToType(data['beneficial_owners[country]'], ['String']);
+            }
+            if (data.hasOwnProperty('beneficial_owners[street_address]')) {
+                obj['beneficial_owners[street_address]'] = ApiClient.convertToType(data['beneficial_owners[street_address]'], ['String']);
+            }
+            if (data.hasOwnProperty('beneficial_owners[unit2]')) {
+                obj['beneficial_owners[unit2]'] = ApiClient.convertToType(data['beneficial_owners[unit2]'], ['String']);
+            }
+            if (data.hasOwnProperty('beneficial_owners[city]')) {
+                obj['beneficial_owners[city]'] = ApiClient.convertToType(data['beneficial_owners[city]'], ['String']);
+            }
+            if (data.hasOwnProperty('beneficial_owners[region]')) {
+                obj['beneficial_owners[region]'] = ApiClient.convertToType(data['beneficial_owners[region]'], ['String']);
+            }
+            if (data.hasOwnProperty('beneficial_owners[postal_code]')) {
+                obj['beneficial_owners[postal_code]'] = ApiClient.convertToType(data['beneficial_owners[postal_code]'], ['String']);
+            }
+            if (data.hasOwnProperty('beneficial_owners[date_of_birth]')) {
+                obj['beneficial_owners[date_of_birth]'] = ApiClient.convertToType(data['beneficial_owners[date_of_birth]'], ['String']);
+            }
+            if (data.hasOwnProperty('beneficial_owners[taxpayer_id]')) {
+                obj['beneficial_owners[taxpayer_id]'] = ApiClient.convertToType(data['beneficial_owners[taxpayer_id]'], ['String']);
+            }
         }
         return obj;
     }
@@ -132,6 +173,12 @@ class PatchCorporationProfileRequest {
      * @return {boolean} to indicate whether the JSON data is valid with respect to <code>PatchCorporationProfileRequest</code>.
      */
     static validateJSON(data) {
+        // check to make sure all required properties are present in the JSON string
+        for (const property of PatchCorporationProfileRequest.RequiredProperties) {
+            if (!data[property]) {
+                throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
+            }
+        }
         // ensure the json data is a string
         if (data['us_accredited_category'] && !(typeof data['us_accredited_category'] === 'string' || data['us_accredited_category'] instanceof String)) {
             throw new Error("Expected the field `us_accredited_category` to be a primitive type in the JSON string but got " + data['us_accredited_category']);
@@ -220,6 +267,58 @@ class PatchCorporationProfileRequest {
         if (data['signing_officer_taxpayer_id'] && !(typeof data['signing_officer_taxpayer_id'] === 'string' || data['signing_officer_taxpayer_id'] instanceof String)) {
             throw new Error("Expected the field `signing_officer_taxpayer_id` to be a primitive type in the JSON string but got " + data['signing_officer_taxpayer_id']);
         }
+        // ensure the json data is an array
+        if (!Array.isArray(data['beneficial_owners[index]'])) {
+            throw new Error("Expected the field `beneficial_owners[index]` to be an array in the JSON data but got " + data['beneficial_owners[index]']);
+        }
+        // ensure the json data is an array
+        if (!Array.isArray(data['beneficial_owners[_delete]'])) {
+            throw new Error("Expected the field `beneficial_owners[_delete]` to be an array in the JSON data but got " + data['beneficial_owners[_delete]']);
+        }
+        // ensure the json data is an array
+        if (!Array.isArray(data['beneficial_owners[first_name]'])) {
+            throw new Error("Expected the field `beneficial_owners[first_name]` to be an array in the JSON data but got " + data['beneficial_owners[first_name]']);
+        }
+        // ensure the json data is an array
+        if (!Array.isArray(data['beneficial_owners[last_name]'])) {
+            throw new Error("Expected the field `beneficial_owners[last_name]` to be an array in the JSON data but got " + data['beneficial_owners[last_name]']);
+        }
+        // ensure the json data is an array
+        if (!Array.isArray(data['beneficial_owners[suffix]'])) {
+            throw new Error("Expected the field `beneficial_owners[suffix]` to be an array in the JSON data but got " + data['beneficial_owners[suffix]']);
+        }
+        // ensure the json data is an array
+        if (!Array.isArray(data['beneficial_owners[country]'])) {
+            throw new Error("Expected the field `beneficial_owners[country]` to be an array in the JSON data but got " + data['beneficial_owners[country]']);
+        }
+        // ensure the json data is an array
+        if (!Array.isArray(data['beneficial_owners[street_address]'])) {
+            throw new Error("Expected the field `beneficial_owners[street_address]` to be an array in the JSON data but got " + data['beneficial_owners[street_address]']);
+        }
+        // ensure the json data is an array
+        if (!Array.isArray(data['beneficial_owners[unit2]'])) {
+            throw new Error("Expected the field `beneficial_owners[unit2]` to be an array in the JSON data but got " + data['beneficial_owners[unit2]']);
+        }
+        // ensure the json data is an array
+        if (!Array.isArray(data['beneficial_owners[city]'])) {
+            throw new Error("Expected the field `beneficial_owners[city]` to be an array in the JSON data but got " + data['beneficial_owners[city]']);
+        }
+        // ensure the json data is an array
+        if (!Array.isArray(data['beneficial_owners[region]'])) {
+            throw new Error("Expected the field `beneficial_owners[region]` to be an array in the JSON data but got " + data['beneficial_owners[region]']);
+        }
+        // ensure the json data is an array
+        if (!Array.isArray(data['beneficial_owners[postal_code]'])) {
+            throw new Error("Expected the field `beneficial_owners[postal_code]` to be an array in the JSON data but got " + data['beneficial_owners[postal_code]']);
+        }
+        // ensure the json data is an array
+        if (!Array.isArray(data['beneficial_owners[date_of_birth]'])) {
+            throw new Error("Expected the field `beneficial_owners[date_of_birth]` to be an array in the JSON data but got " + data['beneficial_owners[date_of_birth]']);
+        }
+        // ensure the json data is an array
+        if (!Array.isArray(data['beneficial_owners[taxpayer_id]'])) {
+            throw new Error("Expected the field `beneficial_owners[taxpayer_id]` to be an array in the JSON data but got " + data['beneficial_owners[taxpayer_id]']);
+        }
 
         return true;
     }
@@ -227,7 +326,7 @@ class PatchCorporationProfileRequest {
 
 }
 
-
+PatchCorporationProfileRequest.RequiredProperties = ["beneficial_owners[index]"];
 
 /**
  * The United States accredited investor information.
@@ -378,6 +477,84 @@ PatchCorporationProfileRequest.prototype['signing_officer_date_of_birth'] = unde
  * @member {String} signing_officer_taxpayer_id
  */
 PatchCorporationProfileRequest.prototype['signing_officer_taxpayer_id'] = undefined;
+
+/**
+ * The index of the beneficial owner.
+ * @member {Array.<Number>} beneficial_owners[index]
+ */
+PatchCorporationProfileRequest.prototype['beneficial_owners[index]'] = undefined;
+
+/**
+ * If true, this entry will be cleared.
+ * @member {Array.<Boolean>} beneficial_owners[_delete]
+ */
+PatchCorporationProfileRequest.prototype['beneficial_owners[_delete]'] = undefined;
+
+/**
+ * The list of first names for the beneficial owners (required for beneficial owner 1).
+ * @member {Array.<String>} beneficial_owners[first_name]
+ */
+PatchCorporationProfileRequest.prototype['beneficial_owners[first_name]'] = undefined;
+
+/**
+ * The list of last names for the beneficial owners (required for beneficial owner 1).
+ * @member {Array.<String>} beneficial_owners[last_name]
+ */
+PatchCorporationProfileRequest.prototype['beneficial_owners[last_name]'] = undefined;
+
+/**
+ * The list of suffixes for the beneficial owners.
+ * @member {Array.<String>} beneficial_owners[suffix]
+ */
+PatchCorporationProfileRequest.prototype['beneficial_owners[suffix]'] = undefined;
+
+/**
+ * The list of countries for the beneficial owners (required for beneficial owner 1).
+ * @member {Array.<String>} beneficial_owners[country]
+ */
+PatchCorporationProfileRequest.prototype['beneficial_owners[country]'] = undefined;
+
+/**
+ * The list of street addresses for the beneficial owners (required for beneficial owner 1).
+ * @member {Array.<String>} beneficial_owners[street_address]
+ */
+PatchCorporationProfileRequest.prototype['beneficial_owners[street_address]'] = undefined;
+
+/**
+ * The list of street address line 2 for the beneficial owners.
+ * @member {Array.<String>} beneficial_owners[unit2]
+ */
+PatchCorporationProfileRequest.prototype['beneficial_owners[unit2]'] = undefined;
+
+/**
+ * The list of cities for the beneficial owners (required for beneficial owner 1).
+ * @member {Array.<String>} beneficial_owners[city]
+ */
+PatchCorporationProfileRequest.prototype['beneficial_owners[city]'] = undefined;
+
+/**
+ * The list of region or states for the beneficial owners (required for beneficial owner 1).
+ * @member {Array.<String>} beneficial_owners[region]
+ */
+PatchCorporationProfileRequest.prototype['beneficial_owners[region]'] = undefined;
+
+/**
+ * The list of postal codes or zipcodes for the beneficial owners (required for beneficial owner 1).
+ * @member {Array.<String>} beneficial_owners[postal_code]
+ */
+PatchCorporationProfileRequest.prototype['beneficial_owners[postal_code]'] = undefined;
+
+/**
+ * The list of dates of birth for the beneficial owners (required for beneficial owner 1).
+ * @member {Array.<String>} beneficial_owners[date_of_birth]
+ */
+PatchCorporationProfileRequest.prototype['beneficial_owners[date_of_birth]'] = undefined;
+
+/**
+ * The list of taxpayer identification numbers for the beneficial owners (required for beneficial owner 1).
+ * @member {Array.<String>} beneficial_owners[taxpayer_id]
+ */
+PatchCorporationProfileRequest.prototype['beneficial_owners[taxpayer_id]'] = undefined;
 
 
 

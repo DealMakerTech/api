@@ -35,7 +35,7 @@ Name | Type | Description | Notes
 **beneficial_owners_suffix** | **string[]** | The list of suffixes for the beneficial owners. | [optional]
 **beneficial_owners_country** | **string[]** | The list of countries for the beneficial owners (required for beneficial owner 1). | [optional]
 **beneficial_owners_street_address** | **string[]** | The list of street addresses for the beneficial owners (required for beneficial owner 1). | [optional]
-**beneficial_owners_unit_2** | **string[]** | The list of street address line 2 for the beneficial owners. | [optional]
+**beneficial_owners_unit2** | **string[]** | The list of street address line 2 for the beneficial owners. | [optional]
 **beneficial_owners_city** | **string[]** | The list of cities for the beneficial owners (required for beneficial owner 1). | [optional]
 **beneficial_owners_region** | **string[]** | The list of region or states for the beneficial owners (required for beneficial owner 1). | [optional]
 **beneficial_owners_postal_code** | **string[]** | The list of postal codes or zipcodes for the beneficial owners (required for beneficial owner 1). | [optional]

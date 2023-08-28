@@ -65,6 +65,7 @@ docs/V1EntitiesInvestorProfileCorporation.md
 docs/V1EntitiesInvestorProfileFieldsAccountHolder.md
 docs/V1EntitiesInvestorProfileFieldsCorporation.md
 docs/V1EntitiesInvestorProfileFieldsPrimaryHolder.md
+docs/V1EntitiesInvestorProfileFieldsSigningOfficer.md
 docs/V1EntitiesInvestorProfileFieldsTrust.md
 docs/V1EntitiesInvestorProfileIndividual.md
 docs/V1EntitiesInvestorProfileItem.md
@@ -151,6 +152,7 @@ src/model/V1EntitiesInvestorProfileCorporation.js
 src/model/V1EntitiesInvestorProfileFieldsAccountHolder.js
 src/model/V1EntitiesInvestorProfileFieldsCorporation.js
 src/model/V1EntitiesInvestorProfileFieldsPrimaryHolder.js
+src/model/V1EntitiesInvestorProfileFieldsSigningOfficer.js
 src/model/V1EntitiesInvestorProfileFieldsTrust.js
 src/model/V1EntitiesInvestorProfileIndividual.js
 src/model/V1EntitiesInvestorProfileItem.js
@@ -232,6 +234,7 @@ test/model/V1EntitiesInvestorProfileCorporation.spec.js
 test/model/V1EntitiesInvestorProfileFieldsAccountHolder.spec.js
 test/model/V1EntitiesInvestorProfileFieldsCorporation.spec.js
 test/model/V1EntitiesInvestorProfileFieldsPrimaryHolder.spec.js
+test/model/V1EntitiesInvestorProfileFieldsSigningOfficer.spec.js
 test/model/V1EntitiesInvestorProfileFieldsTrust.spec.js
 test/model/V1EntitiesInvestorProfileIndividual.spec.js
 test/model/V1EntitiesInvestorProfileItem.spec.js

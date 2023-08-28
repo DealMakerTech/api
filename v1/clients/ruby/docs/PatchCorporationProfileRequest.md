@@ -29,6 +29,7 @@
 | **signing_officer_postal_code** | **String** | Signing officer postal code or zipcode. | [optional] |
 | **signing_officer_date_of_birth** | **String** | Signing officer date of birth. | [optional] |
 | **signing_officer_taxpayer_id** | **String** | The taxpayer identification number of the investor profile. | [optional] |
+| **signing_officer_phone_number** | **String** | The phone number of the signing officer (required). | [optional] |
 | **beneficial_owners_index** | **Array&lt;Integer&gt;** | The index of the beneficial owner. |  |
 | **beneficial_owners__delete** | **Array&lt;Boolean&gt;** | If true, this entry will be cleared. | [optional] |
 | **beneficial_owners_first_name** | **Array&lt;String&gt;** | The list of first names for the beneficial owners (required for beneficial owner 1). | [optional] |
@@ -42,6 +43,7 @@
 | **beneficial_owners_postal_code** | **Array&lt;String&gt;** | The list of postal codes or zipcodes for the beneficial owners (required for beneficial owner 1). | [optional] |
 | **beneficial_owners_date_of_birth** | **Array&lt;String&gt;** | The list of dates of birth for the beneficial owners (required for beneficial owner 1). | [optional] |
 | **beneficial_owners_taxpayer_id** | **Array&lt;String&gt;** | The list of taxpayer identification numbers for the beneficial owners (required for beneficial owner 1). | [optional] |
+| **beneficial_owners_phone_number** | **Array&lt;String&gt;** | The list of phone numbers for the beneficial owners (required for beneficial owner 1). | [optional] |
 
 ## Example
 
@@ -74,6 +76,7 @@ instance = DealMakerAPI::PatchCorporationProfileRequest.new(
   signing_officer_postal_code: null,
   signing_officer_date_of_birth: null,
   signing_officer_taxpayer_id: null,
+  signing_officer_phone_number: null,
   beneficial_owners_index: null,
   beneficial_owners__delete: null,
   beneficial_owners_first_name: null,
@@ -86,7 +89,8 @@ instance = DealMakerAPI::PatchCorporationProfileRequest.new(
   beneficial_owners_region: null,
   beneficial_owners_postal_code: null,
   beneficial_owners_date_of_birth: null,
-  beneficial_owners_taxpayer_id: null
+  beneficial_owners_taxpayer_id: null,
+  beneficial_owners_phone_number: null
 )
 ```
 

@@ -14,8 +14,8 @@
 | **owner_type** | **String** | Type of the investor profile owner | [optional] |
 | **owner** | [**V1EntitiesInvestorProfileOwner**](V1EntitiesInvestorProfileOwner.md) |  | [optional] |
 | **corporation** | [**V1EntitiesInvestorProfileFieldsCorporation**](V1EntitiesInvestorProfileFieldsCorporation.md) |  | [optional] |
-| **signing_officer** | [**V1EntitiesInvestorProfileFieldsAccountHolder**](V1EntitiesInvestorProfileFieldsAccountHolder.md) |  | [optional] |
-| **beneficial_owners** | [**V1EntitiesInvestorProfileFieldsAccountHolder**](V1EntitiesInvestorProfileFieldsAccountHolder.md) |  | [optional] |
+| **signing_officer** | [**V1EntitiesInvestorProfileFieldsSigningOfficer**](V1EntitiesInvestorProfileFieldsSigningOfficer.md) |  | [optional] |
+| **beneficial_owners** | [**V1EntitiesInvestorProfileFieldsSigningOfficer**](V1EntitiesInvestorProfileFieldsSigningOfficer.md) |  | [optional] |
 
 ## Example
 

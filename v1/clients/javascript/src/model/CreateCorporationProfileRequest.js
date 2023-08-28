@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The CreateCorporationProfileRequest model module.
  * @module model/CreateCorporationProfileRequest
- * @version 0.85.2
+ * @version 0.85.3
  */
 class CreateCorporationProfileRequest {
     /**
@@ -127,6 +127,9 @@ class CreateCorporationProfileRequest {
             if (data.hasOwnProperty('signing_officer_taxpayer_id')) {
                 obj['signing_officer_taxpayer_id'] = ApiClient.convertToType(data['signing_officer_taxpayer_id'], 'String');
             }
+            if (data.hasOwnProperty('signing_officer_phone_number')) {
+                obj['signing_officer_phone_number'] = ApiClient.convertToType(data['signing_officer_phone_number'], 'String');
+            }
             if (data.hasOwnProperty('beneficial_owners[first_name]')) {
                 obj['beneficial_owners[first_name]'] = ApiClient.convertToType(data['beneficial_owners[first_name]'], ['String']);
             }
@@ -159,6 +162,9 @@ class CreateCorporationProfileRequest {
             }
             if (data.hasOwnProperty('beneficial_owners[taxpayer_id]')) {
                 obj['beneficial_owners[taxpayer_id]'] = ApiClient.convertToType(data['beneficial_owners[taxpayer_id]'], ['String']);
+            }
+            if (data.hasOwnProperty('beneficial_owners[phone_number]')) {
+                obj['beneficial_owners[phone_number]'] = ApiClient.convertToType(data['beneficial_owners[phone_number]'], ['String']);
             }
         }
         return obj;
@@ -268,6 +274,10 @@ class CreateCorporationProfileRequest {
         if (data['signing_officer_taxpayer_id'] && !(typeof data['signing_officer_taxpayer_id'] === 'string' || data['signing_officer_taxpayer_id'] instanceof String)) {
             throw new Error("Expected the field `signing_officer_taxpayer_id` to be a primitive type in the JSON string but got " + data['signing_officer_taxpayer_id']);
         }
+        // ensure the json data is a string
+        if (data['signing_officer_phone_number'] && !(typeof data['signing_officer_phone_number'] === 'string' || data['signing_officer_phone_number'] instanceof String)) {
+            throw new Error("Expected the field `signing_officer_phone_number` to be a primitive type in the JSON string but got " + data['signing_officer_phone_number']);
+        }
         // ensure the json data is an array
         if (!Array.isArray(data['beneficial_owners[first_name]'])) {
             throw new Error("Expected the field `beneficial_owners[first_name]` to be an array in the JSON data but got " + data['beneficial_owners[first_name]']);
@@ -311,6 +321,10 @@ class CreateCorporationProfileRequest {
         // ensure the json data is an array
         if (!Array.isArray(data['beneficial_owners[taxpayer_id]'])) {
             throw new Error("Expected the field `beneficial_owners[taxpayer_id]` to be an array in the JSON data but got " + data['beneficial_owners[taxpayer_id]']);
+        }
+        // ensure the json data is an array
+        if (!Array.isArray(data['beneficial_owners[phone_number]'])) {
+            throw new Error("Expected the field `beneficial_owners[phone_number]` to be an array in the JSON data but got " + data['beneficial_owners[phone_number]']);
         }
 
         return true;
@@ -478,6 +492,12 @@ CreateCorporationProfileRequest.prototype['signing_officer_date_of_birth'] = und
 CreateCorporationProfileRequest.prototype['signing_officer_taxpayer_id'] = undefined;
 
 /**
+ * The phone number of the signing officer (required).
+ * @member {String} signing_officer_phone_number
+ */
+CreateCorporationProfileRequest.prototype['signing_officer_phone_number'] = undefined;
+
+/**
  * The list of first names for the beneficial owners (required for beneficial owner 1).
  * @member {Array.<String>} beneficial_owners[first_name]
  */
@@ -542,6 +562,12 @@ CreateCorporationProfileRequest.prototype['beneficial_owners[date_of_birth]'] = 
  * @member {Array.<String>} beneficial_owners[taxpayer_id]
  */
 CreateCorporationProfileRequest.prototype['beneficial_owners[taxpayer_id]'] = undefined;
+
+/**
+ * The list of phone numbers for the beneficial owners (required for beneficial owner 1).
+ * @member {Array.<String>} beneficial_owners[phone_number]
+ */
+CreateCorporationProfileRequest.prototype['beneficial_owners[phone_number]'] = undefined;
 
 
 

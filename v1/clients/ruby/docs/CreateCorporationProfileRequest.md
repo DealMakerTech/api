@@ -30,6 +30,7 @@
 | **signing_officer_postal_code** | **String** | The postal code or zipcode of the signing officer (required). | [optional] |
 | **signing_officer_date_of_birth** | **String** | The date of birth of the signing officer (required). | [optional] |
 | **signing_officer_taxpayer_id** | **String** | The taxpayer identification number of the signing officer (required). | [optional] |
+| **signing_officer_phone_number** | **String** | The phone number of the signing officer (required). | [optional] |
 | **beneficial_owners_first_name** | **Array&lt;String&gt;** | The list of first names for the beneficial owners (required for beneficial owner 1). | [optional] |
 | **beneficial_owners_last_name** | **Array&lt;String&gt;** | The list of last names for the beneficial owners (required for beneficial owner 1). | [optional] |
 | **beneficial_owners_suffix** | **Array&lt;String&gt;** | The list of suffixes for the beneficial owners. | [optional] |
@@ -41,6 +42,7 @@
 | **beneficial_owners_postal_code** | **Array&lt;String&gt;** | The list of postal codes or zipcodes for the beneficial owners (required for beneficial owner 1). | [optional] |
 | **beneficial_owners_date_of_birth** | **Array&lt;String&gt;** | The list of dates of birth for the beneficial owners (required for beneficial owner 1). | [optional] |
 | **beneficial_owners_taxpayer_id** | **Array&lt;String&gt;** | The list of taxpayer identification numbers for the beneficial owners (required for beneficial owner 1). | [optional] |
+| **beneficial_owners_phone_number** | **Array&lt;String&gt;** | The list of phone numbers for the beneficial owners (required for beneficial owner 1). | [optional] |
 
 ## Example
 
@@ -74,6 +76,7 @@ instance = DealMakerAPI::CreateCorporationProfileRequest.new(
   signing_officer_postal_code: null,
   signing_officer_date_of_birth: null,
   signing_officer_taxpayer_id: null,
+  signing_officer_phone_number: null,
   beneficial_owners_first_name: null,
   beneficial_owners_last_name: null,
   beneficial_owners_suffix: null,
@@ -84,7 +87,8 @@ instance = DealMakerAPI::CreateCorporationProfileRequest.new(
   beneficial_owners_region: null,
   beneficial_owners_postal_code: null,
   beneficial_owners_date_of_birth: null,
-  beneficial_owners_taxpayer_id: null
+  beneficial_owners_taxpayer_id: null,
+  beneficial_owners_phone_number: null
 )
 ```
 

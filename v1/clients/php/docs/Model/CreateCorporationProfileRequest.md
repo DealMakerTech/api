@@ -30,6 +30,7 @@ Name | Type | Description | Notes
 **signing_officer_postal_code** | **string** | The postal code or zipcode of the signing officer (required). | [optional]
 **signing_officer_date_of_birth** | **string** | The date of birth of the signing officer (required). | [optional]
 **signing_officer_taxpayer_id** | **string** | The taxpayer identification number of the signing officer (required). | [optional]
+**signing_officer_phone_number** | **string** | The phone number of the signing officer (required). | [optional]
 **beneficial_owners_first_name** | **string[]** | The list of first names for the beneficial owners (required for beneficial owner 1). | [optional]
 **beneficial_owners_last_name** | **string[]** | The list of last names for the beneficial owners (required for beneficial owner 1). | [optional]
 **beneficial_owners_suffix** | **string[]** | The list of suffixes for the beneficial owners. | [optional]
@@ -41,5 +42,6 @@ Name | Type | Description | Notes
 **beneficial_owners_postal_code** | **string[]** | The list of postal codes or zipcodes for the beneficial owners (required for beneficial owner 1). | [optional]
 **beneficial_owners_date_of_birth** | **string[]** | The list of dates of birth for the beneficial owners (required for beneficial owner 1). | [optional]
 **beneficial_owners_taxpayer_id** | **string[]** | The list of taxpayer identification numbers for the beneficial owners (required for beneficial owner 1). | [optional]
+**beneficial_owners_phone_number** | **string[]** | The list of phone numbers for the beneficial owners (required for beneficial owner 1). | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

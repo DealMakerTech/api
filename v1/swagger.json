@@ -4257,6 +4257,13 @@
           },
           {
             "in": "formData",
+            "name": "signing_officer_phone_number",
+            "description": "The phone number of the signing officer (required).",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
             "name": "beneficial_owners[index]",
             "description": "The index of the beneficial owner.",
             "type": "array",
@@ -4380,6 +4387,16 @@
             "in": "formData",
             "name": "beneficial_owners[taxpayer_id]",
             "description": "The list of taxpayer identification numbers for the beneficial owners (required for beneficial owner 1).",
+            "type": "array",
+            "required": false,
+            "items": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "formData",
+            "name": "beneficial_owners[phone_number]",
+            "description": "The list of phone numbers for the beneficial owners (required for beneficial owner 1).",
             "type": "array",
             "required": false,
             "items": {
@@ -4671,6 +4688,13 @@
           },
           {
             "in": "formData",
+            "name": "signing_officer_phone_number",
+            "description": "The phone number of the signing officer (required).",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
             "name": "beneficial_owners[first_name]",
             "description": "The list of first names for the beneficial owners (required for beneficial owner 1).",
             "type": "array",
@@ -4773,6 +4797,16 @@
             "in": "formData",
             "name": "beneficial_owners[taxpayer_id]",
             "description": "The list of taxpayer identification numbers for the beneficial owners (required for beneficial owner 1).",
+            "type": "array",
+            "required": false,
+            "items": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "formData",
+            "name": "beneficial_owners[phone_number]",
+            "description": "The list of phone numbers for the beneficial owners (required for beneficial owner 1).",
             "type": "array",
             "required": false,
             "items": {
@@ -6149,10 +6183,10 @@
           "$ref": "#/definitions/V1_Entities_InvestorProfile_Fields_Corporation"
         },
         "signing_officer": {
-          "$ref": "#/definitions/V1_Entities_InvestorProfile_Fields_AccountHolder"
+          "$ref": "#/definitions/V1_Entities_InvestorProfile_Fields_SigningOfficer"
         },
         "beneficial_owners": {
-          "$ref": "#/definitions/V1_Entities_InvestorProfile_Fields_AccountHolder"
+          "$ref": "#/definitions/V1_Entities_InvestorProfile_Fields_SigningOfficer"
         }
       },
       "description": "V1_Entities_InvestorProfile_Corporation model"
@@ -6189,6 +6223,38 @@
         },
         "address": {
           "$ref": "#/definitions/V1_Entities_InvestorProfile_Address"
+        }
+      }
+    },
+    "V1_Entities_InvestorProfile_Fields_SigningOfficer": {
+      "type": "object",
+      "properties": {
+        "first_name": {
+          "type": "string",
+          "description": "Investor profile first name"
+        },
+        "last_name": {
+          "type": "string",
+          "description": "Investor profile last name"
+        },
+        "suffix": {
+          "type": "string",
+          "description": "Investor profile suffix"
+        },
+        "date_of_birth": {
+          "type": "string",
+          "description": "The date of birth"
+        },
+        "taxpayer_id": {
+          "type": "string",
+          "description": "The taxpayer identification number"
+        },
+        "address": {
+          "$ref": "#/definitions/V1_Entities_InvestorProfile_Address"
+        },
+        "phone_number": {
+          "type": "string",
+          "description": "Signing officer phone number"
         }
       }
     },

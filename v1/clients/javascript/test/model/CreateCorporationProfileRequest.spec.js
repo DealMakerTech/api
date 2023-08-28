@@ -210,6 +210,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property signingOfficerPhoneNumber (base name: "signing_officer_phone_number")', function() {
+      // uncomment below and update the code to test the property signingOfficerPhoneNumber
+      //var instance = new Api.CreateCorporationProfileRequest();
+      //expect(instance).to.be();
+    });
+
     it('should have the property beneficialOwnersFirstName (base name: "beneficial_owners[first_name]")', function() {
       // uncomment below and update the code to test the property beneficialOwnersFirstName
       //var instance = new Api.CreateCorporationProfileRequest();
@@ -272,6 +278,12 @@
 
     it('should have the property beneficialOwnersTaxpayerId (base name: "beneficial_owners[taxpayer_id]")', function() {
       // uncomment below and update the code to test the property beneficialOwnersTaxpayerId
+      //var instance = new Api.CreateCorporationProfileRequest();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property beneficialOwnersPhoneNumber (base name: "beneficial_owners[phone_number]")', function() {
+      // uncomment below and update the code to test the property beneficialOwnersPhoneNumber
       //var instance = new Api.CreateCorporationProfileRequest();
       //expect(instance).to.be();
     });

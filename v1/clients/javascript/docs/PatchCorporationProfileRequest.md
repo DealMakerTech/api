@@ -29,6 +29,7 @@ Name | Type | Description | Notes
 **signingOfficerPostalCode** | **String** | Signing officer postal code or zipcode. | [optional] 
 **signingOfficerDateOfBirth** | **String** | Signing officer date of birth. | [optional] 
 **signingOfficerTaxpayerId** | **String** | The taxpayer identification number of the investor profile. | [optional] 
+**signingOfficerPhoneNumber** | **String** | The phone number of the signing officer (required). | [optional] 
 **beneficialOwnersIndex** | **[Number]** | The index of the beneficial owner. | 
 **beneficialOwnersDelete** | **[Boolean]** | If true, this entry will be cleared. | [optional] 
 **beneficialOwnersFirstName** | **[String]** | The list of first names for the beneficial owners (required for beneficial owner 1). | [optional] 
@@ -42,6 +43,7 @@ Name | Type | Description | Notes
 **beneficialOwnersPostalCode** | **[String]** | The list of postal codes or zipcodes for the beneficial owners (required for beneficial owner 1). | [optional] 
 **beneficialOwnersDateOfBirth** | **[String]** | The list of dates of birth for the beneficial owners (required for beneficial owner 1). | [optional] 
 **beneficialOwnersTaxpayerId** | **[String]** | The list of taxpayer identification numbers for the beneficial owners (required for beneficial owner 1). | [optional] 
+**beneficialOwnersPhoneNumber** | **[String]** | The list of phone numbers for the beneficial owners (required for beneficial owner 1). | [optional] 
 
 
 

@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **owner_type** | **string** | Type of the investor profile owner | [optional]
 **owner** | [**\DealMaker\Model\V1EntitiesInvestorProfileOwner**](V1EntitiesInvestorProfileOwner.md) |  | [optional]
 **corporation** | [**\DealMaker\Model\V1EntitiesInvestorProfileFieldsCorporation**](V1EntitiesInvestorProfileFieldsCorporation.md) |  | [optional]
-**signing_officer** | [**\DealMaker\Model\V1EntitiesInvestorProfileFieldsAccountHolder**](V1EntitiesInvestorProfileFieldsAccountHolder.md) |  | [optional]
-**beneficial_owners** | [**\DealMaker\Model\V1EntitiesInvestorProfileFieldsAccountHolder**](V1EntitiesInvestorProfileFieldsAccountHolder.md) |  | [optional]
+**signing_officer** | [**\DealMaker\Model\V1EntitiesInvestorProfileFieldsSigningOfficer**](V1EntitiesInvestorProfileFieldsSigningOfficer.md) |  | [optional]
+**beneficial_owners** | [**\DealMaker\Model\V1EntitiesInvestorProfileFieldsSigningOfficer**](V1EntitiesInvestorProfileFieldsSigningOfficer.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

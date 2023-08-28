@@ -12,14 +12,14 @@
  */
 
 import ApiClient from '../ApiClient';
-import V1EntitiesInvestorProfileFieldsAccountHolder from './V1EntitiesInvestorProfileFieldsAccountHolder';
 import V1EntitiesInvestorProfileFieldsCorporation from './V1EntitiesInvestorProfileFieldsCorporation';
+import V1EntitiesInvestorProfileFieldsSigningOfficer from './V1EntitiesInvestorProfileFieldsSigningOfficer';
 import V1EntitiesInvestorProfileOwner from './V1EntitiesInvestorProfileOwner';
 
 /**
  * The V1EntitiesInvestorProfileCorporation model module.
  * @module model/V1EntitiesInvestorProfileCorporation
- * @version 0.85.2
+ * @version 0.85.3
  */
 class V1EntitiesInvestorProfileCorporation {
     /**
@@ -82,10 +82,10 @@ class V1EntitiesInvestorProfileCorporation {
                 obj['corporation'] = V1EntitiesInvestorProfileFieldsCorporation.constructFromObject(data['corporation']);
             }
             if (data.hasOwnProperty('signing_officer')) {
-                obj['signing_officer'] = V1EntitiesInvestorProfileFieldsAccountHolder.constructFromObject(data['signing_officer']);
+                obj['signing_officer'] = V1EntitiesInvestorProfileFieldsSigningOfficer.constructFromObject(data['signing_officer']);
             }
             if (data.hasOwnProperty('beneficial_owners')) {
-                obj['beneficial_owners'] = V1EntitiesInvestorProfileFieldsAccountHolder.constructFromObject(data['beneficial_owners']);
+                obj['beneficial_owners'] = V1EntitiesInvestorProfileFieldsSigningOfficer.constructFromObject(data['beneficial_owners']);
             }
         }
         return obj;
@@ -127,11 +127,11 @@ class V1EntitiesInvestorProfileCorporation {
         }
         // validate the optional field `signing_officer`
         if (data['signing_officer']) { // data not null
-          V1EntitiesInvestorProfileFieldsAccountHolder.validateJSON(data['signing_officer']);
+          V1EntitiesInvestorProfileFieldsSigningOfficer.validateJSON(data['signing_officer']);
         }
         // validate the optional field `beneficial_owners`
         if (data['beneficial_owners']) { // data not null
-          V1EntitiesInvestorProfileFieldsAccountHolder.validateJSON(data['beneficial_owners']);
+          V1EntitiesInvestorProfileFieldsSigningOfficer.validateJSON(data['beneficial_owners']);
         }
 
         return true;
@@ -201,12 +201,12 @@ V1EntitiesInvestorProfileCorporation.prototype['owner'] = undefined;
 V1EntitiesInvestorProfileCorporation.prototype['corporation'] = undefined;
 
 /**
- * @member {module:model/V1EntitiesInvestorProfileFieldsAccountHolder} signing_officer
+ * @member {module:model/V1EntitiesInvestorProfileFieldsSigningOfficer} signing_officer
  */
 V1EntitiesInvestorProfileCorporation.prototype['signing_officer'] = undefined;
 
 /**
- * @member {module:model/V1EntitiesInvestorProfileFieldsAccountHolder} beneficial_owners
+ * @member {module:model/V1EntitiesInvestorProfileFieldsSigningOfficer} beneficial_owners
  */
 V1EntitiesInvestorProfileCorporation.prototype['beneficial_owners'] = undefined;
 

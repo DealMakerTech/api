@@ -30,6 +30,7 @@ Name | Type | Description | Notes
 **signingOfficerPostalCode** | **String** | The postal code or zipcode of the signing officer (required). | [optional] 
 **signingOfficerDateOfBirth** | **String** | The date of birth of the signing officer (required). | [optional] 
 **signingOfficerTaxpayerId** | **String** | The taxpayer identification number of the signing officer (required). | [optional] 
+**signingOfficerPhoneNumber** | **String** | The phone number of the signing officer (required). | [optional] 
 **beneficialOwnersFirstName** | **[String]** | The list of first names for the beneficial owners (required for beneficial owner 1). | [optional] 
 **beneficialOwnersLastName** | **[String]** | The list of last names for the beneficial owners (required for beneficial owner 1). | [optional] 
 **beneficialOwnersSuffix** | **[String]** | The list of suffixes for the beneficial owners. | [optional] 
@@ -41,6 +42,7 @@ Name | Type | Description | Notes
 **beneficialOwnersPostalCode** | **[String]** | The list of postal codes or zipcodes for the beneficial owners (required for beneficial owner 1). | [optional] 
 **beneficialOwnersDateOfBirth** | **[String]** | The list of dates of birth for the beneficial owners (required for beneficial owner 1). | [optional] 
 **beneficialOwnersTaxpayerId** | **[String]** | The list of taxpayer identification numbers for the beneficial owners (required for beneficial owner 1). | [optional] 
+**beneficialOwnersPhoneNumber** | **[String]** | The list of phone numbers for the beneficial owners (required for beneficial owner 1). | [optional] 
 
 
 

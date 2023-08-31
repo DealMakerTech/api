@@ -13,14 +13,14 @@
 
 
 import ApiClient from "../ApiClient";
-import CreateCorporationProfileRequest from '../model/CreateCorporationProfileRequest';
-import CreateIndividualProfileRequest from '../model/CreateIndividualProfileRequest';
-import CreateJointProfileRequest from '../model/CreateJointProfileRequest';
-import CreateTrustProfileRequest from '../model/CreateTrustProfileRequest';
-import PatchCorporationProfileRequest from '../model/PatchCorporationProfileRequest';
-import PatchIndividualProfileRequest from '../model/PatchIndividualProfileRequest';
-import PatchJointProfileRequest from '../model/PatchJointProfileRequest';
-import PatchTrustProfileRequest from '../model/PatchTrustProfileRequest';
+import PatchInvestorProfilesCorporations from '../model/PatchInvestorProfilesCorporations';
+import PatchInvestorProfilesIndividuals from '../model/PatchInvestorProfilesIndividuals';
+import PatchInvestorProfilesJoints from '../model/PatchInvestorProfilesJoints';
+import PatchInvestorProfilesTrusts from '../model/PatchInvestorProfilesTrusts';
+import PostInvestorProfilesCorporations from '../model/PostInvestorProfilesCorporations';
+import PostInvestorProfilesIndividuals from '../model/PostInvestorProfilesIndividuals';
+import PostInvestorProfilesJoints from '../model/PostInvestorProfilesJoints';
+import PostInvestorProfilesTrusts from '../model/PostInvestorProfilesTrusts';
 import V1EntitiesInvestorProfileCorporation from '../model/V1EntitiesInvestorProfileCorporation';
 import V1EntitiesInvestorProfileIndividual from '../model/V1EntitiesInvestorProfileIndividual';
 import V1EntitiesInvestorProfileItem from '../model/V1EntitiesInvestorProfileItem';
@@ -31,7 +31,7 @@ import V1EntitiesInvestorProfiles from '../model/V1EntitiesInvestorProfiles';
 /**
 * InvestorProfile service.
 * @module api/InvestorProfileApi
-* @version 0.85.3
+* @version 0.85.4
 */
 export default class InvestorProfileApi {
 
@@ -58,15 +58,15 @@ export default class InvestorProfileApi {
     /**
      * Create new corporation investor profile.
      * Create new corporation investor profile associated to the user by email.
-     * @param {module:model/CreateCorporationProfileRequest} createCorporationProfileRequest 
+     * @param {module:model/PostInvestorProfilesCorporations} investorProfilesCorporations 
      * @param {module:api/InvestorProfileApi~createCorporationProfileCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/V1EntitiesInvestorProfileCorporation}
      */
-    createCorporationProfile(createCorporationProfileRequest, callback) {
-      let postBody = createCorporationProfileRequest;
-      // verify the required parameter 'createCorporationProfileRequest' is set
-      if (createCorporationProfileRequest === undefined || createCorporationProfileRequest === null) {
-        throw new Error("Missing the required parameter 'createCorporationProfileRequest' when calling createCorporationProfile");
+    createCorporationProfile(investorProfilesCorporations, callback) {
+      let postBody = investorProfilesCorporations;
+      // verify the required parameter 'investorProfilesCorporations' is set
+      if (investorProfilesCorporations === undefined || investorProfilesCorporations === null) {
+        throw new Error("Missing the required parameter 'investorProfilesCorporations' when calling createCorporationProfile");
       }
 
       let pathParams = {
@@ -100,15 +100,15 @@ export default class InvestorProfileApi {
     /**
      * Create new individual investor profile
      * Create new individual investor profile associated to the user by email.
-     * @param {module:model/CreateIndividualProfileRequest} createIndividualProfileRequest 
+     * @param {module:model/PostInvestorProfilesIndividuals} investorProfilesIndividuals 
      * @param {module:api/InvestorProfileApi~createIndividualProfileCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/V1EntitiesInvestorProfileIndividual}
      */
-    createIndividualProfile(createIndividualProfileRequest, callback) {
-      let postBody = createIndividualProfileRequest;
-      // verify the required parameter 'createIndividualProfileRequest' is set
-      if (createIndividualProfileRequest === undefined || createIndividualProfileRequest === null) {
-        throw new Error("Missing the required parameter 'createIndividualProfileRequest' when calling createIndividualProfile");
+    createIndividualProfile(investorProfilesIndividuals, callback) {
+      let postBody = investorProfilesIndividuals;
+      // verify the required parameter 'investorProfilesIndividuals' is set
+      if (investorProfilesIndividuals === undefined || investorProfilesIndividuals === null) {
+        throw new Error("Missing the required parameter 'investorProfilesIndividuals' when calling createIndividualProfile");
       }
 
       let pathParams = {
@@ -142,15 +142,15 @@ export default class InvestorProfileApi {
     /**
      * Create new joint investor profile
      * Create new joint investor profile associated to the user by email.
-     * @param {module:model/CreateJointProfileRequest} createJointProfileRequest 
+     * @param {module:model/PostInvestorProfilesJoints} investorProfilesJoints 
      * @param {module:api/InvestorProfileApi~createJointProfileCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/V1EntitiesInvestorProfileJoint}
      */
-    createJointProfile(createJointProfileRequest, callback) {
-      let postBody = createJointProfileRequest;
-      // verify the required parameter 'createJointProfileRequest' is set
-      if (createJointProfileRequest === undefined || createJointProfileRequest === null) {
-        throw new Error("Missing the required parameter 'createJointProfileRequest' when calling createJointProfile");
+    createJointProfile(investorProfilesJoints, callback) {
+      let postBody = investorProfilesJoints;
+      // verify the required parameter 'investorProfilesJoints' is set
+      if (investorProfilesJoints === undefined || investorProfilesJoints === null) {
+        throw new Error("Missing the required parameter 'investorProfilesJoints' when calling createJointProfile");
       }
 
       let pathParams = {
@@ -184,15 +184,15 @@ export default class InvestorProfileApi {
     /**
      * Create new trust investor profile.
      * Create new trust investor profile associated to the user by email.
-     * @param {module:model/CreateTrustProfileRequest} createTrustProfileRequest 
+     * @param {module:model/PostInvestorProfilesTrusts} investorProfilesTrusts 
      * @param {module:api/InvestorProfileApi~createTrustProfileCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/V1EntitiesInvestorProfileTrust}
      */
-    createTrustProfile(createTrustProfileRequest, callback) {
-      let postBody = createTrustProfileRequest;
-      // verify the required parameter 'createTrustProfileRequest' is set
-      if (createTrustProfileRequest === undefined || createTrustProfileRequest === null) {
-        throw new Error("Missing the required parameter 'createTrustProfileRequest' when calling createTrustProfile");
+    createTrustProfile(investorProfilesTrusts, callback) {
+      let postBody = investorProfilesTrusts;
+      // verify the required parameter 'investorProfilesTrusts' is set
+      if (investorProfilesTrusts === undefined || investorProfilesTrusts === null) {
+        throw new Error("Missing the required parameter 'investorProfilesTrusts' when calling createTrustProfile");
       }
 
       let pathParams = {
@@ -368,19 +368,19 @@ export default class InvestorProfileApi {
      * Patch a corporation investor profile
      * Patch corporation investor profile
      * @param {Number} investorProfileId 
-     * @param {module:model/PatchCorporationProfileRequest} patchCorporationProfileRequest 
+     * @param {module:model/PatchInvestorProfilesCorporations} investorProfilesCorporations 
      * @param {module:api/InvestorProfileApi~patchCorporationProfileCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/V1EntitiesInvestorProfileCorporation}
      */
-    patchCorporationProfile(investorProfileId, patchCorporationProfileRequest, callback) {
-      let postBody = patchCorporationProfileRequest;
+    patchCorporationProfile(investorProfileId, investorProfilesCorporations, callback) {
+      let postBody = investorProfilesCorporations;
       // verify the required parameter 'investorProfileId' is set
       if (investorProfileId === undefined || investorProfileId === null) {
         throw new Error("Missing the required parameter 'investorProfileId' when calling patchCorporationProfile");
       }
-      // verify the required parameter 'patchCorporationProfileRequest' is set
-      if (patchCorporationProfileRequest === undefined || patchCorporationProfileRequest === null) {
-        throw new Error("Missing the required parameter 'patchCorporationProfileRequest' when calling patchCorporationProfile");
+      // verify the required parameter 'investorProfilesCorporations' is set
+      if (investorProfilesCorporations === undefined || investorProfilesCorporations === null) {
+        throw new Error("Missing the required parameter 'investorProfilesCorporations' when calling patchCorporationProfile");
       }
 
       let pathParams = {
@@ -416,17 +416,19 @@ export default class InvestorProfileApi {
      * Patch an individual investor profile.
      * Patch individual investor profile.
      * @param {Number} investorProfileId 
-     * @param {Object} opts Optional parameters
-     * @param {module:model/PatchIndividualProfileRequest} [patchIndividualProfileRequest] 
+     * @param {module:model/PatchInvestorProfilesIndividuals} investorProfilesIndividuals 
      * @param {module:api/InvestorProfileApi~patchIndividualProfileCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/V1EntitiesInvestorProfileIndividual}
      */
-    patchIndividualProfile(investorProfileId, opts, callback) {
-      opts = opts || {};
-      let postBody = opts['patchIndividualProfileRequest'];
+    patchIndividualProfile(investorProfileId, investorProfilesIndividuals, callback) {
+      let postBody = investorProfilesIndividuals;
       // verify the required parameter 'investorProfileId' is set
       if (investorProfileId === undefined || investorProfileId === null) {
         throw new Error("Missing the required parameter 'investorProfileId' when calling patchIndividualProfile");
+      }
+      // verify the required parameter 'investorProfilesIndividuals' is set
+      if (investorProfilesIndividuals === undefined || investorProfilesIndividuals === null) {
+        throw new Error("Missing the required parameter 'investorProfilesIndividuals' when calling patchIndividualProfile");
       }
 
       let pathParams = {
@@ -462,17 +464,19 @@ export default class InvestorProfileApi {
      * Patch a joint investor profile
      * Patch joint investor profile
      * @param {Number} investorProfileId 
-     * @param {Object} opts Optional parameters
-     * @param {module:model/PatchJointProfileRequest} [patchJointProfileRequest] 
+     * @param {module:model/PatchInvestorProfilesJoints} investorProfilesJoints 
      * @param {module:api/InvestorProfileApi~patchJointProfileCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/V1EntitiesInvestorProfileJoint}
      */
-    patchJointProfile(investorProfileId, opts, callback) {
-      opts = opts || {};
-      let postBody = opts['patchJointProfileRequest'];
+    patchJointProfile(investorProfileId, investorProfilesJoints, callback) {
+      let postBody = investorProfilesJoints;
       // verify the required parameter 'investorProfileId' is set
       if (investorProfileId === undefined || investorProfileId === null) {
         throw new Error("Missing the required parameter 'investorProfileId' when calling patchJointProfile");
+      }
+      // verify the required parameter 'investorProfilesJoints' is set
+      if (investorProfilesJoints === undefined || investorProfilesJoints === null) {
+        throw new Error("Missing the required parameter 'investorProfilesJoints' when calling patchJointProfile");
       }
 
       let pathParams = {
@@ -508,17 +512,19 @@ export default class InvestorProfileApi {
      * Patch a trust investor profile
      * Patch trust investor profile
      * @param {Number} investorProfileId 
-     * @param {Object} opts Optional parameters
-     * @param {module:model/PatchTrustProfileRequest} [patchTrustProfileRequest] 
+     * @param {module:model/PatchInvestorProfilesTrusts} investorProfilesTrusts 
      * @param {module:api/InvestorProfileApi~patchTrustProfileCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/V1EntitiesInvestorProfileTrust}
      */
-    patchTrustProfile(investorProfileId, opts, callback) {
-      opts = opts || {};
-      let postBody = opts['patchTrustProfileRequest'];
+    patchTrustProfile(investorProfileId, investorProfilesTrusts, callback) {
+      let postBody = investorProfilesTrusts;
       // verify the required parameter 'investorProfileId' is set
       if (investorProfileId === undefined || investorProfileId === null) {
         throw new Error("Missing the required parameter 'investorProfileId' when calling patchTrustProfile");
+      }
+      // verify the required parameter 'investorProfilesTrusts' is set
+      if (investorProfilesTrusts === undefined || investorProfilesTrusts === null) {
+        throw new Error("Missing the required parameter 'investorProfilesTrusts' when calling patchTrustProfile");
       }
 
       let pathParams = {

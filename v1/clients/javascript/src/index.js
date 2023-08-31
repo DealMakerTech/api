@@ -19,20 +19,23 @@ import BulkUploadInvestorsRequest from './model/BulkUploadInvestorsRequest';
 import CreateBulkUploadDetailRequest from './model/CreateBulkUploadDetailRequest';
 import CreateBulkUploadRequest from './model/CreateBulkUploadRequest';
 import CreateCompanyRequest from './model/CreateCompanyRequest';
-import CreateCorporationProfileRequest from './model/CreateCorporationProfileRequest';
 import CreateDealSetupRequest from './model/CreateDealSetupRequest';
-import CreateIndividualProfileRequest from './model/CreateIndividualProfileRequest';
 import CreateInvestorRequest from './model/CreateInvestorRequest';
-import CreateJointProfileRequest from './model/CreateJointProfileRequest';
 import CreateShareholderActionRequest from './model/CreateShareholderActionRequest';
-import CreateTrustProfileRequest from './model/CreateTrustProfileRequest';
 import EditInvestorTagsRequest from './model/EditInvestorTagsRequest';
 import GenerateUrlRequest from './model/GenerateUrlRequest';
-import PatchCorporationProfileRequest from './model/PatchCorporationProfileRequest';
-import PatchIndividualProfileRequest from './model/PatchIndividualProfileRequest';
+import PatchInvestorProfilesCorporations from './model/PatchInvestorProfilesCorporations';
+import PatchInvestorProfilesCorporationsBeneficialOwnersInner from './model/PatchInvestorProfilesCorporationsBeneficialOwnersInner';
+import PatchInvestorProfilesIndividuals from './model/PatchInvestorProfilesIndividuals';
+import PatchInvestorProfilesJoints from './model/PatchInvestorProfilesJoints';
+import PatchInvestorProfilesTrusts from './model/PatchInvestorProfilesTrusts';
 import PatchInvestorRequest from './model/PatchInvestorRequest';
-import PatchJointProfileRequest from './model/PatchJointProfileRequest';
-import PatchTrustProfileRequest from './model/PatchTrustProfileRequest';
+import PostInvestorProfilesCorporations from './model/PostInvestorProfilesCorporations';
+import PostInvestorProfilesCorporationsBeneficialOwnersInner from './model/PostInvestorProfilesCorporationsBeneficialOwnersInner';
+import PostInvestorProfilesIndividuals from './model/PostInvestorProfilesIndividuals';
+import PostInvestorProfilesJoints from './model/PostInvestorProfilesJoints';
+import PostInvestorProfilesTrusts from './model/PostInvestorProfilesTrusts';
+import PostInvestorProfilesTrustsTrusteesInner from './model/PostInvestorProfilesTrustsTrusteesInner';
 import PostWebhooksRequest from './model/PostWebhooksRequest';
 import PutDealsIdScriptTagEnvironmentRequest from './model/PutDealsIdScriptTagEnvironmentRequest';
 import PutWebhooksIdRequest from './model/PutWebhooksIdRequest';
@@ -126,7 +129,7 @@ import UploadApi from './api/UploadApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.85.3
+* @version 0.85.4
 */
 export {
     /**
@@ -172,22 +175,10 @@ export {
     CreateCompanyRequest,
 
     /**
-     * The CreateCorporationProfileRequest model constructor.
-     * @property {module:model/CreateCorporationProfileRequest}
-     */
-    CreateCorporationProfileRequest,
-
-    /**
      * The CreateDealSetupRequest model constructor.
      * @property {module:model/CreateDealSetupRequest}
      */
     CreateDealSetupRequest,
-
-    /**
-     * The CreateIndividualProfileRequest model constructor.
-     * @property {module:model/CreateIndividualProfileRequest}
-     */
-    CreateIndividualProfileRequest,
 
     /**
      * The CreateInvestorRequest model constructor.
@@ -196,22 +187,10 @@ export {
     CreateInvestorRequest,
 
     /**
-     * The CreateJointProfileRequest model constructor.
-     * @property {module:model/CreateJointProfileRequest}
-     */
-    CreateJointProfileRequest,
-
-    /**
      * The CreateShareholderActionRequest model constructor.
      * @property {module:model/CreateShareholderActionRequest}
      */
     CreateShareholderActionRequest,
-
-    /**
-     * The CreateTrustProfileRequest model constructor.
-     * @property {module:model/CreateTrustProfileRequest}
-     */
-    CreateTrustProfileRequest,
 
     /**
      * The EditInvestorTagsRequest model constructor.
@@ -226,16 +205,34 @@ export {
     GenerateUrlRequest,
 
     /**
-     * The PatchCorporationProfileRequest model constructor.
-     * @property {module:model/PatchCorporationProfileRequest}
+     * The PatchInvestorProfilesCorporations model constructor.
+     * @property {module:model/PatchInvestorProfilesCorporations}
      */
-    PatchCorporationProfileRequest,
+    PatchInvestorProfilesCorporations,
 
     /**
-     * The PatchIndividualProfileRequest model constructor.
-     * @property {module:model/PatchIndividualProfileRequest}
+     * The PatchInvestorProfilesCorporationsBeneficialOwnersInner model constructor.
+     * @property {module:model/PatchInvestorProfilesCorporationsBeneficialOwnersInner}
      */
-    PatchIndividualProfileRequest,
+    PatchInvestorProfilesCorporationsBeneficialOwnersInner,
+
+    /**
+     * The PatchInvestorProfilesIndividuals model constructor.
+     * @property {module:model/PatchInvestorProfilesIndividuals}
+     */
+    PatchInvestorProfilesIndividuals,
+
+    /**
+     * The PatchInvestorProfilesJoints model constructor.
+     * @property {module:model/PatchInvestorProfilesJoints}
+     */
+    PatchInvestorProfilesJoints,
+
+    /**
+     * The PatchInvestorProfilesTrusts model constructor.
+     * @property {module:model/PatchInvestorProfilesTrusts}
+     */
+    PatchInvestorProfilesTrusts,
 
     /**
      * The PatchInvestorRequest model constructor.
@@ -244,16 +241,40 @@ export {
     PatchInvestorRequest,
 
     /**
-     * The PatchJointProfileRequest model constructor.
-     * @property {module:model/PatchJointProfileRequest}
+     * The PostInvestorProfilesCorporations model constructor.
+     * @property {module:model/PostInvestorProfilesCorporations}
      */
-    PatchJointProfileRequest,
+    PostInvestorProfilesCorporations,
 
     /**
-     * The PatchTrustProfileRequest model constructor.
-     * @property {module:model/PatchTrustProfileRequest}
+     * The PostInvestorProfilesCorporationsBeneficialOwnersInner model constructor.
+     * @property {module:model/PostInvestorProfilesCorporationsBeneficialOwnersInner}
      */
-    PatchTrustProfileRequest,
+    PostInvestorProfilesCorporationsBeneficialOwnersInner,
+
+    /**
+     * The PostInvestorProfilesIndividuals model constructor.
+     * @property {module:model/PostInvestorProfilesIndividuals}
+     */
+    PostInvestorProfilesIndividuals,
+
+    /**
+     * The PostInvestorProfilesJoints model constructor.
+     * @property {module:model/PostInvestorProfilesJoints}
+     */
+    PostInvestorProfilesJoints,
+
+    /**
+     * The PostInvestorProfilesTrusts model constructor.
+     * @property {module:model/PostInvestorProfilesTrusts}
+     */
+    PostInvestorProfilesTrusts,
+
+    /**
+     * The PostInvestorProfilesTrustsTrusteesInner model constructor.
+     * @property {module:model/PostInvestorProfilesTrustsTrusteesInner}
+     */
+    PostInvestorProfilesTrustsTrusteesInner,
 
     /**
      * The PostWebhooksRequest model constructor.

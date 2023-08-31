@@ -2526,199 +2526,19 @@
         ],
         "parameters": [
           {
-            "in": "formData",
-            "name": "us_accredited_category",
-            "description": "The United States accredited investor information.",
-            "type": "string",
-            "enum": [
-              "entity_owned_by_accredited_investors",
-              "broker_or_dealer",
-              "assets_trust",
-              "not_accredited"
-            ],
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "ca_accredited_investor",
-            "description": "The Canadian accredited investor information.",
-            "type": "string",
-            "enum": [
-              "p",
-              "w"
-            ],
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "name",
-            "description": "The name of the trust.",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "date",
-            "description": "The creation date of the trust.",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "phone_number",
-            "description": "The phone number of the trust.",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "country",
-            "description": "Trust country.",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "street_address",
-            "description": "Trust street address.",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "unit2",
-            "description": "Trust street address line 2.",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "city",
-            "description": "Trust city.",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "region",
-            "description": "Trust region or state.",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "postal_code",
-            "description": "Trust postal code or zipcode.",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "income",
-            "description": "The income of the Trust.",
-            "type": "number",
-            "format": "float",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "net_worth",
-            "description": "The net worth of the Trust.",
-            "type": "number",
-            "format": "float",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "reg_cf_prior_offerings_amount",
-            "description": "The prior offering amount of the Trust.",
-            "type": "number",
-            "format": "float",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "trustee_first_name",
-            "description": "Trustee first name.",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "trustee_last_name",
-            "description": "Trustee last name.",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "trustee_suffix",
-            "description": "Trustee suffix.",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "trustee_country",
-            "description": "Trustee country.",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "trustee_street_address",
-            "description": "Trustee street address.",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "trustee_unit2",
-            "description": "Trustee street address line 2.",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "trustee_city",
-            "description": "Trustee city.",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "trustee_region",
-            "description": "Trustee region or state.",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "trustee_postal_code",
-            "description": "Trustee postal code or zipcode.",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "trustee_date_of_birth",
-            "description": "Trustee date of birth.",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "trustee_taxpayer_id",
-            "description": "The taxpayer identification number of the investor profile.",
-            "type": "string",
-            "required": false
-          },
-          {
             "in": "path",
             "name": "investor_profile_id",
             "type": "integer",
             "format": "int32",
             "required": true
+          },
+          {
+            "name": "InvestorProfilesTrusts",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/patchInvestorProfilesTrusts"
+            }
           }
         ],
         "security": [
@@ -2773,231 +2593,11 @@
         ],
         "parameters": [
           {
-            "in": "formData",
-            "name": "email",
-            "description": "User email which is associated with investor profile (required).",
-            "type": "string",
-            "required": true
-          },
-          {
-            "in": "formData",
-            "name": "us_accredited_category",
-            "description": "The United States accredited investor information.",
-            "type": "string",
-            "enum": [
-              "entity_owned_by_accredited_investors",
-              "broker_or_dealer",
-              "assets_trust",
-              "not_accredited"
-            ],
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "ca_accredited_investor",
-            "description": "The Canadian accredited investor information.",
-            "type": "string",
-            "enum": [
-              "p",
-              "w"
-            ],
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "name",
-            "description": "The name of the trust (required).",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "date",
-            "description": "The creation date of the trust (required).",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "country",
-            "description": "The country of the trust (required).",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "street_address",
-            "description": "Trust street address of the trust (required).",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "unit2",
-            "description": "The street address line 2 of the trust.",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "city",
-            "description": "The city of the trust (required).",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "region",
-            "description": "The region or state of the trust (required).",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "postal_code",
-            "description": "The postal code or zipcode of the trust (required).",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "phone_number",
-            "description": "The phone number of the trust (required).",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "income",
-            "description": "The income of the trust.",
-            "type": "number",
-            "format": "float",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "net_worth",
-            "description": "The net worth of the trust.",
-            "type": "number",
-            "format": "float",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "reg_cf_prior_offerings_amount",
-            "description": "The prior offering amount of the trust.",
-            "type": "number",
-            "format": "float",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "trustees[first_name]",
-            "description": "The list of first names for the trustees (required for trustee 1).",
-            "type": "array",
-            "required": false,
-            "items": {
-              "type": "string"
-            }
-          },
-          {
-            "in": "formData",
-            "name": "trustees[last_name]",
-            "description": "The list of last names for the trustees (required for trustee 1).",
-            "type": "array",
-            "required": false,
-            "items": {
-              "type": "string"
-            }
-          },
-          {
-            "in": "formData",
-            "name": "trustees[suffix]",
-            "description": "The list of suffixes for the trustees.",
-            "type": "array",
-            "required": false,
-            "items": {
-              "type": "string"
-            }
-          },
-          {
-            "in": "formData",
-            "name": "trustees[country]",
-            "description": "The list of countries for the trustees (required for trustee 1).",
-            "type": "array",
-            "required": false,
-            "items": {
-              "type": "string"
-            }
-          },
-          {
-            "in": "formData",
-            "name": "trustees[street_address]",
-            "description": "The list of street addresses for the trustees (required for trustee 1).",
-            "type": "array",
-            "required": false,
-            "items": {
-              "type": "string"
-            }
-          },
-          {
-            "in": "formData",
-            "name": "trustees[unit2]",
-            "description": "The list of street address line 2 for the trustees.",
-            "type": "array",
-            "required": false,
-            "items": {
-              "type": "string"
-            }
-          },
-          {
-            "in": "formData",
-            "name": "trustees[city]",
-            "description": "The list of cities for the trustees (required for trustee 1).",
-            "type": "array",
-            "required": false,
-            "items": {
-              "type": "string"
-            }
-          },
-          {
-            "in": "formData",
-            "name": "trustees[region]",
-            "description": "The list of regions or states for the trustees (required for trustee 1).",
-            "type": "array",
-            "required": false,
-            "items": {
-              "type": "string"
-            }
-          },
-          {
-            "in": "formData",
-            "name": "trustees[postal_code]",
-            "description": "The list of postal codes or zipcodes for the trustees (required) for trustee 1.",
-            "type": "array",
-            "required": false,
-            "items": {
-              "type": "string"
-            }
-          },
-          {
-            "in": "formData",
-            "name": "trustees[date_of_birth]",
-            "description": "The list of dates of birth for the trustees (required for trustee 1).",
-            "type": "array",
-            "required": false,
-            "items": {
-              "type": "string"
-            }
-          },
-          {
-            "in": "formData",
-            "name": "trustees[taxpayer_id]",
-            "description": "The list of taxpayer identification numbers for the trustees (required for trustee 1).",
-            "type": "array",
-            "required": false,
-            "items": {
-              "type": "string"
+            "name": "InvestorProfilesTrusts",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/postInvestorProfilesTrusts"
             }
           }
         ],
@@ -3050,157 +2650,19 @@
         ],
         "parameters": [
           {
-            "in": "formData",
-            "name": "us_accredited_category",
-            "description": "The United States accredited investor information.",
-            "type": "string",
-            "enum": [
-              "income_individual",
-              "assets_individual",
-              "director",
-              "knowledgable_employee",
-              "broker_or_dealer",
-              "investment_advisor_registered",
-              "investment_advisor_relying",
-              "designated_accredited_investor",
-              "not_accredited"
-            ],
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "ca_accredited_investor",
-            "description": "The Canadian accredited investor information.",
-            "type": "string",
-            "enum": [
-              "d",
-              "e",
-              "e_1",
-              "j",
-              "j_1",
-              "k_alone",
-              "k_spouse",
-              "l",
-              "q",
-              "v",
-              "x"
-            ],
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "first_name",
-            "description": "The first name of the individual investor profile.",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "last_name",
-            "description": "The last name of the individual investor profile.",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "suffix",
-            "description": "The suffix of the individual investor profile.",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "date_of_birth",
-            "description": "The date of birth of the investor profile.",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "taxpayer_id",
-            "description": "The taxpayer identification number of the investor profile.",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "phone_number",
-            "description": "The phone number of the investor profile.",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "country",
-            "description": "The country of the individual investor profile.",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "street_address",
-            "description": "The street address of the individual investor profile.",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "unit2",
-            "description": "The street address line 2 of the individual investor profile.",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "city",
-            "description": "The city of the individual investor profile.",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "region",
-            "description": "The region or state of the individual investor profile.",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "postal_code",
-            "description": "The postal code or zipcode of the individual investor profile.",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "income",
-            "description": "The income of the individual investor profile",
-            "type": "number",
-            "format": "float",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "net_worth",
-            "description": "The net worth of the individual investor profile",
-            "type": "number",
-            "format": "float",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "reg_cf_prior_offerings_amount",
-            "description": "The prior offering amount of the individual investor profile",
-            "type": "number",
-            "format": "float",
-            "required": false
-          },
-          {
             "in": "path",
             "name": "investor_profile_id",
             "type": "integer",
             "format": "int32",
             "required": true
+          },
+          {
+            "name": "InvestorProfilesIndividuals",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/patchInvestorProfilesIndividuals"
+            }
           }
         ],
         "security": [
@@ -3255,157 +2717,12 @@
         ],
         "parameters": [
           {
-            "in": "formData",
-            "name": "email",
-            "description": "User email which is associated with individual investor profile.",
-            "type": "string",
-            "required": true
-          },
-          {
-            "in": "formData",
-            "name": "us_accredited_category",
-            "description": "The United States accredited investor information.",
-            "type": "string",
-            "enum": [
-              "income_individual",
-              "assets_individual",
-              "director",
-              "knowledgable_employee",
-              "broker_or_dealer",
-              "investment_advisor_registered",
-              "investment_advisor_relying",
-              "designated_accredited_investor",
-              "not_accredited"
-            ],
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "ca_accredited_investor",
-            "description": "The Canadian accredited investor information.",
-            "type": "string",
-            "enum": [
-              "d",
-              "e",
-              "e_1",
-              "j",
-              "j_1",
-              "k_alone",
-              "k_spouse",
-              "l",
-              "q",
-              "v",
-              "x"
-            ],
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "first_name",
-            "description": "The first name of the individual investor profile (required).",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "last_name",
-            "description": "The last name of the individual investor profile (required)",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "suffix",
-            "description": "The suffix of the individual investor profile",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "date_of_birth",
-            "description": "The date of birth of the investor profile (required)",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "taxpayer_id",
-            "description": "The taxpayer identification number of the investor profile (required)",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "phone_number",
-            "description": "The phone number of the investor profile (required)",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "country",
-            "description": "The country of the individual investor profile (required)",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "street_address",
-            "description": "The street address of the individual investor profile (required)",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "unit2",
-            "description": "The street address line 2 of the individual investor profile",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "city",
-            "description": "The city of the individual investor profile (required)",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "region",
-            "description": "The region or state of the individual investor profile (required)",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "postal_code",
-            "description": "The postal code or zipcode of the individual investor profile (required)",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "income",
-            "description": "The income of the individual investor profile",
-            "type": "number",
-            "format": "float",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "net_worth",
-            "description": "The net worth of the individual investor profile",
-            "type": "number",
-            "format": "float",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "reg_cf_prior_offerings_amount",
-            "description": "The prior offering amount of the individual investor profile",
-            "type": "number",
-            "format": "float",
-            "required": false
+            "name": "InvestorProfilesIndividuals",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/postInvestorProfilesIndividuals"
+            }
           }
         ],
         "security": [
@@ -3457,246 +2774,19 @@
         ],
         "parameters": [
           {
-            "in": "formData",
-            "name": "us_accredited_category",
-            "description": "The United States accredited investor information.",
-            "type": "string",
-            "enum": [
-              "income_individual",
-              "assets_individual",
-              "director",
-              "knowledgable_employee",
-              "broker_or_dealer",
-              "investment_advisor_registered",
-              "investment_advisor_relying",
-              "designated_accredited_investor",
-              "not_accredited"
-            ],
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "ca_accredited_investor",
-            "description": "The Canadian accredited investor information.",
-            "type": "string",
-            "enum": [
-              "d",
-              "e",
-              "e_1",
-              "j",
-              "j_1",
-              "k_alone",
-              "k_spouse",
-              "l",
-              "q",
-              "v",
-              "x"
-            ],
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "joint_type",
-            "description": "The kind of joint investor.",
-            "type": "string",
-            "enum": [
-              "joint_tenant",
-              "tenants_in_common",
-              "community_property"
-            ],
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "first_name",
-            "description": "The first name of the investor profile.",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "last_name",
-            "description": "The last name of the investor profile.",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "suffix",
-            "description": "The suffix of the investor profile.",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "country",
-            "description": "The country the investor profile.",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "street_address",
-            "description": "The street address of the investor profile.",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "unit2",
-            "description": "The street address line 2 of the investor profile.",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "city",
-            "description": "The city of the investor profile.",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "region",
-            "description": "The region or State of the investor profile.",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "postal_code",
-            "description": "The postal code or zipcode of the investor profile.",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "date_of_birth",
-            "description": "The date of birth of the investor profile.",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "taxpayer_id",
-            "description": "The taxpayer identification number of the investor profile.",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "phone_number",
-            "description": "The phone number of the investor profile.",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "income",
-            "description": "The income of the investor profile.",
-            "type": "number",
-            "format": "float",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "net_worth",
-            "description": "The net worth of the investor profile.",
-            "type": "number",
-            "format": "float",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "reg_cf_prior_offerings_amount",
-            "description": "The prior offerings amount of the investor profile.",
-            "type": "number",
-            "format": "float",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "joint_holder_first_name",
-            "description": "The joint holder first name of the investor profile.",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "joint_holder_last_name",
-            "description": "The joint holder last name of the investor profile.",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "joint_holder_suffix",
-            "description": "The suffix of the individual investor profile.",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "joint_holder_country",
-            "description": "The joint holder country of the investor profile.",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "joint_holder_street_address",
-            "description": "The joint holder street address of the investor profile.",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "joint_holder_unit2",
-            "description": "The Joint holder street address line 2 of the investor profile.",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "joint_holder_city",
-            "description": "The Joint holder city of the investor profile.",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "joint_holder_region",
-            "description": "The joint holder region or state of the investor profile.",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "joint_holder_postal_code",
-            "description": "The joint holder postal code or zipcode of the investor profile.",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "joint_holder_date_of_birth",
-            "description": "The joint holder date of birth of the investor profile.",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "joint_holder_taxpayer_id",
-            "description": "The joint holder taxpayer identification number of the investor profile.",
-            "type": "string",
-            "required": false
-          },
-          {
             "in": "path",
             "name": "investor_profile_id",
             "type": "integer",
             "format": "int32",
             "required": true
+          },
+          {
+            "name": "InvestorProfilesJoints",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/patchInvestorProfilesJoints"
+            }
           }
         ],
         "security": [
@@ -3751,246 +2841,12 @@
         ],
         "parameters": [
           {
-            "in": "formData",
-            "name": "email",
-            "description": "User email which is associated with investor profile.",
-            "type": "string",
-            "required": true
-          },
-          {
-            "in": "formData",
-            "name": "us_accredited_category",
-            "description": "The United States accredited investor information.",
-            "type": "string",
-            "enum": [
-              "income_individual",
-              "assets_individual",
-              "director",
-              "knowledgable_employee",
-              "broker_or_dealer",
-              "investment_advisor_registered",
-              "investment_advisor_relying",
-              "designated_accredited_investor",
-              "not_accredited"
-            ],
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "ca_accredited_investor",
-            "description": "The Canadian accredited investor information.",
-            "type": "string",
-            "enum": [
-              "d",
-              "e",
-              "e_1",
-              "j",
-              "j_1",
-              "k_alone",
-              "k_spouse",
-              "l",
-              "q",
-              "v",
-              "x"
-            ],
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "joint_type",
-            "description": "The types of joint investor.",
-            "type": "string",
-            "enum": [
-              "joint_tenant",
-              "tenants_in_common",
-              "community_property"
-            ],
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "first_name",
-            "description": "The first name of the primary holder (required).",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "last_name",
-            "description": "The last name of the primary holder (required).",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "suffix",
-            "description": "The suffix of the primary holder.",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "country",
-            "description": "The country the primary holder (required).",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "street_address",
-            "description": "The street address of the primary holder (required).",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "unit2",
-            "description": "The street address line 2 of the primary holder.",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "city",
-            "description": "The city of the primary holder (required).",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "region",
-            "description": "The region or State of the primary holder (required).",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "postal_code",
-            "description": "The postal code or zipcode of the primary holder (required).",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "date_of_birth",
-            "description": "The date of birth of the primary holder (required).",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "taxpayer_id",
-            "description": "The taxpayer identification number of the primary holder (required).",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "phone_number",
-            "description": "The phone number of the primary holder (required).",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "income",
-            "description": "The income of the primary holder.",
-            "type": "number",
-            "format": "float",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "net_worth",
-            "description": "The net worth of the primary holder.",
-            "type": "number",
-            "format": "float",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "reg_cf_prior_offerings_amount",
-            "description": "The prior offerings amount of the primary holder.",
-            "type": "number",
-            "format": "float",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "joint_holder_first_name",
-            "description": "The first name of the joint holder (required).",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "joint_holder_last_name",
-            "description": "The last name of the joint holder (required).",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "joint_holder_suffix",
-            "description": "The suffix of the joint holder.",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "joint_holder_country",
-            "description": "The country of the joint holder (required).",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "joint_holder_street_address",
-            "description": "The street address of the joint holder (required).",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "joint_holder_unit2",
-            "description": "The street address line 2 of the joint holder.",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "joint_holder_city",
-            "description": "The city of the joint holder (required).",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "joint_holder_region",
-            "description": "The region or state of the joint holder (required).",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "joint_holder_postal_code",
-            "description": "The postal code or zipcode of the joint holder (required).",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "joint_holder_date_of_birth",
-            "description": "The date of birth of the joint holder (required).",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "joint_holder_taxpayer_id",
-            "description": "The taxpayer identification number of the joint holder (required).",
-            "type": "string",
-            "required": false
+            "name": "InvestorProfilesJoints",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/postInvestorProfilesJoints"
+            }
           }
         ],
         "security": [
@@ -4039,376 +2895,19 @@
         ],
         "parameters": [
           {
-            "in": "formData",
-            "name": "us_accredited_category",
-            "description": "The United States accredited investor information.",
-            "type": "string",
-            "enum": [
-              "entity_owned_by_accredited_investors",
-              "assets_other",
-              "assets_family_office",
-              "assets_benefit_plan",
-              "assets_state_plan",
-              "assets_501_c_3",
-              "assets_corporation",
-              "broker_or_dealer",
-              "bank_3_a_2",
-              "business_development_company",
-              "private_business_development_company",
-              "investment_company",
-              "rural_business_investment_company",
-              "insurance_company",
-              "family_client",
-              "not_accredited"
-            ],
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "ca_accredited_investor",
-            "description": "The Canadian accredited investor information.",
-            "type": "string",
-            "enum": [
-              "a",
-              "b",
-              "c",
-              "d",
-              "f",
-              "g",
-              "h",
-              "i",
-              "m",
-              "n",
-              "o",
-              "p",
-              "q",
-              "r",
-              "s",
-              "t",
-              "u",
-              "v",
-              "x"
-            ],
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "name",
-            "description": "Corporation name.",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "country",
-            "description": "Corporation country.",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "street_address",
-            "description": "Corporation street address.",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "unit2",
-            "description": "Corporation street address line 2.",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "city",
-            "description": "Corporation city.",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "region",
-            "description": "Corporation region or state.",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "postal_code",
-            "description": "Corporation postal code or zipcode.",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "business_number",
-            "description": "The business number of the investor profile.",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "phone_number",
-            "description": "The phone number of the investor profile.",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "income",
-            "description": "The income of the individual investor profile",
-            "type": "number",
-            "format": "float",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "net_worth",
-            "description": "The net worth of the individual investor profile",
-            "type": "number",
-            "format": "float",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "reg_cf_prior_offerings_amount",
-            "description": "The prior offering amount of the individual investor profile",
-            "type": "number",
-            "format": "float",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "signing_officer_first_name",
-            "description": "Signing officer first name.",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "signing_officer_last_name",
-            "description": "Signing officer last name.",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "signing_officer_suffix",
-            "description": "Signing officer suffix.",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "signing_officer_country",
-            "description": "Signing officer country.",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "signing_officer_street_address",
-            "description": "Signing officer street address.",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "signing_officer_unit2",
-            "description": "Signing officer street address line 2.",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "signing_officer_city",
-            "description": "Signing officer city.",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "signing_officer_region",
-            "description": "Signing officer region or state.",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "signing_officer_postal_code",
-            "description": "Signing officer postal code or zipcode.",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "signing_officer_date_of_birth",
-            "description": "Signing officer date of birth.",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "signing_officer_taxpayer_id",
-            "description": "The taxpayer identification number of the investor profile.",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "signing_officer_phone_number",
-            "description": "The phone number of the signing officer (required).",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "beneficial_owners[index]",
-            "description": "The index of the beneficial owner.",
-            "type": "array",
-            "required": true,
-            "items": {
-              "type": "integer",
-              "format": "int32"
-            }
-          },
-          {
-            "in": "formData",
-            "name": "beneficial_owners[_delete]",
-            "description": "If true, this entry will be cleared.",
-            "type": "array",
-            "required": false,
-            "items": {
-              "type": "boolean"
-            }
-          },
-          {
-            "in": "formData",
-            "name": "beneficial_owners[first_name]",
-            "description": "The list of first names for the beneficial owners (required for beneficial owner 1).",
-            "type": "array",
-            "required": false,
-            "items": {
-              "type": "string"
-            }
-          },
-          {
-            "in": "formData",
-            "name": "beneficial_owners[last_name]",
-            "description": "The list of last names for the beneficial owners (required for beneficial owner 1).",
-            "type": "array",
-            "required": false,
-            "items": {
-              "type": "string"
-            }
-          },
-          {
-            "in": "formData",
-            "name": "beneficial_owners[suffix]",
-            "description": "The list of suffixes for the beneficial owners.",
-            "type": "array",
-            "required": false,
-            "items": {
-              "type": "string"
-            }
-          },
-          {
-            "in": "formData",
-            "name": "beneficial_owners[country]",
-            "description": "The list of countries for the beneficial owners (required for beneficial owner 1).",
-            "type": "array",
-            "required": false,
-            "items": {
-              "type": "string"
-            }
-          },
-          {
-            "in": "formData",
-            "name": "beneficial_owners[street_address]",
-            "description": "The list of street addresses for the beneficial owners (required for beneficial owner 1).",
-            "type": "array",
-            "required": false,
-            "items": {
-              "type": "string"
-            }
-          },
-          {
-            "in": "formData",
-            "name": "beneficial_owners[unit2]",
-            "description": "The list of street address line 2 for the beneficial owners.",
-            "type": "array",
-            "required": false,
-            "items": {
-              "type": "string"
-            }
-          },
-          {
-            "in": "formData",
-            "name": "beneficial_owners[city]",
-            "description": "The list of cities for the beneficial owners (required for beneficial owner 1).",
-            "type": "array",
-            "required": false,
-            "items": {
-              "type": "string"
-            }
-          },
-          {
-            "in": "formData",
-            "name": "beneficial_owners[region]",
-            "description": "The list of region or states for the beneficial owners (required for beneficial owner 1).",
-            "type": "array",
-            "required": false,
-            "items": {
-              "type": "string"
-            }
-          },
-          {
-            "in": "formData",
-            "name": "beneficial_owners[postal_code]",
-            "description": "The list of postal codes or zipcodes for the beneficial owners (required for beneficial owner 1).",
-            "type": "array",
-            "required": false,
-            "items": {
-              "type": "string"
-            }
-          },
-          {
-            "in": "formData",
-            "name": "beneficial_owners[date_of_birth]",
-            "description": "The list of dates of birth for the beneficial owners (required for beneficial owner 1).",
-            "type": "array",
-            "required": false,
-            "items": {
-              "type": "string"
-            }
-          },
-          {
-            "in": "formData",
-            "name": "beneficial_owners[taxpayer_id]",
-            "description": "The list of taxpayer identification numbers for the beneficial owners (required for beneficial owner 1).",
-            "type": "array",
-            "required": false,
-            "items": {
-              "type": "string"
-            }
-          },
-          {
-            "in": "formData",
-            "name": "beneficial_owners[phone_number]",
-            "description": "The list of phone numbers for the beneficial owners (required for beneficial owner 1).",
-            "type": "array",
-            "required": false,
-            "items": {
-              "type": "string"
-            }
-          },
-          {
             "in": "path",
             "name": "investor_profile_id",
             "type": "integer",
             "format": "int32",
             "required": true
+          },
+          {
+            "name": "InvestorProfilesCorporations",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/patchInvestorProfilesCorporations"
+            }
           }
         ],
         "security": [
@@ -4463,354 +2962,11 @@
         ],
         "parameters": [
           {
-            "in": "formData",
-            "name": "email",
-            "description": "User email which is associated with investor profile (required).",
-            "type": "string",
-            "required": true
-          },
-          {
-            "in": "formData",
-            "name": "us_accredited_category",
-            "description": "The United States accredited investor information.",
-            "type": "string",
-            "enum": [
-              "entity_owned_by_accredited_investors",
-              "assets_other",
-              "assets_family_office",
-              "assets_benefit_plan",
-              "assets_state_plan",
-              "assets_501_c_3",
-              "assets_corporation",
-              "broker_or_dealer",
-              "bank_3_a_2",
-              "business_development_company",
-              "private_business_development_company",
-              "investment_company",
-              "rural_business_investment_company",
-              "insurance_company",
-              "family_client",
-              "not_accredited"
-            ],
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "ca_accredited_investor",
-            "description": "The Canadian accredited investor information.",
-            "type": "string",
-            "enum": [
-              "a",
-              "b",
-              "c",
-              "d",
-              "f",
-              "g",
-              "h",
-              "i",
-              "m",
-              "n",
-              "o",
-              "p",
-              "q",
-              "r",
-              "s",
-              "t",
-              "u",
-              "v",
-              "x"
-            ],
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "name",
-            "description": "The name of the corporation (required).",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "country",
-            "description": "The country of the corporation (required).",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "street_address",
-            "description": "The street address of the corporation (required).",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "unit2",
-            "description": "The street address line 2 of the corporation.",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "city",
-            "description": "The city of the corporation (required).",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "region",
-            "description": "The region or state of the corporation (required).",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "postal_code",
-            "description": "The postal code or zipcode of the corporation (required).",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "business_number",
-            "description": "The taxpayer identification number  of the corporation (required).",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "phone_number",
-            "description": "The phone number o of the corporation (required).",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "income",
-            "description": "The income of the individual investor profile",
-            "type": "number",
-            "format": "float",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "net_worth",
-            "description": "The net worth of the individual investor profile",
-            "type": "number",
-            "format": "float",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "reg_cf_prior_offerings_amount",
-            "description": "The prior offering amount of the individual investor profile",
-            "type": "number",
-            "format": "float",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "signing_officer_first_name",
-            "description": "The first name of the signing officer (required).",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "signing_officer_last_name",
-            "description": "The last name of the signing officer (required).",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "signing_officer_suffix",
-            "description": "The suffix of the signing officer.",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "signing_officer_country",
-            "description": "The country of the signing officer (required).",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "signing_officer_street_address",
-            "description": "The street address of the signing officer (required).",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "signing_officer_unit2",
-            "description": "The street address line 2 of the signing officer.",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "signing_officer_city",
-            "description": "The city of the signing officer (required).",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "signing_officer_region",
-            "description": "The region or state of the signing officer (required).",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "signing_officer_postal_code",
-            "description": "The postal code or zipcode of the signing officer (required).",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "signing_officer_date_of_birth",
-            "description": "The date of birth of the signing officer (required).",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "signing_officer_taxpayer_id",
-            "description": "The taxpayer identification number of the signing officer (required).",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "signing_officer_phone_number",
-            "description": "The phone number of the signing officer (required).",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "beneficial_owners[first_name]",
-            "description": "The list of first names for the beneficial owners (required for beneficial owner 1).",
-            "type": "array",
-            "required": false,
-            "items": {
-              "type": "string"
-            }
-          },
-          {
-            "in": "formData",
-            "name": "beneficial_owners[last_name]",
-            "description": "The list of last names for the beneficial owners (required for beneficial owner 1).",
-            "type": "array",
-            "required": false,
-            "items": {
-              "type": "string"
-            }
-          },
-          {
-            "in": "formData",
-            "name": "beneficial_owners[suffix]",
-            "description": "The list of suffixes for the beneficial owners.",
-            "type": "array",
-            "required": false,
-            "items": {
-              "type": "string"
-            }
-          },
-          {
-            "in": "formData",
-            "name": "beneficial_owners[country]",
-            "description": "The list of countries for the beneficial owners (required for beneficial owner 1).",
-            "type": "array",
-            "required": false,
-            "items": {
-              "type": "string"
-            }
-          },
-          {
-            "in": "formData",
-            "name": "beneficial_owners[street_address]",
-            "description": "The list of street addresses for the beneficial owners (required for beneficial owner 1).",
-            "type": "array",
-            "required": false,
-            "items": {
-              "type": "string"
-            }
-          },
-          {
-            "in": "formData",
-            "name": "beneficial_owners[unit2]",
-            "description": "The list of street address line 2 for the beneficial owners.",
-            "type": "array",
-            "required": false,
-            "items": {
-              "type": "string"
-            }
-          },
-          {
-            "in": "formData",
-            "name": "beneficial_owners[city]",
-            "description": "The list of cities for the beneficial owners (required for beneficial owner 1).",
-            "type": "array",
-            "required": false,
-            "items": {
-              "type": "string"
-            }
-          },
-          {
-            "in": "formData",
-            "name": "beneficial_owners[region]",
-            "description": "The list of region or states for the beneficial owners (required for beneficial owner 1).",
-            "type": "array",
-            "required": false,
-            "items": {
-              "type": "string"
-            }
-          },
-          {
-            "in": "formData",
-            "name": "beneficial_owners[postal_code]",
-            "description": "The list of postal codes or zipcodes for the beneficial owners (required for beneficial owner 1).",
-            "type": "array",
-            "required": false,
-            "items": {
-              "type": "string"
-            }
-          },
-          {
-            "in": "formData",
-            "name": "beneficial_owners[date_of_birth]",
-            "description": "The list of dates of birth for the beneficial owners (required for beneficial owner 1).",
-            "type": "array",
-            "required": false,
-            "items": {
-              "type": "string"
-            }
-          },
-          {
-            "in": "formData",
-            "name": "beneficial_owners[taxpayer_id]",
-            "description": "The list of taxpayer identification numbers for the beneficial owners (required for beneficial owner 1).",
-            "type": "array",
-            "required": false,
-            "items": {
-              "type": "string"
-            }
-          },
-          {
-            "in": "formData",
-            "name": "beneficial_owners[phone_number]",
-            "description": "The list of phone numbers for the beneficial owners (required for beneficial owner 1).",
-            "type": "array",
-            "required": false,
-            "items": {
-              "type": "string"
+            "name": "InvestorProfilesCorporations",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/postInvestorProfilesCorporations"
             }
           }
         ],
@@ -6754,6 +4910,1220 @@
           "description": "Investor user email address."
         }
       }
+    },
+    "patchInvestorProfilesTrusts": {
+      "type": "object",
+      "properties": {
+        "us_accredited_category": {
+          "type": "string",
+          "description": "The United States accredited investor information.",
+          "enum": [
+            "entity_owned_by_accredited_investors",
+            "broker_or_dealer",
+            "assets_trust",
+            "not_accredited"
+          ]
+        },
+        "ca_accredited_investor": {
+          "type": "string",
+          "description": "The Canadian accredited investor information.",
+          "enum": [
+            "p",
+            "w"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the trust."
+        },
+        "date": {
+          "type": "string",
+          "description": "The creation date of the trust."
+        },
+        "phone_number": {
+          "type": "string",
+          "description": "The phone number of the trust."
+        },
+        "country": {
+          "type": "Country",
+          "description": "Trust country."
+        },
+        "street_address": {
+          "type": "string",
+          "description": "Trust street address."
+        },
+        "unit2": {
+          "type": "string",
+          "description": "Trust street address line 2."
+        },
+        "city": {
+          "type": "string",
+          "description": "Trust city."
+        },
+        "region": {
+          "type": "string",
+          "description": "Trust region or state."
+        },
+        "postal_code": {
+          "type": "string",
+          "description": "Trust postal code or zipcode."
+        },
+        "income": {
+          "type": "number",
+          "format": "float",
+          "description": "The income of the Trust."
+        },
+        "net_worth": {
+          "type": "number",
+          "format": "float",
+          "description": "The net worth of the Trust."
+        },
+        "reg_cf_prior_offerings_amount": {
+          "type": "number",
+          "format": "float",
+          "description": "The prior offering amount of the Trust."
+        },
+        "trustee_first_name": {
+          "type": "string",
+          "description": "Trustee first name."
+        },
+        "trustee_last_name": {
+          "type": "string",
+          "description": "Trustee last name."
+        },
+        "trustee_suffix": {
+          "type": "string",
+          "description": "Trustee suffix."
+        },
+        "trustee_country": {
+          "type": "Country",
+          "description": "Trustee country."
+        },
+        "trustee_street_address": {
+          "type": "string",
+          "description": "Trustee street address."
+        },
+        "trustee_unit2": {
+          "type": "string",
+          "description": "Trustee street address line 2."
+        },
+        "trustee_city": {
+          "type": "string",
+          "description": "Trustee city."
+        },
+        "trustee_region": {
+          "type": "string",
+          "description": "Trustee region or state."
+        },
+        "trustee_postal_code": {
+          "type": "string",
+          "description": "Trustee postal code or zipcode."
+        },
+        "trustee_date_of_birth": {
+          "type": "string",
+          "description": "Trustee date of birth."
+        },
+        "trustee_taxpayer_id": {
+          "type": "string",
+          "description": "The taxpayer identification number of the investor profile."
+        }
+      },
+      "description": "Patch trust investor profile"
+    },
+    "postInvestorProfilesTrusts": {
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string",
+          "description": "User email which is associated with investor profile (required)."
+        },
+        "us_accredited_category": {
+          "type": "string",
+          "description": "The United States accredited investor information.",
+          "enum": [
+            "entity_owned_by_accredited_investors",
+            "broker_or_dealer",
+            "assets_trust",
+            "not_accredited"
+          ]
+        },
+        "ca_accredited_investor": {
+          "type": "string",
+          "description": "The Canadian accredited investor information.",
+          "enum": [
+            "p",
+            "w"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the trust (required)."
+        },
+        "date": {
+          "type": "string",
+          "description": "The creation date of the trust (required)."
+        },
+        "country": {
+          "type": "Country",
+          "description": "The country of the trust (required)."
+        },
+        "street_address": {
+          "type": "string",
+          "description": "Trust street address of the trust (required)."
+        },
+        "unit2": {
+          "type": "string",
+          "description": "The street address line 2 of the trust."
+        },
+        "city": {
+          "type": "string",
+          "description": "The city of the trust (required)."
+        },
+        "region": {
+          "type": "string",
+          "description": "The region or state of the trust (required)."
+        },
+        "postal_code": {
+          "type": "string",
+          "description": "The postal code or zipcode of the trust (required)."
+        },
+        "phone_number": {
+          "type": "string",
+          "description": "The phone number of the trust (required)."
+        },
+        "income": {
+          "type": "number",
+          "format": "float",
+          "description": "The income of the trust."
+        },
+        "net_worth": {
+          "type": "number",
+          "format": "float",
+          "description": "The net worth of the trust."
+        },
+        "reg_cf_prior_offerings_amount": {
+          "type": "number",
+          "format": "float",
+          "description": "The prior offering amount of the trust."
+        },
+        "trustees": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "first_name": {
+                "type": "string",
+                "description": "The list of first names for the trustees (required for trustee 1)."
+              },
+              "last_name": {
+                "type": "string",
+                "description": "The list of last names for the trustees (required for trustee 1)."
+              },
+              "suffix": {
+                "type": "string",
+                "description": "The list of suffixes for the trustees."
+              },
+              "country": {
+                "type": "Country",
+                "description": "The list of countries for the trustees (required for trustee 1)."
+              },
+              "street_address": {
+                "type": "string",
+                "description": "The list of street addresses for the trustees (required for trustee 1)."
+              },
+              "unit2": {
+                "type": "string",
+                "description": "The list of street address line 2 for the trustees."
+              },
+              "city": {
+                "type": "string",
+                "description": "The list of cities for the trustees (required for trustee 1)."
+              },
+              "region": {
+                "type": "string",
+                "description": "The list of regions or states for the trustees (required for trustee 1)."
+              },
+              "postal_code": {
+                "type": "string",
+                "description": "The list of postal codes or zipcodes for the trustees (required) for trustee 1."
+              },
+              "date_of_birth": {
+                "type": "string",
+                "description": "The list of dates of birth for the trustees (required for trustee 1)."
+              },
+              "taxpayer_id": {
+                "type": "string",
+                "description": "The list of taxpayer identification numbers for the trustees (required for trustee 1)."
+              }
+            }
+          }
+        }
+      },
+      "required": [
+        "email"
+      ],
+      "description": "Create new trust investor profile."
+    },
+    "patchInvestorProfilesIndividuals": {
+      "type": "object",
+      "properties": {
+        "us_accredited_category": {
+          "type": "string",
+          "description": "The United States accredited investor information.",
+          "enum": [
+            "income_individual",
+            "assets_individual",
+            "director",
+            "knowledgable_employee",
+            "broker_or_dealer",
+            "investment_advisor_registered",
+            "investment_advisor_relying",
+            "designated_accredited_investor",
+            "not_accredited"
+          ]
+        },
+        "ca_accredited_investor": {
+          "type": "string",
+          "description": "The Canadian accredited investor information.",
+          "enum": [
+            "d",
+            "e",
+            "e_1",
+            "j",
+            "j_1",
+            "k_alone",
+            "k_spouse",
+            "l",
+            "q",
+            "v",
+            "x"
+          ]
+        },
+        "first_name": {
+          "type": "string",
+          "description": "The first name of the individual investor profile."
+        },
+        "last_name": {
+          "type": "string",
+          "description": "The last name of the individual investor profile."
+        },
+        "suffix": {
+          "type": "string",
+          "description": "The suffix of the individual investor profile."
+        },
+        "date_of_birth": {
+          "type": "string",
+          "description": "The date of birth of the investor profile."
+        },
+        "taxpayer_id": {
+          "type": "string",
+          "description": "The taxpayer identification number of the investor profile."
+        },
+        "phone_number": {
+          "type": "string",
+          "description": "The phone number of the investor profile."
+        },
+        "country": {
+          "type": "Country",
+          "description": "The country of the individual investor profile."
+        },
+        "street_address": {
+          "type": "string",
+          "description": "The street address of the individual investor profile."
+        },
+        "unit2": {
+          "type": "string",
+          "description": "The street address line 2 of the individual investor profile."
+        },
+        "city": {
+          "type": "string",
+          "description": "The city of the individual investor profile."
+        },
+        "region": {
+          "type": "string",
+          "description": "The region or state of the individual investor profile."
+        },
+        "postal_code": {
+          "type": "string",
+          "description": "The postal code or zipcode of the individual investor profile."
+        },
+        "income": {
+          "type": "number",
+          "format": "float",
+          "description": "The income of the individual investor profile"
+        },
+        "net_worth": {
+          "type": "number",
+          "format": "float",
+          "description": "The net worth of the individual investor profile"
+        },
+        "reg_cf_prior_offerings_amount": {
+          "type": "number",
+          "format": "float",
+          "description": "The prior offering amount of the individual investor profile"
+        }
+      },
+      "description": "Patch individual investor profile."
+    },
+    "postInvestorProfilesIndividuals": {
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string",
+          "description": "User email which is associated with individual investor profile."
+        },
+        "us_accredited_category": {
+          "type": "string",
+          "description": "The United States accredited investor information.",
+          "enum": [
+            "income_individual",
+            "assets_individual",
+            "director",
+            "knowledgable_employee",
+            "broker_or_dealer",
+            "investment_advisor_registered",
+            "investment_advisor_relying",
+            "designated_accredited_investor",
+            "not_accredited"
+          ]
+        },
+        "ca_accredited_investor": {
+          "type": "string",
+          "description": "The Canadian accredited investor information.",
+          "enum": [
+            "d",
+            "e",
+            "e_1",
+            "j",
+            "j_1",
+            "k_alone",
+            "k_spouse",
+            "l",
+            "q",
+            "v",
+            "x"
+          ]
+        },
+        "first_name": {
+          "type": "string",
+          "description": "The first name of the individual investor profile (required)."
+        },
+        "last_name": {
+          "type": "string",
+          "description": "The last name of the individual investor profile (required)"
+        },
+        "suffix": {
+          "type": "string",
+          "description": "The suffix of the individual investor profile"
+        },
+        "date_of_birth": {
+          "type": "string",
+          "description": "The date of birth of the investor profile (required)"
+        },
+        "taxpayer_id": {
+          "type": "string",
+          "description": "The taxpayer identification number of the investor profile (required)"
+        },
+        "phone_number": {
+          "type": "string",
+          "description": "The phone number of the investor profile (required)"
+        },
+        "country": {
+          "type": "Country",
+          "description": "The country of the individual investor profile (required)"
+        },
+        "street_address": {
+          "type": "string",
+          "description": "The street address of the individual investor profile (required)"
+        },
+        "unit2": {
+          "type": "string",
+          "description": "The street address line 2 of the individual investor profile"
+        },
+        "city": {
+          "type": "string",
+          "description": "The city of the individual investor profile (required)"
+        },
+        "region": {
+          "type": "string",
+          "description": "The region or state of the individual investor profile (required)"
+        },
+        "postal_code": {
+          "type": "string",
+          "description": "The postal code or zipcode of the individual investor profile (required)"
+        },
+        "income": {
+          "type": "number",
+          "format": "float",
+          "description": "The income of the individual investor profile"
+        },
+        "net_worth": {
+          "type": "number",
+          "format": "float",
+          "description": "The net worth of the individual investor profile"
+        },
+        "reg_cf_prior_offerings_amount": {
+          "type": "number",
+          "format": "float",
+          "description": "The prior offering amount of the individual investor profile"
+        }
+      },
+      "required": [
+        "email"
+      ],
+      "description": "Create new individual investor profile"
+    },
+    "patchInvestorProfilesJoints": {
+      "type": "object",
+      "properties": {
+        "us_accredited_category": {
+          "type": "string",
+          "description": "The United States accredited investor information.",
+          "enum": [
+            "income_individual",
+            "assets_individual",
+            "director",
+            "knowledgable_employee",
+            "broker_or_dealer",
+            "investment_advisor_registered",
+            "investment_advisor_relying",
+            "designated_accredited_investor",
+            "not_accredited"
+          ]
+        },
+        "ca_accredited_investor": {
+          "type": "string",
+          "description": "The Canadian accredited investor information.",
+          "enum": [
+            "d",
+            "e",
+            "e_1",
+            "j",
+            "j_1",
+            "k_alone",
+            "k_spouse",
+            "l",
+            "q",
+            "v",
+            "x"
+          ]
+        },
+        "joint_type": {
+          "type": "string",
+          "description": "The kind of joint investor.",
+          "enum": [
+            "joint_tenant",
+            "tenants_in_common",
+            "community_property"
+          ]
+        },
+        "first_name": {
+          "type": "string",
+          "description": "The first name of the investor profile."
+        },
+        "last_name": {
+          "type": "string",
+          "description": "The last name of the investor profile."
+        },
+        "suffix": {
+          "type": "string",
+          "description": "The suffix of the investor profile."
+        },
+        "country": {
+          "type": "Country",
+          "description": "The country the investor profile."
+        },
+        "street_address": {
+          "type": "string",
+          "description": "The street address of the investor profile."
+        },
+        "unit2": {
+          "type": "string",
+          "description": "The street address line 2 of the investor profile."
+        },
+        "city": {
+          "type": "string",
+          "description": "The city of the investor profile."
+        },
+        "region": {
+          "type": "string",
+          "description": "The region or State of the investor profile."
+        },
+        "postal_code": {
+          "type": "string",
+          "description": "The postal code or zipcode of the investor profile."
+        },
+        "date_of_birth": {
+          "type": "string",
+          "description": "The date of birth of the investor profile."
+        },
+        "taxpayer_id": {
+          "type": "string",
+          "description": "The taxpayer identification number of the investor profile."
+        },
+        "phone_number": {
+          "type": "string",
+          "description": "The phone number of the investor profile."
+        },
+        "income": {
+          "type": "number",
+          "format": "float",
+          "description": "The income of the investor profile."
+        },
+        "net_worth": {
+          "type": "number",
+          "format": "float",
+          "description": "The net worth of the investor profile."
+        },
+        "reg_cf_prior_offerings_amount": {
+          "type": "number",
+          "format": "float",
+          "description": "The prior offerings amount of the investor profile."
+        },
+        "joint_holder_first_name": {
+          "type": "string",
+          "description": "The joint holder first name of the investor profile."
+        },
+        "joint_holder_last_name": {
+          "type": "string",
+          "description": "The joint holder last name of the investor profile."
+        },
+        "joint_holder_suffix": {
+          "type": "string",
+          "description": "The suffix of the individual investor profile."
+        },
+        "joint_holder_country": {
+          "type": "Country",
+          "description": "The joint holder country of the investor profile."
+        },
+        "joint_holder_street_address": {
+          "type": "string",
+          "description": "The joint holder street address of the investor profile."
+        },
+        "joint_holder_unit2": {
+          "type": "string",
+          "description": "The Joint holder street address line 2 of the investor profile."
+        },
+        "joint_holder_city": {
+          "type": "string",
+          "description": "The Joint holder city of the investor profile."
+        },
+        "joint_holder_region": {
+          "type": "string",
+          "description": "The joint holder region or state of the investor profile."
+        },
+        "joint_holder_postal_code": {
+          "type": "string",
+          "description": "The joint holder postal code or zipcode of the investor profile."
+        },
+        "joint_holder_date_of_birth": {
+          "type": "string",
+          "description": "The joint holder date of birth of the investor profile."
+        },
+        "joint_holder_taxpayer_id": {
+          "type": "string",
+          "description": "The joint holder taxpayer identification number of the investor profile."
+        }
+      },
+      "description": "Patch joint investor profile"
+    },
+    "postInvestorProfilesJoints": {
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string",
+          "description": "User email which is associated with investor profile."
+        },
+        "us_accredited_category": {
+          "type": "string",
+          "description": "The United States accredited investor information.",
+          "enum": [
+            "income_individual",
+            "assets_individual",
+            "director",
+            "knowledgable_employee",
+            "broker_or_dealer",
+            "investment_advisor_registered",
+            "investment_advisor_relying",
+            "designated_accredited_investor",
+            "not_accredited"
+          ]
+        },
+        "ca_accredited_investor": {
+          "type": "string",
+          "description": "The Canadian accredited investor information.",
+          "enum": [
+            "d",
+            "e",
+            "e_1",
+            "j",
+            "j_1",
+            "k_alone",
+            "k_spouse",
+            "l",
+            "q",
+            "v",
+            "x"
+          ]
+        },
+        "joint_type": {
+          "type": "string",
+          "description": "The types of joint investor.",
+          "enum": [
+            "joint_tenant",
+            "tenants_in_common",
+            "community_property"
+          ]
+        },
+        "first_name": {
+          "type": "string",
+          "description": "The first name of the primary holder (required)."
+        },
+        "last_name": {
+          "type": "string",
+          "description": "The last name of the primary holder (required)."
+        },
+        "suffix": {
+          "type": "string",
+          "description": "The suffix of the primary holder."
+        },
+        "country": {
+          "type": "Country",
+          "description": "The country the primary holder (required)."
+        },
+        "street_address": {
+          "type": "string",
+          "description": "The street address of the primary holder (required)."
+        },
+        "unit2": {
+          "type": "string",
+          "description": "The street address line 2 of the primary holder."
+        },
+        "city": {
+          "type": "string",
+          "description": "The city of the primary holder (required)."
+        },
+        "region": {
+          "type": "string",
+          "description": "The region or State of the primary holder (required)."
+        },
+        "postal_code": {
+          "type": "string",
+          "description": "The postal code or zipcode of the primary holder (required)."
+        },
+        "date_of_birth": {
+          "type": "string",
+          "description": "The date of birth of the primary holder (required)."
+        },
+        "taxpayer_id": {
+          "type": "string",
+          "description": "The taxpayer identification number of the primary holder (required)."
+        },
+        "phone_number": {
+          "type": "string",
+          "description": "The phone number of the primary holder (required)."
+        },
+        "income": {
+          "type": "number",
+          "format": "float",
+          "description": "The income of the primary holder."
+        },
+        "net_worth": {
+          "type": "number",
+          "format": "float",
+          "description": "The net worth of the primary holder."
+        },
+        "reg_cf_prior_offerings_amount": {
+          "type": "number",
+          "format": "float",
+          "description": "The prior offerings amount of the primary holder."
+        },
+        "joint_holder_first_name": {
+          "type": "string",
+          "description": "The first name of the joint holder (required)."
+        },
+        "joint_holder_last_name": {
+          "type": "string",
+          "description": "The last name of the joint holder (required)."
+        },
+        "joint_holder_suffix": {
+          "type": "string",
+          "description": "The suffix of the joint holder."
+        },
+        "joint_holder_country": {
+          "type": "Country",
+          "description": "The country of the joint holder (required)."
+        },
+        "joint_holder_street_address": {
+          "type": "string",
+          "description": "The street address of the joint holder (required)."
+        },
+        "joint_holder_unit2": {
+          "type": "string",
+          "description": "The street address line 2 of the joint holder."
+        },
+        "joint_holder_city": {
+          "type": "string",
+          "description": "The city of the joint holder (required)."
+        },
+        "joint_holder_region": {
+          "type": "string",
+          "description": "The region or state of the joint holder (required)."
+        },
+        "joint_holder_postal_code": {
+          "type": "string",
+          "description": "The postal code or zipcode of the joint holder (required)."
+        },
+        "joint_holder_date_of_birth": {
+          "type": "string",
+          "description": "The date of birth of the joint holder (required)."
+        },
+        "joint_holder_taxpayer_id": {
+          "type": "string",
+          "description": "The taxpayer identification number of the joint holder (required)."
+        }
+      },
+      "required": [
+        "email"
+      ],
+      "description": "Create new joint investor profile"
+    },
+    "patchInvestorProfilesCorporations": {
+      "type": "object",
+      "properties": {
+        "us_accredited_category": {
+          "type": "string",
+          "description": "The United States accredited investor information.",
+          "enum": [
+            "entity_owned_by_accredited_investors",
+            "assets_other",
+            "assets_family_office",
+            "assets_benefit_plan",
+            "assets_state_plan",
+            "assets_501_c_3",
+            "assets_corporation",
+            "broker_or_dealer",
+            "bank_3_a_2",
+            "business_development_company",
+            "small_business",
+            "private_business_development_company",
+            "investment_company",
+            "rural_business_investment_company",
+            "insurance_company",
+            "family_client",
+            "not_accredited"
+          ]
+        },
+        "ca_accredited_investor": {
+          "type": "string",
+          "description": "The Canadian accredited investor information.",
+          "enum": [
+            "a",
+            "b",
+            "c",
+            "d",
+            "f",
+            "g",
+            "h",
+            "i",
+            "m",
+            "n",
+            "o",
+            "p",
+            "q",
+            "r",
+            "s",
+            "t",
+            "u",
+            "v",
+            "x"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "description": "Corporation name."
+        },
+        "country": {
+          "type": "Country",
+          "description": "Corporation country."
+        },
+        "street_address": {
+          "type": "string",
+          "description": "Corporation street address."
+        },
+        "unit2": {
+          "type": "string",
+          "description": "Corporation street address line 2."
+        },
+        "city": {
+          "type": "string",
+          "description": "Corporation city."
+        },
+        "region": {
+          "type": "string",
+          "description": "Corporation region or state."
+        },
+        "postal_code": {
+          "type": "string",
+          "description": "Corporation postal code or zipcode."
+        },
+        "business_number": {
+          "type": "string",
+          "description": "The business number of the investor profile."
+        },
+        "phone_number": {
+          "type": "string",
+          "description": "The phone number of the investor profile."
+        },
+        "income": {
+          "type": "number",
+          "format": "float",
+          "description": "The income of the individual investor profile"
+        },
+        "net_worth": {
+          "type": "number",
+          "format": "float",
+          "description": "The net worth of the individual investor profile"
+        },
+        "reg_cf_prior_offerings_amount": {
+          "type": "number",
+          "format": "float",
+          "description": "The prior offering amount of the individual investor profile"
+        },
+        "signing_officer_first_name": {
+          "type": "string",
+          "description": "Signing officer first name."
+        },
+        "signing_officer_last_name": {
+          "type": "string",
+          "description": "Signing officer last name."
+        },
+        "signing_officer_suffix": {
+          "type": "string",
+          "description": "Signing officer suffix."
+        },
+        "signing_officer_country": {
+          "type": "Country",
+          "description": "Signing officer country."
+        },
+        "signing_officer_street_address": {
+          "type": "string",
+          "description": "Signing officer street address."
+        },
+        "signing_officer_unit2": {
+          "type": "string",
+          "description": "Signing officer street address line 2."
+        },
+        "signing_officer_city": {
+          "type": "string",
+          "description": "Signing officer city."
+        },
+        "signing_officer_region": {
+          "type": "string",
+          "description": "Signing officer region or state."
+        },
+        "signing_officer_postal_code": {
+          "type": "string",
+          "description": "Signing officer postal code or zipcode."
+        },
+        "signing_officer_date_of_birth": {
+          "type": "string",
+          "description": "Signing officer date of birth."
+        },
+        "signing_officer_taxpayer_id": {
+          "type": "string",
+          "description": "The taxpayer identification number of the investor profile."
+        },
+        "signing_officer_phone_number": {
+          "type": "string",
+          "description": "The phone number of the signing officer (required)."
+        },
+        "beneficial_owners": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "index": {
+                "type": "integer",
+                "format": "int32",
+                "description": "The index of the beneficial owner."
+              },
+              "_delete": {
+                "type": "boolean",
+                "description": "If true, this entry will be cleared."
+              },
+              "first_name": {
+                "type": "string",
+                "description": "The list of first names for the beneficial owners (required for beneficial owner 1)."
+              },
+              "last_name": {
+                "type": "string",
+                "description": "The list of last names for the beneficial owners (required for beneficial owner 1)."
+              },
+              "suffix": {
+                "type": "string",
+                "description": "The list of suffixes for the beneficial owners."
+              },
+              "country": {
+                "type": "Country",
+                "description": "The list of countries for the beneficial owners (required for beneficial owner 1)."
+              },
+              "street_address": {
+                "type": "string",
+                "description": "The list of street addresses for the beneficial owners (required for beneficial owner 1)."
+              },
+              "unit2": {
+                "type": "string",
+                "description": "The list of street address line 2 for the beneficial owners."
+              },
+              "city": {
+                "type": "string",
+                "description": "The list of cities for the beneficial owners (required for beneficial owner 1)."
+              },
+              "region": {
+                "type": "string",
+                "description": "The list of region or states for the beneficial owners (required for beneficial owner 1)."
+              },
+              "postal_code": {
+                "type": "string",
+                "description": "The list of postal codes or zipcodes for the beneficial owners (required for beneficial owner 1)."
+              },
+              "date_of_birth": {
+                "type": "string",
+                "description": "The list of dates of birth for the beneficial owners (required for beneficial owner 1)."
+              },
+              "taxpayer_id": {
+                "type": "string",
+                "description": "The list of taxpayer identification numbers for the beneficial owners (required for beneficial owner 1)."
+              },
+              "phone_number": {
+                "type": "string",
+                "description": "The list of phone numbers for the beneficial owners (required for beneficial owner 1)."
+              }
+            },
+            "required": [
+              "index"
+            ]
+          }
+        }
+      },
+      "description": "Patch corporation investor profile"
+    },
+    "postInvestorProfilesCorporations": {
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string",
+          "description": "User email which is associated with investor profile (required)."
+        },
+        "us_accredited_category": {
+          "type": "string",
+          "description": "The United States accredited investor information.",
+          "enum": [
+            "entity_owned_by_accredited_investors",
+            "assets_other",
+            "assets_family_office",
+            "assets_benefit_plan",
+            "assets_state_plan",
+            "assets_501_c_3",
+            "assets_corporation",
+            "broker_or_dealer",
+            "bank_3_a_2",
+            "business_development_company",
+            "small_business",
+            "private_business_development_company",
+            "investment_company",
+            "rural_business_investment_company",
+            "insurance_company",
+            "family_client",
+            "not_accredited"
+          ]
+        },
+        "ca_accredited_investor": {
+          "type": "string",
+          "description": "The Canadian accredited investor information.",
+          "enum": [
+            "a",
+            "b",
+            "c",
+            "d",
+            "f",
+            "g",
+            "h",
+            "i",
+            "m",
+            "n",
+            "o",
+            "p",
+            "q",
+            "r",
+            "s",
+            "t",
+            "u",
+            "v",
+            "x"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the corporation (required)."
+        },
+        "country": {
+          "type": "Country",
+          "description": "The country of the corporation (required)."
+        },
+        "street_address": {
+          "type": "string",
+          "description": "The street address of the corporation (required)."
+        },
+        "unit2": {
+          "type": "string",
+          "description": "The street address line 2 of the corporation."
+        },
+        "city": {
+          "type": "string",
+          "description": "The city of the corporation (required)."
+        },
+        "region": {
+          "type": "string",
+          "description": "The region or state of the corporation (required)."
+        },
+        "postal_code": {
+          "type": "string",
+          "description": "The postal code or zipcode of the corporation (required)."
+        },
+        "business_number": {
+          "type": "string",
+          "description": "The taxpayer identification number  of the corporation (required)."
+        },
+        "phone_number": {
+          "type": "string",
+          "description": "The phone number o of the corporation (required)."
+        },
+        "income": {
+          "type": "number",
+          "format": "float",
+          "description": "The income of the individual investor profile"
+        },
+        "net_worth": {
+          "type": "number",
+          "format": "float",
+          "description": "The net worth of the individual investor profile"
+        },
+        "reg_cf_prior_offerings_amount": {
+          "type": "number",
+          "format": "float",
+          "description": "The prior offering amount of the individual investor profile"
+        },
+        "signing_officer_first_name": {
+          "type": "string",
+          "description": "The first name of the signing officer (required)."
+        },
+        "signing_officer_last_name": {
+          "type": "string",
+          "description": "The last name of the signing officer (required)."
+        },
+        "signing_officer_suffix": {
+          "type": "string",
+          "description": "The suffix of the signing officer."
+        },
+        "signing_officer_country": {
+          "type": "Country",
+          "description": "The country of the signing officer (required)."
+        },
+        "signing_officer_street_address": {
+          "type": "string",
+          "description": "The street address of the signing officer (required)."
+        },
+        "signing_officer_unit2": {
+          "type": "string",
+          "description": "The street address line 2 of the signing officer."
+        },
+        "signing_officer_city": {
+          "type": "string",
+          "description": "The city of the signing officer (required)."
+        },
+        "signing_officer_region": {
+          "type": "string",
+          "description": "The region or state of the signing officer (required)."
+        },
+        "signing_officer_postal_code": {
+          "type": "string",
+          "description": "The postal code or zipcode of the signing officer (required)."
+        },
+        "signing_officer_date_of_birth": {
+          "type": "string",
+          "description": "The date of birth of the signing officer (required)."
+        },
+        "signing_officer_taxpayer_id": {
+          "type": "string",
+          "description": "The taxpayer identification number of the signing officer (required)."
+        },
+        "signing_officer_phone_number": {
+          "type": "string",
+          "description": "The phone number of the signing officer (required)."
+        },
+        "beneficial_owners": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "first_name": {
+                "type": "string",
+                "description": "The list of first names for the beneficial owners (required for beneficial owner 1)."
+              },
+              "last_name": {
+                "type": "string",
+                "description": "The list of last names for the beneficial owners (required for beneficial owner 1)."
+              },
+              "suffix": {
+                "type": "string",
+                "description": "The list of suffixes for the beneficial owners."
+              },
+              "country": {
+                "type": "Country",
+                "description": "The list of countries for the beneficial owners (required for beneficial owner 1)."
+              },
+              "street_address": {
+                "type": "string",
+                "description": "The list of street addresses for the beneficial owners (required for beneficial owner 1)."
+              },
+              "unit2": {
+                "type": "string",
+                "description": "The list of street address line 2 for the beneficial owners."
+              },
+              "city": {
+                "type": "string",
+                "description": "The list of cities for the beneficial owners (required for beneficial owner 1)."
+              },
+              "region": {
+                "type": "string",
+                "description": "The list of region or states for the beneficial owners (required for beneficial owner 1)."
+              },
+              "postal_code": {
+                "type": "string",
+                "description": "The list of postal codes or zipcodes for the beneficial owners (required for beneficial owner 1)."
+              },
+              "date_of_birth": {
+                "type": "string",
+                "description": "The list of dates of birth for the beneficial owners (required for beneficial owner 1)."
+              },
+              "taxpayer_id": {
+                "type": "string",
+                "description": "The list of taxpayer identification numbers for the beneficial owners (required for beneficial owner 1)."
+              },
+              "phone_number": {
+                "type": "string",
+                "description": "The list of phone numbers for the beneficial owners (required for beneficial owner 1)."
+              }
+            }
+          }
+        }
+      },
+      "required": [
+        "email"
+      ],
+      "description": "Create new corporation investor profile."
     },
     "V1_Entities_InvestorProfileItem": {
       "type": "object",

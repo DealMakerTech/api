@@ -35,7 +35,7 @@ describe 'InvestorProfileApi' do
   # unit tests for create_corporation_profile
   # Create new corporation investor profile.
   # Create new corporation investor profile associated to the user by email.
-  # @param create_corporation_profile_request 
+  # @param investor_profiles_corporations 
   # @param [Hash] opts the optional parameters
   # @return [V1EntitiesInvestorProfileCorporation]
   describe 'create_corporation_profile test' do
@@ -47,7 +47,7 @@ describe 'InvestorProfileApi' do
   # unit tests for create_individual_profile
   # Create new individual investor profile
   # Create new individual investor profile associated to the user by email.
-  # @param create_individual_profile_request 
+  # @param investor_profiles_individuals 
   # @param [Hash] opts the optional parameters
   # @return [V1EntitiesInvestorProfileIndividual]
   describe 'create_individual_profile test' do
@@ -59,7 +59,7 @@ describe 'InvestorProfileApi' do
   # unit tests for create_joint_profile
   # Create new joint investor profile
   # Create new joint investor profile associated to the user by email.
-  # @param create_joint_profile_request 
+  # @param investor_profiles_joints 
   # @param [Hash] opts the optional parameters
   # @return [V1EntitiesInvestorProfileJoint]
   describe 'create_joint_profile test' do
@@ -71,7 +71,7 @@ describe 'InvestorProfileApi' do
   # unit tests for create_trust_profile
   # Create new trust investor profile.
   # Create new trust investor profile associated to the user by email.
-  # @param create_trust_profile_request 
+  # @param investor_profiles_trusts 
   # @param [Hash] opts the optional parameters
   # @return [V1EntitiesInvestorProfileTrust]
   describe 'create_trust_profile test' do
@@ -126,7 +126,7 @@ describe 'InvestorProfileApi' do
   # Patch a corporation investor profile
   # Patch corporation investor profile
   # @param investor_profile_id 
-  # @param patch_corporation_profile_request 
+  # @param investor_profiles_corporations 
   # @param [Hash] opts the optional parameters
   # @return [V1EntitiesInvestorProfileCorporation]
   describe 'patch_corporation_profile test' do
@@ -139,8 +139,8 @@ describe 'InvestorProfileApi' do
   # Patch an individual investor profile.
   # Patch individual investor profile.
   # @param investor_profile_id 
+  # @param investor_profiles_individuals 
   # @param [Hash] opts the optional parameters
-  # @option opts [PatchIndividualProfileRequest] :patch_individual_profile_request 
   # @return [V1EntitiesInvestorProfileIndividual]
   describe 'patch_individual_profile test' do
     it 'should work' do
@@ -152,8 +152,8 @@ describe 'InvestorProfileApi' do
   # Patch a joint investor profile
   # Patch joint investor profile
   # @param investor_profile_id 
+  # @param investor_profiles_joints 
   # @param [Hash] opts the optional parameters
-  # @option opts [PatchJointProfileRequest] :patch_joint_profile_request 
   # @return [V1EntitiesInvestorProfileJoint]
   describe 'patch_joint_profile test' do
     it 'should work' do
@@ -165,8 +165,8 @@ describe 'InvestorProfileApi' do
   # Patch a trust investor profile
   # Patch trust investor profile
   # @param investor_profile_id 
+  # @param investor_profiles_trusts 
   # @param [Hash] opts the optional parameters
-  # @option opts [PatchTrustProfileRequest] :patch_trust_profile_request 
   # @return [V1EntitiesInvestorProfileTrust]
   describe 'patch_trust_profile test' do
     it 'should work' do

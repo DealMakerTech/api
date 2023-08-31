@@ -17,7 +17,7 @@ import V1EntitiesInvestor from './V1EntitiesInvestor';
 /**
  * The V1EntitiesInvestors model module.
  * @module model/V1EntitiesInvestors
- * @version 0.85.3
+ * @version 0.85.4
  */
 class V1EntitiesInvestors {
     /**

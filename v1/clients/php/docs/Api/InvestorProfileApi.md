@@ -20,7 +20,7 @@ All URIs are relative to http://api.dealmaker.tech, except if the operation defi
 ## `createCorporationProfile()`
 
 ```php
-createCorporationProfile($create_corporation_profile_request): \DealMaker\Model\V1EntitiesInvestorProfileCorporation
+createCorporationProfile($investor_profiles_corporations): \DealMaker\Model\V1EntitiesInvestorProfileCorporation
 ```
 
 Create new corporation investor profile.
@@ -41,10 +41,10 @@ $apiInstance = new DealMaker\Api\InvestorProfileApi(
     new GuzzleHttp\Client(),
     $config
 );
-$create_corporation_profile_request = new \DealMaker\Model\CreateCorporationProfileRequest(); // \DealMaker\Model\CreateCorporationProfileRequest
+$investor_profiles_corporations = new \DealMaker\Model\PostInvestorProfilesCorporations(); // \DealMaker\Model\PostInvestorProfilesCorporations
 
 try {
-    $result = $apiInstance->createCorporationProfile($create_corporation_profile_request);
+    $result = $apiInstance->createCorporationProfile($investor_profiles_corporations);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling InvestorProfileApi->createCorporationProfile: ', $e->getMessage(), PHP_EOL;
@@ -55,7 +55,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **create_corporation_profile_request** | [**\DealMaker\Model\CreateCorporationProfileRequest**](../Model/CreateCorporationProfileRequest.md)|  | |
+| **investor_profiles_corporations** | [**\DealMaker\Model\PostInvestorProfilesCorporations**](../Model/PostInvestorProfilesCorporations.md)|  | |
 
 ### Return type
 
@@ -77,7 +77,7 @@ No authorization required
 ## `createIndividualProfile()`
 
 ```php
-createIndividualProfile($create_individual_profile_request): \DealMaker\Model\V1EntitiesInvestorProfileIndividual
+createIndividualProfile($investor_profiles_individuals): \DealMaker\Model\V1EntitiesInvestorProfileIndividual
 ```
 
 Create new individual investor profile
@@ -98,10 +98,10 @@ $apiInstance = new DealMaker\Api\InvestorProfileApi(
     new GuzzleHttp\Client(),
     $config
 );
-$create_individual_profile_request = new \DealMaker\Model\CreateIndividualProfileRequest(); // \DealMaker\Model\CreateIndividualProfileRequest
+$investor_profiles_individuals = new \DealMaker\Model\PostInvestorProfilesIndividuals(); // \DealMaker\Model\PostInvestorProfilesIndividuals
 
 try {
-    $result = $apiInstance->createIndividualProfile($create_individual_profile_request);
+    $result = $apiInstance->createIndividualProfile($investor_profiles_individuals);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling InvestorProfileApi->createIndividualProfile: ', $e->getMessage(), PHP_EOL;
@@ -112,7 +112,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **create_individual_profile_request** | [**\DealMaker\Model\CreateIndividualProfileRequest**](../Model/CreateIndividualProfileRequest.md)|  | |
+| **investor_profiles_individuals** | [**\DealMaker\Model\PostInvestorProfilesIndividuals**](../Model/PostInvestorProfilesIndividuals.md)|  | |
 
 ### Return type
 
@@ -134,7 +134,7 @@ No authorization required
 ## `createJointProfile()`
 
 ```php
-createJointProfile($create_joint_profile_request): \DealMaker\Model\V1EntitiesInvestorProfileJoint
+createJointProfile($investor_profiles_joints): \DealMaker\Model\V1EntitiesInvestorProfileJoint
 ```
 
 Create new joint investor profile
@@ -155,10 +155,10 @@ $apiInstance = new DealMaker\Api\InvestorProfileApi(
     new GuzzleHttp\Client(),
     $config
 );
-$create_joint_profile_request = new \DealMaker\Model\CreateJointProfileRequest(); // \DealMaker\Model\CreateJointProfileRequest
+$investor_profiles_joints = new \DealMaker\Model\PostInvestorProfilesJoints(); // \DealMaker\Model\PostInvestorProfilesJoints
 
 try {
-    $result = $apiInstance->createJointProfile($create_joint_profile_request);
+    $result = $apiInstance->createJointProfile($investor_profiles_joints);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling InvestorProfileApi->createJointProfile: ', $e->getMessage(), PHP_EOL;
@@ -169,7 +169,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **create_joint_profile_request** | [**\DealMaker\Model\CreateJointProfileRequest**](../Model/CreateJointProfileRequest.md)|  | |
+| **investor_profiles_joints** | [**\DealMaker\Model\PostInvestorProfilesJoints**](../Model/PostInvestorProfilesJoints.md)|  | |
 
 ### Return type
 
@@ -191,7 +191,7 @@ No authorization required
 ## `createTrustProfile()`
 
 ```php
-createTrustProfile($create_trust_profile_request): \DealMaker\Model\V1EntitiesInvestorProfileTrust
+createTrustProfile($investor_profiles_trusts): \DealMaker\Model\V1EntitiesInvestorProfileTrust
 ```
 
 Create new trust investor profile.
@@ -212,10 +212,10 @@ $apiInstance = new DealMaker\Api\InvestorProfileApi(
     new GuzzleHttp\Client(),
     $config
 );
-$create_trust_profile_request = new \DealMaker\Model\CreateTrustProfileRequest(); // \DealMaker\Model\CreateTrustProfileRequest
+$investor_profiles_trusts = new \DealMaker\Model\PostInvestorProfilesTrusts(); // \DealMaker\Model\PostInvestorProfilesTrusts
 
 try {
-    $result = $apiInstance->createTrustProfile($create_trust_profile_request);
+    $result = $apiInstance->createTrustProfile($investor_profiles_trusts);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling InvestorProfileApi->createTrustProfile: ', $e->getMessage(), PHP_EOL;
@@ -226,7 +226,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **create_trust_profile_request** | [**\DealMaker\Model\CreateTrustProfileRequest**](../Model/CreateTrustProfileRequest.md)|  | |
+| **investor_profiles_trusts** | [**\DealMaker\Model\PostInvestorProfilesTrusts**](../Model/PostInvestorProfilesTrusts.md)|  | |
 
 ### Return type
 
@@ -431,7 +431,7 @@ No authorization required
 ## `patchCorporationProfile()`
 
 ```php
-patchCorporationProfile($investor_profile_id, $patch_corporation_profile_request): \DealMaker\Model\V1EntitiesInvestorProfileCorporation
+patchCorporationProfile($investor_profile_id, $investor_profiles_corporations): \DealMaker\Model\V1EntitiesInvestorProfileCorporation
 ```
 
 Patch a corporation investor profile
@@ -453,10 +453,10 @@ $apiInstance = new DealMaker\Api\InvestorProfileApi(
     $config
 );
 $investor_profile_id = 56; // int
-$patch_corporation_profile_request = new \DealMaker\Model\PatchCorporationProfileRequest(); // \DealMaker\Model\PatchCorporationProfileRequest
+$investor_profiles_corporations = new \DealMaker\Model\PatchInvestorProfilesCorporations(); // \DealMaker\Model\PatchInvestorProfilesCorporations
 
 try {
-    $result = $apiInstance->patchCorporationProfile($investor_profile_id, $patch_corporation_profile_request);
+    $result = $apiInstance->patchCorporationProfile($investor_profile_id, $investor_profiles_corporations);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling InvestorProfileApi->patchCorporationProfile: ', $e->getMessage(), PHP_EOL;
@@ -468,7 +468,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **investor_profile_id** | **int**|  | |
-| **patch_corporation_profile_request** | [**\DealMaker\Model\PatchCorporationProfileRequest**](../Model/PatchCorporationProfileRequest.md)|  | |
+| **investor_profiles_corporations** | [**\DealMaker\Model\PatchInvestorProfilesCorporations**](../Model/PatchInvestorProfilesCorporations.md)|  | |
 
 ### Return type
 
@@ -490,7 +490,7 @@ No authorization required
 ## `patchIndividualProfile()`
 
 ```php
-patchIndividualProfile($investor_profile_id, $patch_individual_profile_request): \DealMaker\Model\V1EntitiesInvestorProfileIndividual
+patchIndividualProfile($investor_profile_id, $investor_profiles_individuals): \DealMaker\Model\V1EntitiesInvestorProfileIndividual
 ```
 
 Patch an individual investor profile.
@@ -512,10 +512,10 @@ $apiInstance = new DealMaker\Api\InvestorProfileApi(
     $config
 );
 $investor_profile_id = 56; // int
-$patch_individual_profile_request = new \DealMaker\Model\PatchIndividualProfileRequest(); // \DealMaker\Model\PatchIndividualProfileRequest
+$investor_profiles_individuals = new \DealMaker\Model\PatchInvestorProfilesIndividuals(); // \DealMaker\Model\PatchInvestorProfilesIndividuals
 
 try {
-    $result = $apiInstance->patchIndividualProfile($investor_profile_id, $patch_individual_profile_request);
+    $result = $apiInstance->patchIndividualProfile($investor_profile_id, $investor_profiles_individuals);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling InvestorProfileApi->patchIndividualProfile: ', $e->getMessage(), PHP_EOL;
@@ -527,7 +527,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **investor_profile_id** | **int**|  | |
-| **patch_individual_profile_request** | [**\DealMaker\Model\PatchIndividualProfileRequest**](../Model/PatchIndividualProfileRequest.md)|  | [optional] |
+| **investor_profiles_individuals** | [**\DealMaker\Model\PatchInvestorProfilesIndividuals**](../Model/PatchInvestorProfilesIndividuals.md)|  | |
 
 ### Return type
 
@@ -549,7 +549,7 @@ No authorization required
 ## `patchJointProfile()`
 
 ```php
-patchJointProfile($investor_profile_id, $patch_joint_profile_request): \DealMaker\Model\V1EntitiesInvestorProfileJoint
+patchJointProfile($investor_profile_id, $investor_profiles_joints): \DealMaker\Model\V1EntitiesInvestorProfileJoint
 ```
 
 Patch a joint investor profile
@@ -571,10 +571,10 @@ $apiInstance = new DealMaker\Api\InvestorProfileApi(
     $config
 );
 $investor_profile_id = 56; // int
-$patch_joint_profile_request = new \DealMaker\Model\PatchJointProfileRequest(); // \DealMaker\Model\PatchJointProfileRequest
+$investor_profiles_joints = new \DealMaker\Model\PatchInvestorProfilesJoints(); // \DealMaker\Model\PatchInvestorProfilesJoints
 
 try {
-    $result = $apiInstance->patchJointProfile($investor_profile_id, $patch_joint_profile_request);
+    $result = $apiInstance->patchJointProfile($investor_profile_id, $investor_profiles_joints);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling InvestorProfileApi->patchJointProfile: ', $e->getMessage(), PHP_EOL;
@@ -586,7 +586,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **investor_profile_id** | **int**|  | |
-| **patch_joint_profile_request** | [**\DealMaker\Model\PatchJointProfileRequest**](../Model/PatchJointProfileRequest.md)|  | [optional] |
+| **investor_profiles_joints** | [**\DealMaker\Model\PatchInvestorProfilesJoints**](../Model/PatchInvestorProfilesJoints.md)|  | |
 
 ### Return type
 
@@ -608,7 +608,7 @@ No authorization required
 ## `patchTrustProfile()`
 
 ```php
-patchTrustProfile($investor_profile_id, $patch_trust_profile_request): \DealMaker\Model\V1EntitiesInvestorProfileTrust
+patchTrustProfile($investor_profile_id, $investor_profiles_trusts): \DealMaker\Model\V1EntitiesInvestorProfileTrust
 ```
 
 Patch a trust investor profile
@@ -630,10 +630,10 @@ $apiInstance = new DealMaker\Api\InvestorProfileApi(
     $config
 );
 $investor_profile_id = 56; // int
-$patch_trust_profile_request = new \DealMaker\Model\PatchTrustProfileRequest(); // \DealMaker\Model\PatchTrustProfileRequest
+$investor_profiles_trusts = new \DealMaker\Model\PatchInvestorProfilesTrusts(); // \DealMaker\Model\PatchInvestorProfilesTrusts
 
 try {
-    $result = $apiInstance->patchTrustProfile($investor_profile_id, $patch_trust_profile_request);
+    $result = $apiInstance->patchTrustProfile($investor_profile_id, $investor_profiles_trusts);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling InvestorProfileApi->patchTrustProfile: ', $e->getMessage(), PHP_EOL;
@@ -645,7 +645,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **investor_profile_id** | **int**|  | |
-| **patch_trust_profile_request** | [**\DealMaker\Model\PatchTrustProfileRequest**](../Model/PatchTrustProfileRequest.md)|  | [optional] |
+| **investor_profiles_trusts** | [**\DealMaker\Model\PatchInvestorProfilesTrusts**](../Model/PatchInvestorProfilesTrusts.md)|  | |
 
 ### Return type
 

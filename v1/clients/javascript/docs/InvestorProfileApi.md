@@ -20,7 +20,7 @@ Method | HTTP request | Description
 
 ## createCorporationProfile
 
-> V1EntitiesInvestorProfileCorporation createCorporationProfile(createCorporationProfileRequest)
+> V1EntitiesInvestorProfileCorporation createCorporationProfile(investorProfilesCorporations)
 
 Create new corporation investor profile.
 
@@ -33,8 +33,8 @@ import Api from 'api';
 let defaultClient = Api.ApiClient.instance;
 
 let apiInstance = new Api.InvestorProfileApi();
-let createCorporationProfileRequest = new Api.CreateCorporationProfileRequest(); // CreateCorporationProfileRequest | 
-apiInstance.createCorporationProfile(createCorporationProfileRequest, (error, data, response) => {
+let investorProfilesCorporations = new Api.PostInvestorProfilesCorporations(); // PostInvestorProfilesCorporations | 
+apiInstance.createCorporationProfile(investorProfilesCorporations, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -48,7 +48,7 @@ apiInstance.createCorporationProfile(createCorporationProfileRequest, (error, da
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **createCorporationProfileRequest** | [**CreateCorporationProfileRequest**](CreateCorporationProfileRequest.md)|  | 
+ **investorProfilesCorporations** | [**PostInvestorProfilesCorporations**](PostInvestorProfilesCorporations.md)|  | 
 
 ### Return type
 
@@ -66,7 +66,7 @@ No authorization required
 
 ## createIndividualProfile
 
-> V1EntitiesInvestorProfileIndividual createIndividualProfile(createIndividualProfileRequest)
+> V1EntitiesInvestorProfileIndividual createIndividualProfile(investorProfilesIndividuals)
 
 Create new individual investor profile
 
@@ -79,8 +79,8 @@ import Api from 'api';
 let defaultClient = Api.ApiClient.instance;
 
 let apiInstance = new Api.InvestorProfileApi();
-let createIndividualProfileRequest = new Api.CreateIndividualProfileRequest(); // CreateIndividualProfileRequest | 
-apiInstance.createIndividualProfile(createIndividualProfileRequest, (error, data, response) => {
+let investorProfilesIndividuals = new Api.PostInvestorProfilesIndividuals(); // PostInvestorProfilesIndividuals | 
+apiInstance.createIndividualProfile(investorProfilesIndividuals, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -94,7 +94,7 @@ apiInstance.createIndividualProfile(createIndividualProfileRequest, (error, data
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **createIndividualProfileRequest** | [**CreateIndividualProfileRequest**](CreateIndividualProfileRequest.md)|  | 
+ **investorProfilesIndividuals** | [**PostInvestorProfilesIndividuals**](PostInvestorProfilesIndividuals.md)|  | 
 
 ### Return type
 
@@ -112,7 +112,7 @@ No authorization required
 
 ## createJointProfile
 
-> V1EntitiesInvestorProfileJoint createJointProfile(createJointProfileRequest)
+> V1EntitiesInvestorProfileJoint createJointProfile(investorProfilesJoints)
 
 Create new joint investor profile
 
@@ -125,8 +125,8 @@ import Api from 'api';
 let defaultClient = Api.ApiClient.instance;
 
 let apiInstance = new Api.InvestorProfileApi();
-let createJointProfileRequest = new Api.CreateJointProfileRequest(); // CreateJointProfileRequest | 
-apiInstance.createJointProfile(createJointProfileRequest, (error, data, response) => {
+let investorProfilesJoints = new Api.PostInvestorProfilesJoints(); // PostInvestorProfilesJoints | 
+apiInstance.createJointProfile(investorProfilesJoints, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -140,7 +140,7 @@ apiInstance.createJointProfile(createJointProfileRequest, (error, data, response
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **createJointProfileRequest** | [**CreateJointProfileRequest**](CreateJointProfileRequest.md)|  | 
+ **investorProfilesJoints** | [**PostInvestorProfilesJoints**](PostInvestorProfilesJoints.md)|  | 
 
 ### Return type
 
@@ -158,7 +158,7 @@ No authorization required
 
 ## createTrustProfile
 
-> V1EntitiesInvestorProfileTrust createTrustProfile(createTrustProfileRequest)
+> V1EntitiesInvestorProfileTrust createTrustProfile(investorProfilesTrusts)
 
 Create new trust investor profile.
 
@@ -171,8 +171,8 @@ import Api from 'api';
 let defaultClient = Api.ApiClient.instance;
 
 let apiInstance = new Api.InvestorProfileApi();
-let createTrustProfileRequest = new Api.CreateTrustProfileRequest(); // CreateTrustProfileRequest | 
-apiInstance.createTrustProfile(createTrustProfileRequest, (error, data, response) => {
+let investorProfilesTrusts = new Api.PostInvestorProfilesTrusts(); // PostInvestorProfilesTrusts | 
+apiInstance.createTrustProfile(investorProfilesTrusts, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -186,7 +186,7 @@ apiInstance.createTrustProfile(createTrustProfileRequest, (error, data, response
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **createTrustProfileRequest** | [**CreateTrustProfileRequest**](CreateTrustProfileRequest.md)|  | 
+ **investorProfilesTrusts** | [**PostInvestorProfilesTrusts**](PostInvestorProfilesTrusts.md)|  | 
 
 ### Return type
 
@@ -358,7 +358,7 @@ No authorization required
 
 ## patchCorporationProfile
 
-> V1EntitiesInvestorProfileCorporation patchCorporationProfile(investorProfileId, patchCorporationProfileRequest)
+> V1EntitiesInvestorProfileCorporation patchCorporationProfile(investorProfileId, investorProfilesCorporations)
 
 Patch a corporation investor profile
 
@@ -372,8 +372,8 @@ let defaultClient = Api.ApiClient.instance;
 
 let apiInstance = new Api.InvestorProfileApi();
 let investorProfileId = 56; // Number | 
-let patchCorporationProfileRequest = new Api.PatchCorporationProfileRequest(); // PatchCorporationProfileRequest | 
-apiInstance.patchCorporationProfile(investorProfileId, patchCorporationProfileRequest, (error, data, response) => {
+let investorProfilesCorporations = new Api.PatchInvestorProfilesCorporations(); // PatchInvestorProfilesCorporations | 
+apiInstance.patchCorporationProfile(investorProfileId, investorProfilesCorporations, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -388,7 +388,7 @@ apiInstance.patchCorporationProfile(investorProfileId, patchCorporationProfileRe
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **investorProfileId** | **Number**|  | 
- **patchCorporationProfileRequest** | [**PatchCorporationProfileRequest**](PatchCorporationProfileRequest.md)|  | 
+ **investorProfilesCorporations** | [**PatchInvestorProfilesCorporations**](PatchInvestorProfilesCorporations.md)|  | 
 
 ### Return type
 
@@ -406,7 +406,7 @@ No authorization required
 
 ## patchIndividualProfile
 
-> V1EntitiesInvestorProfileIndividual patchIndividualProfile(investorProfileId, opts)
+> V1EntitiesInvestorProfileIndividual patchIndividualProfile(investorProfileId, investorProfilesIndividuals)
 
 Patch an individual investor profile.
 
@@ -420,10 +420,8 @@ let defaultClient = Api.ApiClient.instance;
 
 let apiInstance = new Api.InvestorProfileApi();
 let investorProfileId = 56; // Number | 
-let opts = {
-  'patchIndividualProfileRequest': new Api.PatchIndividualProfileRequest() // PatchIndividualProfileRequest | 
-};
-apiInstance.patchIndividualProfile(investorProfileId, opts, (error, data, response) => {
+let investorProfilesIndividuals = new Api.PatchInvestorProfilesIndividuals(); // PatchInvestorProfilesIndividuals | 
+apiInstance.patchIndividualProfile(investorProfileId, investorProfilesIndividuals, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -438,7 +436,7 @@ apiInstance.patchIndividualProfile(investorProfileId, opts, (error, data, respon
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **investorProfileId** | **Number**|  | 
- **patchIndividualProfileRequest** | [**PatchIndividualProfileRequest**](PatchIndividualProfileRequest.md)|  | [optional] 
+ **investorProfilesIndividuals** | [**PatchInvestorProfilesIndividuals**](PatchInvestorProfilesIndividuals.md)|  | 
 
 ### Return type
 
@@ -456,7 +454,7 @@ No authorization required
 
 ## patchJointProfile
 
-> V1EntitiesInvestorProfileJoint patchJointProfile(investorProfileId, opts)
+> V1EntitiesInvestorProfileJoint patchJointProfile(investorProfileId, investorProfilesJoints)
 
 Patch a joint investor profile
 
@@ -470,10 +468,8 @@ let defaultClient = Api.ApiClient.instance;
 
 let apiInstance = new Api.InvestorProfileApi();
 let investorProfileId = 56; // Number | 
-let opts = {
-  'patchJointProfileRequest': new Api.PatchJointProfileRequest() // PatchJointProfileRequest | 
-};
-apiInstance.patchJointProfile(investorProfileId, opts, (error, data, response) => {
+let investorProfilesJoints = new Api.PatchInvestorProfilesJoints(); // PatchInvestorProfilesJoints | 
+apiInstance.patchJointProfile(investorProfileId, investorProfilesJoints, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -488,7 +484,7 @@ apiInstance.patchJointProfile(investorProfileId, opts, (error, data, response) =
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **investorProfileId** | **Number**|  | 
- **patchJointProfileRequest** | [**PatchJointProfileRequest**](PatchJointProfileRequest.md)|  | [optional] 
+ **investorProfilesJoints** | [**PatchInvestorProfilesJoints**](PatchInvestorProfilesJoints.md)|  | 
 
 ### Return type
 
@@ -506,7 +502,7 @@ No authorization required
 
 ## patchTrustProfile
 
-> V1EntitiesInvestorProfileTrust patchTrustProfile(investorProfileId, opts)
+> V1EntitiesInvestorProfileTrust patchTrustProfile(investorProfileId, investorProfilesTrusts)
 
 Patch a trust investor profile
 
@@ -520,10 +516,8 @@ let defaultClient = Api.ApiClient.instance;
 
 let apiInstance = new Api.InvestorProfileApi();
 let investorProfileId = 56; // Number | 
-let opts = {
-  'patchTrustProfileRequest': new Api.PatchTrustProfileRequest() // PatchTrustProfileRequest | 
-};
-apiInstance.patchTrustProfile(investorProfileId, opts, (error, data, response) => {
+let investorProfilesTrusts = new Api.PatchInvestorProfilesTrusts(); // PatchInvestorProfilesTrusts | 
+apiInstance.patchTrustProfile(investorProfileId, investorProfilesTrusts, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -538,7 +532,7 @@ apiInstance.patchTrustProfile(investorProfileId, opts, (error, data, response) =
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **investorProfileId** | **Number**|  | 
- **patchTrustProfileRequest** | [**PatchTrustProfileRequest**](PatchTrustProfileRequest.md)|  | [optional] 
+ **investorProfilesTrusts** | [**PatchInvestorProfilesTrusts**](PatchInvestorProfilesTrusts.md)|  | 
 
 ### Return type
 

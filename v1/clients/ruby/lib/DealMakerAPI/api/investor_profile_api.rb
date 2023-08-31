@@ -21,26 +21,26 @@ module DealMakerAPI
     end
     # Create new corporation investor profile.
     # Create new corporation investor profile associated to the user by email.
-    # @param create_corporation_profile_request [CreateCorporationProfileRequest] 
+    # @param investor_profiles_corporations [PostInvestorProfilesCorporations] 
     # @param [Hash] opts the optional parameters
     # @return [V1EntitiesInvestorProfileCorporation]
-    def create_corporation_profile(create_corporation_profile_request, opts = {})
-      data, _status_code, _headers = create_corporation_profile_with_http_info(create_corporation_profile_request, opts)
+    def create_corporation_profile(investor_profiles_corporations, opts = {})
+      data, _status_code, _headers = create_corporation_profile_with_http_info(investor_profiles_corporations, opts)
       data
     end
 
     # Create new corporation investor profile.
     # Create new corporation investor profile associated to the user by email.
-    # @param create_corporation_profile_request [CreateCorporationProfileRequest] 
+    # @param investor_profiles_corporations [PostInvestorProfilesCorporations] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(V1EntitiesInvestorProfileCorporation, Integer, Hash)>] V1EntitiesInvestorProfileCorporation data, response status code and response headers
-    def create_corporation_profile_with_http_info(create_corporation_profile_request, opts = {})
+    def create_corporation_profile_with_http_info(investor_profiles_corporations, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: InvestorProfileApi.create_corporation_profile ...'
       end
-      # verify the required parameter 'create_corporation_profile_request' is set
-      if @api_client.config.client_side_validation && create_corporation_profile_request.nil?
-        fail ArgumentError, "Missing the required parameter 'create_corporation_profile_request' when calling InvestorProfileApi.create_corporation_profile"
+      # verify the required parameter 'investor_profiles_corporations' is set
+      if @api_client.config.client_side_validation && investor_profiles_corporations.nil?
+        fail ArgumentError, "Missing the required parameter 'investor_profiles_corporations' when calling InvestorProfileApi.create_corporation_profile"
       end
       # resource path
       local_var_path = '/investor_profiles/corporations'
@@ -62,7 +62,7 @@ module DealMakerAPI
       form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = opts[:debug_body] || @api_client.object_to_http_body(create_corporation_profile_request)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(investor_profiles_corporations)
 
       # return_type
       return_type = opts[:debug_return_type] || 'V1EntitiesInvestorProfileCorporation'
@@ -89,26 +89,26 @@ module DealMakerAPI
 
     # Create new individual investor profile
     # Create new individual investor profile associated to the user by email.
-    # @param create_individual_profile_request [CreateIndividualProfileRequest] 
+    # @param investor_profiles_individuals [PostInvestorProfilesIndividuals] 
     # @param [Hash] opts the optional parameters
     # @return [V1EntitiesInvestorProfileIndividual]
-    def create_individual_profile(create_individual_profile_request, opts = {})
-      data, _status_code, _headers = create_individual_profile_with_http_info(create_individual_profile_request, opts)
+    def create_individual_profile(investor_profiles_individuals, opts = {})
+      data, _status_code, _headers = create_individual_profile_with_http_info(investor_profiles_individuals, opts)
       data
     end
 
     # Create new individual investor profile
     # Create new individual investor profile associated to the user by email.
-    # @param create_individual_profile_request [CreateIndividualProfileRequest] 
+    # @param investor_profiles_individuals [PostInvestorProfilesIndividuals] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(V1EntitiesInvestorProfileIndividual, Integer, Hash)>] V1EntitiesInvestorProfileIndividual data, response status code and response headers
-    def create_individual_profile_with_http_info(create_individual_profile_request, opts = {})
+    def create_individual_profile_with_http_info(investor_profiles_individuals, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: InvestorProfileApi.create_individual_profile ...'
       end
-      # verify the required parameter 'create_individual_profile_request' is set
-      if @api_client.config.client_side_validation && create_individual_profile_request.nil?
-        fail ArgumentError, "Missing the required parameter 'create_individual_profile_request' when calling InvestorProfileApi.create_individual_profile"
+      # verify the required parameter 'investor_profiles_individuals' is set
+      if @api_client.config.client_side_validation && investor_profiles_individuals.nil?
+        fail ArgumentError, "Missing the required parameter 'investor_profiles_individuals' when calling InvestorProfileApi.create_individual_profile"
       end
       # resource path
       local_var_path = '/investor_profiles/individuals'
@@ -130,7 +130,7 @@ module DealMakerAPI
       form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = opts[:debug_body] || @api_client.object_to_http_body(create_individual_profile_request)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(investor_profiles_individuals)
 
       # return_type
       return_type = opts[:debug_return_type] || 'V1EntitiesInvestorProfileIndividual'
@@ -157,26 +157,26 @@ module DealMakerAPI
 
     # Create new joint investor profile
     # Create new joint investor profile associated to the user by email.
-    # @param create_joint_profile_request [CreateJointProfileRequest] 
+    # @param investor_profiles_joints [PostInvestorProfilesJoints] 
     # @param [Hash] opts the optional parameters
     # @return [V1EntitiesInvestorProfileJoint]
-    def create_joint_profile(create_joint_profile_request, opts = {})
-      data, _status_code, _headers = create_joint_profile_with_http_info(create_joint_profile_request, opts)
+    def create_joint_profile(investor_profiles_joints, opts = {})
+      data, _status_code, _headers = create_joint_profile_with_http_info(investor_profiles_joints, opts)
       data
     end
 
     # Create new joint investor profile
     # Create new joint investor profile associated to the user by email.
-    # @param create_joint_profile_request [CreateJointProfileRequest] 
+    # @param investor_profiles_joints [PostInvestorProfilesJoints] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(V1EntitiesInvestorProfileJoint, Integer, Hash)>] V1EntitiesInvestorProfileJoint data, response status code and response headers
-    def create_joint_profile_with_http_info(create_joint_profile_request, opts = {})
+    def create_joint_profile_with_http_info(investor_profiles_joints, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: InvestorProfileApi.create_joint_profile ...'
       end
-      # verify the required parameter 'create_joint_profile_request' is set
-      if @api_client.config.client_side_validation && create_joint_profile_request.nil?
-        fail ArgumentError, "Missing the required parameter 'create_joint_profile_request' when calling InvestorProfileApi.create_joint_profile"
+      # verify the required parameter 'investor_profiles_joints' is set
+      if @api_client.config.client_side_validation && investor_profiles_joints.nil?
+        fail ArgumentError, "Missing the required parameter 'investor_profiles_joints' when calling InvestorProfileApi.create_joint_profile"
       end
       # resource path
       local_var_path = '/investor_profiles/joints'
@@ -198,7 +198,7 @@ module DealMakerAPI
       form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = opts[:debug_body] || @api_client.object_to_http_body(create_joint_profile_request)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(investor_profiles_joints)
 
       # return_type
       return_type = opts[:debug_return_type] || 'V1EntitiesInvestorProfileJoint'
@@ -225,26 +225,26 @@ module DealMakerAPI
 
     # Create new trust investor profile.
     # Create new trust investor profile associated to the user by email.
-    # @param create_trust_profile_request [CreateTrustProfileRequest] 
+    # @param investor_profiles_trusts [PostInvestorProfilesTrusts] 
     # @param [Hash] opts the optional parameters
     # @return [V1EntitiesInvestorProfileTrust]
-    def create_trust_profile(create_trust_profile_request, opts = {})
-      data, _status_code, _headers = create_trust_profile_with_http_info(create_trust_profile_request, opts)
+    def create_trust_profile(investor_profiles_trusts, opts = {})
+      data, _status_code, _headers = create_trust_profile_with_http_info(investor_profiles_trusts, opts)
       data
     end
 
     # Create new trust investor profile.
     # Create new trust investor profile associated to the user by email.
-    # @param create_trust_profile_request [CreateTrustProfileRequest] 
+    # @param investor_profiles_trusts [PostInvestorProfilesTrusts] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(V1EntitiesInvestorProfileTrust, Integer, Hash)>] V1EntitiesInvestorProfileTrust data, response status code and response headers
-    def create_trust_profile_with_http_info(create_trust_profile_request, opts = {})
+    def create_trust_profile_with_http_info(investor_profiles_trusts, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: InvestorProfileApi.create_trust_profile ...'
       end
-      # verify the required parameter 'create_trust_profile_request' is set
-      if @api_client.config.client_side_validation && create_trust_profile_request.nil?
-        fail ArgumentError, "Missing the required parameter 'create_trust_profile_request' when calling InvestorProfileApi.create_trust_profile"
+      # verify the required parameter 'investor_profiles_trusts' is set
+      if @api_client.config.client_side_validation && investor_profiles_trusts.nil?
+        fail ArgumentError, "Missing the required parameter 'investor_profiles_trusts' when calling InvestorProfileApi.create_trust_profile"
       end
       # resource path
       local_var_path = '/investor_profiles/trusts'
@@ -266,7 +266,7 @@ module DealMakerAPI
       form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = opts[:debug_body] || @api_client.object_to_http_body(create_trust_profile_request)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(investor_profiles_trusts)
 
       # return_type
       return_type = opts[:debug_return_type] || 'V1EntitiesInvestorProfileTrust'
@@ -498,21 +498,21 @@ module DealMakerAPI
     # Patch a corporation investor profile
     # Patch corporation investor profile
     # @param investor_profile_id [Integer] 
-    # @param patch_corporation_profile_request [PatchCorporationProfileRequest] 
+    # @param investor_profiles_corporations [PatchInvestorProfilesCorporations] 
     # @param [Hash] opts the optional parameters
     # @return [V1EntitiesInvestorProfileCorporation]
-    def patch_corporation_profile(investor_profile_id, patch_corporation_profile_request, opts = {})
-      data, _status_code, _headers = patch_corporation_profile_with_http_info(investor_profile_id, patch_corporation_profile_request, opts)
+    def patch_corporation_profile(investor_profile_id, investor_profiles_corporations, opts = {})
+      data, _status_code, _headers = patch_corporation_profile_with_http_info(investor_profile_id, investor_profiles_corporations, opts)
       data
     end
 
     # Patch a corporation investor profile
     # Patch corporation investor profile
     # @param investor_profile_id [Integer] 
-    # @param patch_corporation_profile_request [PatchCorporationProfileRequest] 
+    # @param investor_profiles_corporations [PatchInvestorProfilesCorporations] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(V1EntitiesInvestorProfileCorporation, Integer, Hash)>] V1EntitiesInvestorProfileCorporation data, response status code and response headers
-    def patch_corporation_profile_with_http_info(investor_profile_id, patch_corporation_profile_request, opts = {})
+    def patch_corporation_profile_with_http_info(investor_profile_id, investor_profiles_corporations, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: InvestorProfileApi.patch_corporation_profile ...'
       end
@@ -520,9 +520,9 @@ module DealMakerAPI
       if @api_client.config.client_side_validation && investor_profile_id.nil?
         fail ArgumentError, "Missing the required parameter 'investor_profile_id' when calling InvestorProfileApi.patch_corporation_profile"
       end
-      # verify the required parameter 'patch_corporation_profile_request' is set
-      if @api_client.config.client_side_validation && patch_corporation_profile_request.nil?
-        fail ArgumentError, "Missing the required parameter 'patch_corporation_profile_request' when calling InvestorProfileApi.patch_corporation_profile"
+      # verify the required parameter 'investor_profiles_corporations' is set
+      if @api_client.config.client_side_validation && investor_profiles_corporations.nil?
+        fail ArgumentError, "Missing the required parameter 'investor_profiles_corporations' when calling InvestorProfileApi.patch_corporation_profile"
       end
       # resource path
       local_var_path = '/investor_profiles/corporations/{investor_profile_id}'.sub('{' + 'investor_profile_id' + '}', CGI.escape(investor_profile_id.to_s))
@@ -544,7 +544,7 @@ module DealMakerAPI
       form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = opts[:debug_body] || @api_client.object_to_http_body(patch_corporation_profile_request)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(investor_profiles_corporations)
 
       # return_type
       return_type = opts[:debug_return_type] || 'V1EntitiesInvestorProfileCorporation'
@@ -572,27 +572,31 @@ module DealMakerAPI
     # Patch an individual investor profile.
     # Patch individual investor profile.
     # @param investor_profile_id [Integer] 
+    # @param investor_profiles_individuals [PatchInvestorProfilesIndividuals] 
     # @param [Hash] opts the optional parameters
-    # @option opts [PatchIndividualProfileRequest] :patch_individual_profile_request 
     # @return [V1EntitiesInvestorProfileIndividual]
-    def patch_individual_profile(investor_profile_id, opts = {})
-      data, _status_code, _headers = patch_individual_profile_with_http_info(investor_profile_id, opts)
+    def patch_individual_profile(investor_profile_id, investor_profiles_individuals, opts = {})
+      data, _status_code, _headers = patch_individual_profile_with_http_info(investor_profile_id, investor_profiles_individuals, opts)
       data
     end
 
     # Patch an individual investor profile.
     # Patch individual investor profile.
     # @param investor_profile_id [Integer] 
+    # @param investor_profiles_individuals [PatchInvestorProfilesIndividuals] 
     # @param [Hash] opts the optional parameters
-    # @option opts [PatchIndividualProfileRequest] :patch_individual_profile_request 
     # @return [Array<(V1EntitiesInvestorProfileIndividual, Integer, Hash)>] V1EntitiesInvestorProfileIndividual data, response status code and response headers
-    def patch_individual_profile_with_http_info(investor_profile_id, opts = {})
+    def patch_individual_profile_with_http_info(investor_profile_id, investor_profiles_individuals, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: InvestorProfileApi.patch_individual_profile ...'
       end
       # verify the required parameter 'investor_profile_id' is set
       if @api_client.config.client_side_validation && investor_profile_id.nil?
         fail ArgumentError, "Missing the required parameter 'investor_profile_id' when calling InvestorProfileApi.patch_individual_profile"
+      end
+      # verify the required parameter 'investor_profiles_individuals' is set
+      if @api_client.config.client_side_validation && investor_profiles_individuals.nil?
+        fail ArgumentError, "Missing the required parameter 'investor_profiles_individuals' when calling InvestorProfileApi.patch_individual_profile"
       end
       # resource path
       local_var_path = '/investor_profiles/individuals/{investor_profile_id}'.sub('{' + 'investor_profile_id' + '}', CGI.escape(investor_profile_id.to_s))
@@ -614,7 +618,7 @@ module DealMakerAPI
       form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = opts[:debug_body] || @api_client.object_to_http_body(opts[:'patch_individual_profile_request'])
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(investor_profiles_individuals)
 
       # return_type
       return_type = opts[:debug_return_type] || 'V1EntitiesInvestorProfileIndividual'
@@ -642,27 +646,31 @@ module DealMakerAPI
     # Patch a joint investor profile
     # Patch joint investor profile
     # @param investor_profile_id [Integer] 
+    # @param investor_profiles_joints [PatchInvestorProfilesJoints] 
     # @param [Hash] opts the optional parameters
-    # @option opts [PatchJointProfileRequest] :patch_joint_profile_request 
     # @return [V1EntitiesInvestorProfileJoint]
-    def patch_joint_profile(investor_profile_id, opts = {})
-      data, _status_code, _headers = patch_joint_profile_with_http_info(investor_profile_id, opts)
+    def patch_joint_profile(investor_profile_id, investor_profiles_joints, opts = {})
+      data, _status_code, _headers = patch_joint_profile_with_http_info(investor_profile_id, investor_profiles_joints, opts)
       data
     end
 
     # Patch a joint investor profile
     # Patch joint investor profile
     # @param investor_profile_id [Integer] 
+    # @param investor_profiles_joints [PatchInvestorProfilesJoints] 
     # @param [Hash] opts the optional parameters
-    # @option opts [PatchJointProfileRequest] :patch_joint_profile_request 
     # @return [Array<(V1EntitiesInvestorProfileJoint, Integer, Hash)>] V1EntitiesInvestorProfileJoint data, response status code and response headers
-    def patch_joint_profile_with_http_info(investor_profile_id, opts = {})
+    def patch_joint_profile_with_http_info(investor_profile_id, investor_profiles_joints, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: InvestorProfileApi.patch_joint_profile ...'
       end
       # verify the required parameter 'investor_profile_id' is set
       if @api_client.config.client_side_validation && investor_profile_id.nil?
         fail ArgumentError, "Missing the required parameter 'investor_profile_id' when calling InvestorProfileApi.patch_joint_profile"
+      end
+      # verify the required parameter 'investor_profiles_joints' is set
+      if @api_client.config.client_side_validation && investor_profiles_joints.nil?
+        fail ArgumentError, "Missing the required parameter 'investor_profiles_joints' when calling InvestorProfileApi.patch_joint_profile"
       end
       # resource path
       local_var_path = '/investor_profiles/joints/{investor_profile_id}'.sub('{' + 'investor_profile_id' + '}', CGI.escape(investor_profile_id.to_s))
@@ -684,7 +692,7 @@ module DealMakerAPI
       form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = opts[:debug_body] || @api_client.object_to_http_body(opts[:'patch_joint_profile_request'])
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(investor_profiles_joints)
 
       # return_type
       return_type = opts[:debug_return_type] || 'V1EntitiesInvestorProfileJoint'
@@ -712,27 +720,31 @@ module DealMakerAPI
     # Patch a trust investor profile
     # Patch trust investor profile
     # @param investor_profile_id [Integer] 
+    # @param investor_profiles_trusts [PatchInvestorProfilesTrusts] 
     # @param [Hash] opts the optional parameters
-    # @option opts [PatchTrustProfileRequest] :patch_trust_profile_request 
     # @return [V1EntitiesInvestorProfileTrust]
-    def patch_trust_profile(investor_profile_id, opts = {})
-      data, _status_code, _headers = patch_trust_profile_with_http_info(investor_profile_id, opts)
+    def patch_trust_profile(investor_profile_id, investor_profiles_trusts, opts = {})
+      data, _status_code, _headers = patch_trust_profile_with_http_info(investor_profile_id, investor_profiles_trusts, opts)
       data
     end
 
     # Patch a trust investor profile
     # Patch trust investor profile
     # @param investor_profile_id [Integer] 
+    # @param investor_profiles_trusts [PatchInvestorProfilesTrusts] 
     # @param [Hash] opts the optional parameters
-    # @option opts [PatchTrustProfileRequest] :patch_trust_profile_request 
     # @return [Array<(V1EntitiesInvestorProfileTrust, Integer, Hash)>] V1EntitiesInvestorProfileTrust data, response status code and response headers
-    def patch_trust_profile_with_http_info(investor_profile_id, opts = {})
+    def patch_trust_profile_with_http_info(investor_profile_id, investor_profiles_trusts, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: InvestorProfileApi.patch_trust_profile ...'
       end
       # verify the required parameter 'investor_profile_id' is set
       if @api_client.config.client_side_validation && investor_profile_id.nil?
         fail ArgumentError, "Missing the required parameter 'investor_profile_id' when calling InvestorProfileApi.patch_trust_profile"
+      end
+      # verify the required parameter 'investor_profiles_trusts' is set
+      if @api_client.config.client_side_validation && investor_profiles_trusts.nil?
+        fail ArgumentError, "Missing the required parameter 'investor_profiles_trusts' when calling InvestorProfileApi.patch_trust_profile"
       end
       # resource path
       local_var_path = '/investor_profiles/trusts/{investor_profile_id}'.sub('{' + 'investor_profile_id' + '}', CGI.escape(investor_profile_id.to_s))
@@ -754,7 +766,7 @@ module DealMakerAPI
       form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = opts[:debug_body] || @api_client.object_to_http_body(opts[:'patch_trust_profile_request'])
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(investor_profiles_trusts)
 
       # return_type
       return_type = opts[:debug_return_type] || 'V1EntitiesInvestorProfileTrust'

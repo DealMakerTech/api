@@ -157,16 +157,16 @@ class InvestorProfileApi
      *
      * Create new corporation investor profile.
      *
-     * @param  \DealMaker\Model\CreateCorporationProfileRequest $create_corporation_profile_request create_corporation_profile_request (required)
+     * @param  \DealMaker\Model\PostInvestorProfilesCorporations $investor_profiles_corporations investor_profiles_corporations (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createCorporationProfile'] to see the possible values for this operation
      *
      * @throws \DealMaker\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \DealMaker\Model\V1EntitiesInvestorProfileCorporation
      */
-    public function createCorporationProfile($create_corporation_profile_request, string $contentType = self::contentTypes['createCorporationProfile'][0])
+    public function createCorporationProfile($investor_profiles_corporations, string $contentType = self::contentTypes['createCorporationProfile'][0])
     {
-        list($response) = $this->createCorporationProfileWithHttpInfo($create_corporation_profile_request, $contentType);
+        list($response) = $this->createCorporationProfileWithHttpInfo($investor_profiles_corporations, $contentType);
         return $response;
     }
 
@@ -175,16 +175,16 @@ class InvestorProfileApi
      *
      * Create new corporation investor profile.
      *
-     * @param  \DealMaker\Model\CreateCorporationProfileRequest $create_corporation_profile_request (required)
+     * @param  \DealMaker\Model\PostInvestorProfilesCorporations $investor_profiles_corporations (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createCorporationProfile'] to see the possible values for this operation
      *
      * @throws \DealMaker\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \DealMaker\Model\V1EntitiesInvestorProfileCorporation, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createCorporationProfileWithHttpInfo($create_corporation_profile_request, string $contentType = self::contentTypes['createCorporationProfile'][0])
+    public function createCorporationProfileWithHttpInfo($investor_profiles_corporations, string $contentType = self::contentTypes['createCorporationProfile'][0])
     {
-        $request = $this->createCorporationProfileRequest($create_corporation_profile_request, $contentType);
+        $request = $this->createCorporationProfileRequest($investor_profiles_corporations, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -275,15 +275,15 @@ class InvestorProfileApi
      *
      * Create new corporation investor profile.
      *
-     * @param  \DealMaker\Model\CreateCorporationProfileRequest $create_corporation_profile_request (required)
+     * @param  \DealMaker\Model\PostInvestorProfilesCorporations $investor_profiles_corporations (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createCorporationProfile'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createCorporationProfileAsync($create_corporation_profile_request, string $contentType = self::contentTypes['createCorporationProfile'][0])
+    public function createCorporationProfileAsync($investor_profiles_corporations, string $contentType = self::contentTypes['createCorporationProfile'][0])
     {
-        return $this->createCorporationProfileAsyncWithHttpInfo($create_corporation_profile_request, $contentType)
+        return $this->createCorporationProfileAsyncWithHttpInfo($investor_profiles_corporations, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -296,16 +296,16 @@ class InvestorProfileApi
      *
      * Create new corporation investor profile.
      *
-     * @param  \DealMaker\Model\CreateCorporationProfileRequest $create_corporation_profile_request (required)
+     * @param  \DealMaker\Model\PostInvestorProfilesCorporations $investor_profiles_corporations (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createCorporationProfile'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createCorporationProfileAsyncWithHttpInfo($create_corporation_profile_request, string $contentType = self::contentTypes['createCorporationProfile'][0])
+    public function createCorporationProfileAsyncWithHttpInfo($investor_profiles_corporations, string $contentType = self::contentTypes['createCorporationProfile'][0])
     {
         $returnType = '\DealMaker\Model\V1EntitiesInvestorProfileCorporation';
-        $request = $this->createCorporationProfileRequest($create_corporation_profile_request, $contentType);
+        $request = $this->createCorporationProfileRequest($investor_profiles_corporations, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -346,19 +346,19 @@ class InvestorProfileApi
     /**
      * Create request for operation 'createCorporationProfile'
      *
-     * @param  \DealMaker\Model\CreateCorporationProfileRequest $create_corporation_profile_request (required)
+     * @param  \DealMaker\Model\PostInvestorProfilesCorporations $investor_profiles_corporations (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createCorporationProfile'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createCorporationProfileRequest($create_corporation_profile_request, string $contentType = self::contentTypes['createCorporationProfile'][0])
+    public function createCorporationProfileRequest($investor_profiles_corporations, string $contentType = self::contentTypes['createCorporationProfile'][0])
     {
 
-        // verify the required parameter 'create_corporation_profile_request' is set
-        if ($create_corporation_profile_request === null || (is_array($create_corporation_profile_request) && count($create_corporation_profile_request) === 0)) {
+        // verify the required parameter 'investor_profiles_corporations' is set
+        if ($investor_profiles_corporations === null || (is_array($investor_profiles_corporations) && count($investor_profiles_corporations) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $create_corporation_profile_request when calling createCorporationProfile'
+                'Missing the required parameter $investor_profiles_corporations when calling createCorporationProfile'
             );
         }
 
@@ -381,12 +381,12 @@ class InvestorProfileApi
         );
 
         // for model (json/xml)
-        if (isset($create_corporation_profile_request)) {
+        if (isset($investor_profiles_corporations)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($create_corporation_profile_request));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($investor_profiles_corporations));
             } else {
-                $httpBody = $create_corporation_profile_request;
+                $httpBody = $investor_profiles_corporations;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -439,16 +439,16 @@ class InvestorProfileApi
      *
      * Create new individual investor profile
      *
-     * @param  \DealMaker\Model\CreateIndividualProfileRequest $create_individual_profile_request create_individual_profile_request (required)
+     * @param  \DealMaker\Model\PostInvestorProfilesIndividuals $investor_profiles_individuals investor_profiles_individuals (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createIndividualProfile'] to see the possible values for this operation
      *
      * @throws \DealMaker\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \DealMaker\Model\V1EntitiesInvestorProfileIndividual
      */
-    public function createIndividualProfile($create_individual_profile_request, string $contentType = self::contentTypes['createIndividualProfile'][0])
+    public function createIndividualProfile($investor_profiles_individuals, string $contentType = self::contentTypes['createIndividualProfile'][0])
     {
-        list($response) = $this->createIndividualProfileWithHttpInfo($create_individual_profile_request, $contentType);
+        list($response) = $this->createIndividualProfileWithHttpInfo($investor_profiles_individuals, $contentType);
         return $response;
     }
 
@@ -457,16 +457,16 @@ class InvestorProfileApi
      *
      * Create new individual investor profile
      *
-     * @param  \DealMaker\Model\CreateIndividualProfileRequest $create_individual_profile_request (required)
+     * @param  \DealMaker\Model\PostInvestorProfilesIndividuals $investor_profiles_individuals (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createIndividualProfile'] to see the possible values for this operation
      *
      * @throws \DealMaker\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \DealMaker\Model\V1EntitiesInvestorProfileIndividual, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createIndividualProfileWithHttpInfo($create_individual_profile_request, string $contentType = self::contentTypes['createIndividualProfile'][0])
+    public function createIndividualProfileWithHttpInfo($investor_profiles_individuals, string $contentType = self::contentTypes['createIndividualProfile'][0])
     {
-        $request = $this->createIndividualProfileRequest($create_individual_profile_request, $contentType);
+        $request = $this->createIndividualProfileRequest($investor_profiles_individuals, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -557,15 +557,15 @@ class InvestorProfileApi
      *
      * Create new individual investor profile
      *
-     * @param  \DealMaker\Model\CreateIndividualProfileRequest $create_individual_profile_request (required)
+     * @param  \DealMaker\Model\PostInvestorProfilesIndividuals $investor_profiles_individuals (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createIndividualProfile'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createIndividualProfileAsync($create_individual_profile_request, string $contentType = self::contentTypes['createIndividualProfile'][0])
+    public function createIndividualProfileAsync($investor_profiles_individuals, string $contentType = self::contentTypes['createIndividualProfile'][0])
     {
-        return $this->createIndividualProfileAsyncWithHttpInfo($create_individual_profile_request, $contentType)
+        return $this->createIndividualProfileAsyncWithHttpInfo($investor_profiles_individuals, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -578,16 +578,16 @@ class InvestorProfileApi
      *
      * Create new individual investor profile
      *
-     * @param  \DealMaker\Model\CreateIndividualProfileRequest $create_individual_profile_request (required)
+     * @param  \DealMaker\Model\PostInvestorProfilesIndividuals $investor_profiles_individuals (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createIndividualProfile'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createIndividualProfileAsyncWithHttpInfo($create_individual_profile_request, string $contentType = self::contentTypes['createIndividualProfile'][0])
+    public function createIndividualProfileAsyncWithHttpInfo($investor_profiles_individuals, string $contentType = self::contentTypes['createIndividualProfile'][0])
     {
         $returnType = '\DealMaker\Model\V1EntitiesInvestorProfileIndividual';
-        $request = $this->createIndividualProfileRequest($create_individual_profile_request, $contentType);
+        $request = $this->createIndividualProfileRequest($investor_profiles_individuals, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -628,19 +628,19 @@ class InvestorProfileApi
     /**
      * Create request for operation 'createIndividualProfile'
      *
-     * @param  \DealMaker\Model\CreateIndividualProfileRequest $create_individual_profile_request (required)
+     * @param  \DealMaker\Model\PostInvestorProfilesIndividuals $investor_profiles_individuals (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createIndividualProfile'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createIndividualProfileRequest($create_individual_profile_request, string $contentType = self::contentTypes['createIndividualProfile'][0])
+    public function createIndividualProfileRequest($investor_profiles_individuals, string $contentType = self::contentTypes['createIndividualProfile'][0])
     {
 
-        // verify the required parameter 'create_individual_profile_request' is set
-        if ($create_individual_profile_request === null || (is_array($create_individual_profile_request) && count($create_individual_profile_request) === 0)) {
+        // verify the required parameter 'investor_profiles_individuals' is set
+        if ($investor_profiles_individuals === null || (is_array($investor_profiles_individuals) && count($investor_profiles_individuals) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $create_individual_profile_request when calling createIndividualProfile'
+                'Missing the required parameter $investor_profiles_individuals when calling createIndividualProfile'
             );
         }
 
@@ -663,12 +663,12 @@ class InvestorProfileApi
         );
 
         // for model (json/xml)
-        if (isset($create_individual_profile_request)) {
+        if (isset($investor_profiles_individuals)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($create_individual_profile_request));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($investor_profiles_individuals));
             } else {
-                $httpBody = $create_individual_profile_request;
+                $httpBody = $investor_profiles_individuals;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -721,16 +721,16 @@ class InvestorProfileApi
      *
      * Create new joint investor profile
      *
-     * @param  \DealMaker\Model\CreateJointProfileRequest $create_joint_profile_request create_joint_profile_request (required)
+     * @param  \DealMaker\Model\PostInvestorProfilesJoints $investor_profiles_joints investor_profiles_joints (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createJointProfile'] to see the possible values for this operation
      *
      * @throws \DealMaker\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \DealMaker\Model\V1EntitiesInvestorProfileJoint
      */
-    public function createJointProfile($create_joint_profile_request, string $contentType = self::contentTypes['createJointProfile'][0])
+    public function createJointProfile($investor_profiles_joints, string $contentType = self::contentTypes['createJointProfile'][0])
     {
-        list($response) = $this->createJointProfileWithHttpInfo($create_joint_profile_request, $contentType);
+        list($response) = $this->createJointProfileWithHttpInfo($investor_profiles_joints, $contentType);
         return $response;
     }
 
@@ -739,16 +739,16 @@ class InvestorProfileApi
      *
      * Create new joint investor profile
      *
-     * @param  \DealMaker\Model\CreateJointProfileRequest $create_joint_profile_request (required)
+     * @param  \DealMaker\Model\PostInvestorProfilesJoints $investor_profiles_joints (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createJointProfile'] to see the possible values for this operation
      *
      * @throws \DealMaker\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \DealMaker\Model\V1EntitiesInvestorProfileJoint, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createJointProfileWithHttpInfo($create_joint_profile_request, string $contentType = self::contentTypes['createJointProfile'][0])
+    public function createJointProfileWithHttpInfo($investor_profiles_joints, string $contentType = self::contentTypes['createJointProfile'][0])
     {
-        $request = $this->createJointProfileRequest($create_joint_profile_request, $contentType);
+        $request = $this->createJointProfileRequest($investor_profiles_joints, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -839,15 +839,15 @@ class InvestorProfileApi
      *
      * Create new joint investor profile
      *
-     * @param  \DealMaker\Model\CreateJointProfileRequest $create_joint_profile_request (required)
+     * @param  \DealMaker\Model\PostInvestorProfilesJoints $investor_profiles_joints (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createJointProfile'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createJointProfileAsync($create_joint_profile_request, string $contentType = self::contentTypes['createJointProfile'][0])
+    public function createJointProfileAsync($investor_profiles_joints, string $contentType = self::contentTypes['createJointProfile'][0])
     {
-        return $this->createJointProfileAsyncWithHttpInfo($create_joint_profile_request, $contentType)
+        return $this->createJointProfileAsyncWithHttpInfo($investor_profiles_joints, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -860,16 +860,16 @@ class InvestorProfileApi
      *
      * Create new joint investor profile
      *
-     * @param  \DealMaker\Model\CreateJointProfileRequest $create_joint_profile_request (required)
+     * @param  \DealMaker\Model\PostInvestorProfilesJoints $investor_profiles_joints (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createJointProfile'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createJointProfileAsyncWithHttpInfo($create_joint_profile_request, string $contentType = self::contentTypes['createJointProfile'][0])
+    public function createJointProfileAsyncWithHttpInfo($investor_profiles_joints, string $contentType = self::contentTypes['createJointProfile'][0])
     {
         $returnType = '\DealMaker\Model\V1EntitiesInvestorProfileJoint';
-        $request = $this->createJointProfileRequest($create_joint_profile_request, $contentType);
+        $request = $this->createJointProfileRequest($investor_profiles_joints, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -910,19 +910,19 @@ class InvestorProfileApi
     /**
      * Create request for operation 'createJointProfile'
      *
-     * @param  \DealMaker\Model\CreateJointProfileRequest $create_joint_profile_request (required)
+     * @param  \DealMaker\Model\PostInvestorProfilesJoints $investor_profiles_joints (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createJointProfile'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createJointProfileRequest($create_joint_profile_request, string $contentType = self::contentTypes['createJointProfile'][0])
+    public function createJointProfileRequest($investor_profiles_joints, string $contentType = self::contentTypes['createJointProfile'][0])
     {
 
-        // verify the required parameter 'create_joint_profile_request' is set
-        if ($create_joint_profile_request === null || (is_array($create_joint_profile_request) && count($create_joint_profile_request) === 0)) {
+        // verify the required parameter 'investor_profiles_joints' is set
+        if ($investor_profiles_joints === null || (is_array($investor_profiles_joints) && count($investor_profiles_joints) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $create_joint_profile_request when calling createJointProfile'
+                'Missing the required parameter $investor_profiles_joints when calling createJointProfile'
             );
         }
 
@@ -945,12 +945,12 @@ class InvestorProfileApi
         );
 
         // for model (json/xml)
-        if (isset($create_joint_profile_request)) {
+        if (isset($investor_profiles_joints)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($create_joint_profile_request));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($investor_profiles_joints));
             } else {
-                $httpBody = $create_joint_profile_request;
+                $httpBody = $investor_profiles_joints;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -1003,16 +1003,16 @@ class InvestorProfileApi
      *
      * Create new trust investor profile.
      *
-     * @param  \DealMaker\Model\CreateTrustProfileRequest $create_trust_profile_request create_trust_profile_request (required)
+     * @param  \DealMaker\Model\PostInvestorProfilesTrusts $investor_profiles_trusts investor_profiles_trusts (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createTrustProfile'] to see the possible values for this operation
      *
      * @throws \DealMaker\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \DealMaker\Model\V1EntitiesInvestorProfileTrust
      */
-    public function createTrustProfile($create_trust_profile_request, string $contentType = self::contentTypes['createTrustProfile'][0])
+    public function createTrustProfile($investor_profiles_trusts, string $contentType = self::contentTypes['createTrustProfile'][0])
     {
-        list($response) = $this->createTrustProfileWithHttpInfo($create_trust_profile_request, $contentType);
+        list($response) = $this->createTrustProfileWithHttpInfo($investor_profiles_trusts, $contentType);
         return $response;
     }
 
@@ -1021,16 +1021,16 @@ class InvestorProfileApi
      *
      * Create new trust investor profile.
      *
-     * @param  \DealMaker\Model\CreateTrustProfileRequest $create_trust_profile_request (required)
+     * @param  \DealMaker\Model\PostInvestorProfilesTrusts $investor_profiles_trusts (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createTrustProfile'] to see the possible values for this operation
      *
      * @throws \DealMaker\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \DealMaker\Model\V1EntitiesInvestorProfileTrust, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createTrustProfileWithHttpInfo($create_trust_profile_request, string $contentType = self::contentTypes['createTrustProfile'][0])
+    public function createTrustProfileWithHttpInfo($investor_profiles_trusts, string $contentType = self::contentTypes['createTrustProfile'][0])
     {
-        $request = $this->createTrustProfileRequest($create_trust_profile_request, $contentType);
+        $request = $this->createTrustProfileRequest($investor_profiles_trusts, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1121,15 +1121,15 @@ class InvestorProfileApi
      *
      * Create new trust investor profile.
      *
-     * @param  \DealMaker\Model\CreateTrustProfileRequest $create_trust_profile_request (required)
+     * @param  \DealMaker\Model\PostInvestorProfilesTrusts $investor_profiles_trusts (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createTrustProfile'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createTrustProfileAsync($create_trust_profile_request, string $contentType = self::contentTypes['createTrustProfile'][0])
+    public function createTrustProfileAsync($investor_profiles_trusts, string $contentType = self::contentTypes['createTrustProfile'][0])
     {
-        return $this->createTrustProfileAsyncWithHttpInfo($create_trust_profile_request, $contentType)
+        return $this->createTrustProfileAsyncWithHttpInfo($investor_profiles_trusts, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1142,16 +1142,16 @@ class InvestorProfileApi
      *
      * Create new trust investor profile.
      *
-     * @param  \DealMaker\Model\CreateTrustProfileRequest $create_trust_profile_request (required)
+     * @param  \DealMaker\Model\PostInvestorProfilesTrusts $investor_profiles_trusts (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createTrustProfile'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createTrustProfileAsyncWithHttpInfo($create_trust_profile_request, string $contentType = self::contentTypes['createTrustProfile'][0])
+    public function createTrustProfileAsyncWithHttpInfo($investor_profiles_trusts, string $contentType = self::contentTypes['createTrustProfile'][0])
     {
         $returnType = '\DealMaker\Model\V1EntitiesInvestorProfileTrust';
-        $request = $this->createTrustProfileRequest($create_trust_profile_request, $contentType);
+        $request = $this->createTrustProfileRequest($investor_profiles_trusts, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1192,19 +1192,19 @@ class InvestorProfileApi
     /**
      * Create request for operation 'createTrustProfile'
      *
-     * @param  \DealMaker\Model\CreateTrustProfileRequest $create_trust_profile_request (required)
+     * @param  \DealMaker\Model\PostInvestorProfilesTrusts $investor_profiles_trusts (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createTrustProfile'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createTrustProfileRequest($create_trust_profile_request, string $contentType = self::contentTypes['createTrustProfile'][0])
+    public function createTrustProfileRequest($investor_profiles_trusts, string $contentType = self::contentTypes['createTrustProfile'][0])
     {
 
-        // verify the required parameter 'create_trust_profile_request' is set
-        if ($create_trust_profile_request === null || (is_array($create_trust_profile_request) && count($create_trust_profile_request) === 0)) {
+        // verify the required parameter 'investor_profiles_trusts' is set
+        if ($investor_profiles_trusts === null || (is_array($investor_profiles_trusts) && count($investor_profiles_trusts) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $create_trust_profile_request when calling createTrustProfile'
+                'Missing the required parameter $investor_profiles_trusts when calling createTrustProfile'
             );
         }
 
@@ -1227,12 +1227,12 @@ class InvestorProfileApi
         );
 
         // for model (json/xml)
-        if (isset($create_trust_profile_request)) {
+        if (isset($investor_profiles_trusts)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($create_trust_profile_request));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($investor_profiles_trusts));
             } else {
-                $httpBody = $create_trust_profile_request;
+                $httpBody = $investor_profiles_trusts;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -2220,16 +2220,16 @@ class InvestorProfileApi
      * Patch a corporation investor profile
      *
      * @param  int $investor_profile_id investor_profile_id (required)
-     * @param  \DealMaker\Model\PatchCorporationProfileRequest $patch_corporation_profile_request patch_corporation_profile_request (required)
+     * @param  \DealMaker\Model\PatchInvestorProfilesCorporations $investor_profiles_corporations investor_profiles_corporations (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchCorporationProfile'] to see the possible values for this operation
      *
      * @throws \DealMaker\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \DealMaker\Model\V1EntitiesInvestorProfileCorporation
      */
-    public function patchCorporationProfile($investor_profile_id, $patch_corporation_profile_request, string $contentType = self::contentTypes['patchCorporationProfile'][0])
+    public function patchCorporationProfile($investor_profile_id, $investor_profiles_corporations, string $contentType = self::contentTypes['patchCorporationProfile'][0])
     {
-        list($response) = $this->patchCorporationProfileWithHttpInfo($investor_profile_id, $patch_corporation_profile_request, $contentType);
+        list($response) = $this->patchCorporationProfileWithHttpInfo($investor_profile_id, $investor_profiles_corporations, $contentType);
         return $response;
     }
 
@@ -2239,16 +2239,16 @@ class InvestorProfileApi
      * Patch a corporation investor profile
      *
      * @param  int $investor_profile_id (required)
-     * @param  \DealMaker\Model\PatchCorporationProfileRequest $patch_corporation_profile_request (required)
+     * @param  \DealMaker\Model\PatchInvestorProfilesCorporations $investor_profiles_corporations (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchCorporationProfile'] to see the possible values for this operation
      *
      * @throws \DealMaker\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \DealMaker\Model\V1EntitiesInvestorProfileCorporation, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchCorporationProfileWithHttpInfo($investor_profile_id, $patch_corporation_profile_request, string $contentType = self::contentTypes['patchCorporationProfile'][0])
+    public function patchCorporationProfileWithHttpInfo($investor_profile_id, $investor_profiles_corporations, string $contentType = self::contentTypes['patchCorporationProfile'][0])
     {
-        $request = $this->patchCorporationProfileRequest($investor_profile_id, $patch_corporation_profile_request, $contentType);
+        $request = $this->patchCorporationProfileRequest($investor_profile_id, $investor_profiles_corporations, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2340,15 +2340,15 @@ class InvestorProfileApi
      * Patch a corporation investor profile
      *
      * @param  int $investor_profile_id (required)
-     * @param  \DealMaker\Model\PatchCorporationProfileRequest $patch_corporation_profile_request (required)
+     * @param  \DealMaker\Model\PatchInvestorProfilesCorporations $investor_profiles_corporations (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchCorporationProfile'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchCorporationProfileAsync($investor_profile_id, $patch_corporation_profile_request, string $contentType = self::contentTypes['patchCorporationProfile'][0])
+    public function patchCorporationProfileAsync($investor_profile_id, $investor_profiles_corporations, string $contentType = self::contentTypes['patchCorporationProfile'][0])
     {
-        return $this->patchCorporationProfileAsyncWithHttpInfo($investor_profile_id, $patch_corporation_profile_request, $contentType)
+        return $this->patchCorporationProfileAsyncWithHttpInfo($investor_profile_id, $investor_profiles_corporations, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2362,16 +2362,16 @@ class InvestorProfileApi
      * Patch a corporation investor profile
      *
      * @param  int $investor_profile_id (required)
-     * @param  \DealMaker\Model\PatchCorporationProfileRequest $patch_corporation_profile_request (required)
+     * @param  \DealMaker\Model\PatchInvestorProfilesCorporations $investor_profiles_corporations (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchCorporationProfile'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchCorporationProfileAsyncWithHttpInfo($investor_profile_id, $patch_corporation_profile_request, string $contentType = self::contentTypes['patchCorporationProfile'][0])
+    public function patchCorporationProfileAsyncWithHttpInfo($investor_profile_id, $investor_profiles_corporations, string $contentType = self::contentTypes['patchCorporationProfile'][0])
     {
         $returnType = '\DealMaker\Model\V1EntitiesInvestorProfileCorporation';
-        $request = $this->patchCorporationProfileRequest($investor_profile_id, $patch_corporation_profile_request, $contentType);
+        $request = $this->patchCorporationProfileRequest($investor_profile_id, $investor_profiles_corporations, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2413,13 +2413,13 @@ class InvestorProfileApi
      * Create request for operation 'patchCorporationProfile'
      *
      * @param  int $investor_profile_id (required)
-     * @param  \DealMaker\Model\PatchCorporationProfileRequest $patch_corporation_profile_request (required)
+     * @param  \DealMaker\Model\PatchInvestorProfilesCorporations $investor_profiles_corporations (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchCorporationProfile'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchCorporationProfileRequest($investor_profile_id, $patch_corporation_profile_request, string $contentType = self::contentTypes['patchCorporationProfile'][0])
+    public function patchCorporationProfileRequest($investor_profile_id, $investor_profiles_corporations, string $contentType = self::contentTypes['patchCorporationProfile'][0])
     {
 
         // verify the required parameter 'investor_profile_id' is set
@@ -2429,10 +2429,10 @@ class InvestorProfileApi
             );
         }
 
-        // verify the required parameter 'patch_corporation_profile_request' is set
-        if ($patch_corporation_profile_request === null || (is_array($patch_corporation_profile_request) && count($patch_corporation_profile_request) === 0)) {
+        // verify the required parameter 'investor_profiles_corporations' is set
+        if ($investor_profiles_corporations === null || (is_array($investor_profiles_corporations) && count($investor_profiles_corporations) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $patch_corporation_profile_request when calling patchCorporationProfile'
+                'Missing the required parameter $investor_profiles_corporations when calling patchCorporationProfile'
             );
         }
 
@@ -2463,12 +2463,12 @@ class InvestorProfileApi
         );
 
         // for model (json/xml)
-        if (isset($patch_corporation_profile_request)) {
+        if (isset($investor_profiles_corporations)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_corporation_profile_request));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($investor_profiles_corporations));
             } else {
-                $httpBody = $patch_corporation_profile_request;
+                $httpBody = $investor_profiles_corporations;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -2522,16 +2522,16 @@ class InvestorProfileApi
      * Patch an individual investor profile.
      *
      * @param  int $investor_profile_id investor_profile_id (required)
-     * @param  \DealMaker\Model\PatchIndividualProfileRequest $patch_individual_profile_request patch_individual_profile_request (optional)
+     * @param  \DealMaker\Model\PatchInvestorProfilesIndividuals $investor_profiles_individuals investor_profiles_individuals (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchIndividualProfile'] to see the possible values for this operation
      *
      * @throws \DealMaker\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \DealMaker\Model\V1EntitiesInvestorProfileIndividual
      */
-    public function patchIndividualProfile($investor_profile_id, $patch_individual_profile_request = null, string $contentType = self::contentTypes['patchIndividualProfile'][0])
+    public function patchIndividualProfile($investor_profile_id, $investor_profiles_individuals, string $contentType = self::contentTypes['patchIndividualProfile'][0])
     {
-        list($response) = $this->patchIndividualProfileWithHttpInfo($investor_profile_id, $patch_individual_profile_request, $contentType);
+        list($response) = $this->patchIndividualProfileWithHttpInfo($investor_profile_id, $investor_profiles_individuals, $contentType);
         return $response;
     }
 
@@ -2541,16 +2541,16 @@ class InvestorProfileApi
      * Patch an individual investor profile.
      *
      * @param  int $investor_profile_id (required)
-     * @param  \DealMaker\Model\PatchIndividualProfileRequest $patch_individual_profile_request (optional)
+     * @param  \DealMaker\Model\PatchInvestorProfilesIndividuals $investor_profiles_individuals (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchIndividualProfile'] to see the possible values for this operation
      *
      * @throws \DealMaker\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \DealMaker\Model\V1EntitiesInvestorProfileIndividual, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchIndividualProfileWithHttpInfo($investor_profile_id, $patch_individual_profile_request = null, string $contentType = self::contentTypes['patchIndividualProfile'][0])
+    public function patchIndividualProfileWithHttpInfo($investor_profile_id, $investor_profiles_individuals, string $contentType = self::contentTypes['patchIndividualProfile'][0])
     {
-        $request = $this->patchIndividualProfileRequest($investor_profile_id, $patch_individual_profile_request, $contentType);
+        $request = $this->patchIndividualProfileRequest($investor_profile_id, $investor_profiles_individuals, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2642,15 +2642,15 @@ class InvestorProfileApi
      * Patch an individual investor profile.
      *
      * @param  int $investor_profile_id (required)
-     * @param  \DealMaker\Model\PatchIndividualProfileRequest $patch_individual_profile_request (optional)
+     * @param  \DealMaker\Model\PatchInvestorProfilesIndividuals $investor_profiles_individuals (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchIndividualProfile'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchIndividualProfileAsync($investor_profile_id, $patch_individual_profile_request = null, string $contentType = self::contentTypes['patchIndividualProfile'][0])
+    public function patchIndividualProfileAsync($investor_profile_id, $investor_profiles_individuals, string $contentType = self::contentTypes['patchIndividualProfile'][0])
     {
-        return $this->patchIndividualProfileAsyncWithHttpInfo($investor_profile_id, $patch_individual_profile_request, $contentType)
+        return $this->patchIndividualProfileAsyncWithHttpInfo($investor_profile_id, $investor_profiles_individuals, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2664,16 +2664,16 @@ class InvestorProfileApi
      * Patch an individual investor profile.
      *
      * @param  int $investor_profile_id (required)
-     * @param  \DealMaker\Model\PatchIndividualProfileRequest $patch_individual_profile_request (optional)
+     * @param  \DealMaker\Model\PatchInvestorProfilesIndividuals $investor_profiles_individuals (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchIndividualProfile'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchIndividualProfileAsyncWithHttpInfo($investor_profile_id, $patch_individual_profile_request = null, string $contentType = self::contentTypes['patchIndividualProfile'][0])
+    public function patchIndividualProfileAsyncWithHttpInfo($investor_profile_id, $investor_profiles_individuals, string $contentType = self::contentTypes['patchIndividualProfile'][0])
     {
         $returnType = '\DealMaker\Model\V1EntitiesInvestorProfileIndividual';
-        $request = $this->patchIndividualProfileRequest($investor_profile_id, $patch_individual_profile_request, $contentType);
+        $request = $this->patchIndividualProfileRequest($investor_profile_id, $investor_profiles_individuals, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2715,13 +2715,13 @@ class InvestorProfileApi
      * Create request for operation 'patchIndividualProfile'
      *
      * @param  int $investor_profile_id (required)
-     * @param  \DealMaker\Model\PatchIndividualProfileRequest $patch_individual_profile_request (optional)
+     * @param  \DealMaker\Model\PatchInvestorProfilesIndividuals $investor_profiles_individuals (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchIndividualProfile'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchIndividualProfileRequest($investor_profile_id, $patch_individual_profile_request = null, string $contentType = self::contentTypes['patchIndividualProfile'][0])
+    public function patchIndividualProfileRequest($investor_profile_id, $investor_profiles_individuals, string $contentType = self::contentTypes['patchIndividualProfile'][0])
     {
 
         // verify the required parameter 'investor_profile_id' is set
@@ -2731,6 +2731,12 @@ class InvestorProfileApi
             );
         }
 
+        // verify the required parameter 'investor_profiles_individuals' is set
+        if ($investor_profiles_individuals === null || (is_array($investor_profiles_individuals) && count($investor_profiles_individuals) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $investor_profiles_individuals when calling patchIndividualProfile'
+            );
+        }
 
 
         $resourcePath = '/investor_profiles/individuals/{investor_profile_id}';
@@ -2759,12 +2765,12 @@ class InvestorProfileApi
         );
 
         // for model (json/xml)
-        if (isset($patch_individual_profile_request)) {
+        if (isset($investor_profiles_individuals)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_individual_profile_request));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($investor_profiles_individuals));
             } else {
-                $httpBody = $patch_individual_profile_request;
+                $httpBody = $investor_profiles_individuals;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -2818,16 +2824,16 @@ class InvestorProfileApi
      * Patch a joint investor profile
      *
      * @param  int $investor_profile_id investor_profile_id (required)
-     * @param  \DealMaker\Model\PatchJointProfileRequest $patch_joint_profile_request patch_joint_profile_request (optional)
+     * @param  \DealMaker\Model\PatchInvestorProfilesJoints $investor_profiles_joints investor_profiles_joints (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchJointProfile'] to see the possible values for this operation
      *
      * @throws \DealMaker\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \DealMaker\Model\V1EntitiesInvestorProfileJoint
      */
-    public function patchJointProfile($investor_profile_id, $patch_joint_profile_request = null, string $contentType = self::contentTypes['patchJointProfile'][0])
+    public function patchJointProfile($investor_profile_id, $investor_profiles_joints, string $contentType = self::contentTypes['patchJointProfile'][0])
     {
-        list($response) = $this->patchJointProfileWithHttpInfo($investor_profile_id, $patch_joint_profile_request, $contentType);
+        list($response) = $this->patchJointProfileWithHttpInfo($investor_profile_id, $investor_profiles_joints, $contentType);
         return $response;
     }
 
@@ -2837,16 +2843,16 @@ class InvestorProfileApi
      * Patch a joint investor profile
      *
      * @param  int $investor_profile_id (required)
-     * @param  \DealMaker\Model\PatchJointProfileRequest $patch_joint_profile_request (optional)
+     * @param  \DealMaker\Model\PatchInvestorProfilesJoints $investor_profiles_joints (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchJointProfile'] to see the possible values for this operation
      *
      * @throws \DealMaker\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \DealMaker\Model\V1EntitiesInvestorProfileJoint, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchJointProfileWithHttpInfo($investor_profile_id, $patch_joint_profile_request = null, string $contentType = self::contentTypes['patchJointProfile'][0])
+    public function patchJointProfileWithHttpInfo($investor_profile_id, $investor_profiles_joints, string $contentType = self::contentTypes['patchJointProfile'][0])
     {
-        $request = $this->patchJointProfileRequest($investor_profile_id, $patch_joint_profile_request, $contentType);
+        $request = $this->patchJointProfileRequest($investor_profile_id, $investor_profiles_joints, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2938,15 +2944,15 @@ class InvestorProfileApi
      * Patch a joint investor profile
      *
      * @param  int $investor_profile_id (required)
-     * @param  \DealMaker\Model\PatchJointProfileRequest $patch_joint_profile_request (optional)
+     * @param  \DealMaker\Model\PatchInvestorProfilesJoints $investor_profiles_joints (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchJointProfile'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchJointProfileAsync($investor_profile_id, $patch_joint_profile_request = null, string $contentType = self::contentTypes['patchJointProfile'][0])
+    public function patchJointProfileAsync($investor_profile_id, $investor_profiles_joints, string $contentType = self::contentTypes['patchJointProfile'][0])
     {
-        return $this->patchJointProfileAsyncWithHttpInfo($investor_profile_id, $patch_joint_profile_request, $contentType)
+        return $this->patchJointProfileAsyncWithHttpInfo($investor_profile_id, $investor_profiles_joints, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2960,16 +2966,16 @@ class InvestorProfileApi
      * Patch a joint investor profile
      *
      * @param  int $investor_profile_id (required)
-     * @param  \DealMaker\Model\PatchJointProfileRequest $patch_joint_profile_request (optional)
+     * @param  \DealMaker\Model\PatchInvestorProfilesJoints $investor_profiles_joints (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchJointProfile'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchJointProfileAsyncWithHttpInfo($investor_profile_id, $patch_joint_profile_request = null, string $contentType = self::contentTypes['patchJointProfile'][0])
+    public function patchJointProfileAsyncWithHttpInfo($investor_profile_id, $investor_profiles_joints, string $contentType = self::contentTypes['patchJointProfile'][0])
     {
         $returnType = '\DealMaker\Model\V1EntitiesInvestorProfileJoint';
-        $request = $this->patchJointProfileRequest($investor_profile_id, $patch_joint_profile_request, $contentType);
+        $request = $this->patchJointProfileRequest($investor_profile_id, $investor_profiles_joints, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3011,13 +3017,13 @@ class InvestorProfileApi
      * Create request for operation 'patchJointProfile'
      *
      * @param  int $investor_profile_id (required)
-     * @param  \DealMaker\Model\PatchJointProfileRequest $patch_joint_profile_request (optional)
+     * @param  \DealMaker\Model\PatchInvestorProfilesJoints $investor_profiles_joints (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchJointProfile'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchJointProfileRequest($investor_profile_id, $patch_joint_profile_request = null, string $contentType = self::contentTypes['patchJointProfile'][0])
+    public function patchJointProfileRequest($investor_profile_id, $investor_profiles_joints, string $contentType = self::contentTypes['patchJointProfile'][0])
     {
 
         // verify the required parameter 'investor_profile_id' is set
@@ -3027,6 +3033,12 @@ class InvestorProfileApi
             );
         }
 
+        // verify the required parameter 'investor_profiles_joints' is set
+        if ($investor_profiles_joints === null || (is_array($investor_profiles_joints) && count($investor_profiles_joints) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $investor_profiles_joints when calling patchJointProfile'
+            );
+        }
 
 
         $resourcePath = '/investor_profiles/joints/{investor_profile_id}';
@@ -3055,12 +3067,12 @@ class InvestorProfileApi
         );
 
         // for model (json/xml)
-        if (isset($patch_joint_profile_request)) {
+        if (isset($investor_profiles_joints)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_joint_profile_request));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($investor_profiles_joints));
             } else {
-                $httpBody = $patch_joint_profile_request;
+                $httpBody = $investor_profiles_joints;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -3114,16 +3126,16 @@ class InvestorProfileApi
      * Patch a trust investor profile
      *
      * @param  int $investor_profile_id investor_profile_id (required)
-     * @param  \DealMaker\Model\PatchTrustProfileRequest $patch_trust_profile_request patch_trust_profile_request (optional)
+     * @param  \DealMaker\Model\PatchInvestorProfilesTrusts $investor_profiles_trusts investor_profiles_trusts (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchTrustProfile'] to see the possible values for this operation
      *
      * @throws \DealMaker\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \DealMaker\Model\V1EntitiesInvestorProfileTrust
      */
-    public function patchTrustProfile($investor_profile_id, $patch_trust_profile_request = null, string $contentType = self::contentTypes['patchTrustProfile'][0])
+    public function patchTrustProfile($investor_profile_id, $investor_profiles_trusts, string $contentType = self::contentTypes['patchTrustProfile'][0])
     {
-        list($response) = $this->patchTrustProfileWithHttpInfo($investor_profile_id, $patch_trust_profile_request, $contentType);
+        list($response) = $this->patchTrustProfileWithHttpInfo($investor_profile_id, $investor_profiles_trusts, $contentType);
         return $response;
     }
 
@@ -3133,16 +3145,16 @@ class InvestorProfileApi
      * Patch a trust investor profile
      *
      * @param  int $investor_profile_id (required)
-     * @param  \DealMaker\Model\PatchTrustProfileRequest $patch_trust_profile_request (optional)
+     * @param  \DealMaker\Model\PatchInvestorProfilesTrusts $investor_profiles_trusts (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchTrustProfile'] to see the possible values for this operation
      *
      * @throws \DealMaker\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \DealMaker\Model\V1EntitiesInvestorProfileTrust, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchTrustProfileWithHttpInfo($investor_profile_id, $patch_trust_profile_request = null, string $contentType = self::contentTypes['patchTrustProfile'][0])
+    public function patchTrustProfileWithHttpInfo($investor_profile_id, $investor_profiles_trusts, string $contentType = self::contentTypes['patchTrustProfile'][0])
     {
-        $request = $this->patchTrustProfileRequest($investor_profile_id, $patch_trust_profile_request, $contentType);
+        $request = $this->patchTrustProfileRequest($investor_profile_id, $investor_profiles_trusts, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3234,15 +3246,15 @@ class InvestorProfileApi
      * Patch a trust investor profile
      *
      * @param  int $investor_profile_id (required)
-     * @param  \DealMaker\Model\PatchTrustProfileRequest $patch_trust_profile_request (optional)
+     * @param  \DealMaker\Model\PatchInvestorProfilesTrusts $investor_profiles_trusts (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchTrustProfile'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchTrustProfileAsync($investor_profile_id, $patch_trust_profile_request = null, string $contentType = self::contentTypes['patchTrustProfile'][0])
+    public function patchTrustProfileAsync($investor_profile_id, $investor_profiles_trusts, string $contentType = self::contentTypes['patchTrustProfile'][0])
     {
-        return $this->patchTrustProfileAsyncWithHttpInfo($investor_profile_id, $patch_trust_profile_request, $contentType)
+        return $this->patchTrustProfileAsyncWithHttpInfo($investor_profile_id, $investor_profiles_trusts, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3256,16 +3268,16 @@ class InvestorProfileApi
      * Patch a trust investor profile
      *
      * @param  int $investor_profile_id (required)
-     * @param  \DealMaker\Model\PatchTrustProfileRequest $patch_trust_profile_request (optional)
+     * @param  \DealMaker\Model\PatchInvestorProfilesTrusts $investor_profiles_trusts (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchTrustProfile'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchTrustProfileAsyncWithHttpInfo($investor_profile_id, $patch_trust_profile_request = null, string $contentType = self::contentTypes['patchTrustProfile'][0])
+    public function patchTrustProfileAsyncWithHttpInfo($investor_profile_id, $investor_profiles_trusts, string $contentType = self::contentTypes['patchTrustProfile'][0])
     {
         $returnType = '\DealMaker\Model\V1EntitiesInvestorProfileTrust';
-        $request = $this->patchTrustProfileRequest($investor_profile_id, $patch_trust_profile_request, $contentType);
+        $request = $this->patchTrustProfileRequest($investor_profile_id, $investor_profiles_trusts, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3307,13 +3319,13 @@ class InvestorProfileApi
      * Create request for operation 'patchTrustProfile'
      *
      * @param  int $investor_profile_id (required)
-     * @param  \DealMaker\Model\PatchTrustProfileRequest $patch_trust_profile_request (optional)
+     * @param  \DealMaker\Model\PatchInvestorProfilesTrusts $investor_profiles_trusts (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchTrustProfile'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchTrustProfileRequest($investor_profile_id, $patch_trust_profile_request = null, string $contentType = self::contentTypes['patchTrustProfile'][0])
+    public function patchTrustProfileRequest($investor_profile_id, $investor_profiles_trusts, string $contentType = self::contentTypes['patchTrustProfile'][0])
     {
 
         // verify the required parameter 'investor_profile_id' is set
@@ -3323,6 +3335,12 @@ class InvestorProfileApi
             );
         }
 
+        // verify the required parameter 'investor_profiles_trusts' is set
+        if ($investor_profiles_trusts === null || (is_array($investor_profiles_trusts) && count($investor_profiles_trusts) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $investor_profiles_trusts when calling patchTrustProfile'
+            );
+        }
 
 
         $resourcePath = '/investor_profiles/trusts/{investor_profile_id}';
@@ -3351,12 +3369,12 @@ class InvestorProfileApi
         );
 
         // for model (json/xml)
-        if (isset($patch_trust_profile_request)) {
+        if (isset($investor_profiles_trusts)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_trust_profile_request));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($investor_profiles_trusts));
             } else {
-                $httpBody = $patch_trust_profile_request;
+                $httpBody = $investor_profiles_trusts;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

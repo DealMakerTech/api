@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The V1EntitiesDealInvestorMetrics model module.
  * @module model/V1EntitiesDealInvestorMetrics
- * @version 0.85.5
+ * @version 0.85.6
  */
 class V1EntitiesDealInvestorMetrics {
     /**

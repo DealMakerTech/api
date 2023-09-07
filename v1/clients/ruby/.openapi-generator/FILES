@@ -12,6 +12,7 @@ docs/Add506cDocumentRequest.md
 docs/AddDocumentRequest.md
 docs/BulkUploadInvestorsRequest.md
 docs/CompanyApi.md
+docs/CountryApi.md
 docs/CreateBulkUploadDetailRequest.md
 docs/CreateBulkUploadRequest.md
 docs/CreateCompanyRequest.md
@@ -44,6 +45,7 @@ docs/PutWebhooksIdRequest.md
 docs/ShareholderApi.md
 docs/UpdateInvestorRequest.md
 docs/UploadApi.md
+docs/UsersApi.md
 docs/V1EntitiesAddress.md
 docs/V1EntitiesAddresses.md
 docs/V1EntitiesAttachment.md
@@ -55,6 +57,8 @@ docs/V1EntitiesBulkUploads.md
 docs/V1EntitiesCompany.md
 docs/V1EntitiesCompanyDeal.md
 docs/V1EntitiesCompanyDeals.md
+docs/V1EntitiesCountries.md
+docs/V1EntitiesCountry.md
 docs/V1EntitiesDeal.md
 docs/V1EntitiesDealEnterprise.md
 docs/V1EntitiesDealFundingMetrics.md
@@ -87,6 +91,7 @@ docs/V1EntitiesPresignedUrlResult.md
 docs/V1EntitiesShareholder.md
 docs/V1EntitiesShareholders.md
 docs/V1EntitiesShareholdersTags.md
+docs/V1EntitiesState.md
 docs/V1EntitiesSubscriptionAgreement.md
 docs/V1EntitiesWebhooksDeal.md
 docs/V1EntitiesWebhooksSecurityToken.md
@@ -96,6 +101,7 @@ docs/V1EntitiesWebhooksSubscriptionDeals.md
 git_push.sh
 lib/DealMakerAPI.rb
 lib/DealMakerAPI/api/company_api.rb
+lib/DealMakerAPI/api/country_api.rb
 lib/DealMakerAPI/api/deal_api.rb
 lib/DealMakerAPI/api/deal_setup_api.rb
 lib/DealMakerAPI/api/deals_api.rb
@@ -104,6 +110,7 @@ lib/DealMakerAPI/api/investor_api.rb
 lib/DealMakerAPI/api/investor_profile_api.rb
 lib/DealMakerAPI/api/shareholder_api.rb
 lib/DealMakerAPI/api/upload_api.rb
+lib/DealMakerAPI/api/users_api.rb
 lib/DealMakerAPI/api_client.rb
 lib/DealMakerAPI/api_error.rb
 lib/DealMakerAPI/configuration.rb
@@ -145,6 +152,8 @@ lib/DealMakerAPI/models/v1_entities_bulk_uploads.rb
 lib/DealMakerAPI/models/v1_entities_company.rb
 lib/DealMakerAPI/models/v1_entities_company_deal.rb
 lib/DealMakerAPI/models/v1_entities_company_deals.rb
+lib/DealMakerAPI/models/v1_entities_countries.rb
+lib/DealMakerAPI/models/v1_entities_country.rb
 lib/DealMakerAPI/models/v1_entities_deal.rb
 lib/DealMakerAPI/models/v1_entities_deal_enterprise.rb
 lib/DealMakerAPI/models/v1_entities_deal_funding_metrics.rb
@@ -177,6 +186,7 @@ lib/DealMakerAPI/models/v1_entities_presigned_url_result.rb
 lib/DealMakerAPI/models/v1_entities_shareholder.rb
 lib/DealMakerAPI/models/v1_entities_shareholders.rb
 lib/DealMakerAPI/models/v1_entities_shareholders_tags.rb
+lib/DealMakerAPI/models/v1_entities_state.rb
 lib/DealMakerAPI/models/v1_entities_subscription_agreement.rb
 lib/DealMakerAPI/models/v1_entities_webhooks_deal.rb
 lib/DealMakerAPI/models/v1_entities_webhooks_security_token.rb
@@ -185,6 +195,7 @@ lib/DealMakerAPI/models/v1_entities_webhooks_subscription_deal.rb
 lib/DealMakerAPI/models/v1_entities_webhooks_subscription_deals.rb
 lib/DealMakerAPI/version.rb
 spec/api/company_api_spec.rb
+spec/api/country_api_spec.rb
 spec/api/deal_api_spec.rb
 spec/api/deal_setup_api_spec.rb
 spec/api/deals_api_spec.rb
@@ -193,6 +204,7 @@ spec/api/investor_api_spec.rb
 spec/api/investor_profile_api_spec.rb
 spec/api/shareholder_api_spec.rb
 spec/api/upload_api_spec.rb
+spec/api/users_api_spec.rb
 spec/api_client_spec.rb
 spec/configuration_spec.rb
 spec/models/add506c_document_request_spec.rb
@@ -233,6 +245,8 @@ spec/models/v1_entities_bulk_uploads_spec.rb
 spec/models/v1_entities_company_deal_spec.rb
 spec/models/v1_entities_company_deals_spec.rb
 spec/models/v1_entities_company_spec.rb
+spec/models/v1_entities_countries_spec.rb
+spec/models/v1_entities_country_spec.rb
 spec/models/v1_entities_deal_enterprise_spec.rb
 spec/models/v1_entities_deal_funding_metrics_spec.rb
 spec/models/v1_entities_deal_investor_metrics_spec.rb
@@ -265,6 +279,7 @@ spec/models/v1_entities_presigned_url_result_spec.rb
 spec/models/v1_entities_shareholder_spec.rb
 spec/models/v1_entities_shareholders_spec.rb
 spec/models/v1_entities_shareholders_tags_spec.rb
+spec/models/v1_entities_state_spec.rb
 spec/models/v1_entities_subscription_agreement_spec.rb
 spec/models/v1_entities_webhooks_deal_spec.rb
 spec/models/v1_entities_webhooks_security_token_spec.rb

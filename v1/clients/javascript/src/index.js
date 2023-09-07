@@ -51,6 +51,8 @@ import V1EntitiesBulkUploads from './model/V1EntitiesBulkUploads';
 import V1EntitiesCompany from './model/V1EntitiesCompany';
 import V1EntitiesCompanyDeal from './model/V1EntitiesCompanyDeal';
 import V1EntitiesCompanyDeals from './model/V1EntitiesCompanyDeals';
+import V1EntitiesCountries from './model/V1EntitiesCountries';
+import V1EntitiesCountry from './model/V1EntitiesCountry';
 import V1EntitiesDeal from './model/V1EntitiesDeal';
 import V1EntitiesDealEnterprise from './model/V1EntitiesDealEnterprise';
 import V1EntitiesDealFundingMetrics from './model/V1EntitiesDealFundingMetrics';
@@ -83,6 +85,7 @@ import V1EntitiesPresignedUrlResult from './model/V1EntitiesPresignedUrlResult';
 import V1EntitiesShareholder from './model/V1EntitiesShareholder';
 import V1EntitiesShareholders from './model/V1EntitiesShareholders';
 import V1EntitiesShareholdersTags from './model/V1EntitiesShareholdersTags';
+import V1EntitiesState from './model/V1EntitiesState';
 import V1EntitiesSubscriptionAgreement from './model/V1EntitiesSubscriptionAgreement';
 import V1EntitiesWebhooksDeal from './model/V1EntitiesWebhooksDeal';
 import V1EntitiesWebhooksSecurityToken from './model/V1EntitiesWebhooksSecurityToken';
@@ -90,6 +93,7 @@ import V1EntitiesWebhooksSubscription from './model/V1EntitiesWebhooksSubscripti
 import V1EntitiesWebhooksSubscriptionDeal from './model/V1EntitiesWebhooksSubscriptionDeal';
 import V1EntitiesWebhooksSubscriptionDeals from './model/V1EntitiesWebhooksSubscriptionDeals';
 import CompanyApi from './api/CompanyApi';
+import CountryApi from './api/CountryApi';
 import DealApi from './api/DealApi';
 import DealSetupApi from './api/DealSetupApi';
 import DealsApi from './api/DealsApi';
@@ -98,6 +102,7 @@ import InvestorApi from './api/InvestorApi';
 import InvestorProfileApi from './api/InvestorProfileApi';
 import ShareholderApi from './api/ShareholderApi';
 import UploadApi from './api/UploadApi';
+import UsersApi from './api/UsersApi';
 
 
 /**
@@ -129,7 +134,7 @@ import UploadApi from './api/UploadApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.85.5
+* @version 0.85.6
 */
 export {
     /**
@@ -367,6 +372,18 @@ export {
     V1EntitiesCompanyDeals,
 
     /**
+     * The V1EntitiesCountries model constructor.
+     * @property {module:model/V1EntitiesCountries}
+     */
+    V1EntitiesCountries,
+
+    /**
+     * The V1EntitiesCountry model constructor.
+     * @property {module:model/V1EntitiesCountry}
+     */
+    V1EntitiesCountry,
+
+    /**
      * The V1EntitiesDeal model constructor.
      * @property {module:model/V1EntitiesDeal}
      */
@@ -559,6 +576,12 @@ export {
     V1EntitiesShareholdersTags,
 
     /**
+     * The V1EntitiesState model constructor.
+     * @property {module:model/V1EntitiesState}
+     */
+    V1EntitiesState,
+
+    /**
      * The V1EntitiesSubscriptionAgreement model constructor.
      * @property {module:model/V1EntitiesSubscriptionAgreement}
      */
@@ -599,6 +622,12 @@ export {
     * @property {module:api/CompanyApi}
     */
     CompanyApi,
+
+    /**
+    * The CountryApi service constructor.
+    * @property {module:api/CountryApi}
+    */
+    CountryApi,
 
     /**
     * The DealApi service constructor.
@@ -646,5 +675,11 @@ export {
     * The UploadApi service constructor.
     * @property {module:api/UploadApi}
     */
-    UploadApi
+    UploadApi,
+
+    /**
+    * The UsersApi service constructor.
+    * @property {module:api/UsersApi}
+    */
+    UsersApi
 };

@@ -20,6 +20,7 @@ Name | Type | Description | Notes
 **regCfPriorOfferingsAmount** | **Number** | The prior offering amount of the individual investor profile | [optional] 
 **signingOfficerFirstName** | **String** | The first name of the signing officer (required). | [optional] 
 **signingOfficerLastName** | **String** | The last name of the signing officer (required). | [optional] 
+**signingOfficerTitle** | **String** | The title of the signing officer. | [optional] 
 **signingOfficerSuffix** | **String** | The suffix of the signing officer. | [optional] 
 **signingOfficerStreetAddress** | **String** | The street address of the signing officer (required). | [optional] 
 **signingOfficerUnit2** | **String** | The street address line 2 of the signing officer. | [optional] 

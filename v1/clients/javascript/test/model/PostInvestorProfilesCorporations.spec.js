@@ -150,6 +150,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property signingOfficerTitle (base name: "signing_officer_title")', function() {
+      // uncomment below and update the code to test the property signingOfficerTitle
+      //var instance = new Api.PostInvestorProfilesCorporations();
+      //expect(instance).to.be();
+    });
+
     it('should have the property signingOfficerSuffix (base name: "signing_officer_suffix")', function() {
       // uncomment below and update the code to test the property signingOfficerSuffix
       //var instance = new Api.PostInvestorProfilesCorporations();

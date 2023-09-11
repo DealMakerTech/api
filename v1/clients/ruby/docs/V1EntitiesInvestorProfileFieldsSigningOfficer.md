@@ -10,6 +10,7 @@
 | **date_of_birth** | **String** | The date of birth | [optional] |
 | **taxpayer_id** | **String** | The taxpayer identification number | [optional] |
 | **address** | [**V1EntitiesInvestorProfileAddress**](V1EntitiesInvestorProfileAddress.md) |  | [optional] |
+| **title** | **String** | Signing officer title | [optional] |
 | **phone_number** | **String** | Signing officer phone number | [optional] |
 
 ## Example
@@ -24,6 +25,7 @@ instance = DealMakerAPI::V1EntitiesInvestorProfileFieldsSigningOfficer.new(
   date_of_birth: null,
   taxpayer_id: null,
   address: null,
+  title: null,
   phone_number: null
 )
 ```

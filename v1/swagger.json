@@ -39,7 +39,8 @@
         "deal",
         "investor",
         "investor_profile",
-        "company"
+        "company",
+        "country"
       ]
     },
     {
@@ -49,7 +50,8 @@
         "investor_model",
         "investor_profile_model",
         "company_model",
-        "address_model"
+        "address_model",
+        "country_model"
       ]
     }
   ],
@@ -65,6 +67,10 @@
     {
       "name": "deal_setup",
       "description": "Operations about deal_setups"
+    },
+    {
+      "name": "users",
+      "description": "Operations about users"
     },
     {
       "name": "deal",
@@ -85,6 +91,11 @@
       "name": "company",
       "description": "Access to your companies",
       "x-displayName": "Company"
+    },
+    {
+      "name": "country",
+      "description": "Access to your companies",
+      "x-displayName": "Country"
     },
     {
       "name": "deal_model",
@@ -110,6 +121,11 @@
       "name": "address_model",
       "description": "<SchemaDefinition schemaRef=\"#/components/schemas/V1_Entities_Address\" />",
       "x-displayName": "Address"
+    },
+    {
+      "name": "country_model",
+      "description": "<SchemaDefinition schemaRef=\"#/components/schemas/V1_Entities_Country\" />",
+      "x-displayName": "Country"
     },
     {
       "name": "upload",
@@ -2393,7 +2409,8 @@
               "offering_memorandum",
               "regulation_cf_offering",
               "reg_d_506_c",
-              "reg_d_506_b"
+              "reg_d_506_b",
+              "dm_plus"
             ],
             "required": true
           },
@@ -3631,6 +3648,110 @@
           }
         ]
       }
+    },
+    "/users/investments": {
+      "get": {
+        "summary": "Gets the investments for a specific user.",
+        "description": "Get Investments",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "page",
+            "description": "Page offset to fetch.",
+            "type": "integer",
+            "format": "int32",
+            "default": 1,
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "per_page",
+            "description": "Number of results to return per page.",
+            "type": "integer",
+            "format": "int32",
+            "default": 25,
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "description": "Pad a number of results.",
+            "type": "integer",
+            "format": "int32",
+            "default": 0,
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "email",
+            "description": "The email of the user.",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "security": [
+          {
+            "oauth": [
+              "deals.investors.read"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get Investments",
+            "schema": {
+              "$ref": "#/definitions/V1_Entities_Investors"
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "User not found"
+          }
+        },
+        "tags": [
+          "users"
+        ],
+        "operationId": "getUsersInvestments"
+      }
+    },
+    "/country/states": {
+      "get": {
+        "summary": "Returns a list of all valid countries and it states",
+        "description": "Get countries and states",
+        "produces": [
+          "application/json"
+        ],
+        "security": [
+          {
+            "oauth": [
+
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get countries and states",
+            "schema": {
+              "$ref": "#/definitions/V1_Entities_Countries"
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        },
+        "tags": [
+          "country"
+        ],
+        "operationId": "getCountryStates"
+      }
     }
   },
   "definitions": {
@@ -4342,7 +4463,7 @@
           "$ref": "#/definitions/V1_Entities_InvestorProfile_Fields_SigningOfficer"
         },
         "beneficial_owners": {
-          "$ref": "#/definitions/V1_Entities_InvestorProfile_Fields_SigningOfficer"
+          "$ref": "#/definitions/V1_Entities_InvestorProfile_Fields_BeneficialOwner"
         }
       },
       "description": "V1_Entities_InvestorProfile_Corporation model"
@@ -4408,9 +4529,45 @@
         "address": {
           "$ref": "#/definitions/V1_Entities_InvestorProfile_Address"
         },
+        "title": {
+          "type": "string",
+          "description": "Signing officer title"
+        },
         "phone_number": {
           "type": "string",
           "description": "Signing officer phone number"
+        }
+      }
+    },
+    "V1_Entities_InvestorProfile_Fields_BeneficialOwner": {
+      "type": "object",
+      "properties": {
+        "first_name": {
+          "type": "string",
+          "description": "Investor profile first name"
+        },
+        "last_name": {
+          "type": "string",
+          "description": "Investor profile last name"
+        },
+        "suffix": {
+          "type": "string",
+          "description": "Investor profile suffix"
+        },
+        "date_of_birth": {
+          "type": "string",
+          "description": "The date of birth"
+        },
+        "taxpayer_id": {
+          "type": "string",
+          "description": "The taxpayer identification number"
+        },
+        "address": {
+          "$ref": "#/definitions/V1_Entities_InvestorProfile_Address"
+        },
+        "phone_number": {
+          "type": "string",
+          "description": "Beneficial owner phone number"
         }
       }
     },
@@ -4602,6 +4759,35 @@
         "name": {
           "type": "string",
           "description": "The deal title."
+        }
+      }
+    },
+    "V1_Entities_Country": {
+      "type": "object",
+      "properties": {
+        "country": {
+          "type": "string",
+          "description": "The name of the country."
+        },
+        "country_code": {
+          "type": "string",
+          "description": "The country code."
+        },
+        "states": {
+          "$ref": "#/definitions/V1_Entities_State"
+        }
+      }
+    },
+    "V1_Entities_State": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "The name of the state."
+        },
+        "code": {
+          "type": "string",
+          "description": "The state code."
         }
       }
     },
@@ -5798,6 +5984,10 @@
           "type": "string",
           "description": "Signing officer last name."
         },
+        "signing_officer_title": {
+          "type": "string",
+          "description": "Signing officer title."
+        },
         "signing_officer_suffix": {
           "type": "string",
           "description": "Signing officer suffix."
@@ -6023,6 +6213,10 @@
           "type": "string",
           "description": "The last name of the signing officer (required)."
         },
+        "signing_officer_title": {
+          "type": "string",
+          "description": "The title of the signing officer."
+        },
         "signing_officer_suffix": {
           "type": "string",
           "description": "The suffix of the signing officer."
@@ -6243,6 +6437,15 @@
         }
       },
       "description": "V1_Entities_PresignedUrlResult model"
+    },
+    "V1_Entities_Countries": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "$ref": "#/definitions/V1_Entities_Country"
+        }
+      },
+      "description": "V1_Entities_Countries model"
     }
   }
 }

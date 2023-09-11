@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The CreateDealSetupRequest model module.
  * @module model/CreateDealSetupRequest
- * @version 0.85.5
+ * @version 0.86.0
  */
 class CreateDealSetupRequest {
     /**
@@ -377,7 +377,13 @@ CreateDealSetupRequest['OfferingTypeEnum'] = {
      * value: "reg_d_506_b"
      * @const
      */
-    "reg_d_506_b": "reg_d_506_b"
+    "reg_d_506_b": "reg_d_506_b",
+
+    /**
+     * value: "dm_plus"
+     * @const
+     */
+    "dm_plus": "dm_plus"
 };
 
 

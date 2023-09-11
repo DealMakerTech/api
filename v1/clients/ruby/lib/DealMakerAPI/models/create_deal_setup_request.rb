@@ -185,7 +185,7 @@ module DealMakerAPI
       prohibited_industry_validator = EnumAttributeValidator.new('String', ["prohibited", "not_prohibited"])
       return false unless prohibited_industry_validator.valid?(@prohibited_industry)
       return false if @offering_type.nil?
-      offering_type_validator = EnumAttributeValidator.new('String', ["other", "canadian_private_placement", "regulation_a_plus_offering", "offering_memorandum", "regulation_cf_offering", "reg_d_506_c", "reg_d_506_b"])
+      offering_type_validator = EnumAttributeValidator.new('String', ["other", "canadian_private_placement", "regulation_a_plus_offering", "offering_memorandum", "regulation_cf_offering", "reg_d_506_c", "reg_d_506_b", "dm_plus"])
       return false unless offering_type_validator.valid?(@offering_type)
       return false if @title.nil?
       return false if @company_id.nil?
@@ -215,7 +215,7 @@ module DealMakerAPI
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] offering_type Object to be assigned
     def offering_type=(offering_type)
-      validator = EnumAttributeValidator.new('String', ["other", "canadian_private_placement", "regulation_a_plus_offering", "offering_memorandum", "regulation_cf_offering", "reg_d_506_c", "reg_d_506_b"])
+      validator = EnumAttributeValidator.new('String', ["other", "canadian_private_placement", "regulation_a_plus_offering", "offering_memorandum", "regulation_cf_offering", "reg_d_506_c", "reg_d_506_b", "dm_plus"])
       unless validator.valid?(offering_type)
         fail ArgumentError, "invalid value for \"offering_type\", must be one of #{validator.allowable_values}."
       end

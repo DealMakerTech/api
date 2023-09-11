@@ -15,6 +15,6 @@ Name | Type | Description | Notes
 **owner** | [**\DealMaker\Model\V1EntitiesInvestorProfileOwner**](V1EntitiesInvestorProfileOwner.md) |  | [optional]
 **corporation** | [**\DealMaker\Model\V1EntitiesInvestorProfileFieldsCorporation**](V1EntitiesInvestorProfileFieldsCorporation.md) |  | [optional]
 **signing_officer** | [**\DealMaker\Model\V1EntitiesInvestorProfileFieldsSigningOfficer**](V1EntitiesInvestorProfileFieldsSigningOfficer.md) |  | [optional]
-**beneficial_owners** | [**\DealMaker\Model\V1EntitiesInvestorProfileFieldsSigningOfficer**](V1EntitiesInvestorProfileFieldsSigningOfficer.md) |  | [optional]
+**beneficial_owners** | [**\DealMaker\Model\V1EntitiesInvestorProfileFieldsBeneficialOwner**](V1EntitiesInvestorProfileFieldsBeneficialOwner.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

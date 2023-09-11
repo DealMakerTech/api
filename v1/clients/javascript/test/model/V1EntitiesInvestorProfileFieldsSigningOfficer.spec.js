@@ -90,6 +90,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property title (base name: "title")', function() {
+      // uncomment below and update the code to test the property title
+      //var instance = new Api.V1EntitiesInvestorProfileFieldsSigningOfficer();
+      //expect(instance).to.be();
+    });
+
     it('should have the property phoneNumber (base name: "phone_number")', function() {
       // uncomment below and update the code to test the property phoneNumber
       //var instance = new Api.V1EntitiesInvestorProfileFieldsSigningOfficer();

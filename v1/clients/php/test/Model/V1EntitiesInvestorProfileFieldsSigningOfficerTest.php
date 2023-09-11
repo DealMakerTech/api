@@ -134,6 +134,15 @@ class V1EntitiesInvestorProfileFieldsSigningOfficerTest extends TestCase
     }
 
     /**
+     * Test attribute "title"
+     */
+    public function testPropertyTitle()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "phone_number"
      */
     public function testPropertyPhoneNumber()

@@ -7,6 +7,7 @@ docs/Add506cDocumentRequest.md
 docs/AddDocumentRequest.md
 docs/BulkUploadInvestorsRequest.md
 docs/CompanyApi.md
+docs/CountryApi.md
 docs/CreateBulkUploadDetailRequest.md
 docs/CreateBulkUploadRequest.md
 docs/CreateCompanyRequest.md
@@ -39,6 +40,7 @@ docs/PutWebhooksIdRequest.md
 docs/ShareholderApi.md
 docs/UpdateInvestorRequest.md
 docs/UploadApi.md
+docs/UsersApi.md
 docs/V1EntitiesAddress.md
 docs/V1EntitiesAddresses.md
 docs/V1EntitiesAttachment.md
@@ -50,6 +52,8 @@ docs/V1EntitiesBulkUploads.md
 docs/V1EntitiesCompany.md
 docs/V1EntitiesCompanyDeal.md
 docs/V1EntitiesCompanyDeals.md
+docs/V1EntitiesCountries.md
+docs/V1EntitiesCountry.md
 docs/V1EntitiesDeal.md
 docs/V1EntitiesDealEnterprise.md
 docs/V1EntitiesDealFundingMetrics.md
@@ -66,6 +70,7 @@ docs/V1EntitiesInvestorOtpAccessLink.md
 docs/V1EntitiesInvestorProfileAddress.md
 docs/V1EntitiesInvestorProfileCorporation.md
 docs/V1EntitiesInvestorProfileFieldsAccountHolder.md
+docs/V1EntitiesInvestorProfileFieldsBeneficialOwner.md
 docs/V1EntitiesInvestorProfileFieldsCorporation.md
 docs/V1EntitiesInvestorProfileFieldsPrimaryHolder.md
 docs/V1EntitiesInvestorProfileFieldsSigningOfficer.md
@@ -82,6 +87,7 @@ docs/V1EntitiesPresignedUrlResult.md
 docs/V1EntitiesShareholder.md
 docs/V1EntitiesShareholders.md
 docs/V1EntitiesShareholdersTags.md
+docs/V1EntitiesState.md
 docs/V1EntitiesSubscriptionAgreement.md
 docs/V1EntitiesWebhooksDeal.md
 docs/V1EntitiesWebhooksSecurityToken.md
@@ -93,6 +99,7 @@ mocha.opts
 package.json
 src/ApiClient.js
 src/api/CompanyApi.js
+src/api/CountryApi.js
 src/api/DealApi.js
 src/api/DealSetupApi.js
 src/api/DealsApi.js
@@ -101,6 +108,7 @@ src/api/InvestorApi.js
 src/api/InvestorProfileApi.js
 src/api/ShareholderApi.js
 src/api/UploadApi.js
+src/api/UsersApi.js
 src/index.js
 src/model/Add506cDocumentRequest.js
 src/model/AddDocumentRequest.js
@@ -140,6 +148,8 @@ src/model/V1EntitiesBulkUploads.js
 src/model/V1EntitiesCompany.js
 src/model/V1EntitiesCompanyDeal.js
 src/model/V1EntitiesCompanyDeals.js
+src/model/V1EntitiesCountries.js
+src/model/V1EntitiesCountry.js
 src/model/V1EntitiesDeal.js
 src/model/V1EntitiesDealEnterprise.js
 src/model/V1EntitiesDealFundingMetrics.js
@@ -156,6 +166,7 @@ src/model/V1EntitiesInvestorOtpAccessLink.js
 src/model/V1EntitiesInvestorProfileAddress.js
 src/model/V1EntitiesInvestorProfileCorporation.js
 src/model/V1EntitiesInvestorProfileFieldsAccountHolder.js
+src/model/V1EntitiesInvestorProfileFieldsBeneficialOwner.js
 src/model/V1EntitiesInvestorProfileFieldsCorporation.js
 src/model/V1EntitiesInvestorProfileFieldsPrimaryHolder.js
 src/model/V1EntitiesInvestorProfileFieldsSigningOfficer.js
@@ -172,6 +183,7 @@ src/model/V1EntitiesPresignedUrlResult.js
 src/model/V1EntitiesShareholder.js
 src/model/V1EntitiesShareholders.js
 src/model/V1EntitiesShareholdersTags.js
+src/model/V1EntitiesState.js
 src/model/V1EntitiesSubscriptionAgreement.js
 src/model/V1EntitiesWebhooksDeal.js
 src/model/V1EntitiesWebhooksSecurityToken.js
@@ -179,6 +191,7 @@ src/model/V1EntitiesWebhooksSubscription.js
 src/model/V1EntitiesWebhooksSubscriptionDeal.js
 src/model/V1EntitiesWebhooksSubscriptionDeals.js
 test/api/CompanyApi.spec.js
+test/api/CountryApi.spec.js
 test/api/DealApi.spec.js
 test/api/DealSetupApi.spec.js
 test/api/DealsApi.spec.js
@@ -187,6 +200,7 @@ test/api/InvestorApi.spec.js
 test/api/InvestorProfileApi.spec.js
 test/api/ShareholderApi.spec.js
 test/api/UploadApi.spec.js
+test/api/UsersApi.spec.js
 test/model/Add506cDocumentRequest.spec.js
 test/model/AddDocumentRequest.spec.js
 test/model/BulkUploadInvestorsRequest.spec.js
@@ -225,6 +239,8 @@ test/model/V1EntitiesBulkUploads.spec.js
 test/model/V1EntitiesCompany.spec.js
 test/model/V1EntitiesCompanyDeal.spec.js
 test/model/V1EntitiesCompanyDeals.spec.js
+test/model/V1EntitiesCountries.spec.js
+test/model/V1EntitiesCountry.spec.js
 test/model/V1EntitiesDeal.spec.js
 test/model/V1EntitiesDealEnterprise.spec.js
 test/model/V1EntitiesDealFundingMetrics.spec.js
@@ -241,6 +257,7 @@ test/model/V1EntitiesInvestorOtpAccessLink.spec.js
 test/model/V1EntitiesInvestorProfileAddress.spec.js
 test/model/V1EntitiesInvestorProfileCorporation.spec.js
 test/model/V1EntitiesInvestorProfileFieldsAccountHolder.spec.js
+test/model/V1EntitiesInvestorProfileFieldsBeneficialOwner.spec.js
 test/model/V1EntitiesInvestorProfileFieldsCorporation.spec.js
 test/model/V1EntitiesInvestorProfileFieldsPrimaryHolder.spec.js
 test/model/V1EntitiesInvestorProfileFieldsSigningOfficer.spec.js
@@ -257,6 +274,7 @@ test/model/V1EntitiesPresignedUrlResult.spec.js
 test/model/V1EntitiesShareholder.spec.js
 test/model/V1EntitiesShareholders.spec.js
 test/model/V1EntitiesShareholdersTags.spec.js
+test/model/V1EntitiesState.spec.js
 test/model/V1EntitiesSubscriptionAgreement.spec.js
 test/model/V1EntitiesWebhooksDeal.spec.js
 test/model/V1EntitiesWebhooksSecurityToken.spec.js

@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **dateOfBirth** | **String** | The date of birth | [optional] 
 **taxpayerId** | **String** | The taxpayer identification number | [optional] 
 **address** | [**V1EntitiesInvestorProfileAddress**](V1EntitiesInvestorProfileAddress.md) |  | [optional] 
+**title** | **String** | Signing officer title | [optional] 
 **phoneNumber** | **String** | Signing officer phone number | [optional] 
 
 

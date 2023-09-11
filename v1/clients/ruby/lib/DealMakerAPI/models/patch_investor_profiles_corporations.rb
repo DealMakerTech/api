@@ -61,6 +61,9 @@ module DealMakerAPI
     # Signing officer last name.
     attr_accessor :signing_officer_last_name
 
+    # Signing officer title.
+    attr_accessor :signing_officer_title
+
     # Signing officer suffix.
     attr_accessor :signing_officer_suffix
 
@@ -130,6 +133,7 @@ module DealMakerAPI
         :'reg_cf_prior_offerings_amount' => :'reg_cf_prior_offerings_amount',
         :'signing_officer_first_name' => :'signing_officer_first_name',
         :'signing_officer_last_name' => :'signing_officer_last_name',
+        :'signing_officer_title' => :'signing_officer_title',
         :'signing_officer_suffix' => :'signing_officer_suffix',
         :'signing_officer_street_address' => :'signing_officer_street_address',
         :'signing_officer_unit2' => :'signing_officer_unit2',
@@ -166,6 +170,7 @@ module DealMakerAPI
         :'reg_cf_prior_offerings_amount' => :'Float',
         :'signing_officer_first_name' => :'String',
         :'signing_officer_last_name' => :'String',
+        :'signing_officer_title' => :'String',
         :'signing_officer_suffix' => :'String',
         :'signing_officer_street_address' => :'String',
         :'signing_officer_unit2' => :'String',
@@ -258,6 +263,10 @@ module DealMakerAPI
 
       if attributes.key?(:'signing_officer_last_name')
         self.signing_officer_last_name = attributes[:'signing_officer_last_name']
+      end
+
+      if attributes.key?(:'signing_officer_title')
+        self.signing_officer_title = attributes[:'signing_officer_title']
       end
 
       if attributes.key?(:'signing_officer_suffix')
@@ -362,6 +371,7 @@ module DealMakerAPI
           reg_cf_prior_offerings_amount == o.reg_cf_prior_offerings_amount &&
           signing_officer_first_name == o.signing_officer_first_name &&
           signing_officer_last_name == o.signing_officer_last_name &&
+          signing_officer_title == o.signing_officer_title &&
           signing_officer_suffix == o.signing_officer_suffix &&
           signing_officer_street_address == o.signing_officer_street_address &&
           signing_officer_unit2 == o.signing_officer_unit2 &&
@@ -383,7 +393,7 @@ module DealMakerAPI
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [us_accredited_category, ca_accredited_investor, name, street_address, unit2, city, region, postal_code, business_number, phone_number, income, net_worth, reg_cf_prior_offerings_amount, signing_officer_first_name, signing_officer_last_name, signing_officer_suffix, signing_officer_street_address, signing_officer_unit2, signing_officer_city, signing_officer_region, signing_officer_postal_code, signing_officer_date_of_birth, signing_officer_taxpayer_id, signing_officer_phone_number, beneficial_owners].hash
+      [us_accredited_category, ca_accredited_investor, name, street_address, unit2, city, region, postal_code, business_number, phone_number, income, net_worth, reg_cf_prior_offerings_amount, signing_officer_first_name, signing_officer_last_name, signing_officer_title, signing_officer_suffix, signing_officer_street_address, signing_officer_unit2, signing_officer_city, signing_officer_region, signing_officer_postal_code, signing_officer_date_of_birth, signing_officer_taxpayer_id, signing_officer_phone_number, beneficial_owners].hash
     end
 
     # Builds the object from hash

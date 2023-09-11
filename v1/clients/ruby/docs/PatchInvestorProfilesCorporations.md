@@ -19,6 +19,7 @@
 | **reg_cf_prior_offerings_amount** | **Float** | The prior offering amount of the individual investor profile | [optional] |
 | **signing_officer_first_name** | **String** | Signing officer first name. | [optional] |
 | **signing_officer_last_name** | **String** | Signing officer last name. | [optional] |
+| **signing_officer_title** | **String** | Signing officer title. | [optional] |
 | **signing_officer_suffix** | **String** | Signing officer suffix. | [optional] |
 | **signing_officer_street_address** | **String** | Signing officer street address. | [optional] |
 | **signing_officer_unit2** | **String** | Signing officer street address line 2. | [optional] |
@@ -51,6 +52,7 @@ instance = DealMakerAPI::PatchInvestorProfilesCorporations.new(
   reg_cf_prior_offerings_amount: null,
   signing_officer_first_name: null,
   signing_officer_last_name: null,
+  signing_officer_title: null,
   signing_officer_suffix: null,
   signing_officer_street_address: null,
   signing_officer_unit2: null,

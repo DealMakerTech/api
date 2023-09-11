@@ -12,6 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
+import V1EntitiesInvestorProfileFieldsBeneficialOwner from './V1EntitiesInvestorProfileFieldsBeneficialOwner';
 import V1EntitiesInvestorProfileFieldsCorporation from './V1EntitiesInvestorProfileFieldsCorporation';
 import V1EntitiesInvestorProfileFieldsSigningOfficer from './V1EntitiesInvestorProfileFieldsSigningOfficer';
 import V1EntitiesInvestorProfileOwner from './V1EntitiesInvestorProfileOwner';
@@ -19,7 +20,7 @@ import V1EntitiesInvestorProfileOwner from './V1EntitiesInvestorProfileOwner';
 /**
  * The V1EntitiesInvestorProfileCorporation model module.
  * @module model/V1EntitiesInvestorProfileCorporation
- * @version 0.85.5
+ * @version 0.86.0
  */
 class V1EntitiesInvestorProfileCorporation {
     /**
@@ -85,7 +86,7 @@ class V1EntitiesInvestorProfileCorporation {
                 obj['signing_officer'] = V1EntitiesInvestorProfileFieldsSigningOfficer.constructFromObject(data['signing_officer']);
             }
             if (data.hasOwnProperty('beneficial_owners')) {
-                obj['beneficial_owners'] = V1EntitiesInvestorProfileFieldsSigningOfficer.constructFromObject(data['beneficial_owners']);
+                obj['beneficial_owners'] = V1EntitiesInvestorProfileFieldsBeneficialOwner.constructFromObject(data['beneficial_owners']);
             }
         }
         return obj;
@@ -131,7 +132,7 @@ class V1EntitiesInvestorProfileCorporation {
         }
         // validate the optional field `beneficial_owners`
         if (data['beneficial_owners']) { // data not null
-          V1EntitiesInvestorProfileFieldsSigningOfficer.validateJSON(data['beneficial_owners']);
+          V1EntitiesInvestorProfileFieldsBeneficialOwner.validateJSON(data['beneficial_owners']);
         }
 
         return true;
@@ -206,7 +207,7 @@ V1EntitiesInvestorProfileCorporation.prototype['corporation'] = undefined;
 V1EntitiesInvestorProfileCorporation.prototype['signing_officer'] = undefined;
 
 /**
- * @member {module:model/V1EntitiesInvestorProfileFieldsSigningOfficer} beneficial_owners
+ * @member {module:model/V1EntitiesInvestorProfileFieldsBeneficialOwner} beneficial_owners
  */
 V1EntitiesInvestorProfileCorporation.prototype['beneficial_owners'] = undefined;
 

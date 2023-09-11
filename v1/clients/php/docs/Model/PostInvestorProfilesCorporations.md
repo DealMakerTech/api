@@ -20,6 +20,7 @@ Name | Type | Description | Notes
 **reg_cf_prior_offerings_amount** | **float** | The prior offering amount of the individual investor profile | [optional]
 **signing_officer_first_name** | **string** | The first name of the signing officer (required). | [optional]
 **signing_officer_last_name** | **string** | The last name of the signing officer (required). | [optional]
+**signing_officer_title** | **string** | The title of the signing officer. | [optional]
 **signing_officer_suffix** | **string** | The suffix of the signing officer. | [optional]
 **signing_officer_street_address** | **string** | The street address of the signing officer (required). | [optional]
 **signing_officer_unit2** | **string** | The street address line 2 of the signing officer. | [optional]

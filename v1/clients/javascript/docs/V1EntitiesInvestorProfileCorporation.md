@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 **owner** | [**V1EntitiesInvestorProfileOwner**](V1EntitiesInvestorProfileOwner.md) |  | [optional] 
 **corporation** | [**V1EntitiesInvestorProfileFieldsCorporation**](V1EntitiesInvestorProfileFieldsCorporation.md) |  | [optional] 
 **signingOfficer** | [**V1EntitiesInvestorProfileFieldsSigningOfficer**](V1EntitiesInvestorProfileFieldsSigningOfficer.md) |  | [optional] 
-**beneficialOwners** | [**V1EntitiesInvestorProfileFieldsSigningOfficer**](V1EntitiesInvestorProfileFieldsSigningOfficer.md) |  | [optional] 
+**beneficialOwners** | [**V1EntitiesInvestorProfileFieldsBeneficialOwner**](V1EntitiesInvestorProfileFieldsBeneficialOwner.md) |  | [optional] 
 
 
 

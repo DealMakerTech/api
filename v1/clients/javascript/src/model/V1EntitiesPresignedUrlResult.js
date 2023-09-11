@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The V1EntitiesPresignedUrlResult model module.
  * @module model/V1EntitiesPresignedUrlResult
- * @version 0.85.5
+ * @version 0.86.0
  */
 class V1EntitiesPresignedUrlResult {
     /**

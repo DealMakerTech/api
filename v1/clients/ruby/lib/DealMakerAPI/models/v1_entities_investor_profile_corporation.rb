@@ -107,7 +107,7 @@ module DealMakerAPI
         :'owner' => :'V1EntitiesInvestorProfileOwner',
         :'corporation' => :'V1EntitiesInvestorProfileFieldsCorporation',
         :'signing_officer' => :'V1EntitiesInvestorProfileFieldsSigningOfficer',
-        :'beneficial_owners' => :'V1EntitiesInvestorProfileFieldsSigningOfficer'
+        :'beneficial_owners' => :'V1EntitiesInvestorProfileFieldsBeneficialOwner'
       }
     end
 

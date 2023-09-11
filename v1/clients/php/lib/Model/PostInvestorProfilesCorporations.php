@@ -74,6 +74,7 @@ class PostInvestorProfilesCorporations implements ModelInterface, ArrayAccess, \
         'reg_cf_prior_offerings_amount' => 'float',
         'signing_officer_first_name' => 'string',
         'signing_officer_last_name' => 'string',
+        'signing_officer_title' => 'string',
         'signing_officer_suffix' => 'string',
         'signing_officer_street_address' => 'string',
         'signing_officer_unit2' => 'string',
@@ -110,6 +111,7 @@ class PostInvestorProfilesCorporations implements ModelInterface, ArrayAccess, \
         'reg_cf_prior_offerings_amount' => 'float',
         'signing_officer_first_name' => null,
         'signing_officer_last_name' => null,
+        'signing_officer_title' => null,
         'signing_officer_suffix' => null,
         'signing_officer_street_address' => null,
         'signing_officer_unit2' => null,
@@ -144,6 +146,7 @@ class PostInvestorProfilesCorporations implements ModelInterface, ArrayAccess, \
 		'reg_cf_prior_offerings_amount' => false,
 		'signing_officer_first_name' => false,
 		'signing_officer_last_name' => false,
+		'signing_officer_title' => false,
 		'signing_officer_suffix' => false,
 		'signing_officer_street_address' => false,
 		'signing_officer_unit2' => false,
@@ -258,6 +261,7 @@ class PostInvestorProfilesCorporations implements ModelInterface, ArrayAccess, \
         'reg_cf_prior_offerings_amount' => 'reg_cf_prior_offerings_amount',
         'signing_officer_first_name' => 'signing_officer_first_name',
         'signing_officer_last_name' => 'signing_officer_last_name',
+        'signing_officer_title' => 'signing_officer_title',
         'signing_officer_suffix' => 'signing_officer_suffix',
         'signing_officer_street_address' => 'signing_officer_street_address',
         'signing_officer_unit2' => 'signing_officer_unit2',
@@ -292,6 +296,7 @@ class PostInvestorProfilesCorporations implements ModelInterface, ArrayAccess, \
         'reg_cf_prior_offerings_amount' => 'setRegCfPriorOfferingsAmount',
         'signing_officer_first_name' => 'setSigningOfficerFirstName',
         'signing_officer_last_name' => 'setSigningOfficerLastName',
+        'signing_officer_title' => 'setSigningOfficerTitle',
         'signing_officer_suffix' => 'setSigningOfficerSuffix',
         'signing_officer_street_address' => 'setSigningOfficerStreetAddress',
         'signing_officer_unit2' => 'setSigningOfficerUnit2',
@@ -326,6 +331,7 @@ class PostInvestorProfilesCorporations implements ModelInterface, ArrayAccess, \
         'reg_cf_prior_offerings_amount' => 'getRegCfPriorOfferingsAmount',
         'signing_officer_first_name' => 'getSigningOfficerFirstName',
         'signing_officer_last_name' => 'getSigningOfficerLastName',
+        'signing_officer_title' => 'getSigningOfficerTitle',
         'signing_officer_suffix' => 'getSigningOfficerSuffix',
         'signing_officer_street_address' => 'getSigningOfficerStreetAddress',
         'signing_officer_unit2' => 'getSigningOfficerUnit2',
@@ -505,6 +511,7 @@ class PostInvestorProfilesCorporations implements ModelInterface, ArrayAccess, \
         $this->setIfExists('reg_cf_prior_offerings_amount', $data ?? [], null);
         $this->setIfExists('signing_officer_first_name', $data ?? [], null);
         $this->setIfExists('signing_officer_last_name', $data ?? [], null);
+        $this->setIfExists('signing_officer_title', $data ?? [], null);
         $this->setIfExists('signing_officer_suffix', $data ?? [], null);
         $this->setIfExists('signing_officer_street_address', $data ?? [], null);
         $this->setIfExists('signing_officer_unit2', $data ?? [], null);
@@ -1028,6 +1035,33 @@ class PostInvestorProfilesCorporations implements ModelInterface, ArrayAccess, \
             throw new \InvalidArgumentException('non-nullable signing_officer_last_name cannot be null');
         }
         $this->container['signing_officer_last_name'] = $signing_officer_last_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets signing_officer_title
+     *
+     * @return string|null
+     */
+    public function getSigningOfficerTitle()
+    {
+        return $this->container['signing_officer_title'];
+    }
+
+    /**
+     * Sets signing_officer_title
+     *
+     * @param string|null $signing_officer_title The title of the signing officer.
+     *
+     * @return self
+     */
+    public function setSigningOfficerTitle($signing_officer_title)
+    {
+        if (is_null($signing_officer_title)) {
+            throw new \InvalidArgumentException('non-nullable signing_officer_title cannot be null');
+        }
+        $this->container['signing_officer_title'] = $signing_officer_title;
 
         return $this;
     }

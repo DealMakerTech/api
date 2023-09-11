@@ -32,6 +32,9 @@ module DealMakerAPI
 
     attr_accessor :address
 
+    # Signing officer title
+    attr_accessor :title
+
     # Signing officer phone number
     attr_accessor :phone_number
 
@@ -44,6 +47,7 @@ module DealMakerAPI
         :'date_of_birth' => :'date_of_birth',
         :'taxpayer_id' => :'taxpayer_id',
         :'address' => :'address',
+        :'title' => :'title',
         :'phone_number' => :'phone_number'
       }
     end
@@ -62,6 +66,7 @@ module DealMakerAPI
         :'date_of_birth' => :'String',
         :'taxpayer_id' => :'String',
         :'address' => :'V1EntitiesInvestorProfileAddress',
+        :'title' => :'String',
         :'phone_number' => :'String'
       }
     end
@@ -111,6 +116,10 @@ module DealMakerAPI
         self.address = attributes[:'address']
       end
 
+      if attributes.key?(:'title')
+        self.title = attributes[:'title']
+      end
+
       if attributes.key?(:'phone_number')
         self.phone_number = attributes[:'phone_number']
       end
@@ -142,6 +151,7 @@ module DealMakerAPI
           date_of_birth == o.date_of_birth &&
           taxpayer_id == o.taxpayer_id &&
           address == o.address &&
+          title == o.title &&
           phone_number == o.phone_number
     end
 
@@ -154,7 +164,7 @@ module DealMakerAPI
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [first_name, last_name, suffix, date_of_birth, taxpayer_id, address, phone_number].hash
+      [first_name, last_name, suffix, date_of_birth, taxpayer_id, address, title, phone_number].hash
     end
 
     # Builds the object from hash

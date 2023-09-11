@@ -17,7 +17,7 @@ import V1EntitiesInvestorProfileAddress from './V1EntitiesInvestorProfileAddress
 /**
  * The V1EntitiesInvestorProfileFieldsSigningOfficer model module.
  * @module model/V1EntitiesInvestorProfileFieldsSigningOfficer
- * @version 0.85.5
+ * @version 0.86.0
  */
 class V1EntitiesInvestorProfileFieldsSigningOfficer {
     /**
@@ -66,6 +66,9 @@ class V1EntitiesInvestorProfileFieldsSigningOfficer {
             if (data.hasOwnProperty('address')) {
                 obj['address'] = V1EntitiesInvestorProfileAddress.constructFromObject(data['address']);
             }
+            if (data.hasOwnProperty('title')) {
+                obj['title'] = ApiClient.convertToType(data['title'], 'String');
+            }
             if (data.hasOwnProperty('phone_number')) {
                 obj['phone_number'] = ApiClient.convertToType(data['phone_number'], 'String');
             }
@@ -102,6 +105,10 @@ class V1EntitiesInvestorProfileFieldsSigningOfficer {
         // validate the optional field `address`
         if (data['address']) { // data not null
           V1EntitiesInvestorProfileAddress.validateJSON(data['address']);
+        }
+        // ensure the json data is a string
+        if (data['title'] && !(typeof data['title'] === 'string' || data['title'] instanceof String)) {
+            throw new Error("Expected the field `title` to be a primitive type in the JSON string but got " + data['title']);
         }
         // ensure the json data is a string
         if (data['phone_number'] && !(typeof data['phone_number'] === 'string' || data['phone_number'] instanceof String)) {
@@ -150,6 +157,12 @@ V1EntitiesInvestorProfileFieldsSigningOfficer.prototype['taxpayer_id'] = undefin
  * @member {module:model/V1EntitiesInvestorProfileAddress} address
  */
 V1EntitiesInvestorProfileFieldsSigningOfficer.prototype['address'] = undefined;
+
+/**
+ * Signing officer title
+ * @member {String} title
+ */
+V1EntitiesInvestorProfileFieldsSigningOfficer.prototype['title'] = undefined;
 
 /**
  * Signing officer phone number

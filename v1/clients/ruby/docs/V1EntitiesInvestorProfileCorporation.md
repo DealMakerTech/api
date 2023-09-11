@@ -15,7 +15,7 @@
 | **owner** | [**V1EntitiesInvestorProfileOwner**](V1EntitiesInvestorProfileOwner.md) |  | [optional] |
 | **corporation** | [**V1EntitiesInvestorProfileFieldsCorporation**](V1EntitiesInvestorProfileFieldsCorporation.md) |  | [optional] |
 | **signing_officer** | [**V1EntitiesInvestorProfileFieldsSigningOfficer**](V1EntitiesInvestorProfileFieldsSigningOfficer.md) |  | [optional] |
-| **beneficial_owners** | [**V1EntitiesInvestorProfileFieldsSigningOfficer**](V1EntitiesInvestorProfileFieldsSigningOfficer.md) |  | [optional] |
+| **beneficial_owners** | [**V1EntitiesInvestorProfileFieldsBeneficialOwner**](V1EntitiesInvestorProfileFieldsBeneficialOwner.md) |  | [optional] |
 
 ## Example
 

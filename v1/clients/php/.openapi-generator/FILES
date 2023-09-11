@@ -5,6 +5,7 @@
 README.md
 composer.json
 docs/Api/CompanyApi.md
+docs/Api/CountryApi.md
 docs/Api/DealApi.md
 docs/Api/DealSetupApi.md
 docs/Api/DealsApi.md
@@ -13,6 +14,7 @@ docs/Api/InvestorApi.md
 docs/Api/InvestorProfileApi.md
 docs/Api/ShareholderApi.md
 docs/Api/UploadApi.md
+docs/Api/UsersApi.md
 docs/Model/Add506cDocumentRequest.md
 docs/Model/AddDocumentRequest.md
 docs/Model/BulkUploadInvestorsRequest.md
@@ -51,6 +53,8 @@ docs/Model/V1EntitiesBulkUploads.md
 docs/Model/V1EntitiesCompany.md
 docs/Model/V1EntitiesCompanyDeal.md
 docs/Model/V1EntitiesCompanyDeals.md
+docs/Model/V1EntitiesCountries.md
+docs/Model/V1EntitiesCountry.md
 docs/Model/V1EntitiesDeal.md
 docs/Model/V1EntitiesDealEnterprise.md
 docs/Model/V1EntitiesDealFundingMetrics.md
@@ -67,6 +71,7 @@ docs/Model/V1EntitiesInvestorOtpAccessLink.md
 docs/Model/V1EntitiesInvestorProfileAddress.md
 docs/Model/V1EntitiesInvestorProfileCorporation.md
 docs/Model/V1EntitiesInvestorProfileFieldsAccountHolder.md
+docs/Model/V1EntitiesInvestorProfileFieldsBeneficialOwner.md
 docs/Model/V1EntitiesInvestorProfileFieldsCorporation.md
 docs/Model/V1EntitiesInvestorProfileFieldsPrimaryHolder.md
 docs/Model/V1EntitiesInvestorProfileFieldsSigningOfficer.md
@@ -83,6 +88,7 @@ docs/Model/V1EntitiesPresignedUrlResult.md
 docs/Model/V1EntitiesShareholder.md
 docs/Model/V1EntitiesShareholders.md
 docs/Model/V1EntitiesShareholdersTags.md
+docs/Model/V1EntitiesState.md
 docs/Model/V1EntitiesSubscriptionAgreement.md
 docs/Model/V1EntitiesWebhooksDeal.md
 docs/Model/V1EntitiesWebhooksSecurityToken.md
@@ -91,6 +97,7 @@ docs/Model/V1EntitiesWebhooksSubscriptionDeal.md
 docs/Model/V1EntitiesWebhooksSubscriptionDeals.md
 git_push.sh
 lib/Api/CompanyApi.php
+lib/Api/CountryApi.php
 lib/Api/DealApi.php
 lib/Api/DealSetupApi.php
 lib/Api/DealsApi.php
@@ -99,6 +106,7 @@ lib/Api/InvestorApi.php
 lib/Api/InvestorProfileApi.php
 lib/Api/ShareholderApi.php
 lib/Api/UploadApi.php
+lib/Api/UsersApi.php
 lib/ApiException.php
 lib/Configuration.php
 lib/HeaderSelector.php
@@ -141,6 +149,8 @@ lib/Model/V1EntitiesBulkUploads.php
 lib/Model/V1EntitiesCompany.php
 lib/Model/V1EntitiesCompanyDeal.php
 lib/Model/V1EntitiesCompanyDeals.php
+lib/Model/V1EntitiesCountries.php
+lib/Model/V1EntitiesCountry.php
 lib/Model/V1EntitiesDeal.php
 lib/Model/V1EntitiesDealEnterprise.php
 lib/Model/V1EntitiesDealFundingMetrics.php
@@ -157,6 +167,7 @@ lib/Model/V1EntitiesInvestorOtpAccessLink.php
 lib/Model/V1EntitiesInvestorProfileAddress.php
 lib/Model/V1EntitiesInvestorProfileCorporation.php
 lib/Model/V1EntitiesInvestorProfileFieldsAccountHolder.php
+lib/Model/V1EntitiesInvestorProfileFieldsBeneficialOwner.php
 lib/Model/V1EntitiesInvestorProfileFieldsCorporation.php
 lib/Model/V1EntitiesInvestorProfileFieldsPrimaryHolder.php
 lib/Model/V1EntitiesInvestorProfileFieldsSigningOfficer.php
@@ -173,6 +184,7 @@ lib/Model/V1EntitiesPresignedUrlResult.php
 lib/Model/V1EntitiesShareholder.php
 lib/Model/V1EntitiesShareholders.php
 lib/Model/V1EntitiesShareholdersTags.php
+lib/Model/V1EntitiesState.php
 lib/Model/V1EntitiesSubscriptionAgreement.php
 lib/Model/V1EntitiesWebhooksDeal.php
 lib/Model/V1EntitiesWebhooksSecurityToken.php
@@ -182,6 +194,7 @@ lib/Model/V1EntitiesWebhooksSubscriptionDeals.php
 lib/ObjectSerializer.php
 phpunit.xml.dist
 test/Api/CompanyApiTest.php
+test/Api/CountryApiTest.php
 test/Api/DealApiTest.php
 test/Api/DealSetupApiTest.php
 test/Api/DealsApiTest.php
@@ -190,6 +203,7 @@ test/Api/InvestorApiTest.php
 test/Api/InvestorProfileApiTest.php
 test/Api/ShareholderApiTest.php
 test/Api/UploadApiTest.php
+test/Api/UsersApiTest.php
 test/Model/Add506cDocumentRequestTest.php
 test/Model/AddDocumentRequestTest.php
 test/Model/BulkUploadInvestorsRequestTest.php
@@ -228,6 +242,8 @@ test/Model/V1EntitiesBulkUploadsTest.php
 test/Model/V1EntitiesCompanyDealTest.php
 test/Model/V1EntitiesCompanyDealsTest.php
 test/Model/V1EntitiesCompanyTest.php
+test/Model/V1EntitiesCountriesTest.php
+test/Model/V1EntitiesCountryTest.php
 test/Model/V1EntitiesDealEnterpriseTest.php
 test/Model/V1EntitiesDealFundingMetricsTest.php
 test/Model/V1EntitiesDealInvestorMetricsTest.php
@@ -243,6 +259,7 @@ test/Model/V1EntitiesInvestorOtpAccessLinkTest.php
 test/Model/V1EntitiesInvestorProfileAddressTest.php
 test/Model/V1EntitiesInvestorProfileCorporationTest.php
 test/Model/V1EntitiesInvestorProfileFieldsAccountHolderTest.php
+test/Model/V1EntitiesInvestorProfileFieldsBeneficialOwnerTest.php
 test/Model/V1EntitiesInvestorProfileFieldsCorporationTest.php
 test/Model/V1EntitiesInvestorProfileFieldsPrimaryHolderTest.php
 test/Model/V1EntitiesInvestorProfileFieldsSigningOfficerTest.php
@@ -260,6 +277,7 @@ test/Model/V1EntitiesPresignedUrlResultTest.php
 test/Model/V1EntitiesShareholderTest.php
 test/Model/V1EntitiesShareholdersTagsTest.php
 test/Model/V1EntitiesShareholdersTest.php
+test/Model/V1EntitiesStateTest.php
 test/Model/V1EntitiesSubscriptionAgreementTest.php
 test/Model/V1EntitiesWebhooksDealTest.php
 test/Model/V1EntitiesWebhooksSecurityTokenTest.php

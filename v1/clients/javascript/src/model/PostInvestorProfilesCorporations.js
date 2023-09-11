@@ -17,7 +17,7 @@ import PostInvestorProfilesCorporationsBeneficialOwnersInner from './PostInvesto
 /**
  * The PostInvestorProfilesCorporations model module.
  * @module model/PostInvestorProfilesCorporations
- * @version 0.85.5
+ * @version 0.86.0
  */
 class PostInvestorProfilesCorporations {
     /**
@@ -98,6 +98,9 @@ class PostInvestorProfilesCorporations {
             }
             if (data.hasOwnProperty('signing_officer_last_name')) {
                 obj['signing_officer_last_name'] = ApiClient.convertToType(data['signing_officer_last_name'], 'String');
+            }
+            if (data.hasOwnProperty('signing_officer_title')) {
+                obj['signing_officer_title'] = ApiClient.convertToType(data['signing_officer_title'], 'String');
             }
             if (data.hasOwnProperty('signing_officer_suffix')) {
                 obj['signing_officer_suffix'] = ApiClient.convertToType(data['signing_officer_suffix'], 'String');
@@ -196,6 +199,10 @@ class PostInvestorProfilesCorporations {
         // ensure the json data is a string
         if (data['signing_officer_last_name'] && !(typeof data['signing_officer_last_name'] === 'string' || data['signing_officer_last_name'] instanceof String)) {
             throw new Error("Expected the field `signing_officer_last_name` to be a primitive type in the JSON string but got " + data['signing_officer_last_name']);
+        }
+        // ensure the json data is a string
+        if (data['signing_officer_title'] && !(typeof data['signing_officer_title'] === 'string' || data['signing_officer_title'] instanceof String)) {
+            throw new Error("Expected the field `signing_officer_title` to be a primitive type in the JSON string but got " + data['signing_officer_title']);
         }
         // ensure the json data is a string
         if (data['signing_officer_suffix'] && !(typeof data['signing_officer_suffix'] === 'string' || data['signing_officer_suffix'] instanceof String)) {
@@ -347,6 +354,12 @@ PostInvestorProfilesCorporations.prototype['signing_officer_first_name'] = undef
  * @member {String} signing_officer_last_name
  */
 PostInvestorProfilesCorporations.prototype['signing_officer_last_name'] = undefined;
+
+/**
+ * The title of the signing officer.
+ * @member {String} signing_officer_title
+ */
+PostInvestorProfilesCorporations.prototype['signing_officer_title'] = undefined;
 
 /**
  * The suffix of the signing officer.

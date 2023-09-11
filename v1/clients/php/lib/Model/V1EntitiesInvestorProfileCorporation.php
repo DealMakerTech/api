@@ -69,7 +69,7 @@ class V1EntitiesInvestorProfileCorporation implements ModelInterface, ArrayAcces
         'owner' => '\DealMaker\Model\V1EntitiesInvestorProfileOwner',
         'corporation' => '\DealMaker\Model\V1EntitiesInvestorProfileFieldsCorporation',
         'signing_officer' => '\DealMaker\Model\V1EntitiesInvestorProfileFieldsSigningOfficer',
-        'beneficial_owners' => '\DealMaker\Model\V1EntitiesInvestorProfileFieldsSigningOfficer'
+        'beneficial_owners' => '\DealMaker\Model\V1EntitiesInvestorProfileFieldsBeneficialOwner'
     ];
 
     /**
@@ -705,7 +705,7 @@ class V1EntitiesInvestorProfileCorporation implements ModelInterface, ArrayAcces
     /**
      * Gets beneficial_owners
      *
-     * @return \DealMaker\Model\V1EntitiesInvestorProfileFieldsSigningOfficer|null
+     * @return \DealMaker\Model\V1EntitiesInvestorProfileFieldsBeneficialOwner|null
      */
     public function getBeneficialOwners()
     {
@@ -715,7 +715,7 @@ class V1EntitiesInvestorProfileCorporation implements ModelInterface, ArrayAcces
     /**
      * Sets beneficial_owners
      *
-     * @param \DealMaker\Model\V1EntitiesInvestorProfileFieldsSigningOfficer|null $beneficial_owners beneficial_owners
+     * @param \DealMaker\Model\V1EntitiesInvestorProfileFieldsBeneficialOwner|null $beneficial_owners beneficial_owners
      *
      * @return self
      */

@@ -215,6 +215,15 @@ class PatchInvestorProfilesCorporationsTest extends TestCase
     }
 
     /**
+     * Test attribute "signing_officer_title"
+     */
+    public function testPropertySigningOfficerTitle()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "signing_officer_suffix"
      */
     public function testPropertySigningOfficerSuffix()

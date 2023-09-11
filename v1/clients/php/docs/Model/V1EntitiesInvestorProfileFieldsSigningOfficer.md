@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **date_of_birth** | **string** | The date of birth | [optional]
 **taxpayer_id** | **string** | The taxpayer identification number | [optional]
 **address** | [**\DealMaker\Model\V1EntitiesInvestorProfileAddress**](V1EntitiesInvestorProfileAddress.md) |  | [optional]
+**title** | **string** | Signing officer title | [optional]
 **phone_number** | **string** | Signing officer phone number | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

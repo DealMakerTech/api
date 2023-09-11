@@ -63,6 +63,7 @@ class V1EntitiesInvestorProfileFieldsSigningOfficer implements ModelInterface, A
         'date_of_birth' => 'string',
         'taxpayer_id' => 'string',
         'address' => '\DealMaker\Model\V1EntitiesInvestorProfileAddress',
+        'title' => 'string',
         'phone_number' => 'string'
     ];
 
@@ -80,6 +81,7 @@ class V1EntitiesInvestorProfileFieldsSigningOfficer implements ModelInterface, A
         'date_of_birth' => null,
         'taxpayer_id' => null,
         'address' => null,
+        'title' => null,
         'phone_number' => null
     ];
 
@@ -95,6 +97,7 @@ class V1EntitiesInvestorProfileFieldsSigningOfficer implements ModelInterface, A
 		'date_of_birth' => false,
 		'taxpayer_id' => false,
 		'address' => false,
+		'title' => false,
 		'phone_number' => false
     ];
 
@@ -190,6 +193,7 @@ class V1EntitiesInvestorProfileFieldsSigningOfficer implements ModelInterface, A
         'date_of_birth' => 'date_of_birth',
         'taxpayer_id' => 'taxpayer_id',
         'address' => 'address',
+        'title' => 'title',
         'phone_number' => 'phone_number'
     ];
 
@@ -205,6 +209,7 @@ class V1EntitiesInvestorProfileFieldsSigningOfficer implements ModelInterface, A
         'date_of_birth' => 'setDateOfBirth',
         'taxpayer_id' => 'setTaxpayerId',
         'address' => 'setAddress',
+        'title' => 'setTitle',
         'phone_number' => 'setPhoneNumber'
     ];
 
@@ -220,6 +225,7 @@ class V1EntitiesInvestorProfileFieldsSigningOfficer implements ModelInterface, A
         'date_of_birth' => 'getDateOfBirth',
         'taxpayer_id' => 'getTaxpayerId',
         'address' => 'getAddress',
+        'title' => 'getTitle',
         'phone_number' => 'getPhoneNumber'
     ];
 
@@ -286,6 +292,7 @@ class V1EntitiesInvestorProfileFieldsSigningOfficer implements ModelInterface, A
         $this->setIfExists('date_of_birth', $data ?? [], null);
         $this->setIfExists('taxpayer_id', $data ?? [], null);
         $this->setIfExists('address', $data ?? [], null);
+        $this->setIfExists('title', $data ?? [], null);
         $this->setIfExists('phone_number', $data ?? [], null);
     }
 
@@ -489,6 +496,33 @@ class V1EntitiesInvestorProfileFieldsSigningOfficer implements ModelInterface, A
             throw new \InvalidArgumentException('non-nullable address cannot be null');
         }
         $this->container['address'] = $address;
+
+        return $this;
+    }
+
+    /**
+     * Gets title
+     *
+     * @return string|null
+     */
+    public function getTitle()
+    {
+        return $this->container['title'];
+    }
+
+    /**
+     * Sets title
+     *
+     * @param string|null $title Signing officer title
+     *
+     * @return self
+     */
+    public function setTitle($title)
+    {
+        if (is_null($title)) {
+            throw new \InvalidArgumentException('non-nullable title cannot be null');
+        }
+        $this->container['title'] = $title;
 
         return $this;
     }

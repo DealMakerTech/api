@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The CreateShareholderActionRequest model module.
  * @module model/CreateShareholderActionRequest
- * @version 0.86.1
+ * @version 0.87.0
  */
 class CreateShareholderActionRequest {
     /**
@@ -57,6 +57,9 @@ class CreateShareholderActionRequest {
             if (data.hasOwnProperty('description')) {
                 obj['description'] = ApiClient.convertToType(data['description'], 'String');
             }
+            if (data.hasOwnProperty('request_documents')) {
+                obj['request_documents'] = ApiClient.convertToType(data['request_documents'], [File]);
+            }
         }
         return obj;
     }
@@ -81,6 +84,10 @@ class CreateShareholderActionRequest {
         if (data['description'] && !(typeof data['description'] === 'string' || data['description'] instanceof String)) {
             throw new Error("Expected the field `description` to be a primitive type in the JSON string but got " + data['description']);
         }
+        // ensure the json data is an array
+        if (!Array.isArray(data['request_documents'])) {
+            throw new Error("Expected the field `request_documents` to be an array in the JSON data but got " + data['request_documents']);
+        }
 
         return true;
     }
@@ -101,6 +108,12 @@ CreateShareholderActionRequest.prototype['request_type'] = undefined;
  * @member {String} description
  */
 CreateShareholderActionRequest.prototype['description'] = undefined;
+
+/**
+ * The document associated with the shareholder action
+ * @member {Array.<File>} request_documents
+ */
+CreateShareholderActionRequest.prototype['request_documents'] = undefined;
 
 
 

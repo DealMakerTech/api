@@ -66,6 +66,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property requestDocuments (base name: "request_documents")', function() {
+      // uncomment below and update the code to test the property requestDocuments
+      //var instance = new Api.CreateShareholderActionRequest();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

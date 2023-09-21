@@ -2296,6 +2296,16 @@
             "description": "The description of the shareholder action",
             "type": "string",
             "required": true
+          },
+          {
+            "in": "formData",
+            "name": "request_documents",
+            "description": "The document associated with the shareholder action",
+            "type": "array",
+            "items": {
+              "type": "file"
+            },
+            "required": false
           }
         ],
         "security": [

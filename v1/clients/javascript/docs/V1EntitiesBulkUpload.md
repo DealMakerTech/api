@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **id** | **Number** | The bulk upload ID | [optional] 
 **companyId** | **Number** | The company ID | [optional] 
 **fileIdentifier** | **String** | The file identifier [shareholder, investor] | [optional] 
-**documentType** | **String** | The document type [drs_statement, shareholder_statement, book_entry_statement] | [optional] 
+**documentType** | **String** | The document type  | [optional] 
 **uploadName** | **String** | The bulk upload name | [optional] 
 **filesCount** | **Number** | The number of files in the bulk upload | [optional] 
 **errorsCount** | **Number** | The number of errors in the bulk upload | [optional] 
@@ -15,5 +15,20 @@ Name | Type | Description | Notes
 **status** | **String** | The status [pending, processing, completed, failed] | [optional] 
 **createdAt** | **String** | The created at timestamp | [optional] 
 **updatedAt** | **String** | The updated at timestamp | [optional] 
+
+
+
+## Enum: DocumentTypeEnum
+
+
+* `drs_statement` (value: `"drs_statement"`)
+
+* `shareholder_statement` (value: `"shareholder_statement"`)
+
+* `book_entry_statement` (value: `"book_entry_statement"`)
+
+* `dividend_statement` (value: `"dividend_statement"`)
+
+
 
 

@@ -538,112 +538,12 @@
             "required": true
           },
           {
-            "in": "formData",
-            "name": "email",
-            "description": "The investor email address.",
-            "type": "string",
-            "required": true
-          },
-          {
-            "in": "formData",
-            "name": "investor_profile_id",
-            "description": "The Investor Profile id.",
-            "type": "integer",
-            "format": "int32",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "tags",
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "first_name",
-            "description": "The first name of the investor.",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "last_name",
-            "description": "The last name of the investor.",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "phone_number",
-            "description": "The phone number of the investor.",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "message",
-            "description": "The reminder email text of the investor.",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "warrant_expiry_date",
-            "description": "The warrant expiry date of the investor.",
-            "type": "string",
-            "format": "date",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "warrant_certificate_number",
-            "description": "The certificate number of the investor.",
-            "type": "integer",
-            "format": "int32",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "allocated_amount",
-            "description": "The allocation amount of the investor.",
-            "type": "number",
-            "format": "float",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "investment_value",
-            "description": "The investment value of the investor.",
-            "type": "number",
-            "format": "float",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "allocation_unit",
-            "description": "The allocation unit of the investor.",
-            "type": "string",
-            "default": "securities",
-            "enum": [
-              "securities",
-              "amount"
-            ],
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "state",
-            "description": "The initial state of the investor.",
-            "type": "string",
-            "default": "invited",
-            "enum": [
-              "draft",
-              "invited"
-            ],
-            "required": false
+            "name": "DealsIdInvestors",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/postDealsIdInvestors"
+            }
           }
         ],
         "security": [
@@ -797,55 +697,12 @@
             "required": true
           },
           {
-            "in": "formData",
-            "name": "warrant_expiry_date",
-            "description": "The warrant expiry date of the investor.",
-            "type": "string",
-            "format": "date",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "warrant_certificate_number",
-            "description": "The certificate number of the investor.",
-            "type": "integer",
-            "format": "int32",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "allocated_amount",
-            "description": "The allocation amount of the investor.",
-            "type": "number",
-            "format": "float",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "allocation_unit",
-            "description": "The allocation unit of the investor.",
-            "type": "string",
-            "default": "securities",
-            "enum": [
-              "securities",
-              "amount"
-            ],
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "investment_value",
-            "description": "The investment value of the investor.",
-            "type": "number",
-            "format": "float",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "notes",
-            "description": "The notes of the investor.",
-            "type": "string",
-            "required": false
+            "name": "DealsIdInvestors",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/putDealsIdInvestors"
+            }
           }
         ],
         "security": [
@@ -4821,6 +4678,121 @@
       },
       "description": "V1_Entities_InvestorOtpAccessLink model"
     },
+    "putDealsIdInvestors": {
+      "type": "object",
+      "properties": {
+        "warrant_expiry_date": {
+          "type": "string",
+          "format": "date",
+          "description": "The warrant expiry date of the investor."
+        },
+        "warrant_certificate_number": {
+          "type": "integer",
+          "format": "int32",
+          "description": "The certificate number of the investor."
+        },
+        "allocated_amount": {
+          "type": "number",
+          "format": "float",
+          "description": "The allocation amount of the investor."
+        },
+        "allocation_unit": {
+          "type": "string",
+          "description": "The allocation unit of the investor.",
+          "enum": [
+            "securities",
+            "amount"
+          ],
+          "default": "securities"
+        },
+        "investment_value": {
+          "type": "DollarAmount",
+          "description": "The investment value of the investor."
+        },
+        "notes": {
+          "type": "string",
+          "description": "The notes of the investor."
+        }
+      },
+      "description": "Update deal investor"
+    },
+    "postDealsIdInvestors": {
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string",
+          "description": "The investor email address."
+        },
+        "investor_profile_id": {
+          "type": "integer",
+          "format": "int32",
+          "description": "The Investor Profile id."
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "first_name": {
+          "type": "string",
+          "description": "The first name of the investor."
+        },
+        "last_name": {
+          "type": "string",
+          "description": "The last name of the investor."
+        },
+        "phone_number": {
+          "type": "string",
+          "description": "The phone number of the investor."
+        },
+        "message": {
+          "type": "string",
+          "description": "The reminder email text of the investor."
+        },
+        "warrant_expiry_date": {
+          "type": "string",
+          "format": "date",
+          "description": "The warrant expiry date of the investor."
+        },
+        "warrant_certificate_number": {
+          "type": "integer",
+          "format": "int32",
+          "description": "The certificate number of the investor."
+        },
+        "allocated_amount": {
+          "type": "number",
+          "format": "float",
+          "description": "The allocation amount of the investor."
+        },
+        "investment_value": {
+          "type": "DollarAmount",
+          "description": "The investment value of the investor."
+        },
+        "allocation_unit": {
+          "type": "string",
+          "description": "The allocation unit of the investor.",
+          "enum": [
+            "securities",
+            "amount"
+          ],
+          "default": "securities"
+        },
+        "state": {
+          "type": "string",
+          "description": "The initial state of the investor.",
+          "enum": [
+            "draft",
+            "invited"
+          ],
+          "default": "invited"
+        }
+      },
+      "required": [
+        "email"
+      ],
+      "description": "Create deal investor"
+    },
     "V1_Entities_Deals": {
       "type": "object",
       "properties": {
@@ -4939,7 +4911,13 @@
         },
         "document_type": {
           "type": "string",
-          "description": "The document type [drs_statement, shareholder_statement, book_entry_statement]"
+          "enum": [
+            "drs_statement",
+            "shareholder_statement",
+            "book_entry_statement",
+            "dividend_statement"
+          ],
+          "description": "The document type "
         },
         "upload_name": {
           "type": "string",

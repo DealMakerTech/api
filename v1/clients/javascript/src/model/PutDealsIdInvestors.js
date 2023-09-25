@@ -14,19 +14,19 @@
 import ApiClient from '../ApiClient';
 
 /**
- * The CreateInvestorRequest model module.
- * @module model/CreateInvestorRequest
- * @version 0.87.0
+ * The PutDealsIdInvestors model module.
+ * @module model/PutDealsIdInvestors
+ * @version 0.87.1
  */
-class CreateInvestorRequest {
+class PutDealsIdInvestors {
     /**
-     * Constructs a new <code>CreateInvestorRequest</code>.
-     * @alias module:model/CreateInvestorRequest
-     * @param email {String} The investor email address.
+     * Constructs a new <code>PutDealsIdInvestors</code>.
+     * Update deal investor
+     * @alias module:model/PutDealsIdInvestors
      */
-    constructor(email) { 
+    constructor() { 
         
-        CreateInvestorRequest.initialize(this, email);
+        PutDealsIdInvestors.initialize(this);
     }
 
     /**
@@ -34,42 +34,20 @@ class CreateInvestorRequest {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, email) { 
-        obj['email'] = email;
+    static initialize(obj) { 
     }
 
     /**
-     * Constructs a <code>CreateInvestorRequest</code> from a plain JavaScript object, optionally creating a new instance.
+     * Constructs a <code>PutDealsIdInvestors</code> from a plain JavaScript object, optionally creating a new instance.
      * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @param {module:model/CreateInvestorRequest} obj Optional instance to populate.
-     * @return {module:model/CreateInvestorRequest} The populated <code>CreateInvestorRequest</code> instance.
+     * @param {module:model/PutDealsIdInvestors} obj Optional instance to populate.
+     * @return {module:model/PutDealsIdInvestors} The populated <code>PutDealsIdInvestors</code> instance.
      */
     static constructFromObject(data, obj) {
         if (data) {
-            obj = obj || new CreateInvestorRequest();
+            obj = obj || new PutDealsIdInvestors();
 
-            if (data.hasOwnProperty('email')) {
-                obj['email'] = ApiClient.convertToType(data['email'], 'String');
-            }
-            if (data.hasOwnProperty('investor_profile_id')) {
-                obj['investor_profile_id'] = ApiClient.convertToType(data['investor_profile_id'], 'Number');
-            }
-            if (data.hasOwnProperty('tags')) {
-                obj['tags'] = ApiClient.convertToType(data['tags'], ['String']);
-            }
-            if (data.hasOwnProperty('first_name')) {
-                obj['first_name'] = ApiClient.convertToType(data['first_name'], 'String');
-            }
-            if (data.hasOwnProperty('last_name')) {
-                obj['last_name'] = ApiClient.convertToType(data['last_name'], 'String');
-            }
-            if (data.hasOwnProperty('phone_number')) {
-                obj['phone_number'] = ApiClient.convertToType(data['phone_number'], 'String');
-            }
-            if (data.hasOwnProperty('message')) {
-                obj['message'] = ApiClient.convertToType(data['message'], 'String');
-            }
             if (data.hasOwnProperty('warrant_expiry_date')) {
                 obj['warrant_expiry_date'] = ApiClient.convertToType(data['warrant_expiry_date'], 'Date');
             }
@@ -79,62 +57,29 @@ class CreateInvestorRequest {
             if (data.hasOwnProperty('allocated_amount')) {
                 obj['allocated_amount'] = ApiClient.convertToType(data['allocated_amount'], 'Number');
             }
-            if (data.hasOwnProperty('investment_value')) {
-                obj['investment_value'] = ApiClient.convertToType(data['investment_value'], 'Number');
-            }
             if (data.hasOwnProperty('allocation_unit')) {
                 obj['allocation_unit'] = ApiClient.convertToType(data['allocation_unit'], 'String');
             }
-            if (data.hasOwnProperty('state')) {
-                obj['state'] = ApiClient.convertToType(data['state'], 'String');
+            if (data.hasOwnProperty('notes')) {
+                obj['notes'] = ApiClient.convertToType(data['notes'], 'String');
             }
         }
         return obj;
     }
 
     /**
-     * Validates the JSON data with respect to <code>CreateInvestorRequest</code>.
+     * Validates the JSON data with respect to <code>PutDealsIdInvestors</code>.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>CreateInvestorRequest</code>.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>PutDealsIdInvestors</code>.
      */
     static validateJSON(data) {
-        // check to make sure all required properties are present in the JSON string
-        for (const property of CreateInvestorRequest.RequiredProperties) {
-            if (!data[property]) {
-                throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
-            }
-        }
-        // ensure the json data is a string
-        if (data['email'] && !(typeof data['email'] === 'string' || data['email'] instanceof String)) {
-            throw new Error("Expected the field `email` to be a primitive type in the JSON string but got " + data['email']);
-        }
-        // ensure the json data is an array
-        if (!Array.isArray(data['tags'])) {
-            throw new Error("Expected the field `tags` to be an array in the JSON data but got " + data['tags']);
-        }
-        // ensure the json data is a string
-        if (data['first_name'] && !(typeof data['first_name'] === 'string' || data['first_name'] instanceof String)) {
-            throw new Error("Expected the field `first_name` to be a primitive type in the JSON string but got " + data['first_name']);
-        }
-        // ensure the json data is a string
-        if (data['last_name'] && !(typeof data['last_name'] === 'string' || data['last_name'] instanceof String)) {
-            throw new Error("Expected the field `last_name` to be a primitive type in the JSON string but got " + data['last_name']);
-        }
-        // ensure the json data is a string
-        if (data['phone_number'] && !(typeof data['phone_number'] === 'string' || data['phone_number'] instanceof String)) {
-            throw new Error("Expected the field `phone_number` to be a primitive type in the JSON string but got " + data['phone_number']);
-        }
-        // ensure the json data is a string
-        if (data['message'] && !(typeof data['message'] === 'string' || data['message'] instanceof String)) {
-            throw new Error("Expected the field `message` to be a primitive type in the JSON string but got " + data['message']);
-        }
         // ensure the json data is a string
         if (data['allocation_unit'] && !(typeof data['allocation_unit'] === 'string' || data['allocation_unit'] instanceof String)) {
             throw new Error("Expected the field `allocation_unit` to be a primitive type in the JSON string but got " + data['allocation_unit']);
         }
         // ensure the json data is a string
-        if (data['state'] && !(typeof data['state'] === 'string' || data['state'] instanceof String)) {
-            throw new Error("Expected the field `state` to be a primitive type in the JSON string but got " + data['state']);
+        if (data['notes'] && !(typeof data['notes'] === 'string' || data['notes'] instanceof String)) {
+            throw new Error("Expected the field `notes` to be a primitive type in the JSON string but got " + data['notes']);
         }
 
         return true;
@@ -143,86 +88,38 @@ class CreateInvestorRequest {
 
 }
 
-CreateInvestorRequest.RequiredProperties = ["email"];
 
-/**
- * The investor email address.
- * @member {String} email
- */
-CreateInvestorRequest.prototype['email'] = undefined;
-
-/**
- * The Investor Profile id.
- * @member {Number} investor_profile_id
- */
-CreateInvestorRequest.prototype['investor_profile_id'] = undefined;
-
-/**
- * @member {Array.<String>} tags
- */
-CreateInvestorRequest.prototype['tags'] = undefined;
-
-/**
- * The first name of the investor.
- * @member {String} first_name
- */
-CreateInvestorRequest.prototype['first_name'] = undefined;
-
-/**
- * The last name of the investor.
- * @member {String} last_name
- */
-CreateInvestorRequest.prototype['last_name'] = undefined;
-
-/**
- * The phone number of the investor.
- * @member {String} phone_number
- */
-CreateInvestorRequest.prototype['phone_number'] = undefined;
-
-/**
- * The reminder email text of the investor.
- * @member {String} message
- */
-CreateInvestorRequest.prototype['message'] = undefined;
 
 /**
  * The warrant expiry date of the investor.
  * @member {Date} warrant_expiry_date
  */
-CreateInvestorRequest.prototype['warrant_expiry_date'] = undefined;
+PutDealsIdInvestors.prototype['warrant_expiry_date'] = undefined;
 
 /**
  * The certificate number of the investor.
  * @member {Number} warrant_certificate_number
  */
-CreateInvestorRequest.prototype['warrant_certificate_number'] = undefined;
+PutDealsIdInvestors.prototype['warrant_certificate_number'] = undefined;
 
 /**
  * The allocation amount of the investor.
  * @member {Number} allocated_amount
  */
-CreateInvestorRequest.prototype['allocated_amount'] = undefined;
-
-/**
- * The investment value of the investor.
- * @member {Number} investment_value
- */
-CreateInvestorRequest.prototype['investment_value'] = undefined;
+PutDealsIdInvestors.prototype['allocated_amount'] = undefined;
 
 /**
  * The allocation unit of the investor.
- * @member {module:model/CreateInvestorRequest.AllocationUnitEnum} allocation_unit
+ * @member {module:model/PutDealsIdInvestors.AllocationUnitEnum} allocation_unit
  * @default 'securities'
  */
-CreateInvestorRequest.prototype['allocation_unit'] = 'securities';
+PutDealsIdInvestors.prototype['allocation_unit'] = 'securities';
 
 /**
- * The initial state of the investor.
- * @member {module:model/CreateInvestorRequest.StateEnum} state
- * @default 'invited'
+ * The notes of the investor.
+ * @member {String} notes
  */
-CreateInvestorRequest.prototype['state'] = 'invited';
+PutDealsIdInvestors.prototype['notes'] = undefined;
 
 
 
@@ -233,7 +130,7 @@ CreateInvestorRequest.prototype['state'] = 'invited';
  * @enum {String}
  * @readonly
  */
-CreateInvestorRequest['AllocationUnitEnum'] = {
+PutDealsIdInvestors['AllocationUnitEnum'] = {
 
     /**
      * value: "securities"
@@ -249,27 +146,6 @@ CreateInvestorRequest['AllocationUnitEnum'] = {
 };
 
 
-/**
- * Allowed values for the <code>state</code> property.
- * @enum {String}
- * @readonly
- */
-CreateInvestorRequest['StateEnum'] = {
 
-    /**
-     * value: "draft"
-     * @const
-     */
-    "draft": "draft",
-
-    /**
-     * value: "invited"
-     * @const
-     */
-    "invited": "invited"
-};
-
-
-
-export default CreateInvestorRequest;
+export default PutDealsIdInvestors;
 

@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **id** | **int** | The bulk upload ID | [optional]
 **company_id** | **int** | The company ID | [optional]
 **file_identifier** | **string** | The file identifier [shareholder, investor] | [optional]
-**document_type** | **string** | The document type [drs_statement, shareholder_statement, book_entry_statement] | [optional]
+**document_type** | **string** | The document type | [optional]
 **upload_name** | **string** | The bulk upload name | [optional]
 **files_count** | **int** | The number of files in the bulk upload | [optional]
 **errors_count** | **int** | The number of errors in the bulk upload | [optional]

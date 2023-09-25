@@ -17,7 +17,6 @@ docs/CreateBulkUploadDetailRequest.md
 docs/CreateBulkUploadRequest.md
 docs/CreateCompanyRequest.md
 docs/CreateDealSetupRequest.md
-docs/CreateInvestorRequest.md
 docs/CreateShareholderActionRequest.md
 docs/DealApi.md
 docs/DealSetupApi.md
@@ -33,6 +32,7 @@ docs/PatchInvestorProfilesIndividuals.md
 docs/PatchInvestorProfilesJoints.md
 docs/PatchInvestorProfilesTrusts.md
 docs/PatchInvestorRequest.md
+docs/PostDealsIdInvestors.md
 docs/PostInvestorProfilesCorporations.md
 docs/PostInvestorProfilesCorporationsBeneficialOwnersInner.md
 docs/PostInvestorProfilesIndividuals.md
@@ -40,10 +40,10 @@ docs/PostInvestorProfilesJoints.md
 docs/PostInvestorProfilesTrusts.md
 docs/PostInvestorProfilesTrustsTrusteesInner.md
 docs/PostWebhooksRequest.md
+docs/PutDealsIdInvestors.md
 docs/PutDealsIdScriptTagEnvironmentRequest.md
 docs/PutWebhooksIdRequest.md
 docs/ShareholderApi.md
-docs/UpdateInvestorRequest.md
 docs/UploadApi.md
 docs/UsersApi.md
 docs/V1EntitiesAddress.md
@@ -122,7 +122,6 @@ lib/DealMakerAPI/models/create_bulk_upload_detail_request.rb
 lib/DealMakerAPI/models/create_bulk_upload_request.rb
 lib/DealMakerAPI/models/create_company_request.rb
 lib/DealMakerAPI/models/create_deal_setup_request.rb
-lib/DealMakerAPI/models/create_investor_request.rb
 lib/DealMakerAPI/models/create_shareholder_action_request.rb
 lib/DealMakerAPI/models/edit_investor_tags_request.rb
 lib/DealMakerAPI/models/generate_url_request.rb
@@ -132,6 +131,7 @@ lib/DealMakerAPI/models/patch_investor_profiles_individuals.rb
 lib/DealMakerAPI/models/patch_investor_profiles_joints.rb
 lib/DealMakerAPI/models/patch_investor_profiles_trusts.rb
 lib/DealMakerAPI/models/patch_investor_request.rb
+lib/DealMakerAPI/models/post_deals_id_investors.rb
 lib/DealMakerAPI/models/post_investor_profiles_corporations.rb
 lib/DealMakerAPI/models/post_investor_profiles_corporations_beneficial_owners_inner.rb
 lib/DealMakerAPI/models/post_investor_profiles_individuals.rb
@@ -139,9 +139,9 @@ lib/DealMakerAPI/models/post_investor_profiles_joints.rb
 lib/DealMakerAPI/models/post_investor_profiles_trusts.rb
 lib/DealMakerAPI/models/post_investor_profiles_trusts_trustees_inner.rb
 lib/DealMakerAPI/models/post_webhooks_request.rb
+lib/DealMakerAPI/models/put_deals_id_investors.rb
 lib/DealMakerAPI/models/put_deals_id_script_tag_environment_request.rb
 lib/DealMakerAPI/models/put_webhooks_id_request.rb
-lib/DealMakerAPI/models/update_investor_request.rb
 lib/DealMakerAPI/models/v1_entities_address.rb
 lib/DealMakerAPI/models/v1_entities_addresses.rb
 lib/DealMakerAPI/models/v1_entities_attachment.rb
@@ -216,7 +216,6 @@ spec/models/create_bulk_upload_detail_request_spec.rb
 spec/models/create_bulk_upload_request_spec.rb
 spec/models/create_company_request_spec.rb
 spec/models/create_deal_setup_request_spec.rb
-spec/models/create_investor_request_spec.rb
 spec/models/create_shareholder_action_request_spec.rb
 spec/models/edit_investor_tags_request_spec.rb
 spec/models/generate_url_request_spec.rb
@@ -226,6 +225,7 @@ spec/models/patch_investor_profiles_individuals_spec.rb
 spec/models/patch_investor_profiles_joints_spec.rb
 spec/models/patch_investor_profiles_trusts_spec.rb
 spec/models/patch_investor_request_spec.rb
+spec/models/post_deals_id_investors_spec.rb
 spec/models/post_investor_profiles_corporations_beneficial_owners_inner_spec.rb
 spec/models/post_investor_profiles_corporations_spec.rb
 spec/models/post_investor_profiles_individuals_spec.rb
@@ -233,9 +233,9 @@ spec/models/post_investor_profiles_joints_spec.rb
 spec/models/post_investor_profiles_trusts_spec.rb
 spec/models/post_investor_profiles_trusts_trustees_inner_spec.rb
 spec/models/post_webhooks_request_spec.rb
+spec/models/put_deals_id_investors_spec.rb
 spec/models/put_deals_id_script_tag_environment_request_spec.rb
 spec/models/put_webhooks_id_request_spec.rb
-spec/models/update_investor_request_spec.rb
 spec/models/v1_entities_address_spec.rb
 spec/models/v1_entities_addresses_spec.rb
 spec/models/v1_entities_attachment_spec.rb

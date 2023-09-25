@@ -77,7 +77,7 @@ describe 'InvestorApi' do
   # Create a deal investor
   # Create a single deal investor.
   # @param id The deal id.
-  # @param create_investor_request 
+  # @param deals_id_investors 
   # @param [Hash] opts the optional parameters
   # @return [V1EntitiesInvestor]
   describe 'create_investor test' do
@@ -189,8 +189,8 @@ describe 'InvestorApi' do
   # Update deal investor
   # @param id The deal id.
   # @param investor_id The investor id.
+  # @param deals_id_investors 
   # @param [Hash] opts the optional parameters
-  # @option opts [UpdateInvestorRequest] :update_investor_request 
   # @return [V1EntitiesInvestor]
   describe 'update_investor test' do
     it 'should work' do

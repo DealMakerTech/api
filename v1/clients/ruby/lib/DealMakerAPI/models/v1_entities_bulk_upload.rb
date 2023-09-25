@@ -25,7 +25,7 @@ module DealMakerAPI
     # The file identifier [shareholder, investor]
     attr_accessor :file_identifier
 
-    # The document type [drs_statement, shareholder_statement, book_entry_statement]
+    # The document type 
     attr_accessor :document_type
 
     # The bulk upload name
@@ -48,6 +48,28 @@ module DealMakerAPI
 
     # The updated at timestamp
     attr_accessor :updated_at
+
+    class EnumAttributeValidator
+      attr_reader :datatype
+      attr_reader :allowable_values
+
+      def initialize(datatype, allowable_values)
+        @allowable_values = allowable_values.map do |value|
+          case datatype.to_s
+          when /Integer/i
+            value.to_i
+          when /Float/i
+            value.to_f
+          else
+            value
+          end
+        end
+      end
+
+      def valid?(value)
+        !value || allowable_values.include?(value)
+      end
+    end
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
@@ -166,7 +188,19 @@ module DealMakerAPI
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
+      document_type_validator = EnumAttributeValidator.new('String', ["drs_statement", "shareholder_statement", "book_entry_statement", "dividend_statement"])
+      return false unless document_type_validator.valid?(@document_type)
       true
+    end
+
+    # Custom attribute writer method checking allowed values (enum).
+    # @param [Object] document_type Object to be assigned
+    def document_type=(document_type)
+      validator = EnumAttributeValidator.new('String', ["drs_statement", "shareholder_statement", "book_entry_statement", "dividend_statement"])
+      unless validator.valid?(document_type)
+        fail ArgumentError, "invalid value for \"document_type\", must be one of #{validator.allowable_values}."
+      end
+      @document_type = document_type
     end
 
     # Checks equality by comparing each attribute.

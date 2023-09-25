@@ -11,127 +11,257 @@
  *
  */
 
-(function(root, factory) {
-  if (typeof define === 'function' && define.amd) {
-    // AMD.
-    define(['expect.js', process.cwd()+'/src/index'], factory);
-  } else if (typeof module === 'object' && module.exports) {
-    // CommonJS-like environments that support module.exports, like Node.
-    factory(require('expect.js'), require(process.cwd()+'/src/index'));
-  } else {
-    // Browser globals (root is window)
-    factory(root.expect, root.Api);
-  }
-}(this, function(expect, Api) {
-  'use strict';
+import ApiClient from '../ApiClient';
 
-  var instance;
+/**
+ * The PostDealsIdInvestors model module.
+ * @module model/PostDealsIdInvestors
+ * @version 0.87.1
+ */
+class PostDealsIdInvestors {
+    /**
+     * Constructs a new <code>PostDealsIdInvestors</code>.
+     * Create deal investor
+     * @alias module:model/PostDealsIdInvestors
+     * @param email {String} The investor email address.
+     */
+    constructor(email) { 
+        
+        PostDealsIdInvestors.initialize(this, email);
+    }
 
-  beforeEach(function() {
-    instance = new Api.CreateInvestorRequest();
-  });
+    /**
+     * Initializes the fields of this object.
+     * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
+     * Only for internal use.
+     */
+    static initialize(obj, email) { 
+        obj['email'] = email;
+    }
 
-  var getProperty = function(object, getter, property) {
-    // Use getter method if present; otherwise, get the property directly.
-    if (typeof object[getter] === 'function')
-      return object[getter]();
-    else
-      return object[property];
-  }
+    /**
+     * Constructs a <code>PostDealsIdInvestors</code> from a plain JavaScript object, optionally creating a new instance.
+     * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @param {module:model/PostDealsIdInvestors} obj Optional instance to populate.
+     * @return {module:model/PostDealsIdInvestors} The populated <code>PostDealsIdInvestors</code> instance.
+     */
+    static constructFromObject(data, obj) {
+        if (data) {
+            obj = obj || new PostDealsIdInvestors();
 
-  var setProperty = function(object, setter, property, value) {
-    // Use setter method if present; otherwise, set the property directly.
-    if (typeof object[setter] === 'function')
-      object[setter](value);
-    else
-      object[property] = value;
-  }
+            if (data.hasOwnProperty('email')) {
+                obj['email'] = ApiClient.convertToType(data['email'], 'String');
+            }
+            if (data.hasOwnProperty('investor_profile_id')) {
+                obj['investor_profile_id'] = ApiClient.convertToType(data['investor_profile_id'], 'Number');
+            }
+            if (data.hasOwnProperty('tags')) {
+                obj['tags'] = ApiClient.convertToType(data['tags'], ['String']);
+            }
+            if (data.hasOwnProperty('first_name')) {
+                obj['first_name'] = ApiClient.convertToType(data['first_name'], 'String');
+            }
+            if (data.hasOwnProperty('last_name')) {
+                obj['last_name'] = ApiClient.convertToType(data['last_name'], 'String');
+            }
+            if (data.hasOwnProperty('phone_number')) {
+                obj['phone_number'] = ApiClient.convertToType(data['phone_number'], 'String');
+            }
+            if (data.hasOwnProperty('message')) {
+                obj['message'] = ApiClient.convertToType(data['message'], 'String');
+            }
+            if (data.hasOwnProperty('warrant_expiry_date')) {
+                obj['warrant_expiry_date'] = ApiClient.convertToType(data['warrant_expiry_date'], 'Date');
+            }
+            if (data.hasOwnProperty('warrant_certificate_number')) {
+                obj['warrant_certificate_number'] = ApiClient.convertToType(data['warrant_certificate_number'], 'Number');
+            }
+            if (data.hasOwnProperty('allocated_amount')) {
+                obj['allocated_amount'] = ApiClient.convertToType(data['allocated_amount'], 'Number');
+            }
+            if (data.hasOwnProperty('allocation_unit')) {
+                obj['allocation_unit'] = ApiClient.convertToType(data['allocation_unit'], 'String');
+            }
+            if (data.hasOwnProperty('state')) {
+                obj['state'] = ApiClient.convertToType(data['state'], 'String');
+            }
+        }
+        return obj;
+    }
 
-  describe('CreateInvestorRequest', function() {
-    it('should create an instance of CreateInvestorRequest', function() {
-      // uncomment below and update the code to test CreateInvestorRequest
-      //var instance = new Api.CreateInvestorRequest();
-      //expect(instance).to.be.a(Api.CreateInvestorRequest);
-    });
+    /**
+     * Validates the JSON data with respect to <code>PostDealsIdInvestors</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>PostDealsIdInvestors</code>.
+     */
+    static validateJSON(data) {
+        // check to make sure all required properties are present in the JSON string
+        for (const property of PostDealsIdInvestors.RequiredProperties) {
+            if (!data[property]) {
+                throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
+            }
+        }
+        // ensure the json data is a string
+        if (data['email'] && !(typeof data['email'] === 'string' || data['email'] instanceof String)) {
+            throw new Error("Expected the field `email` to be a primitive type in the JSON string but got " + data['email']);
+        }
+        // ensure the json data is an array
+        if (!Array.isArray(data['tags'])) {
+            throw new Error("Expected the field `tags` to be an array in the JSON data but got " + data['tags']);
+        }
+        // ensure the json data is a string
+        if (data['first_name'] && !(typeof data['first_name'] === 'string' || data['first_name'] instanceof String)) {
+            throw new Error("Expected the field `first_name` to be a primitive type in the JSON string but got " + data['first_name']);
+        }
+        // ensure the json data is a string
+        if (data['last_name'] && !(typeof data['last_name'] === 'string' || data['last_name'] instanceof String)) {
+            throw new Error("Expected the field `last_name` to be a primitive type in the JSON string but got " + data['last_name']);
+        }
+        // ensure the json data is a string
+        if (data['phone_number'] && !(typeof data['phone_number'] === 'string' || data['phone_number'] instanceof String)) {
+            throw new Error("Expected the field `phone_number` to be a primitive type in the JSON string but got " + data['phone_number']);
+        }
+        // ensure the json data is a string
+        if (data['message'] && !(typeof data['message'] === 'string' || data['message'] instanceof String)) {
+            throw new Error("Expected the field `message` to be a primitive type in the JSON string but got " + data['message']);
+        }
+        // ensure the json data is a string
+        if (data['allocation_unit'] && !(typeof data['allocation_unit'] === 'string' || data['allocation_unit'] instanceof String)) {
+            throw new Error("Expected the field `allocation_unit` to be a primitive type in the JSON string but got " + data['allocation_unit']);
+        }
+        // ensure the json data is a string
+        if (data['state'] && !(typeof data['state'] === 'string' || data['state'] instanceof String)) {
+            throw new Error("Expected the field `state` to be a primitive type in the JSON string but got " + data['state']);
+        }
 
-    it('should have the property email (base name: "email")', function() {
-      // uncomment below and update the code to test the property email
-      //var instance = new Api.CreateInvestorRequest();
-      //expect(instance).to.be();
-    });
+        return true;
+    }
 
-    it('should have the property investorProfileId (base name: "investor_profile_id")', function() {
-      // uncomment below and update the code to test the property investorProfileId
-      //var instance = new Api.CreateInvestorRequest();
-      //expect(instance).to.be();
-    });
 
-    it('should have the property tags (base name: "tags")', function() {
-      // uncomment below and update the code to test the property tags
-      //var instance = new Api.CreateInvestorRequest();
-      //expect(instance).to.be();
-    });
+}
 
-    it('should have the property firstName (base name: "first_name")', function() {
-      // uncomment below and update the code to test the property firstName
-      //var instance = new Api.CreateInvestorRequest();
-      //expect(instance).to.be();
-    });
+PostDealsIdInvestors.RequiredProperties = ["email"];
 
-    it('should have the property lastName (base name: "last_name")', function() {
-      // uncomment below and update the code to test the property lastName
-      //var instance = new Api.CreateInvestorRequest();
-      //expect(instance).to.be();
-    });
+/**
+ * The investor email address.
+ * @member {String} email
+ */
+PostDealsIdInvestors.prototype['email'] = undefined;
 
-    it('should have the property phoneNumber (base name: "phone_number")', function() {
-      // uncomment below and update the code to test the property phoneNumber
-      //var instance = new Api.CreateInvestorRequest();
-      //expect(instance).to.be();
-    });
+/**
+ * The Investor Profile id.
+ * @member {Number} investor_profile_id
+ */
+PostDealsIdInvestors.prototype['investor_profile_id'] = undefined;
 
-    it('should have the property message (base name: "message")', function() {
-      // uncomment below and update the code to test the property message
-      //var instance = new Api.CreateInvestorRequest();
-      //expect(instance).to.be();
-    });
+/**
+ * @member {Array.<String>} tags
+ */
+PostDealsIdInvestors.prototype['tags'] = undefined;
 
-    it('should have the property warrantExpiryDate (base name: "warrant_expiry_date")', function() {
-      // uncomment below and update the code to test the property warrantExpiryDate
-      //var instance = new Api.CreateInvestorRequest();
-      //expect(instance).to.be();
-    });
+/**
+ * The first name of the investor.
+ * @member {String} first_name
+ */
+PostDealsIdInvestors.prototype['first_name'] = undefined;
 
-    it('should have the property warrantCertificateNumber (base name: "warrant_certificate_number")', function() {
-      // uncomment below and update the code to test the property warrantCertificateNumber
-      //var instance = new Api.CreateInvestorRequest();
-      //expect(instance).to.be();
-    });
+/**
+ * The last name of the investor.
+ * @member {String} last_name
+ */
+PostDealsIdInvestors.prototype['last_name'] = undefined;
 
-    it('should have the property allocatedAmount (base name: "allocated_amount")', function() {
-      // uncomment below and update the code to test the property allocatedAmount
-      //var instance = new Api.CreateInvestorRequest();
-      //expect(instance).to.be();
-    });
+/**
+ * The phone number of the investor.
+ * @member {String} phone_number
+ */
+PostDealsIdInvestors.prototype['phone_number'] = undefined;
 
-    it('should have the property investmentValue (base name: "investment_value")', function() {
-      // uncomment below and update the code to test the property investmentValue
-      //var instance = new Api.CreateInvestorRequest();
-      //expect(instance).to.be();
-    });
+/**
+ * The reminder email text of the investor.
+ * @member {String} message
+ */
+PostDealsIdInvestors.prototype['message'] = undefined;
 
-    it('should have the property allocationUnit (base name: "allocation_unit")', function() {
-      // uncomment below and update the code to test the property allocationUnit
-      //var instance = new Api.CreateInvestorRequest();
-      //expect(instance).to.be();
-    });
+/**
+ * The warrant expiry date of the investor.
+ * @member {Date} warrant_expiry_date
+ */
+PostDealsIdInvestors.prototype['warrant_expiry_date'] = undefined;
 
-    it('should have the property state (base name: "state")', function() {
-      // uncomment below and update the code to test the property state
-      //var instance = new Api.CreateInvestorRequest();
-      //expect(instance).to.be();
-    });
+/**
+ * The certificate number of the investor.
+ * @member {Number} warrant_certificate_number
+ */
+PostDealsIdInvestors.prototype['warrant_certificate_number'] = undefined;
 
-  });
+/**
+ * The allocation amount of the investor.
+ * @member {Number} allocated_amount
+ */
+PostDealsIdInvestors.prototype['allocated_amount'] = undefined;
 
-}));
+/**
+ * The allocation unit of the investor.
+ * @member {module:model/PostDealsIdInvestors.AllocationUnitEnum} allocation_unit
+ * @default 'securities'
+ */
+PostDealsIdInvestors.prototype['allocation_unit'] = 'securities';
+
+/**
+ * The initial state of the investor.
+ * @member {module:model/PostDealsIdInvestors.StateEnum} state
+ * @default 'invited'
+ */
+PostDealsIdInvestors.prototype['state'] = 'invited';
+
+
+
+
+
+/**
+ * Allowed values for the <code>allocation_unit</code> property.
+ * @enum {String}
+ * @readonly
+ */
+PostDealsIdInvestors['AllocationUnitEnum'] = {
+
+    /**
+     * value: "securities"
+     * @const
+     */
+    "securities": "securities",
+
+    /**
+     * value: "amount"
+     * @const
+     */
+    "amount": "amount"
+};
+
+
+/**
+ * Allowed values for the <code>state</code> property.
+ * @enum {String}
+ * @readonly
+ */
+PostDealsIdInvestors['StateEnum'] = {
+
+    /**
+     * value: "draft"
+     * @const
+     */
+    "draft": "draft",
+
+    /**
+     * value: "invited"
+     * @const
+     */
+    "invited": "invited"
+};
+
+
+
+export default PostDealsIdInvestors;
+

@@ -18,7 +18,7 @@ import V1EntitiesCountries from '../model/V1EntitiesCountries';
 /**
 * Country service.
 * @module api/CountryApi
-* @version 0.87.0
+* @version 0.87.1
 */
 export default class CountryApi {
 

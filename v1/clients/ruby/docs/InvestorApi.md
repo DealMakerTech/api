@@ -228,7 +228,7 @@ No authorization required
 
 ## create_investor
 
-> <V1EntitiesInvestor> create_investor(id, create_investor_request)
+> <V1EntitiesInvestor> create_investor(id, deals_id_investors)
 
 Create a deal investor
 
@@ -244,11 +244,11 @@ DealMakerAPI.configure do |config|end
 
 api_instance = DealMakerAPI::InvestorApi.new
 id = 56 # Integer | The deal id.
-create_investor_request = DealMakerAPI::CreateInvestorRequest.new({email: 'email_example'}) # CreateInvestorRequest | 
+deals_id_investors = DealMakerAPI::PostDealsIdInvestors.new({email: 'email_example'}) # PostDealsIdInvestors | 
 
 begin
   # Create a deal investor
-  result = api_instance.create_investor(id, create_investor_request)
+  result = api_instance.create_investor(id, deals_id_investors)
   p result
 rescue DealMakerAPI::ApiError => e
   puts "Error when calling InvestorApi->create_investor: #{e}"
@@ -259,12 +259,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<V1EntitiesInvestor>, Integer, Hash)> create_investor_with_http_info(id, create_investor_request)
+> <Array(<V1EntitiesInvestor>, Integer, Hash)> create_investor_with_http_info(id, deals_id_investors)
 
 ```ruby
 begin
   # Create a deal investor
-  data, status_code, headers = api_instance.create_investor_with_http_info(id, create_investor_request)
+  data, status_code, headers = api_instance.create_investor_with_http_info(id, deals_id_investors)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <V1EntitiesInvestor>
@@ -278,7 +278,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **id** | **Integer** | The deal id. |  |
-| **create_investor_request** | [**CreateInvestorRequest**](CreateInvestorRequest.md) |  |  |
+| **deals_id_investors** | [**PostDealsIdInvestors**](PostDealsIdInvestors.md) |  |  |
 
 ### Return type
 
@@ -786,7 +786,7 @@ No authorization required
 
 ## update_investor
 
-> <V1EntitiesInvestor> update_investor(id, investor_id, opts)
+> <V1EntitiesInvestor> update_investor(id, investor_id, deals_id_investors)
 
 Update a deal investor
 
@@ -803,13 +803,11 @@ DealMakerAPI.configure do |config|end
 api_instance = DealMakerAPI::InvestorApi.new
 id = 56 # Integer | The deal id.
 investor_id = 56 # Integer | The investor id.
-opts = {
-  update_investor_request: DealMakerAPI::UpdateInvestorRequest.new # UpdateInvestorRequest | 
-}
+deals_id_investors = DealMakerAPI::PutDealsIdInvestors.new # PutDealsIdInvestors | 
 
 begin
   # Update a deal investor
-  result = api_instance.update_investor(id, investor_id, opts)
+  result = api_instance.update_investor(id, investor_id, deals_id_investors)
   p result
 rescue DealMakerAPI::ApiError => e
   puts "Error when calling InvestorApi->update_investor: #{e}"
@@ -820,12 +818,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<V1EntitiesInvestor>, Integer, Hash)> update_investor_with_http_info(id, investor_id, opts)
+> <Array(<V1EntitiesInvestor>, Integer, Hash)> update_investor_with_http_info(id, investor_id, deals_id_investors)
 
 ```ruby
 begin
   # Update a deal investor
-  data, status_code, headers = api_instance.update_investor_with_http_info(id, investor_id, opts)
+  data, status_code, headers = api_instance.update_investor_with_http_info(id, investor_id, deals_id_investors)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <V1EntitiesInvestor>
@@ -840,7 +838,7 @@ end
 | ---- | ---- | ----------- | ----- |
 | **id** | **Integer** | The deal id. |  |
 | **investor_id** | **Integer** | The investor id. |  |
-| **update_investor_request** | [**UpdateInvestorRequest**](UpdateInvestorRequest.md) |  | [optional] |
+| **deals_id_investors** | [**PutDealsIdInvestors**](PutDealsIdInvestors.md) |  |  |
 
 ### Return type
 

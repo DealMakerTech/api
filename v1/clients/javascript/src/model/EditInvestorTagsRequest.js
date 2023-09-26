@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The EditInvestorTagsRequest model module.
  * @module model/EditInvestorTagsRequest
- * @version 0.87.0
+ * @version 0.87.2
  */
 class EditInvestorTagsRequest {
     /**

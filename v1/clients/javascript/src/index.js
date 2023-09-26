@@ -20,7 +20,6 @@ import CreateBulkUploadDetailRequest from './model/CreateBulkUploadDetailRequest
 import CreateBulkUploadRequest from './model/CreateBulkUploadRequest';
 import CreateCompanyRequest from './model/CreateCompanyRequest';
 import CreateDealSetupRequest from './model/CreateDealSetupRequest';
-import CreateInvestorRequest from './model/CreateInvestorRequest';
 import CreateShareholderActionRequest from './model/CreateShareholderActionRequest';
 import EditInvestorTagsRequest from './model/EditInvestorTagsRequest';
 import GenerateUrlRequest from './model/GenerateUrlRequest';
@@ -30,6 +29,7 @@ import PatchInvestorProfilesIndividuals from './model/PatchInvestorProfilesIndiv
 import PatchInvestorProfilesJoints from './model/PatchInvestorProfilesJoints';
 import PatchInvestorProfilesTrusts from './model/PatchInvestorProfilesTrusts';
 import PatchInvestorRequest from './model/PatchInvestorRequest';
+import PostDealsIdInvestors from './model/PostDealsIdInvestors';
 import PostInvestorProfilesCorporations from './model/PostInvestorProfilesCorporations';
 import PostInvestorProfilesCorporationsBeneficialOwnersInner from './model/PostInvestorProfilesCorporationsBeneficialOwnersInner';
 import PostInvestorProfilesIndividuals from './model/PostInvestorProfilesIndividuals';
@@ -37,9 +37,9 @@ import PostInvestorProfilesJoints from './model/PostInvestorProfilesJoints';
 import PostInvestorProfilesTrusts from './model/PostInvestorProfilesTrusts';
 import PostInvestorProfilesTrustsTrusteesInner from './model/PostInvestorProfilesTrustsTrusteesInner';
 import PostWebhooksRequest from './model/PostWebhooksRequest';
+import PutDealsIdInvestors from './model/PutDealsIdInvestors';
 import PutDealsIdScriptTagEnvironmentRequest from './model/PutDealsIdScriptTagEnvironmentRequest';
 import PutWebhooksIdRequest from './model/PutWebhooksIdRequest';
-import UpdateInvestorRequest from './model/UpdateInvestorRequest';
 import V1EntitiesAddress from './model/V1EntitiesAddress';
 import V1EntitiesAddresses from './model/V1EntitiesAddresses';
 import V1EntitiesAttachment from './model/V1EntitiesAttachment';
@@ -135,7 +135,7 @@ import UsersApi from './api/UsersApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.87.0
+* @version 0.87.2
 */
 export {
     /**
@@ -185,12 +185,6 @@ export {
      * @property {module:model/CreateDealSetupRequest}
      */
     CreateDealSetupRequest,
-
-    /**
-     * The CreateInvestorRequest model constructor.
-     * @property {module:model/CreateInvestorRequest}
-     */
-    CreateInvestorRequest,
 
     /**
      * The CreateShareholderActionRequest model constructor.
@@ -247,6 +241,12 @@ export {
     PatchInvestorRequest,
 
     /**
+     * The PostDealsIdInvestors model constructor.
+     * @property {module:model/PostDealsIdInvestors}
+     */
+    PostDealsIdInvestors,
+
+    /**
      * The PostInvestorProfilesCorporations model constructor.
      * @property {module:model/PostInvestorProfilesCorporations}
      */
@@ -289,6 +289,12 @@ export {
     PostWebhooksRequest,
 
     /**
+     * The PutDealsIdInvestors model constructor.
+     * @property {module:model/PutDealsIdInvestors}
+     */
+    PutDealsIdInvestors,
+
+    /**
      * The PutDealsIdScriptTagEnvironmentRequest model constructor.
      * @property {module:model/PutDealsIdScriptTagEnvironmentRequest}
      */
@@ -299,12 +305,6 @@ export {
      * @property {module:model/PutWebhooksIdRequest}
      */
     PutWebhooksIdRequest,
-
-    /**
-     * The UpdateInvestorRequest model constructor.
-     * @property {module:model/UpdateInvestorRequest}
-     */
-    UpdateInvestorRequest,
 
     /**
      * The V1EntitiesAddress model constructor.

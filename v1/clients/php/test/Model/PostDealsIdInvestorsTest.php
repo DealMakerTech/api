@@ -1,6 +1,6 @@
 <?php
 /**
- * CreateInvestorRequestTest
+ * PostDealsIdInvestorsTest
  *
  * PHP version 7.4
  *
@@ -31,15 +31,15 @@ namespace DealMaker\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * CreateInvestorRequestTest Class Doc Comment
+ * PostDealsIdInvestorsTest Class Doc Comment
  *
  * @category    Class
- * @description CreateInvestorRequest
+ * @description Create deal investor
  * @package     DealMaker
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class CreateInvestorRequestTest extends TestCase
+class PostDealsIdInvestorsTest extends TestCase
 {
 
     /**
@@ -71,9 +71,9 @@ class CreateInvestorRequestTest extends TestCase
     }
 
     /**
-     * Test "CreateInvestorRequest"
+     * Test "PostDealsIdInvestors"
      */
-    public function testCreateInvestorRequest()
+    public function testPostDealsIdInvestors()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
@@ -164,15 +164,6 @@ class CreateInvestorRequestTest extends TestCase
      * Test attribute "allocated_amount"
      */
     public function testPropertyAllocatedAmount()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "investment_value"
-     */
-    public function testPropertyInvestmentValue()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

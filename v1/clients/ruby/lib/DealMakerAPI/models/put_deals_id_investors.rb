@@ -14,7 +14,8 @@ require 'date'
 require 'time'
 
 module DealMakerAPI
-  class UpdateInvestorRequest
+  # Update deal investor
+  class PutDealsIdInvestors
     # The warrant expiry date of the investor.
     attr_accessor :warrant_expiry_date
 
@@ -26,9 +27,6 @@ module DealMakerAPI
 
     # The allocation unit of the investor.
     attr_accessor :allocation_unit
-
-    # The investment value of the investor.
-    attr_accessor :investment_value
 
     # The notes of the investor.
     attr_accessor :notes
@@ -62,7 +60,6 @@ module DealMakerAPI
         :'warrant_certificate_number' => :'warrant_certificate_number',
         :'allocated_amount' => :'allocated_amount',
         :'allocation_unit' => :'allocation_unit',
-        :'investment_value' => :'investment_value',
         :'notes' => :'notes'
       }
     end
@@ -79,7 +76,6 @@ module DealMakerAPI
         :'warrant_certificate_number' => :'Integer',
         :'allocated_amount' => :'Float',
         :'allocation_unit' => :'String',
-        :'investment_value' => :'Float',
         :'notes' => :'String'
       }
     end
@@ -94,13 +90,13 @@ module DealMakerAPI
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DealMakerAPI::UpdateInvestorRequest` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DealMakerAPI::PutDealsIdInvestors` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `DealMakerAPI::UpdateInvestorRequest`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DealMakerAPI::PutDealsIdInvestors`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
@@ -121,10 +117,6 @@ module DealMakerAPI
         self.allocation_unit = attributes[:'allocation_unit']
       else
         self.allocation_unit = 'securities'
-      end
-
-      if attributes.key?(:'investment_value')
-        self.investment_value = attributes[:'investment_value']
       end
 
       if attributes.key?(:'notes')
@@ -168,7 +160,6 @@ module DealMakerAPI
           warrant_certificate_number == o.warrant_certificate_number &&
           allocated_amount == o.allocated_amount &&
           allocation_unit == o.allocation_unit &&
-          investment_value == o.investment_value &&
           notes == o.notes
     end
 
@@ -181,7 +172,7 @@ module DealMakerAPI
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [warrant_expiry_date, warrant_certificate_number, allocated_amount, allocation_unit, investment_value, notes].hash
+      [warrant_expiry_date, warrant_certificate_number, allocated_amount, allocation_unit, notes].hash
     end
 
     # Builds the object from hash

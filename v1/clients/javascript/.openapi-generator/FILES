@@ -12,7 +12,6 @@ docs/CreateBulkUploadDetailRequest.md
 docs/CreateBulkUploadRequest.md
 docs/CreateCompanyRequest.md
 docs/CreateDealSetupRequest.md
-docs/CreateInvestorRequest.md
 docs/CreateShareholderActionRequest.md
 docs/DealApi.md
 docs/DealSetupApi.md
@@ -28,6 +27,7 @@ docs/PatchInvestorProfilesIndividuals.md
 docs/PatchInvestorProfilesJoints.md
 docs/PatchInvestorProfilesTrusts.md
 docs/PatchInvestorRequest.md
+docs/PostDealsIdInvestors.md
 docs/PostInvestorProfilesCorporations.md
 docs/PostInvestorProfilesCorporationsBeneficialOwnersInner.md
 docs/PostInvestorProfilesIndividuals.md
@@ -35,10 +35,10 @@ docs/PostInvestorProfilesJoints.md
 docs/PostInvestorProfilesTrusts.md
 docs/PostInvestorProfilesTrustsTrusteesInner.md
 docs/PostWebhooksRequest.md
+docs/PutDealsIdInvestors.md
 docs/PutDealsIdScriptTagEnvironmentRequest.md
 docs/PutWebhooksIdRequest.md
 docs/ShareholderApi.md
-docs/UpdateInvestorRequest.md
 docs/UploadApi.md
 docs/UsersApi.md
 docs/V1EntitiesAddress.md
@@ -117,7 +117,6 @@ src/model/CreateBulkUploadDetailRequest.js
 src/model/CreateBulkUploadRequest.js
 src/model/CreateCompanyRequest.js
 src/model/CreateDealSetupRequest.js
-src/model/CreateInvestorRequest.js
 src/model/CreateShareholderActionRequest.js
 src/model/EditInvestorTagsRequest.js
 src/model/GenerateUrlRequest.js
@@ -127,6 +126,7 @@ src/model/PatchInvestorProfilesIndividuals.js
 src/model/PatchInvestorProfilesJoints.js
 src/model/PatchInvestorProfilesTrusts.js
 src/model/PatchInvestorRequest.js
+src/model/PostDealsIdInvestors.js
 src/model/PostInvestorProfilesCorporations.js
 src/model/PostInvestorProfilesCorporationsBeneficialOwnersInner.js
 src/model/PostInvestorProfilesIndividuals.js
@@ -134,9 +134,9 @@ src/model/PostInvestorProfilesJoints.js
 src/model/PostInvestorProfilesTrusts.js
 src/model/PostInvestorProfilesTrustsTrusteesInner.js
 src/model/PostWebhooksRequest.js
+src/model/PutDealsIdInvestors.js
 src/model/PutDealsIdScriptTagEnvironmentRequest.js
 src/model/PutWebhooksIdRequest.js
-src/model/UpdateInvestorRequest.js
 src/model/V1EntitiesAddress.js
 src/model/V1EntitiesAddresses.js
 src/model/V1EntitiesAttachment.js
@@ -208,7 +208,6 @@ test/model/CreateBulkUploadDetailRequest.spec.js
 test/model/CreateBulkUploadRequest.spec.js
 test/model/CreateCompanyRequest.spec.js
 test/model/CreateDealSetupRequest.spec.js
-test/model/CreateInvestorRequest.spec.js
 test/model/CreateShareholderActionRequest.spec.js
 test/model/EditInvestorTagsRequest.spec.js
 test/model/GenerateUrlRequest.spec.js
@@ -218,6 +217,7 @@ test/model/PatchInvestorProfilesIndividuals.spec.js
 test/model/PatchInvestorProfilesJoints.spec.js
 test/model/PatchInvestorProfilesTrusts.spec.js
 test/model/PatchInvestorRequest.spec.js
+test/model/PostDealsIdInvestors.spec.js
 test/model/PostInvestorProfilesCorporations.spec.js
 test/model/PostInvestorProfilesCorporationsBeneficialOwnersInner.spec.js
 test/model/PostInvestorProfilesIndividuals.spec.js
@@ -225,9 +225,9 @@ test/model/PostInvestorProfilesJoints.spec.js
 test/model/PostInvestorProfilesTrusts.spec.js
 test/model/PostInvestorProfilesTrustsTrusteesInner.spec.js
 test/model/PostWebhooksRequest.spec.js
+test/model/PutDealsIdInvestors.spec.js
 test/model/PutDealsIdScriptTagEnvironmentRequest.spec.js
 test/model/PutWebhooksIdRequest.spec.js
-test/model/UpdateInvestorRequest.spec.js
 test/model/V1EntitiesAddress.spec.js
 test/model/V1EntitiesAddresses.spec.js
 test/model/V1EntitiesAttachment.spec.js

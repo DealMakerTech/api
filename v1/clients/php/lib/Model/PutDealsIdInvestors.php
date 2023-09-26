@@ -1,6 +1,6 @@
 <?php
 /**
- * CreateInvestorRequest
+ * PutDealsIdInvestors
  *
  * PHP version 7.4
  *
@@ -32,15 +32,16 @@ use \ArrayAccess;
 use \DealMaker\ObjectSerializer;
 
 /**
- * CreateInvestorRequest Class Doc Comment
+ * PutDealsIdInvestors Class Doc Comment
  *
  * @category Class
+ * @description Update deal investor
  * @package  DealMaker
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class CreateInvestorRequest implements ModelInterface, ArrayAccess, \JsonSerializable
+class PutDealsIdInvestors implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +50,7 @@ class CreateInvestorRequest implements ModelInterface, ArrayAccess, \JsonSeriali
       *
       * @var string
       */
-    protected static $openAPIModelName = 'createInvestor_request';
+    protected static $openAPIModelName = 'putDealsIdInvestors';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,19 +58,11 @@ class CreateInvestorRequest implements ModelInterface, ArrayAccess, \JsonSeriali
       * @var string[]
       */
     protected static $openAPITypes = [
-        'email' => 'string',
-        'investor_profile_id' => 'int',
-        'tags' => 'string[]',
-        'first_name' => 'string',
-        'last_name' => 'string',
-        'phone_number' => 'string',
-        'message' => 'string',
         'warrant_expiry_date' => '\DateTime',
         'warrant_certificate_number' => 'int',
         'allocated_amount' => 'float',
-        'investment_value' => 'float',
         'allocation_unit' => 'string',
-        'state' => 'string'
+        'notes' => 'string'
     ];
 
     /**
@@ -80,19 +73,11 @@ class CreateInvestorRequest implements ModelInterface, ArrayAccess, \JsonSeriali
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'email' => null,
-        'investor_profile_id' => 'int32',
-        'tags' => null,
-        'first_name' => null,
-        'last_name' => null,
-        'phone_number' => null,
-        'message' => null,
         'warrant_expiry_date' => 'date',
         'warrant_certificate_number' => 'int32',
         'allocated_amount' => 'float',
-        'investment_value' => 'float',
         'allocation_unit' => null,
-        'state' => null
+        'notes' => null
     ];
 
     /**
@@ -101,19 +86,11 @@ class CreateInvestorRequest implements ModelInterface, ArrayAccess, \JsonSeriali
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'email' => false,
-		'investor_profile_id' => false,
-		'tags' => false,
-		'first_name' => false,
-		'last_name' => false,
-		'phone_number' => false,
-		'message' => false,
-		'warrant_expiry_date' => false,
+        'warrant_expiry_date' => false,
 		'warrant_certificate_number' => false,
 		'allocated_amount' => false,
-		'investment_value' => false,
 		'allocation_unit' => false,
-		'state' => false
+		'notes' => false
     ];
 
     /**
@@ -202,19 +179,11 @@ class CreateInvestorRequest implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $attributeMap = [
-        'email' => 'email',
-        'investor_profile_id' => 'investor_profile_id',
-        'tags' => 'tags',
-        'first_name' => 'first_name',
-        'last_name' => 'last_name',
-        'phone_number' => 'phone_number',
-        'message' => 'message',
         'warrant_expiry_date' => 'warrant_expiry_date',
         'warrant_certificate_number' => 'warrant_certificate_number',
         'allocated_amount' => 'allocated_amount',
-        'investment_value' => 'investment_value',
         'allocation_unit' => 'allocation_unit',
-        'state' => 'state'
+        'notes' => 'notes'
     ];
 
     /**
@@ -223,19 +192,11 @@ class CreateInvestorRequest implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $setters = [
-        'email' => 'setEmail',
-        'investor_profile_id' => 'setInvestorProfileId',
-        'tags' => 'setTags',
-        'first_name' => 'setFirstName',
-        'last_name' => 'setLastName',
-        'phone_number' => 'setPhoneNumber',
-        'message' => 'setMessage',
         'warrant_expiry_date' => 'setWarrantExpiryDate',
         'warrant_certificate_number' => 'setWarrantCertificateNumber',
         'allocated_amount' => 'setAllocatedAmount',
-        'investment_value' => 'setInvestmentValue',
         'allocation_unit' => 'setAllocationUnit',
-        'state' => 'setState'
+        'notes' => 'setNotes'
     ];
 
     /**
@@ -244,19 +205,11 @@ class CreateInvestorRequest implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $getters = [
-        'email' => 'getEmail',
-        'investor_profile_id' => 'getInvestorProfileId',
-        'tags' => 'getTags',
-        'first_name' => 'getFirstName',
-        'last_name' => 'getLastName',
-        'phone_number' => 'getPhoneNumber',
-        'message' => 'getMessage',
         'warrant_expiry_date' => 'getWarrantExpiryDate',
         'warrant_certificate_number' => 'getWarrantCertificateNumber',
         'allocated_amount' => 'getAllocatedAmount',
-        'investment_value' => 'getInvestmentValue',
         'allocation_unit' => 'getAllocationUnit',
-        'state' => 'getState'
+        'notes' => 'getNotes'
     ];
 
     /**
@@ -302,8 +255,6 @@ class CreateInvestorRequest implements ModelInterface, ArrayAccess, \JsonSeriali
 
     public const ALLOCATION_UNIT_SECURITIES = 'securities';
     public const ALLOCATION_UNIT_AMOUNT = 'amount';
-    public const STATE_DRAFT = 'draft';
-    public const STATE_INVITED = 'invited';
 
     /**
      * Gets allowable values of the enum
@@ -315,19 +266,6 @@ class CreateInvestorRequest implements ModelInterface, ArrayAccess, \JsonSeriali
         return [
             self::ALLOCATION_UNIT_SECURITIES,
             self::ALLOCATION_UNIT_AMOUNT,
-        ];
-    }
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getStateAllowableValues()
-    {
-        return [
-            self::STATE_DRAFT,
-            self::STATE_INVITED,
         ];
     }
 
@@ -346,19 +284,11 @@ class CreateInvestorRequest implements ModelInterface, ArrayAccess, \JsonSeriali
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('email', $data ?? [], null);
-        $this->setIfExists('investor_profile_id', $data ?? [], null);
-        $this->setIfExists('tags', $data ?? [], null);
-        $this->setIfExists('first_name', $data ?? [], null);
-        $this->setIfExists('last_name', $data ?? [], null);
-        $this->setIfExists('phone_number', $data ?? [], null);
-        $this->setIfExists('message', $data ?? [], null);
         $this->setIfExists('warrant_expiry_date', $data ?? [], null);
         $this->setIfExists('warrant_certificate_number', $data ?? [], null);
         $this->setIfExists('allocated_amount', $data ?? [], null);
-        $this->setIfExists('investment_value', $data ?? [], null);
         $this->setIfExists('allocation_unit', $data ?? [], 'securities');
-        $this->setIfExists('state', $data ?? [], 'invited');
+        $this->setIfExists('notes', $data ?? [], null);
     }
 
     /**
@@ -388,23 +318,11 @@ class CreateInvestorRequest implements ModelInterface, ArrayAccess, \JsonSeriali
     {
         $invalidProperties = [];
 
-        if ($this->container['email'] === null) {
-            $invalidProperties[] = "'email' can't be null";
-        }
         $allowedValues = $this->getAllocationUnitAllowableValues();
         if (!is_null($this->container['allocation_unit']) && !in_array($this->container['allocation_unit'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
                 "invalid value '%s' for 'allocation_unit', must be one of '%s'",
                 $this->container['allocation_unit'],
-                implode("', '", $allowedValues)
-            );
-        }
-
-        $allowedValues = $this->getStateAllowableValues();
-        if (!is_null($this->container['state']) && !in_array($this->container['state'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'state', must be one of '%s'",
-                $this->container['state'],
                 implode("', '", $allowedValues)
             );
         }
@@ -423,195 +341,6 @@ class CreateInvestorRequest implements ModelInterface, ArrayAccess, \JsonSeriali
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets email
-     *
-     * @return string
-     */
-    public function getEmail()
-    {
-        return $this->container['email'];
-    }
-
-    /**
-     * Sets email
-     *
-     * @param string $email The investor email address.
-     *
-     * @return self
-     */
-    public function setEmail($email)
-    {
-        if (is_null($email)) {
-            throw new \InvalidArgumentException('non-nullable email cannot be null');
-        }
-        $this->container['email'] = $email;
-
-        return $this;
-    }
-
-    /**
-     * Gets investor_profile_id
-     *
-     * @return int|null
-     */
-    public function getInvestorProfileId()
-    {
-        return $this->container['investor_profile_id'];
-    }
-
-    /**
-     * Sets investor_profile_id
-     *
-     * @param int|null $investor_profile_id The Investor Profile id.
-     *
-     * @return self
-     */
-    public function setInvestorProfileId($investor_profile_id)
-    {
-        if (is_null($investor_profile_id)) {
-            throw new \InvalidArgumentException('non-nullable investor_profile_id cannot be null');
-        }
-        $this->container['investor_profile_id'] = $investor_profile_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets tags
-     *
-     * @return string[]|null
-     */
-    public function getTags()
-    {
-        return $this->container['tags'];
-    }
-
-    /**
-     * Sets tags
-     *
-     * @param string[]|null $tags tags
-     *
-     * @return self
-     */
-    public function setTags($tags)
-    {
-        if (is_null($tags)) {
-            throw new \InvalidArgumentException('non-nullable tags cannot be null');
-        }
-        $this->container['tags'] = $tags;
-
-        return $this;
-    }
-
-    /**
-     * Gets first_name
-     *
-     * @return string|null
-     */
-    public function getFirstName()
-    {
-        return $this->container['first_name'];
-    }
-
-    /**
-     * Sets first_name
-     *
-     * @param string|null $first_name The first name of the investor.
-     *
-     * @return self
-     */
-    public function setFirstName($first_name)
-    {
-        if (is_null($first_name)) {
-            throw new \InvalidArgumentException('non-nullable first_name cannot be null');
-        }
-        $this->container['first_name'] = $first_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets last_name
-     *
-     * @return string|null
-     */
-    public function getLastName()
-    {
-        return $this->container['last_name'];
-    }
-
-    /**
-     * Sets last_name
-     *
-     * @param string|null $last_name The last name of the investor.
-     *
-     * @return self
-     */
-    public function setLastName($last_name)
-    {
-        if (is_null($last_name)) {
-            throw new \InvalidArgumentException('non-nullable last_name cannot be null');
-        }
-        $this->container['last_name'] = $last_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets phone_number
-     *
-     * @return string|null
-     */
-    public function getPhoneNumber()
-    {
-        return $this->container['phone_number'];
-    }
-
-    /**
-     * Sets phone_number
-     *
-     * @param string|null $phone_number The phone number of the investor.
-     *
-     * @return self
-     */
-    public function setPhoneNumber($phone_number)
-    {
-        if (is_null($phone_number)) {
-            throw new \InvalidArgumentException('non-nullable phone_number cannot be null');
-        }
-        $this->container['phone_number'] = $phone_number;
-
-        return $this;
-    }
-
-    /**
-     * Gets message
-     *
-     * @return string|null
-     */
-    public function getMessage()
-    {
-        return $this->container['message'];
-    }
-
-    /**
-     * Sets message
-     *
-     * @param string|null $message The reminder email text of the investor.
-     *
-     * @return self
-     */
-    public function setMessage($message)
-    {
-        if (is_null($message)) {
-            throw new \InvalidArgumentException('non-nullable message cannot be null');
-        }
-        $this->container['message'] = $message;
-
-        return $this;
-    }
 
     /**
      * Gets warrant_expiry_date
@@ -695,33 +424,6 @@ class CreateInvestorRequest implements ModelInterface, ArrayAccess, \JsonSeriali
     }
 
     /**
-     * Gets investment_value
-     *
-     * @return float|null
-     */
-    public function getInvestmentValue()
-    {
-        return $this->container['investment_value'];
-    }
-
-    /**
-     * Sets investment_value
-     *
-     * @param float|null $investment_value The investment value of the investor.
-     *
-     * @return self
-     */
-    public function setInvestmentValue($investment_value)
-    {
-        if (is_null($investment_value)) {
-            throw new \InvalidArgumentException('non-nullable investment_value cannot be null');
-        }
-        $this->container['investment_value'] = $investment_value;
-
-        return $this;
-    }
-
-    /**
      * Gets allocation_unit
      *
      * @return string|null
@@ -759,38 +461,28 @@ class CreateInvestorRequest implements ModelInterface, ArrayAccess, \JsonSeriali
     }
 
     /**
-     * Gets state
+     * Gets notes
      *
      * @return string|null
      */
-    public function getState()
+    public function getNotes()
     {
-        return $this->container['state'];
+        return $this->container['notes'];
     }
 
     /**
-     * Sets state
+     * Sets notes
      *
-     * @param string|null $state The initial state of the investor.
+     * @param string|null $notes The notes of the investor.
      *
      * @return self
      */
-    public function setState($state)
+    public function setNotes($notes)
     {
-        if (is_null($state)) {
-            throw new \InvalidArgumentException('non-nullable state cannot be null');
+        if (is_null($notes)) {
+            throw new \InvalidArgumentException('non-nullable notes cannot be null');
         }
-        $allowedValues = $this->getStateAllowableValues();
-        if (!in_array($state, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'state', must be one of '%s'",
-                    $state,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['state'] = $state;
+        $this->container['notes'] = $notes;
 
         return $this;
     }

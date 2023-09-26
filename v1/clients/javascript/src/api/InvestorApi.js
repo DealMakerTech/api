@@ -16,10 +16,10 @@ import ApiClient from "../ApiClient";
 import Add506cDocumentRequest from '../model/Add506cDocumentRequest';
 import AddDocumentRequest from '../model/AddDocumentRequest';
 import BulkUploadInvestorsRequest from '../model/BulkUploadInvestorsRequest';
-import CreateInvestorRequest from '../model/CreateInvestorRequest';
 import EditInvestorTagsRequest from '../model/EditInvestorTagsRequest';
 import PatchInvestorRequest from '../model/PatchInvestorRequest';
-import UpdateInvestorRequest from '../model/UpdateInvestorRequest';
+import PostDealsIdInvestors from '../model/PostDealsIdInvestors';
+import PutDealsIdInvestors from '../model/PutDealsIdInvestors';
 import V1EntitiesInvestor from '../model/V1EntitiesInvestor';
 import V1EntitiesInvestorOtpAccessLink from '../model/V1EntitiesInvestorOtpAccessLink';
 import V1EntitiesInvestors from '../model/V1EntitiesInvestors';
@@ -27,7 +27,7 @@ import V1EntitiesInvestors from '../model/V1EntitiesInvestors';
 /**
 * Investor service.
 * @module api/InvestorApi
-* @version 0.87.0
+* @version 0.87.2
 */
 export default class InvestorApi {
 
@@ -211,19 +211,19 @@ export default class InvestorApi {
      * Create a deal investor
      * Create a single deal investor.
      * @param {Number} id The deal id.
-     * @param {module:model/CreateInvestorRequest} createInvestorRequest 
+     * @param {module:model/PostDealsIdInvestors} dealsIdInvestors 
      * @param {module:api/InvestorApi~createInvestorCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/V1EntitiesInvestor}
      */
-    createInvestor(id, createInvestorRequest, callback) {
-      let postBody = createInvestorRequest;
+    createInvestor(id, dealsIdInvestors, callback) {
+      let postBody = dealsIdInvestors;
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling createInvestor");
       }
-      // verify the required parameter 'createInvestorRequest' is set
-      if (createInvestorRequest === undefined || createInvestorRequest === null) {
-        throw new Error("Missing the required parameter 'createInvestorRequest' when calling createInvestor");
+      // verify the required parameter 'dealsIdInvestors' is set
+      if (dealsIdInvestors === undefined || dealsIdInvestors === null) {
+        throw new Error("Missing the required parameter 'dealsIdInvestors' when calling createInvestor");
       }
 
       let pathParams = {
@@ -623,14 +623,12 @@ export default class InvestorApi {
      * Update deal investor
      * @param {Number} id The deal id.
      * @param {Number} investorId The investor id.
-     * @param {Object} opts Optional parameters
-     * @param {module:model/UpdateInvestorRequest} [updateInvestorRequest] 
+     * @param {module:model/PutDealsIdInvestors} dealsIdInvestors 
      * @param {module:api/InvestorApi~updateInvestorCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/V1EntitiesInvestor}
      */
-    updateInvestor(id, investorId, opts, callback) {
-      opts = opts || {};
-      let postBody = opts['updateInvestorRequest'];
+    updateInvestor(id, investorId, dealsIdInvestors, callback) {
+      let postBody = dealsIdInvestors;
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling updateInvestor");
@@ -638,6 +636,10 @@ export default class InvestorApi {
       // verify the required parameter 'investorId' is set
       if (investorId === undefined || investorId === null) {
         throw new Error("Missing the required parameter 'investorId' when calling updateInvestor");
+      }
+      // verify the required parameter 'dealsIdInvestors' is set
+      if (dealsIdInvestors === undefined || dealsIdInvestors === null) {
+        throw new Error("Missing the required parameter 'dealsIdInvestors' when calling updateInvestor");
       }
 
       let pathParams = {

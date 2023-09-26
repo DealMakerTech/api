@@ -169,7 +169,7 @@ No authorization required
 
 ## createInvestor
 
-> V1EntitiesInvestor createInvestor(id, createInvestorRequest)
+> V1EntitiesInvestor createInvestor(id, dealsIdInvestors)
 
 Create a deal investor
 
@@ -183,8 +183,8 @@ let defaultClient = Api.ApiClient.instance;
 
 let apiInstance = new Api.InvestorApi();
 let id = 56; // Number | The deal id.
-let createInvestorRequest = new Api.CreateInvestorRequest(); // CreateInvestorRequest | 
-apiInstance.createInvestor(id, createInvestorRequest, (error, data, response) => {
+let dealsIdInvestors = new Api.PostDealsIdInvestors(); // PostDealsIdInvestors | 
+apiInstance.createInvestor(id, dealsIdInvestors, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -199,7 +199,7 @@ apiInstance.createInvestor(id, createInvestorRequest, (error, data, response) =>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Number**| The deal id. | 
- **createInvestorRequest** | [**CreateInvestorRequest**](CreateInvestorRequest.md)|  | 
+ **dealsIdInvestors** | [**PostDealsIdInvestors**](PostDealsIdInvestors.md)|  | 
 
 ### Return type
 
@@ -569,7 +569,7 @@ No authorization required
 
 ## updateInvestor
 
-> V1EntitiesInvestor updateInvestor(id, investorId, opts)
+> V1EntitiesInvestor updateInvestor(id, investorId, dealsIdInvestors)
 
 Update a deal investor
 
@@ -584,10 +584,8 @@ let defaultClient = Api.ApiClient.instance;
 let apiInstance = new Api.InvestorApi();
 let id = 56; // Number | The deal id.
 let investorId = 56; // Number | The investor id.
-let opts = {
-  'updateInvestorRequest': new Api.UpdateInvestorRequest() // UpdateInvestorRequest | 
-};
-apiInstance.updateInvestor(id, investorId, opts, (error, data, response) => {
+let dealsIdInvestors = new Api.PutDealsIdInvestors(); // PutDealsIdInvestors | 
+apiInstance.updateInvestor(id, investorId, dealsIdInvestors, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -603,7 +601,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Number**| The deal id. | 
  **investorId** | **Number**| The investor id. | 
- **updateInvestorRequest** | [**UpdateInvestorRequest**](UpdateInvestorRequest.md)|  | [optional] 
+ **dealsIdInvestors** | [**PutDealsIdInvestors**](PutDealsIdInvestors.md)|  | 
 
 ### Return type
 

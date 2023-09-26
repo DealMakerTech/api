@@ -22,7 +22,6 @@ docs/Model/CreateBulkUploadDetailRequest.md
 docs/Model/CreateBulkUploadRequest.md
 docs/Model/CreateCompanyRequest.md
 docs/Model/CreateDealSetupRequest.md
-docs/Model/CreateInvestorRequest.md
 docs/Model/CreateShareholderActionRequest.md
 docs/Model/EditInvestorTagsRequest.md
 docs/Model/GenerateUrlRequest.md
@@ -32,6 +31,7 @@ docs/Model/PatchInvestorProfilesIndividuals.md
 docs/Model/PatchInvestorProfilesJoints.md
 docs/Model/PatchInvestorProfilesTrusts.md
 docs/Model/PatchInvestorRequest.md
+docs/Model/PostDealsIdInvestors.md
 docs/Model/PostInvestorProfilesCorporations.md
 docs/Model/PostInvestorProfilesCorporationsBeneficialOwnersInner.md
 docs/Model/PostInvestorProfilesIndividuals.md
@@ -39,9 +39,9 @@ docs/Model/PostInvestorProfilesJoints.md
 docs/Model/PostInvestorProfilesTrusts.md
 docs/Model/PostInvestorProfilesTrustsTrusteesInner.md
 docs/Model/PostWebhooksRequest.md
+docs/Model/PutDealsIdInvestors.md
 docs/Model/PutDealsIdScriptTagEnvironmentRequest.md
 docs/Model/PutWebhooksIdRequest.md
-docs/Model/UpdateInvestorRequest.md
 docs/Model/V1EntitiesAddress.md
 docs/Model/V1EntitiesAddresses.md
 docs/Model/V1EntitiesAttachment.md
@@ -117,7 +117,6 @@ lib/Model/CreateBulkUploadDetailRequest.php
 lib/Model/CreateBulkUploadRequest.php
 lib/Model/CreateCompanyRequest.php
 lib/Model/CreateDealSetupRequest.php
-lib/Model/CreateInvestorRequest.php
 lib/Model/CreateShareholderActionRequest.php
 lib/Model/EditInvestorTagsRequest.php
 lib/Model/GenerateUrlRequest.php
@@ -128,6 +127,7 @@ lib/Model/PatchInvestorProfilesIndividuals.php
 lib/Model/PatchInvestorProfilesJoints.php
 lib/Model/PatchInvestorProfilesTrusts.php
 lib/Model/PatchInvestorRequest.php
+lib/Model/PostDealsIdInvestors.php
 lib/Model/PostInvestorProfilesCorporations.php
 lib/Model/PostInvestorProfilesCorporationsBeneficialOwnersInner.php
 lib/Model/PostInvestorProfilesIndividuals.php
@@ -135,9 +135,9 @@ lib/Model/PostInvestorProfilesJoints.php
 lib/Model/PostInvestorProfilesTrusts.php
 lib/Model/PostInvestorProfilesTrustsTrusteesInner.php
 lib/Model/PostWebhooksRequest.php
+lib/Model/PutDealsIdInvestors.php
 lib/Model/PutDealsIdScriptTagEnvironmentRequest.php
 lib/Model/PutWebhooksIdRequest.php
-lib/Model/UpdateInvestorRequest.php
 lib/Model/V1EntitiesAddress.php
 lib/Model/V1EntitiesAddresses.php
 lib/Model/V1EntitiesAttachment.php
@@ -211,7 +211,6 @@ test/Model/CreateBulkUploadDetailRequestTest.php
 test/Model/CreateBulkUploadRequestTest.php
 test/Model/CreateCompanyRequestTest.php
 test/Model/CreateDealSetupRequestTest.php
-test/Model/CreateInvestorRequestTest.php
 test/Model/CreateShareholderActionRequestTest.php
 test/Model/EditInvestorTagsRequestTest.php
 test/Model/GenerateUrlRequestTest.php
@@ -221,6 +220,7 @@ test/Model/PatchInvestorProfilesIndividualsTest.php
 test/Model/PatchInvestorProfilesJointsTest.php
 test/Model/PatchInvestorProfilesTrustsTest.php
 test/Model/PatchInvestorRequestTest.php
+test/Model/PostDealsIdInvestorsTest.php
 test/Model/PostInvestorProfilesCorporationsBeneficialOwnersInnerTest.php
 test/Model/PostInvestorProfilesCorporationsTest.php
 test/Model/PostInvestorProfilesIndividualsTest.php
@@ -228,9 +228,9 @@ test/Model/PostInvestorProfilesJointsTest.php
 test/Model/PostInvestorProfilesTrustsTest.php
 test/Model/PostInvestorProfilesTrustsTrusteesInnerTest.php
 test/Model/PostWebhooksRequestTest.php
+test/Model/PutDealsIdInvestorsTest.php
 test/Model/PutDealsIdScriptTagEnvironmentRequestTest.php
 test/Model/PutWebhooksIdRequestTest.php
-test/Model/UpdateInvestorRequestTest.php
 test/Model/V1EntitiesAddressTest.php
 test/Model/V1EntitiesAddressesTest.php
 test/Model/V1EntitiesAttachmentTest.php

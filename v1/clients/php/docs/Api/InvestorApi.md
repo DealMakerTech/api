@@ -202,7 +202,7 @@ No authorization required
 ## `createInvestor()`
 
 ```php
-createInvestor($id, $create_investor_request): \DealMaker\Model\V1EntitiesInvestor
+createInvestor($id, $deals_id_investors): \DealMaker\Model\V1EntitiesInvestor
 ```
 
 Create a deal investor
@@ -224,10 +224,10 @@ $apiInstance = new DealMaker\Api\InvestorApi(
     $config
 );
 $id = 56; // int | The deal id.
-$create_investor_request = new \DealMaker\Model\CreateInvestorRequest(); // \DealMaker\Model\CreateInvestorRequest
+$deals_id_investors = new \DealMaker\Model\PostDealsIdInvestors(); // \DealMaker\Model\PostDealsIdInvestors
 
 try {
-    $result = $apiInstance->createInvestor($id, $create_investor_request);
+    $result = $apiInstance->createInvestor($id, $deals_id_investors);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling InvestorApi->createInvestor: ', $e->getMessage(), PHP_EOL;
@@ -239,7 +239,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **int**| The deal id. | |
-| **create_investor_request** | [**\DealMaker\Model\CreateInvestorRequest**](../Model/CreateInvestorRequest.md)|  | |
+| **deals_id_investors** | [**\DealMaker\Model\PostDealsIdInvestors**](../Model/PostDealsIdInvestors.md)|  | |
 
 ### Return type
 
@@ -686,7 +686,7 @@ No authorization required
 ## `updateInvestor()`
 
 ```php
-updateInvestor($id, $investor_id, $update_investor_request): \DealMaker\Model\V1EntitiesInvestor
+updateInvestor($id, $investor_id, $deals_id_investors): \DealMaker\Model\V1EntitiesInvestor
 ```
 
 Update a deal investor
@@ -709,10 +709,10 @@ $apiInstance = new DealMaker\Api\InvestorApi(
 );
 $id = 56; // int | The deal id.
 $investor_id = 56; // int | The investor id.
-$update_investor_request = new \DealMaker\Model\UpdateInvestorRequest(); // \DealMaker\Model\UpdateInvestorRequest
+$deals_id_investors = new \DealMaker\Model\PutDealsIdInvestors(); // \DealMaker\Model\PutDealsIdInvestors
 
 try {
-    $result = $apiInstance->updateInvestor($id, $investor_id, $update_investor_request);
+    $result = $apiInstance->updateInvestor($id, $investor_id, $deals_id_investors);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling InvestorApi->updateInvestor: ', $e->getMessage(), PHP_EOL;
@@ -725,7 +725,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **int**| The deal id. | |
 | **investor_id** | **int**| The investor id. | |
-| **update_investor_request** | [**\DealMaker\Model\UpdateInvestorRequest**](../Model/UpdateInvestorRequest.md)|  | [optional] |
+| **deals_id_investors** | [**\DealMaker\Model\PutDealsIdInvestors**](../Model/PutDealsIdInvestors.md)|  | |
 
 ### Return type
 

@@ -14,19 +14,20 @@
 import ApiClient from '../ApiClient';
 
 /**
- * The CreateInvestorRequest model module.
- * @module model/CreateInvestorRequest
- * @version 0.87.0
+ * The PostDealsIdInvestors model module.
+ * @module model/PostDealsIdInvestors
+ * @version 0.87.2
  */
-class CreateInvestorRequest {
+class PostDealsIdInvestors {
     /**
-     * Constructs a new <code>CreateInvestorRequest</code>.
-     * @alias module:model/CreateInvestorRequest
+     * Constructs a new <code>PostDealsIdInvestors</code>.
+     * Create deal investor
+     * @alias module:model/PostDealsIdInvestors
      * @param email {String} The investor email address.
      */
     constructor(email) { 
         
-        CreateInvestorRequest.initialize(this, email);
+        PostDealsIdInvestors.initialize(this, email);
     }
 
     /**
@@ -39,15 +40,15 @@ class CreateInvestorRequest {
     }
 
     /**
-     * Constructs a <code>CreateInvestorRequest</code> from a plain JavaScript object, optionally creating a new instance.
+     * Constructs a <code>PostDealsIdInvestors</code> from a plain JavaScript object, optionally creating a new instance.
      * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @param {module:model/CreateInvestorRequest} obj Optional instance to populate.
-     * @return {module:model/CreateInvestorRequest} The populated <code>CreateInvestorRequest</code> instance.
+     * @param {module:model/PostDealsIdInvestors} obj Optional instance to populate.
+     * @return {module:model/PostDealsIdInvestors} The populated <code>PostDealsIdInvestors</code> instance.
      */
     static constructFromObject(data, obj) {
         if (data) {
-            obj = obj || new CreateInvestorRequest();
+            obj = obj || new PostDealsIdInvestors();
 
             if (data.hasOwnProperty('email')) {
                 obj['email'] = ApiClient.convertToType(data['email'], 'String');
@@ -79,9 +80,6 @@ class CreateInvestorRequest {
             if (data.hasOwnProperty('allocated_amount')) {
                 obj['allocated_amount'] = ApiClient.convertToType(data['allocated_amount'], 'Number');
             }
-            if (data.hasOwnProperty('investment_value')) {
-                obj['investment_value'] = ApiClient.convertToType(data['investment_value'], 'Number');
-            }
             if (data.hasOwnProperty('allocation_unit')) {
                 obj['allocation_unit'] = ApiClient.convertToType(data['allocation_unit'], 'String');
             }
@@ -93,13 +91,13 @@ class CreateInvestorRequest {
     }
 
     /**
-     * Validates the JSON data with respect to <code>CreateInvestorRequest</code>.
+     * Validates the JSON data with respect to <code>PostDealsIdInvestors</code>.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>CreateInvestorRequest</code>.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>PostDealsIdInvestors</code>.
      */
     static validateJSON(data) {
         // check to make sure all required properties are present in the JSON string
-        for (const property of CreateInvestorRequest.RequiredProperties) {
+        for (const property of PostDealsIdInvestors.RequiredProperties) {
             if (!data[property]) {
                 throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
             }
@@ -143,86 +141,80 @@ class CreateInvestorRequest {
 
 }
 
-CreateInvestorRequest.RequiredProperties = ["email"];
+PostDealsIdInvestors.RequiredProperties = ["email"];
 
 /**
  * The investor email address.
  * @member {String} email
  */
-CreateInvestorRequest.prototype['email'] = undefined;
+PostDealsIdInvestors.prototype['email'] = undefined;
 
 /**
  * The Investor Profile id.
  * @member {Number} investor_profile_id
  */
-CreateInvestorRequest.prototype['investor_profile_id'] = undefined;
+PostDealsIdInvestors.prototype['investor_profile_id'] = undefined;
 
 /**
  * @member {Array.<String>} tags
  */
-CreateInvestorRequest.prototype['tags'] = undefined;
+PostDealsIdInvestors.prototype['tags'] = undefined;
 
 /**
  * The first name of the investor.
  * @member {String} first_name
  */
-CreateInvestorRequest.prototype['first_name'] = undefined;
+PostDealsIdInvestors.prototype['first_name'] = undefined;
 
 /**
  * The last name of the investor.
  * @member {String} last_name
  */
-CreateInvestorRequest.prototype['last_name'] = undefined;
+PostDealsIdInvestors.prototype['last_name'] = undefined;
 
 /**
  * The phone number of the investor.
  * @member {String} phone_number
  */
-CreateInvestorRequest.prototype['phone_number'] = undefined;
+PostDealsIdInvestors.prototype['phone_number'] = undefined;
 
 /**
  * The reminder email text of the investor.
  * @member {String} message
  */
-CreateInvestorRequest.prototype['message'] = undefined;
+PostDealsIdInvestors.prototype['message'] = undefined;
 
 /**
  * The warrant expiry date of the investor.
  * @member {Date} warrant_expiry_date
  */
-CreateInvestorRequest.prototype['warrant_expiry_date'] = undefined;
+PostDealsIdInvestors.prototype['warrant_expiry_date'] = undefined;
 
 /**
  * The certificate number of the investor.
  * @member {Number} warrant_certificate_number
  */
-CreateInvestorRequest.prototype['warrant_certificate_number'] = undefined;
+PostDealsIdInvestors.prototype['warrant_certificate_number'] = undefined;
 
 /**
  * The allocation amount of the investor.
  * @member {Number} allocated_amount
  */
-CreateInvestorRequest.prototype['allocated_amount'] = undefined;
-
-/**
- * The investment value of the investor.
- * @member {Number} investment_value
- */
-CreateInvestorRequest.prototype['investment_value'] = undefined;
+PostDealsIdInvestors.prototype['allocated_amount'] = undefined;
 
 /**
  * The allocation unit of the investor.
- * @member {module:model/CreateInvestorRequest.AllocationUnitEnum} allocation_unit
+ * @member {module:model/PostDealsIdInvestors.AllocationUnitEnum} allocation_unit
  * @default 'securities'
  */
-CreateInvestorRequest.prototype['allocation_unit'] = 'securities';
+PostDealsIdInvestors.prototype['allocation_unit'] = 'securities';
 
 /**
  * The initial state of the investor.
- * @member {module:model/CreateInvestorRequest.StateEnum} state
+ * @member {module:model/PostDealsIdInvestors.StateEnum} state
  * @default 'invited'
  */
-CreateInvestorRequest.prototype['state'] = 'invited';
+PostDealsIdInvestors.prototype['state'] = 'invited';
 
 
 
@@ -233,7 +225,7 @@ CreateInvestorRequest.prototype['state'] = 'invited';
  * @enum {String}
  * @readonly
  */
-CreateInvestorRequest['AllocationUnitEnum'] = {
+PostDealsIdInvestors['AllocationUnitEnum'] = {
 
     /**
      * value: "securities"
@@ -254,7 +246,7 @@ CreateInvestorRequest['AllocationUnitEnum'] = {
  * @enum {String}
  * @readonly
  */
-CreateInvestorRequest['StateEnum'] = {
+PostDealsIdInvestors['StateEnum'] = {
 
     /**
      * value: "draft"
@@ -271,5 +263,5 @@ CreateInvestorRequest['StateEnum'] = {
 
 
 
-export default CreateInvestorRequest;
+export default PostDealsIdInvestors;
 

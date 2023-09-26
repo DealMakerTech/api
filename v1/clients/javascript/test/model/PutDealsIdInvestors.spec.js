@@ -28,7 +28,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new Api.CreateInvestorRequest();
+    instance = new Api.PutDealsIdInvestors();
   });
 
   var getProperty = function(object, getter, property) {
@@ -47,88 +47,40 @@
       object[property] = value;
   }
 
-  describe('CreateInvestorRequest', function() {
-    it('should create an instance of CreateInvestorRequest', function() {
-      // uncomment below and update the code to test CreateInvestorRequest
-      //var instance = new Api.CreateInvestorRequest();
-      //expect(instance).to.be.a(Api.CreateInvestorRequest);
-    });
-
-    it('should have the property email (base name: "email")', function() {
-      // uncomment below and update the code to test the property email
-      //var instance = new Api.CreateInvestorRequest();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property investorProfileId (base name: "investor_profile_id")', function() {
-      // uncomment below and update the code to test the property investorProfileId
-      //var instance = new Api.CreateInvestorRequest();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property tags (base name: "tags")', function() {
-      // uncomment below and update the code to test the property tags
-      //var instance = new Api.CreateInvestorRequest();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property firstName (base name: "first_name")', function() {
-      // uncomment below and update the code to test the property firstName
-      //var instance = new Api.CreateInvestorRequest();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property lastName (base name: "last_name")', function() {
-      // uncomment below and update the code to test the property lastName
-      //var instance = new Api.CreateInvestorRequest();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property phoneNumber (base name: "phone_number")', function() {
-      // uncomment below and update the code to test the property phoneNumber
-      //var instance = new Api.CreateInvestorRequest();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property message (base name: "message")', function() {
-      // uncomment below and update the code to test the property message
-      //var instance = new Api.CreateInvestorRequest();
-      //expect(instance).to.be();
+  describe('PutDealsIdInvestors', function() {
+    it('should create an instance of PutDealsIdInvestors', function() {
+      // uncomment below and update the code to test PutDealsIdInvestors
+      //var instance = new Api.PutDealsIdInvestors();
+      //expect(instance).to.be.a(Api.PutDealsIdInvestors);
     });
 
     it('should have the property warrantExpiryDate (base name: "warrant_expiry_date")', function() {
       // uncomment below and update the code to test the property warrantExpiryDate
-      //var instance = new Api.CreateInvestorRequest();
+      //var instance = new Api.PutDealsIdInvestors();
       //expect(instance).to.be();
     });
 
     it('should have the property warrantCertificateNumber (base name: "warrant_certificate_number")', function() {
       // uncomment below and update the code to test the property warrantCertificateNumber
-      //var instance = new Api.CreateInvestorRequest();
+      //var instance = new Api.PutDealsIdInvestors();
       //expect(instance).to.be();
     });
 
     it('should have the property allocatedAmount (base name: "allocated_amount")', function() {
       // uncomment below and update the code to test the property allocatedAmount
-      //var instance = new Api.CreateInvestorRequest();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property investmentValue (base name: "investment_value")', function() {
-      // uncomment below and update the code to test the property investmentValue
-      //var instance = new Api.CreateInvestorRequest();
+      //var instance = new Api.PutDealsIdInvestors();
       //expect(instance).to.be();
     });
 
     it('should have the property allocationUnit (base name: "allocation_unit")', function() {
       // uncomment below and update the code to test the property allocationUnit
-      //var instance = new Api.CreateInvestorRequest();
+      //var instance = new Api.PutDealsIdInvestors();
       //expect(instance).to.be();
     });
 
-    it('should have the property state (base name: "state")', function() {
-      // uncomment below and update the code to test the property state
-      //var instance = new Api.CreateInvestorRequest();
+    it('should have the property notes (base name: "notes")', function() {
+      // uncomment below and update the code to test the property notes
+      //var instance = new Api.PutDealsIdInvestors();
       //expect(instance).to.be();
     });
 

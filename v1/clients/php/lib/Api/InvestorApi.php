@@ -92,6 +92,9 @@ class InvestorApi
         'editInvestorTags' => [
             'application/json',
         ],
+        'getEnforcements' => [
+            'application/json',
+        ],
         'getInvestor' => [
             'application/json',
         ],
@@ -1107,16 +1110,16 @@ class InvestorApi
      * Create a deal investor
      *
      * @param  int $id The deal id. (required)
-     * @param  \DealMaker\Model\CreateInvestorRequest $create_investor_request create_investor_request (required)
+     * @param  \DealMaker\Model\PostDealsIdInvestors $deals_id_investors deals_id_investors (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createInvestor'] to see the possible values for this operation
      *
      * @throws \DealMaker\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \DealMaker\Model\V1EntitiesInvestor
      */
-    public function createInvestor($id, $create_investor_request, string $contentType = self::contentTypes['createInvestor'][0])
+    public function createInvestor($id, $deals_id_investors, string $contentType = self::contentTypes['createInvestor'][0])
     {
-        list($response) = $this->createInvestorWithHttpInfo($id, $create_investor_request, $contentType);
+        list($response) = $this->createInvestorWithHttpInfo($id, $deals_id_investors, $contentType);
         return $response;
     }
 
@@ -1126,16 +1129,16 @@ class InvestorApi
      * Create a deal investor
      *
      * @param  int $id The deal id. (required)
-     * @param  \DealMaker\Model\CreateInvestorRequest $create_investor_request (required)
+     * @param  \DealMaker\Model\PostDealsIdInvestors $deals_id_investors (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createInvestor'] to see the possible values for this operation
      *
      * @throws \DealMaker\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \DealMaker\Model\V1EntitiesInvestor, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createInvestorWithHttpInfo($id, $create_investor_request, string $contentType = self::contentTypes['createInvestor'][0])
+    public function createInvestorWithHttpInfo($id, $deals_id_investors, string $contentType = self::contentTypes['createInvestor'][0])
     {
-        $request = $this->createInvestorRequest($id, $create_investor_request, $contentType);
+        $request = $this->createInvestorRequest($id, $deals_id_investors, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1227,15 +1230,15 @@ class InvestorApi
      * Create a deal investor
      *
      * @param  int $id The deal id. (required)
-     * @param  \DealMaker\Model\CreateInvestorRequest $create_investor_request (required)
+     * @param  \DealMaker\Model\PostDealsIdInvestors $deals_id_investors (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createInvestor'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createInvestorAsync($id, $create_investor_request, string $contentType = self::contentTypes['createInvestor'][0])
+    public function createInvestorAsync($id, $deals_id_investors, string $contentType = self::contentTypes['createInvestor'][0])
     {
-        return $this->createInvestorAsyncWithHttpInfo($id, $create_investor_request, $contentType)
+        return $this->createInvestorAsyncWithHttpInfo($id, $deals_id_investors, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1249,16 +1252,16 @@ class InvestorApi
      * Create a deal investor
      *
      * @param  int $id The deal id. (required)
-     * @param  \DealMaker\Model\CreateInvestorRequest $create_investor_request (required)
+     * @param  \DealMaker\Model\PostDealsIdInvestors $deals_id_investors (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createInvestor'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createInvestorAsyncWithHttpInfo($id, $create_investor_request, string $contentType = self::contentTypes['createInvestor'][0])
+    public function createInvestorAsyncWithHttpInfo($id, $deals_id_investors, string $contentType = self::contentTypes['createInvestor'][0])
     {
         $returnType = '\DealMaker\Model\V1EntitiesInvestor';
-        $request = $this->createInvestorRequest($id, $create_investor_request, $contentType);
+        $request = $this->createInvestorRequest($id, $deals_id_investors, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1300,13 +1303,13 @@ class InvestorApi
      * Create request for operation 'createInvestor'
      *
      * @param  int $id The deal id. (required)
-     * @param  \DealMaker\Model\CreateInvestorRequest $create_investor_request (required)
+     * @param  \DealMaker\Model\PostDealsIdInvestors $deals_id_investors (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createInvestor'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createInvestorRequest($id, $create_investor_request, string $contentType = self::contentTypes['createInvestor'][0])
+    public function createInvestorRequest($id, $deals_id_investors, string $contentType = self::contentTypes['createInvestor'][0])
     {
 
         // verify the required parameter 'id' is set
@@ -1316,10 +1319,10 @@ class InvestorApi
             );
         }
 
-        // verify the required parameter 'create_investor_request' is set
-        if ($create_investor_request === null || (is_array($create_investor_request) && count($create_investor_request) === 0)) {
+        // verify the required parameter 'deals_id_investors' is set
+        if ($deals_id_investors === null || (is_array($deals_id_investors) && count($deals_id_investors) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $create_investor_request when calling createInvestor'
+                'Missing the required parameter $deals_id_investors when calling createInvestor'
             );
         }
 
@@ -1350,12 +1353,12 @@ class InvestorApi
         );
 
         // for model (json/xml)
-        if (isset($create_investor_request)) {
+        if (isset($deals_id_investors)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($create_investor_request));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($deals_id_investors));
             } else {
-                $httpBody = $create_investor_request;
+                $httpBody = $deals_id_investors;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -2237,6 +2240,329 @@ class InvestorApi
         $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getEnforcements
+     *
+     * Get enforcements for a background search
+     *
+     * @param  int $id id (required)
+     * @param  int $investor_id investor_id (required)
+     * @param  int $search_entity_id search_entity_id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getEnforcements'] to see the possible values for this operation
+     *
+     * @throws \DealMaker\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \DealMaker\Model\V1EntitiesInvestor
+     */
+    public function getEnforcements($id, $investor_id, $search_entity_id, string $contentType = self::contentTypes['getEnforcements'][0])
+    {
+        list($response) = $this->getEnforcementsWithHttpInfo($id, $investor_id, $search_entity_id, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation getEnforcementsWithHttpInfo
+     *
+     * Get enforcements for a background search
+     *
+     * @param  int $id (required)
+     * @param  int $investor_id (required)
+     * @param  int $search_entity_id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getEnforcements'] to see the possible values for this operation
+     *
+     * @throws \DealMaker\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \DealMaker\Model\V1EntitiesInvestor, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getEnforcementsWithHttpInfo($id, $investor_id, $search_entity_id, string $contentType = self::contentTypes['getEnforcements'][0])
+    {
+        $request = $this->getEnforcementsRequest($id, $investor_id, $search_entity_id, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\DealMaker\Model\V1EntitiesInvestor' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\DealMaker\Model\V1EntitiesInvestor' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\DealMaker\Model\V1EntitiesInvestor', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\DealMaker\Model\V1EntitiesInvestor';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\DealMaker\Model\V1EntitiesInvestor',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getEnforcementsAsync
+     *
+     * Get enforcements for a background search
+     *
+     * @param  int $id (required)
+     * @param  int $investor_id (required)
+     * @param  int $search_entity_id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getEnforcements'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getEnforcementsAsync($id, $investor_id, $search_entity_id, string $contentType = self::contentTypes['getEnforcements'][0])
+    {
+        return $this->getEnforcementsAsyncWithHttpInfo($id, $investor_id, $search_entity_id, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getEnforcementsAsyncWithHttpInfo
+     *
+     * Get enforcements for a background search
+     *
+     * @param  int $id (required)
+     * @param  int $investor_id (required)
+     * @param  int $search_entity_id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getEnforcements'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getEnforcementsAsyncWithHttpInfo($id, $investor_id, $search_entity_id, string $contentType = self::contentTypes['getEnforcements'][0])
+    {
+        $returnType = '\DealMaker\Model\V1EntitiesInvestor';
+        $request = $this->getEnforcementsRequest($id, $investor_id, $search_entity_id, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getEnforcements'
+     *
+     * @param  int $id (required)
+     * @param  int $investor_id (required)
+     * @param  int $search_entity_id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getEnforcements'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getEnforcementsRequest($id, $investor_id, $search_entity_id, string $contentType = self::contentTypes['getEnforcements'][0])
+    {
+
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling getEnforcements'
+            );
+        }
+
+        // verify the required parameter 'investor_id' is set
+        if ($investor_id === null || (is_array($investor_id) && count($investor_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $investor_id when calling getEnforcements'
+            );
+        }
+
+        // verify the required parameter 'search_entity_id' is set
+        if ($search_entity_id === null || (is_array($search_entity_id) && count($search_entity_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $search_entity_id when calling getEnforcements'
+            );
+        }
+
+
+        $resourcePath = '/deals/{id}/investors/{investor_id}/background_checks/{search_entity_id}/enforcements';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'id' . '}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($investor_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'investor_id' . '}',
+                ObjectSerializer::toPathValue($investor_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($search_entity_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'search_entity_id' . '}',
+                ObjectSerializer::toPathValue($search_entity_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
             $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
@@ -3536,16 +3862,16 @@ class InvestorApi
      *
      * @param  int $id The deal id. (required)
      * @param  int $investor_id The investor id. (required)
-     * @param  \DealMaker\Model\UpdateInvestorRequest $update_investor_request update_investor_request (optional)
+     * @param  \DealMaker\Model\PutDealsIdInvestors $deals_id_investors deals_id_investors (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateInvestor'] to see the possible values for this operation
      *
      * @throws \DealMaker\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \DealMaker\Model\V1EntitiesInvestor
      */
-    public function updateInvestor($id, $investor_id, $update_investor_request = null, string $contentType = self::contentTypes['updateInvestor'][0])
+    public function updateInvestor($id, $investor_id, $deals_id_investors, string $contentType = self::contentTypes['updateInvestor'][0])
     {
-        list($response) = $this->updateInvestorWithHttpInfo($id, $investor_id, $update_investor_request, $contentType);
+        list($response) = $this->updateInvestorWithHttpInfo($id, $investor_id, $deals_id_investors, $contentType);
         return $response;
     }
 
@@ -3556,16 +3882,16 @@ class InvestorApi
      *
      * @param  int $id The deal id. (required)
      * @param  int $investor_id The investor id. (required)
-     * @param  \DealMaker\Model\UpdateInvestorRequest $update_investor_request (optional)
+     * @param  \DealMaker\Model\PutDealsIdInvestors $deals_id_investors (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateInvestor'] to see the possible values for this operation
      *
      * @throws \DealMaker\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \DealMaker\Model\V1EntitiesInvestor, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateInvestorWithHttpInfo($id, $investor_id, $update_investor_request = null, string $contentType = self::contentTypes['updateInvestor'][0])
+    public function updateInvestorWithHttpInfo($id, $investor_id, $deals_id_investors, string $contentType = self::contentTypes['updateInvestor'][0])
     {
-        $request = $this->updateInvestorRequest($id, $investor_id, $update_investor_request, $contentType);
+        $request = $this->updateInvestorRequest($id, $investor_id, $deals_id_investors, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3658,15 +3984,15 @@ class InvestorApi
      *
      * @param  int $id The deal id. (required)
      * @param  int $investor_id The investor id. (required)
-     * @param  \DealMaker\Model\UpdateInvestorRequest $update_investor_request (optional)
+     * @param  \DealMaker\Model\PutDealsIdInvestors $deals_id_investors (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateInvestor'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateInvestorAsync($id, $investor_id, $update_investor_request = null, string $contentType = self::contentTypes['updateInvestor'][0])
+    public function updateInvestorAsync($id, $investor_id, $deals_id_investors, string $contentType = self::contentTypes['updateInvestor'][0])
     {
-        return $this->updateInvestorAsyncWithHttpInfo($id, $investor_id, $update_investor_request, $contentType)
+        return $this->updateInvestorAsyncWithHttpInfo($id, $investor_id, $deals_id_investors, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3681,16 +4007,16 @@ class InvestorApi
      *
      * @param  int $id The deal id. (required)
      * @param  int $investor_id The investor id. (required)
-     * @param  \DealMaker\Model\UpdateInvestorRequest $update_investor_request (optional)
+     * @param  \DealMaker\Model\PutDealsIdInvestors $deals_id_investors (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateInvestor'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateInvestorAsyncWithHttpInfo($id, $investor_id, $update_investor_request = null, string $contentType = self::contentTypes['updateInvestor'][0])
+    public function updateInvestorAsyncWithHttpInfo($id, $investor_id, $deals_id_investors, string $contentType = self::contentTypes['updateInvestor'][0])
     {
         $returnType = '\DealMaker\Model\V1EntitiesInvestor';
-        $request = $this->updateInvestorRequest($id, $investor_id, $update_investor_request, $contentType);
+        $request = $this->updateInvestorRequest($id, $investor_id, $deals_id_investors, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3733,13 +4059,13 @@ class InvestorApi
      *
      * @param  int $id The deal id. (required)
      * @param  int $investor_id The investor id. (required)
-     * @param  \DealMaker\Model\UpdateInvestorRequest $update_investor_request (optional)
+     * @param  \DealMaker\Model\PutDealsIdInvestors $deals_id_investors (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateInvestor'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateInvestorRequest($id, $investor_id, $update_investor_request = null, string $contentType = self::contentTypes['updateInvestor'][0])
+    public function updateInvestorRequest($id, $investor_id, $deals_id_investors, string $contentType = self::contentTypes['updateInvestor'][0])
     {
 
         // verify the required parameter 'id' is set
@@ -3756,6 +4082,12 @@ class InvestorApi
             );
         }
 
+        // verify the required parameter 'deals_id_investors' is set
+        if ($deals_id_investors === null || (is_array($deals_id_investors) && count($deals_id_investors) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $deals_id_investors when calling updateInvestor'
+            );
+        }
 
 
         $resourcePath = '/deals/{id}/investors/{investor_id}';
@@ -3792,12 +4124,12 @@ class InvestorApi
         );
 
         // for model (json/xml)
-        if (isset($update_investor_request)) {
+        if (isset($deals_id_investors)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($update_investor_request));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($deals_id_investors));
             } else {
-                $httpBody = $update_investor_request;
+                $httpBody = $deals_id_investors;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

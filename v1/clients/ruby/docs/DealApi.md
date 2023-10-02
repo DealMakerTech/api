@@ -4,79 +4,8 @@ All URIs are relative to *http://api.dealmaker.tech*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**get_analytics_dashboard_info**](DealApi.md#get_analytics_dashboard_info) | **GET** /deals/{id}/analytics_dashboard_info | Get Analytics Dashboard Info |
 | [**get_deal**](DealApi.md#get_deal) | **GET** /deals/{id} | Get deal by Deal ID |
 | [**list_deals**](DealApi.md#list_deals) | **GET** /deals | List available deals |
-
-
-## get_analytics_dashboard_info
-
-> Object get_analytics_dashboard_info(id, opts)
-
-Get Analytics Dashboard Info
-
-Get Analytics Dashboard Info
-
-### Examples
-
-```ruby
-require 'time'
-require 'DealMakerAPI'
-# setup authorization
-DealMakerAPI.configure do |config|end
-
-api_instance = DealMakerAPI::DealApi.new
-id = 56 # Integer | The deal id.
-opts = {
-  dashboard_key: 'dashboard_key_example' # String | The dashboard key.
-}
-
-begin
-  # Get Analytics Dashboard Info
-  result = api_instance.get_analytics_dashboard_info(id, opts)
-  p result
-rescue DealMakerAPI::ApiError => e
-  puts "Error when calling DealApi->get_analytics_dashboard_info: #{e}"
-end
-```
-
-#### Using the get_analytics_dashboard_info_with_http_info variant
-
-This returns an Array which contains the response data, status code and headers.
-
-> <Array(Object, Integer, Hash)> get_analytics_dashboard_info_with_http_info(id, opts)
-
-```ruby
-begin
-  # Get Analytics Dashboard Info
-  data, status_code, headers = api_instance.get_analytics_dashboard_info_with_http_info(id, opts)
-  p status_code # => 2xx
-  p headers # => { ... }
-  p data # => Object
-rescue DealMakerAPI::ApiError => e
-  puts "Error when calling DealApi->get_analytics_dashboard_info_with_http_info: #{e}"
-end
-```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **id** | **Integer** | The deal id. |  |
-| **dashboard_key** | **String** | The dashboard key. | [optional] |
-
-### Return type
-
-**Object**
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
 
 
 ## get_deal

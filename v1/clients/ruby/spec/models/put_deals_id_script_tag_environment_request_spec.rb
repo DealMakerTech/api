@@ -22,9 +22,11 @@ describe DealMakerAPI::PutDealsIdScriptTagEnvironmentRequest do
 
   describe 'test an instance of PutDealsIdScriptTagEnvironmentRequest' do
     it 'should create an instance of PutDealsIdScriptTagEnvironmentRequest' do
-      expect(instance).to be_instance_of(DealMakerAPI::PutDealsIdScriptTagEnvironmentRequest)
+      # uncomment below to test the instance creation
+      #expect(instance).to be_instance_of(DealMakerAPI::PutDealsIdScriptTagEnvironmentRequest)
     end
   end
+
   describe 'test attribute "is_production"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/

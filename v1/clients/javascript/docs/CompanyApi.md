@@ -14,6 +14,7 @@ Method | HTTP request | Description
 [**getCompanies**](CompanyApi.md#getCompanies) | **GET** /companies | Get list of Companies
 [**getCompany**](CompanyApi.md#getCompany) | **GET** /companies/{id} | Get a Company
 [**getDetailsErrorsGrouped**](CompanyApi.md#getDetailsErrorsGrouped) | **GET** /companies/{company_id}/documents/bulk_uploads/{bulk_upload_id}/details/grouped_errors | Return bulk upload details grouped by status
+[**getDividends**](CompanyApi.md#getDividends) | **GET** /companies/{company_id}/portal/dividends | Return dividends
 
 
 
@@ -504,6 +505,52 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**V1EntitiesBulkUploadDetails**](V1EntitiesBulkUploadDetails.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## getDividends
+
+> V1EntitiesDividends getDividends(companyId)
+
+Return dividends
+
+Return dividends associated with a shareholder
+
+### Example
+
+```javascript
+import Api from 'api';
+let defaultClient = Api.ApiClient.instance;
+
+let apiInstance = new Api.CompanyApi();
+let companyId = 56; // Number | 
+apiInstance.getDividends(companyId, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **companyId** | **Number**|  | 
+
+### Return type
+
+[**V1EntitiesDividends**](V1EntitiesDividends.md)
 
 ### Authorization
 

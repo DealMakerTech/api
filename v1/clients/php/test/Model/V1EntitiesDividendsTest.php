@@ -1,6 +1,6 @@
 <?php
 /**
- * UpdateInvestorRequestTest
+ * V1EntitiesDividendsTest
  *
  * PHP version 7.4
  *
@@ -31,15 +31,15 @@ namespace DealMaker\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * UpdateInvestorRequestTest Class Doc Comment
+ * V1EntitiesDividendsTest Class Doc Comment
  *
  * @category    Class
- * @description UpdateInvestorRequest
+ * @description V1_Entities_Dividends model
  * @package     DealMaker
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class UpdateInvestorRequestTest extends TestCase
+class V1EntitiesDividendsTest extends TestCase
 {
 
     /**
@@ -71,63 +71,18 @@ class UpdateInvestorRequestTest extends TestCase
     }
 
     /**
-     * Test "UpdateInvestorRequest"
+     * Test "V1EntitiesDividends"
      */
-    public function testUpdateInvestorRequest()
+    public function testV1EntitiesDividends()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "warrant_expiry_date"
+     * Test attribute "items"
      */
-    public function testPropertyWarrantExpiryDate()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "warrant_certificate_number"
-     */
-    public function testPropertyWarrantCertificateNumber()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "allocated_amount"
-     */
-    public function testPropertyAllocatedAmount()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "allocation_unit"
-     */
-    public function testPropertyAllocationUnit()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "investment_value"
-     */
-    public function testPropertyInvestmentValue()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "notes"
-     */
-    public function testPropertyNotes()
+    public function testPropertyItems()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

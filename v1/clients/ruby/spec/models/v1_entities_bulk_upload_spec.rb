@@ -22,9 +22,11 @@ describe DealMakerAPI::V1EntitiesBulkUpload do
 
   describe 'test an instance of V1EntitiesBulkUpload' do
     it 'should create an instance of V1EntitiesBulkUpload' do
-      expect(instance).to be_instance_of(DealMakerAPI::V1EntitiesBulkUpload)
+      # uncomment below to test the instance creation
+      #expect(instance).to be_instance_of(DealMakerAPI::V1EntitiesBulkUpload)
     end
   end
+
   describe 'test attribute "id"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -46,6 +48,10 @@ describe DealMakerAPI::V1EntitiesBulkUpload do
   describe 'test attribute "document_type"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["drs_statement", "shareholder_statement", "book_entry_statement", "dividend_statement"])
+      # validator.allowable_values.each do |value|
+      #   expect { instance.document_type = value }.not_to raise_error
+      # end
     end
   end
 

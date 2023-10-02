@@ -72,18 +72,6 @@ class DealApiTest extends TestCase
     }
 
     /**
-     * Test case for getAnalyticsDashboardInfo
-     *
-     * Get Analytics Dashboard Info.
-     *
-     */
-    public function testGetAnalyticsDashboardInfo()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
      * Test case for getDeal
      *
      * Get deal by Deal ID.

@@ -168,4 +168,16 @@ describe 'CompanyApi' do
     end
   end
 
+  # unit tests for get_dividends
+  # Return dividends
+  # Return dividends associated with a shareholder
+  # @param company_id 
+  # @param [Hash] opts the optional parameters
+  # @return [V1EntitiesDividends]
+  describe 'get_dividends test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
 end

@@ -289,6 +289,25 @@ class V1EntitiesBulkUpload implements ModelInterface, ArrayAccess, \JsonSerializ
         return self::$openAPIModelName;
     }
 
+    public const DOCUMENT_TYPE_DRS_STATEMENT = 'drs_statement';
+    public const DOCUMENT_TYPE_SHAREHOLDER_STATEMENT = 'shareholder_statement';
+    public const DOCUMENT_TYPE_BOOK_ENTRY_STATEMENT = 'book_entry_statement';
+    public const DOCUMENT_TYPE_DIVIDEND_STATEMENT = 'dividend_statement';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getDocumentTypeAllowableValues()
+    {
+        return [
+            self::DOCUMENT_TYPE_DRS_STATEMENT,
+            self::DOCUMENT_TYPE_SHAREHOLDER_STATEMENT,
+            self::DOCUMENT_TYPE_BOOK_ENTRY_STATEMENT,
+            self::DOCUMENT_TYPE_DIVIDEND_STATEMENT,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -344,6 +363,15 @@ class V1EntitiesBulkUpload implements ModelInterface, ArrayAccess, \JsonSerializ
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getDocumentTypeAllowableValues();
+        if (!is_null($this->container['document_type']) && !in_array($this->container['document_type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'document_type', must be one of '%s'",
+                $this->container['document_type'],
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -454,7 +482,7 @@ class V1EntitiesBulkUpload implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets document_type
      *
-     * @param string|null $document_type The document type [drs_statement, shareholder_statement, book_entry_statement]
+     * @param string|null $document_type The document type
      *
      * @return self
      */
@@ -462,6 +490,16 @@ class V1EntitiesBulkUpload implements ModelInterface, ArrayAccess, \JsonSerializ
     {
         if (is_null($document_type)) {
             throw new \InvalidArgumentException('non-nullable document_type cannot be null');
+        }
+        $allowedValues = $this->getDocumentTypeAllowableValues();
+        if (!in_array($document_type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'document_type', must be one of '%s'",
+                    $document_type,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['document_type'] = $document_type;
 

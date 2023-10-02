@@ -22,12 +22,13 @@ import V1EntitiesBulkUploadDetail from '../model/V1EntitiesBulkUploadDetail';
 import V1EntitiesBulkUploadDetails from '../model/V1EntitiesBulkUploadDetails';
 import V1EntitiesBulkUploads from '../model/V1EntitiesBulkUploads';
 import V1EntitiesCompany from '../model/V1EntitiesCompany';
+import V1EntitiesDividends from '../model/V1EntitiesDividends';
 import V1EntitiesGenericResponse from '../model/V1EntitiesGenericResponse';
 
 /**
 * Company service.
 * @module api/CompanyApi
-* @version 0.87.0
+* @version 0.88.1
 */
 export default class CompanyApi {
 
@@ -530,6 +531,49 @@ export default class CompanyApi {
       let returnType = V1EntitiesBulkUploadDetails;
       return this.apiClient.callApi(
         '/companies/{company_id}/documents/bulk_uploads/{bulk_upload_id}/details/grouped_errors', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the getDividends operation.
+     * @callback module:api/CompanyApi~getDividendsCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/V1EntitiesDividends} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Return dividends
+     * Return dividends associated with a shareholder
+     * @param {Number} companyId 
+     * @param {module:api/CompanyApi~getDividendsCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/V1EntitiesDividends}
+     */
+    getDividends(companyId, callback) {
+      let postBody = null;
+      // verify the required parameter 'companyId' is set
+      if (companyId === undefined || companyId === null) {
+        throw new Error("Missing the required parameter 'companyId' when calling getDividends");
+      }
+
+      let pathParams = {
+        'company_id': companyId
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = V1EntitiesDividends;
+      return this.apiClient.callApi(
+        '/companies/{company_id}/portal/dividends', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

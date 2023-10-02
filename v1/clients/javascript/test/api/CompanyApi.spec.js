@@ -148,6 +148,16 @@
         done();
       });
     });
+    describe('getDividends', function() {
+      it('should call getDividends successfully', function(done) {
+        //uncomment below and update the code to test getDividends
+        //instance.getDividends(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
   });
 
 }));

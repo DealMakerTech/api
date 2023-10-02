@@ -22,9 +22,11 @@ describe DealMakerAPI::CreateDealSetupRequest do
 
   describe 'test an instance of CreateDealSetupRequest' do
     it 'should create an instance of CreateDealSetupRequest' do
-      expect(instance).to be_instance_of(DealMakerAPI::CreateDealSetupRequest)
+      # uncomment below to test the instance creation
+      #expect(instance).to be_instance_of(DealMakerAPI::CreateDealSetupRequest)
     end
   end
+
   describe 'test attribute "invoicing_email"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/

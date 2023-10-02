@@ -415,8 +415,8 @@ Class | Method | HTTP request | Description
 *CompanyApi* | [**getCompanies**](docs/Api/CompanyApi.md#getcompanies) | **GET** /companies | Get list of Companies
 *CompanyApi* | [**getCompany**](docs/Api/CompanyApi.md#getcompany) | **GET** /companies/{id} | Get a Company
 *CompanyApi* | [**getDetailsErrorsGrouped**](docs/Api/CompanyApi.md#getdetailserrorsgrouped) | **GET** /companies/{company_id}/documents/bulk_uploads/{bulk_upload_id}/details/grouped_errors | Return bulk upload details grouped by status
+*CompanyApi* | [**getDividends**](docs/Api/CompanyApi.md#getdividends) | **GET** /companies/{company_id}/portal/dividends | Return dividends
 *CountryApi* | [**getCountryStates**](docs/Api/CountryApi.md#getcountrystates) | **GET** /country/states | Returns a list of all valid countries and it states
-*DealApi* | [**getAnalyticsDashboardInfo**](docs/Api/DealApi.md#getanalyticsdashboardinfo) | **GET** /deals/{id}/analytics_dashboard_info | Get Analytics Dashboard Info
 *DealApi* | [**getDeal**](docs/Api/DealApi.md#getdeal) | **GET** /deals/{id} | Get deal by Deal ID
 *DealApi* | [**listDeals**](docs/Api/DealApi.md#listdeals) | **GET** /deals | List available deals
 *DealSetupApi* | [**createDealSetup**](docs/Api/DealSetupApi.md#createdealsetup) | **POST** /deal_setups | Create deal setup
@@ -436,6 +436,7 @@ Class | Method | HTTP request | Description
 *InvestorApi* | [**deleteDocument**](docs/Api/InvestorApi.md#deletedocument) | **DELETE** /deals/{id}/investors/{investor_id}/delete_document/{document_id} | Delete document for deal investor
 *InvestorApi* | [**deleteInvestorProfile**](docs/Api/InvestorApi.md#deleteinvestorprofile) | **DELETE** /investor_profiles/{type}/{id} | Delete investor profile.
 *InvestorApi* | [**editInvestorTags**](docs/Api/InvestorApi.md#editinvestortags) | **POST** /deals/{id}/investors/{investor_id}/edit_tags | Append or replace tag(s) for a specific investor
+*InvestorApi* | [**getEnforcements**](docs/Api/InvestorApi.md#getenforcements) | **GET** /deals/{id}/investors/{investor_id}/background_checks/{search_entity_id}/enforcements | Get enforcements for a background search
 *InvestorApi* | [**getInvestor**](docs/Api/InvestorApi.md#getinvestor) | **GET** /deals/{id}/investors/{investor_id} | Get a deal investor by id
 *InvestorApi* | [**getInvestorOtpLink**](docs/Api/InvestorApi.md#getinvestorotplink) | **GET** /deals/{id}/investors/{investor_id}/otp_access_link | Get OTP access link for deal investor
 *InvestorApi* | [**listInvestors**](docs/Api/InvestorApi.md#listinvestors) | **GET** /deals/{id}/investors | List deal investors
@@ -466,7 +467,6 @@ Class | Method | HTTP request | Description
 - [CreateBulkUploadRequest](docs/Model/CreateBulkUploadRequest.md)
 - [CreateCompanyRequest](docs/Model/CreateCompanyRequest.md)
 - [CreateDealSetupRequest](docs/Model/CreateDealSetupRequest.md)
-- [CreateInvestorRequest](docs/Model/CreateInvestorRequest.md)
 - [CreateShareholderActionRequest](docs/Model/CreateShareholderActionRequest.md)
 - [EditInvestorTagsRequest](docs/Model/EditInvestorTagsRequest.md)
 - [GenerateUrlRequest](docs/Model/GenerateUrlRequest.md)
@@ -476,6 +476,7 @@ Class | Method | HTTP request | Description
 - [PatchInvestorProfilesJoints](docs/Model/PatchInvestorProfilesJoints.md)
 - [PatchInvestorProfilesTrusts](docs/Model/PatchInvestorProfilesTrusts.md)
 - [PatchInvestorRequest](docs/Model/PatchInvestorRequest.md)
+- [PostDealsIdInvestors](docs/Model/PostDealsIdInvestors.md)
 - [PostInvestorProfilesCorporations](docs/Model/PostInvestorProfilesCorporations.md)
 - [PostInvestorProfilesCorporationsBeneficialOwnersInner](docs/Model/PostInvestorProfilesCorporationsBeneficialOwnersInner.md)
 - [PostInvestorProfilesIndividuals](docs/Model/PostInvestorProfilesIndividuals.md)
@@ -483,9 +484,9 @@ Class | Method | HTTP request | Description
 - [PostInvestorProfilesTrusts](docs/Model/PostInvestorProfilesTrusts.md)
 - [PostInvestorProfilesTrustsTrusteesInner](docs/Model/PostInvestorProfilesTrustsTrusteesInner.md)
 - [PostWebhooksRequest](docs/Model/PostWebhooksRequest.md)
+- [PutDealsIdInvestors](docs/Model/PutDealsIdInvestors.md)
 - [PutDealsIdScriptTagEnvironmentRequest](docs/Model/PutDealsIdScriptTagEnvironmentRequest.md)
 - [PutWebhooksIdRequest](docs/Model/PutWebhooksIdRequest.md)
-- [UpdateInvestorRequest](docs/Model/UpdateInvestorRequest.md)
 - [V1EntitiesAddress](docs/Model/V1EntitiesAddress.md)
 - [V1EntitiesAddresses](docs/Model/V1EntitiesAddresses.md)
 - [V1EntitiesAttachment](docs/Model/V1EntitiesAttachment.md)
@@ -507,6 +508,8 @@ Class | Method | HTTP request | Description
 - [V1EntitiesDealSetup](docs/Model/V1EntitiesDealSetup.md)
 - [V1EntitiesDealSetupUser](docs/Model/V1EntitiesDealSetupUser.md)
 - [V1EntitiesDeals](docs/Model/V1EntitiesDeals.md)
+- [V1EntitiesDividend](docs/Model/V1EntitiesDividend.md)
+- [V1EntitiesDividends](docs/Model/V1EntitiesDividends.md)
 - [V1EntitiesExpressWireInstruction](docs/Model/V1EntitiesExpressWireInstruction.md)
 - [V1EntitiesExpressWireInstructions](docs/Model/V1EntitiesExpressWireInstructions.md)
 - [V1EntitiesGenericResponse](docs/Model/V1EntitiesGenericResponse.md)
@@ -561,5 +564,5 @@ vendor/bin/phpunit
 This PHP package is automatically generated by the [OpenAPI Generator](https://openapi-generator.tech) project:
 
 - API version: `1.75.0`
-    - Package version: `0.87.0`
+    - Package version: `0.88.1`
 - Build package: `org.openapitools.codegen.languages.PhpClientCodegen`

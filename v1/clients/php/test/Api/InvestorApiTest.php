@@ -156,6 +156,18 @@ class InvestorApiTest extends TestCase
     }
 
     /**
+     * Test case for getEnforcements
+     *
+     * Get enforcements for a background search.
+     *
+     */
+    public function testGetEnforcements()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for getInvestor
      *
      * Get a deal investor by id.

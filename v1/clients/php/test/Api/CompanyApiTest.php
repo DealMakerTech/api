@@ -190,4 +190,16 @@ class CompanyApiTest extends TestCase
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test case for getDividends
+     *
+     * Return dividends.
+     *
+     */
+    public function testGetDividends()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
 }

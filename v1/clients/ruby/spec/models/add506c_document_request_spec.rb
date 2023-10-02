@@ -22,9 +22,11 @@ describe DealMakerAPI::Add506cDocumentRequest do
 
   describe 'test an instance of Add506cDocumentRequest' do
     it 'should create an instance of Add506cDocumentRequest' do
-      expect(instance).to be_instance_of(DealMakerAPI::Add506cDocumentRequest)
+      # uncomment below to test the instance creation
+      #expect(instance).to be_instance_of(DealMakerAPI::Add506cDocumentRequest)
     end
   end
+
   describe 'test attribute "file"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/

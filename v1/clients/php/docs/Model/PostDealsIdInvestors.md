@@ -1,4 +1,4 @@
-# # CreateInvestorRequest
+# # PostDealsIdInvestors
 
 ## Properties
 
@@ -14,7 +14,6 @@ Name | Type | Description | Notes
 **warrant_expiry_date** | **\DateTime** | The warrant expiry date of the investor. | [optional]
 **warrant_certificate_number** | **int** | The certificate number of the investor. | [optional]
 **allocated_amount** | **float** | The allocation amount of the investor. | [optional]
-**investment_value** | **float** | The investment value of the investor. | [optional]
 **allocation_unit** | **string** | The allocation unit of the investor. | [optional] [default to 'securities']
 **state** | **string** | The initial state of the investor. | [optional] [default to 'invited']
 

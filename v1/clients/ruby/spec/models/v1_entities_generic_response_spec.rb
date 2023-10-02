@@ -22,9 +22,11 @@ describe DealMakerAPI::V1EntitiesGenericResponse do
 
   describe 'test an instance of V1EntitiesGenericResponse' do
     it 'should create an instance of V1EntitiesGenericResponse' do
-      expect(instance).to be_instance_of(DealMakerAPI::V1EntitiesGenericResponse)
+      # uncomment below to test the instance creation
+      #expect(instance).to be_instance_of(DealMakerAPI::V1EntitiesGenericResponse)
     end
   end
+
   describe 'test attribute "success"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/

@@ -11,127 +11,141 @@
  *
  */
 
-(function(root, factory) {
-  if (typeof define === 'function' && define.amd) {
-    // AMD.
-    define(['expect.js', process.cwd()+'/src/index'], factory);
-  } else if (typeof module === 'object' && module.exports) {
-    // CommonJS-like environments that support module.exports, like Node.
-    factory(require('expect.js'), require(process.cwd()+'/src/index'));
-  } else {
-    // Browser globals (root is window)
-    factory(root.expect, root.Api);
-  }
-}(this, function(expect, Api) {
-  'use strict';
+import ApiClient from '../ApiClient';
 
-  var instance;
+/**
+ * The PutDealsIdInvestors model module.
+ * @module model/PutDealsIdInvestors
+ * @version 0.88.1
+ */
+class PutDealsIdInvestors {
+    /**
+     * Constructs a new <code>PutDealsIdInvestors</code>.
+     * Update deal investor
+     * @alias module:model/PutDealsIdInvestors
+     */
+    constructor() { 
+        
+        PutDealsIdInvestors.initialize(this);
+    }
 
-  beforeEach(function() {
-    instance = new Api.CreateInvestorRequest();
-  });
+    /**
+     * Initializes the fields of this object.
+     * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
+     * Only for internal use.
+     */
+    static initialize(obj) { 
+    }
 
-  var getProperty = function(object, getter, property) {
-    // Use getter method if present; otherwise, get the property directly.
-    if (typeof object[getter] === 'function')
-      return object[getter]();
-    else
-      return object[property];
-  }
+    /**
+     * Constructs a <code>PutDealsIdInvestors</code> from a plain JavaScript object, optionally creating a new instance.
+     * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @param {module:model/PutDealsIdInvestors} obj Optional instance to populate.
+     * @return {module:model/PutDealsIdInvestors} The populated <code>PutDealsIdInvestors</code> instance.
+     */
+    static constructFromObject(data, obj) {
+        if (data) {
+            obj = obj || new PutDealsIdInvestors();
 
-  var setProperty = function(object, setter, property, value) {
-    // Use setter method if present; otherwise, set the property directly.
-    if (typeof object[setter] === 'function')
-      object[setter](value);
-    else
-      object[property] = value;
-  }
+            if (data.hasOwnProperty('warrant_expiry_date')) {
+                obj['warrant_expiry_date'] = ApiClient.convertToType(data['warrant_expiry_date'], 'Date');
+            }
+            if (data.hasOwnProperty('warrant_certificate_number')) {
+                obj['warrant_certificate_number'] = ApiClient.convertToType(data['warrant_certificate_number'], 'Number');
+            }
+            if (data.hasOwnProperty('allocated_amount')) {
+                obj['allocated_amount'] = ApiClient.convertToType(data['allocated_amount'], 'Number');
+            }
+            if (data.hasOwnProperty('allocation_unit')) {
+                obj['allocation_unit'] = ApiClient.convertToType(data['allocation_unit'], 'String');
+            }
+            if (data.hasOwnProperty('notes')) {
+                obj['notes'] = ApiClient.convertToType(data['notes'], 'String');
+            }
+        }
+        return obj;
+    }
 
-  describe('CreateInvestorRequest', function() {
-    it('should create an instance of CreateInvestorRequest', function() {
-      // uncomment below and update the code to test CreateInvestorRequest
-      //var instance = new Api.CreateInvestorRequest();
-      //expect(instance).to.be.a(Api.CreateInvestorRequest);
-    });
+    /**
+     * Validates the JSON data with respect to <code>PutDealsIdInvestors</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>PutDealsIdInvestors</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is a string
+        if (data['allocation_unit'] && !(typeof data['allocation_unit'] === 'string' || data['allocation_unit'] instanceof String)) {
+            throw new Error("Expected the field `allocation_unit` to be a primitive type in the JSON string but got " + data['allocation_unit']);
+        }
+        // ensure the json data is a string
+        if (data['notes'] && !(typeof data['notes'] === 'string' || data['notes'] instanceof String)) {
+            throw new Error("Expected the field `notes` to be a primitive type in the JSON string but got " + data['notes']);
+        }
 
-    it('should have the property email (base name: "email")', function() {
-      // uncomment below and update the code to test the property email
-      //var instance = new Api.CreateInvestorRequest();
-      //expect(instance).to.be();
-    });
+        return true;
+    }
 
-    it('should have the property investorProfileId (base name: "investor_profile_id")', function() {
-      // uncomment below and update the code to test the property investorProfileId
-      //var instance = new Api.CreateInvestorRequest();
-      //expect(instance).to.be();
-    });
 
-    it('should have the property tags (base name: "tags")', function() {
-      // uncomment below and update the code to test the property tags
-      //var instance = new Api.CreateInvestorRequest();
-      //expect(instance).to.be();
-    });
+}
 
-    it('should have the property firstName (base name: "first_name")', function() {
-      // uncomment below and update the code to test the property firstName
-      //var instance = new Api.CreateInvestorRequest();
-      //expect(instance).to.be();
-    });
 
-    it('should have the property lastName (base name: "last_name")', function() {
-      // uncomment below and update the code to test the property lastName
-      //var instance = new Api.CreateInvestorRequest();
-      //expect(instance).to.be();
-    });
 
-    it('should have the property phoneNumber (base name: "phone_number")', function() {
-      // uncomment below and update the code to test the property phoneNumber
-      //var instance = new Api.CreateInvestorRequest();
-      //expect(instance).to.be();
-    });
+/**
+ * The warrant expiry date of the investor.
+ * @member {Date} warrant_expiry_date
+ */
+PutDealsIdInvestors.prototype['warrant_expiry_date'] = undefined;
 
-    it('should have the property message (base name: "message")', function() {
-      // uncomment below and update the code to test the property message
-      //var instance = new Api.CreateInvestorRequest();
-      //expect(instance).to.be();
-    });
+/**
+ * The certificate number of the investor.
+ * @member {Number} warrant_certificate_number
+ */
+PutDealsIdInvestors.prototype['warrant_certificate_number'] = undefined;
 
-    it('should have the property warrantExpiryDate (base name: "warrant_expiry_date")', function() {
-      // uncomment below and update the code to test the property warrantExpiryDate
-      //var instance = new Api.CreateInvestorRequest();
-      //expect(instance).to.be();
-    });
+/**
+ * The allocation amount of the investor.
+ * @member {Number} allocated_amount
+ */
+PutDealsIdInvestors.prototype['allocated_amount'] = undefined;
 
-    it('should have the property warrantCertificateNumber (base name: "warrant_certificate_number")', function() {
-      // uncomment below and update the code to test the property warrantCertificateNumber
-      //var instance = new Api.CreateInvestorRequest();
-      //expect(instance).to.be();
-    });
+/**
+ * The allocation unit of the investor.
+ * @member {module:model/PutDealsIdInvestors.AllocationUnitEnum} allocation_unit
+ * @default 'securities'
+ */
+PutDealsIdInvestors.prototype['allocation_unit'] = 'securities';
 
-    it('should have the property allocatedAmount (base name: "allocated_amount")', function() {
-      // uncomment below and update the code to test the property allocatedAmount
-      //var instance = new Api.CreateInvestorRequest();
-      //expect(instance).to.be();
-    });
+/**
+ * The notes of the investor.
+ * @member {String} notes
+ */
+PutDealsIdInvestors.prototype['notes'] = undefined;
 
-    it('should have the property investmentValue (base name: "investment_value")', function() {
-      // uncomment below and update the code to test the property investmentValue
-      //var instance = new Api.CreateInvestorRequest();
-      //expect(instance).to.be();
-    });
 
-    it('should have the property allocationUnit (base name: "allocation_unit")', function() {
-      // uncomment below and update the code to test the property allocationUnit
-      //var instance = new Api.CreateInvestorRequest();
-      //expect(instance).to.be();
-    });
 
-    it('should have the property state (base name: "state")', function() {
-      // uncomment below and update the code to test the property state
-      //var instance = new Api.CreateInvestorRequest();
-      //expect(instance).to.be();
-    });
 
-  });
 
-}));
+/**
+ * Allowed values for the <code>allocation_unit</code> property.
+ * @enum {String}
+ * @readonly
+ */
+PutDealsIdInvestors['AllocationUnitEnum'] = {
+
+    /**
+     * value: "securities"
+     * @const
+     */
+    "securities": "securities",
+
+    /**
+     * value: "amount"
+     * @const
+     */
+    "amount": "amount"
+};
+
+
+
+export default PutDealsIdInvestors;
+

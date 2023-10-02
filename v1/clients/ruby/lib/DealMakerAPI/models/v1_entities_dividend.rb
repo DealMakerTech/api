@@ -14,83 +14,26 @@ require 'date'
 require 'time'
 
 module DealMakerAPI
-  class CreateInvestorRequest
-    # The investor email address.
-    attr_accessor :email
+  class V1EntitiesDividend
+    # The dividend ID.
+    attr_accessor :id
 
-    # The Investor Profile id.
-    attr_accessor :investor_profile_id
+    # The dividend filename.
+    attr_accessor :filename
 
-    attr_accessor :tags
+    # The created at timestamp
+    attr_accessor :created_at
 
-    # The first name of the investor.
-    attr_accessor :first_name
-
-    # The last name of the investor.
-    attr_accessor :last_name
-
-    # The phone number of the investor.
-    attr_accessor :phone_number
-
-    # The reminder email text of the investor.
-    attr_accessor :message
-
-    # The warrant expiry date of the investor.
-    attr_accessor :warrant_expiry_date
-
-    # The certificate number of the investor.
-    attr_accessor :warrant_certificate_number
-
-    # The allocation amount of the investor.
-    attr_accessor :allocated_amount
-
-    # The investment value of the investor.
-    attr_accessor :investment_value
-
-    # The allocation unit of the investor.
-    attr_accessor :allocation_unit
-
-    # The initial state of the investor.
-    attr_accessor :state
-
-    class EnumAttributeValidator
-      attr_reader :datatype
-      attr_reader :allowable_values
-
-      def initialize(datatype, allowable_values)
-        @allowable_values = allowable_values.map do |value|
-          case datatype.to_s
-          when /Integer/i
-            value.to_i
-          when /Float/i
-            value.to_f
-          else
-            value
-          end
-        end
-      end
-
-      def valid?(value)
-        !value || allowable_values.include?(value)
-      end
-    end
+    # The dividend statement link.
+    attr_accessor :statement_link
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'email' => :'email',
-        :'investor_profile_id' => :'investor_profile_id',
-        :'tags' => :'tags',
-        :'first_name' => :'first_name',
-        :'last_name' => :'last_name',
-        :'phone_number' => :'phone_number',
-        :'message' => :'message',
-        :'warrant_expiry_date' => :'warrant_expiry_date',
-        :'warrant_certificate_number' => :'warrant_certificate_number',
-        :'allocated_amount' => :'allocated_amount',
-        :'investment_value' => :'investment_value',
-        :'allocation_unit' => :'allocation_unit',
-        :'state' => :'state'
+        :'id' => :'id',
+        :'filename' => :'filename',
+        :'created_at' => :'created_at',
+        :'statement_link' => :'statement_link'
       }
     end
 
@@ -102,19 +45,10 @@ module DealMakerAPI
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'email' => :'String',
-        :'investor_profile_id' => :'Integer',
-        :'tags' => :'Array<String>',
-        :'first_name' => :'String',
-        :'last_name' => :'String',
-        :'phone_number' => :'String',
-        :'message' => :'String',
-        :'warrant_expiry_date' => :'Date',
-        :'warrant_certificate_number' => :'Integer',
-        :'allocated_amount' => :'Float',
-        :'investment_value' => :'Float',
-        :'allocation_unit' => :'String',
-        :'state' => :'String'
+        :'id' => :'Integer',
+        :'filename' => :'String',
+        :'created_at' => :'String',
+        :'statement_link' => :'String'
       }
     end
 
@@ -128,75 +62,31 @@ module DealMakerAPI
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DealMakerAPI::CreateInvestorRequest` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DealMakerAPI::V1EntitiesDividend` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `DealMakerAPI::CreateInvestorRequest`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DealMakerAPI::V1EntitiesDividend`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'email')
-        self.email = attributes[:'email']
-      else
-        self.email = nil
+      if attributes.key?(:'id')
+        self.id = attributes[:'id']
       end
 
-      if attributes.key?(:'investor_profile_id')
-        self.investor_profile_id = attributes[:'investor_profile_id']
+      if attributes.key?(:'filename')
+        self.filename = attributes[:'filename']
       end
 
-      if attributes.key?(:'tags')
-        if (value = attributes[:'tags']).is_a?(Array)
-          self.tags = value
-        end
+      if attributes.key?(:'created_at')
+        self.created_at = attributes[:'created_at']
       end
 
-      if attributes.key?(:'first_name')
-        self.first_name = attributes[:'first_name']
-      end
-
-      if attributes.key?(:'last_name')
-        self.last_name = attributes[:'last_name']
-      end
-
-      if attributes.key?(:'phone_number')
-        self.phone_number = attributes[:'phone_number']
-      end
-
-      if attributes.key?(:'message')
-        self.message = attributes[:'message']
-      end
-
-      if attributes.key?(:'warrant_expiry_date')
-        self.warrant_expiry_date = attributes[:'warrant_expiry_date']
-      end
-
-      if attributes.key?(:'warrant_certificate_number')
-        self.warrant_certificate_number = attributes[:'warrant_certificate_number']
-      end
-
-      if attributes.key?(:'allocated_amount')
-        self.allocated_amount = attributes[:'allocated_amount']
-      end
-
-      if attributes.key?(:'investment_value')
-        self.investment_value = attributes[:'investment_value']
-      end
-
-      if attributes.key?(:'allocation_unit')
-        self.allocation_unit = attributes[:'allocation_unit']
-      else
-        self.allocation_unit = 'securities'
-      end
-
-      if attributes.key?(:'state')
-        self.state = attributes[:'state']
-      else
-        self.state = 'invited'
+      if attributes.key?(:'statement_link')
+        self.statement_link = attributes[:'statement_link']
       end
     end
 
@@ -205,10 +95,6 @@ module DealMakerAPI
     def list_invalid_properties
       warn '[DEPRECATED] the `list_invalid_properties` method is obsolete'
       invalid_properties = Array.new
-      if @email.nil?
-        invalid_properties.push('invalid value for "email", email cannot be nil.')
-      end
-
       invalid_properties
     end
 
@@ -216,32 +102,7 @@ module DealMakerAPI
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
-      return false if @email.nil?
-      allocation_unit_validator = EnumAttributeValidator.new('String', ["securities", "amount"])
-      return false unless allocation_unit_validator.valid?(@allocation_unit)
-      state_validator = EnumAttributeValidator.new('String', ["draft", "invited"])
-      return false unless state_validator.valid?(@state)
       true
-    end
-
-    # Custom attribute writer method checking allowed values (enum).
-    # @param [Object] allocation_unit Object to be assigned
-    def allocation_unit=(allocation_unit)
-      validator = EnumAttributeValidator.new('String', ["securities", "amount"])
-      unless validator.valid?(allocation_unit)
-        fail ArgumentError, "invalid value for \"allocation_unit\", must be one of #{validator.allowable_values}."
-      end
-      @allocation_unit = allocation_unit
-    end
-
-    # Custom attribute writer method checking allowed values (enum).
-    # @param [Object] state Object to be assigned
-    def state=(state)
-      validator = EnumAttributeValidator.new('String', ["draft", "invited"])
-      unless validator.valid?(state)
-        fail ArgumentError, "invalid value for \"state\", must be one of #{validator.allowable_values}."
-      end
-      @state = state
     end
 
     # Checks equality by comparing each attribute.
@@ -249,19 +110,10 @@ module DealMakerAPI
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          email == o.email &&
-          investor_profile_id == o.investor_profile_id &&
-          tags == o.tags &&
-          first_name == o.first_name &&
-          last_name == o.last_name &&
-          phone_number == o.phone_number &&
-          message == o.message &&
-          warrant_expiry_date == o.warrant_expiry_date &&
-          warrant_certificate_number == o.warrant_certificate_number &&
-          allocated_amount == o.allocated_amount &&
-          investment_value == o.investment_value &&
-          allocation_unit == o.allocation_unit &&
-          state == o.state
+          id == o.id &&
+          filename == o.filename &&
+          created_at == o.created_at &&
+          statement_link == o.statement_link
     end
 
     # @see the `==` method
@@ -273,7 +125,7 @@ module DealMakerAPI
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [email, investor_profile_id, tags, first_name, last_name, phone_number, message, warrant_expiry_date, warrant_certificate_number, allocated_amount, investment_value, allocation_unit, state].hash
+      [id, filename, created_at, statement_link].hash
     end
 
     # Builds the object from hash

@@ -11,6 +11,7 @@ All URIs are relative to http://api.dealmaker.tech, except if the operation defi
 | [**deleteDocument()**](InvestorApi.md#deleteDocument) | **DELETE** /deals/{id}/investors/{investor_id}/delete_document/{document_id} | Delete document for deal investor |
 | [**deleteInvestorProfile()**](InvestorApi.md#deleteInvestorProfile) | **DELETE** /investor_profiles/{type}/{id} | Delete investor profile. |
 | [**editInvestorTags()**](InvestorApi.md#editInvestorTags) | **POST** /deals/{id}/investors/{investor_id}/edit_tags | Append or replace tag(s) for a specific investor |
+| [**getEnforcements()**](InvestorApi.md#getEnforcements) | **GET** /deals/{id}/investors/{investor_id}/background_checks/{search_entity_id}/enforcements | Get enforcements for a background search |
 | [**getInvestor()**](InvestorApi.md#getInvestor) | **GET** /deals/{id}/investors/{investor_id} | Get a deal investor by id |
 | [**getInvestorOtpLink()**](InvestorApi.md#getInvestorOtpLink) | **GET** /deals/{id}/investors/{investor_id}/otp_access_link | Get OTP access link for deal investor |
 | [**listInvestors()**](InvestorApi.md#listInvestors) | **GET** /deals/{id}/investors | List deal investors |
@@ -202,7 +203,7 @@ No authorization required
 ## `createInvestor()`
 
 ```php
-createInvestor($id, $create_investor_request): \DealMaker\Model\V1EntitiesInvestor
+createInvestor($id, $deals_id_investors): \DealMaker\Model\V1EntitiesInvestor
 ```
 
 Create a deal investor
@@ -224,10 +225,10 @@ $apiInstance = new DealMaker\Api\InvestorApi(
     $config
 );
 $id = 56; // int | The deal id.
-$create_investor_request = new \DealMaker\Model\CreateInvestorRequest(); // \DealMaker\Model\CreateInvestorRequest
+$deals_id_investors = new \DealMaker\Model\PostDealsIdInvestors(); // \DealMaker\Model\PostDealsIdInvestors
 
 try {
-    $result = $apiInstance->createInvestor($id, $create_investor_request);
+    $result = $apiInstance->createInvestor($id, $deals_id_investors);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling InvestorApi->createInvestor: ', $e->getMessage(), PHP_EOL;
@@ -239,7 +240,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **int**| The deal id. | |
-| **create_investor_request** | [**\DealMaker\Model\CreateInvestorRequest**](../Model/CreateInvestorRequest.md)|  | |
+| **deals_id_investors** | [**\DealMaker\Model\PostDealsIdInvestors**](../Model/PostDealsIdInvestors.md)|  | |
 
 ### Return type
 
@@ -431,6 +432,67 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getEnforcements()`
+
+```php
+getEnforcements($id, $investor_id, $search_entity_id): \DealMaker\Model\V1EntitiesInvestor
+```
+
+Get enforcements for a background search
+
+Get enforcements for a background search
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new DealMaker\Api\InvestorApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = 56; // int
+$investor_id = 56; // int
+$search_entity_id = 56; // int
+
+try {
+    $result = $apiInstance->getEnforcements($id, $investor_id, $search_entity_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling InvestorApi->getEnforcements: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **int**|  | |
+| **investor_id** | **int**|  | |
+| **search_entity_id** | **int**|  | |
+
+### Return type
+
+[**\DealMaker\Model\V1EntitiesInvestor**](../Model/V1EntitiesInvestor.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -686,7 +748,7 @@ No authorization required
 ## `updateInvestor()`
 
 ```php
-updateInvestor($id, $investor_id, $update_investor_request): \DealMaker\Model\V1EntitiesInvestor
+updateInvestor($id, $investor_id, $deals_id_investors): \DealMaker\Model\V1EntitiesInvestor
 ```
 
 Update a deal investor
@@ -709,10 +771,10 @@ $apiInstance = new DealMaker\Api\InvestorApi(
 );
 $id = 56; // int | The deal id.
 $investor_id = 56; // int | The investor id.
-$update_investor_request = new \DealMaker\Model\UpdateInvestorRequest(); // \DealMaker\Model\UpdateInvestorRequest
+$deals_id_investors = new \DealMaker\Model\PutDealsIdInvestors(); // \DealMaker\Model\PutDealsIdInvestors
 
 try {
-    $result = $apiInstance->updateInvestor($id, $investor_id, $update_investor_request);
+    $result = $apiInstance->updateInvestor($id, $investor_id, $deals_id_investors);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling InvestorApi->updateInvestor: ', $e->getMessage(), PHP_EOL;
@@ -725,7 +787,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **int**| The deal id. | |
 | **investor_id** | **int**| The investor id. | |
-| **update_investor_request** | [**\DealMaker\Model\UpdateInvestorRequest**](../Model/UpdateInvestorRequest.md)|  | [optional] |
+| **deals_id_investors** | [**\DealMaker\Model\PutDealsIdInvestors**](../Model/PutDealsIdInvestors.md)|  | |
 
 ### Return type
 

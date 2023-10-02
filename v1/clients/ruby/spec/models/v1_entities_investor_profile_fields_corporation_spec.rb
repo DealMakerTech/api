@@ -22,9 +22,11 @@ describe DealMakerAPI::V1EntitiesInvestorProfileFieldsCorporation do
 
   describe 'test an instance of V1EntitiesInvestorProfileFieldsCorporation' do
     it 'should create an instance of V1EntitiesInvestorProfileFieldsCorporation' do
-      expect(instance).to be_instance_of(DealMakerAPI::V1EntitiesInvestorProfileFieldsCorporation)
+      # uncomment below to test the instance creation
+      #expect(instance).to be_instance_of(DealMakerAPI::V1EntitiesInvestorProfileFieldsCorporation)
     end
   end
+
   describe 'test attribute "name"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/

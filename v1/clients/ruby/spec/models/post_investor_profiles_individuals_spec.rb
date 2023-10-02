@@ -22,9 +22,11 @@ describe DealMakerAPI::PostInvestorProfilesIndividuals do
 
   describe 'test an instance of PostInvestorProfilesIndividuals' do
     it 'should create an instance of PostInvestorProfilesIndividuals' do
-      expect(instance).to be_instance_of(DealMakerAPI::PostInvestorProfilesIndividuals)
+      # uncomment below to test the instance creation
+      #expect(instance).to be_instance_of(DealMakerAPI::PostInvestorProfilesIndividuals)
     end
   end
+
   describe 'test attribute "email"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/

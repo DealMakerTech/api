@@ -77,7 +77,7 @@ describe 'InvestorApi' do
   # Create a deal investor
   # Create a single deal investor.
   # @param id The deal id.
-  # @param create_investor_request 
+  # @param deals_id_investors 
   # @param [Hash] opts the optional parameters
   # @return [V1EntitiesInvestor]
   describe 'create_investor test' do
@@ -122,6 +122,20 @@ describe 'InvestorApi' do
   # @param [Hash] opts the optional parameters
   # @return [V1EntitiesInvestor]
   describe 'edit_investor_tags test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for get_enforcements
+  # Get enforcements for a background search
+  # Get enforcements for a background search
+  # @param id 
+  # @param investor_id 
+  # @param search_entity_id 
+  # @param [Hash] opts the optional parameters
+  # @return [V1EntitiesInvestor]
+  describe 'get_enforcements test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end
@@ -189,8 +203,8 @@ describe 'InvestorApi' do
   # Update deal investor
   # @param id The deal id.
   # @param investor_id The investor id.
+  # @param deals_id_investors 
   # @param [Hash] opts the optional parameters
-  # @option opts [UpdateInvestorRequest] :update_investor_request 
   # @return [V1EntitiesInvestor]
   describe 'update_investor test' do
     it 'should work' do

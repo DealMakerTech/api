@@ -1,6 +1,6 @@
 <?php
 /**
- * CreateInvestorRequestTest
+ * V1EntitiesDividendTest
  *
  * PHP version 7.4
  *
@@ -31,15 +31,15 @@ namespace DealMaker\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * CreateInvestorRequestTest Class Doc Comment
+ * V1EntitiesDividendTest Class Doc Comment
  *
  * @category    Class
- * @description CreateInvestorRequest
+ * @description V1EntitiesDividend
  * @package     DealMaker
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class CreateInvestorRequestTest extends TestCase
+class V1EntitiesDividendTest extends TestCase
 {
 
     /**
@@ -71,126 +71,45 @@ class CreateInvestorRequestTest extends TestCase
     }
 
     /**
-     * Test "CreateInvestorRequest"
+     * Test "V1EntitiesDividend"
      */
-    public function testCreateInvestorRequest()
+    public function testV1EntitiesDividend()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "email"
+     * Test attribute "id"
      */
-    public function testPropertyEmail()
+    public function testPropertyId()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "investor_profile_id"
+     * Test attribute "filename"
      */
-    public function testPropertyInvestorProfileId()
+    public function testPropertyFilename()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "tags"
+     * Test attribute "created_at"
      */
-    public function testPropertyTags()
+    public function testPropertyCreatedAt()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "first_name"
+     * Test attribute "statement_link"
      */
-    public function testPropertyFirstName()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "last_name"
-     */
-    public function testPropertyLastName()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "phone_number"
-     */
-    public function testPropertyPhoneNumber()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "message"
-     */
-    public function testPropertyMessage()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "warrant_expiry_date"
-     */
-    public function testPropertyWarrantExpiryDate()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "warrant_certificate_number"
-     */
-    public function testPropertyWarrantCertificateNumber()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "allocated_amount"
-     */
-    public function testPropertyAllocatedAmount()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "investment_value"
-     */
-    public function testPropertyInvestmentValue()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "allocation_unit"
-     */
-    public function testPropertyAllocationUnit()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "state"
-     */
-    public function testPropertyState()
+    public function testPropertyStatementLink()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

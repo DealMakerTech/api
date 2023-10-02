@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The V1EntitiesBulkUpload model module.
  * @module model/V1EntitiesBulkUpload
- * @version 0.87.0
+ * @version 0.88.1
  */
 class V1EntitiesBulkUpload {
     /**
@@ -143,8 +143,8 @@ V1EntitiesBulkUpload.prototype['company_id'] = undefined;
 V1EntitiesBulkUpload.prototype['file_identifier'] = undefined;
 
 /**
- * The document type [drs_statement, shareholder_statement, book_entry_statement]
- * @member {String} document_type
+ * The document type 
+ * @member {module:model/V1EntitiesBulkUpload.DocumentTypeEnum} document_type
  */
 V1EntitiesBulkUpload.prototype['document_type'] = undefined;
 
@@ -192,6 +192,39 @@ V1EntitiesBulkUpload.prototype['updated_at'] = undefined;
 
 
 
+
+
+/**
+ * Allowed values for the <code>document_type</code> property.
+ * @enum {String}
+ * @readonly
+ */
+V1EntitiesBulkUpload['DocumentTypeEnum'] = {
+
+    /**
+     * value: "drs_statement"
+     * @const
+     */
+    "drs_statement": "drs_statement",
+
+    /**
+     * value: "shareholder_statement"
+     * @const
+     */
+    "shareholder_statement": "shareholder_statement",
+
+    /**
+     * value: "book_entry_statement"
+     * @const
+     */
+    "book_entry_statement": "book_entry_statement",
+
+    /**
+     * value: "dividend_statement"
+     * @const
+     */
+    "dividend_statement": "dividend_statement"
+};
 
 
 

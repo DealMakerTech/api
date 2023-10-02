@@ -14,18 +14,18 @@
 import ApiClient from '../ApiClient';
 
 /**
- * The UpdateInvestorRequest model module.
- * @module model/UpdateInvestorRequest
- * @version 0.87.0
+ * The V1EntitiesDividend model module.
+ * @module model/V1EntitiesDividend
+ * @version 0.88.1
  */
-class UpdateInvestorRequest {
+class V1EntitiesDividend {
     /**
-     * Constructs a new <code>UpdateInvestorRequest</code>.
-     * @alias module:model/UpdateInvestorRequest
+     * Constructs a new <code>V1EntitiesDividend</code>.
+     * @alias module:model/V1EntitiesDividend
      */
     constructor() { 
         
-        UpdateInvestorRequest.initialize(this);
+        V1EntitiesDividend.initialize(this);
     }
 
     /**
@@ -37,51 +37,49 @@ class UpdateInvestorRequest {
     }
 
     /**
-     * Constructs a <code>UpdateInvestorRequest</code> from a plain JavaScript object, optionally creating a new instance.
+     * Constructs a <code>V1EntitiesDividend</code> from a plain JavaScript object, optionally creating a new instance.
      * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @param {module:model/UpdateInvestorRequest} obj Optional instance to populate.
-     * @return {module:model/UpdateInvestorRequest} The populated <code>UpdateInvestorRequest</code> instance.
+     * @param {module:model/V1EntitiesDividend} obj Optional instance to populate.
+     * @return {module:model/V1EntitiesDividend} The populated <code>V1EntitiesDividend</code> instance.
      */
     static constructFromObject(data, obj) {
         if (data) {
-            obj = obj || new UpdateInvestorRequest();
+            obj = obj || new V1EntitiesDividend();
 
-            if (data.hasOwnProperty('warrant_expiry_date')) {
-                obj['warrant_expiry_date'] = ApiClient.convertToType(data['warrant_expiry_date'], 'Date');
+            if (data.hasOwnProperty('id')) {
+                obj['id'] = ApiClient.convertToType(data['id'], 'Number');
             }
-            if (data.hasOwnProperty('warrant_certificate_number')) {
-                obj['warrant_certificate_number'] = ApiClient.convertToType(data['warrant_certificate_number'], 'Number');
+            if (data.hasOwnProperty('filename')) {
+                obj['filename'] = ApiClient.convertToType(data['filename'], 'String');
             }
-            if (data.hasOwnProperty('allocated_amount')) {
-                obj['allocated_amount'] = ApiClient.convertToType(data['allocated_amount'], 'Number');
+            if (data.hasOwnProperty('created_at')) {
+                obj['created_at'] = ApiClient.convertToType(data['created_at'], 'String');
             }
-            if (data.hasOwnProperty('allocation_unit')) {
-                obj['allocation_unit'] = ApiClient.convertToType(data['allocation_unit'], 'String');
-            }
-            if (data.hasOwnProperty('investment_value')) {
-                obj['investment_value'] = ApiClient.convertToType(data['investment_value'], 'Number');
-            }
-            if (data.hasOwnProperty('notes')) {
-                obj['notes'] = ApiClient.convertToType(data['notes'], 'String');
+            if (data.hasOwnProperty('statement_link')) {
+                obj['statement_link'] = ApiClient.convertToType(data['statement_link'], 'String');
             }
         }
         return obj;
     }
 
     /**
-     * Validates the JSON data with respect to <code>UpdateInvestorRequest</code>.
+     * Validates the JSON data with respect to <code>V1EntitiesDividend</code>.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>UpdateInvestorRequest</code>.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>V1EntitiesDividend</code>.
      */
     static validateJSON(data) {
         // ensure the json data is a string
-        if (data['allocation_unit'] && !(typeof data['allocation_unit'] === 'string' || data['allocation_unit'] instanceof String)) {
-            throw new Error("Expected the field `allocation_unit` to be a primitive type in the JSON string but got " + data['allocation_unit']);
+        if (data['filename'] && !(typeof data['filename'] === 'string' || data['filename'] instanceof String)) {
+            throw new Error("Expected the field `filename` to be a primitive type in the JSON string but got " + data['filename']);
         }
         // ensure the json data is a string
-        if (data['notes'] && !(typeof data['notes'] === 'string' || data['notes'] instanceof String)) {
-            throw new Error("Expected the field `notes` to be a primitive type in the JSON string but got " + data['notes']);
+        if (data['created_at'] && !(typeof data['created_at'] === 'string' || data['created_at'] instanceof String)) {
+            throw new Error("Expected the field `created_at` to be a primitive type in the JSON string but got " + data['created_at']);
+        }
+        // ensure the json data is a string
+        if (data['statement_link'] && !(typeof data['statement_link'] === 'string' || data['statement_link'] instanceof String)) {
+            throw new Error("Expected the field `statement_link` to be a primitive type in the JSON string but got " + data['statement_link']);
         }
 
         return true;
@@ -93,67 +91,33 @@ class UpdateInvestorRequest {
 
 
 /**
- * The warrant expiry date of the investor.
- * @member {Date} warrant_expiry_date
+ * The dividend ID.
+ * @member {Number} id
  */
-UpdateInvestorRequest.prototype['warrant_expiry_date'] = undefined;
+V1EntitiesDividend.prototype['id'] = undefined;
 
 /**
- * The certificate number of the investor.
- * @member {Number} warrant_certificate_number
+ * The dividend filename.
+ * @member {String} filename
  */
-UpdateInvestorRequest.prototype['warrant_certificate_number'] = undefined;
+V1EntitiesDividend.prototype['filename'] = undefined;
 
 /**
- * The allocation amount of the investor.
- * @member {Number} allocated_amount
+ * The created at timestamp
+ * @member {String} created_at
  */
-UpdateInvestorRequest.prototype['allocated_amount'] = undefined;
+V1EntitiesDividend.prototype['created_at'] = undefined;
 
 /**
- * The allocation unit of the investor.
- * @member {module:model/UpdateInvestorRequest.AllocationUnitEnum} allocation_unit
- * @default 'securities'
+ * The dividend statement link.
+ * @member {String} statement_link
  */
-UpdateInvestorRequest.prototype['allocation_unit'] = 'securities';
-
-/**
- * The investment value of the investor.
- * @member {Number} investment_value
- */
-UpdateInvestorRequest.prototype['investment_value'] = undefined;
-
-/**
- * The notes of the investor.
- * @member {String} notes
- */
-UpdateInvestorRequest.prototype['notes'] = undefined;
+V1EntitiesDividend.prototype['statement_link'] = undefined;
 
 
 
 
 
-/**
- * Allowed values for the <code>allocation_unit</code> property.
- * @enum {String}
- * @readonly
- */
-UpdateInvestorRequest['AllocationUnitEnum'] = {
 
-    /**
-     * value: "securities"
-     * @const
-     */
-    "securities": "securities",
-
-    /**
-     * value: "amount"
-     * @const
-     */
-    "amount": "amount"
-};
-
-
-
-export default UpdateInvestorRequest;
+export default V1EntitiesDividend;
 

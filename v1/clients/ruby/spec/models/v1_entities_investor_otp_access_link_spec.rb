@@ -22,9 +22,11 @@ describe DealMakerAPI::V1EntitiesInvestorOtpAccessLink do
 
   describe 'test an instance of V1EntitiesInvestorOtpAccessLink' do
     it 'should create an instance of V1EntitiesInvestorOtpAccessLink' do
-      expect(instance).to be_instance_of(DealMakerAPI::V1EntitiesInvestorOtpAccessLink)
+      # uncomment below to test the instance creation
+      #expect(instance).to be_instance_of(DealMakerAPI::V1EntitiesInvestorOtpAccessLink)
     end
   end
+
   describe 'test attribute "access_link"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/

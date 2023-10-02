@@ -22,9 +22,11 @@ describe DealMakerAPI::PatchInvestorProfilesTrusts do
 
   describe 'test an instance of PatchInvestorProfilesTrusts' do
     it 'should create an instance of PatchInvestorProfilesTrusts' do
-      expect(instance).to be_instance_of(DealMakerAPI::PatchInvestorProfilesTrusts)
+      # uncomment below to test the instance creation
+      #expect(instance).to be_instance_of(DealMakerAPI::PatchInvestorProfilesTrusts)
     end
   end
+
   describe 'test attribute "us_accredited_category"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/

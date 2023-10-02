@@ -14,6 +14,7 @@ All URIs are relative to *http://api.dealmaker.tech*
 | [**get_companies**](CompanyApi.md#get_companies) | **GET** /companies | Get list of Companies |
 | [**get_company**](CompanyApi.md#get_company) | **GET** /companies/{id} | Get a Company |
 | [**get_details_errors_grouped**](CompanyApi.md#get_details_errors_grouped) | **GET** /companies/{company_id}/documents/bulk_uploads/{bulk_upload_id}/details/grouped_errors | Return bulk upload details grouped by status |
+| [**get_dividends**](CompanyApi.md#get_dividends) | **GET** /companies/{company_id}/portal/dividends | Return dividends |
 
 
 ## create_bulk_upload
@@ -703,6 +704,72 @@ end
 ### Return type
 
 [**V1EntitiesBulkUploadDetails**](V1EntitiesBulkUploadDetails.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## get_dividends
+
+> <V1EntitiesDividends> get_dividends(company_id)
+
+Return dividends
+
+Return dividends associated with a shareholder
+
+### Examples
+
+```ruby
+require 'time'
+require 'DealMakerAPI'
+# setup authorization
+DealMakerAPI.configure do |config|end
+
+api_instance = DealMakerAPI::CompanyApi.new
+company_id = 56 # Integer | 
+
+begin
+  # Return dividends
+  result = api_instance.get_dividends(company_id)
+  p result
+rescue DealMakerAPI::ApiError => e
+  puts "Error when calling CompanyApi->get_dividends: #{e}"
+end
+```
+
+#### Using the get_dividends_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<V1EntitiesDividends>, Integer, Hash)> get_dividends_with_http_info(company_id)
+
+```ruby
+begin
+  # Return dividends
+  data, status_code, headers = api_instance.get_dividends_with_http_info(company_id)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <V1EntitiesDividends>
+rescue DealMakerAPI::ApiError => e
+  puts "Error when calling CompanyApi->get_dividends_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **company_id** | **Integer** |  |  |
+
+### Return type
+
+[**V1EntitiesDividends**](V1EntitiesDividends.md)
 
 ### Authorization
 

@@ -22,9 +22,11 @@ describe DealMakerAPI::V1EntitiesWebhooksSecurityToken do
 
   describe 'test an instance of V1EntitiesWebhooksSecurityToken' do
     it 'should create an instance of V1EntitiesWebhooksSecurityToken' do
-      expect(instance).to be_instance_of(DealMakerAPI::V1EntitiesWebhooksSecurityToken)
+      # uncomment below to test the instance creation
+      #expect(instance).to be_instance_of(DealMakerAPI::V1EntitiesWebhooksSecurityToken)
     end
   end
+
   describe 'test attribute "security_token"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/

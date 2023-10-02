@@ -14,6 +14,7 @@ All URIs are relative to http://api.dealmaker.tech, except if the operation defi
 | [**getCompanies()**](CompanyApi.md#getCompanies) | **GET** /companies | Get list of Companies |
 | [**getCompany()**](CompanyApi.md#getCompany) | **GET** /companies/{id} | Get a Company |
 | [**getDetailsErrorsGrouped()**](CompanyApi.md#getDetailsErrorsGrouped) | **GET** /companies/{company_id}/documents/bulk_uploads/{bulk_upload_id}/details/grouped_errors | Return bulk upload details grouped by status |
+| [**getDividends()**](CompanyApi.md#getDividends) | **GET** /companies/{company_id}/portal/dividends | Return dividends |
 
 
 ## `createBulkUpload()`
@@ -604,6 +605,63 @@ try {
 ### Return type
 
 [**\DealMaker\Model\V1EntitiesBulkUploadDetails**](../Model/V1EntitiesBulkUploadDetails.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getDividends()`
+
+```php
+getDividends($company_id): \DealMaker\Model\V1EntitiesDividends
+```
+
+Return dividends
+
+Return dividends associated with a shareholder
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new DealMaker\Api\CompanyApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$company_id = 56; // int
+
+try {
+    $result = $apiInstance->getDividends($company_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CompanyApi->getDividends: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **company_id** | **int**|  | |
+
+### Return type
+
+[**\DealMaker\Model\V1EntitiesDividends**](../Model/V1EntitiesDividends.md)
 
 ### Authorization
 

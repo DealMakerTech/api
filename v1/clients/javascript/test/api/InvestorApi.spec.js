@@ -118,6 +118,16 @@
         done();
       });
     });
+    describe('getEnforcements', function() {
+      it('should call getEnforcements successfully', function(done) {
+        //uncomment below and update the code to test getEnforcements
+        //instance.getEnforcements(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('getInvestor', function() {
       it('should call getInvestor successfully', function(done) {
         //uncomment below and update the code to test getInvestor

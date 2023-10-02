@@ -22,9 +22,11 @@ describe DealMakerAPI::PatchInvestorProfilesCorporationsBeneficialOwnersInner do
 
   describe 'test an instance of PatchInvestorProfilesCorporationsBeneficialOwnersInner' do
     it 'should create an instance of PatchInvestorProfilesCorporationsBeneficialOwnersInner' do
-      expect(instance).to be_instance_of(DealMakerAPI::PatchInvestorProfilesCorporationsBeneficialOwnersInner)
+      # uncomment below to test the instance creation
+      #expect(instance).to be_instance_of(DealMakerAPI::PatchInvestorProfilesCorporationsBeneficialOwnersInner)
     end
   end
+
   describe 'test attribute "index"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/

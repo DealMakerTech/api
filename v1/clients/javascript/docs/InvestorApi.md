@@ -11,6 +11,7 @@ Method | HTTP request | Description
 [**deleteDocument**](InvestorApi.md#deleteDocument) | **DELETE** /deals/{id}/investors/{investor_id}/delete_document/{document_id} | Delete document for deal investor
 [**deleteInvestorProfile**](InvestorApi.md#deleteInvestorProfile) | **DELETE** /investor_profiles/{type}/{id} | Delete investor profile.
 [**editInvestorTags**](InvestorApi.md#editInvestorTags) | **POST** /deals/{id}/investors/{investor_id}/edit_tags | Append or replace tag(s) for a specific investor
+[**getEnforcements**](InvestorApi.md#getEnforcements) | **GET** /deals/{id}/investors/{investor_id}/background_checks/{search_entity_id}/enforcements | Get enforcements for a background search
 [**getInvestor**](InvestorApi.md#getInvestor) | **GET** /deals/{id}/investors/{investor_id} | Get a deal investor by id
 [**getInvestorOtpLink**](InvestorApi.md#getInvestorOtpLink) | **GET** /deals/{id}/investors/{investor_id}/otp_access_link | Get OTP access link for deal investor
 [**listInvestors**](InvestorApi.md#listInvestors) | **GET** /deals/{id}/investors | List deal investors
@@ -169,7 +170,7 @@ No authorization required
 
 ## createInvestor
 
-> V1EntitiesInvestor createInvestor(id, createInvestorRequest)
+> V1EntitiesInvestor createInvestor(id, dealsIdInvestors)
 
 Create a deal investor
 
@@ -183,8 +184,8 @@ let defaultClient = Api.ApiClient.instance;
 
 let apiInstance = new Api.InvestorApi();
 let id = 56; // Number | The deal id.
-let createInvestorRequest = new Api.CreateInvestorRequest(); // CreateInvestorRequest | 
-apiInstance.createInvestor(id, createInvestorRequest, (error, data, response) => {
+let dealsIdInvestors = new Api.PostDealsIdInvestors(); // PostDealsIdInvestors | 
+apiInstance.createInvestor(id, dealsIdInvestors, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -199,7 +200,7 @@ apiInstance.createInvestor(id, createInvestorRequest, (error, data, response) =>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Number**| The deal id. | 
- **createInvestorRequest** | [**CreateInvestorRequest**](CreateInvestorRequest.md)|  | 
+ **dealsIdInvestors** | [**PostDealsIdInvestors**](PostDealsIdInvestors.md)|  | 
 
 ### Return type
 
@@ -360,6 +361,56 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## getEnforcements
+
+> V1EntitiesInvestor getEnforcements(id, investorId, searchEntityId)
+
+Get enforcements for a background search
+
+Get enforcements for a background search
+
+### Example
+
+```javascript
+import Api from 'api';
+let defaultClient = Api.ApiClient.instance;
+
+let apiInstance = new Api.InvestorApi();
+let id = 56; // Number | 
+let investorId = 56; // Number | 
+let searchEntityId = 56; // Number | 
+apiInstance.getEnforcements(id, investorId, searchEntityId, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Number**|  | 
+ **investorId** | **Number**|  | 
+ **searchEntityId** | **Number**|  | 
+
+### Return type
+
+[**V1EntitiesInvestor**](V1EntitiesInvestor.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 
@@ -569,7 +620,7 @@ No authorization required
 
 ## updateInvestor
 
-> V1EntitiesInvestor updateInvestor(id, investorId, opts)
+> V1EntitiesInvestor updateInvestor(id, investorId, dealsIdInvestors)
 
 Update a deal investor
 
@@ -584,10 +635,8 @@ let defaultClient = Api.ApiClient.instance;
 let apiInstance = new Api.InvestorApi();
 let id = 56; // Number | The deal id.
 let investorId = 56; // Number | The investor id.
-let opts = {
-  'updateInvestorRequest': new Api.UpdateInvestorRequest() // UpdateInvestorRequest | 
-};
-apiInstance.updateInvestor(id, investorId, opts, (error, data, response) => {
+let dealsIdInvestors = new Api.PutDealsIdInvestors(); // PutDealsIdInvestors | 
+apiInstance.updateInvestor(id, investorId, dealsIdInvestors, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -603,7 +652,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Number**| The deal id. | 
  **investorId** | **Number**| The investor id. | 
- **updateInvestorRequest** | [**UpdateInvestorRequest**](UpdateInvestorRequest.md)|  | [optional] 
+ **dealsIdInvestors** | [**PutDealsIdInvestors**](PutDealsIdInvestors.md)|  | 
 
 ### Return type
 

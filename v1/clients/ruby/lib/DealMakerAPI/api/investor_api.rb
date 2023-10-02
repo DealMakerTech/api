@@ -256,21 +256,21 @@ module DealMakerAPI
     # Create a deal investor
     # Create a single deal investor.
     # @param id [Integer] The deal id.
-    # @param create_investor_request [CreateInvestorRequest] 
+    # @param deals_id_investors [PostDealsIdInvestors] 
     # @param [Hash] opts the optional parameters
     # @return [V1EntitiesInvestor]
-    def create_investor(id, create_investor_request, opts = {})
-      data, _status_code, _headers = create_investor_with_http_info(id, create_investor_request, opts)
+    def create_investor(id, deals_id_investors, opts = {})
+      data, _status_code, _headers = create_investor_with_http_info(id, deals_id_investors, opts)
       data
     end
 
     # Create a deal investor
     # Create a single deal investor.
     # @param id [Integer] The deal id.
-    # @param create_investor_request [CreateInvestorRequest] 
+    # @param deals_id_investors [PostDealsIdInvestors] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(V1EntitiesInvestor, Integer, Hash)>] V1EntitiesInvestor data, response status code and response headers
-    def create_investor_with_http_info(id, create_investor_request, opts = {})
+    def create_investor_with_http_info(id, deals_id_investors, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: InvestorApi.create_investor ...'
       end
@@ -278,9 +278,9 @@ module DealMakerAPI
       if @api_client.config.client_side_validation && id.nil?
         fail ArgumentError, "Missing the required parameter 'id' when calling InvestorApi.create_investor"
       end
-      # verify the required parameter 'create_investor_request' is set
-      if @api_client.config.client_side_validation && create_investor_request.nil?
-        fail ArgumentError, "Missing the required parameter 'create_investor_request' when calling InvestorApi.create_investor"
+      # verify the required parameter 'deals_id_investors' is set
+      if @api_client.config.client_side_validation && deals_id_investors.nil?
+        fail ArgumentError, "Missing the required parameter 'deals_id_investors' when calling InvestorApi.create_investor"
       end
       # resource path
       local_var_path = '/deals/{id}/investors'.sub('{' + 'id' + '}', CGI.escape(id.to_s))
@@ -302,7 +302,7 @@ module DealMakerAPI
       form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = opts[:debug_body] || @api_client.object_to_http_body(create_investor_request)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(deals_id_investors)
 
       # return_type
       return_type = opts[:debug_return_type] || 'V1EntitiesInvestor'
@@ -543,6 +543,81 @@ module DealMakerAPI
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: InvestorApi#edit_investor_tags\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get enforcements for a background search
+    # Get enforcements for a background search
+    # @param id [Integer] 
+    # @param investor_id [Integer] 
+    # @param search_entity_id [Integer] 
+    # @param [Hash] opts the optional parameters
+    # @return [V1EntitiesInvestor]
+    def get_enforcements(id, investor_id, search_entity_id, opts = {})
+      data, _status_code, _headers = get_enforcements_with_http_info(id, investor_id, search_entity_id, opts)
+      data
+    end
+
+    # Get enforcements for a background search
+    # Get enforcements for a background search
+    # @param id [Integer] 
+    # @param investor_id [Integer] 
+    # @param search_entity_id [Integer] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(V1EntitiesInvestor, Integer, Hash)>] V1EntitiesInvestor data, response status code and response headers
+    def get_enforcements_with_http_info(id, investor_id, search_entity_id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: InvestorApi.get_enforcements ...'
+      end
+      # verify the required parameter 'id' is set
+      if @api_client.config.client_side_validation && id.nil?
+        fail ArgumentError, "Missing the required parameter 'id' when calling InvestorApi.get_enforcements"
+      end
+      # verify the required parameter 'investor_id' is set
+      if @api_client.config.client_side_validation && investor_id.nil?
+        fail ArgumentError, "Missing the required parameter 'investor_id' when calling InvestorApi.get_enforcements"
+      end
+      # verify the required parameter 'search_entity_id' is set
+      if @api_client.config.client_side_validation && search_entity_id.nil?
+        fail ArgumentError, "Missing the required parameter 'search_entity_id' when calling InvestorApi.get_enforcements"
+      end
+      # resource path
+      local_var_path = '/deals/{id}/investors/{investor_id}/background_checks/{search_entity_id}/enforcements'.sub('{' + 'id' + '}', CGI.escape(id.to_s)).sub('{' + 'investor_id' + '}', CGI.escape(investor_id.to_s)).sub('{' + 'search_entity_id' + '}', CGI.escape(search_entity_id.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'V1EntitiesInvestor'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"InvestorApi.get_enforcements",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: InvestorApi#get_enforcements\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -847,11 +922,11 @@ module DealMakerAPI
     # Update deal investor
     # @param id [Integer] The deal id.
     # @param investor_id [Integer] The investor id.
+    # @param deals_id_investors [PutDealsIdInvestors] 
     # @param [Hash] opts the optional parameters
-    # @option opts [UpdateInvestorRequest] :update_investor_request 
     # @return [V1EntitiesInvestor]
-    def update_investor(id, investor_id, opts = {})
-      data, _status_code, _headers = update_investor_with_http_info(id, investor_id, opts)
+    def update_investor(id, investor_id, deals_id_investors, opts = {})
+      data, _status_code, _headers = update_investor_with_http_info(id, investor_id, deals_id_investors, opts)
       data
     end
 
@@ -859,10 +934,10 @@ module DealMakerAPI
     # Update deal investor
     # @param id [Integer] The deal id.
     # @param investor_id [Integer] The investor id.
+    # @param deals_id_investors [PutDealsIdInvestors] 
     # @param [Hash] opts the optional parameters
-    # @option opts [UpdateInvestorRequest] :update_investor_request 
     # @return [Array<(V1EntitiesInvestor, Integer, Hash)>] V1EntitiesInvestor data, response status code and response headers
-    def update_investor_with_http_info(id, investor_id, opts = {})
+    def update_investor_with_http_info(id, investor_id, deals_id_investors, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: InvestorApi.update_investor ...'
       end
@@ -873,6 +948,10 @@ module DealMakerAPI
       # verify the required parameter 'investor_id' is set
       if @api_client.config.client_side_validation && investor_id.nil?
         fail ArgumentError, "Missing the required parameter 'investor_id' when calling InvestorApi.update_investor"
+      end
+      # verify the required parameter 'deals_id_investors' is set
+      if @api_client.config.client_side_validation && deals_id_investors.nil?
+        fail ArgumentError, "Missing the required parameter 'deals_id_investors' when calling InvestorApi.update_investor"
       end
       # resource path
       local_var_path = '/deals/{id}/investors/{investor_id}'.sub('{' + 'id' + '}', CGI.escape(id.to_s)).sub('{' + 'investor_id' + '}', CGI.escape(investor_id.to_s))
@@ -894,7 +973,7 @@ module DealMakerAPI
       form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = opts[:debug_body] || @api_client.object_to_http_body(opts[:'update_investor_request'])
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(deals_id_investors)
 
       # return_type
       return_type = opts[:debug_return_type] || 'V1EntitiesInvestor'

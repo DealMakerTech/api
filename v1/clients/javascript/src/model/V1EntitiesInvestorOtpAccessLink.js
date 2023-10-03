@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The V1EntitiesInvestorOtpAccessLink model module.
  * @module model/V1EntitiesInvestorOtpAccessLink
- * @version 0.88.1
+ * @version 0.88.2
  */
 class V1EntitiesInvestorOtpAccessLink {
     /**

@@ -424,7 +424,6 @@
         "security": [
           {
             "oauth": [
-              "deals.read",
               "deals.investors.read"
             ]
           }
@@ -710,7 +709,6 @@
         "security": [
           {
             "oauth": [
-              "deals.read",
               "deals.investors.read"
             ]
           }

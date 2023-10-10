@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The PutWebhooksIdRequest model module.
  * @module model/PutWebhooksIdRequest
- * @version 0.88.3
+ * @version 0.88.4
  */
 class PutWebhooksIdRequest {
     /**

@@ -17,7 +17,7 @@ import V1EntitiesDividend from './V1EntitiesDividend';
 /**
  * The V1EntitiesDividends model module.
  * @module model/V1EntitiesDividends
- * @version 0.88.3
+ * @version 0.88.4
  */
 class V1EntitiesDividends {
     /**

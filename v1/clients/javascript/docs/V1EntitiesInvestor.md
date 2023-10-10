@@ -62,6 +62,8 @@ Name | Type | Description | Notes
 
 * `inactive` (value: `"inactive"`)
 
+* `processing_countersign` (value: `"processing_countersign"`)
+
 
 
 

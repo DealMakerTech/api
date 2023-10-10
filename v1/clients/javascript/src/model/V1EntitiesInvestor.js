@@ -20,7 +20,7 @@ import V1EntitiesSubscriptionAgreement from './V1EntitiesSubscriptionAgreement';
 /**
  * The V1EntitiesInvestor model module.
  * @module model/V1EntitiesInvestor
- * @version 0.88.3
+ * @version 0.88.4
  */
 class V1EntitiesInvestor {
     /**
@@ -441,7 +441,13 @@ V1EntitiesInvestor['StateEnum'] = {
      * value: "inactive"
      * @const
      */
-    "inactive": "inactive"
+    "inactive": "inactive",
+
+    /**
+     * value: "processing_countersign"
+     * @const
+     */
+    "processing_countersign": "processing_countersign"
 };
 
 

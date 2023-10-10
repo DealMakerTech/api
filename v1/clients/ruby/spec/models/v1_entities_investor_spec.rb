@@ -70,7 +70,7 @@ describe DealMakerAPI::V1EntitiesInvestor do
   describe 'test attribute "state"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
-      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["draft", "invited", "cosigning", "signed", "waiting", "accepted", "inactive"])
+      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["draft", "invited", "cosigning", "signed", "waiting", "accepted", "inactive", "processing_countersign"])
       # validator.allowable_values.each do |value|
       #   expect { instance.state = value }.not_to raise_error
       # end

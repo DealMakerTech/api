@@ -394,6 +394,7 @@ class V1EntitiesInvestor implements ModelInterface, ArrayAccess, \JsonSerializab
     public const STATE_WAITING = 'waiting';
     public const STATE_ACCEPTED = 'accepted';
     public const STATE_INACTIVE = 'inactive';
+    public const STATE_PROCESSING_COUNTERSIGN = 'processing_countersign';
     public const FUNDING_STATE_UNFUNDED = 'unfunded';
     public const FUNDING_STATE_UNDERFUNDED = 'underfunded';
     public const FUNDING_STATE_FUNDED = 'funded';
@@ -431,6 +432,7 @@ class V1EntitiesInvestor implements ModelInterface, ArrayAccess, \JsonSerializab
             self::STATE_WAITING,
             self::STATE_ACCEPTED,
             self::STATE_INACTIVE,
+            self::STATE_PROCESSING_COUNTERSIGN,
         ];
     }
 

@@ -329,7 +329,7 @@ module DealMakerAPI
       warn '[DEPRECATED] the `valid?` method is obsolete'
       allocation_unit_validator = EnumAttributeValidator.new('String', ["securities", "amount"])
       return false unless allocation_unit_validator.valid?(@allocation_unit)
-      state_validator = EnumAttributeValidator.new('String', ["draft", "invited", "cosigning", "signed", "waiting", "accepted", "inactive"])
+      state_validator = EnumAttributeValidator.new('String', ["draft", "invited", "cosigning", "signed", "waiting", "accepted", "inactive", "processing_countersign"])
       return false unless state_validator.valid?(@state)
       funding_state_validator = EnumAttributeValidator.new('String', ["unfunded", "underfunded", "funded", "overfunded"])
       return false unless funding_state_validator.valid?(@funding_state)
@@ -351,7 +351,7 @@ module DealMakerAPI
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] state Object to be assigned
     def state=(state)
-      validator = EnumAttributeValidator.new('String', ["draft", "invited", "cosigning", "signed", "waiting", "accepted", "inactive"])
+      validator = EnumAttributeValidator.new('String', ["draft", "invited", "cosigning", "signed", "waiting", "accepted", "inactive", "processing_countersign"])
       unless validator.valid?(state)
         fail ArgumentError, "invalid value for \"state\", must be one of #{validator.allowable_values}."
       end

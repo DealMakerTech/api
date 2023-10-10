@@ -61,16 +61,16 @@
       "description": "Operations about deals"
     },
     {
-      "name": "shareholder",
-      "description": "Operations about shareholders"
-    },
-    {
       "name": "deal_setup",
       "description": "Operations about deal_setups"
     },
     {
       "name": "users",
       "description": "Operations about users"
+    },
+    {
+      "name": "shareholder",
+      "description": "Operations about shareholders"
     },
     {
       "name": "deal",
@@ -1318,944 +1318,6 @@
         "operationId": "putDealsIdScriptTagEnvironment"
       }
     },
-    "/companies/{id}/shareholders/tags": {
-      "get": {
-        "summary": "Get a company shareholders list grouped by tags",
-        "description": "Gets a list of company shareholders grouped by tags.",
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "id",
-            "description": "The company id.",
-            "type": "integer",
-            "format": "int32",
-            "required": true
-          }
-        ],
-        "security": [
-          {
-            "oauth": [
-              "internal"
-            ]
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "List company shareholders grouped by tags",
-            "schema": {
-              "$ref": "#/definitions/V1_Entities_ShareholdersTags"
-            }
-          },
-          "403": {
-            "description": "Forbidden"
-          },
-          "404": {
-            "description": "Not found"
-          }
-        },
-        "tags": [
-          "shareholder"
-        ],
-        "operationId": "getShareholdersTags",
-        "x-codeSamples": [
-          {
-            "lang": "javascript",
-            "source": ""
-          },
-          {
-            "lang": "ruby",
-            "source": ""
-          }
-        ]
-      }
-    },
-    "/companies/{id}/shareholders": {
-      "get": {
-        "summary": "Get a company shareholders list",
-        "description": "Gets a list of company shareholders.",
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "id",
-            "description": "The company id.",
-            "type": "integer",
-            "format": "int32",
-            "required": true
-          }
-        ],
-        "security": [
-          {
-            "oauth": [
-              "internal"
-            ]
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "List company shareholders",
-            "schema": {
-              "$ref": "#/definitions/V1_Entities_Shareholders"
-            }
-          },
-          "403": {
-            "description": "Forbidden"
-          },
-          "404": {
-            "description": "Not found"
-          }
-        },
-        "tags": [
-          "shareholder"
-        ],
-        "operationId": "getShareholders",
-        "x-codeSamples": [
-          {
-            "lang": "javascript",
-            "source": ""
-          },
-          {
-            "lang": "ruby",
-            "source": ""
-          }
-        ]
-      }
-    },
-    "/companies": {
-      "get": {
-        "summary": "Get list of Companies",
-        "description": "Get companies",
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "in": "query",
-            "name": "page",
-            "description": "Page offset to fetch.",
-            "type": "integer",
-            "format": "int32",
-            "default": 1,
-            "required": false
-          },
-          {
-            "in": "query",
-            "name": "per_page",
-            "description": "Number of results to return per page.",
-            "type": "integer",
-            "format": "int32",
-            "default": 25,
-            "required": false
-          },
-          {
-            "in": "query",
-            "name": "offset",
-            "description": "Pad a number of results.",
-            "type": "integer",
-            "format": "int32",
-            "default": 0,
-            "required": false
-          }
-        ],
-        "security": [
-          {
-            "oauth": [
-              "companies.read"
-            ]
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Get companies",
-            "schema": {
-              "$ref": "#/definitions/V1_Entities_Company"
-            }
-          },
-          "400": {
-            "description": "Bad Request"
-          },
-          "401": {
-            "description": "Forbidden"
-          }
-        },
-        "tags": [
-          "company"
-        ],
-        "operationId": "getCompanies",
-        "x-codeSamples": [
-          {
-            "lang": "javascript",
-            "source": ""
-          },
-          {
-            "lang": "ruby",
-            "source": ""
-          }
-        ]
-      },
-      "post": {
-        "summary": "Create new company",
-        "description": "Creates a new company.",
-        "produces": [
-          "application/json"
-        ],
-        "consumes": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "in": "formData",
-            "name": "name",
-            "description": "The company name",
-            "type": "string",
-            "required": true
-          },
-          {
-            "in": "formData",
-            "name": "country",
-            "description": "The country of the company",
-            "type": "string",
-            "required": true
-          },
-          {
-            "in": "formData",
-            "name": "street",
-            "description": "The street of the company",
-            "type": "string",
-            "required": true
-          },
-          {
-            "in": "formData",
-            "name": "line_2",
-            "description": "The second line of the address of the company",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "city",
-            "description": "The city of the company",
-            "type": "string",
-            "required": true
-          },
-          {
-            "in": "formData",
-            "name": "state",
-            "description": "The state of the company",
-            "type": "string",
-            "required": true
-          },
-          {
-            "in": "formData",
-            "name": "postal_code",
-            "description": "The postal code/zip code of the company",
-            "type": "string",
-            "required": true
-          },
-          {
-            "in": "formData",
-            "name": "primary_color",
-            "description": "The primary color of the company",
-            "type": "string",
-            "required": false
-          }
-        ],
-        "security": [
-          {
-            "oauth": [
-              "companies.write"
-            ]
-          }
-        ],
-        "responses": {
-          "201": {
-            "description": "Create new company",
-            "schema": {
-              "$ref": "#/definitions/V1_Entities_Company"
-            }
-          },
-          "400": {
-            "description": "Bad Request"
-          }
-        },
-        "tags": [
-          "company"
-        ],
-        "operationId": "createCompany",
-        "x-codeSamples": [
-          {
-            "lang": "javascript",
-            "source": ""
-          },
-          {
-            "lang": "ruby",
-            "source": ""
-          }
-        ]
-      }
-    },
-    "/companies/{id}": {
-      "get": {
-        "summary": "Get a Company",
-        "description": "Get a Company.",
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "id",
-            "type": "integer",
-            "format": "int32",
-            "required": true
-          }
-        ],
-        "security": [
-          {
-            "oauth": [
-              "companies.read"
-            ]
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Get company",
-            "schema": {
-              "$ref": "#/definitions/V1_Entities_Company"
-            }
-          },
-          "400": {
-            "description": "Bad Request"
-          },
-          "401": {
-            "description": "Forbidden"
-          },
-          "404": {
-            "description": "Not found"
-          }
-        },
-        "tags": [
-          "company"
-        ],
-        "operationId": "getCompany",
-        "x-codeSamples": [
-          {
-            "lang": "javascript",
-            "source": ""
-          },
-          {
-            "lang": "ruby",
-            "source": ""
-          }
-        ]
-      }
-    },
-    "/companies/{company_id}/portal/dividends": {
-      "get": {
-        "summary": "Return dividends",
-        "description": "Return dividends associated with a shareholder",
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "company_id",
-            "type": "integer",
-            "format": "int32",
-            "required": true
-          }
-        ],
-        "security": [
-          {
-            "oauth": [
-              "internal"
-            ]
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/V1_Entities_Dividends"
-            }
-          },
-          "403": {
-            "description": "Forbidden"
-          }
-        },
-        "tags": [
-          "company"
-        ],
-        "operationId": "getDividends",
-        "x-codeSamples": [
-          {
-            "lang": "javascript",
-            "source": ""
-          },
-          {
-            "lang": "ruby",
-            "source": ""
-          }
-        ]
-      }
-    },
-    "/companies/{id}/documents/bulk_uploads": {
-      "post": {
-        "summary": "Create bulk upload record",
-        "description": "Create bulk upload record",
-        "produces": [
-          "application/json"
-        ],
-        "consumes": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "id",
-            "description": "The company id",
-            "type": "integer",
-            "format": "int32",
-            "required": true
-          },
-          {
-            "in": "formData",
-            "name": "file_identifier",
-            "description": "The file identifier",
-            "type": "string",
-            "required": true
-          },
-          {
-            "in": "formData",
-            "name": "document_type",
-            "description": "The document type",
-            "type": "string",
-            "required": true
-          },
-          {
-            "in": "formData",
-            "name": "upload_name",
-            "description": "The bulk upload name",
-            "type": "string",
-            "required": true
-          },
-          {
-            "in": "formData",
-            "name": "send_notification",
-            "description": "Send notification to the user",
-            "type": "boolean",
-            "required": true
-          },
-          {
-            "in": "formData",
-            "name": "notification_message",
-            "description": "Notification message",
-            "type": "string",
-            "required": true
-          }
-        ],
-        "security": [
-          {
-            "oauth": [
-              "internal"
-            ]
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/V1_Entities_BulkUpload"
-            }
-          },
-          "400": {
-            "description": "Bad Request"
-          },
-          "403": {
-            "description": "Forbidden"
-          }
-        },
-        "tags": [
-          "company"
-        ],
-        "operationId": "createBulkUpload",
-        "x-codeSamples": [
-          {
-            "lang": "javascript",
-            "source": ""
-          },
-          {
-            "lang": "ruby",
-            "source": ""
-          }
-        ]
-      },
-      "get": {
-        "summary": "Return bulk uploads",
-        "description": "Return bulk uploads",
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "in": "query",
-            "name": "page",
-            "description": "Page offset to fetch.",
-            "type": "integer",
-            "format": "int32",
-            "default": 1,
-            "required": false
-          },
-          {
-            "in": "query",
-            "name": "per_page",
-            "description": "Number of results to return per page.",
-            "type": "integer",
-            "format": "int32",
-            "default": 25,
-            "required": false
-          },
-          {
-            "in": "query",
-            "name": "offset",
-            "description": "Pad a number of results.",
-            "type": "integer",
-            "format": "int32",
-            "default": 0,
-            "required": false
-          },
-          {
-            "in": "path",
-            "name": "id",
-            "type": "integer",
-            "format": "int32",
-            "required": true
-          }
-        ],
-        "security": [
-          {
-            "oauth": [
-              "internal"
-            ]
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/V1_Entities_BulkUploads"
-            }
-          },
-          "403": {
-            "description": "Access to this resource requires scope \"internal\"."
-          }
-        },
-        "tags": [
-          "company"
-        ],
-        "operationId": "getBulkUploads",
-        "x-codeSamples": [
-          {
-            "lang": "javascript",
-            "source": ""
-          },
-          {
-            "lang": "ruby",
-            "source": ""
-          }
-        ]
-      }
-    },
-    "/companies/{id}/documents/bulk_uploads/{bulk_upload_id}": {
-      "get": {
-        "summary": "Return a given bulk upload by id",
-        "description": "Return a given bulk upload by id",
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "in": "query",
-            "name": "page",
-            "description": "Page offset to fetch.",
-            "type": "integer",
-            "format": "int32",
-            "default": 1,
-            "required": false
-          },
-          {
-            "in": "query",
-            "name": "per_page",
-            "description": "Number of results to return per page.",
-            "type": "integer",
-            "format": "int32",
-            "default": 25,
-            "required": false
-          },
-          {
-            "in": "query",
-            "name": "offset",
-            "description": "Pad a number of results.",
-            "type": "integer",
-            "format": "int32",
-            "default": 0,
-            "required": false
-          },
-          {
-            "in": "path",
-            "name": "id",
-            "type": "integer",
-            "format": "int32",
-            "required": true
-          },
-          {
-            "in": "path",
-            "name": "bulk_upload_id",
-            "type": "integer",
-            "format": "int32",
-            "required": true
-          }
-        ],
-        "security": [
-          {
-            "oauth": [
-              "internal"
-            ]
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/V1_Entities_BulkUpload"
-            }
-          },
-          "403": {
-            "description": "Access to this resource requires scope \"internal\"."
-          },
-          "404": {
-            "description": "Not found"
-          }
-        },
-        "tags": [
-          "company"
-        ],
-        "operationId": "getBulkUpload",
-        "x-codeSamples": [
-          {
-            "lang": "javascript",
-            "source": ""
-          },
-          {
-            "lang": "ruby",
-            "source": ""
-          }
-        ]
-      }
-    },
-    "/companies/{company_id}/documents/bulk_uploads/{bulk_upload_id}/details": {
-      "post": {
-        "summary": "Create a BulkUploadDetail class record",
-        "description": "Create a BulkUploadDetail class record",
-        "produces": [
-          "application/json"
-        ],
-        "consumes": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "bulk_upload_id",
-            "description": "The Bulk upload ID from which detail is associated with",
-            "type": "string",
-            "required": true
-          },
-          {
-            "in": "formData",
-            "name": "file_key",
-            "description": "The file ID",
-            "type": "string",
-            "required": true
-          },
-          {
-            "in": "formData",
-            "name": "file_name",
-            "description": "The name of the file",
-            "type": "string",
-            "required": true
-          },
-          {
-            "in": "formData",
-            "name": "status",
-            "description": "The status of the bulk upload detail",
-            "type": "integer",
-            "format": "int32",
-            "required": false
-          },
-          {
-            "in": "path",
-            "name": "company_id",
-            "type": "integer",
-            "format": "int32",
-            "required": true
-          }
-        ],
-        "security": [
-          {
-            "oauth": [
-              "internal"
-            ]
-          }
-        ],
-        "responses": {
-          "201": {
-            "description": "Create a BulkUploadDetail class record",
-            "schema": {
-              "$ref": "#/definitions/V1_Entities_BulkUploadDetail"
-            }
-          },
-          "400": {
-            "description": "Bad Request"
-          },
-          "404": {
-            "description": "Not found"
-          },
-          "403": {
-            "description": "Forbidden"
-          }
-        },
-        "tags": [
-          "company"
-        ],
-        "operationId": "createBulkUploadDetail",
-        "x-codeSamples": [
-          {
-            "lang": "javascript",
-            "source": ""
-          },
-          {
-            "lang": "ruby",
-            "source": ""
-          }
-        ]
-      }
-    },
-    "/companies/{company_id}/documents/bulk_uploads/{bulk_upload_id}/details/errors": {
-      "get": {
-        "summary": "Returns a full list of details with errors of the given bulk upload ordered by status desc and id asc",
-        "description": "Returns a full list of details with errors of the given bulk upload",
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "company_id",
-            "type": "integer",
-            "format": "int32",
-            "required": true
-          },
-          {
-            "in": "path",
-            "name": "bulk_upload_id",
-            "type": "integer",
-            "format": "int32",
-            "required": true
-          }
-        ],
-        "security": [
-          {
-            "oauth": [
-              "internal"
-            ]
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/V1_Entities_BulkUploadDetails"
-            }
-          },
-          "400": {
-            "description": "Bad Request"
-          },
-          "403": {
-            "description": "Forbidden"
-          }
-        },
-        "tags": [
-          "company"
-        ],
-        "operationId": "getBulkUploadDetailsErrors",
-        "x-codeSamples": [
-          {
-            "lang": "javascript",
-            "source": ""
-          },
-          {
-            "lang": "ruby",
-            "source": ""
-          }
-        ]
-      }
-    },
-    "/companies/{company_id}/documents/bulk_uploads/{bulk_upload_id}/details/grouped_errors": {
-      "get": {
-        "summary": "Return bulk upload details grouped by status",
-        "description": "Return bulk upload details grouped by status",
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "company_id",
-            "type": "integer",
-            "format": "int32",
-            "required": true
-          },
-          {
-            "in": "path",
-            "name": "bulk_upload_id",
-            "type": "integer",
-            "format": "int32",
-            "required": true
-          }
-        ],
-        "security": [
-          {
-            "oauth": [
-              "internal"
-            ]
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/V1_Entities_BulkUploadDetails"
-            }
-          },
-          "400": {
-            "description": "Bad Request"
-          },
-          "403": {
-            "description": "Forbidden"
-          }
-        },
-        "tags": [
-          "company"
-        ],
-        "operationId": "getDetailsErrorsGrouped",
-        "x-codeSamples": [
-          {
-            "lang": "javascript",
-            "source": ""
-          },
-          {
-            "lang": "ruby",
-            "source": ""
-          }
-        ]
-      }
-    },
-    "/companies/{company_id}/shareholders/{shareholder_id}/actions": {
-      "post": {
-        "summary": "Create a shareholder action",
-        "description": "Create a shareholder action",
-        "produces": [
-          "application/json"
-        ],
-        "consumes": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "company_id",
-            "description": "The company id",
-            "type": "integer",
-            "format": "int32",
-            "required": true
-          },
-          {
-            "in": "path",
-            "name": "shareholder_id",
-            "description": "The shareholder id",
-            "type": "integer",
-            "format": "int32",
-            "required": true
-          },
-          {
-            "in": "formData",
-            "name": "request_type",
-            "description": "The request type of the shareholder action",
-            "type": "string",
-            "required": true
-          },
-          {
-            "in": "formData",
-            "name": "description",
-            "description": "The description of the shareholder action",
-            "type": "string",
-            "required": true
-          },
-          {
-            "in": "formData",
-            "name": "request_documents",
-            "description": "The document associated with the shareholder action",
-            "type": "array",
-            "items": {
-              "type": "file"
-            },
-            "required": false
-          }
-        ],
-        "security": [
-          {
-            "oauth": [
-              "internal"
-            ]
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/V1_Entities_GenericResponse"
-            }
-          },
-          "400": {
-            "description": "Bad Request"
-          },
-          "403": {
-            "description": "Forbidden"
-          }
-        },
-        "tags": [
-          "company"
-        ],
-        "operationId": "createShareholderAction",
-        "x-codeSamples": [
-          {
-            "lang": "javascript",
-            "source": ""
-          },
-          {
-            "lang": "ruby",
-            "source": ""
-          }
-        ]
-      }
-    },
     "/deal_setups": {
       "post": {
         "summary": "Create deal setup",
@@ -2393,6 +1455,368 @@
             "source": ""
           }
         ]
+      }
+    },
+    "/webhooks/{id}": {
+      "put": {
+        "summary": "Updates webhook subscription and webhooks subcription deals",
+        "description": "Updates webhook subscription",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "formData",
+            "name": "name",
+            "description": "Endpoint name",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "enabled",
+            "description": "Endpoint status",
+            "type": "boolean",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "url",
+            "description": "Payload URL",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "security_token",
+            "description": "Secret key",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "webhook_subscription_deals[id]",
+            "description": "The id of the webhook subscription deal",
+            "type": "array",
+            "required": false,
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "in": "formData",
+            "name": "webhook_subscription_deals[deal_id]",
+            "description": "The id of the deal to link",
+            "type": "array",
+            "required": false,
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "in": "formData",
+            "name": "webhook_subscription_deals[_destroy]",
+            "description": "",
+            "type": "array",
+            "required": false,
+            "items": {
+              "type": "boolean"
+            }
+          },
+          {
+            "in": "path",
+            "name": "id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "security": [
+          {
+            "oauth": [
+              "internal",
+              "webhooks.write"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Updates webhook subscription",
+            "schema": {
+              "$ref": "#/definitions/V1_Entities_Webhooks_Subscription"
+            }
+          },
+          "403": {
+            "description": "Do not have access to this action"
+          },
+          "400": {
+            "description": "Validation error"
+          }
+        },
+        "tags": [
+
+        ],
+        "operationId": "putWebhooksId"
+      }
+    },
+    "/webhooks/deals/search": {
+      "get": {
+        "summary": "Searches for deals for a given user",
+        "description": "Searches for deals for a given user",
+        "produces": [
+          "application/json"
+        ],
+        "security": [
+          {
+            "oauth": [
+              "internal",
+              "webhooks.read"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Searches for deals for a given user",
+            "schema": {
+              "$ref": "#/definitions/V1_Entities_Webhooks_SecurityToken"
+            }
+          },
+          "403": {
+            "description": "Do not have access to this action"
+          },
+          "400": {
+            "description": "Validation error"
+          }
+        },
+        "tags": [
+
+        ],
+        "operationId": "getWebhooksDealsSearch"
+      }
+    },
+    "/webhooks/security_token": {
+      "get": {
+        "summary": "Creates a new security token for webhook subscription",
+        "description": "Creates a new security token for webhook subscription",
+        "produces": [
+          "application/json"
+        ],
+        "security": [
+          {
+            "oauth": [
+              "internal",
+              "webhooks.read"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Creates a new security token for webhook subscription",
+            "schema": {
+              "$ref": "#/definitions/V1_Entities_Webhooks_SecurityToken"
+            }
+          },
+          "403": {
+            "description": "Do not have access to this action"
+          },
+          "400": {
+            "description": "Validation error"
+          }
+        },
+        "tags": [
+
+        ],
+        "operationId": "getWebhooksSecurityToken"
+      }
+    },
+    "/webhooks/deal/{id}": {
+      "get": {
+        "summary": "Finds a deal using the id",
+        "description": "Returns a deal",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "security": [
+          {
+            "oauth": [
+              "internal",
+              "webhooks.read"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns a deal",
+            "schema": {
+              "$ref": "#/definitions/V1_Entities_Webhooks_Deal"
+            }
+          },
+          "403": {
+            "description": "Do not have access to this action"
+          },
+          "400": {
+            "description": "Validation error"
+          }
+        },
+        "tags": [
+
+        ],
+        "operationId": "getWebhooksDealId"
+      }
+    },
+    "/webhooks": {
+      "get": {
+        "summary": "Returns a list of webhook subscription which is associated to the user",
+        "description": "Returns a list of webhook subscription",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "page",
+            "description": "Page offset to fetch.",
+            "type": "integer",
+            "format": "int32",
+            "default": 1,
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "per_page",
+            "description": "Number of results to return per page.",
+            "type": "integer",
+            "format": "int32",
+            "default": 25,
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "description": "Pad a number of results.",
+            "type": "integer",
+            "format": "int32",
+            "default": 0,
+            "required": false
+          }
+        ],
+        "security": [
+          {
+            "oauth": [
+              "internal",
+              "webhooks.read"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns a list of webhook subscription",
+            "schema": {
+              "$ref": "#/definitions/V1_Entities_Webhooks_Subscription"
+            }
+          },
+          "403": {
+            "description": "Do not have access to this action"
+          },
+          "400": {
+            "description": "Validation error"
+          }
+        },
+        "tags": [
+
+        ],
+        "operationId": "getWebhooks"
+      },
+      "post": {
+        "summary": "Creates a webhook subscription which is associated to the user",
+        "description": "Creates new webhook subscription",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "formData",
+            "name": "name",
+            "description": "Endpoint name",
+            "type": "string",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "enabled",
+            "description": "Endpoint status",
+            "type": "boolean",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "url",
+            "description": "Payload URL",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "security_token",
+            "description": "Secret key",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "webhook_subscription_deals[deal_id]",
+            "description": "The id of the deal to link",
+            "type": "array",
+            "required": true,
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "security": [
+          {
+            "oauth": [
+              "internal",
+              "webhooks.write"
+            ]
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Creates new webhook subscription",
+            "schema": {
+              "$ref": "#/definitions/V1_Entities_Webhooks_Subscription"
+            }
+          },
+          "403": {
+            "description": "Do not have access to this action"
+          },
+          "400": {
+            "description": "Validation error"
+          }
+        },
+        "tags": [
+
+        ],
+        "operationId": "postWebhooks"
       }
     },
     "/investor_profiles/{type}/{id}": {
@@ -3152,368 +2576,6 @@
         ]
       }
     },
-    "/webhooks/{id}": {
-      "put": {
-        "summary": "Updates webhook subscription and webhooks subcription deals",
-        "description": "Updates webhook subscription",
-        "produces": [
-          "application/json"
-        ],
-        "consumes": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "in": "formData",
-            "name": "name",
-            "description": "Endpoint name",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "enabled",
-            "description": "Endpoint status",
-            "type": "boolean",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "url",
-            "description": "Payload URL",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "security_token",
-            "description": "Secret key",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "webhook_subscription_deals[id]",
-            "description": "The id of the webhook subscription deal",
-            "type": "array",
-            "required": false,
-            "items": {
-              "type": "integer",
-              "format": "int32"
-            }
-          },
-          {
-            "in": "formData",
-            "name": "webhook_subscription_deals[deal_id]",
-            "description": "The id of the deal to link",
-            "type": "array",
-            "required": false,
-            "items": {
-              "type": "integer",
-              "format": "int32"
-            }
-          },
-          {
-            "in": "formData",
-            "name": "webhook_subscription_deals[_destroy]",
-            "description": "",
-            "type": "array",
-            "required": false,
-            "items": {
-              "type": "boolean"
-            }
-          },
-          {
-            "in": "path",
-            "name": "id",
-            "type": "integer",
-            "format": "int32",
-            "required": true
-          }
-        ],
-        "security": [
-          {
-            "oauth": [
-              "internal",
-              "webhooks.write"
-            ]
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Updates webhook subscription",
-            "schema": {
-              "$ref": "#/definitions/V1_Entities_Webhooks_Subscription"
-            }
-          },
-          "403": {
-            "description": "Do not have access to this action"
-          },
-          "400": {
-            "description": "Validation error"
-          }
-        },
-        "tags": [
-
-        ],
-        "operationId": "putWebhooksId"
-      }
-    },
-    "/webhooks/deals/search": {
-      "get": {
-        "summary": "Searches for deals for a given user",
-        "description": "Searches for deals for a given user",
-        "produces": [
-          "application/json"
-        ],
-        "security": [
-          {
-            "oauth": [
-              "internal",
-              "webhooks.read"
-            ]
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Searches for deals for a given user",
-            "schema": {
-              "$ref": "#/definitions/V1_Entities_Webhooks_SecurityToken"
-            }
-          },
-          "403": {
-            "description": "Do not have access to this action"
-          },
-          "400": {
-            "description": "Validation error"
-          }
-        },
-        "tags": [
-
-        ],
-        "operationId": "getWebhooksDealsSearch"
-      }
-    },
-    "/webhooks/security_token": {
-      "get": {
-        "summary": "Creates a new security token for webhook subscription",
-        "description": "Creates a new security token for webhook subscription",
-        "produces": [
-          "application/json"
-        ],
-        "security": [
-          {
-            "oauth": [
-              "internal",
-              "webhooks.read"
-            ]
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Creates a new security token for webhook subscription",
-            "schema": {
-              "$ref": "#/definitions/V1_Entities_Webhooks_SecurityToken"
-            }
-          },
-          "403": {
-            "description": "Do not have access to this action"
-          },
-          "400": {
-            "description": "Validation error"
-          }
-        },
-        "tags": [
-
-        ],
-        "operationId": "getWebhooksSecurityToken"
-      }
-    },
-    "/webhooks/deal/{id}": {
-      "get": {
-        "summary": "Finds a deal using the id",
-        "description": "Returns a deal",
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "id",
-            "type": "integer",
-            "format": "int32",
-            "required": true
-          }
-        ],
-        "security": [
-          {
-            "oauth": [
-              "internal",
-              "webhooks.read"
-            ]
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Returns a deal",
-            "schema": {
-              "$ref": "#/definitions/V1_Entities_Webhooks_Deal"
-            }
-          },
-          "403": {
-            "description": "Do not have access to this action"
-          },
-          "400": {
-            "description": "Validation error"
-          }
-        },
-        "tags": [
-
-        ],
-        "operationId": "getWebhooksDealId"
-      }
-    },
-    "/webhooks": {
-      "get": {
-        "summary": "Returns a list of webhook subscription which is associated to the user",
-        "description": "Returns a list of webhook subscription",
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "in": "query",
-            "name": "page",
-            "description": "Page offset to fetch.",
-            "type": "integer",
-            "format": "int32",
-            "default": 1,
-            "required": false
-          },
-          {
-            "in": "query",
-            "name": "per_page",
-            "description": "Number of results to return per page.",
-            "type": "integer",
-            "format": "int32",
-            "default": 25,
-            "required": false
-          },
-          {
-            "in": "query",
-            "name": "offset",
-            "description": "Pad a number of results.",
-            "type": "integer",
-            "format": "int32",
-            "default": 0,
-            "required": false
-          }
-        ],
-        "security": [
-          {
-            "oauth": [
-              "internal",
-              "webhooks.read"
-            ]
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Returns a list of webhook subscription",
-            "schema": {
-              "$ref": "#/definitions/V1_Entities_Webhooks_Subscription"
-            }
-          },
-          "403": {
-            "description": "Do not have access to this action"
-          },
-          "400": {
-            "description": "Validation error"
-          }
-        },
-        "tags": [
-
-        ],
-        "operationId": "getWebhooks"
-      },
-      "post": {
-        "summary": "Creates a webhook subscription which is associated to the user",
-        "description": "Creates new webhook subscription",
-        "produces": [
-          "application/json"
-        ],
-        "consumes": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "in": "formData",
-            "name": "name",
-            "description": "Endpoint name",
-            "type": "string",
-            "required": true
-          },
-          {
-            "in": "formData",
-            "name": "enabled",
-            "description": "Endpoint status",
-            "type": "boolean",
-            "required": true
-          },
-          {
-            "in": "formData",
-            "name": "url",
-            "description": "Payload URL",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "security_token",
-            "description": "Secret key",
-            "type": "string",
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "webhook_subscription_deals[deal_id]",
-            "description": "The id of the deal to link",
-            "type": "array",
-            "required": true,
-            "items": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "security": [
-          {
-            "oauth": [
-              "internal",
-              "webhooks.write"
-            ]
-          }
-        ],
-        "responses": {
-          "201": {
-            "description": "Creates new webhook subscription",
-            "schema": {
-              "$ref": "#/definitions/V1_Entities_Webhooks_Subscription"
-            }
-          },
-          "403": {
-            "description": "Do not have access to this action"
-          },
-          "400": {
-            "description": "Validation error"
-          }
-        },
-        "tags": [
-
-        ],
-        "operationId": "postWebhooks"
-      }
-    },
     "/uploads/generate_url": {
       "post": {
         "summary": "Create a presigned URL for Amazon S3",
@@ -3672,6 +2734,944 @@
           "country"
         ],
         "operationId": "getCountryStates"
+      }
+    },
+    "/companies/{id}/shareholders/tags": {
+      "get": {
+        "summary": "Get a company shareholders list grouped by tags",
+        "description": "Gets a list of company shareholders grouped by tags.",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "description": "The company id.",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "security": [
+          {
+            "oauth": [
+              "internal"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List company shareholders grouped by tags",
+            "schema": {
+              "$ref": "#/definitions/V1_Entities_ShareholdersTags"
+            }
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not found"
+          }
+        },
+        "tags": [
+          "shareholder"
+        ],
+        "operationId": "getShareholdersTags",
+        "x-codeSamples": [
+          {
+            "lang": "javascript",
+            "source": ""
+          },
+          {
+            "lang": "ruby",
+            "source": ""
+          }
+        ]
+      }
+    },
+    "/companies/{id}/shareholders": {
+      "get": {
+        "summary": "Get a company shareholders list",
+        "description": "Gets a list of company shareholders.",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "description": "The company id.",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "security": [
+          {
+            "oauth": [
+              "internal"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List company shareholders",
+            "schema": {
+              "$ref": "#/definitions/V1_Entities_Shareholders"
+            }
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not found"
+          }
+        },
+        "tags": [
+          "shareholder"
+        ],
+        "operationId": "getShareholders",
+        "x-codeSamples": [
+          {
+            "lang": "javascript",
+            "source": ""
+          },
+          {
+            "lang": "ruby",
+            "source": ""
+          }
+        ]
+      }
+    },
+    "/companies": {
+      "post": {
+        "summary": "Create new company",
+        "description": "Creates a new company.",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "formData",
+            "name": "name",
+            "description": "The company name",
+            "type": "string",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "country",
+            "description": "The country of the company",
+            "type": "string",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "street",
+            "description": "The street of the company",
+            "type": "string",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "line_2",
+            "description": "The second line of the address of the company",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "city",
+            "description": "The city of the company",
+            "type": "string",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "state",
+            "description": "The state of the company",
+            "type": "string",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "postal_code",
+            "description": "The postal code/zip code of the company",
+            "type": "string",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "primary_color",
+            "description": "The primary color of the company",
+            "type": "string",
+            "required": false
+          }
+        ],
+        "security": [
+          {
+            "oauth": [
+              "companies.write"
+            ]
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Create new company",
+            "schema": {
+              "$ref": "#/definitions/V1_Entities_Company"
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        },
+        "tags": [
+          "company"
+        ],
+        "operationId": "createCompany",
+        "x-codeSamples": [
+          {
+            "lang": "javascript",
+            "source": ""
+          },
+          {
+            "lang": "ruby",
+            "source": ""
+          }
+        ]
+      },
+      "get": {
+        "summary": "Get list of Companies",
+        "description": "Get companies",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "page",
+            "description": "Page offset to fetch.",
+            "type": "integer",
+            "format": "int32",
+            "default": 1,
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "per_page",
+            "description": "Number of results to return per page.",
+            "type": "integer",
+            "format": "int32",
+            "default": 25,
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "description": "Pad a number of results.",
+            "type": "integer",
+            "format": "int32",
+            "default": 0,
+            "required": false
+          }
+        ],
+        "security": [
+          {
+            "oauth": [
+              "companies.read"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get companies",
+            "schema": {
+              "$ref": "#/definitions/V1_Entities_Company"
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Forbidden"
+          }
+        },
+        "tags": [
+          "company"
+        ],
+        "operationId": "getCompanies",
+        "x-codeSamples": [
+          {
+            "lang": "javascript",
+            "source": ""
+          },
+          {
+            "lang": "ruby",
+            "source": ""
+          }
+        ]
+      }
+    },
+    "/companies/{id}": {
+      "get": {
+        "summary": "Get a Company",
+        "description": "Get a Company.",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "security": [
+          {
+            "oauth": [
+              "companies.read"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get company",
+            "schema": {
+              "$ref": "#/definitions/V1_Entities_Company"
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not found"
+          }
+        },
+        "tags": [
+          "company"
+        ],
+        "operationId": "getCompany",
+        "x-codeSamples": [
+          {
+            "lang": "javascript",
+            "source": ""
+          },
+          {
+            "lang": "ruby",
+            "source": ""
+          }
+        ]
+      }
+    },
+    "/companies/{company_id}/portal/dividends": {
+      "get": {
+        "summary": "Return dividends",
+        "description": "Return dividends associated with a shareholder",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "company_id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "security": [
+          {
+            "oauth": [
+              "internal"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/V1_Entities_Dividends"
+            }
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "tags": [
+          "company"
+        ],
+        "operationId": "getDividends",
+        "x-codeSamples": [
+          {
+            "lang": "javascript",
+            "source": ""
+          },
+          {
+            "lang": "ruby",
+            "source": ""
+          }
+        ]
+      }
+    },
+    "/companies/{id}/documents/bulk_uploads": {
+      "get": {
+        "summary": "Return bulk uploads",
+        "description": "Return bulk uploads",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "page",
+            "description": "Page offset to fetch.",
+            "type": "integer",
+            "format": "int32",
+            "default": 1,
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "per_page",
+            "description": "Number of results to return per page.",
+            "type": "integer",
+            "format": "int32",
+            "default": 25,
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "description": "Pad a number of results.",
+            "type": "integer",
+            "format": "int32",
+            "default": 0,
+            "required": false
+          },
+          {
+            "in": "path",
+            "name": "id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "security": [
+          {
+            "oauth": [
+              "internal"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/V1_Entities_BulkUploads"
+            }
+          },
+          "403": {
+            "description": "Access to this resource requires scope \"internal\"."
+          }
+        },
+        "tags": [
+          "company"
+        ],
+        "operationId": "getBulkUploads",
+        "x-codeSamples": [
+          {
+            "lang": "javascript",
+            "source": ""
+          },
+          {
+            "lang": "ruby",
+            "source": ""
+          }
+        ]
+      },
+      "post": {
+        "summary": "Create bulk upload record",
+        "description": "Create bulk upload record",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "description": "The company id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "file_identifier",
+            "description": "The file identifier",
+            "type": "string",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "document_type",
+            "description": "The document type",
+            "type": "string",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "upload_name",
+            "description": "The bulk upload name",
+            "type": "string",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "send_notification",
+            "description": "Send notification to the user",
+            "type": "boolean",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "notification_message",
+            "description": "Notification message",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "security": [
+          {
+            "oauth": [
+              "internal"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/V1_Entities_BulkUpload"
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "tags": [
+          "company"
+        ],
+        "operationId": "createBulkUpload",
+        "x-codeSamples": [
+          {
+            "lang": "javascript",
+            "source": ""
+          },
+          {
+            "lang": "ruby",
+            "source": ""
+          }
+        ]
+      }
+    },
+    "/companies/{id}/documents/bulk_uploads/{bulk_upload_id}": {
+      "get": {
+        "summary": "Return a given bulk upload by id",
+        "description": "Return a given bulk upload by id",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "page",
+            "description": "Page offset to fetch.",
+            "type": "integer",
+            "format": "int32",
+            "default": 1,
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "per_page",
+            "description": "Number of results to return per page.",
+            "type": "integer",
+            "format": "int32",
+            "default": 25,
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "description": "Pad a number of results.",
+            "type": "integer",
+            "format": "int32",
+            "default": 0,
+            "required": false
+          },
+          {
+            "in": "path",
+            "name": "id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          },
+          {
+            "in": "path",
+            "name": "bulk_upload_id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "security": [
+          {
+            "oauth": [
+              "internal"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/V1_Entities_BulkUpload"
+            }
+          },
+          "403": {
+            "description": "Access to this resource requires scope \"internal\"."
+          },
+          "404": {
+            "description": "Not found"
+          }
+        },
+        "tags": [
+          "company"
+        ],
+        "operationId": "getBulkUpload",
+        "x-codeSamples": [
+          {
+            "lang": "javascript",
+            "source": ""
+          },
+          {
+            "lang": "ruby",
+            "source": ""
+          }
+        ]
+      }
+    },
+    "/companies/{company_id}/documents/bulk_uploads/{bulk_upload_id}/details/grouped_errors": {
+      "get": {
+        "summary": "Return bulk upload details grouped by status",
+        "description": "Return bulk upload details grouped by status",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "company_id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          },
+          {
+            "in": "path",
+            "name": "bulk_upload_id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "security": [
+          {
+            "oauth": [
+              "internal"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/V1_Entities_BulkUploadDetails"
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "tags": [
+          "company"
+        ],
+        "operationId": "getDetailsErrorsGrouped",
+        "x-codeSamples": [
+          {
+            "lang": "javascript",
+            "source": ""
+          },
+          {
+            "lang": "ruby",
+            "source": ""
+          }
+        ]
+      }
+    },
+    "/companies/{company_id}/documents/bulk_uploads/{bulk_upload_id}/details/errors": {
+      "get": {
+        "summary": "Returns a full list of details with errors of the given bulk upload ordered by status desc and id asc",
+        "description": "Returns a full list of details with errors of the given bulk upload",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "company_id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          },
+          {
+            "in": "path",
+            "name": "bulk_upload_id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "security": [
+          {
+            "oauth": [
+              "internal"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/V1_Entities_BulkUploadDetails"
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "tags": [
+          "company"
+        ],
+        "operationId": "getBulkUploadDetailsErrors",
+        "x-codeSamples": [
+          {
+            "lang": "javascript",
+            "source": ""
+          },
+          {
+            "lang": "ruby",
+            "source": ""
+          }
+        ]
+      }
+    },
+    "/companies/{company_id}/documents/bulk_uploads/{bulk_upload_id}/details": {
+      "post": {
+        "summary": "Create a BulkUploadDetail class record",
+        "description": "Create a BulkUploadDetail class record",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "bulk_upload_id",
+            "description": "The Bulk upload ID from which detail is associated with",
+            "type": "string",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "file_key",
+            "description": "The file ID",
+            "type": "string",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "file_name",
+            "description": "The name of the file",
+            "type": "string",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "status",
+            "description": "The status of the bulk upload detail",
+            "type": "integer",
+            "format": "int32",
+            "required": false
+          },
+          {
+            "in": "path",
+            "name": "company_id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "security": [
+          {
+            "oauth": [
+              "internal"
+            ]
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Create a BulkUploadDetail class record",
+            "schema": {
+              "$ref": "#/definitions/V1_Entities_BulkUploadDetail"
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not found"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "tags": [
+          "company"
+        ],
+        "operationId": "createBulkUploadDetail",
+        "x-codeSamples": [
+          {
+            "lang": "javascript",
+            "source": ""
+          },
+          {
+            "lang": "ruby",
+            "source": ""
+          }
+        ]
+      }
+    },
+    "/companies/{company_id}/shareholders/{shareholder_id}/actions": {
+      "post": {
+        "summary": "Create a shareholder action",
+        "description": "Create a shareholder action",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "company_id",
+            "description": "The company id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          },
+          {
+            "in": "path",
+            "name": "shareholder_id",
+            "description": "The shareholder id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "request_type",
+            "description": "The request type of the shareholder action",
+            "type": "string",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "description",
+            "description": "The description of the shareholder action",
+            "type": "string",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "request_documents",
+            "description": "The document associated with the shareholder action",
+            "type": "array",
+            "items": {
+              "type": "file"
+            },
+            "required": false
+          }
+        ],
+        "security": [
+          {
+            "oauth": [
+              "internal"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/V1_Entities_GenericResponse"
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "tags": [
+          "company"
+        ],
+        "operationId": "createShareholderAction",
+        "x-codeSamples": [
+          {
+            "lang": "javascript",
+            "source": ""
+          },
+          {
+            "lang": "ruby",
+            "source": ""
+          }
+        ]
       }
     }
   },
@@ -3908,7 +3908,8 @@
             "signed",
             "waiting",
             "accepted",
-            "inactive"
+            "inactive",
+            "processing_countersign"
           ],
           "description": "The state."
         },
@@ -4893,214 +4894,6 @@
       },
       "description": "V1_Entities_ExpressWireInstructions model"
     },
-    "V1_Entities_ShareholdersTags": {
-      "type": "object",
-      "properties": {
-        "tagName": {
-          "type": "string"
-        },
-        "shareholders": {
-          "type": "string"
-        }
-      },
-      "description": "V1_Entities_ShareholdersTags model"
-    },
-    "V1_Entities_Shareholders": {
-      "type": "object",
-      "properties": {
-        "items": {
-          "$ref": "#/definitions/V1_Entities_Shareholder"
-        }
-      },
-      "description": "V1_Entities_Shareholders model"
-    },
-    "V1_Entities_Shareholder": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "integer",
-          "format": "int32",
-          "description": "Shareholder id."
-        },
-        "email": {
-          "type": "string",
-          "description": "Shareholder email address."
-        },
-        "fullName": {
-          "type": "string",
-          "description": "Shareholder first name."
-        },
-        "tags": {
-          "type": "Array[String]",
-          "description": "Shareholder tags."
-        }
-      }
-    },
-    "V1_Entities_Dividends": {
-      "type": "object",
-      "properties": {
-        "items": {
-          "$ref": "#/definitions/V1_Entities_Dividend"
-        }
-      },
-      "description": "V1_Entities_Dividends model"
-    },
-    "V1_Entities_Dividend": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "integer",
-          "format": "int32",
-          "description": "The dividend ID."
-        },
-        "filename": {
-          "type": "string",
-          "description": "The dividend filename."
-        },
-        "created_at": {
-          "type": "string",
-          "description": "The created at timestamp"
-        },
-        "statement_link": {
-          "type": "string",
-          "description": "The dividend statement link."
-        }
-      }
-    },
-    "V1_Entities_BulkUpload": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "integer",
-          "format": "int32",
-          "description": "The bulk upload ID"
-        },
-        "company_id": {
-          "type": "integer",
-          "format": "int32",
-          "description": "The company ID"
-        },
-        "file_identifier": {
-          "type": "string",
-          "description": "The file identifier [shareholder, investor]"
-        },
-        "document_type": {
-          "type": "string",
-          "enum": [
-            "drs_statement",
-            "shareholder_statement",
-            "book_entry_statement",
-            "dividend_statement"
-          ],
-          "description": "The document type "
-        },
-        "upload_name": {
-          "type": "string",
-          "description": "The bulk upload name"
-        },
-        "files_count": {
-          "type": "integer",
-          "format": "int32",
-          "description": "The number of files in the bulk upload"
-        },
-        "errors_count": {
-          "type": "integer",
-          "format": "int32",
-          "description": "The number of errors in the bulk upload"
-        },
-        "success_count": {
-          "type": "integer",
-          "format": "int32",
-          "description": "The number of succeeded files in the bulk upload"
-        },
-        "status": {
-          "type": "string",
-          "description": "The status [pending, processing, completed, failed]"
-        },
-        "created_at": {
-          "type": "string",
-          "description": "The created at timestamp"
-        },
-        "updated_at": {
-          "type": "string",
-          "description": "The updated at timestamp"
-        }
-      },
-      "description": "V1_Entities_BulkUpload model"
-    },
-    "V1_Entities_BulkUploads": {
-      "type": "object",
-      "properties": {
-        "items": {
-          "$ref": "#/definitions/V1_Entities_BulkUpload"
-        }
-      },
-      "description": "V1_Entities_BulkUploads model"
-    },
-    "V1_Entities_BulkUploadDetail": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "integer",
-          "format": "int32",
-          "description": "The ID for the bulk upload detail"
-        },
-        "bulk_upload_id": {
-          "type": "integer",
-          "format": "int32",
-          "description": "The bulk upload ID"
-        },
-        "file_key": {
-          "type": "string",
-          "description": "The generated identifier for the file"
-        },
-        "file_name": {
-          "type": "string",
-          "description": "The name of the file"
-        },
-        "status": {
-          "type": "integer",
-          "format": "int32",
-          "description": "The status of the bulk upload detail"
-        },
-        "readable_status": {
-          "type": "string",
-          "description": "The readable status of the bulk upload detail"
-        },
-        "created_at": {
-          "type": "string",
-          "description": "The created at date"
-        },
-        "updated_at": {
-          "type": "string",
-          "description": "The updated at date"
-        }
-      },
-      "description": "V1_Entities_BulkUploadDetail model"
-    },
-    "V1_Entities_BulkUploadDetails": {
-      "type": "object",
-      "properties": {
-        "items": {
-          "$ref": "#/definitions/V1_Entities_BulkUploadDetail"
-        }
-      },
-      "description": "V1_Entities_BulkUploadDetails model"
-    },
-    "V1_Entities_GenericResponse": {
-      "type": "object",
-      "properties": {
-        "success": {
-          "type": "boolean",
-          "description": "The status of the creation response"
-        },
-        "message": {
-          "type": "string",
-          "description": "The message of the creation response"
-        }
-      },
-      "description": "V1_Entities_GenericResponse model"
-    },
     "V1_Entities_DealSetup": {
       "type": "object",
       "properties": {
@@ -5159,6 +4952,93 @@
           "description": "Investor user email address."
         }
       }
+    },
+    "V1_Entities_Webhooks_Subscription": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Webhook subscription id."
+        },
+        "name": {
+          "type": "string",
+          "description": "Webhook subscription name."
+        },
+        "url": {
+          "type": "string",
+          "description": "Webhook subscription payload URL."
+        },
+        "enabled": {
+          "type": "boolean",
+          "description": "Webhook subscription status."
+        },
+        "security_token": {
+          "type": "string",
+          "description": "Webhook subscription secrete key."
+        },
+        "deals": {
+          "$ref": "#/definitions/V1_Entities_Webhooks_SubscriptionDeals"
+        }
+      },
+      "description": "V1_Entities_Webhooks_Subscription model"
+    },
+    "V1_Entities_Webhooks_SubscriptionDeals": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "$ref": "#/definitions/V1_Entities_Webhooks_SubscriptionDeal"
+        }
+      }
+    },
+    "V1_Entities_Webhooks_SubscriptionDeal": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The id of the webhook subscription deal."
+        },
+        "deal_id": {
+          "type": "string",
+          "description": "Linked deal id."
+        },
+        "name": {
+          "type": "string",
+          "description": "Linked deal name."
+        },
+        "company_name": {
+          "type": "string",
+          "description": "Name of the company that owns the linked deal."
+        }
+      }
+    },
+    "V1_Entities_Webhooks_SecurityToken": {
+      "type": "object",
+      "properties": {
+        "security_token": {
+          "type": "string",
+          "description": "The generated security token."
+        }
+      },
+      "description": "V1_Entities_Webhooks_SecurityToken model"
+    },
+    "V1_Entities_Webhooks_Deal": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Deal id."
+        },
+        "name": {
+          "type": "string",
+          "description": "Deal name."
+        },
+        "company_name": {
+          "type": "string",
+          "description": "Name of the company that owns the deal."
+        }
+      },
+      "description": "V1_Entities_Webhooks_Deal model"
     },
     "patchInvestorProfilesTrusts": {
       "type": "object",
@@ -6400,93 +6280,6 @@
       },
       "description": "V1_Entities_InvestorProfiles model"
     },
-    "V1_Entities_Webhooks_Subscription": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "integer",
-          "format": "int32",
-          "description": "Webhook subscription id."
-        },
-        "name": {
-          "type": "string",
-          "description": "Webhook subscription name."
-        },
-        "url": {
-          "type": "string",
-          "description": "Webhook subscription payload URL."
-        },
-        "enabled": {
-          "type": "boolean",
-          "description": "Webhook subscription status."
-        },
-        "security_token": {
-          "type": "string",
-          "description": "Webhook subscription secrete key."
-        },
-        "deals": {
-          "$ref": "#/definitions/V1_Entities_Webhooks_SubscriptionDeals"
-        }
-      },
-      "description": "V1_Entities_Webhooks_Subscription model"
-    },
-    "V1_Entities_Webhooks_SubscriptionDeals": {
-      "type": "object",
-      "properties": {
-        "items": {
-          "$ref": "#/definitions/V1_Entities_Webhooks_SubscriptionDeal"
-        }
-      }
-    },
-    "V1_Entities_Webhooks_SubscriptionDeal": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "string",
-          "description": "The id of the webhook subscription deal."
-        },
-        "deal_id": {
-          "type": "string",
-          "description": "Linked deal id."
-        },
-        "name": {
-          "type": "string",
-          "description": "Linked deal name."
-        },
-        "company_name": {
-          "type": "string",
-          "description": "Name of the company that owns the linked deal."
-        }
-      }
-    },
-    "V1_Entities_Webhooks_SecurityToken": {
-      "type": "object",
-      "properties": {
-        "security_token": {
-          "type": "string",
-          "description": "The generated security token."
-        }
-      },
-      "description": "V1_Entities_Webhooks_SecurityToken model"
-    },
-    "V1_Entities_Webhooks_Deal": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "string",
-          "description": "Deal id."
-        },
-        "name": {
-          "type": "string",
-          "description": "Deal name."
-        },
-        "company_name": {
-          "type": "string",
-          "description": "Name of the company that owns the deal."
-        }
-      },
-      "description": "V1_Entities_Webhooks_Deal model"
-    },
     "V1_Entities_PresignedUrlResult": {
       "type": "object",
       "properties": {
@@ -6509,6 +6302,214 @@
         }
       },
       "description": "V1_Entities_Countries model"
+    },
+    "V1_Entities_ShareholdersTags": {
+      "type": "object",
+      "properties": {
+        "tagName": {
+          "type": "string"
+        },
+        "shareholders": {
+          "type": "string"
+        }
+      },
+      "description": "V1_Entities_ShareholdersTags model"
+    },
+    "V1_Entities_Shareholders": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "$ref": "#/definitions/V1_Entities_Shareholder"
+        }
+      },
+      "description": "V1_Entities_Shareholders model"
+    },
+    "V1_Entities_Shareholder": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Shareholder id."
+        },
+        "email": {
+          "type": "string",
+          "description": "Shareholder email address."
+        },
+        "fullName": {
+          "type": "string",
+          "description": "Shareholder first name."
+        },
+        "tags": {
+          "type": "Array[String]",
+          "description": "Shareholder tags."
+        }
+      }
+    },
+    "V1_Entities_Dividends": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "$ref": "#/definitions/V1_Entities_Dividend"
+        }
+      },
+      "description": "V1_Entities_Dividends model"
+    },
+    "V1_Entities_Dividend": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32",
+          "description": "The dividend ID."
+        },
+        "filename": {
+          "type": "string",
+          "description": "The dividend filename."
+        },
+        "created_at": {
+          "type": "string",
+          "description": "The created at timestamp"
+        },
+        "statement_link": {
+          "type": "string",
+          "description": "The dividend statement link."
+        }
+      }
+    },
+    "V1_Entities_BulkUploads": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "$ref": "#/definitions/V1_Entities_BulkUpload"
+        }
+      },
+      "description": "V1_Entities_BulkUploads model"
+    },
+    "V1_Entities_BulkUpload": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32",
+          "description": "The bulk upload ID"
+        },
+        "company_id": {
+          "type": "integer",
+          "format": "int32",
+          "description": "The company ID"
+        },
+        "file_identifier": {
+          "type": "string",
+          "description": "The file identifier [shareholder, investor]"
+        },
+        "document_type": {
+          "type": "string",
+          "enum": [
+            "drs_statement",
+            "shareholder_statement",
+            "book_entry_statement",
+            "dividend_statement"
+          ],
+          "description": "The document type "
+        },
+        "upload_name": {
+          "type": "string",
+          "description": "The bulk upload name"
+        },
+        "files_count": {
+          "type": "integer",
+          "format": "int32",
+          "description": "The number of files in the bulk upload"
+        },
+        "errors_count": {
+          "type": "integer",
+          "format": "int32",
+          "description": "The number of errors in the bulk upload"
+        },
+        "success_count": {
+          "type": "integer",
+          "format": "int32",
+          "description": "The number of succeeded files in the bulk upload"
+        },
+        "status": {
+          "type": "string",
+          "description": "The status [pending, processing, completed, failed]"
+        },
+        "created_at": {
+          "type": "string",
+          "description": "The created at timestamp"
+        },
+        "updated_at": {
+          "type": "string",
+          "description": "The updated at timestamp"
+        }
+      },
+      "description": "V1_Entities_BulkUpload model"
+    },
+    "V1_Entities_BulkUploadDetails": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "$ref": "#/definitions/V1_Entities_BulkUploadDetail"
+        }
+      },
+      "description": "V1_Entities_BulkUploadDetails model"
+    },
+    "V1_Entities_BulkUploadDetail": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32",
+          "description": "The ID for the bulk upload detail"
+        },
+        "bulk_upload_id": {
+          "type": "integer",
+          "format": "int32",
+          "description": "The bulk upload ID"
+        },
+        "file_key": {
+          "type": "string",
+          "description": "The generated identifier for the file"
+        },
+        "file_name": {
+          "type": "string",
+          "description": "The name of the file"
+        },
+        "status": {
+          "type": "integer",
+          "format": "int32",
+          "description": "The status of the bulk upload detail"
+        },
+        "readable_status": {
+          "type": "string",
+          "description": "The readable status of the bulk upload detail"
+        },
+        "created_at": {
+          "type": "string",
+          "description": "The created at date"
+        },
+        "updated_at": {
+          "type": "string",
+          "description": "The updated at date"
+        }
+      },
+      "description": "V1_Entities_BulkUploadDetail model"
+    },
+    "V1_Entities_GenericResponse": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean",
+          "description": "The status of the creation response"
+        },
+        "message": {
+          "type": "string",
+          "description": "The message of the creation response"
+        }
+      },
+      "description": "V1_Entities_GenericResponse model"
     }
   }
 }

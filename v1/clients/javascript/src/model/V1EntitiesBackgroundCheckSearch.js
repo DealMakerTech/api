@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The V1EntitiesBackgroundCheckSearch model module.
  * @module model/V1EntitiesBackgroundCheckSearch
- * @version 0.88.4
+ * @version 0.89.0
  */
 class V1EntitiesBackgroundCheckSearch {
     /**

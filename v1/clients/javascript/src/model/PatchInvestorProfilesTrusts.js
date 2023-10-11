@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The PatchInvestorProfilesTrusts model module.
  * @module model/PatchInvestorProfilesTrusts
- * @version 0.88.4
+ * @version 0.89.0
  */
 class PatchInvestorProfilesTrusts {
     /**

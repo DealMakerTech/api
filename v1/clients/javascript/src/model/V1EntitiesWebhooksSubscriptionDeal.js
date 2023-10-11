@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The V1EntitiesWebhooksSubscriptionDeal model module.
  * @module model/V1EntitiesWebhooksSubscriptionDeal
- * @version 0.88.4
+ * @version 0.89.0
  */
 class V1EntitiesWebhooksSubscriptionDeal {
     /**

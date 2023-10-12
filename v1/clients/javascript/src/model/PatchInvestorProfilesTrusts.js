@@ -12,11 +12,12 @@
  */
 
 import ApiClient from '../ApiClient';
+import PatchInvestorProfilesTrustsTrusteesInner from './PatchInvestorProfilesTrustsTrusteesInner';
 
 /**
  * The PatchInvestorProfilesTrusts model module.
  * @module model/PatchInvestorProfilesTrusts
- * @version 0.89.0
+ * @version 0.89.1
  */
 class PatchInvestorProfilesTrusts {
     /**
@@ -87,35 +88,8 @@ class PatchInvestorProfilesTrusts {
             if (data.hasOwnProperty('reg_cf_prior_offerings_amount')) {
                 obj['reg_cf_prior_offerings_amount'] = ApiClient.convertToType(data['reg_cf_prior_offerings_amount'], 'Number');
             }
-            if (data.hasOwnProperty('trustee_first_name')) {
-                obj['trustee_first_name'] = ApiClient.convertToType(data['trustee_first_name'], 'String');
-            }
-            if (data.hasOwnProperty('trustee_last_name')) {
-                obj['trustee_last_name'] = ApiClient.convertToType(data['trustee_last_name'], 'String');
-            }
-            if (data.hasOwnProperty('trustee_suffix')) {
-                obj['trustee_suffix'] = ApiClient.convertToType(data['trustee_suffix'], 'String');
-            }
-            if (data.hasOwnProperty('trustee_street_address')) {
-                obj['trustee_street_address'] = ApiClient.convertToType(data['trustee_street_address'], 'String');
-            }
-            if (data.hasOwnProperty('trustee_unit2')) {
-                obj['trustee_unit2'] = ApiClient.convertToType(data['trustee_unit2'], 'String');
-            }
-            if (data.hasOwnProperty('trustee_city')) {
-                obj['trustee_city'] = ApiClient.convertToType(data['trustee_city'], 'String');
-            }
-            if (data.hasOwnProperty('trustee_region')) {
-                obj['trustee_region'] = ApiClient.convertToType(data['trustee_region'], 'String');
-            }
-            if (data.hasOwnProperty('trustee_postal_code')) {
-                obj['trustee_postal_code'] = ApiClient.convertToType(data['trustee_postal_code'], 'String');
-            }
-            if (data.hasOwnProperty('trustee_date_of_birth')) {
-                obj['trustee_date_of_birth'] = ApiClient.convertToType(data['trustee_date_of_birth'], 'String');
-            }
-            if (data.hasOwnProperty('trustee_taxpayer_id')) {
-                obj['trustee_taxpayer_id'] = ApiClient.convertToType(data['trustee_taxpayer_id'], 'String');
+            if (data.hasOwnProperty('trustees')) {
+                obj['trustees'] = ApiClient.convertToType(data['trustees'], [PatchInvestorProfilesTrustsTrusteesInner]);
             }
         }
         return obj;
@@ -167,45 +141,15 @@ class PatchInvestorProfilesTrusts {
         if (data['postal_code'] && !(typeof data['postal_code'] === 'string' || data['postal_code'] instanceof String)) {
             throw new Error("Expected the field `postal_code` to be a primitive type in the JSON string but got " + data['postal_code']);
         }
-        // ensure the json data is a string
-        if (data['trustee_first_name'] && !(typeof data['trustee_first_name'] === 'string' || data['trustee_first_name'] instanceof String)) {
-            throw new Error("Expected the field `trustee_first_name` to be a primitive type in the JSON string but got " + data['trustee_first_name']);
-        }
-        // ensure the json data is a string
-        if (data['trustee_last_name'] && !(typeof data['trustee_last_name'] === 'string' || data['trustee_last_name'] instanceof String)) {
-            throw new Error("Expected the field `trustee_last_name` to be a primitive type in the JSON string but got " + data['trustee_last_name']);
-        }
-        // ensure the json data is a string
-        if (data['trustee_suffix'] && !(typeof data['trustee_suffix'] === 'string' || data['trustee_suffix'] instanceof String)) {
-            throw new Error("Expected the field `trustee_suffix` to be a primitive type in the JSON string but got " + data['trustee_suffix']);
-        }
-        // ensure the json data is a string
-        if (data['trustee_street_address'] && !(typeof data['trustee_street_address'] === 'string' || data['trustee_street_address'] instanceof String)) {
-            throw new Error("Expected the field `trustee_street_address` to be a primitive type in the JSON string but got " + data['trustee_street_address']);
-        }
-        // ensure the json data is a string
-        if (data['trustee_unit2'] && !(typeof data['trustee_unit2'] === 'string' || data['trustee_unit2'] instanceof String)) {
-            throw new Error("Expected the field `trustee_unit2` to be a primitive type in the JSON string but got " + data['trustee_unit2']);
-        }
-        // ensure the json data is a string
-        if (data['trustee_city'] && !(typeof data['trustee_city'] === 'string' || data['trustee_city'] instanceof String)) {
-            throw new Error("Expected the field `trustee_city` to be a primitive type in the JSON string but got " + data['trustee_city']);
-        }
-        // ensure the json data is a string
-        if (data['trustee_region'] && !(typeof data['trustee_region'] === 'string' || data['trustee_region'] instanceof String)) {
-            throw new Error("Expected the field `trustee_region` to be a primitive type in the JSON string but got " + data['trustee_region']);
-        }
-        // ensure the json data is a string
-        if (data['trustee_postal_code'] && !(typeof data['trustee_postal_code'] === 'string' || data['trustee_postal_code'] instanceof String)) {
-            throw new Error("Expected the field `trustee_postal_code` to be a primitive type in the JSON string but got " + data['trustee_postal_code']);
-        }
-        // ensure the json data is a string
-        if (data['trustee_date_of_birth'] && !(typeof data['trustee_date_of_birth'] === 'string' || data['trustee_date_of_birth'] instanceof String)) {
-            throw new Error("Expected the field `trustee_date_of_birth` to be a primitive type in the JSON string but got " + data['trustee_date_of_birth']);
-        }
-        // ensure the json data is a string
-        if (data['trustee_taxpayer_id'] && !(typeof data['trustee_taxpayer_id'] === 'string' || data['trustee_taxpayer_id'] instanceof String)) {
-            throw new Error("Expected the field `trustee_taxpayer_id` to be a primitive type in the JSON string but got " + data['trustee_taxpayer_id']);
+        if (data['trustees']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['trustees'])) {
+                throw new Error("Expected the field `trustees` to be an array in the JSON data but got " + data['trustees']);
+            }
+            // validate the optional field `trustees` (array)
+            for (const item of data['trustees']) {
+                PatchInvestorProfilesTrustsTrusteesInner.validateJSON(item);
+            };
         }
 
         return true;
@@ -295,64 +239,9 @@ PatchInvestorProfilesTrusts.prototype['net_worth'] = undefined;
 PatchInvestorProfilesTrusts.prototype['reg_cf_prior_offerings_amount'] = undefined;
 
 /**
- * Trustee first name.
- * @member {String} trustee_first_name
+ * @member {Array.<module:model/PatchInvestorProfilesTrustsTrusteesInner>} trustees
  */
-PatchInvestorProfilesTrusts.prototype['trustee_first_name'] = undefined;
-
-/**
- * Trustee last name.
- * @member {String} trustee_last_name
- */
-PatchInvestorProfilesTrusts.prototype['trustee_last_name'] = undefined;
-
-/**
- * Trustee suffix.
- * @member {String} trustee_suffix
- */
-PatchInvestorProfilesTrusts.prototype['trustee_suffix'] = undefined;
-
-/**
- * Trustee street address.
- * @member {String} trustee_street_address
- */
-PatchInvestorProfilesTrusts.prototype['trustee_street_address'] = undefined;
-
-/**
- * Trustee street address line 2.
- * @member {String} trustee_unit2
- */
-PatchInvestorProfilesTrusts.prototype['trustee_unit2'] = undefined;
-
-/**
- * Trustee city.
- * @member {String} trustee_city
- */
-PatchInvestorProfilesTrusts.prototype['trustee_city'] = undefined;
-
-/**
- * Trustee region or state.
- * @member {String} trustee_region
- */
-PatchInvestorProfilesTrusts.prototype['trustee_region'] = undefined;
-
-/**
- * Trustee postal code or zipcode.
- * @member {String} trustee_postal_code
- */
-PatchInvestorProfilesTrusts.prototype['trustee_postal_code'] = undefined;
-
-/**
- * Trustee date of birth.
- * @member {String} trustee_date_of_birth
- */
-PatchInvestorProfilesTrusts.prototype['trustee_date_of_birth'] = undefined;
-
-/**
- * The taxpayer identification number of the investor profile.
- * @member {String} trustee_taxpayer_id
- */
-PatchInvestorProfilesTrusts.prototype['trustee_taxpayer_id'] = undefined;
+PatchInvestorProfilesTrusts.prototype['trustees'] = undefined;
 
 
 

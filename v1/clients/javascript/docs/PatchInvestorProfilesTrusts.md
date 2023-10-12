@@ -17,16 +17,7 @@ Name | Type | Description | Notes
 **income** | **Number** | The income of the Trust. | [optional] 
 **netWorth** | **Number** | The net worth of the Trust. | [optional] 
 **regCfPriorOfferingsAmount** | **Number** | The prior offering amount of the Trust. | [optional] 
-**trusteeFirstName** | **String** | Trustee first name. | [optional] 
-**trusteeLastName** | **String** | Trustee last name. | [optional] 
-**trusteeSuffix** | **String** | Trustee suffix. | [optional] 
-**trusteeStreetAddress** | **String** | Trustee street address. | [optional] 
-**trusteeUnit2** | **String** | Trustee street address line 2. | [optional] 
-**trusteeCity** | **String** | Trustee city. | [optional] 
-**trusteeRegion** | **String** | Trustee region or state. | [optional] 
-**trusteePostalCode** | **String** | Trustee postal code or zipcode. | [optional] 
-**trusteeDateOfBirth** | **String** | Trustee date of birth. | [optional] 
-**trusteeTaxpayerId** | **String** | The taxpayer identification number of the investor profile. | [optional] 
+**trustees** | [**[PatchInvestorProfilesTrustsTrusteesInner]**](PatchInvestorProfilesTrustsTrusteesInner.md) |  | [optional] 
 
 
 

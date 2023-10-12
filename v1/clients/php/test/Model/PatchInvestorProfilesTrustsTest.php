@@ -197,90 +197,9 @@ class PatchInvestorProfilesTrustsTest extends TestCase
     }
 
     /**
-     * Test attribute "trustee_first_name"
+     * Test attribute "trustees"
      */
-    public function testPropertyTrusteeFirstName()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "trustee_last_name"
-     */
-    public function testPropertyTrusteeLastName()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "trustee_suffix"
-     */
-    public function testPropertyTrusteeSuffix()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "trustee_street_address"
-     */
-    public function testPropertyTrusteeStreetAddress()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "trustee_unit2"
-     */
-    public function testPropertyTrusteeUnit2()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "trustee_city"
-     */
-    public function testPropertyTrusteeCity()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "trustee_region"
-     */
-    public function testPropertyTrusteeRegion()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "trustee_postal_code"
-     */
-    public function testPropertyTrusteePostalCode()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "trustee_date_of_birth"
-     */
-    public function testPropertyTrusteeDateOfBirth()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "trustee_taxpayer_id"
-     */
-    public function testPropertyTrusteeTaxpayerId()
+    public function testPropertyTrustees()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

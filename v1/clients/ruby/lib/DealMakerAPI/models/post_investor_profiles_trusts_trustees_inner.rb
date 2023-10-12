@@ -36,7 +36,7 @@ module DealMakerAPI
     # The list of regions or states for the trustees (required for trustee 1).
     attr_accessor :region
 
-    # The list of postal codes or zipcodes for the trustees (required) for trustee 1.
+    # The list of postal codes or zipcodes for the trustees (required for trustee 1).
     attr_accessor :postal_code
 
     # The list of dates of birth for the trustees (required for trustee 1).

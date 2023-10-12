@@ -554,7 +554,7 @@ class PostInvestorProfilesTrustsTrusteesInner implements ModelInterface, ArrayAc
     /**
      * Sets postal_code
      *
-     * @param string|null $postal_code The list of postal codes or zipcodes for the trustees (required) for trustee 1.
+     * @param string|null $postal_code The list of postal codes or zipcodes for the trustees (required for trustee 1).
      *
      * @return self
      */

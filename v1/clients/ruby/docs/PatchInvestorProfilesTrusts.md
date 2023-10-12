@@ -17,16 +17,7 @@
 | **income** | **Float** | The income of the Trust. | [optional] |
 | **net_worth** | **Float** | The net worth of the Trust. | [optional] |
 | **reg_cf_prior_offerings_amount** | **Float** | The prior offering amount of the Trust. | [optional] |
-| **trustee_first_name** | **String** | Trustee first name. | [optional] |
-| **trustee_last_name** | **String** | Trustee last name. | [optional] |
-| **trustee_suffix** | **String** | Trustee suffix. | [optional] |
-| **trustee_street_address** | **String** | Trustee street address. | [optional] |
-| **trustee_unit2** | **String** | Trustee street address line 2. | [optional] |
-| **trustee_city** | **String** | Trustee city. | [optional] |
-| **trustee_region** | **String** | Trustee region or state. | [optional] |
-| **trustee_postal_code** | **String** | Trustee postal code or zipcode. | [optional] |
-| **trustee_date_of_birth** | **String** | Trustee date of birth. | [optional] |
-| **trustee_taxpayer_id** | **String** | The taxpayer identification number of the investor profile. | [optional] |
+| **trustees** | [**Array&lt;PatchInvestorProfilesTrustsTrusteesInner&gt;**](PatchInvestorProfilesTrustsTrusteesInner.md) |  | [optional] |
 
 ## Example
 
@@ -47,16 +38,7 @@ instance = DealMakerAPI::PatchInvestorProfilesTrusts.new(
   income: null,
   net_worth: null,
   reg_cf_prior_offerings_amount: null,
-  trustee_first_name: null,
-  trustee_last_name: null,
-  trustee_suffix: null,
-  trustee_street_address: null,
-  trustee_unit2: null,
-  trustee_city: null,
-  trustee_region: null,
-  trustee_postal_code: null,
-  trustee_date_of_birth: null,
-  trustee_taxpayer_id: null
+  trustees: null
 )
 ```
 

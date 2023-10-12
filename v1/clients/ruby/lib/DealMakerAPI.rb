@@ -32,6 +32,7 @@ require 'DealMakerAPI/models/patch_investor_profiles_corporations_beneficial_own
 require 'DealMakerAPI/models/patch_investor_profiles_individuals'
 require 'DealMakerAPI/models/patch_investor_profiles_joints'
 require 'DealMakerAPI/models/patch_investor_profiles_trusts'
+require 'DealMakerAPI/models/patch_investor_profiles_trusts_trustees_inner'
 require 'DealMakerAPI/models/patch_investor_request'
 require 'DealMakerAPI/models/post_deals_id_investors'
 require 'DealMakerAPI/models/post_investor_profiles_corporations'

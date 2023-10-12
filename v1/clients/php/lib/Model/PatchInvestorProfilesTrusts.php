@@ -71,16 +71,7 @@ class PatchInvestorProfilesTrusts implements ModelInterface, ArrayAccess, \JsonS
         'income' => 'float',
         'net_worth' => 'float',
         'reg_cf_prior_offerings_amount' => 'float',
-        'trustee_first_name' => 'string',
-        'trustee_last_name' => 'string',
-        'trustee_suffix' => 'string',
-        'trustee_street_address' => 'string',
-        'trustee_unit2' => 'string',
-        'trustee_city' => 'string',
-        'trustee_region' => 'string',
-        'trustee_postal_code' => 'string',
-        'trustee_date_of_birth' => 'string',
-        'trustee_taxpayer_id' => 'string'
+        'trustees' => '\DealMaker\Model\PatchInvestorProfilesTrustsTrusteesInner[]'
     ];
 
     /**
@@ -104,16 +95,7 @@ class PatchInvestorProfilesTrusts implements ModelInterface, ArrayAccess, \JsonS
         'income' => 'float',
         'net_worth' => 'float',
         'reg_cf_prior_offerings_amount' => 'float',
-        'trustee_first_name' => null,
-        'trustee_last_name' => null,
-        'trustee_suffix' => null,
-        'trustee_street_address' => null,
-        'trustee_unit2' => null,
-        'trustee_city' => null,
-        'trustee_region' => null,
-        'trustee_postal_code' => null,
-        'trustee_date_of_birth' => null,
-        'trustee_taxpayer_id' => null
+        'trustees' => null
     ];
 
     /**
@@ -135,16 +117,7 @@ class PatchInvestorProfilesTrusts implements ModelInterface, ArrayAccess, \JsonS
 		'income' => false,
 		'net_worth' => false,
 		'reg_cf_prior_offerings_amount' => false,
-		'trustee_first_name' => false,
-		'trustee_last_name' => false,
-		'trustee_suffix' => false,
-		'trustee_street_address' => false,
-		'trustee_unit2' => false,
-		'trustee_city' => false,
-		'trustee_region' => false,
-		'trustee_postal_code' => false,
-		'trustee_date_of_birth' => false,
-		'trustee_taxpayer_id' => false
+		'trustees' => false
     ];
 
     /**
@@ -246,16 +219,7 @@ class PatchInvestorProfilesTrusts implements ModelInterface, ArrayAccess, \JsonS
         'income' => 'income',
         'net_worth' => 'net_worth',
         'reg_cf_prior_offerings_amount' => 'reg_cf_prior_offerings_amount',
-        'trustee_first_name' => 'trustee_first_name',
-        'trustee_last_name' => 'trustee_last_name',
-        'trustee_suffix' => 'trustee_suffix',
-        'trustee_street_address' => 'trustee_street_address',
-        'trustee_unit2' => 'trustee_unit2',
-        'trustee_city' => 'trustee_city',
-        'trustee_region' => 'trustee_region',
-        'trustee_postal_code' => 'trustee_postal_code',
-        'trustee_date_of_birth' => 'trustee_date_of_birth',
-        'trustee_taxpayer_id' => 'trustee_taxpayer_id'
+        'trustees' => 'trustees'
     ];
 
     /**
@@ -277,16 +241,7 @@ class PatchInvestorProfilesTrusts implements ModelInterface, ArrayAccess, \JsonS
         'income' => 'setIncome',
         'net_worth' => 'setNetWorth',
         'reg_cf_prior_offerings_amount' => 'setRegCfPriorOfferingsAmount',
-        'trustee_first_name' => 'setTrusteeFirstName',
-        'trustee_last_name' => 'setTrusteeLastName',
-        'trustee_suffix' => 'setTrusteeSuffix',
-        'trustee_street_address' => 'setTrusteeStreetAddress',
-        'trustee_unit2' => 'setTrusteeUnit2',
-        'trustee_city' => 'setTrusteeCity',
-        'trustee_region' => 'setTrusteeRegion',
-        'trustee_postal_code' => 'setTrusteePostalCode',
-        'trustee_date_of_birth' => 'setTrusteeDateOfBirth',
-        'trustee_taxpayer_id' => 'setTrusteeTaxpayerId'
+        'trustees' => 'setTrustees'
     ];
 
     /**
@@ -308,16 +263,7 @@ class PatchInvestorProfilesTrusts implements ModelInterface, ArrayAccess, \JsonS
         'income' => 'getIncome',
         'net_worth' => 'getNetWorth',
         'reg_cf_prior_offerings_amount' => 'getRegCfPriorOfferingsAmount',
-        'trustee_first_name' => 'getTrusteeFirstName',
-        'trustee_last_name' => 'getTrusteeLastName',
-        'trustee_suffix' => 'getTrusteeSuffix',
-        'trustee_street_address' => 'getTrusteeStreetAddress',
-        'trustee_unit2' => 'getTrusteeUnit2',
-        'trustee_city' => 'getTrusteeCity',
-        'trustee_region' => 'getTrusteeRegion',
-        'trustee_postal_code' => 'getTrusteePostalCode',
-        'trustee_date_of_birth' => 'getTrusteeDateOfBirth',
-        'trustee_taxpayer_id' => 'getTrusteeTaxpayerId'
+        'trustees' => 'getTrustees'
     ];
 
     /**
@@ -424,16 +370,7 @@ class PatchInvestorProfilesTrusts implements ModelInterface, ArrayAccess, \JsonS
         $this->setIfExists('income', $data ?? [], null);
         $this->setIfExists('net_worth', $data ?? [], null);
         $this->setIfExists('reg_cf_prior_offerings_amount', $data ?? [], null);
-        $this->setIfExists('trustee_first_name', $data ?? [], null);
-        $this->setIfExists('trustee_last_name', $data ?? [], null);
-        $this->setIfExists('trustee_suffix', $data ?? [], null);
-        $this->setIfExists('trustee_street_address', $data ?? [], null);
-        $this->setIfExists('trustee_unit2', $data ?? [], null);
-        $this->setIfExists('trustee_city', $data ?? [], null);
-        $this->setIfExists('trustee_region', $data ?? [], null);
-        $this->setIfExists('trustee_postal_code', $data ?? [], null);
-        $this->setIfExists('trustee_date_of_birth', $data ?? [], null);
-        $this->setIfExists('trustee_taxpayer_id', $data ?? [], null);
+        $this->setIfExists('trustees', $data ?? [], null);
     }
 
     /**
@@ -868,271 +805,28 @@ class PatchInvestorProfilesTrusts implements ModelInterface, ArrayAccess, \JsonS
     }
 
     /**
-     * Gets trustee_first_name
+     * Gets trustees
      *
-     * @return string|null
+     * @return \DealMaker\Model\PatchInvestorProfilesTrustsTrusteesInner[]|null
      */
-    public function getTrusteeFirstName()
+    public function getTrustees()
     {
-        return $this->container['trustee_first_name'];
+        return $this->container['trustees'];
     }
 
     /**
-     * Sets trustee_first_name
+     * Sets trustees
      *
-     * @param string|null $trustee_first_name Trustee first name.
+     * @param \DealMaker\Model\PatchInvestorProfilesTrustsTrusteesInner[]|null $trustees trustees
      *
      * @return self
      */
-    public function setTrusteeFirstName($trustee_first_name)
+    public function setTrustees($trustees)
     {
-        if (is_null($trustee_first_name)) {
-            throw new \InvalidArgumentException('non-nullable trustee_first_name cannot be null');
+        if (is_null($trustees)) {
+            throw new \InvalidArgumentException('non-nullable trustees cannot be null');
         }
-        $this->container['trustee_first_name'] = $trustee_first_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets trustee_last_name
-     *
-     * @return string|null
-     */
-    public function getTrusteeLastName()
-    {
-        return $this->container['trustee_last_name'];
-    }
-
-    /**
-     * Sets trustee_last_name
-     *
-     * @param string|null $trustee_last_name Trustee last name.
-     *
-     * @return self
-     */
-    public function setTrusteeLastName($trustee_last_name)
-    {
-        if (is_null($trustee_last_name)) {
-            throw new \InvalidArgumentException('non-nullable trustee_last_name cannot be null');
-        }
-        $this->container['trustee_last_name'] = $trustee_last_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets trustee_suffix
-     *
-     * @return string|null
-     */
-    public function getTrusteeSuffix()
-    {
-        return $this->container['trustee_suffix'];
-    }
-
-    /**
-     * Sets trustee_suffix
-     *
-     * @param string|null $trustee_suffix Trustee suffix.
-     *
-     * @return self
-     */
-    public function setTrusteeSuffix($trustee_suffix)
-    {
-        if (is_null($trustee_suffix)) {
-            throw new \InvalidArgumentException('non-nullable trustee_suffix cannot be null');
-        }
-        $this->container['trustee_suffix'] = $trustee_suffix;
-
-        return $this;
-    }
-
-    /**
-     * Gets trustee_street_address
-     *
-     * @return string|null
-     */
-    public function getTrusteeStreetAddress()
-    {
-        return $this->container['trustee_street_address'];
-    }
-
-    /**
-     * Sets trustee_street_address
-     *
-     * @param string|null $trustee_street_address Trustee street address.
-     *
-     * @return self
-     */
-    public function setTrusteeStreetAddress($trustee_street_address)
-    {
-        if (is_null($trustee_street_address)) {
-            throw new \InvalidArgumentException('non-nullable trustee_street_address cannot be null');
-        }
-        $this->container['trustee_street_address'] = $trustee_street_address;
-
-        return $this;
-    }
-
-    /**
-     * Gets trustee_unit2
-     *
-     * @return string|null
-     */
-    public function getTrusteeUnit2()
-    {
-        return $this->container['trustee_unit2'];
-    }
-
-    /**
-     * Sets trustee_unit2
-     *
-     * @param string|null $trustee_unit2 Trustee street address line 2.
-     *
-     * @return self
-     */
-    public function setTrusteeUnit2($trustee_unit2)
-    {
-        if (is_null($trustee_unit2)) {
-            throw new \InvalidArgumentException('non-nullable trustee_unit2 cannot be null');
-        }
-        $this->container['trustee_unit2'] = $trustee_unit2;
-
-        return $this;
-    }
-
-    /**
-     * Gets trustee_city
-     *
-     * @return string|null
-     */
-    public function getTrusteeCity()
-    {
-        return $this->container['trustee_city'];
-    }
-
-    /**
-     * Sets trustee_city
-     *
-     * @param string|null $trustee_city Trustee city.
-     *
-     * @return self
-     */
-    public function setTrusteeCity($trustee_city)
-    {
-        if (is_null($trustee_city)) {
-            throw new \InvalidArgumentException('non-nullable trustee_city cannot be null');
-        }
-        $this->container['trustee_city'] = $trustee_city;
-
-        return $this;
-    }
-
-    /**
-     * Gets trustee_region
-     *
-     * @return string|null
-     */
-    public function getTrusteeRegion()
-    {
-        return $this->container['trustee_region'];
-    }
-
-    /**
-     * Sets trustee_region
-     *
-     * @param string|null $trustee_region Trustee region or state.
-     *
-     * @return self
-     */
-    public function setTrusteeRegion($trustee_region)
-    {
-        if (is_null($trustee_region)) {
-            throw new \InvalidArgumentException('non-nullable trustee_region cannot be null');
-        }
-        $this->container['trustee_region'] = $trustee_region;
-
-        return $this;
-    }
-
-    /**
-     * Gets trustee_postal_code
-     *
-     * @return string|null
-     */
-    public function getTrusteePostalCode()
-    {
-        return $this->container['trustee_postal_code'];
-    }
-
-    /**
-     * Sets trustee_postal_code
-     *
-     * @param string|null $trustee_postal_code Trustee postal code or zipcode.
-     *
-     * @return self
-     */
-    public function setTrusteePostalCode($trustee_postal_code)
-    {
-        if (is_null($trustee_postal_code)) {
-            throw new \InvalidArgumentException('non-nullable trustee_postal_code cannot be null');
-        }
-        $this->container['trustee_postal_code'] = $trustee_postal_code;
-
-        return $this;
-    }
-
-    /**
-     * Gets trustee_date_of_birth
-     *
-     * @return string|null
-     */
-    public function getTrusteeDateOfBirth()
-    {
-        return $this->container['trustee_date_of_birth'];
-    }
-
-    /**
-     * Sets trustee_date_of_birth
-     *
-     * @param string|null $trustee_date_of_birth Trustee date of birth.
-     *
-     * @return self
-     */
-    public function setTrusteeDateOfBirth($trustee_date_of_birth)
-    {
-        if (is_null($trustee_date_of_birth)) {
-            throw new \InvalidArgumentException('non-nullable trustee_date_of_birth cannot be null');
-        }
-        $this->container['trustee_date_of_birth'] = $trustee_date_of_birth;
-
-        return $this;
-    }
-
-    /**
-     * Gets trustee_taxpayer_id
-     *
-     * @return string|null
-     */
-    public function getTrusteeTaxpayerId()
-    {
-        return $this->container['trustee_taxpayer_id'];
-    }
-
-    /**
-     * Sets trustee_taxpayer_id
-     *
-     * @param string|null $trustee_taxpayer_id The taxpayer identification number of the investor profile.
-     *
-     * @return self
-     */
-    public function setTrusteeTaxpayerId($trustee_taxpayer_id)
-    {
-        if (is_null($trustee_taxpayer_id)) {
-            throw new \InvalidArgumentException('non-nullable trustee_taxpayer_id cannot be null');
-        }
-        $this->container['trustee_taxpayer_id'] = $trustee_taxpayer_id;
+        $this->container['trustees'] = $trustees;
 
         return $this;
     }

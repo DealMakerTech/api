@@ -132,62 +132,8 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property trusteeFirstName (base name: "trustee_first_name")', function() {
-      // uncomment below and update the code to test the property trusteeFirstName
-      //var instance = new Api.PatchInvestorProfilesTrusts();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property trusteeLastName (base name: "trustee_last_name")', function() {
-      // uncomment below and update the code to test the property trusteeLastName
-      //var instance = new Api.PatchInvestorProfilesTrusts();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property trusteeSuffix (base name: "trustee_suffix")', function() {
-      // uncomment below and update the code to test the property trusteeSuffix
-      //var instance = new Api.PatchInvestorProfilesTrusts();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property trusteeStreetAddress (base name: "trustee_street_address")', function() {
-      // uncomment below and update the code to test the property trusteeStreetAddress
-      //var instance = new Api.PatchInvestorProfilesTrusts();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property trusteeUnit2 (base name: "trustee_unit2")', function() {
-      // uncomment below and update the code to test the property trusteeUnit2
-      //var instance = new Api.PatchInvestorProfilesTrusts();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property trusteeCity (base name: "trustee_city")', function() {
-      // uncomment below and update the code to test the property trusteeCity
-      //var instance = new Api.PatchInvestorProfilesTrusts();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property trusteeRegion (base name: "trustee_region")', function() {
-      // uncomment below and update the code to test the property trusteeRegion
-      //var instance = new Api.PatchInvestorProfilesTrusts();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property trusteePostalCode (base name: "trustee_postal_code")', function() {
-      // uncomment below and update the code to test the property trusteePostalCode
-      //var instance = new Api.PatchInvestorProfilesTrusts();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property trusteeDateOfBirth (base name: "trustee_date_of_birth")', function() {
-      // uncomment below and update the code to test the property trusteeDateOfBirth
-      //var instance = new Api.PatchInvestorProfilesTrusts();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property trusteeTaxpayerId (base name: "trustee_taxpayer_id")', function() {
-      // uncomment below and update the code to test the property trusteeTaxpayerId
+    it('should have the property trustees (base name: "trustees")', function() {
+      // uncomment below and update the code to test the property trustees
       //var instance = new Api.PatchInvestorProfilesTrusts();
       //expect(instance).to.be();
     });

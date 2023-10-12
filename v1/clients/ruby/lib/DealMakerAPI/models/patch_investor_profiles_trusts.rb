@@ -55,35 +55,7 @@ module DealMakerAPI
     # The prior offering amount of the Trust.
     attr_accessor :reg_cf_prior_offerings_amount
 
-    # Trustee first name.
-    attr_accessor :trustee_first_name
-
-    # Trustee last name.
-    attr_accessor :trustee_last_name
-
-    # Trustee suffix.
-    attr_accessor :trustee_suffix
-
-    # Trustee street address.
-    attr_accessor :trustee_street_address
-
-    # Trustee street address line 2.
-    attr_accessor :trustee_unit2
-
-    # Trustee city.
-    attr_accessor :trustee_city
-
-    # Trustee region or state.
-    attr_accessor :trustee_region
-
-    # Trustee postal code or zipcode.
-    attr_accessor :trustee_postal_code
-
-    # Trustee date of birth.
-    attr_accessor :trustee_date_of_birth
-
-    # The taxpayer identification number of the investor profile.
-    attr_accessor :trustee_taxpayer_id
+    attr_accessor :trustees
 
     class EnumAttributeValidator
       attr_reader :datatype
@@ -123,16 +95,7 @@ module DealMakerAPI
         :'income' => :'income',
         :'net_worth' => :'net_worth',
         :'reg_cf_prior_offerings_amount' => :'reg_cf_prior_offerings_amount',
-        :'trustee_first_name' => :'trustee_first_name',
-        :'trustee_last_name' => :'trustee_last_name',
-        :'trustee_suffix' => :'trustee_suffix',
-        :'trustee_street_address' => :'trustee_street_address',
-        :'trustee_unit2' => :'trustee_unit2',
-        :'trustee_city' => :'trustee_city',
-        :'trustee_region' => :'trustee_region',
-        :'trustee_postal_code' => :'trustee_postal_code',
-        :'trustee_date_of_birth' => :'trustee_date_of_birth',
-        :'trustee_taxpayer_id' => :'trustee_taxpayer_id'
+        :'trustees' => :'trustees'
       }
     end
 
@@ -157,16 +120,7 @@ module DealMakerAPI
         :'income' => :'Float',
         :'net_worth' => :'Float',
         :'reg_cf_prior_offerings_amount' => :'Float',
-        :'trustee_first_name' => :'String',
-        :'trustee_last_name' => :'String',
-        :'trustee_suffix' => :'String',
-        :'trustee_street_address' => :'String',
-        :'trustee_unit2' => :'String',
-        :'trustee_city' => :'String',
-        :'trustee_region' => :'String',
-        :'trustee_postal_code' => :'String',
-        :'trustee_date_of_birth' => :'String',
-        :'trustee_taxpayer_id' => :'String'
+        :'trustees' => :'Array<PatchInvestorProfilesTrustsTrusteesInner>'
       }
     end
 
@@ -243,44 +197,10 @@ module DealMakerAPI
         self.reg_cf_prior_offerings_amount = attributes[:'reg_cf_prior_offerings_amount']
       end
 
-      if attributes.key?(:'trustee_first_name')
-        self.trustee_first_name = attributes[:'trustee_first_name']
-      end
-
-      if attributes.key?(:'trustee_last_name')
-        self.trustee_last_name = attributes[:'trustee_last_name']
-      end
-
-      if attributes.key?(:'trustee_suffix')
-        self.trustee_suffix = attributes[:'trustee_suffix']
-      end
-
-      if attributes.key?(:'trustee_street_address')
-        self.trustee_street_address = attributes[:'trustee_street_address']
-      end
-
-      if attributes.key?(:'trustee_unit2')
-        self.trustee_unit2 = attributes[:'trustee_unit2']
-      end
-
-      if attributes.key?(:'trustee_city')
-        self.trustee_city = attributes[:'trustee_city']
-      end
-
-      if attributes.key?(:'trustee_region')
-        self.trustee_region = attributes[:'trustee_region']
-      end
-
-      if attributes.key?(:'trustee_postal_code')
-        self.trustee_postal_code = attributes[:'trustee_postal_code']
-      end
-
-      if attributes.key?(:'trustee_date_of_birth')
-        self.trustee_date_of_birth = attributes[:'trustee_date_of_birth']
-      end
-
-      if attributes.key?(:'trustee_taxpayer_id')
-        self.trustee_taxpayer_id = attributes[:'trustee_taxpayer_id']
+      if attributes.key?(:'trustees')
+        if (value = attributes[:'trustees']).is_a?(Array)
+          self.trustees = value
+        end
       end
     end
 
@@ -341,16 +261,7 @@ module DealMakerAPI
           income == o.income &&
           net_worth == o.net_worth &&
           reg_cf_prior_offerings_amount == o.reg_cf_prior_offerings_amount &&
-          trustee_first_name == o.trustee_first_name &&
-          trustee_last_name == o.trustee_last_name &&
-          trustee_suffix == o.trustee_suffix &&
-          trustee_street_address == o.trustee_street_address &&
-          trustee_unit2 == o.trustee_unit2 &&
-          trustee_city == o.trustee_city &&
-          trustee_region == o.trustee_region &&
-          trustee_postal_code == o.trustee_postal_code &&
-          trustee_date_of_birth == o.trustee_date_of_birth &&
-          trustee_taxpayer_id == o.trustee_taxpayer_id
+          trustees == o.trustees
     end
 
     # @see the `==` method
@@ -362,7 +273,7 @@ module DealMakerAPI
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [us_accredited_category, ca_accredited_investor, name, date, phone_number, street_address, unit2, city, region, postal_code, income, net_worth, reg_cf_prior_offerings_amount, trustee_first_name, trustee_last_name, trustee_suffix, trustee_street_address, trustee_unit2, trustee_city, trustee_region, trustee_postal_code, trustee_date_of_birth, trustee_taxpayer_id].hash
+      [us_accredited_category, ca_accredited_investor, name, date, phone_number, street_address, unit2, city, region, postal_code, income, net_worth, reg_cf_prior_offerings_amount, trustees].hash
     end
 
     # Builds the object from hash

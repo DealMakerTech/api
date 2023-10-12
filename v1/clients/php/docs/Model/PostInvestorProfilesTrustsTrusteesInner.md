@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **unit2** | **string** | The list of street address line 2 for the trustees. | [optional]
 **city** | **string** | The list of cities for the trustees (required for trustee 1). | [optional]
 **region** | **string** | The list of regions or states for the trustees (required for trustee 1). | [optional]
-**postal_code** | **string** | The list of postal codes or zipcodes for the trustees (required) for trustee 1. | [optional]
+**postal_code** | **string** | The list of postal codes or zipcodes for the trustees (required for trustee 1). | [optional]
 **date_of_birth** | **string** | The list of dates of birth for the trustees (required for trustee 1). | [optional]
 **taxpayer_id** | **string** | The list of taxpayer identification numbers for the trustees (required for trustee 1). | [optional]
 

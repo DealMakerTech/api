@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The PostInvestorProfilesTrustsTrusteesInner model module.
  * @module model/PostInvestorProfilesTrustsTrusteesInner
- * @version 0.89.0
+ * @version 0.89.1
  */
 class PostInvestorProfilesTrustsTrusteesInner {
     /**
@@ -179,7 +179,7 @@ PostInvestorProfilesTrustsTrusteesInner.prototype['city'] = undefined;
 PostInvestorProfilesTrustsTrusteesInner.prototype['region'] = undefined;
 
 /**
- * The list of postal codes or zipcodes for the trustees (required) for trustee 1.
+ * The list of postal codes or zipcodes for the trustees (required for trustee 1).
  * @member {String} postal_code
  */
 PostInvestorProfilesTrustsTrusteesInner.prototype['postal_code'] = undefined;

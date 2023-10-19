@@ -16,6 +16,7 @@ All URIs are relative to http://api.dealmaker.tech, except if the operation defi
 | [**getInvestorOtpLink()**](InvestorApi.md#getInvestorOtpLink) | **GET** /deals/{id}/investors/{investor_id}/otp_access_link | Get OTP access link for deal investor |
 | [**listInvestors()**](InvestorApi.md#listInvestors) | **GET** /deals/{id}/investors | List deal investors |
 | [**patchInvestor()**](InvestorApi.md#patchInvestor) | **PATCH** /deals/{id}/investors/{investor_id} | Patch a deal investor |
+| [**runBackgroundSearch()**](InvestorApi.md#runBackgroundSearch) | **POST** /deals/{id}/investors/{investor_id}/background_checks/{search_entity_id}/run | Run Alloy background search for the investor |
 | [**updateInvestor()**](InvestorApi.md#updateInvestor) | **PUT** /deals/{id}/investors/{investor_id} | Update a deal investor |
 
 
@@ -739,6 +740,66 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `runBackgroundSearch()`
+
+```php
+runBackgroundSearch($id, $investor_id, $search_entity_id): \DealMaker\Model\V1EntitiesInvestor
+```
+
+Run Alloy background search for the investor
+
+Run Alloy background search for the investor
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new DealMaker\Api\InvestorApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$id = 56; // int
+$investor_id = 56; // int
+$search_entity_id = 56; // int
+
+try {
+    $result = $apiInstance->runBackgroundSearch($id, $investor_id, $search_entity_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling InvestorApi->runBackgroundSearch: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **int**|  | |
+| **investor_id** | **int**|  | |
+| **search_entity_id** | **int**|  | |
+
+### Return type
+
+[**\DealMaker\Model\V1EntitiesInvestor**](../Model/V1EntitiesInvestor.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

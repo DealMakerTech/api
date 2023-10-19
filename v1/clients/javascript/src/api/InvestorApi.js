@@ -27,7 +27,7 @@ import V1EntitiesInvestors from '../model/V1EntitiesInvestors';
 /**
 * Investor service.
 * @module api/InvestorApi
-* @version 0.89.3
+* @version 0.89.4
 */
 export default class InvestorApi {
 
@@ -660,6 +660,61 @@ export default class InvestorApi {
       let returnType = V1EntitiesInvestor;
       return this.apiClient.callApi(
         '/deals/{id}/investors/{investor_id}', 'PATCH',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the runBackgroundSearch operation.
+     * @callback module:api/InvestorApi~runBackgroundSearchCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/V1EntitiesInvestor} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Run Alloy background search for the investor
+     * Run Alloy background search for the investor
+     * @param {Number} id 
+     * @param {Number} investorId 
+     * @param {Number} searchEntityId 
+     * @param {module:api/InvestorApi~runBackgroundSearchCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/V1EntitiesInvestor}
+     */
+    runBackgroundSearch(id, investorId, searchEntityId, callback) {
+      let postBody = null;
+      // verify the required parameter 'id' is set
+      if (id === undefined || id === null) {
+        throw new Error("Missing the required parameter 'id' when calling runBackgroundSearch");
+      }
+      // verify the required parameter 'investorId' is set
+      if (investorId === undefined || investorId === null) {
+        throw new Error("Missing the required parameter 'investorId' when calling runBackgroundSearch");
+      }
+      // verify the required parameter 'searchEntityId' is set
+      if (searchEntityId === undefined || searchEntityId === null) {
+        throw new Error("Missing the required parameter 'searchEntityId' when calling runBackgroundSearch");
+      }
+
+      let pathParams = {
+        'id': id,
+        'investor_id': investorId,
+        'search_entity_id': searchEntityId
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = V1EntitiesInvestor;
+      return this.apiClient.callApi(
+        '/deals/{id}/investors/{investor_id}/background_checks/{search_entity_id}/run', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

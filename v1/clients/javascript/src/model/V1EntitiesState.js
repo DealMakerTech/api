@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The V1EntitiesState model module.
  * @module model/V1EntitiesState
- * @version 0.89.3
+ * @version 0.89.4
  */
 class V1EntitiesState {
     /**

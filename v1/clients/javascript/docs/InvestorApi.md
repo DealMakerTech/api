@@ -16,6 +16,7 @@ Method | HTTP request | Description
 [**getInvestorOtpLink**](InvestorApi.md#getInvestorOtpLink) | **GET** /deals/{id}/investors/{investor_id}/otp_access_link | Get OTP access link for deal investor
 [**listInvestors**](InvestorApi.md#listInvestors) | **GET** /deals/{id}/investors | List deal investors
 [**patchInvestor**](InvestorApi.md#patchInvestor) | **PATCH** /deals/{id}/investors/{investor_id} | Patch a deal investor
+[**runBackgroundSearch**](InvestorApi.md#runBackgroundSearch) | **POST** /deals/{id}/investors/{investor_id}/background_checks/{search_entity_id}/run | Run Alloy background search for the investor
 [**updateInvestor**](InvestorApi.md#updateInvestor) | **PUT** /deals/{id}/investors/{investor_id} | Update a deal investor
 
 
@@ -615,6 +616,55 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## runBackgroundSearch
+
+> V1EntitiesInvestor runBackgroundSearch(id, investorId, searchEntityId)
+
+Run Alloy background search for the investor
+
+Run Alloy background search for the investor
+
+### Example
+
+```javascript
+import Api from 'api';
+
+let apiInstance = new Api.InvestorApi();
+let id = 56; // Number | 
+let investorId = 56; // Number | 
+let searchEntityId = 56; // Number | 
+apiInstance.runBackgroundSearch(id, investorId, searchEntityId, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Number**|  | 
+ **investorId** | **Number**|  | 
+ **searchEntityId** | **Number**|  | 
+
+### Return type
+
+[**V1EntitiesInvestor**](V1EntitiesInvestor.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 

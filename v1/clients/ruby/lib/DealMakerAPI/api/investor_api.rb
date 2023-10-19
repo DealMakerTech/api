@@ -918,6 +918,81 @@ module DealMakerAPI
       return data, status_code, headers
     end
 
+    # Run Alloy background search for the investor
+    # Run Alloy background search for the investor
+    # @param id [Integer] 
+    # @param investor_id [Integer] 
+    # @param search_entity_id [Integer] 
+    # @param [Hash] opts the optional parameters
+    # @return [V1EntitiesInvestor]
+    def run_background_search(id, investor_id, search_entity_id, opts = {})
+      data, _status_code, _headers = run_background_search_with_http_info(id, investor_id, search_entity_id, opts)
+      data
+    end
+
+    # Run Alloy background search for the investor
+    # Run Alloy background search for the investor
+    # @param id [Integer] 
+    # @param investor_id [Integer] 
+    # @param search_entity_id [Integer] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(V1EntitiesInvestor, Integer, Hash)>] V1EntitiesInvestor data, response status code and response headers
+    def run_background_search_with_http_info(id, investor_id, search_entity_id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: InvestorApi.run_background_search ...'
+      end
+      # verify the required parameter 'id' is set
+      if @api_client.config.client_side_validation && id.nil?
+        fail ArgumentError, "Missing the required parameter 'id' when calling InvestorApi.run_background_search"
+      end
+      # verify the required parameter 'investor_id' is set
+      if @api_client.config.client_side_validation && investor_id.nil?
+        fail ArgumentError, "Missing the required parameter 'investor_id' when calling InvestorApi.run_background_search"
+      end
+      # verify the required parameter 'search_entity_id' is set
+      if @api_client.config.client_side_validation && search_entity_id.nil?
+        fail ArgumentError, "Missing the required parameter 'search_entity_id' when calling InvestorApi.run_background_search"
+      end
+      # resource path
+      local_var_path = '/deals/{id}/investors/{investor_id}/background_checks/{search_entity_id}/run'.sub('{' + 'id' + '}', CGI.escape(id.to_s)).sub('{' + 'investor_id' + '}', CGI.escape(investor_id.to_s)).sub('{' + 'search_entity_id' + '}', CGI.escape(search_entity_id.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'V1EntitiesInvestor'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"InvestorApi.run_background_search",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: InvestorApi#run_background_search\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Update a deal investor
     # Update deal investor
     # @param id [Integer] The deal id.

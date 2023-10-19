@@ -168,6 +168,16 @@
         done();
       });
     });
+    describe('runBackgroundSearch', function() {
+      it('should call runBackgroundSearch successfully', function(done) {
+        //uncomment below and update the code to test runBackgroundSearch
+        //instance.runBackgroundSearch(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('updateInvestor', function() {
       it('should call updateInvestor successfully', function(done) {
         //uncomment below and update the code to test updateInvestor

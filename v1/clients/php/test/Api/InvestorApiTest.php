@@ -216,6 +216,18 @@ class InvestorApiTest extends TestCase
     }
 
     /**
+     * Test case for runBackgroundSearch
+     *
+     * Run Alloy background search for the investor.
+     *
+     */
+    public function testRunBackgroundSearch()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for updateInvestor
      *
      * Update a deal investor.

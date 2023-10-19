@@ -2374,6 +2374,73 @@
         "operationId": "getDealsIdInvestorsPaymentsExpressWireInstructions"
       }
     },
+    "/deals/{id}/investors/{investor_id}/background_checks/{search_entity_id}/run": {
+      "post": {
+        "summary": "Run Alloy background search for the investor",
+        "description": "Run Alloy background search for the investor",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          },
+          {
+            "in": "path",
+            "name": "investor_id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          },
+          {
+            "in": "path",
+            "name": "search_entity_id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "security": [
+          {
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Run Alloy background search for the investor",
+            "schema": {
+              "$ref": "#/definitions/V1_Entities_Investor"
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "tags": [
+          "investor"
+        ],
+        "operationId": "runBackgroundSearch",
+        "x-codeSamples": [
+          {
+            "lang": "javascript",
+            "source": ""
+          },
+          {
+            "lang": "ruby",
+            "source": ""
+          }
+        ]
+      }
+    },
     "/companies/{id}/shareholders/tags": {
       "get": {
         "summary": "Get a company shareholders list grouped by tags",

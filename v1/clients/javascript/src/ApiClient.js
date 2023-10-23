@@ -17,7 +17,7 @@ import querystring from "querystring";
 
 /**
 * @module ApiClient
-* @version 0.89.4
+* @version 0.89.5
 */
 
 /**
@@ -54,7 +54,7 @@ class ApiClient {
          * @default {}
          */
         this.defaultHeaders = {
-            'User-Agent': 'OpenAPI-Generator/0.89.4/Javascript'
+            'User-Agent': 'OpenAPI-Generator/0.89.5/Javascript'
         };
 
         /**

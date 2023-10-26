@@ -108,6 +108,36 @@
         done();
       });
     });
+    describe('postDealsDealIdPaymentOnboardingQuestionnairePayoutAccountDetailsSubmit', function() {
+      it('should call postDealsDealIdPaymentOnboardingQuestionnairePayoutAccountDetailsSubmit successfully', function(done) {
+        //uncomment below and update the code to test postDealsDealIdPaymentOnboardingQuestionnairePayoutAccountDetailsSubmit
+        //instance.postDealsDealIdPaymentOnboardingQuestionnairePayoutAccountDetailsSubmit(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('postDealsDealIdPaymentOnboardingQuestionnaireQualificationQuestionnaireResponseSubmit', function() {
+      it('should call postDealsDealIdPaymentOnboardingQuestionnaireQualificationQuestionnaireResponseSubmit successfully', function(done) {
+        //uncomment below and update the code to test postDealsDealIdPaymentOnboardingQuestionnaireQualificationQuestionnaireResponseSubmit
+        //instance.postDealsDealIdPaymentOnboardingQuestionnaireQualificationQuestionnaireResponseSubmit(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('postDealsDealIdPaymentOnboardingQuestionnaireQualificationQuestionnaireSubmit', function() {
+      it('should call postDealsDealIdPaymentOnboardingQuestionnaireQualificationQuestionnaireSubmit successfully', function(done) {
+        //uncomment below and update the code to test postDealsDealIdPaymentOnboardingQuestionnaireQualificationQuestionnaireSubmit
+        //instance.postDealsDealIdPaymentOnboardingQuestionnaireQualificationQuestionnaireSubmit(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('postWebhooks', function() {
       it('should call postWebhooks successfully', function(done) {
         //uncomment below and update the code to test postWebhooks

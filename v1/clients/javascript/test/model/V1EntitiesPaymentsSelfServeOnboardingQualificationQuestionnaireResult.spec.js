@@ -11,71 +11,61 @@
  *
  */
 
+(function(root, factory) {
+  if (typeof define === 'function' && define.amd) {
+    // AMD.
+    define(['expect.js', process.cwd()+'/src/index'], factory);
+  } else if (typeof module === 'object' && module.exports) {
+    // CommonJS-like environments that support module.exports, like Node.
+    factory(require('expect.js'), require(process.cwd()+'/src/index'));
+  } else {
+    // Browser globals (root is window)
+    factory(root.expect, root.Api);
+  }
+}(this, function(expect, Api) {
+  'use strict';
 
-import ApiClient from "../ApiClient";
-import CreateDealSetupRequest from '../model/CreateDealSetupRequest';
-import V1EntitiesDealSetup from '../model/V1EntitiesDealSetup';
+  var instance;
 
-/**
-* DealSetup service.
-* @module api/DealSetupApi
-* @version 0.89.5
-*/
-export default class DealSetupApi {
+  beforeEach(function() {
+    instance = new Api.V1EntitiesPaymentsSelfServeOnboardingQualificationQuestionnaireResult();
+  });
 
-    /**
-    * Constructs a new DealSetupApi. 
-    * @alias module:api/DealSetupApi
-    * @class
-    * @param {module:ApiClient} [apiClient] Optional API client implementation to use,
-    * default to {@link module:ApiClient#instance} if unspecified.
-    */
-    constructor(apiClient) {
-        this.apiClient = apiClient || ApiClient.instance;
-    }
+  var getProperty = function(object, getter, property) {
+    // Use getter method if present; otherwise, get the property directly.
+    if (typeof object[getter] === 'function')
+      return object[getter]();
+    else
+      return object[property];
+  }
 
+  var setProperty = function(object, setter, property, value) {
+    // Use setter method if present; otherwise, set the property directly.
+    if (typeof object[setter] === 'function')
+      object[setter](value);
+    else
+      object[property] = value;
+  }
 
-    /**
-     * Callback function to receive the result of the createDealSetup operation.
-     * @callback module:api/DealSetupApi~createDealSetupCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/V1EntitiesDealSetup} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
+  describe('V1EntitiesPaymentsSelfServeOnboardingQualificationQuestionnaireResult', function() {
+    it('should create an instance of V1EntitiesPaymentsSelfServeOnboardingQualificationQuestionnaireResult', function() {
+      // uncomment below and update the code to test V1EntitiesPaymentsSelfServeOnboardingQualificationQuestionnaireResult
+      //var instance = new Api.V1EntitiesPaymentsSelfServeOnboardingQualificationQuestionnaireResult();
+      //expect(instance).to.be.a(Api.V1EntitiesPaymentsSelfServeOnboardingQualificationQuestionnaireResult);
+    });
 
-    /**
-     * Create deal setup
-     * Create deal setup
-     * @param {module:model/CreateDealSetupRequest} createDealSetupRequest 
-     * @param {module:api/DealSetupApi~createDealSetupCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/V1EntitiesDealSetup}
-     */
-    createDealSetup(createDealSetupRequest, callback) {
-      let postBody = createDealSetupRequest;
-      // verify the required parameter 'createDealSetupRequest' is set
-      if (createDealSetupRequest === undefined || createDealSetupRequest === null) {
-        throw new Error("Missing the required parameter 'createDealSetupRequest' when calling createDealSetup");
-      }
+    it('should have the property onboardingStage (base name: "onboardingStage")', function() {
+      // uncomment below and update the code to test the property onboardingStage
+      //var instance = new Api.V1EntitiesPaymentsSelfServeOnboardingQualificationQuestionnaireResult();
+      //expect(instance).to.be();
+    });
 
-      let pathParams = {
-      };
-      let queryParams = {
-      };
-      let headerParams = {
-      };
-      let formParams = {
-      };
+    it('should have the property payoutAccountCountry (base name: "payoutAccountCountry")', function() {
+      // uncomment below and update the code to test the property payoutAccountCountry
+      //var instance = new Api.V1EntitiesPaymentsSelfServeOnboardingQualificationQuestionnaireResult();
+      //expect(instance).to.be();
+    });
 
-      let authNames = [];
-      let contentTypes = ['application/json'];
-      let accepts = ['application/json'];
-      let returnType = V1EntitiesDealSetup;
-      return this.apiClient.callApi(
-        '/deal_setups', 'POST',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
-      );
-    }
+  });
 
-
-}
+}));

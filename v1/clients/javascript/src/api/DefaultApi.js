@@ -17,6 +17,8 @@ import PostWebhooksRequest from '../model/PostWebhooksRequest';
 import PutWebhooksIdRequest from '../model/PutWebhooksIdRequest';
 import V1EntitiesExpressWireInstruction from '../model/V1EntitiesExpressWireInstruction';
 import V1EntitiesExpressWireInstructions from '../model/V1EntitiesExpressWireInstructions';
+import V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsResult from '../model/V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsResult';
+import V1EntitiesPaymentsSelfServeOnboardingQualificationQuestionnaireResult from '../model/V1EntitiesPaymentsSelfServeOnboardingQualificationQuestionnaireResult';
 import V1EntitiesWebhooksDeal from '../model/V1EntitiesWebhooksDeal';
 import V1EntitiesWebhooksSecurityToken from '../model/V1EntitiesWebhooksSecurityToken';
 import V1EntitiesWebhooksSubscription from '../model/V1EntitiesWebhooksSubscription';
@@ -24,7 +26,7 @@ import V1EntitiesWebhooksSubscription from '../model/V1EntitiesWebhooksSubscript
 /**
 * Default service.
 * @module api/DefaultApi
-* @version 0.89.5
+* @version 0.90.0
 */
 export default class DefaultApi {
 
@@ -289,6 +291,134 @@ export default class DefaultApi {
       let returnType = V1EntitiesWebhooksSecurityToken;
       return this.apiClient.callApi(
         '/webhooks/security_token', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the postDealsDealIdPaymentOnboardingQuestionnairePayoutAccountDetailsSubmit operation.
+     * @callback module:api/DefaultApi~postDealsDealIdPaymentOnboardingQuestionnairePayoutAccountDetailsSubmitCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsResult} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Submit a payout account details form
+     * Submit a payout account details form
+     * @param {Number} dealId 
+     * @param {module:api/DefaultApi~postDealsDealIdPaymentOnboardingQuestionnairePayoutAccountDetailsSubmitCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsResult}
+     */
+    postDealsDealIdPaymentOnboardingQuestionnairePayoutAccountDetailsSubmit(dealId, callback) {
+      let postBody = null;
+      // verify the required parameter 'dealId' is set
+      if (dealId === undefined || dealId === null) {
+        throw new Error("Missing the required parameter 'dealId' when calling postDealsDealIdPaymentOnboardingQuestionnairePayoutAccountDetailsSubmit");
+      }
+
+      let pathParams = {
+        'deal_id': dealId
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsResult;
+      return this.apiClient.callApi(
+        '/deals/{deal_id}/payment_onboarding/questionnaire/payout_account_details/submit', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the postDealsDealIdPaymentOnboardingQuestionnaireQualificationQuestionnaireResponseSubmit operation.
+     * @callback module:api/DefaultApi~postDealsDealIdPaymentOnboardingQuestionnaireQualificationQuestionnaireResponseSubmitCallback
+     * @param {String} error Error message, if any.
+     * @param data This operation does not return a value.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Submit a qualification questionnaire response
+     * Submit a qualification questionnaire response
+     * @param {Number} dealId 
+     * @param {module:api/DefaultApi~postDealsDealIdPaymentOnboardingQuestionnaireQualificationQuestionnaireResponseSubmitCallback} callback The callback function, accepting three arguments: error, data, response
+     */
+    postDealsDealIdPaymentOnboardingQuestionnaireQualificationQuestionnaireResponseSubmit(dealId, callback) {
+      let postBody = null;
+      // verify the required parameter 'dealId' is set
+      if (dealId === undefined || dealId === null) {
+        throw new Error("Missing the required parameter 'dealId' when calling postDealsDealIdPaymentOnboardingQuestionnaireQualificationQuestionnaireResponseSubmit");
+      }
+
+      let pathParams = {
+        'deal_id': dealId
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = [];
+      let returnType = null;
+      return this.apiClient.callApi(
+        '/deals/{deal_id}/payment_onboarding/questionnaire/qualification_questionnaire/response/submit', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the postDealsDealIdPaymentOnboardingQuestionnaireQualificationQuestionnaireSubmit operation.
+     * @callback module:api/DefaultApi~postDealsDealIdPaymentOnboardingQuestionnaireQualificationQuestionnaireSubmitCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/V1EntitiesPaymentsSelfServeOnboardingQualificationQuestionnaireResult} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Submit a qualification questionnaire form
+     * Submit a qualification questionnaire form
+     * @param {Number} dealId 
+     * @param {module:api/DefaultApi~postDealsDealIdPaymentOnboardingQuestionnaireQualificationQuestionnaireSubmitCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/V1EntitiesPaymentsSelfServeOnboardingQualificationQuestionnaireResult}
+     */
+    postDealsDealIdPaymentOnboardingQuestionnaireQualificationQuestionnaireSubmit(dealId, callback) {
+      let postBody = null;
+      // verify the required parameter 'dealId' is set
+      if (dealId === undefined || dealId === null) {
+        throw new Error("Missing the required parameter 'dealId' when calling postDealsDealIdPaymentOnboardingQuestionnaireQualificationQuestionnaireSubmit");
+      }
+
+      let pathParams = {
+        'deal_id': dealId
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = V1EntitiesPaymentsSelfServeOnboardingQualificationQuestionnaireResult;
+      return this.apiClient.callApi(
+        '/deals/{deal_id}/payment_onboarding/questionnaire/qualification_questionnaire/submit', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

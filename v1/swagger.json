@@ -57,10 +57,6 @@
   ],
   "tags": [
     {
-      "name": "deal_setup",
-      "description": "Operations about deal_setups"
-    },
-    {
       "name": "users",
       "description": "Operations about users"
     },
@@ -134,145 +130,6 @@
     }
   ],
   "paths": {
-    "/deal_setups": {
-      "post": {
-        "summary": "Create deal setup",
-        "description": "Create deal setup",
-        "produces": [
-          "application/json"
-        ],
-        "consumes": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "in": "formData",
-            "name": "invoicing_email",
-            "description": "The invoice email address.",
-            "type": "string",
-            "required": true
-          },
-          {
-            "in": "formData",
-            "name": "issuer_industry",
-            "description": "The industry.",
-            "type": "string",
-            "default": "other",
-            "enum": [
-              "other",
-              "beverage",
-              "blockchain",
-              "cannabis",
-              "cpc",
-              "gaming",
-              "health",
-              "industry",
-              "mining",
-              "real_estate",
-              "retail",
-              "tech",
-              "psychedelics",
-              "office_of_life_sciences",
-              "office_of_energy_and_transportation",
-              "office_of_real_estate_and_construction",
-              "office_of_manufacturing",
-              "office_of_technology",
-              "office_of_trade_and_services",
-              "office_of_finance",
-              "office_of_international_corp_fin"
-            ],
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "prohibited_industry",
-            "description": "Determine if the deal is a high risk or not.",
-            "type": "string",
-            "default": "prohibited",
-            "enum": [
-              "prohibited",
-              "not_prohibited"
-            ],
-            "required": false
-          },
-          {
-            "in": "formData",
-            "name": "offering_type",
-            "description": "The deal kind",
-            "type": "string",
-            "default": "other",
-            "enum": [
-              "other",
-              "canadian_private_placement",
-              "regulation_a_plus_offering",
-              "offering_memorandum",
-              "regulation_cf_offering",
-              "reg_d_506_c",
-              "reg_d_506_b",
-              "dm_plus"
-            ],
-            "required": true
-          },
-          {
-            "in": "formData",
-            "name": "title",
-            "description": "The name of deal to setup.",
-            "type": "string",
-            "required": true
-          },
-          {
-            "in": "formData",
-            "name": "company_id",
-            "description": "the company id.",
-            "type": "integer",
-            "format": "int32",
-            "required": true
-          },
-          {
-            "in": "formData",
-            "name": "representative",
-            "description": "The email of the representative.",
-            "type": "string",
-            "required": false
-          }
-        ],
-        "security": [
-          {
-            "oauth": [
-              "deals.write"
-            ]
-          }
-        ],
-        "responses": {
-          "201": {
-            "description": "Create deal setup",
-            "schema": {
-              "$ref": "#/definitions/V1_Entities_DealSetup"
-            }
-          },
-          "400": {
-            "description": "Bad Request"
-          },
-          "403": {
-            "description": "Forbidden"
-          }
-        },
-        "tags": [
-          "deal_setup"
-        ],
-        "operationId": "createDealSetup",
-        "x-codeSamples": [
-          {
-            "lang": "javascript",
-            "source": ""
-          },
-          {
-            "lang": "ruby",
-            "source": ""
-          }
-        ]
-      }
-    },
     "/investor_profiles/{type}/{id}": {
       "delete": {
         "summary": "Delete investor profile.",
@@ -1415,7 +1272,7 @@
     "/deals/{id}/investors/{investor_id}/otp_access_link": {
       "get": {
         "summary": "Get OTP access link for deal investor",
-        "description": "Get OTP access link for deal investor by id",
+        "description": "The access link for the investor. This is the access link for the specific investment, not the user.\n                      If the same user has multiple investments, each one will have a different access link.\n                      Please note that this access link expires every hour. In order to redirect the investor into their authentication screen,\n                      use the https://app.dealmaker.tech/deals/{{deal_id}}/investors/{{investor_id}}/otp_access url.",
         "produces": [
           "application/json"
         ],
@@ -2429,6 +2286,271 @@
           "investor"
         ],
         "operationId": "runBackgroundSearch",
+        "x-codeSamples": [
+          {
+            "lang": "javascript",
+            "source": ""
+          },
+          {
+            "lang": "ruby",
+            "source": ""
+          }
+        ]
+      }
+    },
+    "/deals/{deal_id}/payment_onboarding/questionnaire/qualification_questionnaire/response/submit": {
+      "post": {
+        "summary": "Submit a qualification questionnaire response",
+        "description": "Submit a qualification questionnaire response",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "deal_id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "security": [
+          {
+            "oauth": [
+              "internal"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Submit a qualification questionnaire response"
+          },
+          "403": {
+            "description": "Access to this resource requires scope \"internal\"."
+          }
+        },
+        "tags": [
+
+        ],
+        "operationId": "postDealsDealIdPaymentOnboardingQuestionnaireQualificationQuestionnaireResponseSubmit"
+      }
+    },
+    "/deals/{deal_id}/payment_onboarding/questionnaire/qualification_questionnaire/submit": {
+      "post": {
+        "summary": "Submit a qualification questionnaire form",
+        "description": "Submit a qualification questionnaire form",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "deal_id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "security": [
+          {
+            "oauth": [
+              "internal"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Submit a qualification questionnaire form",
+            "schema": {
+              "$ref": "#/definitions/V1_Entities_Payments_SelfServeOnboarding_QualificationQuestionnaire_Result"
+            }
+          },
+          "403": {
+            "description": "Access to this resource requires scope \"internal\"."
+          }
+        },
+        "tags": [
+
+        ],
+        "operationId": "postDealsDealIdPaymentOnboardingQuestionnaireQualificationQuestionnaireSubmit"
+      }
+    },
+    "/deals/{deal_id}/payment_onboarding/questionnaire/payout_account_details/submit": {
+      "post": {
+        "summary": "Submit a payout account details form",
+        "description": "Submit a payout account details form",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "deal_id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "security": [
+          {
+            "oauth": [
+              "internal"
+            ]
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Submit a payout account details form",
+            "schema": {
+              "$ref": "#/definitions/V1_Entities_Payments_SelfServeOnboarding_PayoutAccountDetails_Result"
+            }
+          },
+          "403": {
+            "description": "Access to this resource requires scope \"internal\"."
+          }
+        },
+        "tags": [
+
+        ],
+        "operationId": "postDealsDealIdPaymentOnboardingQuestionnairePayoutAccountDetailsSubmit"
+      }
+    },
+    "/deal_setups": {
+      "post": {
+        "summary": "Create deal setup",
+        "description": "Create deal setup",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "formData",
+            "name": "invoicing_email",
+            "description": "The invoice email address.",
+            "type": "string",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "issuer_industry",
+            "description": "The industry.",
+            "type": "string",
+            "default": "other",
+            "enum": [
+              "other",
+              "beverage",
+              "blockchain",
+              "cannabis",
+              "cpc",
+              "gaming",
+              "health",
+              "industry",
+              "mining",
+              "real_estate",
+              "retail",
+              "tech",
+              "psychedelics",
+              "office_of_life_sciences",
+              "office_of_energy_and_transportation",
+              "office_of_real_estate_and_construction",
+              "office_of_manufacturing",
+              "office_of_technology",
+              "office_of_trade_and_services",
+              "office_of_finance",
+              "office_of_international_corp_fin"
+            ],
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "prohibited_industry",
+            "description": "Determine if the deal is a high risk or not.",
+            "type": "string",
+            "default": "prohibited",
+            "enum": [
+              "prohibited",
+              "not_prohibited"
+            ],
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "offering_type",
+            "description": "The deal kind",
+            "type": "string",
+            "default": "other",
+            "enum": [
+              "other",
+              "canadian_private_placement",
+              "regulation_a_plus_offering",
+              "offering_memorandum",
+              "regulation_cf_offering",
+              "reg_d_506_c",
+              "reg_d_506_b",
+              "dm_plus"
+            ],
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "title",
+            "description": "The name of deal to setup.",
+            "type": "string",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "company_id",
+            "description": "the company id.",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "representative",
+            "description": "The email of the representative.",
+            "type": "string",
+            "required": false
+          }
+        ],
+        "security": [
+          {
+            "oauth": [
+              "deals.write"
+            ]
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Create deal setup",
+            "schema": {
+              "$ref": "#/definitions/V1_Entities_DealSetup"
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "tags": [
+          "deal"
+        ],
+        "operationId": "createDealSetup",
         "x-codeSamples": [
           {
             "lang": "javascript",
@@ -4092,6 +4214,10 @@
         "checkout_state": {
           "type": "string",
           "description": "Current state on checkout page."
+        },
+        "legacy_flow_link": {
+          "type": "string",
+          "description": "The legacy link for the investor. If the investor is already on the legacy flow, this link will be null."
         }
       },
       "description": "V1_Entities_Investor model"
@@ -4777,65 +4903,6 @@
         "code": {
           "type": "string",
           "description": "The state code."
-        }
-      }
-    },
-    "V1_Entities_DealSetup": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "integer",
-          "format": "int32",
-          "description": "The deal setup id."
-        },
-        "deal_name": {
-          "type": "string",
-          "description": "The title/name of the deal."
-        },
-        "deal_type": {
-          "type": "integer",
-          "format": "int32",
-          "description": "The type of the deal."
-        },
-        "invoice_contact": {
-          "type": "string",
-          "description": "The invoice email address."
-        },
-        "industry": {
-          "type": "string",
-          "description": "The industry."
-        },
-        "high_risk": {
-          "type": "boolean",
-          "description": "Determine if the deal is a high risk or not."
-        },
-        "company_id": {
-          "type": "integer",
-          "format": "int32",
-          "description": "The id of the company."
-        },
-        "link": {
-          "type": "string",
-          "description": "Link to the second page of the deal setup"
-        },
-        "representative": {
-          "$ref": "#/definitions/V1_Entities_DealSetupUser",
-          "description": "The user associated with this deal setup."
-        }
-      },
-      "description": "V1_Entities_DealSetup model"
-    },
-    "V1_Entities_DealSetupUser": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "integer",
-          "format": "int32",
-          "description": "Investor user id."
-        },
-        "email": {
-          "type": "string",
-          "description": "Investor user email address."
         }
       }
     },
@@ -6302,6 +6369,93 @@
         }
       },
       "description": "V1_Entities_ExpressWireInstructions model"
+    },
+    "V1_Entities_Payments_SelfServeOnboarding_QualificationQuestionnaire_Result": {
+      "type": "object",
+      "properties": {
+        "onboardingStage": {
+          "type": "string",
+          "description": "Onboarding stage"
+        },
+        "payoutAccountCountry": {
+          "type": "string",
+          "description": "Payout account country"
+        }
+      },
+      "description": "V1_Entities_Payments_SelfServeOnboarding_QualificationQuestionnaire_Result model"
+    },
+    "V1_Entities_Payments_SelfServeOnboarding_PayoutAccountDetails_Result": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "object",
+          "description": "Data after successful payout account updating"
+        },
+        "error": {
+          "type": "object",
+          "description": "Error after failed payout account updating"
+        }
+      },
+      "description": "V1_Entities_Payments_SelfServeOnboarding_PayoutAccountDetails_Result model"
+    },
+    "V1_Entities_DealSetup": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32",
+          "description": "The deal setup id."
+        },
+        "deal_name": {
+          "type": "string",
+          "description": "The title/name of the deal."
+        },
+        "deal_type": {
+          "type": "integer",
+          "format": "int32",
+          "description": "The type of the deal."
+        },
+        "invoice_contact": {
+          "type": "string",
+          "description": "The invoice email address."
+        },
+        "industry": {
+          "type": "string",
+          "description": "The industry."
+        },
+        "high_risk": {
+          "type": "boolean",
+          "description": "Determine if the deal is a high risk or not."
+        },
+        "company_id": {
+          "type": "integer",
+          "format": "int32",
+          "description": "The id of the company."
+        },
+        "link": {
+          "type": "string",
+          "description": "Link to the second page of the deal setup"
+        },
+        "representative": {
+          "$ref": "#/definitions/V1_Entities_DealSetupUser",
+          "description": "The user associated with this deal setup."
+        }
+      },
+      "description": "V1_Entities_DealSetup model"
+    },
+    "V1_Entities_DealSetupUser": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Investor user id."
+        },
+        "email": {
+          "type": "string",
+          "description": "Investor user email address."
+        }
+      }
     },
     "V1_Entities_ShareholdersTags": {
       "type": "object",

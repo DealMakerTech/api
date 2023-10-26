@@ -394,6 +394,193 @@ module DealMakerAPI
       return data, status_code, headers
     end
 
+    # Submit a payout account details form
+    # Submit a payout account details form
+    # @param deal_id [Integer] 
+    # @param [Hash] opts the optional parameters
+    # @return [V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsResult]
+    def post_deals_deal_id_payment_onboarding_questionnaire_payout_account_details_submit(deal_id, opts = {})
+      data, _status_code, _headers = post_deals_deal_id_payment_onboarding_questionnaire_payout_account_details_submit_with_http_info(deal_id, opts)
+      data
+    end
+
+    # Submit a payout account details form
+    # Submit a payout account details form
+    # @param deal_id [Integer] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsResult, Integer, Hash)>] V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsResult data, response status code and response headers
+    def post_deals_deal_id_payment_onboarding_questionnaire_payout_account_details_submit_with_http_info(deal_id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: DefaultApi.post_deals_deal_id_payment_onboarding_questionnaire_payout_account_details_submit ...'
+      end
+      # verify the required parameter 'deal_id' is set
+      if @api_client.config.client_side_validation && deal_id.nil?
+        fail ArgumentError, "Missing the required parameter 'deal_id' when calling DefaultApi.post_deals_deal_id_payment_onboarding_questionnaire_payout_account_details_submit"
+      end
+      # resource path
+      local_var_path = '/deals/{deal_id}/payment_onboarding/questionnaire/payout_account_details/submit'.sub('{' + 'deal_id' + '}', CGI.escape(deal_id.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsResult'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"DefaultApi.post_deals_deal_id_payment_onboarding_questionnaire_payout_account_details_submit",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: DefaultApi#post_deals_deal_id_payment_onboarding_questionnaire_payout_account_details_submit\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Submit a qualification questionnaire response
+    # Submit a qualification questionnaire response
+    # @param deal_id [Integer] 
+    # @param [Hash] opts the optional parameters
+    # @return [nil]
+    def post_deals_deal_id_payment_onboarding_questionnaire_qualification_questionnaire_response_submit(deal_id, opts = {})
+      post_deals_deal_id_payment_onboarding_questionnaire_qualification_questionnaire_response_submit_with_http_info(deal_id, opts)
+      nil
+    end
+
+    # Submit a qualification questionnaire response
+    # Submit a qualification questionnaire response
+    # @param deal_id [Integer] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def post_deals_deal_id_payment_onboarding_questionnaire_qualification_questionnaire_response_submit_with_http_info(deal_id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: DefaultApi.post_deals_deal_id_payment_onboarding_questionnaire_qualification_questionnaire_response_submit ...'
+      end
+      # verify the required parameter 'deal_id' is set
+      if @api_client.config.client_side_validation && deal_id.nil?
+        fail ArgumentError, "Missing the required parameter 'deal_id' when calling DefaultApi.post_deals_deal_id_payment_onboarding_questionnaire_qualification_questionnaire_response_submit"
+      end
+      # resource path
+      local_var_path = '/deals/{deal_id}/payment_onboarding/questionnaire/qualification_questionnaire/response/submit'.sub('{' + 'deal_id' + '}', CGI.escape(deal_id.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"DefaultApi.post_deals_deal_id_payment_onboarding_questionnaire_qualification_questionnaire_response_submit",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: DefaultApi#post_deals_deal_id_payment_onboarding_questionnaire_qualification_questionnaire_response_submit\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Submit a qualification questionnaire form
+    # Submit a qualification questionnaire form
+    # @param deal_id [Integer] 
+    # @param [Hash] opts the optional parameters
+    # @return [V1EntitiesPaymentsSelfServeOnboardingQualificationQuestionnaireResult]
+    def post_deals_deal_id_payment_onboarding_questionnaire_qualification_questionnaire_submit(deal_id, opts = {})
+      data, _status_code, _headers = post_deals_deal_id_payment_onboarding_questionnaire_qualification_questionnaire_submit_with_http_info(deal_id, opts)
+      data
+    end
+
+    # Submit a qualification questionnaire form
+    # Submit a qualification questionnaire form
+    # @param deal_id [Integer] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(V1EntitiesPaymentsSelfServeOnboardingQualificationQuestionnaireResult, Integer, Hash)>] V1EntitiesPaymentsSelfServeOnboardingQualificationQuestionnaireResult data, response status code and response headers
+    def post_deals_deal_id_payment_onboarding_questionnaire_qualification_questionnaire_submit_with_http_info(deal_id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: DefaultApi.post_deals_deal_id_payment_onboarding_questionnaire_qualification_questionnaire_submit ...'
+      end
+      # verify the required parameter 'deal_id' is set
+      if @api_client.config.client_side_validation && deal_id.nil?
+        fail ArgumentError, "Missing the required parameter 'deal_id' when calling DefaultApi.post_deals_deal_id_payment_onboarding_questionnaire_qualification_questionnaire_submit"
+      end
+      # resource path
+      local_var_path = '/deals/{deal_id}/payment_onboarding/questionnaire/qualification_questionnaire/submit'.sub('{' + 'deal_id' + '}', CGI.escape(deal_id.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'V1EntitiesPaymentsSelfServeOnboardingQualificationQuestionnaireResult'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"DefaultApi.post_deals_deal_id_payment_onboarding_questionnaire_qualification_questionnaire_submit",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: DefaultApi#post_deals_deal_id_payment_onboarding_questionnaire_qualification_questionnaire_submit\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Creates a webhook subscription which is associated to the user
     # Creates new webhook subscription
     # @param post_webhooks_request [PostWebhooksRequest] 

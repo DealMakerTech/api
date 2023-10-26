@@ -11,53 +11,84 @@
  *
  */
 
-(function(root, factory) {
-  if (typeof define === 'function' && define.amd) {
-    // AMD.
-    define(['expect.js', process.cwd()+'/src/index'], factory);
-  } else if (typeof module === 'object' && module.exports) {
-    // CommonJS-like environments that support module.exports, like Node.
-    factory(require('expect.js'), require(process.cwd()+'/src/index'));
-  } else {
-    // Browser globals (root is window)
-    factory(root.expect, root.Api);
-  }
-}(this, function(expect, Api) {
-  'use strict';
+import ApiClient from '../ApiClient';
 
-  var instance;
+/**
+ * The V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsResult model module.
+ * @module model/V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsResult
+ * @version 0.90.0
+ */
+class V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsResult {
+    /**
+     * Constructs a new <code>V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsResult</code>.
+     * V1_Entities_Payments_SelfServeOnboarding_PayoutAccountDetails_Result model
+     * @alias module:model/V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsResult
+     */
+    constructor() { 
+        
+        V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsResult.initialize(this);
+    }
 
-  beforeEach(function() {
-    instance = new Api.DealSetupApi();
-  });
+    /**
+     * Initializes the fields of this object.
+     * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
+     * Only for internal use.
+     */
+    static initialize(obj) { 
+    }
 
-  var getProperty = function(object, getter, property) {
-    // Use getter method if present; otherwise, get the property directly.
-    if (typeof object[getter] === 'function')
-      return object[getter]();
-    else
-      return object[property];
-  }
+    /**
+     * Constructs a <code>V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsResult</code> from a plain JavaScript object, optionally creating a new instance.
+     * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @param {module:model/V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsResult} obj Optional instance to populate.
+     * @return {module:model/V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsResult} The populated <code>V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsResult</code> instance.
+     */
+    static constructFromObject(data, obj) {
+        if (data) {
+            obj = obj || new V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsResult();
 
-  var setProperty = function(object, setter, property, value) {
-    // Use setter method if present; otherwise, set the property directly.
-    if (typeof object[setter] === 'function')
-      object[setter](value);
-    else
-      object[property] = value;
-  }
+            if (data.hasOwnProperty('data')) {
+                obj['data'] = ApiClient.convertToType(data['data'], Object);
+            }
+            if (data.hasOwnProperty('error')) {
+                obj['error'] = ApiClient.convertToType(data['error'], Object);
+            }
+        }
+        return obj;
+    }
 
-  describe('DealSetupApi', function() {
-    describe('createDealSetup', function() {
-      it('should call createDealSetup successfully', function(done) {
-        //uncomment below and update the code to test createDealSetup
-        //instance.createDealSetup(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
-  });
+    /**
+     * Validates the JSON data with respect to <code>V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsResult</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsResult</code>.
+     */
+    static validateJSON(data) {
 
-}));
+        return true;
+    }
+
+
+}
+
+
+
+/**
+ * Data after successful payout account updating
+ * @member {Object} data
+ */
+V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsResult.prototype['data'] = undefined;
+
+/**
+ * Error after failed payout account updating
+ * @member {Object} error
+ */
+V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsResult.prototype['error'] = undefined;
+
+
+
+
+
+
+export default V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsResult;
+

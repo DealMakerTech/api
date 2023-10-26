@@ -7,7 +7,6 @@ composer.json
 docs/Api/CompanyApi.md
 docs/Api/CountryApi.md
 docs/Api/DealApi.md
-docs/Api/DealSetupApi.md
 docs/Api/DealsApi.md
 docs/Api/DefaultApi.md
 docs/Api/InvestorApi.md
@@ -87,6 +86,8 @@ docs/Model/V1EntitiesInvestorProfileTrust.md
 docs/Model/V1EntitiesInvestorProfiles.md
 docs/Model/V1EntitiesInvestorUser.md
 docs/Model/V1EntitiesInvestors.md
+docs/Model/V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsResult.md
+docs/Model/V1EntitiesPaymentsSelfServeOnboardingQualificationQuestionnaireResult.md
 docs/Model/V1EntitiesPresignedUrlResult.md
 docs/Model/V1EntitiesShareholder.md
 docs/Model/V1EntitiesShareholders.md
@@ -102,7 +103,6 @@ git_push.sh
 lib/Api/CompanyApi.php
 lib/Api/CountryApi.php
 lib/Api/DealApi.php
-lib/Api/DealSetupApi.php
 lib/Api/DealsApi.php
 lib/Api/DefaultApi.php
 lib/Api/InvestorApi.php
@@ -186,6 +186,8 @@ lib/Model/V1EntitiesInvestorProfileTrust.php
 lib/Model/V1EntitiesInvestorProfiles.php
 lib/Model/V1EntitiesInvestorUser.php
 lib/Model/V1EntitiesInvestors.php
+lib/Model/V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsResult.php
+lib/Model/V1EntitiesPaymentsSelfServeOnboardingQualificationQuestionnaireResult.php
 lib/Model/V1EntitiesPresignedUrlResult.php
 lib/Model/V1EntitiesShareholder.php
 lib/Model/V1EntitiesShareholders.php
@@ -202,7 +204,6 @@ phpunit.xml.dist
 test/Api/CompanyApiTest.php
 test/Api/CountryApiTest.php
 test/Api/DealApiTest.php
-test/Api/DealSetupApiTest.php
 test/Api/DealsApiTest.php
 test/Api/DefaultApiTest.php
 test/Api/InvestorApiTest.php
@@ -282,6 +283,8 @@ test/Model/V1EntitiesInvestorProfilesTest.php
 test/Model/V1EntitiesInvestorTest.php
 test/Model/V1EntitiesInvestorUserTest.php
 test/Model/V1EntitiesInvestorsTest.php
+test/Model/V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsResultTest.php
+test/Model/V1EntitiesPaymentsSelfServeOnboardingQualificationQuestionnaireResultTest.php
 test/Model/V1EntitiesPresignedUrlResultTest.php
 test/Model/V1EntitiesShareholderTest.php
 test/Model/V1EntitiesShareholdersTagsTest.php

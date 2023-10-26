@@ -14,7 +14,6 @@ docs/CreateCompanyRequest.md
 docs/CreateDealSetupRequest.md
 docs/CreateShareholderActionRequest.md
 docs/DealApi.md
-docs/DealSetupApi.md
 docs/DealsApi.md
 docs/DefaultApi.md
 docs/EditInvestorTagsRequest.md
@@ -86,6 +85,8 @@ docs/V1EntitiesInvestorProfileTrust.md
 docs/V1EntitiesInvestorProfiles.md
 docs/V1EntitiesInvestorUser.md
 docs/V1EntitiesInvestors.md
+docs/V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsResult.md
+docs/V1EntitiesPaymentsSelfServeOnboardingQualificationQuestionnaireResult.md
 docs/V1EntitiesPresignedUrlResult.md
 docs/V1EntitiesShareholder.md
 docs/V1EntitiesShareholders.md
@@ -104,7 +105,6 @@ src/ApiClient.js
 src/api/CompanyApi.js
 src/api/CountryApi.js
 src/api/DealApi.js
-src/api/DealSetupApi.js
 src/api/DealsApi.js
 src/api/DefaultApi.js
 src/api/InvestorApi.js
@@ -185,6 +185,8 @@ src/model/V1EntitiesInvestorProfileTrust.js
 src/model/V1EntitiesInvestorProfiles.js
 src/model/V1EntitiesInvestorUser.js
 src/model/V1EntitiesInvestors.js
+src/model/V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsResult.js
+src/model/V1EntitiesPaymentsSelfServeOnboardingQualificationQuestionnaireResult.js
 src/model/V1EntitiesPresignedUrlResult.js
 src/model/V1EntitiesShareholder.js
 src/model/V1EntitiesShareholders.js
@@ -199,7 +201,6 @@ src/model/V1EntitiesWebhooksSubscriptionDeals.js
 test/api/CompanyApi.spec.js
 test/api/CountryApi.spec.js
 test/api/DealApi.spec.js
-test/api/DealSetupApi.spec.js
 test/api/DealsApi.spec.js
 test/api/DefaultApi.spec.js
 test/api/InvestorApi.spec.js
@@ -279,6 +280,8 @@ test/model/V1EntitiesInvestorProfileTrust.spec.js
 test/model/V1EntitiesInvestorProfiles.spec.js
 test/model/V1EntitiesInvestorUser.spec.js
 test/model/V1EntitiesInvestors.spec.js
+test/model/V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsResult.spec.js
+test/model/V1EntitiesPaymentsSelfServeOnboardingQualificationQuestionnaireResult.spec.js
 test/model/V1EntitiesPresignedUrlResult.spec.js
 test/model/V1EntitiesShareholder.spec.js
 test/model/V1EntitiesShareholders.spec.js

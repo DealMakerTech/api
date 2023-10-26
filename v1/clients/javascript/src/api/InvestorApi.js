@@ -27,7 +27,7 @@ import V1EntitiesInvestors from '../model/V1EntitiesInvestors';
 /**
 * Investor service.
 * @module api/InvestorApi
-* @version 0.89.5
+* @version 0.90.0
 */
 export default class InvestorApi {
 
@@ -517,7 +517,7 @@ export default class InvestorApi {
 
     /**
      * Get OTP access link for deal investor
-     * Get OTP access link for deal investor by id
+     * The access link for the investor. This is the access link for the specific investment, not the user.                       If the same user has multiple investments, each one will have a different access link.                       Please note that this access link expires every hour. In order to redirect the investor into their authentication screen,                       use the https://app.dealmaker.tech/deals/{{deal_id}}/investors/{{investor_id}}/otp_access url.
      * @param {Number} id The deal id.
      * @param {Number} investorId The investor id.
      * @param {module:api/InvestorApi~getInvestorOtpLinkCallback} callback The callback function, accepting three arguments: error, data, response

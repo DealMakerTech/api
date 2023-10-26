@@ -10,6 +10,9 @@ Method | HTTP request | Description
 [**getWebhooksDealId**](DefaultApi.md#getWebhooksDealId) | **GET** /webhooks/deal/{id} | Finds a deal using the id
 [**getWebhooksDealsSearch**](DefaultApi.md#getWebhooksDealsSearch) | **GET** /webhooks/deals/search | Searches for deals for a given user
 [**getWebhooksSecurityToken**](DefaultApi.md#getWebhooksSecurityToken) | **GET** /webhooks/security_token | Creates a new security token for webhook subscription
+[**postDealsDealIdPaymentOnboardingQuestionnairePayoutAccountDetailsSubmit**](DefaultApi.md#postDealsDealIdPaymentOnboardingQuestionnairePayoutAccountDetailsSubmit) | **POST** /deals/{deal_id}/payment_onboarding/questionnaire/payout_account_details/submit | Submit a payout account details form
+[**postDealsDealIdPaymentOnboardingQuestionnaireQualificationQuestionnaireResponseSubmit**](DefaultApi.md#postDealsDealIdPaymentOnboardingQuestionnaireQualificationQuestionnaireResponseSubmit) | **POST** /deals/{deal_id}/payment_onboarding/questionnaire/qualification_questionnaire/response/submit | Submit a qualification questionnaire response
+[**postDealsDealIdPaymentOnboardingQuestionnaireQualificationQuestionnaireSubmit**](DefaultApi.md#postDealsDealIdPaymentOnboardingQuestionnaireQualificationQuestionnaireSubmit) | **POST** /deals/{deal_id}/payment_onboarding/questionnaire/qualification_questionnaire/submit | Submit a qualification questionnaire form
 [**postWebhooks**](DefaultApi.md#postWebhooks) | **POST** /webhooks | Creates a webhook subscription which is associated to the user
 [**putWebhooksId**](DefaultApi.md#putWebhooksId) | **PUT** /webhooks/{id} | Updates webhook subscription and webhooks subcription deals
 
@@ -280,6 +283,144 @@ This endpoint does not need any parameter.
 ### Return type
 
 [**V1EntitiesWebhooksSecurityToken**](V1EntitiesWebhooksSecurityToken.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## postDealsDealIdPaymentOnboardingQuestionnairePayoutAccountDetailsSubmit
+
+> V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsResult postDealsDealIdPaymentOnboardingQuestionnairePayoutAccountDetailsSubmit(dealId)
+
+Submit a payout account details form
+
+Submit a payout account details form
+
+### Example
+
+```javascript
+import Api from 'api';
+let defaultClient = Api.ApiClient.instance;
+
+let apiInstance = new Api.DefaultApi();
+let dealId = 56; // Number | 
+apiInstance.postDealsDealIdPaymentOnboardingQuestionnairePayoutAccountDetailsSubmit(dealId, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **dealId** | **Number**|  | 
+
+### Return type
+
+[**V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsResult**](V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsResult.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## postDealsDealIdPaymentOnboardingQuestionnaireQualificationQuestionnaireResponseSubmit
+
+> postDealsDealIdPaymentOnboardingQuestionnaireQualificationQuestionnaireResponseSubmit(dealId)
+
+Submit a qualification questionnaire response
+
+Submit a qualification questionnaire response
+
+### Example
+
+```javascript
+import Api from 'api';
+let defaultClient = Api.ApiClient.instance;
+
+let apiInstance = new Api.DefaultApi();
+let dealId = 56; // Number | 
+apiInstance.postDealsDealIdPaymentOnboardingQuestionnaireQualificationQuestionnaireResponseSubmit(dealId, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully.');
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **dealId** | **Number**|  | 
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
+
+
+## postDealsDealIdPaymentOnboardingQuestionnaireQualificationQuestionnaireSubmit
+
+> V1EntitiesPaymentsSelfServeOnboardingQualificationQuestionnaireResult postDealsDealIdPaymentOnboardingQuestionnaireQualificationQuestionnaireSubmit(dealId)
+
+Submit a qualification questionnaire form
+
+Submit a qualification questionnaire form
+
+### Example
+
+```javascript
+import Api from 'api';
+let defaultClient = Api.ApiClient.instance;
+
+let apiInstance = new Api.DefaultApi();
+let dealId = 56; // Number | 
+apiInstance.postDealsDealIdPaymentOnboardingQuestionnaireQualificationQuestionnaireSubmit(dealId, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **dealId** | **Number**|  | 
+
+### Return type
+
+[**V1EntitiesPaymentsSelfServeOnboardingQualificationQuestionnaireResult**](V1EntitiesPaymentsSelfServeOnboardingQualificationQuestionnaireResult.md)
 
 ### Authorization
 

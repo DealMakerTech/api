@@ -85,6 +85,8 @@ import V1EntitiesInvestorProfileTrust from './model/V1EntitiesInvestorProfileTru
 import V1EntitiesInvestorProfiles from './model/V1EntitiesInvestorProfiles';
 import V1EntitiesInvestorUser from './model/V1EntitiesInvestorUser';
 import V1EntitiesInvestors from './model/V1EntitiesInvestors';
+import V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsResult from './model/V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsResult';
+import V1EntitiesPaymentsSelfServeOnboardingQualificationQuestionnaireResult from './model/V1EntitiesPaymentsSelfServeOnboardingQualificationQuestionnaireResult';
 import V1EntitiesPresignedUrlResult from './model/V1EntitiesPresignedUrlResult';
 import V1EntitiesShareholder from './model/V1EntitiesShareholder';
 import V1EntitiesShareholders from './model/V1EntitiesShareholders';
@@ -99,7 +101,6 @@ import V1EntitiesWebhooksSubscriptionDeals from './model/V1EntitiesWebhooksSubsc
 import CompanyApi from './api/CompanyApi';
 import CountryApi from './api/CountryApi';
 import DealApi from './api/DealApi';
-import DealSetupApi from './api/DealSetupApi';
 import DealsApi from './api/DealsApi';
 import DefaultApi from './api/DefaultApi';
 import InvestorApi from './api/InvestorApi';
@@ -138,7 +139,7 @@ import UsersApi from './api/UsersApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.89.5
+* @version 0.90.0
 */
 export {
     /**
@@ -580,6 +581,18 @@ export {
     V1EntitiesInvestors,
 
     /**
+     * The V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsResult model constructor.
+     * @property {module:model/V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsResult}
+     */
+    V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsResult,
+
+    /**
+     * The V1EntitiesPaymentsSelfServeOnboardingQualificationQuestionnaireResult model constructor.
+     * @property {module:model/V1EntitiesPaymentsSelfServeOnboardingQualificationQuestionnaireResult}
+     */
+    V1EntitiesPaymentsSelfServeOnboardingQualificationQuestionnaireResult,
+
+    /**
      * The V1EntitiesPresignedUrlResult model constructor.
      * @property {module:model/V1EntitiesPresignedUrlResult}
      */
@@ -662,12 +675,6 @@ export {
     * @property {module:api/DealApi}
     */
     DealApi,
-
-    /**
-    * The DealSetupApi service constructor.
-    * @property {module:api/DealSetupApi}
-    */
-    DealSetupApi,
 
     /**
     * The DealsApi service constructor.

@@ -31,6 +31,7 @@ Name | Type | Description | Notes
 **investorProfile** | **String** |  | [optional] 
 **investorProfileId** | **Number** | The investor profile id. | [optional] 
 **checkoutState** | **String** | Current state on checkout page. | [optional] 
+**legacyFlowLink** | **String** | The legacy link for the investor. If the investor is already on the legacy flow, this link will be null. | [optional] 
 
 
 

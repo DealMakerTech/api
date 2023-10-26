@@ -31,5 +31,6 @@ Name | Type | Description | Notes
 **investor_profile** | **string** |  | [optional]
 **investor_profile_id** | **int** | The investor profile id. | [optional]
 **checkout_state** | **string** | Current state on checkout page. | [optional]
+**legacy_flow_link** | **string** | The legacy link for the investor. If the investor is already on the legacy flow, this link will be null. | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

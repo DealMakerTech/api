@@ -72,6 +72,18 @@ class DealApiTest extends TestCase
     }
 
     /**
+     * Test case for createDealSetup
+     *
+     * Create deal setup.
+     *
+     */
+    public function testCreateDealSetup()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for getDeal
      *
      * Get deal by Deal ID.

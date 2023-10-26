@@ -20,7 +20,7 @@ import V1EntitiesSubscriptionAgreement from './V1EntitiesSubscriptionAgreement';
 /**
  * The V1EntitiesInvestor model module.
  * @module model/V1EntitiesInvestor
- * @version 0.89.5
+ * @version 0.90.0
  */
 class V1EntitiesInvestor {
     /**
@@ -133,6 +133,9 @@ class V1EntitiesInvestor {
             if (data.hasOwnProperty('checkout_state')) {
                 obj['checkout_state'] = ApiClient.convertToType(data['checkout_state'], 'String');
             }
+            if (data.hasOwnProperty('legacy_flow_link')) {
+                obj['legacy_flow_link'] = ApiClient.convertToType(data['legacy_flow_link'], 'String');
+            }
         }
         return obj;
     }
@@ -202,6 +205,10 @@ class V1EntitiesInvestor {
         // ensure the json data is a string
         if (data['checkout_state'] && !(typeof data['checkout_state'] === 'string' || data['checkout_state'] instanceof String)) {
             throw new Error("Expected the field `checkout_state` to be a primitive type in the JSON string but got " + data['checkout_state']);
+        }
+        // ensure the json data is a string
+        if (data['legacy_flow_link'] && !(typeof data['legacy_flow_link'] === 'string' || data['legacy_flow_link'] instanceof String)) {
+            throw new Error("Expected the field `legacy_flow_link` to be a primitive type in the JSON string but got " + data['legacy_flow_link']);
         }
 
         return true;
@@ -368,6 +375,12 @@ V1EntitiesInvestor.prototype['investor_profile_id'] = undefined;
  * @member {String} checkout_state
  */
 V1EntitiesInvestor.prototype['checkout_state'] = undefined;
+
+/**
+ * The legacy link for the investor. If the investor is already on the legacy flow, this link will be null.
+ * @member {String} legacy_flow_link
+ */
+V1EntitiesInvestor.prototype['legacy_flow_link'] = undefined;
 
 
 

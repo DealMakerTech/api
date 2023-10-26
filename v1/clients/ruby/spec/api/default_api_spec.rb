@@ -105,6 +105,42 @@ describe 'DefaultApi' do
     end
   end
 
+  # unit tests for post_deals_deal_id_payment_onboarding_questionnaire_payout_account_details_submit
+  # Submit a payout account details form
+  # Submit a payout account details form
+  # @param deal_id 
+  # @param [Hash] opts the optional parameters
+  # @return [V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsResult]
+  describe 'post_deals_deal_id_payment_onboarding_questionnaire_payout_account_details_submit test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for post_deals_deal_id_payment_onboarding_questionnaire_qualification_questionnaire_response_submit
+  # Submit a qualification questionnaire response
+  # Submit a qualification questionnaire response
+  # @param deal_id 
+  # @param [Hash] opts the optional parameters
+  # @return [nil]
+  describe 'post_deals_deal_id_payment_onboarding_questionnaire_qualification_questionnaire_response_submit test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for post_deals_deal_id_payment_onboarding_questionnaire_qualification_questionnaire_submit
+  # Submit a qualification questionnaire form
+  # Submit a qualification questionnaire form
+  # @param deal_id 
+  # @param [Hash] opts the optional parameters
+  # @return [V1EntitiesPaymentsSelfServeOnboardingQualificationQuestionnaireResult]
+  describe 'post_deals_deal_id_payment_onboarding_questionnaire_qualification_questionnaire_submit test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for post_webhooks
   # Creates a webhook subscription which is associated to the user
   # Creates new webhook subscription

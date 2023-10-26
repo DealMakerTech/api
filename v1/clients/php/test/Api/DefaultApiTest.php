@@ -144,6 +144,42 @@ class DefaultApiTest extends TestCase
     }
 
     /**
+     * Test case for postDealsDealIdPaymentOnboardingQuestionnairePayoutAccountDetailsSubmit
+     *
+     * Submit a payout account details form.
+     *
+     */
+    public function testPostDealsDealIdPaymentOnboardingQuestionnairePayoutAccountDetailsSubmit()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for postDealsDealIdPaymentOnboardingQuestionnaireQualificationQuestionnaireResponseSubmit
+     *
+     * Submit a qualification questionnaire response.
+     *
+     */
+    public function testPostDealsDealIdPaymentOnboardingQuestionnaireQualificationQuestionnaireResponseSubmit()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for postDealsDealIdPaymentOnboardingQuestionnaireQualificationQuestionnaireSubmit
+     *
+     * Submit a qualification questionnaire form.
+     *
+     */
+    public function testPostDealsDealIdPaymentOnboardingQuestionnaireQualificationQuestionnaireSubmit()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for postWebhooks
      *
      * Creates a webhook subscription which is associated to the user.

@@ -469,7 +469,7 @@ No authorization required
 
 Get OTP access link for deal investor
 
-Get OTP access link for deal investor by id
+The access link for the investor. This is the access link for the specific investment, not the user.                       If the same user has multiple investments, each one will have a different access link.                       Please note that this access link expires every hour. In order to redirect the investor into their authentication screen,                       use the https://app.dealmaker.tech/deals/{{deal_id}}/investors/{{investor_id}}/otp_access url.
 
 ### Example
 

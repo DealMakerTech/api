@@ -31,6 +31,7 @@
 | **investor_profile** | **String** |  | [optional] |
 | **investor_profile_id** | **Integer** | The investor profile id. | [optional] |
 | **checkout_state** | **String** | Current state on checkout page. | [optional] |
+| **legacy_flow_link** | **String** | The legacy link for the investor. If the investor is already on the legacy flow, this link will be null. | [optional] |
 
 ## Example
 
@@ -64,7 +65,8 @@ instance = DealMakerAPI::V1EntitiesInvestor.new(
   ranking_score: null,
   investor_profile: null,
   investor_profile_id: null,
-  checkout_state: null
+  checkout_state: null,
+  legacy_flow_link: null
 )
 ```
 

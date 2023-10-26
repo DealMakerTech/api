@@ -216,6 +216,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property legacyFlowLink (base name: "legacy_flow_link")', function() {
+      // uncomment below and update the code to test the property legacyFlowLink
+      //var instance = new Api.V1EntitiesInvestor();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

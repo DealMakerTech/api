@@ -321,4 +321,13 @@ class V1EntitiesInvestorTest extends TestCase
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test attribute "legacy_flow_link"
+     */
+    public function testPropertyLegacyFlowLink()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
 }

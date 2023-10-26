@@ -13,13 +13,15 @@
 
 
 import ApiClient from "../ApiClient";
+import CreateDealSetupRequest from '../model/CreateDealSetupRequest';
 import V1EntitiesDeal from '../model/V1EntitiesDeal';
+import V1EntitiesDealSetup from '../model/V1EntitiesDealSetup';
 import V1EntitiesDeals from '../model/V1EntitiesDeals';
 
 /**
 * Deal service.
 * @module api/DealApi
-* @version 0.89.5
+* @version 0.90.0
 */
 export default class DealApi {
 
@@ -34,6 +36,48 @@ export default class DealApi {
         this.apiClient = apiClient || ApiClient.instance;
     }
 
+
+    /**
+     * Callback function to receive the result of the createDealSetup operation.
+     * @callback module:api/DealApi~createDealSetupCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/V1EntitiesDealSetup} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Create deal setup
+     * Create deal setup
+     * @param {module:model/CreateDealSetupRequest} createDealSetupRequest 
+     * @param {module:api/DealApi~createDealSetupCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/V1EntitiesDealSetup}
+     */
+    createDealSetup(createDealSetupRequest, callback) {
+      let postBody = createDealSetupRequest;
+      // verify the required parameter 'createDealSetupRequest' is set
+      if (createDealSetupRequest === undefined || createDealSetupRequest === null) {
+        throw new Error("Missing the required parameter 'createDealSetupRequest' when calling createDealSetup");
+      }
+
+      let pathParams = {
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = V1EntitiesDealSetup;
+      return this.apiClient.callApi(
+        '/deal_setups', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
 
     /**
      * Callback function to receive the result of the getDeal operation.

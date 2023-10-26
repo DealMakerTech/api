@@ -84,7 +84,8 @@ class V1EntitiesInvestor implements ModelInterface, ArrayAccess, \JsonSerializab
         'ranking_score' => 'float',
         'investor_profile' => 'string',
         'investor_profile_id' => 'int',
-        'checkout_state' => 'string'
+        'checkout_state' => 'string',
+        'legacy_flow_link' => 'string'
     ];
 
     /**
@@ -121,7 +122,8 @@ class V1EntitiesInvestor implements ModelInterface, ArrayAccess, \JsonSerializab
         'ranking_score' => 'float',
         'investor_profile' => null,
         'investor_profile_id' => 'int32',
-        'checkout_state' => null
+        'checkout_state' => null,
+        'legacy_flow_link' => null
     ];
 
     /**
@@ -156,7 +158,8 @@ class V1EntitiesInvestor implements ModelInterface, ArrayAccess, \JsonSerializab
 		'ranking_score' => false,
 		'investor_profile' => false,
 		'investor_profile_id' => false,
-		'checkout_state' => false
+		'checkout_state' => false,
+		'legacy_flow_link' => false
     ];
 
     /**
@@ -271,7 +274,8 @@ class V1EntitiesInvestor implements ModelInterface, ArrayAccess, \JsonSerializab
         'ranking_score' => 'ranking_score',
         'investor_profile' => 'investor_profile',
         'investor_profile_id' => 'investor_profile_id',
-        'checkout_state' => 'checkout_state'
+        'checkout_state' => 'checkout_state',
+        'legacy_flow_link' => 'legacy_flow_link'
     ];
 
     /**
@@ -306,7 +310,8 @@ class V1EntitiesInvestor implements ModelInterface, ArrayAccess, \JsonSerializab
         'ranking_score' => 'setRankingScore',
         'investor_profile' => 'setInvestorProfile',
         'investor_profile_id' => 'setInvestorProfileId',
-        'checkout_state' => 'setCheckoutState'
+        'checkout_state' => 'setCheckoutState',
+        'legacy_flow_link' => 'setLegacyFlowLink'
     ];
 
     /**
@@ -341,7 +346,8 @@ class V1EntitiesInvestor implements ModelInterface, ArrayAccess, \JsonSerializab
         'ranking_score' => 'getRankingScore',
         'investor_profile' => 'getInvestorProfile',
         'investor_profile_id' => 'getInvestorProfileId',
-        'checkout_state' => 'getCheckoutState'
+        'checkout_state' => 'getCheckoutState',
+        'legacy_flow_link' => 'getLegacyFlowLink'
     ];
 
     /**
@@ -508,6 +514,7 @@ class V1EntitiesInvestor implements ModelInterface, ArrayAccess, \JsonSerializab
         $this->setIfExists('investor_profile', $data ?? [], null);
         $this->setIfExists('investor_profile_id', $data ?? [], null);
         $this->setIfExists('checkout_state', $data ?? [], null);
+        $this->setIfExists('legacy_flow_link', $data ?? [], null);
     }
 
     /**
@@ -1353,6 +1360,33 @@ class V1EntitiesInvestor implements ModelInterface, ArrayAccess, \JsonSerializab
             throw new \InvalidArgumentException('non-nullable checkout_state cannot be null');
         }
         $this->container['checkout_state'] = $checkout_state;
+
+        return $this;
+    }
+
+    /**
+     * Gets legacy_flow_link
+     *
+     * @return string|null
+     */
+    public function getLegacyFlowLink()
+    {
+        return $this->container['legacy_flow_link'];
+    }
+
+    /**
+     * Sets legacy_flow_link
+     *
+     * @param string|null $legacy_flow_link The legacy link for the investor. If the investor is already on the legacy flow, this link will be null.
+     *
+     * @return self
+     */
+    public function setLegacyFlowLink($legacy_flow_link)
+    {
+        if (is_null($legacy_flow_link)) {
+            throw new \InvalidArgumentException('non-nullable legacy_flow_link cannot be null');
+        }
+        $this->container['legacy_flow_link'] = $legacy_flow_link;
 
         return $this;
     }

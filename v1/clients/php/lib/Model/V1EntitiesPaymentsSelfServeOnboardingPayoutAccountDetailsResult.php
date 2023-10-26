@@ -1,6 +1,7 @@
 <?php
 /**
- * DealSetupApi
+ * V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsResult
+ *
  * PHP version 7.4
  *
  * @category Class
@@ -25,401 +26,419 @@
  * Do not edit the class manually.
  */
 
-namespace DealMaker\Api;
+namespace DealMaker\Model;
 
-use GuzzleHttp\Client;
-use GuzzleHttp\ClientInterface;
-use GuzzleHttp\Exception\ConnectException;
-use GuzzleHttp\Exception\RequestException;
-use GuzzleHttp\Psr7\MultipartStream;
-use GuzzleHttp\Psr7\Request;
-use GuzzleHttp\RequestOptions;
-use DealMaker\ApiException;
-use DealMaker\Configuration;
-use DealMaker\HeaderSelector;
-use DealMaker\ObjectSerializer;
+use \ArrayAccess;
+use \DealMaker\ObjectSerializer;
 
 /**
- * DealSetupApi Class Doc Comment
+ * V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsResult Class Doc Comment
  *
  * @category Class
+ * @description V1_Entities_Payments_SelfServeOnboarding_PayoutAccountDetails_Result model
  * @package  DealMaker
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
+ * @implements \ArrayAccess<string, mixed>
  */
-class DealSetupApi
+class V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsResult implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    /**
-     * @var ClientInterface
-     */
-    protected $client;
+    public const DISCRIMINATOR = null;
 
     /**
-     * @var Configuration
-     */
-    protected $config;
+      * The original name of the model.
+      *
+      * @var string
+      */
+    protected static $openAPIModelName = 'V1_Entities_Payments_SelfServeOnboarding_PayoutAccountDetails_Result';
 
     /**
-     * @var HeaderSelector
-     */
-    protected $headerSelector;
-
-    /**
-     * @var int Host index
-     */
-    protected $hostIndex;
-
-    /** @var string[] $contentTypes **/
-    public const contentTypes = [
-        'createDealSetup' => [
-            'application/json',
-        ],
+      * Array of property to type mappings. Used for (de)serialization
+      *
+      * @var string[]
+      */
+    protected static $openAPITypes = [
+        'data' => 'object',
+        'error' => 'object'
     ];
 
-/**
-     * @param ClientInterface $client
-     * @param Configuration   $config
-     * @param HeaderSelector  $selector
-     * @param int             $hostIndex (Optional) host index to select the list of hosts if defined in the OpenAPI spec
+    /**
+      * Array of property to format mappings. Used for (de)serialization
+      *
+      * @var string[]
+      * @phpstan-var array<string, string|null>
+      * @psalm-var array<string, string|null>
+      */
+    protected static $openAPIFormats = [
+        'data' => null,
+        'error' => null
+    ];
+
+    /**
+      * Array of nullable properties. Used for (de)serialization
+      *
+      * @var boolean[]
+      */
+    protected static array $openAPINullables = [
+        'data' => false,
+		'error' => false
+    ];
+
+    /**
+      * If a nullable field gets set to null, insert it here
+      *
+      * @var boolean[]
+      */
+    protected array $openAPINullablesSetToNull = [];
+
+    /**
+     * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
-    public function __construct(
-        ClientInterface $client = null,
-        Configuration $config = null,
-        HeaderSelector $selector = null,
-        $hostIndex = 0
-    ) {
-        $this->client = $client ?: new Client();
-        $this->config = $config ?: new Configuration();
-        $this->headerSelector = $selector ?: new HeaderSelector();
-        $this->hostIndex = $hostIndex;
+    public static function openAPITypes()
+    {
+        return self::$openAPITypes;
     }
 
     /**
-     * Set the host index
+     * Array of property to format mappings. Used for (de)serialization
      *
-     * @param int $hostIndex Host index (required)
+     * @return array
      */
-    public function setHostIndex($hostIndex): void
+    public static function openAPIFormats()
     {
-        $this->hostIndex = $hostIndex;
+        return self::$openAPIFormats;
     }
 
     /**
-     * Get the host index
+     * Array of nullable properties
      *
-     * @return int Host index
+     * @return array
      */
-    public function getHostIndex()
+    protected static function openAPINullables(): array
     {
-        return $this->hostIndex;
+        return self::$openAPINullables;
     }
 
     /**
-     * @return Configuration
+     * Array of nullable field names deliberately set to null
+     *
+     * @return boolean[]
      */
-    public function getConfig()
+    private function getOpenAPINullablesSetToNull(): array
     {
-        return $this->config;
+        return $this->openAPINullablesSetToNull;
     }
 
     /**
-     * Operation createDealSetup
+     * Setter - Array of nullable field names deliberately set to null
      *
-     * Create deal setup
-     *
-     * @param  \DealMaker\Model\CreateDealSetupRequest $create_deal_setup_request create_deal_setup_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createDealSetup'] to see the possible values for this operation
-     *
-     * @throws \DealMaker\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \DealMaker\Model\V1EntitiesDealSetup
+     * @param boolean[] $openAPINullablesSetToNull
      */
-    public function createDealSetup($create_deal_setup_request, string $contentType = self::contentTypes['createDealSetup'][0])
+    private function setOpenAPINullablesSetToNull(array $openAPINullablesSetToNull): void
     {
-        list($response) = $this->createDealSetupWithHttpInfo($create_deal_setup_request, $contentType);
-        return $response;
+        $this->openAPINullablesSetToNull = $openAPINullablesSetToNull;
     }
 
     /**
-     * Operation createDealSetupWithHttpInfo
+     * Checks if a property is nullable
      *
-     * Create deal setup
-     *
-     * @param  \DealMaker\Model\CreateDealSetupRequest $create_deal_setup_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createDealSetup'] to see the possible values for this operation
-     *
-     * @throws \DealMaker\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \DealMaker\Model\V1EntitiesDealSetup, HTTP status code, HTTP response headers (array of strings)
+     * @param string $property
+     * @return bool
      */
-    public function createDealSetupWithHttpInfo($create_deal_setup_request, string $contentType = self::contentTypes['createDealSetup'][0])
+    public static function isNullable(string $property): bool
     {
-        $request = $this->createDealSetupRequest($create_deal_setup_request, $contentType);
+        return self::openAPINullables()[$property] ?? false;
+    }
 
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
+    /**
+     * Checks if a nullable property is set to null.
+     *
+     * @param string $property
+     * @return bool
+     */
+    public function isNullableSetToNull(string $property): bool
+    {
+        return in_array($property, $this->getOpenAPINullablesSetToNull(), true);
+    }
 
-            $statusCode = $response->getStatusCode();
+    /**
+     * Array of attributes where the key is the local name,
+     * and the value is the original name
+     *
+     * @var string[]
+     */
+    protected static $attributeMap = [
+        'data' => 'data',
+        'error' => 'error'
+    ];
 
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
+    /**
+     * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @var string[]
+     */
+    protected static $setters = [
+        'data' => 'setData',
+        'error' => 'setError'
+    ];
 
-            switch($statusCode) {
-                case 201:
-                    if ('\DealMaker\Model\V1EntitiesDealSetup' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\DealMaker\Model\V1EntitiesDealSetup' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
+    /**
+     * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @var string[]
+     */
+    protected static $getters = [
+        'data' => 'getData',
+        'error' => 'getError'
+    ];
 
-                    return [
-                        ObjectSerializer::deserialize($content, '\DealMaker\Model\V1EntitiesDealSetup', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
+    /**
+     * Array of attributes where the key is the local name,
+     * and the value is the original name
+     *
+     * @return array
+     */
+    public static function attributeMap()
+    {
+        return self::$attributeMap;
+    }
 
-            $returnType = '\DealMaker\Model\V1EntitiesDealSetup';
-            if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
-            } else {
-                $content = (string) $response->getBody();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
-            }
+    /**
+     * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
+     */
+    public static function setters()
+    {
+        return self::$setters;
+    }
 
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
+    /**
+     * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
+     */
+    public static function getters()
+    {
+        return self::$getters;
+    }
 
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 201:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\DealMaker\Model\V1EntitiesDealSetup',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
+    /**
+     * The original name of the model.
+     *
+     * @return string
+     */
+    public function getModelName()
+    {
+        return self::$openAPIModelName;
+    }
+
+
+    /**
+     * Associative array for storing property values
+     *
+     * @var mixed[]
+     */
+    protected $container = [];
+
+    /**
+     * Constructor
+     *
+     * @param mixed[] $data Associated array of property values
+     *                      initializing the model
+     */
+    public function __construct(array $data = null)
+    {
+        $this->setIfExists('data', $data ?? [], null);
+        $this->setIfExists('error', $data ?? [], null);
+    }
+
+    /**
+    * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
+    * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
+    * $this->openAPINullablesSetToNull array
+    *
+    * @param string $variableName
+    * @param array  $fields
+    * @param mixed  $defaultValue
+    */
+    private function setIfExists(string $variableName, array $fields, $defaultValue): void
+    {
+        if (self::isNullable($variableName) && array_key_exists($variableName, $fields) && is_null($fields[$variableName])) {
+            $this->openAPINullablesSetToNull[] = $variableName;
+        }
+
+        $this->container[$variableName] = $fields[$variableName] ?? $defaultValue;
+    }
+
+    /**
+     * Show all the invalid properties with reasons.
+     *
+     * @return array invalid properties with reasons
+     */
+    public function listInvalidProperties()
+    {
+        $invalidProperties = [];
+
+        return $invalidProperties;
+    }
+
+    /**
+     * Validate all the properties in the model
+     * return true if all passed
+     *
+     * @return bool True if all properties are valid
+     */
+    public function valid()
+    {
+        return count($this->listInvalidProperties()) === 0;
+    }
+
+
+    /**
+     * Gets data
+     *
+     * @return object|null
+     */
+    public function getData()
+    {
+        return $this->container['data'];
+    }
+
+    /**
+     * Sets data
+     *
+     * @param object|null $data Data after successful payout account updating
+     *
+     * @return self
+     */
+    public function setData($data)
+    {
+        if (is_null($data)) {
+            throw new \InvalidArgumentException('non-nullable data cannot be null');
+        }
+        $this->container['data'] = $data;
+
+        return $this;
+    }
+
+    /**
+     * Gets error
+     *
+     * @return object|null
+     */
+    public function getError()
+    {
+        return $this->container['error'];
+    }
+
+    /**
+     * Sets error
+     *
+     * @param object|null $error Error after failed payout account updating
+     *
+     * @return self
+     */
+    public function setError($error)
+    {
+        if (is_null($error)) {
+            throw new \InvalidArgumentException('non-nullable error cannot be null');
+        }
+        $this->container['error'] = $error;
+
+        return $this;
+    }
+    /**
+     * Returns true if offset exists. False otherwise.
+     *
+     * @param integer $offset Offset
+     *
+     * @return boolean
+     */
+    public function offsetExists($offset): bool
+    {
+        return isset($this->container[$offset]);
+    }
+
+    /**
+     * Gets offset.
+     *
+     * @param integer $offset Offset
+     *
+     * @return mixed|null
+     */
+    #[\ReturnTypeWillChange]
+    public function offsetGet($offset)
+    {
+        return $this->container[$offset] ?? null;
+    }
+
+    /**
+     * Sets value based on offset.
+     *
+     * @param int|null $offset Offset
+     * @param mixed    $value  Value to be set
+     *
+     * @return void
+     */
+    public function offsetSet($offset, $value): void
+    {
+        if (is_null($offset)) {
+            $this->container[] = $value;
+        } else {
+            $this->container[$offset] = $value;
         }
     }
 
     /**
-     * Operation createDealSetupAsync
+     * Unsets offset.
      *
-     * Create deal setup
+     * @param integer $offset Offset
      *
-     * @param  \DealMaker\Model\CreateDealSetupRequest $create_deal_setup_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createDealSetup'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
+     * @return void
      */
-    public function createDealSetupAsync($create_deal_setup_request, string $contentType = self::contentTypes['createDealSetup'][0])
+    public function offsetUnset($offset): void
     {
-        return $this->createDealSetupAsyncWithHttpInfo($create_deal_setup_request, $contentType)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
+        unset($this->container[$offset]);
     }
 
     /**
-     * Operation createDealSetupAsyncWithHttpInfo
+     * Serializes the object to a value that can be serialized natively by json_encode().
+     * @link https://www.php.net/manual/en/jsonserializable.jsonserialize.php
      *
-     * Create deal setup
-     *
-     * @param  \DealMaker\Model\CreateDealSetupRequest $create_deal_setup_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createDealSetup'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
+     * @return mixed Returns data which can be serialized by json_encode(), which is a value
+     * of any type other than a resource.
      */
-    public function createDealSetupAsyncWithHttpInfo($create_deal_setup_request, string $contentType = self::contentTypes['createDealSetup'][0])
+    #[\ReturnTypeWillChange]
+    public function jsonSerialize()
     {
-        $returnType = '\DealMaker\Model\V1EntitiesDealSetup';
-        $request = $this->createDealSetupRequest($create_deal_setup_request, $contentType);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
+       return ObjectSerializer::sanitizeForSerialization($this);
     }
 
     /**
-     * Create request for operation 'createDealSetup'
+     * Gets the string presentation of the object
      *
-     * @param  \DealMaker\Model\CreateDealSetupRequest $create_deal_setup_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createDealSetup'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
+     * @return string
      */
-    public function createDealSetupRequest($create_deal_setup_request, string $contentType = self::contentTypes['createDealSetup'][0])
+    public function __toString()
     {
-
-        // verify the required parameter 'create_deal_setup_request' is set
-        if ($create_deal_setup_request === null || (is_array($create_deal_setup_request) && count($create_deal_setup_request) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $create_deal_setup_request when calling createDealSetup'
-            );
-        }
-
-
-        $resourcePath = '/deal_setups';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-
-
-
-        $headers = $this->headerSelector->selectHeaders(
-            ['application/json', ],
-            $contentType,
-            $multipart
+        return json_encode(
+            ObjectSerializer::sanitizeForSerialization($this),
+            JSON_PRETTY_PRINT
         );
-
-        // for model (json/xml)
-        if (isset($create_deal_setup_request)) {
-            if (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($create_deal_setup_request));
-            } else {
-                $httpBody = $create_deal_setup_request;
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $operationHost = $this->config->getHost();
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'POST',
-            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
     }
 
     /**
-     * Create http client option
+     * Gets a header-safe presentation of the object
      *
-     * @throws \RuntimeException on file opening failure
-     * @return array of http client options
+     * @return string
      */
-    protected function createHttpClientOption()
+    public function toHeaderValue()
     {
-        $options = [];
-        if ($this->config->getDebug()) {
-            $options[RequestOptions::DEBUG] = fopen($this->config->getDebugFile(), 'a');
-            if (!$options[RequestOptions::DEBUG]) {
-                throw new \RuntimeException('Failed to open the debug file: ' . $this->config->getDebugFile());
-            }
-        }
-
-        return $options;
+        return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
 }
+
+

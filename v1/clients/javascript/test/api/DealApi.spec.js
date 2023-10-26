@@ -48,6 +48,16 @@
   }
 
   describe('DealApi', function() {
+    describe('createDealSetup', function() {
+      it('should call createDealSetup successfully', function(done) {
+        //uncomment below and update the code to test createDealSetup
+        //instance.createDealSetup(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('getDeal', function() {
       it('should call getDeal successfully', function(done) {
         //uncomment below and update the code to test getDeal

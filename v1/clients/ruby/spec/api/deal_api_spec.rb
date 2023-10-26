@@ -32,6 +32,18 @@ describe 'DealApi' do
     end
   end
 
+  # unit tests for create_deal_setup
+  # Create deal setup
+  # Create deal setup
+  # @param create_deal_setup_request 
+  # @param [Hash] opts the optional parameters
+  # @return [V1EntitiesDealSetup]
+  describe 'create_deal_setup test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for get_deal
   # Get deal by Deal ID
   # Gets a single deal using the Deal ID

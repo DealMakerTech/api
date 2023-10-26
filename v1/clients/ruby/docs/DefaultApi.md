@@ -10,6 +10,9 @@ All URIs are relative to *http://api.dealmaker.tech*
 | [**get_webhooks_deal_id**](DefaultApi.md#get_webhooks_deal_id) | **GET** /webhooks/deal/{id} | Finds a deal using the id |
 | [**get_webhooks_deals_search**](DefaultApi.md#get_webhooks_deals_search) | **GET** /webhooks/deals/search | Searches for deals for a given user |
 | [**get_webhooks_security_token**](DefaultApi.md#get_webhooks_security_token) | **GET** /webhooks/security_token | Creates a new security token for webhook subscription |
+| [**post_deals_deal_id_payment_onboarding_questionnaire_payout_account_details_submit**](DefaultApi.md#post_deals_deal_id_payment_onboarding_questionnaire_payout_account_details_submit) | **POST** /deals/{deal_id}/payment_onboarding/questionnaire/payout_account_details/submit | Submit a payout account details form |
+| [**post_deals_deal_id_payment_onboarding_questionnaire_qualification_questionnaire_response_submit**](DefaultApi.md#post_deals_deal_id_payment_onboarding_questionnaire_qualification_questionnaire_response_submit) | **POST** /deals/{deal_id}/payment_onboarding/questionnaire/qualification_questionnaire/response/submit | Submit a qualification questionnaire response |
+| [**post_deals_deal_id_payment_onboarding_questionnaire_qualification_questionnaire_submit**](DefaultApi.md#post_deals_deal_id_payment_onboarding_questionnaire_qualification_questionnaire_submit) | **POST** /deals/{deal_id}/payment_onboarding/questionnaire/qualification_questionnaire/submit | Submit a qualification questionnaire form |
 | [**post_webhooks**](DefaultApi.md#post_webhooks) | **POST** /webhooks | Creates a webhook subscription which is associated to the user |
 | [**put_webhooks_id**](DefaultApi.md#put_webhooks_id) | **PUT** /webhooks/{id} | Updates webhook subscription and webhooks subcription deals |
 
@@ -401,6 +404,203 @@ This endpoint does not need any parameter.
 ### Return type
 
 [**V1EntitiesWebhooksSecurityToken**](V1EntitiesWebhooksSecurityToken.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## post_deals_deal_id_payment_onboarding_questionnaire_payout_account_details_submit
+
+> <V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsResult> post_deals_deal_id_payment_onboarding_questionnaire_payout_account_details_submit(deal_id)
+
+Submit a payout account details form
+
+Submit a payout account details form
+
+### Examples
+
+```ruby
+require 'time'
+require 'DealMakerAPI'
+# setup authorization
+DealMakerAPI.configure do |config|end
+
+api_instance = DealMakerAPI::DefaultApi.new
+deal_id = 56 # Integer | 
+
+begin
+  # Submit a payout account details form
+  result = api_instance.post_deals_deal_id_payment_onboarding_questionnaire_payout_account_details_submit(deal_id)
+  p result
+rescue DealMakerAPI::ApiError => e
+  puts "Error when calling DefaultApi->post_deals_deal_id_payment_onboarding_questionnaire_payout_account_details_submit: #{e}"
+end
+```
+
+#### Using the post_deals_deal_id_payment_onboarding_questionnaire_payout_account_details_submit_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsResult>, Integer, Hash)> post_deals_deal_id_payment_onboarding_questionnaire_payout_account_details_submit_with_http_info(deal_id)
+
+```ruby
+begin
+  # Submit a payout account details form
+  data, status_code, headers = api_instance.post_deals_deal_id_payment_onboarding_questionnaire_payout_account_details_submit_with_http_info(deal_id)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsResult>
+rescue DealMakerAPI::ApiError => e
+  puts "Error when calling DefaultApi->post_deals_deal_id_payment_onboarding_questionnaire_payout_account_details_submit_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **deal_id** | **Integer** |  |  |
+
+### Return type
+
+[**V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsResult**](V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsResult.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## post_deals_deal_id_payment_onboarding_questionnaire_qualification_questionnaire_response_submit
+
+> post_deals_deal_id_payment_onboarding_questionnaire_qualification_questionnaire_response_submit(deal_id)
+
+Submit a qualification questionnaire response
+
+Submit a qualification questionnaire response
+
+### Examples
+
+```ruby
+require 'time'
+require 'DealMakerAPI'
+# setup authorization
+DealMakerAPI.configure do |config|end
+
+api_instance = DealMakerAPI::DefaultApi.new
+deal_id = 56 # Integer | 
+
+begin
+  # Submit a qualification questionnaire response
+  api_instance.post_deals_deal_id_payment_onboarding_questionnaire_qualification_questionnaire_response_submit(deal_id)
+rescue DealMakerAPI::ApiError => e
+  puts "Error when calling DefaultApi->post_deals_deal_id_payment_onboarding_questionnaire_qualification_questionnaire_response_submit: #{e}"
+end
+```
+
+#### Using the post_deals_deal_id_payment_onboarding_questionnaire_qualification_questionnaire_response_submit_with_http_info variant
+
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
+
+> <Array(nil, Integer, Hash)> post_deals_deal_id_payment_onboarding_questionnaire_qualification_questionnaire_response_submit_with_http_info(deal_id)
+
+```ruby
+begin
+  # Submit a qualification questionnaire response
+  data, status_code, headers = api_instance.post_deals_deal_id_payment_onboarding_questionnaire_qualification_questionnaire_response_submit_with_http_info(deal_id)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => nil
+rescue DealMakerAPI::ApiError => e
+  puts "Error when calling DefaultApi->post_deals_deal_id_payment_onboarding_questionnaire_qualification_questionnaire_response_submit_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **deal_id** | **Integer** |  |  |
+
+### Return type
+
+nil (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
+
+
+## post_deals_deal_id_payment_onboarding_questionnaire_qualification_questionnaire_submit
+
+> <V1EntitiesPaymentsSelfServeOnboardingQualificationQuestionnaireResult> post_deals_deal_id_payment_onboarding_questionnaire_qualification_questionnaire_submit(deal_id)
+
+Submit a qualification questionnaire form
+
+Submit a qualification questionnaire form
+
+### Examples
+
+```ruby
+require 'time'
+require 'DealMakerAPI'
+# setup authorization
+DealMakerAPI.configure do |config|end
+
+api_instance = DealMakerAPI::DefaultApi.new
+deal_id = 56 # Integer | 
+
+begin
+  # Submit a qualification questionnaire form
+  result = api_instance.post_deals_deal_id_payment_onboarding_questionnaire_qualification_questionnaire_submit(deal_id)
+  p result
+rescue DealMakerAPI::ApiError => e
+  puts "Error when calling DefaultApi->post_deals_deal_id_payment_onboarding_questionnaire_qualification_questionnaire_submit: #{e}"
+end
+```
+
+#### Using the post_deals_deal_id_payment_onboarding_questionnaire_qualification_questionnaire_submit_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<V1EntitiesPaymentsSelfServeOnboardingQualificationQuestionnaireResult>, Integer, Hash)> post_deals_deal_id_payment_onboarding_questionnaire_qualification_questionnaire_submit_with_http_info(deal_id)
+
+```ruby
+begin
+  # Submit a qualification questionnaire form
+  data, status_code, headers = api_instance.post_deals_deal_id_payment_onboarding_questionnaire_qualification_questionnaire_submit_with_http_info(deal_id)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <V1EntitiesPaymentsSelfServeOnboardingQualificationQuestionnaireResult>
+rescue DealMakerAPI::ApiError => e
+  puts "Error when calling DefaultApi->post_deals_deal_id_payment_onboarding_questionnaire_qualification_questionnaire_submit_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **deal_id** | **Integer** |  |  |
+
+### Return type
+
+[**V1EntitiesPaymentsSelfServeOnboardingQualificationQuestionnaireResult**](V1EntitiesPaymentsSelfServeOnboardingQualificationQuestionnaireResult.md)
 
 ### Authorization
 

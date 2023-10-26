@@ -92,6 +92,9 @@ module DealMakerAPI
     # Current state on checkout page.
     attr_accessor :checkout_state
 
+    # The legacy link for the investor. If the investor is already on the legacy flow, this link will be null.
+    attr_accessor :legacy_flow_link
+
     class EnumAttributeValidator
       attr_reader :datatype
       attr_reader :allowable_values
@@ -143,7 +146,8 @@ module DealMakerAPI
         :'ranking_score' => :'ranking_score',
         :'investor_profile' => :'investor_profile',
         :'investor_profile_id' => :'investor_profile_id',
-        :'checkout_state' => :'checkout_state'
+        :'checkout_state' => :'checkout_state',
+        :'legacy_flow_link' => :'legacy_flow_link'
       }
     end
 
@@ -181,7 +185,8 @@ module DealMakerAPI
         :'ranking_score' => :'Float',
         :'investor_profile' => :'String',
         :'investor_profile_id' => :'Integer',
-        :'checkout_state' => :'String'
+        :'checkout_state' => :'String',
+        :'legacy_flow_link' => :'String'
       }
     end
 
@@ -313,6 +318,10 @@ module DealMakerAPI
       if attributes.key?(:'checkout_state')
         self.checkout_state = attributes[:'checkout_state']
       end
+
+      if attributes.key?(:'legacy_flow_link')
+        self.legacy_flow_link = attributes[:'legacy_flow_link']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -409,7 +418,8 @@ module DealMakerAPI
           ranking_score == o.ranking_score &&
           investor_profile == o.investor_profile &&
           investor_profile_id == o.investor_profile_id &&
-          checkout_state == o.checkout_state
+          checkout_state == o.checkout_state &&
+          legacy_flow_link == o.legacy_flow_link
     end
 
     # @see the `==` method
@@ -421,7 +431,7 @@ module DealMakerAPI
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, user, created_at, updated_at, name, allocation_unit, state, funding_state, funds_pending, beneficial_address, phone_number, investor_currency, number_of_securities, investment_value, allocated_amount, funds_value, access_link, subscription_agreement, attachments, background_check_searches, verification_status, warrant_expiry_date, warrant_certificate_number, ranking_score, investor_profile, investor_profile_id, checkout_state].hash
+      [id, user, created_at, updated_at, name, allocation_unit, state, funding_state, funds_pending, beneficial_address, phone_number, investor_currency, number_of_securities, investment_value, allocated_amount, funds_value, access_link, subscription_agreement, attachments, background_check_searches, verification_status, warrant_expiry_date, warrant_certificate_number, ranking_score, investor_profile, investor_profile_id, checkout_state, legacy_flow_link].hash
     end
 
     # Builds the object from hash
@@ -486,7 +496,7 @@ module DealMakerAPI
       else # model
         # models (e.g. Pet) or oneOf
         klass = DealMakerAPI.const_get(type)
-        klass.respond_to?(:openapi_one_of) ? klass.build(value) : klass.build_from_hash(value)
+        klass.respond_to?(:openapi_any_of) || klass.respond_to?(:openapi_one_of) ? klass.build(value) : klass.build_from_hash(value)
       end
     end
 

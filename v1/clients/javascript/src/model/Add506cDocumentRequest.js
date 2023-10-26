@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The Add506cDocumentRequest model module.
  * @module model/Add506cDocumentRequest
- * @version 0.89.5
+ * @version 0.90.0
  */
 class Add506cDocumentRequest {
     /**

@@ -104,6 +104,9 @@ class CompanyApi
         'getDividends' => [
             'application/json',
         ],
+        'sendPortalInvite' => [
+            'application/json',
+        ],
     ];
 
 /**
@@ -3530,6 +3533,268 @@ class CompanyApi
         $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation sendPortalInvite
+     *
+     * Send portal invite to shareholder
+     *
+     * @param  int $id id (required)
+     * @param  int $shareholder_id shareholder_id (required)
+     * @param  \DealMaker\Model\SendPortalInviteRequest $send_portal_invite_request send_portal_invite_request (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sendPortalInvite'] to see the possible values for this operation
+     *
+     * @throws \DealMaker\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return void
+     */
+    public function sendPortalInvite($id, $shareholder_id, $send_portal_invite_request = null, string $contentType = self::contentTypes['sendPortalInvite'][0])
+    {
+        $this->sendPortalInviteWithHttpInfo($id, $shareholder_id, $send_portal_invite_request, $contentType);
+    }
+
+    /**
+     * Operation sendPortalInviteWithHttpInfo
+     *
+     * Send portal invite to shareholder
+     *
+     * @param  int $id (required)
+     * @param  int $shareholder_id (required)
+     * @param  \DealMaker\Model\SendPortalInviteRequest $send_portal_invite_request (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sendPortalInvite'] to see the possible values for this operation
+     *
+     * @throws \DealMaker\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function sendPortalInviteWithHttpInfo($id, $shareholder_id, $send_portal_invite_request = null, string $contentType = self::contentTypes['sendPortalInvite'][0])
+    {
+        $request = $this->sendPortalInviteRequest($id, $shareholder_id, $send_portal_invite_request, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return [null, $statusCode, $response->getHeaders()];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation sendPortalInviteAsync
+     *
+     * Send portal invite to shareholder
+     *
+     * @param  int $id (required)
+     * @param  int $shareholder_id (required)
+     * @param  \DealMaker\Model\SendPortalInviteRequest $send_portal_invite_request (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sendPortalInvite'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function sendPortalInviteAsync($id, $shareholder_id, $send_portal_invite_request = null, string $contentType = self::contentTypes['sendPortalInvite'][0])
+    {
+        return $this->sendPortalInviteAsyncWithHttpInfo($id, $shareholder_id, $send_portal_invite_request, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation sendPortalInviteAsyncWithHttpInfo
+     *
+     * Send portal invite to shareholder
+     *
+     * @param  int $id (required)
+     * @param  int $shareholder_id (required)
+     * @param  \DealMaker\Model\SendPortalInviteRequest $send_portal_invite_request (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sendPortalInvite'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function sendPortalInviteAsyncWithHttpInfo($id, $shareholder_id, $send_portal_invite_request = null, string $contentType = self::contentTypes['sendPortalInvite'][0])
+    {
+        $returnType = '';
+        $request = $this->sendPortalInviteRequest($id, $shareholder_id, $send_portal_invite_request, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'sendPortalInvite'
+     *
+     * @param  int $id (required)
+     * @param  int $shareholder_id (required)
+     * @param  \DealMaker\Model\SendPortalInviteRequest $send_portal_invite_request (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sendPortalInvite'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function sendPortalInviteRequest($id, $shareholder_id, $send_portal_invite_request = null, string $contentType = self::contentTypes['sendPortalInvite'][0])
+    {
+
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling sendPortalInvite'
+            );
+        }
+
+        // verify the required parameter 'shareholder_id' is set
+        if ($shareholder_id === null || (is_array($shareholder_id) && count($shareholder_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $shareholder_id when calling sendPortalInvite'
+            );
+        }
+
+
+
+        $resourcePath = '/companies/{id}/shareholders/{shareholder_id}/send_portal_invite';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'id' . '}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($shareholder_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'shareholder_id' . '}',
+                ObjectSerializer::toPathValue($shareholder_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            [],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($send_portal_invite_request)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($send_portal_invite_request));
+            } else {
+                $httpBody = $send_portal_invite_request;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
             $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody

@@ -202,4 +202,16 @@ class CompanyApiTest extends TestCase
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test case for sendPortalInvite
+     *
+     * Send portal invite to shareholder.
+     *
+     */
+    public function testSendPortalInvite()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
 }

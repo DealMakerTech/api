@@ -42,6 +42,7 @@ docs/Model/PostWebhooksRequest.md
 docs/Model/PutDealsIdInvestors.md
 docs/Model/PutDealsIdScriptTagEnvironmentRequest.md
 docs/Model/PutWebhooksIdRequest.md
+docs/Model/SendPortalInviteRequest.md
 docs/Model/V1EntitiesAddress.md
 docs/Model/V1EntitiesAddresses.md
 docs/Model/V1EntitiesAttachment.md
@@ -78,6 +79,7 @@ docs/Model/V1EntitiesInvestorProfileFieldsCorporation.md
 docs/Model/V1EntitiesInvestorProfileFieldsPrimaryHolder.md
 docs/Model/V1EntitiesInvestorProfileFieldsSigningOfficer.md
 docs/Model/V1EntitiesInvestorProfileFieldsTrust.md
+docs/Model/V1EntitiesInvestorProfileFieldsTrustee.md
 docs/Model/V1EntitiesInvestorProfileIndividual.md
 docs/Model/V1EntitiesInvestorProfileItem.md
 docs/Model/V1EntitiesInvestorProfileJoint.md
@@ -142,6 +144,7 @@ lib/Model/PostWebhooksRequest.php
 lib/Model/PutDealsIdInvestors.php
 lib/Model/PutDealsIdScriptTagEnvironmentRequest.php
 lib/Model/PutWebhooksIdRequest.php
+lib/Model/SendPortalInviteRequest.php
 lib/Model/V1EntitiesAddress.php
 lib/Model/V1EntitiesAddresses.php
 lib/Model/V1EntitiesAttachment.php
@@ -178,6 +181,7 @@ lib/Model/V1EntitiesInvestorProfileFieldsCorporation.php
 lib/Model/V1EntitiesInvestorProfileFieldsPrimaryHolder.php
 lib/Model/V1EntitiesInvestorProfileFieldsSigningOfficer.php
 lib/Model/V1EntitiesInvestorProfileFieldsTrust.php
+lib/Model/V1EntitiesInvestorProfileFieldsTrustee.php
 lib/Model/V1EntitiesInvestorProfileIndividual.php
 lib/Model/V1EntitiesInvestorProfileItem.php
 lib/Model/V1EntitiesInvestorProfileJoint.php
@@ -239,6 +243,7 @@ test/Model/PostWebhooksRequestTest.php
 test/Model/PutDealsIdInvestorsTest.php
 test/Model/PutDealsIdScriptTagEnvironmentRequestTest.php
 test/Model/PutWebhooksIdRequestTest.php
+test/Model/SendPortalInviteRequestTest.php
 test/Model/V1EntitiesAddressTest.php
 test/Model/V1EntitiesAddressesTest.php
 test/Model/V1EntitiesAttachmentTest.php
@@ -274,6 +279,7 @@ test/Model/V1EntitiesInvestorProfileFieldsCorporationTest.php
 test/Model/V1EntitiesInvestorProfileFieldsPrimaryHolderTest.php
 test/Model/V1EntitiesInvestorProfileFieldsSigningOfficerTest.php
 test/Model/V1EntitiesInvestorProfileFieldsTrustTest.php
+test/Model/V1EntitiesInvestorProfileFieldsTrusteeTest.php
 test/Model/V1EntitiesInvestorProfileIndividualTest.php
 test/Model/V1EntitiesInvestorProfileItemTest.php
 test/Model/V1EntitiesInvestorProfileJointTest.php

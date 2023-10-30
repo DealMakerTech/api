@@ -68,7 +68,7 @@ class V1EntitiesInvestorProfileTrust implements ModelInterface, ArrayAccess, \Js
         'owner_type' => 'string',
         'owner' => '\DealMaker\Model\V1EntitiesInvestorProfileOwner',
         'trust_holder' => '\DealMaker\Model\V1EntitiesInvestorProfileFieldsTrust',
-        'trustees' => '\DealMaker\Model\V1EntitiesInvestorProfileFieldsAccountHolder'
+        'trustees' => '\DealMaker\Model\V1EntitiesInvestorProfileFieldsTrustee'
     ];
 
     /**
@@ -671,7 +671,7 @@ class V1EntitiesInvestorProfileTrust implements ModelInterface, ArrayAccess, \Js
     /**
      * Gets trustees
      *
-     * @return \DealMaker\Model\V1EntitiesInvestorProfileFieldsAccountHolder|null
+     * @return \DealMaker\Model\V1EntitiesInvestorProfileFieldsTrustee|null
      */
     public function getTrustees()
     {
@@ -681,7 +681,7 @@ class V1EntitiesInvestorProfileTrust implements ModelInterface, ArrayAccess, \Js
     /**
      * Sets trustees
      *
-     * @param \DealMaker\Model\V1EntitiesInvestorProfileFieldsAccountHolder|null $trustees trustees
+     * @param \DealMaker\Model\V1EntitiesInvestorProfileFieldsTrustee|null $trustees trustees
      *
      * @return self
      */

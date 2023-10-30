@@ -126,6 +126,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property phoneNumber (base name: "phone_number")', function() {
+      // uncomment below and update the code to test the property phoneNumber
+      //var instance = new Api.PatchInvestorProfilesTrustsTrusteesInner();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

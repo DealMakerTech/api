@@ -14,5 +14,6 @@ Name | Type | Description | Notes
 **postal_code** | **string** | The list of postal codes or zipcodes for the trustees (required for trustee 1). | [optional]
 **date_of_birth** | **string** | The list of dates of birth for the trustees (required for trustee 1). | [optional]
 **taxpayer_id** | **string** | The list of taxpayer identification numbers for the trustees (required for trustee 1). | [optional]
+**phone_number** | **string** | The list of phone numbers for the trustees (required for trustee 1). | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

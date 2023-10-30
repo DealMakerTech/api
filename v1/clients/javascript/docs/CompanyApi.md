@@ -15,6 +15,7 @@ Method | HTTP request | Description
 [**getCompany**](CompanyApi.md#getCompany) | **GET** /companies/{id} | Get a Company
 [**getDetailsErrorsGrouped**](CompanyApi.md#getDetailsErrorsGrouped) | **GET** /companies/{company_id}/documents/bulk_uploads/{bulk_upload_id}/details/grouped_errors | Return bulk upload details grouped by status
 [**getDividends**](CompanyApi.md#getDividends) | **GET** /companies/{company_id}/portal/dividends | Return dividends
+[**sendPortalInvite**](CompanyApi.md#sendPortalInvite) | **POST** /companies/{id}/shareholders/{shareholder_id}/send_portal_invite | Send portal invite to shareholder
 
 
 
@@ -560,4 +561,56 @@ No authorization required
 
 - **Content-Type**: Not defined
 - **Accept**: application/json
+
+
+## sendPortalInvite
+
+> sendPortalInvite(id, shareholderId, opts)
+
+Send portal invite to shareholder
+
+Send portal invite to shareholder.
+
+### Example
+
+```javascript
+import Api from 'api';
+let defaultClient = Api.ApiClient.instance;
+
+let apiInstance = new Api.CompanyApi();
+let id = 56; // Number | 
+let shareholderId = 56; // Number | 
+let opts = {
+  'sendPortalInviteRequest': new Api.SendPortalInviteRequest() // SendPortalInviteRequest | 
+};
+apiInstance.sendPortalInvite(id, shareholderId, opts, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully.');
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Number**|  | 
+ **shareholderId** | **Number**|  | 
+ **sendPortalInviteRequest** | [**SendPortalInviteRequest**](SendPortalInviteRequest.md)|  | [optional] 
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: Not defined
 

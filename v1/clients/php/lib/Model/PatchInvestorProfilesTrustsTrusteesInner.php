@@ -68,7 +68,8 @@ class PatchInvestorProfilesTrustsTrusteesInner implements ModelInterface, ArrayA
         'region' => 'string',
         'postal_code' => 'string',
         'date_of_birth' => 'string',
-        'taxpayer_id' => 'string'
+        'taxpayer_id' => 'string',
+        'phone_number' => 'string'
     ];
 
     /**
@@ -90,7 +91,8 @@ class PatchInvestorProfilesTrustsTrusteesInner implements ModelInterface, ArrayA
         'region' => null,
         'postal_code' => null,
         'date_of_birth' => null,
-        'taxpayer_id' => null
+        'taxpayer_id' => null,
+        'phone_number' => null
     ];
 
     /**
@@ -110,7 +112,8 @@ class PatchInvestorProfilesTrustsTrusteesInner implements ModelInterface, ArrayA
 		'region' => false,
 		'postal_code' => false,
 		'date_of_birth' => false,
-		'taxpayer_id' => false
+		'taxpayer_id' => false,
+		'phone_number' => false
     ];
 
     /**
@@ -210,7 +213,8 @@ class PatchInvestorProfilesTrustsTrusteesInner implements ModelInterface, ArrayA
         'region' => 'region',
         'postal_code' => 'postal_code',
         'date_of_birth' => 'date_of_birth',
-        'taxpayer_id' => 'taxpayer_id'
+        'taxpayer_id' => 'taxpayer_id',
+        'phone_number' => 'phone_number'
     ];
 
     /**
@@ -230,7 +234,8 @@ class PatchInvestorProfilesTrustsTrusteesInner implements ModelInterface, ArrayA
         'region' => 'setRegion',
         'postal_code' => 'setPostalCode',
         'date_of_birth' => 'setDateOfBirth',
-        'taxpayer_id' => 'setTaxpayerId'
+        'taxpayer_id' => 'setTaxpayerId',
+        'phone_number' => 'setPhoneNumber'
     ];
 
     /**
@@ -250,7 +255,8 @@ class PatchInvestorProfilesTrustsTrusteesInner implements ModelInterface, ArrayA
         'region' => 'getRegion',
         'postal_code' => 'getPostalCode',
         'date_of_birth' => 'getDateOfBirth',
-        'taxpayer_id' => 'getTaxpayerId'
+        'taxpayer_id' => 'getTaxpayerId',
+        'phone_number' => 'getPhoneNumber'
     ];
 
     /**
@@ -322,6 +328,7 @@ class PatchInvestorProfilesTrustsTrusteesInner implements ModelInterface, ArrayA
         $this->setIfExists('postal_code', $data ?? [], null);
         $this->setIfExists('date_of_birth', $data ?? [], null);
         $this->setIfExists('taxpayer_id', $data ?? [], null);
+        $this->setIfExists('phone_number', $data ?? [], null);
     }
 
     /**
@@ -689,6 +696,33 @@ class PatchInvestorProfilesTrustsTrusteesInner implements ModelInterface, ArrayA
             throw new \InvalidArgumentException('non-nullable taxpayer_id cannot be null');
         }
         $this->container['taxpayer_id'] = $taxpayer_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets phone_number
+     *
+     * @return string|null
+     */
+    public function getPhoneNumber()
+    {
+        return $this->container['phone_number'];
+    }
+
+    /**
+     * Sets phone_number
+     *
+     * @param string|null $phone_number The list of phone numbers for the trustees (required for trustee 1).
+     *
+     * @return self
+     */
+    public function setPhoneNumber($phone_number)
+    {
+        if (is_null($phone_number)) {
+            throw new \InvalidArgumentException('non-nullable phone_number cannot be null');
+        }
+        $this->container['phone_number'] = $phone_number;
 
         return $this;
     }

@@ -17,6 +17,7 @@ import CreateBulkUploadDetailRequest from '../model/CreateBulkUploadDetailReques
 import CreateBulkUploadRequest from '../model/CreateBulkUploadRequest';
 import CreateCompanyRequest from '../model/CreateCompanyRequest';
 import CreateShareholderActionRequest from '../model/CreateShareholderActionRequest';
+import SendPortalInviteRequest from '../model/SendPortalInviteRequest';
 import V1EntitiesBulkUpload from '../model/V1EntitiesBulkUpload';
 import V1EntitiesBulkUploadDetail from '../model/V1EntitiesBulkUploadDetail';
 import V1EntitiesBulkUploadDetails from '../model/V1EntitiesBulkUploadDetails';
@@ -28,7 +29,7 @@ import V1EntitiesGenericResponse from '../model/V1EntitiesGenericResponse';
 /**
 * Company service.
 * @module api/CompanyApi
-* @version 0.90.0
+* @version 0.90.1
 */
 export default class CompanyApi {
 
@@ -574,6 +575,57 @@ export default class CompanyApi {
       let returnType = V1EntitiesDividends;
       return this.apiClient.callApi(
         '/companies/{company_id}/portal/dividends', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the sendPortalInvite operation.
+     * @callback module:api/CompanyApi~sendPortalInviteCallback
+     * @param {String} error Error message, if any.
+     * @param data This operation does not return a value.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Send portal invite to shareholder
+     * Send portal invite to shareholder.
+     * @param {Number} id 
+     * @param {Number} shareholderId 
+     * @param {Object} opts Optional parameters
+     * @param {module:model/SendPortalInviteRequest} [sendPortalInviteRequest] 
+     * @param {module:api/CompanyApi~sendPortalInviteCallback} callback The callback function, accepting three arguments: error, data, response
+     */
+    sendPortalInvite(id, shareholderId, opts, callback) {
+      opts = opts || {};
+      let postBody = opts['sendPortalInviteRequest'];
+      // verify the required parameter 'id' is set
+      if (id === undefined || id === null) {
+        throw new Error("Missing the required parameter 'id' when calling sendPortalInvite");
+      }
+      // verify the required parameter 'shareholderId' is set
+      if (shareholderId === undefined || shareholderId === null) {
+        throw new Error("Missing the required parameter 'shareholderId' when calling sendPortalInvite");
+      }
+
+      let pathParams = {
+        'id': id,
+        'shareholder_id': shareholderId
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = ['application/json'];
+      let accepts = [];
+      let returnType = null;
+      return this.apiClient.callApi(
+        '/companies/{id}/shareholders/{shareholder_id}/send_portal_invite', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

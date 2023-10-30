@@ -3501,6 +3501,83 @@
         ]
       }
     },
+    "/companies/{id}/shareholders/{shareholder_id}/send_portal_invite": {
+      "post": {
+        "summary": "Send portal invite to shareholder",
+        "description": "Send portal invite to shareholder.",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "formData",
+            "name": "subject",
+            "description": "The custom subject of the invite email",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "email_content",
+            "description": "The custom email content of the invite email",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "path",
+            "name": "id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          },
+          {
+            "in": "path",
+            "name": "shareholder_id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "security": [
+          {
+            "oauth": [
+              "internal"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not found"
+          }
+        },
+        "tags": [
+          "company"
+        ],
+        "operationId": "sendPortalInvite",
+        "x-codeSamples": [
+          {
+            "lang": "javascript",
+            "source": ""
+          },
+          {
+            "lang": "ruby",
+            "source": ""
+          }
+        ]
+      }
+    },
     "/webhooks/security_token": {
       "get": {
         "summary": "Creates a new security token for webhook subscription",
@@ -4736,7 +4813,7 @@
           "$ref": "#/definitions/V1_Entities_InvestorProfile_Fields_Trust"
         },
         "trustees": {
-          "$ref": "#/definitions/V1_Entities_InvestorProfile_Fields_AccountHolder"
+          "$ref": "#/definitions/V1_Entities_InvestorProfile_Fields_Trustee"
         }
       },
       "description": "V1_Entities_InvestorProfile_Trust model"
@@ -4773,6 +4850,38 @@
         },
         "address": {
           "$ref": "#/definitions/V1_Entities_InvestorProfile_Address"
+        }
+      }
+    },
+    "V1_Entities_InvestorProfile_Fields_Trustee": {
+      "type": "object",
+      "properties": {
+        "first_name": {
+          "type": "string",
+          "description": "Investor profile first name"
+        },
+        "last_name": {
+          "type": "string",
+          "description": "Investor profile last name"
+        },
+        "suffix": {
+          "type": "string",
+          "description": "Investor profile suffix"
+        },
+        "date_of_birth": {
+          "type": "string",
+          "description": "The date of birth"
+        },
+        "taxpayer_id": {
+          "type": "string",
+          "description": "The taxpayer identification number"
+        },
+        "address": {
+          "$ref": "#/definitions/V1_Entities_InvestorProfile_Address"
+        },
+        "phone_number": {
+          "type": "string",
+          "description": "Trustee phone number"
         }
       }
     },
@@ -5035,6 +5144,10 @@
               "taxpayer_id": {
                 "type": "string",
                 "description": "The list of taxpayer identification numbers for the trustees (required for trustee 1)."
+              },
+              "phone_number": {
+                "type": "string",
+                "description": "The list of phone numbers for the trustees (required for trustee 1)."
               }
             },
             "required": [
@@ -5169,6 +5282,10 @@
               "taxpayer_id": {
                 "type": "string",
                 "description": "The list of taxpayer identification numbers for the trustees (required for trustee 1)."
+              },
+              "phone_number": {
+                "type": "string",
+                "description": "The list of phone numbers for the trustees (required for trustee 1)."
               }
             }
           }

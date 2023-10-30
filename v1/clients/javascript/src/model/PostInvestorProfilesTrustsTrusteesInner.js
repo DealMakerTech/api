@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The PostInvestorProfilesTrustsTrusteesInner model module.
  * @module model/PostInvestorProfilesTrustsTrusteesInner
- * @version 0.90.0
+ * @version 0.90.1
  */
 class PostInvestorProfilesTrustsTrusteesInner {
     /**
@@ -77,6 +77,9 @@ class PostInvestorProfilesTrustsTrusteesInner {
             if (data.hasOwnProperty('taxpayer_id')) {
                 obj['taxpayer_id'] = ApiClient.convertToType(data['taxpayer_id'], 'String');
             }
+            if (data.hasOwnProperty('phone_number')) {
+                obj['phone_number'] = ApiClient.convertToType(data['phone_number'], 'String');
+            }
         }
         return obj;
     }
@@ -126,6 +129,10 @@ class PostInvestorProfilesTrustsTrusteesInner {
         // ensure the json data is a string
         if (data['taxpayer_id'] && !(typeof data['taxpayer_id'] === 'string' || data['taxpayer_id'] instanceof String)) {
             throw new Error("Expected the field `taxpayer_id` to be a primitive type in the JSON string but got " + data['taxpayer_id']);
+        }
+        // ensure the json data is a string
+        if (data['phone_number'] && !(typeof data['phone_number'] === 'string' || data['phone_number'] instanceof String)) {
+            throw new Error("Expected the field `phone_number` to be a primitive type in the JSON string but got " + data['phone_number']);
         }
 
         return true;
@@ -195,6 +202,12 @@ PostInvestorProfilesTrustsTrusteesInner.prototype['date_of_birth'] = undefined;
  * @member {String} taxpayer_id
  */
 PostInvestorProfilesTrustsTrusteesInner.prototype['taxpayer_id'] = undefined;
+
+/**
+ * The list of phone numbers for the trustees (required for trustee 1).
+ * @member {String} phone_number
+ */
+PostInvestorProfilesTrustsTrusteesInner.prototype['phone_number'] = undefined;
 
 
 

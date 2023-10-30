@@ -180,4 +180,18 @@ describe 'CompanyApi' do
     end
   end
 
+  # unit tests for send_portal_invite
+  # Send portal invite to shareholder
+  # Send portal invite to shareholder.
+  # @param id 
+  # @param shareholder_id 
+  # @param [Hash] opts the optional parameters
+  # @option opts [SendPortalInviteRequest] :send_portal_invite_request 
+  # @return [nil]
+  describe 'send_portal_invite test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
 end

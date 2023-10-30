@@ -15,6 +15,7 @@ All URIs are relative to http://api.dealmaker.tech, except if the operation defi
 | [**getCompany()**](CompanyApi.md#getCompany) | **GET** /companies/{id} | Get a Company |
 | [**getDetailsErrorsGrouped()**](CompanyApi.md#getDetailsErrorsGrouped) | **GET** /companies/{company_id}/documents/bulk_uploads/{bulk_upload_id}/details/grouped_errors | Return bulk upload details grouped by status |
 | [**getDividends()**](CompanyApi.md#getDividends) | **GET** /companies/{company_id}/portal/dividends | Return dividends |
+| [**sendPortalInvite()**](CompanyApi.md#sendPortalInvite) | **POST** /companies/{id}/shareholders/{shareholder_id}/send_portal_invite | Send portal invite to shareholder |
 
 
 ## `createBulkUpload()`
@@ -671,6 +672,66 @@ No authorization required
 
 - **Content-Type**: Not defined
 - **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `sendPortalInvite()`
+
+```php
+sendPortalInvite($id, $shareholder_id, $send_portal_invite_request)
+```
+
+Send portal invite to shareholder
+
+Send portal invite to shareholder.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new DealMaker\Api\CompanyApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = 56; // int
+$shareholder_id = 56; // int
+$send_portal_invite_request = new \DealMaker\Model\SendPortalInviteRequest(); // \DealMaker\Model\SendPortalInviteRequest
+
+try {
+    $apiInstance->sendPortalInvite($id, $shareholder_id, $send_portal_invite_request);
+} catch (Exception $e) {
+    echo 'Exception when calling CompanyApi->sendPortalInvite: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **int**|  | |
+| **shareholder_id** | **int**|  | |
+| **send_portal_invite_request** | [**\DealMaker\Model\SendPortalInviteRequest**](../Model/SendPortalInviteRequest.md)|  | [optional] |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)

@@ -103,7 +103,7 @@ module DealMakerAPI
         :'owner_type' => :'String',
         :'owner' => :'V1EntitiesInvestorProfileOwner',
         :'trust_holder' => :'V1EntitiesInvestorProfileFieldsTrust',
-        :'trustees' => :'V1EntitiesInvestorProfileFieldsAccountHolder'
+        :'trustees' => :'V1EntitiesInvestorProfileFieldsTrustee'
       }
     end
 

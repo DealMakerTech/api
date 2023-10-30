@@ -16,6 +16,7 @@
 | **postal_code** | **String** | The list of postal codes or zipcodes for the trustees (required for trustee 1). | [optional] |
 | **date_of_birth** | **String** | The list of dates of birth for the trustees (required for trustee 1). | [optional] |
 | **taxpayer_id** | **String** | The list of taxpayer identification numbers for the trustees (required for trustee 1). | [optional] |
+| **phone_number** | **String** | The list of phone numbers for the trustees (required for trustee 1). | [optional] |
 
 ## Example
 
@@ -34,7 +35,8 @@ instance = DealMakerAPI::PatchInvestorProfilesTrustsTrusteesInner.new(
   region: null,
   postal_code: null,
   date_of_birth: null,
-  taxpayer_id: null
+  taxpayer_id: null,
+  phone_number: null
 )
 ```
 

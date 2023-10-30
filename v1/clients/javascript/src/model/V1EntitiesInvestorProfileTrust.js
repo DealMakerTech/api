@@ -12,14 +12,14 @@
  */
 
 import ApiClient from '../ApiClient';
-import V1EntitiesInvestorProfileFieldsAccountHolder from './V1EntitiesInvestorProfileFieldsAccountHolder';
 import V1EntitiesInvestorProfileFieldsTrust from './V1EntitiesInvestorProfileFieldsTrust';
+import V1EntitiesInvestorProfileFieldsTrustee from './V1EntitiesInvestorProfileFieldsTrustee';
 import V1EntitiesInvestorProfileOwner from './V1EntitiesInvestorProfileOwner';
 
 /**
  * The V1EntitiesInvestorProfileTrust model module.
  * @module model/V1EntitiesInvestorProfileTrust
- * @version 0.90.0
+ * @version 0.90.1
  */
 class V1EntitiesInvestorProfileTrust {
     /**
@@ -82,7 +82,7 @@ class V1EntitiesInvestorProfileTrust {
                 obj['trust_holder'] = V1EntitiesInvestorProfileFieldsTrust.constructFromObject(data['trust_holder']);
             }
             if (data.hasOwnProperty('trustees')) {
-                obj['trustees'] = V1EntitiesInvestorProfileFieldsAccountHolder.constructFromObject(data['trustees']);
+                obj['trustees'] = V1EntitiesInvestorProfileFieldsTrustee.constructFromObject(data['trustees']);
             }
         }
         return obj;
@@ -124,7 +124,7 @@ class V1EntitiesInvestorProfileTrust {
         }
         // validate the optional field `trustees`
         if (data['trustees']) { // data not null
-          V1EntitiesInvestorProfileFieldsAccountHolder.validateJSON(data['trustees']);
+          V1EntitiesInvestorProfileFieldsTrustee.validateJSON(data['trustees']);
         }
 
         return true;
@@ -194,7 +194,7 @@ V1EntitiesInvestorProfileTrust.prototype['owner'] = undefined;
 V1EntitiesInvestorProfileTrust.prototype['trust_holder'] = undefined;
 
 /**
- * @member {module:model/V1EntitiesInvestorProfileFieldsAccountHolder} trustees
+ * @member {module:model/V1EntitiesInvestorProfileFieldsTrustee} trustees
  */
 V1EntitiesInvestorProfileTrust.prototype['trustees'] = undefined;
 

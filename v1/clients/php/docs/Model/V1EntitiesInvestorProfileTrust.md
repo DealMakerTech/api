@@ -14,6 +14,6 @@ Name | Type | Description | Notes
 **owner_type** | **string** | Type of the investor profile owner | [optional]
 **owner** | [**\DealMaker\Model\V1EntitiesInvestorProfileOwner**](V1EntitiesInvestorProfileOwner.md) |  | [optional]
 **trust_holder** | [**\DealMaker\Model\V1EntitiesInvestorProfileFieldsTrust**](V1EntitiesInvestorProfileFieldsTrust.md) |  | [optional]
-**trustees** | [**\DealMaker\Model\V1EntitiesInvestorProfileFieldsAccountHolder**](V1EntitiesInvestorProfileFieldsAccountHolder.md) |  | [optional]
+**trustees** | [**\DealMaker\Model\V1EntitiesInvestorProfileFieldsTrustee**](V1EntitiesInvestorProfileFieldsTrustee.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

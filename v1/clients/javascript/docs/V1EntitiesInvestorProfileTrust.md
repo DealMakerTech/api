@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **ownerType** | **String** | Type of the investor profile owner | [optional] 
 **owner** | [**V1EntitiesInvestorProfileOwner**](V1EntitiesInvestorProfileOwner.md) |  | [optional] 
 **trustHolder** | [**V1EntitiesInvestorProfileFieldsTrust**](V1EntitiesInvestorProfileFieldsTrust.md) |  | [optional] 
-**trustees** | [**V1EntitiesInvestorProfileFieldsAccountHolder**](V1EntitiesInvestorProfileFieldsAccountHolder.md) |  | [optional] 
+**trustees** | [**V1EntitiesInvestorProfileFieldsTrustee**](V1EntitiesInvestorProfileFieldsTrustee.md) |  | [optional] 
 
 
 

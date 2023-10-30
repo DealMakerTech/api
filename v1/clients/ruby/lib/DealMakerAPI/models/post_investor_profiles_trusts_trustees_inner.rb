@@ -45,6 +45,9 @@ module DealMakerAPI
     # The list of taxpayer identification numbers for the trustees (required for trustee 1).
     attr_accessor :taxpayer_id
 
+    # The list of phone numbers for the trustees (required for trustee 1).
+    attr_accessor :phone_number
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -57,7 +60,8 @@ module DealMakerAPI
         :'region' => :'region',
         :'postal_code' => :'postal_code',
         :'date_of_birth' => :'date_of_birth',
-        :'taxpayer_id' => :'taxpayer_id'
+        :'taxpayer_id' => :'taxpayer_id',
+        :'phone_number' => :'phone_number'
       }
     end
 
@@ -78,7 +82,8 @@ module DealMakerAPI
         :'region' => :'String',
         :'postal_code' => :'String',
         :'date_of_birth' => :'String',
-        :'taxpayer_id' => :'String'
+        :'taxpayer_id' => :'String',
+        :'phone_number' => :'String'
       }
     end
 
@@ -142,6 +147,10 @@ module DealMakerAPI
       if attributes.key?(:'taxpayer_id')
         self.taxpayer_id = attributes[:'taxpayer_id']
       end
+
+      if attributes.key?(:'phone_number')
+        self.phone_number = attributes[:'phone_number']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -173,7 +182,8 @@ module DealMakerAPI
           region == o.region &&
           postal_code == o.postal_code &&
           date_of_birth == o.date_of_birth &&
-          taxpayer_id == o.taxpayer_id
+          taxpayer_id == o.taxpayer_id &&
+          phone_number == o.phone_number
     end
 
     # @see the `==` method
@@ -185,7 +195,7 @@ module DealMakerAPI
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [first_name, last_name, suffix, street_address, unit2, city, region, postal_code, date_of_birth, taxpayer_id].hash
+      [first_name, last_name, suffix, street_address, unit2, city, region, postal_code, date_of_birth, taxpayer_id, phone_number].hash
     end
 
     # Builds the object from hash

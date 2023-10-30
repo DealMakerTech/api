@@ -41,6 +41,7 @@ import PostWebhooksRequest from './model/PostWebhooksRequest';
 import PutDealsIdInvestors from './model/PutDealsIdInvestors';
 import PutDealsIdScriptTagEnvironmentRequest from './model/PutDealsIdScriptTagEnvironmentRequest';
 import PutWebhooksIdRequest from './model/PutWebhooksIdRequest';
+import SendPortalInviteRequest from './model/SendPortalInviteRequest';
 import V1EntitiesAddress from './model/V1EntitiesAddress';
 import V1EntitiesAddresses from './model/V1EntitiesAddresses';
 import V1EntitiesAttachment from './model/V1EntitiesAttachment';
@@ -77,6 +78,7 @@ import V1EntitiesInvestorProfileFieldsCorporation from './model/V1EntitiesInvest
 import V1EntitiesInvestorProfileFieldsPrimaryHolder from './model/V1EntitiesInvestorProfileFieldsPrimaryHolder';
 import V1EntitiesInvestorProfileFieldsSigningOfficer from './model/V1EntitiesInvestorProfileFieldsSigningOfficer';
 import V1EntitiesInvestorProfileFieldsTrust from './model/V1EntitiesInvestorProfileFieldsTrust';
+import V1EntitiesInvestorProfileFieldsTrustee from './model/V1EntitiesInvestorProfileFieldsTrustee';
 import V1EntitiesInvestorProfileIndividual from './model/V1EntitiesInvestorProfileIndividual';
 import V1EntitiesInvestorProfileItem from './model/V1EntitiesInvestorProfileItem';
 import V1EntitiesInvestorProfileJoint from './model/V1EntitiesInvestorProfileJoint';
@@ -139,7 +141,7 @@ import UsersApi from './api/UsersApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.90.0
+* @version 0.90.1
 */
 export {
     /**
@@ -315,6 +317,12 @@ export {
      * @property {module:model/PutWebhooksIdRequest}
      */
     PutWebhooksIdRequest,
+
+    /**
+     * The SendPortalInviteRequest model constructor.
+     * @property {module:model/SendPortalInviteRequest}
+     */
+    SendPortalInviteRequest,
 
     /**
      * The V1EntitiesAddress model constructor.
@@ -531,6 +539,12 @@ export {
      * @property {module:model/V1EntitiesInvestorProfileFieldsTrust}
      */
     V1EntitiesInvestorProfileFieldsTrust,
+
+    /**
+     * The V1EntitiesInvestorProfileFieldsTrustee model constructor.
+     * @property {module:model/V1EntitiesInvestorProfileFieldsTrustee}
+     */
+    V1EntitiesInvestorProfileFieldsTrustee,
 
     /**
      * The V1EntitiesInvestorProfileIndividual model constructor.

@@ -16,5 +16,6 @@ Name | Type | Description | Notes
 **postalCode** | **String** | The list of postal codes or zipcodes for the trustees (required for trustee 1). | [optional] 
 **dateOfBirth** | **String** | The list of dates of birth for the trustees (required for trustee 1). | [optional] 
 **taxpayerId** | **String** | The list of taxpayer identification numbers for the trustees (required for trustee 1). | [optional] 
+**phoneNumber** | **String** | The list of phone numbers for the trustees (required for trustee 1). | [optional] 
 
 

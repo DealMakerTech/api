@@ -158,6 +158,16 @@
         done();
       });
     });
+    describe('sendPortalInvite', function() {
+      it('should call sendPortalInvite successfully', function(done) {
+        //uncomment below and update the code to test sendPortalInvite
+        //instance.sendPortalInvite(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
   });
 
 }));

@@ -38,6 +38,7 @@ docs/PostWebhooksRequest.md
 docs/PutDealsIdInvestors.md
 docs/PutDealsIdScriptTagEnvironmentRequest.md
 docs/PutWebhooksIdRequest.md
+docs/SendPortalInviteRequest.md
 docs/ShareholderApi.md
 docs/UploadApi.md
 docs/UsersApi.md
@@ -77,6 +78,7 @@ docs/V1EntitiesInvestorProfileFieldsCorporation.md
 docs/V1EntitiesInvestorProfileFieldsPrimaryHolder.md
 docs/V1EntitiesInvestorProfileFieldsSigningOfficer.md
 docs/V1EntitiesInvestorProfileFieldsTrust.md
+docs/V1EntitiesInvestorProfileFieldsTrustee.md
 docs/V1EntitiesInvestorProfileIndividual.md
 docs/V1EntitiesInvestorProfileItem.md
 docs/V1EntitiesInvestorProfileJoint.md
@@ -141,6 +143,7 @@ src/model/PostWebhooksRequest.js
 src/model/PutDealsIdInvestors.js
 src/model/PutDealsIdScriptTagEnvironmentRequest.js
 src/model/PutWebhooksIdRequest.js
+src/model/SendPortalInviteRequest.js
 src/model/V1EntitiesAddress.js
 src/model/V1EntitiesAddresses.js
 src/model/V1EntitiesAttachment.js
@@ -177,6 +180,7 @@ src/model/V1EntitiesInvestorProfileFieldsCorporation.js
 src/model/V1EntitiesInvestorProfileFieldsPrimaryHolder.js
 src/model/V1EntitiesInvestorProfileFieldsSigningOfficer.js
 src/model/V1EntitiesInvestorProfileFieldsTrust.js
+src/model/V1EntitiesInvestorProfileFieldsTrustee.js
 src/model/V1EntitiesInvestorProfileIndividual.js
 src/model/V1EntitiesInvestorProfileItem.js
 src/model/V1EntitiesInvestorProfileJoint.js
@@ -236,6 +240,7 @@ test/model/PostWebhooksRequest.spec.js
 test/model/PutDealsIdInvestors.spec.js
 test/model/PutDealsIdScriptTagEnvironmentRequest.spec.js
 test/model/PutWebhooksIdRequest.spec.js
+test/model/SendPortalInviteRequest.spec.js
 test/model/V1EntitiesAddress.spec.js
 test/model/V1EntitiesAddresses.spec.js
 test/model/V1EntitiesAttachment.spec.js
@@ -272,6 +277,7 @@ test/model/V1EntitiesInvestorProfileFieldsCorporation.spec.js
 test/model/V1EntitiesInvestorProfileFieldsPrimaryHolder.spec.js
 test/model/V1EntitiesInvestorProfileFieldsSigningOfficer.spec.js
 test/model/V1EntitiesInvestorProfileFieldsTrust.spec.js
+test/model/V1EntitiesInvestorProfileFieldsTrustee.spec.js
 test/model/V1EntitiesInvestorProfileIndividual.spec.js
 test/model/V1EntitiesInvestorProfileItem.spec.js
 test/model/V1EntitiesInvestorProfileJoint.spec.js

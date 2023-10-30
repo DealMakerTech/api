@@ -15,6 +15,7 @@ All URIs are relative to *http://api.dealmaker.tech*
 | [**get_company**](CompanyApi.md#get_company) | **GET** /companies/{id} | Get a Company |
 | [**get_details_errors_grouped**](CompanyApi.md#get_details_errors_grouped) | **GET** /companies/{company_id}/documents/bulk_uploads/{bulk_upload_id}/details/grouped_errors | Return bulk upload details grouped by status |
 | [**get_dividends**](CompanyApi.md#get_dividends) | **GET** /companies/{company_id}/portal/dividends | Return dividends |
+| [**send_portal_invite**](CompanyApi.md#send_portal_invite) | **POST** /companies/{id}/shareholders/{shareholder_id}/send_portal_invite | Send portal invite to shareholder |
 
 
 ## create_bulk_upload
@@ -779,4 +780,75 @@ No authorization required
 
 - **Content-Type**: Not defined
 - **Accept**: application/json
+
+
+## send_portal_invite
+
+> send_portal_invite(id, shareholder_id, opts)
+
+Send portal invite to shareholder
+
+Send portal invite to shareholder.
+
+### Examples
+
+```ruby
+require 'time'
+require 'DealMakerAPI'
+# setup authorization
+DealMakerAPI.configure do |config|end
+
+api_instance = DealMakerAPI::CompanyApi.new
+id = 56 # Integer | 
+shareholder_id = 56 # Integer | 
+opts = {
+  send_portal_invite_request: DealMakerAPI::SendPortalInviteRequest.new # SendPortalInviteRequest | 
+}
+
+begin
+  # Send portal invite to shareholder
+  api_instance.send_portal_invite(id, shareholder_id, opts)
+rescue DealMakerAPI::ApiError => e
+  puts "Error when calling CompanyApi->send_portal_invite: #{e}"
+end
+```
+
+#### Using the send_portal_invite_with_http_info variant
+
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
+
+> <Array(nil, Integer, Hash)> send_portal_invite_with_http_info(id, shareholder_id, opts)
+
+```ruby
+begin
+  # Send portal invite to shareholder
+  data, status_code, headers = api_instance.send_portal_invite_with_http_info(id, shareholder_id, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => nil
+rescue DealMakerAPI::ApiError => e
+  puts "Error when calling CompanyApi->send_portal_invite_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **id** | **Integer** |  |  |
+| **shareholder_id** | **Integer** |  |  |
+| **send_portal_invite_request** | [**SendPortalInviteRequest**](SendPortalInviteRequest.md) |  | [optional] |
+
+### Return type
+
+nil (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: Not defined
 

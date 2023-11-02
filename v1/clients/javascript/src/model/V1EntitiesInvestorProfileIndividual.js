@@ -18,7 +18,7 @@ import V1EntitiesInvestorProfileOwner from './V1EntitiesInvestorProfileOwner';
 /**
  * The V1EntitiesInvestorProfileIndividual model module.
  * @module model/V1EntitiesInvestorProfileIndividual
- * @version 0.90.1
+ * @version 0.90.2
  */
 class V1EntitiesInvestorProfileIndividual {
     /**

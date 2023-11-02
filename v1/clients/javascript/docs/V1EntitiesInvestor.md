@@ -30,7 +30,7 @@ Name | Type | Description | Notes
 **rankingScore** | **Number** | A value &#x60;[0, 1]&#x60; that represents the propensity for the investor to complete payment for the investment. A larger value indicates a higher likelihood of payment, as predicted by DealMaker’s machine learning algorithm. This field will only populate if DealMaker Compass is enabled for a deal and the investor &#x60;funds_state&#x60; value is not &#x60;funded&#x60; or &#x60;overfunded&#x60; | [optional] 
 **investorProfile** | **String** |  | [optional] 
 **investorProfileId** | **Number** | The investor profile id. | [optional] 
-**checkoutState** | **String** | Current state on checkout page. | [optional] 
+**checkoutState** | **String** | Current state on the checkout page. | [optional] 
 **legacyFlowLink** | **String** | The legacy link for the investor. If the investor is already on the legacy flow, this link will be null. | [optional] 
 
 
@@ -94,6 +94,31 @@ Name | Type | Description | Notes
 * `rejected` (value: `"rejected"`)
 
 * `new_documents_requested` (value: `"new_documents_requested"`)
+
+
+
+
+
+## Enum: CheckoutStateEnum
+
+
+* `pre_checkout` (value: `"pre_checkout"`)
+
+* `investment_amount` (value: `"investment_amount"`)
+
+* `contact_information` (value: `"contact_information"`)
+
+* `investor_confirmation` (value: `"investor_confirmation"`)
+
+* `terms_conditions` (value: `"terms_conditions"`)
+
+* `payment` (value: `"payment"`)
+
+* `checkout_complete` (value: `"checkout_complete"`)
+
+* `resubmit_agreement` (value: `"resubmit_agreement"`)
+
+* `legacy_checkout` (value: `"legacy_checkout"`)
 
 
 

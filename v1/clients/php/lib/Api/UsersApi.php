@@ -133,7 +133,7 @@ class UsersApi
      * @param  int $offset Pad a number of results. (optional, default to 0)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getUsersInvestments'] to see the possible values for this operation
      *
-     * @throws \DealMaker\ApiException on non-2xx response
+     * @throws \DealMaker\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \DealMaker\Model\V1EntitiesInvestors
      */
@@ -154,7 +154,7 @@ class UsersApi
      * @param  int $offset Pad a number of results. (optional, default to 0)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getUsersInvestments'] to see the possible values for this operation
      *
-     * @throws \DealMaker\ApiException on non-2xx response
+     * @throws \DealMaker\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \DealMaker\Model\V1EntitiesInvestors, HTTP status code, HTTP response headers (array of strings)
      */
@@ -204,7 +204,19 @@ class UsersApi
                     } else {
                         $content = (string) $response->getBody();
                         if ('\DealMaker\Model\V1EntitiesInvestors' !== 'string') {
-                            $content = json_decode($content);
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                 );
+                            }
                         }
                     }
 
@@ -221,7 +233,19 @@ class UsersApi
             } else {
                 $content = (string) $response->getBody();
                 if ($returnType !== 'string') {
-                    $content = json_decode($content);
+                    try {
+                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                    } catch (\JsonException $exception) {
+                        throw new ApiException(
+                            sprintf(
+                                'Error JSON decoding server response (%s)',
+                                $request->getUri()
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $content
+                        );
+                    }
                 }
             }
 

@@ -13,6 +13,7 @@ docs/Api/InvestorApi.md
 docs/Api/InvestorProfileApi.md
 docs/Api/ShareholderApi.md
 docs/Api/UploadApi.md
+docs/Api/UserApi.md
 docs/Api/UsersApi.md
 docs/Model/Add506cDocumentRequest.md
 docs/Model/AddDocumentRequest.md
@@ -43,6 +44,7 @@ docs/Model/PutDealsIdInvestors.md
 docs/Model/PutDealsIdScriptTagEnvironmentRequest.md
 docs/Model/PutWebhooksIdRequest.md
 docs/Model/SendPortalInviteRequest.md
+docs/Model/UpdateUserPasswordRequest.md
 docs/Model/V1EntitiesAddress.md
 docs/Model/V1EntitiesAddresses.md
 docs/Model/V1EntitiesAttachment.md
@@ -88,6 +90,7 @@ docs/Model/V1EntitiesInvestorProfileTrust.md
 docs/Model/V1EntitiesInvestorProfiles.md
 docs/Model/V1EntitiesInvestorUser.md
 docs/Model/V1EntitiesInvestors.md
+docs/Model/V1EntitiesPaymentsSelfServeOnboardingDigitalPaymentsConnectionData.md
 docs/Model/V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsResult.md
 docs/Model/V1EntitiesPaymentsSelfServeOnboardingQualificationQuestionnaireResult.md
 docs/Model/V1EntitiesPresignedUrlResult.md
@@ -96,6 +99,7 @@ docs/Model/V1EntitiesShareholders.md
 docs/Model/V1EntitiesShareholdersTags.md
 docs/Model/V1EntitiesState.md
 docs/Model/V1EntitiesSubscriptionAgreement.md
+docs/Model/V1EntitiesUser.md
 docs/Model/V1EntitiesWebhooksDeal.md
 docs/Model/V1EntitiesWebhooksSecurityToken.md
 docs/Model/V1EntitiesWebhooksSubscription.md
@@ -111,6 +115,7 @@ lib/Api/InvestorApi.php
 lib/Api/InvestorProfileApi.php
 lib/Api/ShareholderApi.php
 lib/Api/UploadApi.php
+lib/Api/UserApi.php
 lib/Api/UsersApi.php
 lib/ApiException.php
 lib/Configuration.php
@@ -145,6 +150,7 @@ lib/Model/PutDealsIdInvestors.php
 lib/Model/PutDealsIdScriptTagEnvironmentRequest.php
 lib/Model/PutWebhooksIdRequest.php
 lib/Model/SendPortalInviteRequest.php
+lib/Model/UpdateUserPasswordRequest.php
 lib/Model/V1EntitiesAddress.php
 lib/Model/V1EntitiesAddresses.php
 lib/Model/V1EntitiesAttachment.php
@@ -190,6 +196,7 @@ lib/Model/V1EntitiesInvestorProfileTrust.php
 lib/Model/V1EntitiesInvestorProfiles.php
 lib/Model/V1EntitiesInvestorUser.php
 lib/Model/V1EntitiesInvestors.php
+lib/Model/V1EntitiesPaymentsSelfServeOnboardingDigitalPaymentsConnectionData.php
 lib/Model/V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsResult.php
 lib/Model/V1EntitiesPaymentsSelfServeOnboardingQualificationQuestionnaireResult.php
 lib/Model/V1EntitiesPresignedUrlResult.php
@@ -198,6 +205,7 @@ lib/Model/V1EntitiesShareholders.php
 lib/Model/V1EntitiesShareholdersTags.php
 lib/Model/V1EntitiesState.php
 lib/Model/V1EntitiesSubscriptionAgreement.php
+lib/Model/V1EntitiesUser.php
 lib/Model/V1EntitiesWebhooksDeal.php
 lib/Model/V1EntitiesWebhooksSecurityToken.php
 lib/Model/V1EntitiesWebhooksSubscription.php
@@ -214,6 +222,7 @@ test/Api/InvestorApiTest.php
 test/Api/InvestorProfileApiTest.php
 test/Api/ShareholderApiTest.php
 test/Api/UploadApiTest.php
+test/Api/UserApiTest.php
 test/Api/UsersApiTest.php
 test/Model/Add506cDocumentRequestTest.php
 test/Model/AddDocumentRequestTest.php
@@ -244,6 +253,7 @@ test/Model/PutDealsIdInvestorsTest.php
 test/Model/PutDealsIdScriptTagEnvironmentRequestTest.php
 test/Model/PutWebhooksIdRequestTest.php
 test/Model/SendPortalInviteRequestTest.php
+test/Model/UpdateUserPasswordRequestTest.php
 test/Model/V1EntitiesAddressTest.php
 test/Model/V1EntitiesAddressesTest.php
 test/Model/V1EntitiesAttachmentTest.php
@@ -289,6 +299,7 @@ test/Model/V1EntitiesInvestorProfilesTest.php
 test/Model/V1EntitiesInvestorTest.php
 test/Model/V1EntitiesInvestorUserTest.php
 test/Model/V1EntitiesInvestorsTest.php
+test/Model/V1EntitiesPaymentsSelfServeOnboardingDigitalPaymentsConnectionDataTest.php
 test/Model/V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsResultTest.php
 test/Model/V1EntitiesPaymentsSelfServeOnboardingQualificationQuestionnaireResultTest.php
 test/Model/V1EntitiesPresignedUrlResultTest.php
@@ -297,6 +308,7 @@ test/Model/V1EntitiesShareholdersTagsTest.php
 test/Model/V1EntitiesShareholdersTest.php
 test/Model/V1EntitiesStateTest.php
 test/Model/V1EntitiesSubscriptionAgreementTest.php
+test/Model/V1EntitiesUserTest.php
 test/Model/V1EntitiesWebhooksDealTest.php
 test/Model/V1EntitiesWebhooksSecurityTokenTest.php
 test/Model/V1EntitiesWebhooksSubscriptionDealTest.php

@@ -4,6 +4,7 @@ All URIs are relative to http://api.dealmaker.tech, except if the operation defi
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
+| [**getDealsDealIdPaymentOnboardingQuestionnaireDigitalPaymentsConnectionData()**](DefaultApi.md#getDealsDealIdPaymentOnboardingQuestionnaireDigitalPaymentsConnectionData) | **GET** /deals/{deal_id}/payment_onboarding/questionnaire/digital_payments_connection/data | Load data for the digital payments connection stage |
 | [**getDealsIdInvestorsInvestorIdPaymentsExpressWireInstructions()**](DefaultApi.md#getDealsIdInvestorsInvestorIdPaymentsExpressWireInstructions) | **GET** /deals/{id}/investors/{investor_id}/payments/express_wire/instructions | Displays the express wire instructions for an investor on a deal |
 | [**getDealsIdInvestorsPaymentsExpressWireInstructions()**](DefaultApi.md#getDealsIdInvestorsPaymentsExpressWireInstructions) | **GET** /deals/{id}/investors/payments/express_wire/instructions | Displays the express wire instructions for all the investors on a deal |
 | [**getWebhooks()**](DefaultApi.md#getWebhooks) | **GET** /webhooks | Returns a list of webhook subscription which is associated to the user |
@@ -16,6 +17,63 @@ All URIs are relative to http://api.dealmaker.tech, except if the operation defi
 | [**postWebhooks()**](DefaultApi.md#postWebhooks) | **POST** /webhooks | Creates a webhook subscription which is associated to the user |
 | [**putWebhooksId()**](DefaultApi.md#putWebhooksId) | **PUT** /webhooks/{id} | Updates webhook subscription and webhooks subcription deals |
 
+
+## `getDealsDealIdPaymentOnboardingQuestionnaireDigitalPaymentsConnectionData()`
+
+```php
+getDealsDealIdPaymentOnboardingQuestionnaireDigitalPaymentsConnectionData($deal_id): \DealMaker\Model\V1EntitiesPaymentsSelfServeOnboardingDigitalPaymentsConnectionData
+```
+
+Load data for the digital payments connection stage
+
+Load data for the digital payments connection stage
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new DealMaker\Api\DefaultApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$deal_id = 56; // int
+
+try {
+    $result = $apiInstance->getDealsDealIdPaymentOnboardingQuestionnaireDigitalPaymentsConnectionData($deal_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling DefaultApi->getDealsDealIdPaymentOnboardingQuestionnaireDigitalPaymentsConnectionData: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **deal_id** | **int**|  | |
+
+### Return type
+
+[**\DealMaker\Model\V1EntitiesPaymentsSelfServeOnboardingDigitalPaymentsConnectionData**](../Model/V1EntitiesPaymentsSelfServeOnboardingDigitalPaymentsConnectionData.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
 
 ## `getDealsIdInvestorsInvestorIdPaymentsExpressWireInstructions()`
 

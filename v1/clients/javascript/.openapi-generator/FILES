@@ -40,7 +40,9 @@ docs/PutDealsIdScriptTagEnvironmentRequest.md
 docs/PutWebhooksIdRequest.md
 docs/SendPortalInviteRequest.md
 docs/ShareholderApi.md
+docs/UpdateUserPasswordRequest.md
 docs/UploadApi.md
+docs/UserApi.md
 docs/UsersApi.md
 docs/V1EntitiesAddress.md
 docs/V1EntitiesAddresses.md
@@ -87,6 +89,7 @@ docs/V1EntitiesInvestorProfileTrust.md
 docs/V1EntitiesInvestorProfiles.md
 docs/V1EntitiesInvestorUser.md
 docs/V1EntitiesInvestors.md
+docs/V1EntitiesPaymentsSelfServeOnboardingDigitalPaymentsConnectionData.md
 docs/V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsResult.md
 docs/V1EntitiesPaymentsSelfServeOnboardingQualificationQuestionnaireResult.md
 docs/V1EntitiesPresignedUrlResult.md
@@ -95,6 +98,7 @@ docs/V1EntitiesShareholders.md
 docs/V1EntitiesShareholdersTags.md
 docs/V1EntitiesState.md
 docs/V1EntitiesSubscriptionAgreement.md
+docs/V1EntitiesUser.md
 docs/V1EntitiesWebhooksDeal.md
 docs/V1EntitiesWebhooksSecurityToken.md
 docs/V1EntitiesWebhooksSubscription.md
@@ -113,6 +117,7 @@ src/api/InvestorApi.js
 src/api/InvestorProfileApi.js
 src/api/ShareholderApi.js
 src/api/UploadApi.js
+src/api/UserApi.js
 src/api/UsersApi.js
 src/index.js
 src/model/Add506cDocumentRequest.js
@@ -144,6 +149,7 @@ src/model/PutDealsIdInvestors.js
 src/model/PutDealsIdScriptTagEnvironmentRequest.js
 src/model/PutWebhooksIdRequest.js
 src/model/SendPortalInviteRequest.js
+src/model/UpdateUserPasswordRequest.js
 src/model/V1EntitiesAddress.js
 src/model/V1EntitiesAddresses.js
 src/model/V1EntitiesAttachment.js
@@ -189,6 +195,7 @@ src/model/V1EntitiesInvestorProfileTrust.js
 src/model/V1EntitiesInvestorProfiles.js
 src/model/V1EntitiesInvestorUser.js
 src/model/V1EntitiesInvestors.js
+src/model/V1EntitiesPaymentsSelfServeOnboardingDigitalPaymentsConnectionData.js
 src/model/V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsResult.js
 src/model/V1EntitiesPaymentsSelfServeOnboardingQualificationQuestionnaireResult.js
 src/model/V1EntitiesPresignedUrlResult.js
@@ -197,6 +204,7 @@ src/model/V1EntitiesShareholders.js
 src/model/V1EntitiesShareholdersTags.js
 src/model/V1EntitiesState.js
 src/model/V1EntitiesSubscriptionAgreement.js
+src/model/V1EntitiesUser.js
 src/model/V1EntitiesWebhooksDeal.js
 src/model/V1EntitiesWebhooksSecurityToken.js
 src/model/V1EntitiesWebhooksSubscription.js
@@ -211,6 +219,7 @@ test/api/InvestorApi.spec.js
 test/api/InvestorProfileApi.spec.js
 test/api/ShareholderApi.spec.js
 test/api/UploadApi.spec.js
+test/api/UserApi.spec.js
 test/api/UsersApi.spec.js
 test/model/Add506cDocumentRequest.spec.js
 test/model/AddDocumentRequest.spec.js
@@ -241,6 +250,7 @@ test/model/PutDealsIdInvestors.spec.js
 test/model/PutDealsIdScriptTagEnvironmentRequest.spec.js
 test/model/PutWebhooksIdRequest.spec.js
 test/model/SendPortalInviteRequest.spec.js
+test/model/UpdateUserPasswordRequest.spec.js
 test/model/V1EntitiesAddress.spec.js
 test/model/V1EntitiesAddresses.spec.js
 test/model/V1EntitiesAttachment.spec.js
@@ -286,6 +296,7 @@ test/model/V1EntitiesInvestorProfileTrust.spec.js
 test/model/V1EntitiesInvestorProfiles.spec.js
 test/model/V1EntitiesInvestorUser.spec.js
 test/model/V1EntitiesInvestors.spec.js
+test/model/V1EntitiesPaymentsSelfServeOnboardingDigitalPaymentsConnectionData.spec.js
 test/model/V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsResult.spec.js
 test/model/V1EntitiesPaymentsSelfServeOnboardingQualificationQuestionnaireResult.spec.js
 test/model/V1EntitiesPresignedUrlResult.spec.js
@@ -294,6 +305,7 @@ test/model/V1EntitiesShareholders.spec.js
 test/model/V1EntitiesShareholdersTags.spec.js
 test/model/V1EntitiesState.spec.js
 test/model/V1EntitiesSubscriptionAgreement.spec.js
+test/model/V1EntitiesUser.spec.js
 test/model/V1EntitiesWebhooksDeal.spec.js
 test/model/V1EntitiesWebhooksSecurityToken.spec.js
 test/model/V1EntitiesWebhooksSubscription.spec.js

@@ -15,6 +15,7 @@ All URIs are relative to http://api.dealmaker.tech, except if the operation defi
 | [**getCompany()**](CompanyApi.md#getCompany) | **GET** /companies/{id} | Get a Company |
 | [**getDetailsErrorsGrouped()**](CompanyApi.md#getDetailsErrorsGrouped) | **GET** /companies/{company_id}/documents/bulk_uploads/{bulk_upload_id}/details/grouped_errors | Return bulk upload details grouped by status |
 | [**getDividends()**](CompanyApi.md#getDividends) | **GET** /companies/{company_id}/portal/dividends | Return dividends |
+| [**getUserAccessibleCompanies()**](CompanyApi.md#getUserAccessibleCompanies) | **GET** /users/accessible_companies | Get list of all Companies accessible by the user |
 | [**sendPortalInvite()**](CompanyApi.md#sendPortalInvite) | **POST** /companies/{id}/shareholders/{shareholder_id}/send_portal_invite | Send portal invite to shareholder |
 
 
@@ -663,6 +664,67 @@ try {
 ### Return type
 
 [**\DealMaker\Model\V1EntitiesDividends**](../Model/V1EntitiesDividends.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getUserAccessibleCompanies()`
+
+```php
+getUserAccessibleCompanies($page, $per_page, $offset): \DealMaker\Model\V1EntitiesCompany
+```
+
+Get list of all Companies accessible by the user
+
+Get user accessible companies
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new DealMaker\Api\CompanyApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$page = 1; // int | Page offset to fetch.
+$per_page = 25; // int | Number of results to return per page.
+$offset = 0; // int | Pad a number of results.
+
+try {
+    $result = $apiInstance->getUserAccessibleCompanies($page, $per_page, $offset);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CompanyApi->getUserAccessibleCompanies: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **page** | **int**| Page offset to fetch. | [optional] [default to 1] |
+| **per_page** | **int**| Number of results to return per page. | [optional] [default to 25] |
+| **offset** | **int**| Pad a number of results. | [optional] [default to 0] |
+
+### Return type
+
+[**\DealMaker\Model\V1EntitiesCompany**](../Model/V1EntitiesCompany.md)
 
 ### Authorization
 

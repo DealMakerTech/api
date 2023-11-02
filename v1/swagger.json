@@ -21,7 +21,11 @@
         "deals.read": "Read deal information",
         "deals.write": "Write information to deals",
         "companies.read": "Read company information",
-        "companies.write": "Write information to companies"
+        "companies.write": "Write information to companies",
+        "deals.investors.read": "Read information to investors",
+        "deals.investors.write": "Write information to investors",
+        "webhooks.read": "Read information to webhooks",
+        "webhooks.write": "Write information to webhooks"
       }
     }
   },
@@ -58,6 +62,10 @@
   "tags": [
     {
       "name": "users",
+      "description": "Operations about users"
+    },
+    {
+      "name": "user",
       "description": "Operations about users"
     },
     {
@@ -130,571 +138,56 @@
     }
   ],
   "paths": {
-    "/investor_profiles/{type}/{id}": {
-      "delete": {
-        "summary": "Delete investor profile.",
-        "description": "Deletes the investor profile.",
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "type",
-            "type": "integer",
-            "format": "int32",
-            "required": true
-          },
-          {
-            "in": "path",
-            "name": "id",
-            "type": "integer",
-            "format": "int32",
-            "required": true
-          }
-        ],
-        "security": [
-          {
-            "oauth": [
-              "deals.write"
-            ]
-          }
-        ],
-        "responses": {
-          "204": {
-            "description": "Investor profile deleted successfully."
-          },
-          "400": {
-            "description": "Bad Request"
-          },
-          "403": {
-            "description": "Forbidden"
-          }
-        },
-        "tags": [
-          "investor"
-        ],
-        "operationId": "deleteInvestorProfile",
-        "x-codeSamples": [
-          {
-            "lang": "javascript",
-            "source": ""
-          },
-          {
-            "lang": "ruby",
-            "source": ""
-          }
-        ]
-      }
-    },
-    "/investor_profiles/trusts/{investor_profile_id}": {
-      "patch": {
-        "summary": "Patch a trust investor profile",
-        "description": "Patch trust investor profile",
-        "produces": [
-          "application/json"
-        ],
-        "consumes": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "investor_profile_id",
-            "type": "integer",
-            "format": "int32",
-            "required": true
-          },
-          {
-            "name": "InvestorProfilesTrusts",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/patchInvestorProfilesTrusts"
-            }
-          }
-        ],
-        "security": [
-          {
-            "oauth": [
-              "deals.write"
-            ]
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Patch trust investor profile",
-            "schema": {
-              "$ref": "#/definitions/V1_Entities_InvestorProfile_Trust"
-            }
-          },
-          "400": {
-            "description": "Bad Request"
-          },
-          "401": {
-            "description": "Forbidden"
-          },
-          "404": {
-            "description": "Not found"
-          }
-        },
-        "tags": [
-          "investor_profile"
-        ],
-        "operationId": "patchTrustProfile",
-        "x-codeSamples": [
-          {
-            "lang": "javascript",
-            "source": ""
-          },
-          {
-            "lang": "ruby",
-            "source": ""
-          }
-        ]
-      }
-    },
-    "/investor_profiles/trusts": {
-      "post": {
-        "summary": "Create new trust investor profile.",
-        "description": "Create new trust investor profile associated to the user by email.",
-        "produces": [
-          "application/json"
-        ],
-        "consumes": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "InvestorProfilesTrusts",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/postInvestorProfilesTrusts"
-            }
-          }
-        ],
-        "security": [
-          {
-            "oauth": [
-              "deals.write"
-            ]
-          }
-        ],
-        "responses": {
-          "201": {
-            "description": "Create new trust investor profile.",
-            "schema": {
-              "$ref": "#/definitions/V1_Entities_InvestorProfile_Trust"
-            }
-          },
-          "400": {
-            "description": "Bad Request"
-          },
-          "401": {
-            "description": "Forbidden"
-          }
-        },
-        "tags": [
-          "investor_profile"
-        ],
-        "operationId": "createTrustProfile",
-        "x-codeSamples": [
-          {
-            "lang": "javascript",
-            "source": ""
-          },
-          {
-            "lang": "ruby",
-            "source": ""
-          }
-        ]
-      }
-    },
-    "/investor_profiles/individuals/{investor_profile_id}": {
-      "patch": {
-        "summary": "Patch an individual investor profile.",
-        "description": "Patch individual investor profile.",
-        "produces": [
-          "application/json"
-        ],
-        "consumes": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "investor_profile_id",
-            "type": "integer",
-            "format": "int32",
-            "required": true
-          },
-          {
-            "name": "InvestorProfilesIndividuals",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/patchInvestorProfilesIndividuals"
-            }
-          }
-        ],
-        "security": [
-          {
-            "oauth": [
-              "deals.write"
-            ]
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Patch individual investor profile.",
-            "schema": {
-              "$ref": "#/definitions/V1_Entities_InvestorProfile_Individual"
-            }
-          },
-          "400": {
-            "description": "Bad Request"
-          },
-          "401": {
-            "description": "Forbidden"
-          },
-          "404": {
-            "description": "Not found"
-          }
-        },
-        "tags": [
-          "investor_profile"
-        ],
-        "operationId": "patchIndividualProfile",
-        "x-codeSamples": [
-          {
-            "lang": "javascript",
-            "source": ""
-          },
-          {
-            "lang": "ruby",
-            "source": ""
-          }
-        ]
-      }
-    },
-    "/investor_profiles/individuals": {
-      "post": {
-        "summary": "Create new individual investor profile",
-        "description": "Create new individual investor profile associated to the user by email.",
-        "produces": [
-          "application/json"
-        ],
-        "consumes": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "InvestorProfilesIndividuals",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/postInvestorProfilesIndividuals"
-            }
-          }
-        ],
-        "security": [
-          {
-            "oauth": [
-              "deals.write"
-            ]
-          }
-        ],
-        "responses": {
-          "201": {
-            "description": "Create new individual investor profile",
-            "schema": {
-              "$ref": "#/definitions/V1_Entities_InvestorProfile_Individual"
-            }
-          },
-          "400": {
-            "description": "Bad Request"
-          },
-          "401": {
-            "description": "Forbidden"
-          }
-        },
-        "tags": [
-          "investor_profile"
-        ],
-        "operationId": "createIndividualProfile",
-        "x-codeSamples": [
-          {
-            "lang": "javascript",
-            "source": ""
-          },
-          {
-            "lang": "ruby",
-            "source": ""
-          }
-        ]
-      }
-    },
-    "/investor_profiles/joints/{investor_profile_id}": {
-      "patch": {
-        "summary": "Patch a joint investor profile",
-        "description": "Patch joint investor profile",
-        "produces": [
-          "application/json"
-        ],
-        "consumes": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "investor_profile_id",
-            "type": "integer",
-            "format": "int32",
-            "required": true
-          },
-          {
-            "name": "InvestorProfilesJoints",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/patchInvestorProfilesJoints"
-            }
-          }
-        ],
-        "security": [
-          {
-            "oauth": [
-              "deals.write"
-            ]
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Patch joint investor profile",
-            "schema": {
-              "$ref": "#/definitions/V1_Entities_InvestorProfile_Joint"
-            }
-          },
-          "400": {
-            "description": "Bad Request"
-          },
-          "401": {
-            "description": "Forbidden"
-          },
-          "404": {
-            "description": "Not found"
-          }
-        },
-        "tags": [
-          "investor_profile"
-        ],
-        "operationId": "patchJointProfile",
-        "x-codeSamples": [
-          {
-            "lang": "javascript",
-            "source": ""
-          },
-          {
-            "lang": "ruby",
-            "source": ""
-          }
-        ]
-      }
-    },
-    "/investor_profiles/joints": {
-      "post": {
-        "summary": "Create new joint investor profile",
-        "description": "Create new joint investor profile associated to the user by email.",
-        "produces": [
-          "application/json"
-        ],
-        "consumes": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "InvestorProfilesJoints",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/postInvestorProfilesJoints"
-            }
-          }
-        ],
-        "security": [
-          {
-            "oauth": [
-              "deals.write"
-            ]
-          }
-        ],
-        "responses": {
-          "201": {
-            "description": "Create new joint investor profile",
-            "schema": {
-              "$ref": "#/definitions/V1_Entities_InvestorProfile_Joint"
-            }
-          },
-          "400": {
-            "description": "Bad Request"
-          }
-        },
-        "tags": [
-          "investor_profile"
-        ],
-        "operationId": "createJointProfile",
-        "x-codeSamples": [
-          {
-            "lang": "javascript",
-            "source": ""
-          },
-          {
-            "lang": "ruby",
-            "source": ""
-          }
-        ]
-      }
-    },
-    "/investor_profiles/corporations/{investor_profile_id}": {
-      "patch": {
-        "summary": "Patch a corporation investor profile",
-        "description": "Patch corporation investor profile",
-        "produces": [
-          "application/json"
-        ],
-        "consumes": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "investor_profile_id",
-            "type": "integer",
-            "format": "int32",
-            "required": true
-          },
-          {
-            "name": "InvestorProfilesCorporations",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/patchInvestorProfilesCorporations"
-            }
-          }
-        ],
-        "security": [
-          {
-            "oauth": [
-              "deals.write"
-            ]
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Patch corporation investor profile",
-            "schema": {
-              "$ref": "#/definitions/V1_Entities_InvestorProfile_Corporation"
-            }
-          },
-          "400": {
-            "description": "Bad Request"
-          },
-          "401": {
-            "description": "Forbidden"
-          },
-          "404": {
-            "description": "Not found"
-          }
-        },
-        "tags": [
-          "investor_profile"
-        ],
-        "operationId": "patchCorporationProfile",
-        "x-codeSamples": [
-          {
-            "lang": "javascript",
-            "source": ""
-          },
-          {
-            "lang": "ruby",
-            "source": ""
-          }
-        ]
-      }
-    },
-    "/investor_profiles/corporations": {
-      "post": {
-        "summary": "Create new corporation investor profile.",
-        "description": "Create new corporation investor profile associated to the user by email.",
-        "produces": [
-          "application/json"
-        ],
-        "consumes": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "InvestorProfilesCorporations",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/postInvestorProfilesCorporations"
-            }
-          }
-        ],
-        "security": [
-          {
-            "oauth": [
-              "deals.write"
-            ]
-          }
-        ],
-        "responses": {
-          "201": {
-            "description": "Create new corporation investor profile.",
-            "schema": {
-              "$ref": "#/definitions/V1_Entities_InvestorProfile_Corporation"
-            }
-          },
-          "400": {
-            "description": "Bad Request"
-          },
-          "401": {
-            "description": "Forbidden"
-          }
-        },
-        "tags": [
-          "investor_profile"
-        ],
-        "operationId": "createCorporationProfile",
-        "x-codeSamples": [
-          {
-            "lang": "javascript",
-            "source": ""
-          },
-          {
-            "lang": "ruby",
-            "source": ""
-          }
-        ]
-      }
-    },
-    "/investor_profiles/profile/{id}": {
+    "/investor_profiles/{deal_id}": {
       "get": {
-        "summary": "Get an investor profile by id",
-        "description": "Get an investor profile",
+        "summary": "Get list of InvestorProfiles for a specific deal",
+        "description": "Get investor profiles for a specific deal",
         "produces": [
           "application/json"
         ],
         "parameters": [
           {
+            "in": "query",
+            "name": "page",
+            "description": "Page offset to fetch.",
+            "type": "integer",
+            "format": "int32",
+            "default": 1,
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "per_page",
+            "description": "Number of results to return per page.",
+            "type": "integer",
+            "format": "int32",
+            "default": 25,
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "description": "Pad a number of results.",
+            "type": "integer",
+            "format": "int32",
+            "default": 0,
+            "required": false
+          },
+          {
             "in": "path",
-            "name": "id",
-            "description": "The id of the investor profile.",
+            "name": "deal_id",
+            "description": "The deal id.",
             "type": "integer",
             "format": "int32",
             "required": true
+          },
+          {
+            "in": "query",
+            "name": "user_id",
+            "description": "The user id filter.",
+            "type": "integer",
+            "format": "int32",
+            "required": false
           }
         ],
         "security": [
@@ -706,9 +199,9 @@
         ],
         "responses": {
           "200": {
-            "description": "Get an investor profile",
+            "description": "Get investor profiles for a specific deal",
             "schema": {
-              "$ref": "#/definitions/V1_Entities_InvestorProfileItem"
+              "$ref": "#/definitions/V1_Entities_InvestorProfiles"
             }
           },
           "401": {
@@ -718,7 +211,7 @@
         "tags": [
           "investor_profile"
         ],
-        "operationId": "getInvestorProfile",
+        "operationId": "getDealInvestorProfiles",
         "x-codeSamples": [
           {
             "lang": "javascript",
@@ -801,56 +294,21 @@
         ]
       }
     },
-    "/investor_profiles/{deal_id}": {
+    "/investor_profiles/profile/{id}": {
       "get": {
-        "summary": "Get list of InvestorProfiles for a specific deal",
-        "description": "Get investor profiles for a specific deal",
+        "summary": "Get an investor profile by id",
+        "description": "Get an investor profile",
         "produces": [
           "application/json"
         ],
         "parameters": [
           {
-            "in": "query",
-            "name": "page",
-            "description": "Page offset to fetch.",
-            "type": "integer",
-            "format": "int32",
-            "default": 1,
-            "required": false
-          },
-          {
-            "in": "query",
-            "name": "per_page",
-            "description": "Number of results to return per page.",
-            "type": "integer",
-            "format": "int32",
-            "default": 25,
-            "required": false
-          },
-          {
-            "in": "query",
-            "name": "offset",
-            "description": "Pad a number of results.",
-            "type": "integer",
-            "format": "int32",
-            "default": 0,
-            "required": false
-          },
-          {
             "in": "path",
-            "name": "deal_id",
-            "description": "The deal id.",
+            "name": "id",
+            "description": "The id of the investor profile.",
             "type": "integer",
             "format": "int32",
             "required": true
-          },
-          {
-            "in": "query",
-            "name": "user_id",
-            "description": "The user id filter.",
-            "type": "integer",
-            "format": "int32",
-            "required": false
           }
         ],
         "security": [
@@ -862,9 +320,9 @@
         ],
         "responses": {
           "200": {
-            "description": "Get investor profiles for a specific deal",
+            "description": "Get an investor profile",
             "schema": {
-              "$ref": "#/definitions/V1_Entities_InvestorProfiles"
+              "$ref": "#/definitions/V1_Entities_InvestorProfileItem"
             }
           },
           "401": {
@@ -874,7 +332,557 @@
         "tags": [
           "investor_profile"
         ],
-        "operationId": "getDealInvestorProfiles",
+        "operationId": "getInvestorProfile",
+        "x-codeSamples": [
+          {
+            "lang": "javascript",
+            "source": ""
+          },
+          {
+            "lang": "ruby",
+            "source": ""
+          }
+        ]
+      }
+    },
+    "/investor_profiles/{type}/{id}": {
+      "delete": {
+        "summary": "Delete investor profile.",
+        "description": "Deletes the investor profile.",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "type",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          },
+          {
+            "in": "path",
+            "name": "id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "security": [
+          {
+            "oauth": [
+              "deals.write"
+            ]
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Investor profile deleted successfully."
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "tags": [
+          "investor"
+        ],
+        "operationId": "deleteInvestorProfile",
+        "x-codeSamples": [
+          {
+            "lang": "javascript",
+            "source": ""
+          },
+          {
+            "lang": "ruby",
+            "source": ""
+          }
+        ]
+      }
+    },
+    "/investor_profiles/corporations": {
+      "post": {
+        "summary": "Create new corporation investor profile.",
+        "description": "Create new corporation investor profile associated to the user by email.",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "InvestorProfilesCorporations",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/postInvestorProfilesCorporations"
+            }
+          }
+        ],
+        "security": [
+          {
+            "oauth": [
+              "deals.write"
+            ]
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Create new corporation investor profile.",
+            "schema": {
+              "$ref": "#/definitions/V1_Entities_InvestorProfile_Corporation"
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Forbidden"
+          }
+        },
+        "tags": [
+          "investor_profile"
+        ],
+        "operationId": "createCorporationProfile",
+        "x-codeSamples": [
+          {
+            "lang": "javascript",
+            "source": ""
+          },
+          {
+            "lang": "ruby",
+            "source": ""
+          }
+        ]
+      }
+    },
+    "/investor_profiles/corporations/{investor_profile_id}": {
+      "patch": {
+        "summary": "Patch a corporation investor profile",
+        "description": "Patch corporation investor profile",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "investor_profile_id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          },
+          {
+            "name": "InvestorProfilesCorporations",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/patchInvestorProfilesCorporations"
+            }
+          }
+        ],
+        "security": [
+          {
+            "oauth": [
+              "deals.write"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Patch corporation investor profile",
+            "schema": {
+              "$ref": "#/definitions/V1_Entities_InvestorProfile_Corporation"
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not found"
+          }
+        },
+        "tags": [
+          "investor_profile"
+        ],
+        "operationId": "patchCorporationProfile",
+        "x-codeSamples": [
+          {
+            "lang": "javascript",
+            "source": ""
+          },
+          {
+            "lang": "ruby",
+            "source": ""
+          }
+        ]
+      }
+    },
+    "/investor_profiles/joints": {
+      "post": {
+        "summary": "Create new joint investor profile",
+        "description": "Create new joint investor profile associated to the user by email.",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "InvestorProfilesJoints",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/postInvestorProfilesJoints"
+            }
+          }
+        ],
+        "security": [
+          {
+            "oauth": [
+              "deals.write"
+            ]
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Create new joint investor profile",
+            "schema": {
+              "$ref": "#/definitions/V1_Entities_InvestorProfile_Joint"
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        },
+        "tags": [
+          "investor_profile"
+        ],
+        "operationId": "createJointProfile",
+        "x-codeSamples": [
+          {
+            "lang": "javascript",
+            "source": ""
+          },
+          {
+            "lang": "ruby",
+            "source": ""
+          }
+        ]
+      }
+    },
+    "/investor_profiles/joints/{investor_profile_id}": {
+      "patch": {
+        "summary": "Patch a joint investor profile",
+        "description": "Patch joint investor profile",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "investor_profile_id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          },
+          {
+            "name": "InvestorProfilesJoints",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/patchInvestorProfilesJoints"
+            }
+          }
+        ],
+        "security": [
+          {
+            "oauth": [
+              "deals.write"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Patch joint investor profile",
+            "schema": {
+              "$ref": "#/definitions/V1_Entities_InvestorProfile_Joint"
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not found"
+          }
+        },
+        "tags": [
+          "investor_profile"
+        ],
+        "operationId": "patchJointProfile",
+        "x-codeSamples": [
+          {
+            "lang": "javascript",
+            "source": ""
+          },
+          {
+            "lang": "ruby",
+            "source": ""
+          }
+        ]
+      }
+    },
+    "/investor_profiles/individuals": {
+      "post": {
+        "summary": "Create new individual investor profile",
+        "description": "Create new individual investor profile associated to the user by email.",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "InvestorProfilesIndividuals",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/postInvestorProfilesIndividuals"
+            }
+          }
+        ],
+        "security": [
+          {
+            "oauth": [
+              "deals.write"
+            ]
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Create new individual investor profile",
+            "schema": {
+              "$ref": "#/definitions/V1_Entities_InvestorProfile_Individual"
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Forbidden"
+          }
+        },
+        "tags": [
+          "investor_profile"
+        ],
+        "operationId": "createIndividualProfile",
+        "x-codeSamples": [
+          {
+            "lang": "javascript",
+            "source": ""
+          },
+          {
+            "lang": "ruby",
+            "source": ""
+          }
+        ]
+      }
+    },
+    "/investor_profiles/individuals/{investor_profile_id}": {
+      "patch": {
+        "summary": "Patch an individual investor profile.",
+        "description": "Patch individual investor profile.",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "investor_profile_id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          },
+          {
+            "name": "InvestorProfilesIndividuals",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/patchInvestorProfilesIndividuals"
+            }
+          }
+        ],
+        "security": [
+          {
+            "oauth": [
+              "deals.write"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Patch individual investor profile.",
+            "schema": {
+              "$ref": "#/definitions/V1_Entities_InvestorProfile_Individual"
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not found"
+          }
+        },
+        "tags": [
+          "investor_profile"
+        ],
+        "operationId": "patchIndividualProfile",
+        "x-codeSamples": [
+          {
+            "lang": "javascript",
+            "source": ""
+          },
+          {
+            "lang": "ruby",
+            "source": ""
+          }
+        ]
+      }
+    },
+    "/investor_profiles/trusts": {
+      "post": {
+        "summary": "Create new trust investor profile.",
+        "description": "Create new trust investor profile associated to the user by email.",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "InvestorProfilesTrusts",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/postInvestorProfilesTrusts"
+            }
+          }
+        ],
+        "security": [
+          {
+            "oauth": [
+              "deals.write"
+            ]
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Create new trust investor profile.",
+            "schema": {
+              "$ref": "#/definitions/V1_Entities_InvestorProfile_Trust"
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Forbidden"
+          }
+        },
+        "tags": [
+          "investor_profile"
+        ],
+        "operationId": "createTrustProfile",
+        "x-codeSamples": [
+          {
+            "lang": "javascript",
+            "source": ""
+          },
+          {
+            "lang": "ruby",
+            "source": ""
+          }
+        ]
+      }
+    },
+    "/investor_profiles/trusts/{investor_profile_id}": {
+      "patch": {
+        "summary": "Patch a trust investor profile",
+        "description": "Patch trust investor profile",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "investor_profile_id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          },
+          {
+            "name": "InvestorProfilesTrusts",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/patchInvestorProfilesTrusts"
+            }
+          }
+        ],
+        "security": [
+          {
+            "oauth": [
+              "deals.write"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Patch trust investor profile",
+            "schema": {
+              "$ref": "#/definitions/V1_Entities_InvestorProfile_Trust"
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not found"
+          }
+        },
+        "tags": [
+          "investor_profile"
+        ],
+        "operationId": "patchTrustProfile",
         "x-codeSamples": [
           {
             "lang": "javascript",
@@ -1014,6 +1022,198 @@
           "users"
         ],
         "operationId": "getUsersInvestments"
+      }
+    },
+    "/users/{id}/update_password": {
+      "put": {
+        "summary": "Update user password",
+        "description": "Update user password",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "formData",
+            "name": "password",
+            "description": "The user password.",
+            "type": "string",
+            "required": true
+          },
+          {
+            "in": "path",
+            "name": "id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "security": [
+          {
+            "oauth": [
+              "internal"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Update user password",
+            "schema": {
+              "$ref": "#/definitions/V1_Entities_User"
+            }
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not found"
+          }
+        },
+        "tags": [
+          "user"
+        ],
+        "operationId": "updateUserPassword",
+        "x-codeSamples": [
+          {
+            "lang": "javascript",
+            "source": ""
+          },
+          {
+            "lang": "ruby",
+            "source": ""
+          }
+        ]
+      }
+    },
+    "/users/{id}": {
+      "get": {
+        "summary": "Get user by User ID",
+        "description": "Get a single user using the User ID",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "security": [
+          {
+            "oauth": [
+              "internal"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get a single user using the User ID",
+            "schema": {
+              "$ref": "#/definitions/V1_Entities_User"
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not found"
+          }
+        },
+        "tags": [
+          "user"
+        ],
+        "operationId": "getUser",
+        "x-codeSamples": [
+          {
+            "lang": "javascript",
+            "source": ""
+          },
+          {
+            "lang": "ruby",
+            "source": ""
+          }
+        ]
+      }
+    },
+    "/users/accessible_companies": {
+      "get": {
+        "summary": "Get list of all Companies accessible by the user",
+        "description": "Get user accessible companies",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "page",
+            "description": "Page offset to fetch.",
+            "type": "integer",
+            "format": "int32",
+            "default": 1,
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "per_page",
+            "description": "Number of results to return per page.",
+            "type": "integer",
+            "format": "int32",
+            "default": 25,
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "description": "Pad a number of results.",
+            "type": "integer",
+            "format": "int32",
+            "default": 0,
+            "required": false
+          }
+        ],
+        "security": [
+          {
+            "oauth": [
+              "companies.read"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get user accessible companies",
+            "schema": {
+              "$ref": "#/definitions/V1_Entities_Company"
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Forbidden"
+          }
+        },
+        "tags": [
+          "company"
+        ],
+        "operationId": "getUserAccessibleCompanies",
+        "x-codeSamples": [
+          {
+            "lang": "javascript",
+            "source": ""
+          },
+          {
+            "lang": "ruby",
+            "source": ""
+          }
+        ]
       }
     },
     "/country/states": {
@@ -1172,7 +1372,8 @@
         "security": [
           {
             "oauth": [
-
+              "internal",
+              "deals.investors.write"
             ]
           }
         ],
@@ -1459,7 +1660,7 @@
         "security": [
           {
             "oauth": [
-              "deals.write"
+              "deals.investors.write"
             ]
           }
         ],
@@ -1952,7 +2153,7 @@
         "security": [
           {
             "oauth": [
-              "deals.write"
+              "deals.investors.write"
             ]
           }
         ],
@@ -2422,6 +2623,46 @@
 
         ],
         "operationId": "postDealsDealIdPaymentOnboardingQuestionnairePayoutAccountDetailsSubmit"
+      }
+    },
+    "/deals/{deal_id}/payment_onboarding/questionnaire/digital_payments_connection/data": {
+      "get": {
+        "summary": "Load data for the digital payments connection stage",
+        "description": "Load data for the digital payments connection stage",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "deal_id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "security": [
+          {
+            "oauth": [
+              "internal"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Load data for the digital payments connection stage",
+            "schema": {
+              "$ref": "#/definitions/V1_Entities_Payments_SelfServeOnboarding_DigitalPaymentsConnection_Data"
+            }
+          },
+          "403": {
+            "description": "Access to this resource requires scope \"internal\"."
+          }
+        },
+        "tags": [
+
+        ],
+        "operationId": "getDealsDealIdPaymentOnboardingQuestionnaireDigitalPaymentsConnectionData"
       }
     },
     "/deal_setups": {
@@ -4290,7 +4531,18 @@
         },
         "checkout_state": {
           "type": "string",
-          "description": "Current state on checkout page."
+          "enum": [
+            "pre_checkout",
+            "investment_amount",
+            "contact_information",
+            "investor_confirmation",
+            "terms_conditions",
+            "payment",
+            "checkout_complete",
+            "resubmit_agreement",
+            "legacy_checkout"
+          ],
+          "description": "Current state on the checkout page."
         },
         "legacy_flow_link": {
           "type": "string",
@@ -5015,150 +5267,25 @@
         }
       }
     },
-    "patchInvestorProfilesTrusts": {
+    "V1_Entities_InvestorProfiles": {
       "type": "object",
       "properties": {
-        "us_accredited_category": {
-          "type": "string",
-          "description": "The United States accredited investor information.",
-          "enum": [
-            "entity_owned_by_accredited_investors",
-            "broker_or_dealer",
-            "assets_trust",
-            "not_accredited"
-          ]
-        },
-        "ca_accredited_investor": {
-          "type": "string",
-          "description": "The Canadian accredited investor information.",
-          "enum": [
-            "p",
-            "w"
-          ]
-        },
-        "name": {
-          "type": "string",
-          "description": "The name of the trust."
-        },
-        "date": {
-          "type": "string",
-          "description": "The creation date of the trust."
-        },
-        "phone_number": {
-          "type": "string",
-          "description": "The phone number of the trust."
-        },
-        "country": {
-          "type": "Country",
-          "description": "Trust country."
-        },
-        "street_address": {
-          "type": "string",
-          "description": "Trust street address."
-        },
-        "unit2": {
-          "type": "string",
-          "description": "Trust street address line 2."
-        },
-        "city": {
-          "type": "string",
-          "description": "Trust city."
-        },
-        "region": {
-          "type": "string",
-          "description": "Trust region or state."
-        },
-        "postal_code": {
-          "type": "string",
-          "description": "Trust postal code or zipcode."
-        },
-        "income": {
-          "type": "number",
-          "format": "float",
-          "description": "The income of the Trust."
-        },
-        "net_worth": {
-          "type": "number",
-          "format": "float",
-          "description": "The net worth of the Trust."
-        },
-        "reg_cf_prior_offerings_amount": {
-          "type": "number",
-          "format": "float",
-          "description": "The prior offering amount of the Trust."
-        },
-        "trustees": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "index": {
-                "type": "integer",
-                "format": "int32",
-                "description": "The index of the trustee."
-              },
-              "_delete": {
-                "type": "boolean",
-                "description": "If true, this entry will be cleared."
-              },
-              "first_name": {
-                "type": "string",
-                "description": "The list of first names for the trustees (required for trustee 1)."
-              },
-              "last_name": {
-                "type": "string",
-                "description": "The list of last names for the trustees (required for trustee 1)."
-              },
-              "suffix": {
-                "type": "string",
-                "description": "The list of suffixes for the trustees."
-              },
-              "country": {
-                "type": "Country",
-                "description": "The list of countries for the trustees (required for trustee 1)."
-              },
-              "street_address": {
-                "type": "string",
-                "description": "The list of street addresses for the trustees (required for trustee 1)."
-              },
-              "unit2": {
-                "type": "string",
-                "description": "The list of street address line 2 for the trustees."
-              },
-              "city": {
-                "type": "string",
-                "description": "The list of cities for the trustees (required for trustee 1)."
-              },
-              "region": {
-                "type": "string",
-                "description": "The list of regions or states for the trustees (required for trustee 1)."
-              },
-              "postal_code": {
-                "type": "string",
-                "description": "The list of postal codes or zipcodes for the trustees (required for trustee 1)."
-              },
-              "date_of_birth": {
-                "type": "string",
-                "description": "The list of dates of birth for the trustees (required for trustee 1)."
-              },
-              "taxpayer_id": {
-                "type": "string",
-                "description": "The list of taxpayer identification numbers for the trustees (required for trustee 1)."
-              },
-              "phone_number": {
-                "type": "string",
-                "description": "The list of phone numbers for the trustees (required for trustee 1)."
-              }
-            },
-            "required": [
-              "index"
-            ]
-          }
+        "items": {
+          "$ref": "#/definitions/V1_Entities_InvestorProfileItem"
         }
       },
-      "description": "Patch trust investor profile"
+      "description": "V1_Entities_InvestorProfiles model"
     },
-    "postInvestorProfilesTrusts": {
+    "V1_Entities_InvestorProfileItem": {
+      "type": "object",
+      "properties": {
+        "profile": {
+          "$ref": "#/definitions/V1_Entities_InvestorProfile_Trust"
+        }
+      },
+      "description": "V1_Entities_InvestorProfileItem model"
+    },
+    "postInvestorProfilesCorporations": {
       "type": "object",
       "properties": {
         "email": {
@@ -5170,8 +5297,21 @@
           "description": "The United States accredited investor information.",
           "enum": [
             "entity_owned_by_accredited_investors",
+            "assets_other",
+            "assets_family_office",
+            "assets_benefit_plan",
+            "assets_state_plan",
+            "assets_501_c_3",
+            "assets_corporation",
             "broker_or_dealer",
-            "assets_trust",
+            "bank_3_a_2",
+            "business_development_company",
+            "small_business",
+            "private_business_development_company",
+            "investment_company",
+            "rural_business_investment_company",
+            "insurance_company",
+            "family_client",
             "not_accredited"
           ]
         },
@@ -5179,113 +5319,182 @@
           "type": "string",
           "description": "The Canadian accredited investor information.",
           "enum": [
+            "a",
+            "b",
+            "c",
+            "d",
+            "f",
+            "g",
+            "h",
+            "i",
+            "m",
+            "n",
+            "o",
             "p",
-            "w"
+            "q",
+            "r",
+            "s",
+            "t",
+            "u",
+            "v",
+            "x"
           ]
         },
         "name": {
           "type": "string",
-          "description": "The name of the trust (required)."
-        },
-        "date": {
-          "type": "string",
-          "description": "The creation date of the trust (required)."
+          "description": "The name of the corporation (required)."
         },
         "country": {
           "type": "Country",
-          "description": "The country of the trust (required)."
+          "description": "The country of the corporation (required)."
         },
         "street_address": {
           "type": "string",
-          "description": "Trust street address of the trust (required)."
+          "description": "The street address of the corporation (required)."
         },
         "unit2": {
           "type": "string",
-          "description": "The street address line 2 of the trust."
+          "description": "The street address line 2 of the corporation."
         },
         "city": {
           "type": "string",
-          "description": "The city of the trust (required)."
+          "description": "The city of the corporation (required)."
         },
         "region": {
           "type": "string",
-          "description": "The region or state of the trust (required)."
+          "description": "The region or state of the corporation (required)."
         },
         "postal_code": {
           "type": "string",
-          "description": "The postal code or zipcode of the trust (required)."
+          "description": "The postal code or zipcode of the corporation (required)."
+        },
+        "business_number": {
+          "type": "string",
+          "description": "The taxpayer identification number  of the corporation (required)."
         },
         "phone_number": {
           "type": "string",
-          "description": "The phone number of the trust (required)."
+          "description": "The phone number o of the corporation (required)."
         },
         "income": {
           "type": "number",
           "format": "float",
-          "description": "The income of the trust."
+          "description": "The income of the individual investor profile"
         },
         "net_worth": {
           "type": "number",
           "format": "float",
-          "description": "The net worth of the trust."
+          "description": "The net worth of the individual investor profile"
         },
         "reg_cf_prior_offerings_amount": {
           "type": "number",
           "format": "float",
-          "description": "The prior offering amount of the trust."
+          "description": "The prior offering amount of the individual investor profile"
         },
-        "trustees": {
+        "signing_officer_first_name": {
+          "type": "string",
+          "description": "The first name of the signing officer (required)."
+        },
+        "signing_officer_last_name": {
+          "type": "string",
+          "description": "The last name of the signing officer (required)."
+        },
+        "signing_officer_title": {
+          "type": "string",
+          "description": "The title of the signing officer."
+        },
+        "signing_officer_suffix": {
+          "type": "string",
+          "description": "The suffix of the signing officer."
+        },
+        "signing_officer_country": {
+          "type": "Country",
+          "description": "The country of the signing officer (required)."
+        },
+        "signing_officer_street_address": {
+          "type": "string",
+          "description": "The street address of the signing officer (required)."
+        },
+        "signing_officer_unit2": {
+          "type": "string",
+          "description": "The street address line 2 of the signing officer."
+        },
+        "signing_officer_city": {
+          "type": "string",
+          "description": "The city of the signing officer (required)."
+        },
+        "signing_officer_region": {
+          "type": "string",
+          "description": "The region or state of the signing officer (required)."
+        },
+        "signing_officer_postal_code": {
+          "type": "string",
+          "description": "The postal code or zipcode of the signing officer (required)."
+        },
+        "signing_officer_date_of_birth": {
+          "type": "string",
+          "description": "The date of birth of the signing officer (required)."
+        },
+        "signing_officer_taxpayer_id": {
+          "type": "string",
+          "description": "The taxpayer identification number of the signing officer (required)."
+        },
+        "signing_officer_phone_number": {
+          "type": "string",
+          "description": "The phone number of the signing officer (required)."
+        },
+        "beneficial_owners": {
           "type": "array",
           "items": {
             "type": "object",
             "properties": {
               "first_name": {
                 "type": "string",
-                "description": "The list of first names for the trustees (required for trustee 1)."
+                "description": "The list of first names for the beneficial owners (required for beneficial owner 1)."
               },
               "last_name": {
                 "type": "string",
-                "description": "The list of last names for the trustees (required for trustee 1)."
+                "description": "The list of last names for the beneficial owners (required for beneficial owner 1)."
               },
               "suffix": {
                 "type": "string",
-                "description": "The list of suffixes for the trustees."
+                "description": "The list of suffixes for the beneficial owners."
               },
               "country": {
                 "type": "Country",
-                "description": "The list of countries for the trustees (required for trustee 1)."
+                "description": "The list of countries for the beneficial owners (required for beneficial owner 1)."
               },
               "street_address": {
                 "type": "string",
-                "description": "The list of street addresses for the trustees (required for trustee 1)."
+                "description": "The list of street addresses for the beneficial owners (required for beneficial owner 1)."
               },
               "unit2": {
                 "type": "string",
-                "description": "The list of street address line 2 for the trustees."
+                "description": "The list of street address line 2 for the beneficial owners."
               },
               "city": {
                 "type": "string",
-                "description": "The list of cities for the trustees (required for trustee 1)."
+                "description": "The list of cities for the beneficial owners (required for beneficial owner 1)."
               },
               "region": {
                 "type": "string",
-                "description": "The list of regions or states for the trustees (required for trustee 1)."
+                "description": "The list of region or states for the beneficial owners (required for beneficial owner 1)."
               },
               "postal_code": {
                 "type": "string",
-                "description": "The list of postal codes or zipcodes for the trustees (required for trustee 1)."
+                "description": "The list of postal codes or zipcodes for the beneficial owners (required for beneficial owner 1)."
               },
               "date_of_birth": {
                 "type": "string",
-                "description": "The list of dates of birth for the trustees (required for trustee 1)."
+                "description": "The list of dates of birth for the beneficial owners (required for beneficial owner 1)."
               },
               "taxpayer_id": {
                 "type": "string",
-                "description": "The list of taxpayer identification numbers for the trustees (required for trustee 1)."
+                "description": "The list of taxpayer identification numbers for the beneficial owners (required for beneficial owner 1)."
               },
               "phone_number": {
                 "type": "string",
-                "description": "The list of phone numbers for the trustees (required for trustee 1)."
+                "description": "The list of phone numbers for the beneficial owners (required for beneficial owner 1)."
               }
             }
           }
@@ -5294,531 +5503,7 @@
       "required": [
         "email"
       ],
-      "description": "Create new trust investor profile."
-    },
-    "patchInvestorProfilesIndividuals": {
-      "type": "object",
-      "properties": {
-        "us_accredited_category": {
-          "type": "string",
-          "description": "The United States accredited investor information.",
-          "enum": [
-            "income_individual",
-            "assets_individual",
-            "director",
-            "knowledgable_employee",
-            "broker_or_dealer",
-            "investment_advisor_registered",
-            "investment_advisor_relying",
-            "designated_accredited_investor",
-            "not_accredited"
-          ]
-        },
-        "ca_accredited_investor": {
-          "type": "string",
-          "description": "The Canadian accredited investor information.",
-          "enum": [
-            "d",
-            "e",
-            "e_1",
-            "j",
-            "j_1",
-            "k_alone",
-            "k_spouse",
-            "l",
-            "q",
-            "v",
-            "x"
-          ]
-        },
-        "first_name": {
-          "type": "string",
-          "description": "The first name of the individual investor profile."
-        },
-        "last_name": {
-          "type": "string",
-          "description": "The last name of the individual investor profile."
-        },
-        "suffix": {
-          "type": "string",
-          "description": "The suffix of the individual investor profile."
-        },
-        "date_of_birth": {
-          "type": "string",
-          "description": "The date of birth of the investor profile."
-        },
-        "taxpayer_id": {
-          "type": "string",
-          "description": "The taxpayer identification number of the investor profile."
-        },
-        "phone_number": {
-          "type": "string",
-          "description": "The phone number of the investor profile."
-        },
-        "country": {
-          "type": "Country",
-          "description": "The country of the individual investor profile."
-        },
-        "street_address": {
-          "type": "string",
-          "description": "The street address of the individual investor profile."
-        },
-        "unit2": {
-          "type": "string",
-          "description": "The street address line 2 of the individual investor profile."
-        },
-        "city": {
-          "type": "string",
-          "description": "The city of the individual investor profile."
-        },
-        "region": {
-          "type": "string",
-          "description": "The region or state of the individual investor profile."
-        },
-        "postal_code": {
-          "type": "string",
-          "description": "The postal code or zipcode of the individual investor profile."
-        },
-        "income": {
-          "type": "number",
-          "format": "float",
-          "description": "The income of the individual investor profile"
-        },
-        "net_worth": {
-          "type": "number",
-          "format": "float",
-          "description": "The net worth of the individual investor profile"
-        },
-        "reg_cf_prior_offerings_amount": {
-          "type": "number",
-          "format": "float",
-          "description": "The prior offering amount of the individual investor profile"
-        }
-      },
-      "description": "Patch individual investor profile."
-    },
-    "postInvestorProfilesIndividuals": {
-      "type": "object",
-      "properties": {
-        "email": {
-          "type": "string",
-          "description": "User email which is associated with individual investor profile."
-        },
-        "us_accredited_category": {
-          "type": "string",
-          "description": "The United States accredited investor information.",
-          "enum": [
-            "income_individual",
-            "assets_individual",
-            "director",
-            "knowledgable_employee",
-            "broker_or_dealer",
-            "investment_advisor_registered",
-            "investment_advisor_relying",
-            "designated_accredited_investor",
-            "not_accredited"
-          ]
-        },
-        "ca_accredited_investor": {
-          "type": "string",
-          "description": "The Canadian accredited investor information.",
-          "enum": [
-            "d",
-            "e",
-            "e_1",
-            "j",
-            "j_1",
-            "k_alone",
-            "k_spouse",
-            "l",
-            "q",
-            "v",
-            "x"
-          ]
-        },
-        "first_name": {
-          "type": "string",
-          "description": "The first name of the individual investor profile (required)."
-        },
-        "last_name": {
-          "type": "string",
-          "description": "The last name of the individual investor profile (required)"
-        },
-        "suffix": {
-          "type": "string",
-          "description": "The suffix of the individual investor profile"
-        },
-        "date_of_birth": {
-          "type": "string",
-          "description": "The date of birth of the investor profile (required)"
-        },
-        "taxpayer_id": {
-          "type": "string",
-          "description": "The taxpayer identification number of the investor profile (required)"
-        },
-        "phone_number": {
-          "type": "string",
-          "description": "The phone number of the investor profile (required)"
-        },
-        "country": {
-          "type": "Country",
-          "description": "The country of the individual investor profile (required)"
-        },
-        "street_address": {
-          "type": "string",
-          "description": "The street address of the individual investor profile (required)"
-        },
-        "unit2": {
-          "type": "string",
-          "description": "The street address line 2 of the individual investor profile"
-        },
-        "city": {
-          "type": "string",
-          "description": "The city of the individual investor profile (required)"
-        },
-        "region": {
-          "type": "string",
-          "description": "The region or state of the individual investor profile (required)"
-        },
-        "postal_code": {
-          "type": "string",
-          "description": "The postal code or zipcode of the individual investor profile (required)"
-        },
-        "income": {
-          "type": "number",
-          "format": "float",
-          "description": "The income of the individual investor profile"
-        },
-        "net_worth": {
-          "type": "number",
-          "format": "float",
-          "description": "The net worth of the individual investor profile"
-        },
-        "reg_cf_prior_offerings_amount": {
-          "type": "number",
-          "format": "float",
-          "description": "The prior offering amount of the individual investor profile"
-        }
-      },
-      "required": [
-        "email"
-      ],
-      "description": "Create new individual investor profile"
-    },
-    "patchInvestorProfilesJoints": {
-      "type": "object",
-      "properties": {
-        "us_accredited_category": {
-          "type": "string",
-          "description": "The United States accredited investor information.",
-          "enum": [
-            "income_individual",
-            "assets_individual",
-            "director",
-            "knowledgable_employee",
-            "broker_or_dealer",
-            "investment_advisor_registered",
-            "investment_advisor_relying",
-            "designated_accredited_investor",
-            "not_accredited"
-          ]
-        },
-        "ca_accredited_investor": {
-          "type": "string",
-          "description": "The Canadian accredited investor information.",
-          "enum": [
-            "d",
-            "e",
-            "e_1",
-            "j",
-            "j_1",
-            "k_alone",
-            "k_spouse",
-            "l",
-            "q",
-            "v",
-            "x"
-          ]
-        },
-        "joint_type": {
-          "type": "string",
-          "description": "The kind of joint investor.",
-          "enum": [
-            "joint_tenant",
-            "tenants_in_common",
-            "community_property"
-          ]
-        },
-        "first_name": {
-          "type": "string",
-          "description": "The first name of the investor profile."
-        },
-        "last_name": {
-          "type": "string",
-          "description": "The last name of the investor profile."
-        },
-        "suffix": {
-          "type": "string",
-          "description": "The suffix of the investor profile."
-        },
-        "country": {
-          "type": "Country",
-          "description": "The country the investor profile."
-        },
-        "street_address": {
-          "type": "string",
-          "description": "The street address of the investor profile."
-        },
-        "unit2": {
-          "type": "string",
-          "description": "The street address line 2 of the investor profile."
-        },
-        "city": {
-          "type": "string",
-          "description": "The city of the investor profile."
-        },
-        "region": {
-          "type": "string",
-          "description": "The region or State of the investor profile."
-        },
-        "postal_code": {
-          "type": "string",
-          "description": "The postal code or zipcode of the investor profile."
-        },
-        "date_of_birth": {
-          "type": "string",
-          "description": "The date of birth of the investor profile."
-        },
-        "taxpayer_id": {
-          "type": "string",
-          "description": "The taxpayer identification number of the investor profile."
-        },
-        "phone_number": {
-          "type": "string",
-          "description": "The phone number of the investor profile."
-        },
-        "income": {
-          "type": "number",
-          "format": "float",
-          "description": "The income of the investor profile."
-        },
-        "net_worth": {
-          "type": "number",
-          "format": "float",
-          "description": "The net worth of the investor profile."
-        },
-        "reg_cf_prior_offerings_amount": {
-          "type": "number",
-          "format": "float",
-          "description": "The prior offerings amount of the investor profile."
-        },
-        "joint_holder_first_name": {
-          "type": "string",
-          "description": "The joint holder first name of the investor profile."
-        },
-        "joint_holder_last_name": {
-          "type": "string",
-          "description": "The joint holder last name of the investor profile."
-        },
-        "joint_holder_suffix": {
-          "type": "string",
-          "description": "The suffix of the individual investor profile."
-        },
-        "joint_holder_country": {
-          "type": "Country",
-          "description": "The joint holder country of the investor profile."
-        },
-        "joint_holder_street_address": {
-          "type": "string",
-          "description": "The joint holder street address of the investor profile."
-        },
-        "joint_holder_unit2": {
-          "type": "string",
-          "description": "The Joint holder street address line 2 of the investor profile."
-        },
-        "joint_holder_city": {
-          "type": "string",
-          "description": "The Joint holder city of the investor profile."
-        },
-        "joint_holder_region": {
-          "type": "string",
-          "description": "The joint holder region or state of the investor profile."
-        },
-        "joint_holder_postal_code": {
-          "type": "string",
-          "description": "The joint holder postal code or zipcode of the investor profile."
-        },
-        "joint_holder_date_of_birth": {
-          "type": "string",
-          "description": "The joint holder date of birth of the investor profile."
-        },
-        "joint_holder_taxpayer_id": {
-          "type": "string",
-          "description": "The joint holder taxpayer identification number of the investor profile."
-        }
-      },
-      "description": "Patch joint investor profile"
-    },
-    "postInvestorProfilesJoints": {
-      "type": "object",
-      "properties": {
-        "email": {
-          "type": "string",
-          "description": "User email which is associated with investor profile."
-        },
-        "us_accredited_category": {
-          "type": "string",
-          "description": "The United States accredited investor information.",
-          "enum": [
-            "income_individual",
-            "assets_individual",
-            "director",
-            "knowledgable_employee",
-            "broker_or_dealer",
-            "investment_advisor_registered",
-            "investment_advisor_relying",
-            "designated_accredited_investor",
-            "not_accredited"
-          ]
-        },
-        "ca_accredited_investor": {
-          "type": "string",
-          "description": "The Canadian accredited investor information.",
-          "enum": [
-            "d",
-            "e",
-            "e_1",
-            "j",
-            "j_1",
-            "k_alone",
-            "k_spouse",
-            "l",
-            "q",
-            "v",
-            "x"
-          ]
-        },
-        "joint_type": {
-          "type": "string",
-          "description": "The types of joint investor.",
-          "enum": [
-            "joint_tenant",
-            "tenants_in_common",
-            "community_property"
-          ]
-        },
-        "first_name": {
-          "type": "string",
-          "description": "The first name of the primary holder (required)."
-        },
-        "last_name": {
-          "type": "string",
-          "description": "The last name of the primary holder (required)."
-        },
-        "suffix": {
-          "type": "string",
-          "description": "The suffix of the primary holder."
-        },
-        "country": {
-          "type": "Country",
-          "description": "The country the primary holder (required)."
-        },
-        "street_address": {
-          "type": "string",
-          "description": "The street address of the primary holder (required)."
-        },
-        "unit2": {
-          "type": "string",
-          "description": "The street address line 2 of the primary holder."
-        },
-        "city": {
-          "type": "string",
-          "description": "The city of the primary holder (required)."
-        },
-        "region": {
-          "type": "string",
-          "description": "The region or State of the primary holder (required)."
-        },
-        "postal_code": {
-          "type": "string",
-          "description": "The postal code or zipcode of the primary holder (required)."
-        },
-        "date_of_birth": {
-          "type": "string",
-          "description": "The date of birth of the primary holder (required)."
-        },
-        "taxpayer_id": {
-          "type": "string",
-          "description": "The taxpayer identification number of the primary holder (required)."
-        },
-        "phone_number": {
-          "type": "string",
-          "description": "The phone number of the primary holder (required)."
-        },
-        "income": {
-          "type": "number",
-          "format": "float",
-          "description": "The income of the primary holder."
-        },
-        "net_worth": {
-          "type": "number",
-          "format": "float",
-          "description": "The net worth of the primary holder."
-        },
-        "reg_cf_prior_offerings_amount": {
-          "type": "number",
-          "format": "float",
-          "description": "The prior offerings amount of the primary holder."
-        },
-        "joint_holder_first_name": {
-          "type": "string",
-          "description": "The first name of the joint holder (required)."
-        },
-        "joint_holder_last_name": {
-          "type": "string",
-          "description": "The last name of the joint holder (required)."
-        },
-        "joint_holder_suffix": {
-          "type": "string",
-          "description": "The suffix of the joint holder."
-        },
-        "joint_holder_country": {
-          "type": "Country",
-          "description": "The country of the joint holder (required)."
-        },
-        "joint_holder_street_address": {
-          "type": "string",
-          "description": "The street address of the joint holder (required)."
-        },
-        "joint_holder_unit2": {
-          "type": "string",
-          "description": "The street address line 2 of the joint holder."
-        },
-        "joint_holder_city": {
-          "type": "string",
-          "description": "The city of the joint holder (required)."
-        },
-        "joint_holder_region": {
-          "type": "string",
-          "description": "The region or state of the joint holder (required)."
-        },
-        "joint_holder_postal_code": {
-          "type": "string",
-          "description": "The postal code or zipcode of the joint holder (required)."
-        },
-        "joint_holder_date_of_birth": {
-          "type": "string",
-          "description": "The date of birth of the joint holder (required)."
-        },
-        "joint_holder_taxpayer_id": {
-          "type": "string",
-          "description": "The taxpayer identification number of the joint holder (required)."
-        }
-      },
-      "required": [
-        "email"
-      ],
-      "description": "Create new joint investor profile"
+      "description": "Create new corporation investor profile."
     },
     "patchInvestorProfilesCorporations": {
       "type": "object",
@@ -6045,33 +5730,25 @@
       },
       "description": "Patch corporation investor profile"
     },
-    "postInvestorProfilesCorporations": {
+    "postInvestorProfilesJoints": {
       "type": "object",
       "properties": {
         "email": {
           "type": "string",
-          "description": "User email which is associated with investor profile (required)."
+          "description": "User email which is associated with investor profile."
         },
         "us_accredited_category": {
           "type": "string",
           "description": "The United States accredited investor information.",
           "enum": [
-            "entity_owned_by_accredited_investors",
-            "assets_other",
-            "assets_family_office",
-            "assets_benefit_plan",
-            "assets_state_plan",
-            "assets_501_c_3",
-            "assets_corporation",
+            "income_individual",
+            "assets_individual",
+            "director",
+            "knowledgable_employee",
             "broker_or_dealer",
-            "bank_3_a_2",
-            "business_development_company",
-            "small_business",
-            "private_business_development_company",
-            "investment_company",
-            "rural_business_investment_company",
-            "insurance_company",
-            "family_client",
+            "investment_advisor_registered",
+            "investment_advisor_relying",
+            "designated_accredited_investor",
             "not_accredited"
           ]
         },
@@ -6079,62 +5756,381 @@
           "type": "string",
           "description": "The Canadian accredited investor information.",
           "enum": [
-            "a",
-            "b",
-            "c",
             "d",
-            "f",
-            "g",
-            "h",
-            "i",
-            "m",
-            "n",
-            "o",
-            "p",
+            "e",
+            "e_1",
+            "j",
+            "j_1",
+            "k_alone",
+            "k_spouse",
+            "l",
             "q",
-            "r",
-            "s",
-            "t",
-            "u",
             "v",
             "x"
           ]
         },
-        "name": {
+        "joint_type": {
           "type": "string",
-          "description": "The name of the corporation (required)."
+          "description": "The types of joint investor.",
+          "enum": [
+            "joint_tenant",
+            "tenants_in_common",
+            "community_property"
+          ]
+        },
+        "first_name": {
+          "type": "string",
+          "description": "The first name of the primary holder (required)."
+        },
+        "last_name": {
+          "type": "string",
+          "description": "The last name of the primary holder (required)."
+        },
+        "suffix": {
+          "type": "string",
+          "description": "The suffix of the primary holder."
         },
         "country": {
           "type": "Country",
-          "description": "The country of the corporation (required)."
+          "description": "The country the primary holder (required)."
         },
         "street_address": {
           "type": "string",
-          "description": "The street address of the corporation (required)."
+          "description": "The street address of the primary holder (required)."
         },
         "unit2": {
           "type": "string",
-          "description": "The street address line 2 of the corporation."
+          "description": "The street address line 2 of the primary holder."
         },
         "city": {
           "type": "string",
-          "description": "The city of the corporation (required)."
+          "description": "The city of the primary holder (required)."
         },
         "region": {
           "type": "string",
-          "description": "The region or state of the corporation (required)."
+          "description": "The region or State of the primary holder (required)."
         },
         "postal_code": {
           "type": "string",
-          "description": "The postal code or zipcode of the corporation (required)."
+          "description": "The postal code or zipcode of the primary holder (required)."
         },
-        "business_number": {
+        "date_of_birth": {
           "type": "string",
-          "description": "The taxpayer identification number  of the corporation (required)."
+          "description": "The date of birth of the primary holder (required)."
+        },
+        "taxpayer_id": {
+          "type": "string",
+          "description": "The taxpayer identification number of the primary holder (required)."
         },
         "phone_number": {
           "type": "string",
-          "description": "The phone number o of the corporation (required)."
+          "description": "The phone number of the primary holder (required)."
+        },
+        "income": {
+          "type": "number",
+          "format": "float",
+          "description": "The income of the primary holder."
+        },
+        "net_worth": {
+          "type": "number",
+          "format": "float",
+          "description": "The net worth of the primary holder."
+        },
+        "reg_cf_prior_offerings_amount": {
+          "type": "number",
+          "format": "float",
+          "description": "The prior offerings amount of the primary holder."
+        },
+        "joint_holder_first_name": {
+          "type": "string",
+          "description": "The first name of the joint holder (required)."
+        },
+        "joint_holder_last_name": {
+          "type": "string",
+          "description": "The last name of the joint holder (required)."
+        },
+        "joint_holder_suffix": {
+          "type": "string",
+          "description": "The suffix of the joint holder."
+        },
+        "joint_holder_country": {
+          "type": "Country",
+          "description": "The country of the joint holder (required)."
+        },
+        "joint_holder_street_address": {
+          "type": "string",
+          "description": "The street address of the joint holder (required)."
+        },
+        "joint_holder_unit2": {
+          "type": "string",
+          "description": "The street address line 2 of the joint holder."
+        },
+        "joint_holder_city": {
+          "type": "string",
+          "description": "The city of the joint holder (required)."
+        },
+        "joint_holder_region": {
+          "type": "string",
+          "description": "The region or state of the joint holder (required)."
+        },
+        "joint_holder_postal_code": {
+          "type": "string",
+          "description": "The postal code or zipcode of the joint holder (required)."
+        },
+        "joint_holder_date_of_birth": {
+          "type": "string",
+          "description": "The date of birth of the joint holder (required)."
+        },
+        "joint_holder_taxpayer_id": {
+          "type": "string",
+          "description": "The taxpayer identification number of the joint holder (required)."
+        }
+      },
+      "required": [
+        "email"
+      ],
+      "description": "Create new joint investor profile"
+    },
+    "patchInvestorProfilesJoints": {
+      "type": "object",
+      "properties": {
+        "us_accredited_category": {
+          "type": "string",
+          "description": "The United States accredited investor information.",
+          "enum": [
+            "income_individual",
+            "assets_individual",
+            "director",
+            "knowledgable_employee",
+            "broker_or_dealer",
+            "investment_advisor_registered",
+            "investment_advisor_relying",
+            "designated_accredited_investor",
+            "not_accredited"
+          ]
+        },
+        "ca_accredited_investor": {
+          "type": "string",
+          "description": "The Canadian accredited investor information.",
+          "enum": [
+            "d",
+            "e",
+            "e_1",
+            "j",
+            "j_1",
+            "k_alone",
+            "k_spouse",
+            "l",
+            "q",
+            "v",
+            "x"
+          ]
+        },
+        "joint_type": {
+          "type": "string",
+          "description": "The kind of joint investor.",
+          "enum": [
+            "joint_tenant",
+            "tenants_in_common",
+            "community_property"
+          ]
+        },
+        "first_name": {
+          "type": "string",
+          "description": "The first name of the investor profile."
+        },
+        "last_name": {
+          "type": "string",
+          "description": "The last name of the investor profile."
+        },
+        "suffix": {
+          "type": "string",
+          "description": "The suffix of the investor profile."
+        },
+        "country": {
+          "type": "Country",
+          "description": "The country the investor profile."
+        },
+        "street_address": {
+          "type": "string",
+          "description": "The street address of the investor profile."
+        },
+        "unit2": {
+          "type": "string",
+          "description": "The street address line 2 of the investor profile."
+        },
+        "city": {
+          "type": "string",
+          "description": "The city of the investor profile."
+        },
+        "region": {
+          "type": "string",
+          "description": "The region or State of the investor profile."
+        },
+        "postal_code": {
+          "type": "string",
+          "description": "The postal code or zipcode of the investor profile."
+        },
+        "date_of_birth": {
+          "type": "string",
+          "description": "The date of birth of the investor profile."
+        },
+        "taxpayer_id": {
+          "type": "string",
+          "description": "The taxpayer identification number of the investor profile."
+        },
+        "phone_number": {
+          "type": "string",
+          "description": "The phone number of the investor profile."
+        },
+        "income": {
+          "type": "number",
+          "format": "float",
+          "description": "The income of the investor profile."
+        },
+        "net_worth": {
+          "type": "number",
+          "format": "float",
+          "description": "The net worth of the investor profile."
+        },
+        "reg_cf_prior_offerings_amount": {
+          "type": "number",
+          "format": "float",
+          "description": "The prior offerings amount of the investor profile."
+        },
+        "joint_holder_first_name": {
+          "type": "string",
+          "description": "The joint holder first name of the investor profile."
+        },
+        "joint_holder_last_name": {
+          "type": "string",
+          "description": "The joint holder last name of the investor profile."
+        },
+        "joint_holder_suffix": {
+          "type": "string",
+          "description": "The suffix of the individual investor profile."
+        },
+        "joint_holder_country": {
+          "type": "Country",
+          "description": "The joint holder country of the investor profile."
+        },
+        "joint_holder_street_address": {
+          "type": "string",
+          "description": "The joint holder street address of the investor profile."
+        },
+        "joint_holder_unit2": {
+          "type": "string",
+          "description": "The Joint holder street address line 2 of the investor profile."
+        },
+        "joint_holder_city": {
+          "type": "string",
+          "description": "The Joint holder city of the investor profile."
+        },
+        "joint_holder_region": {
+          "type": "string",
+          "description": "The joint holder region or state of the investor profile."
+        },
+        "joint_holder_postal_code": {
+          "type": "string",
+          "description": "The joint holder postal code or zipcode of the investor profile."
+        },
+        "joint_holder_date_of_birth": {
+          "type": "string",
+          "description": "The joint holder date of birth of the investor profile."
+        },
+        "joint_holder_taxpayer_id": {
+          "type": "string",
+          "description": "The joint holder taxpayer identification number of the investor profile."
+        }
+      },
+      "description": "Patch joint investor profile"
+    },
+    "postInvestorProfilesIndividuals": {
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string",
+          "description": "User email which is associated with individual investor profile."
+        },
+        "us_accredited_category": {
+          "type": "string",
+          "description": "The United States accredited investor information.",
+          "enum": [
+            "income_individual",
+            "assets_individual",
+            "director",
+            "knowledgable_employee",
+            "broker_or_dealer",
+            "investment_advisor_registered",
+            "investment_advisor_relying",
+            "designated_accredited_investor",
+            "not_accredited"
+          ]
+        },
+        "ca_accredited_investor": {
+          "type": "string",
+          "description": "The Canadian accredited investor information.",
+          "enum": [
+            "d",
+            "e",
+            "e_1",
+            "j",
+            "j_1",
+            "k_alone",
+            "k_spouse",
+            "l",
+            "q",
+            "v",
+            "x"
+          ]
+        },
+        "first_name": {
+          "type": "string",
+          "description": "The first name of the individual investor profile (required)."
+        },
+        "last_name": {
+          "type": "string",
+          "description": "The last name of the individual investor profile (required)"
+        },
+        "suffix": {
+          "type": "string",
+          "description": "The suffix of the individual investor profile"
+        },
+        "date_of_birth": {
+          "type": "string",
+          "description": "The date of birth of the investor profile (required)"
+        },
+        "taxpayer_id": {
+          "type": "string",
+          "description": "The taxpayer identification number of the investor profile (required)"
+        },
+        "phone_number": {
+          "type": "string",
+          "description": "The phone number of the investor profile (required)"
+        },
+        "country": {
+          "type": "Country",
+          "description": "The country of the individual investor profile (required)"
+        },
+        "street_address": {
+          "type": "string",
+          "description": "The street address of the individual investor profile (required)"
+        },
+        "unit2": {
+          "type": "string",
+          "description": "The street address line 2 of the individual investor profile"
+        },
+        "city": {
+          "type": "string",
+          "description": "The city of the individual investor profile (required)"
+        },
+        "region": {
+          "type": "string",
+          "description": "The region or state of the individual investor profile (required)"
+        },
+        "postal_code": {
+          "type": "string",
+          "description": "The postal code or zipcode of the individual investor profile (required)"
         },
         "income": {
           "type": "number",
@@ -6150,111 +6146,242 @@
           "type": "number",
           "format": "float",
           "description": "The prior offering amount of the individual investor profile"
-        },
-        "signing_officer_first_name": {
+        }
+      },
+      "required": [
+        "email"
+      ],
+      "description": "Create new individual investor profile"
+    },
+    "patchInvestorProfilesIndividuals": {
+      "type": "object",
+      "properties": {
+        "us_accredited_category": {
           "type": "string",
-          "description": "The first name of the signing officer (required)."
+          "description": "The United States accredited investor information.",
+          "enum": [
+            "income_individual",
+            "assets_individual",
+            "director",
+            "knowledgable_employee",
+            "broker_or_dealer",
+            "investment_advisor_registered",
+            "investment_advisor_relying",
+            "designated_accredited_investor",
+            "not_accredited"
+          ]
         },
-        "signing_officer_last_name": {
+        "ca_accredited_investor": {
           "type": "string",
-          "description": "The last name of the signing officer (required)."
+          "description": "The Canadian accredited investor information.",
+          "enum": [
+            "d",
+            "e",
+            "e_1",
+            "j",
+            "j_1",
+            "k_alone",
+            "k_spouse",
+            "l",
+            "q",
+            "v",
+            "x"
+          ]
         },
-        "signing_officer_title": {
+        "first_name": {
           "type": "string",
-          "description": "The title of the signing officer."
+          "description": "The first name of the individual investor profile."
         },
-        "signing_officer_suffix": {
+        "last_name": {
           "type": "string",
-          "description": "The suffix of the signing officer."
+          "description": "The last name of the individual investor profile."
         },
-        "signing_officer_country": {
+        "suffix": {
+          "type": "string",
+          "description": "The suffix of the individual investor profile."
+        },
+        "date_of_birth": {
+          "type": "string",
+          "description": "The date of birth of the investor profile."
+        },
+        "taxpayer_id": {
+          "type": "string",
+          "description": "The taxpayer identification number of the investor profile."
+        },
+        "phone_number": {
+          "type": "string",
+          "description": "The phone number of the investor profile."
+        },
+        "country": {
           "type": "Country",
-          "description": "The country of the signing officer (required)."
+          "description": "The country of the individual investor profile."
         },
-        "signing_officer_street_address": {
+        "street_address": {
           "type": "string",
-          "description": "The street address of the signing officer (required)."
+          "description": "The street address of the individual investor profile."
         },
-        "signing_officer_unit2": {
+        "unit2": {
           "type": "string",
-          "description": "The street address line 2 of the signing officer."
+          "description": "The street address line 2 of the individual investor profile."
         },
-        "signing_officer_city": {
+        "city": {
           "type": "string",
-          "description": "The city of the signing officer (required)."
+          "description": "The city of the individual investor profile."
         },
-        "signing_officer_region": {
+        "region": {
           "type": "string",
-          "description": "The region or state of the signing officer (required)."
+          "description": "The region or state of the individual investor profile."
         },
-        "signing_officer_postal_code": {
+        "postal_code": {
           "type": "string",
-          "description": "The postal code or zipcode of the signing officer (required)."
+          "description": "The postal code or zipcode of the individual investor profile."
         },
-        "signing_officer_date_of_birth": {
+        "income": {
+          "type": "number",
+          "format": "float",
+          "description": "The income of the individual investor profile"
+        },
+        "net_worth": {
+          "type": "number",
+          "format": "float",
+          "description": "The net worth of the individual investor profile"
+        },
+        "reg_cf_prior_offerings_amount": {
+          "type": "number",
+          "format": "float",
+          "description": "The prior offering amount of the individual investor profile"
+        }
+      },
+      "description": "Patch individual investor profile."
+    },
+    "postInvestorProfilesTrusts": {
+      "type": "object",
+      "properties": {
+        "email": {
           "type": "string",
-          "description": "The date of birth of the signing officer (required)."
+          "description": "User email which is associated with investor profile (required)."
         },
-        "signing_officer_taxpayer_id": {
+        "us_accredited_category": {
           "type": "string",
-          "description": "The taxpayer identification number of the signing officer (required)."
+          "description": "The United States accredited investor information.",
+          "enum": [
+            "entity_owned_by_accredited_investors",
+            "broker_or_dealer",
+            "assets_trust",
+            "not_accredited"
+          ]
         },
-        "signing_officer_phone_number": {
+        "ca_accredited_investor": {
           "type": "string",
-          "description": "The phone number of the signing officer (required)."
+          "description": "The Canadian accredited investor information.",
+          "enum": [
+            "p",
+            "w"
+          ]
         },
-        "beneficial_owners": {
+        "name": {
+          "type": "string",
+          "description": "The name of the trust (required)."
+        },
+        "date": {
+          "type": "string",
+          "description": "The creation date of the trust (required)."
+        },
+        "country": {
+          "type": "Country",
+          "description": "The country of the trust (required)."
+        },
+        "street_address": {
+          "type": "string",
+          "description": "Trust street address of the trust (required)."
+        },
+        "unit2": {
+          "type": "string",
+          "description": "The street address line 2 of the trust."
+        },
+        "city": {
+          "type": "string",
+          "description": "The city of the trust (required)."
+        },
+        "region": {
+          "type": "string",
+          "description": "The region or state of the trust (required)."
+        },
+        "postal_code": {
+          "type": "string",
+          "description": "The postal code or zipcode of the trust (required)."
+        },
+        "phone_number": {
+          "type": "string",
+          "description": "The phone number of the trust (required)."
+        },
+        "income": {
+          "type": "number",
+          "format": "float",
+          "description": "The income of the trust."
+        },
+        "net_worth": {
+          "type": "number",
+          "format": "float",
+          "description": "The net worth of the trust."
+        },
+        "reg_cf_prior_offerings_amount": {
+          "type": "number",
+          "format": "float",
+          "description": "The prior offering amount of the trust."
+        },
+        "trustees": {
           "type": "array",
           "items": {
             "type": "object",
             "properties": {
               "first_name": {
                 "type": "string",
-                "description": "The list of first names for the beneficial owners (required for beneficial owner 1)."
+                "description": "The list of first names for the trustees (required for trustee 1)."
               },
               "last_name": {
                 "type": "string",
-                "description": "The list of last names for the beneficial owners (required for beneficial owner 1)."
+                "description": "The list of last names for the trustees (required for trustee 1)."
               },
               "suffix": {
                 "type": "string",
-                "description": "The list of suffixes for the beneficial owners."
+                "description": "The list of suffixes for the trustees."
               },
               "country": {
                 "type": "Country",
-                "description": "The list of countries for the beneficial owners (required for beneficial owner 1)."
+                "description": "The list of countries for the trustees (required for trustee 1)."
               },
               "street_address": {
                 "type": "string",
-                "description": "The list of street addresses for the beneficial owners (required for beneficial owner 1)."
+                "description": "The list of street addresses for the trustees (required for trustee 1)."
               },
               "unit2": {
                 "type": "string",
-                "description": "The list of street address line 2 for the beneficial owners."
+                "description": "The list of street address line 2 for the trustees."
               },
               "city": {
                 "type": "string",
-                "description": "The list of cities for the beneficial owners (required for beneficial owner 1)."
+                "description": "The list of cities for the trustees (required for trustee 1)."
               },
               "region": {
                 "type": "string",
-                "description": "The list of region or states for the beneficial owners (required for beneficial owner 1)."
+                "description": "The list of regions or states for the trustees (required for trustee 1)."
               },
               "postal_code": {
                 "type": "string",
-                "description": "The list of postal codes or zipcodes for the beneficial owners (required for beneficial owner 1)."
+                "description": "The list of postal codes or zipcodes for the trustees (required for trustee 1)."
               },
               "date_of_birth": {
                 "type": "string",
-                "description": "The list of dates of birth for the beneficial owners (required for beneficial owner 1)."
+                "description": "The list of dates of birth for the trustees (required for trustee 1)."
               },
               "taxpayer_id": {
                 "type": "string",
-                "description": "The list of taxpayer identification numbers for the beneficial owners (required for beneficial owner 1)."
+                "description": "The list of taxpayer identification numbers for the trustees (required for trustee 1)."
               },
               "phone_number": {
                 "type": "string",
-                "description": "The list of phone numbers for the beneficial owners (required for beneficial owner 1)."
+                "description": "The list of phone numbers for the trustees (required for trustee 1)."
               }
             }
           }
@@ -6263,25 +6390,150 @@
       "required": [
         "email"
       ],
-      "description": "Create new corporation investor profile."
+      "description": "Create new trust investor profile."
     },
-    "V1_Entities_InvestorProfileItem": {
+    "patchInvestorProfilesTrusts": {
       "type": "object",
       "properties": {
-        "profile": {
-          "$ref": "#/definitions/V1_Entities_InvestorProfile_Trust"
+        "us_accredited_category": {
+          "type": "string",
+          "description": "The United States accredited investor information.",
+          "enum": [
+            "entity_owned_by_accredited_investors",
+            "broker_or_dealer",
+            "assets_trust",
+            "not_accredited"
+          ]
+        },
+        "ca_accredited_investor": {
+          "type": "string",
+          "description": "The Canadian accredited investor information.",
+          "enum": [
+            "p",
+            "w"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the trust."
+        },
+        "date": {
+          "type": "string",
+          "description": "The creation date of the trust."
+        },
+        "phone_number": {
+          "type": "string",
+          "description": "The phone number of the trust."
+        },
+        "country": {
+          "type": "Country",
+          "description": "Trust country."
+        },
+        "street_address": {
+          "type": "string",
+          "description": "Trust street address."
+        },
+        "unit2": {
+          "type": "string",
+          "description": "Trust street address line 2."
+        },
+        "city": {
+          "type": "string",
+          "description": "Trust city."
+        },
+        "region": {
+          "type": "string",
+          "description": "Trust region or state."
+        },
+        "postal_code": {
+          "type": "string",
+          "description": "Trust postal code or zipcode."
+        },
+        "income": {
+          "type": "number",
+          "format": "float",
+          "description": "The income of the Trust."
+        },
+        "net_worth": {
+          "type": "number",
+          "format": "float",
+          "description": "The net worth of the Trust."
+        },
+        "reg_cf_prior_offerings_amount": {
+          "type": "number",
+          "format": "float",
+          "description": "The prior offering amount of the Trust."
+        },
+        "trustees": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "index": {
+                "type": "integer",
+                "format": "int32",
+                "description": "The index of the trustee."
+              },
+              "_delete": {
+                "type": "boolean",
+                "description": "If true, this entry will be cleared."
+              },
+              "first_name": {
+                "type": "string",
+                "description": "The list of first names for the trustees (required for trustee 1)."
+              },
+              "last_name": {
+                "type": "string",
+                "description": "The list of last names for the trustees (required for trustee 1)."
+              },
+              "suffix": {
+                "type": "string",
+                "description": "The list of suffixes for the trustees."
+              },
+              "country": {
+                "type": "Country",
+                "description": "The list of countries for the trustees (required for trustee 1)."
+              },
+              "street_address": {
+                "type": "string",
+                "description": "The list of street addresses for the trustees (required for trustee 1)."
+              },
+              "unit2": {
+                "type": "string",
+                "description": "The list of street address line 2 for the trustees."
+              },
+              "city": {
+                "type": "string",
+                "description": "The list of cities for the trustees (required for trustee 1)."
+              },
+              "region": {
+                "type": "string",
+                "description": "The list of regions or states for the trustees (required for trustee 1)."
+              },
+              "postal_code": {
+                "type": "string",
+                "description": "The list of postal codes or zipcodes for the trustees (required for trustee 1)."
+              },
+              "date_of_birth": {
+                "type": "string",
+                "description": "The list of dates of birth for the trustees (required for trustee 1)."
+              },
+              "taxpayer_id": {
+                "type": "string",
+                "description": "The list of taxpayer identification numbers for the trustees (required for trustee 1)."
+              },
+              "phone_number": {
+                "type": "string",
+                "description": "The list of phone numbers for the trustees (required for trustee 1)."
+              }
+            },
+            "required": [
+              "index"
+            ]
+          }
         }
       },
-      "description": "V1_Entities_InvestorProfileItem model"
-    },
-    "V1_Entities_InvestorProfiles": {
-      "type": "object",
-      "properties": {
-        "items": {
-          "$ref": "#/definitions/V1_Entities_InvestorProfileItem"
-        }
-      },
-      "description": "V1_Entities_InvestorProfiles model"
+      "description": "Patch trust investor profile"
     },
     "V1_Entities_PresignedUrlResult": {
       "type": "object",
@@ -6296,6 +6548,24 @@
         }
       },
       "description": "V1_Entities_PresignedUrlResult model"
+    },
+    "V1_Entities_User": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The user id."
+        },
+        "full_name": {
+          "type": "string",
+          "description": "The full user name."
+        },
+        "email": {
+          "type": "string",
+          "description": "The email."
+        }
+      },
+      "description": "V1_Entities_User model"
     },
     "V1_Entities_Countries": {
       "type": "object",
@@ -6514,6 +6784,16 @@
         }
       },
       "description": "V1_Entities_Payments_SelfServeOnboarding_PayoutAccountDetails_Result model"
+    },
+    "V1_Entities_Payments_SelfServeOnboarding_DigitalPaymentsConnection_Data": {
+      "type": "object",
+      "properties": {
+        "connectAccountLink": {
+          "type": "string",
+          "description": "A link to complete the setup for a Stripe connect account"
+        }
+      },
+      "description": "V1_Entities_Payments_SelfServeOnboarding_DigitalPaymentsConnection_Data model"
     },
     "V1_Entities_DealSetup": {
       "type": "object",

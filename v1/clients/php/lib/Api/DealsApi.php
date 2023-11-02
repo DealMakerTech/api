@@ -131,7 +131,7 @@ class DealsApi
      * @param  \DealMaker\Model\PutDealsIdScriptTagEnvironmentRequest $put_deals_id_script_tag_environment_request put_deals_id_script_tag_environment_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['putDealsIdScriptTagEnvironment'] to see the possible values for this operation
      *
-     * @throws \DealMaker\ApiException on non-2xx response
+     * @throws \DealMaker\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return void
      */
@@ -149,7 +149,7 @@ class DealsApi
      * @param  \DealMaker\Model\PutDealsIdScriptTagEnvironmentRequest $put_deals_id_script_tag_environment_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['putDealsIdScriptTagEnvironment'] to see the possible values for this operation
      *
-     * @throws \DealMaker\ApiException on non-2xx response
+     * @throws \DealMaker\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */

@@ -180,6 +180,20 @@ describe 'CompanyApi' do
     end
   end
 
+  # unit tests for get_user_accessible_companies
+  # Get list of all Companies accessible by the user
+  # Get user accessible companies
+  # @param [Hash] opts the optional parameters
+  # @option opts [Integer] :page Page offset to fetch.
+  # @option opts [Integer] :per_page Number of results to return per page.
+  # @option opts [Integer] :offset Pad a number of results.
+  # @return [V1EntitiesCompany]
+  describe 'get_user_accessible_companies test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for send_portal_invite
   # Send portal invite to shareholder
   # Send portal invite to shareholder.

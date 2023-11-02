@@ -45,7 +45,9 @@ docs/PutDealsIdScriptTagEnvironmentRequest.md
 docs/PutWebhooksIdRequest.md
 docs/SendPortalInviteRequest.md
 docs/ShareholderApi.md
+docs/UpdateUserPasswordRequest.md
 docs/UploadApi.md
+docs/UserApi.md
 docs/UsersApi.md
 docs/V1EntitiesAddress.md
 docs/V1EntitiesAddresses.md
@@ -92,6 +94,7 @@ docs/V1EntitiesInvestorProfileTrust.md
 docs/V1EntitiesInvestorProfiles.md
 docs/V1EntitiesInvestorUser.md
 docs/V1EntitiesInvestors.md
+docs/V1EntitiesPaymentsSelfServeOnboardingDigitalPaymentsConnectionData.md
 docs/V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsResult.md
 docs/V1EntitiesPaymentsSelfServeOnboardingQualificationQuestionnaireResult.md
 docs/V1EntitiesPresignedUrlResult.md
@@ -100,6 +103,7 @@ docs/V1EntitiesShareholders.md
 docs/V1EntitiesShareholdersTags.md
 docs/V1EntitiesState.md
 docs/V1EntitiesSubscriptionAgreement.md
+docs/V1EntitiesUser.md
 docs/V1EntitiesWebhooksDeal.md
 docs/V1EntitiesWebhooksSecurityToken.md
 docs/V1EntitiesWebhooksSubscription.md
@@ -116,6 +120,7 @@ lib/DealMakerAPI/api/investor_api.rb
 lib/DealMakerAPI/api/investor_profile_api.rb
 lib/DealMakerAPI/api/shareholder_api.rb
 lib/DealMakerAPI/api/upload_api.rb
+lib/DealMakerAPI/api/user_api.rb
 lib/DealMakerAPI/api/users_api.rb
 lib/DealMakerAPI/api_client.rb
 lib/DealMakerAPI/api_error.rb
@@ -149,6 +154,7 @@ lib/DealMakerAPI/models/put_deals_id_investors.rb
 lib/DealMakerAPI/models/put_deals_id_script_tag_environment_request.rb
 lib/DealMakerAPI/models/put_webhooks_id_request.rb
 lib/DealMakerAPI/models/send_portal_invite_request.rb
+lib/DealMakerAPI/models/update_user_password_request.rb
 lib/DealMakerAPI/models/v1_entities_address.rb
 lib/DealMakerAPI/models/v1_entities_addresses.rb
 lib/DealMakerAPI/models/v1_entities_attachment.rb
@@ -194,6 +200,7 @@ lib/DealMakerAPI/models/v1_entities_investor_profile_trust.rb
 lib/DealMakerAPI/models/v1_entities_investor_profiles.rb
 lib/DealMakerAPI/models/v1_entities_investor_user.rb
 lib/DealMakerAPI/models/v1_entities_investors.rb
+lib/DealMakerAPI/models/v1_entities_payments_self_serve_onboarding_digital_payments_connection_data.rb
 lib/DealMakerAPI/models/v1_entities_payments_self_serve_onboarding_payout_account_details_result.rb
 lib/DealMakerAPI/models/v1_entities_payments_self_serve_onboarding_qualification_questionnaire_result.rb
 lib/DealMakerAPI/models/v1_entities_presigned_url_result.rb
@@ -202,6 +209,7 @@ lib/DealMakerAPI/models/v1_entities_shareholders.rb
 lib/DealMakerAPI/models/v1_entities_shareholders_tags.rb
 lib/DealMakerAPI/models/v1_entities_state.rb
 lib/DealMakerAPI/models/v1_entities_subscription_agreement.rb
+lib/DealMakerAPI/models/v1_entities_user.rb
 lib/DealMakerAPI/models/v1_entities_webhooks_deal.rb
 lib/DealMakerAPI/models/v1_entities_webhooks_security_token.rb
 lib/DealMakerAPI/models/v1_entities_webhooks_subscription.rb
@@ -217,6 +225,7 @@ spec/api/investor_api_spec.rb
 spec/api/investor_profile_api_spec.rb
 spec/api/shareholder_api_spec.rb
 spec/api/upload_api_spec.rb
+spec/api/user_api_spec.rb
 spec/api/users_api_spec.rb
 spec/api_client_spec.rb
 spec/configuration_spec.rb
@@ -249,6 +258,7 @@ spec/models/put_deals_id_investors_spec.rb
 spec/models/put_deals_id_script_tag_environment_request_spec.rb
 spec/models/put_webhooks_id_request_spec.rb
 spec/models/send_portal_invite_request_spec.rb
+spec/models/update_user_password_request_spec.rb
 spec/models/v1_entities_address_spec.rb
 spec/models/v1_entities_addresses_spec.rb
 spec/models/v1_entities_attachment_spec.rb
@@ -294,6 +304,7 @@ spec/models/v1_entities_investor_profiles_spec.rb
 spec/models/v1_entities_investor_spec.rb
 spec/models/v1_entities_investor_user_spec.rb
 spec/models/v1_entities_investors_spec.rb
+spec/models/v1_entities_payments_self_serve_onboarding_digital_payments_connection_data_spec.rb
 spec/models/v1_entities_payments_self_serve_onboarding_payout_account_details_result_spec.rb
 spec/models/v1_entities_payments_self_serve_onboarding_qualification_questionnaire_result_spec.rb
 spec/models/v1_entities_presigned_url_result_spec.rb
@@ -302,6 +313,7 @@ spec/models/v1_entities_shareholders_spec.rb
 spec/models/v1_entities_shareholders_tags_spec.rb
 spec/models/v1_entities_state_spec.rb
 spec/models/v1_entities_subscription_agreement_spec.rb
+spec/models/v1_entities_user_spec.rb
 spec/models/v1_entities_webhooks_deal_spec.rb
 spec/models/v1_entities_webhooks_security_token_spec.rb
 spec/models/v1_entities_webhooks_subscription_deal_spec.rb

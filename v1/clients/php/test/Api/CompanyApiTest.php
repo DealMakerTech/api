@@ -204,6 +204,18 @@ class CompanyApiTest extends TestCase
     }
 
     /**
+     * Test case for getUserAccessibleCompanies
+     *
+     * Get list of all Companies accessible by the user.
+     *
+     */
+    public function testGetUserAccessibleCompanies()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for sendPortalInvite
      *
      * Send portal invite to shareholder.

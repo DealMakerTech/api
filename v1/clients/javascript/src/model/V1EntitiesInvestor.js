@@ -20,7 +20,7 @@ import V1EntitiesSubscriptionAgreement from './V1EntitiesSubscriptionAgreement';
 /**
  * The V1EntitiesInvestor model module.
  * @module model/V1EntitiesInvestor
- * @version 0.90.1
+ * @version 0.90.2
  */
 class V1EntitiesInvestor {
     /**
@@ -371,8 +371,8 @@ V1EntitiesInvestor.prototype['investor_profile'] = undefined;
 V1EntitiesInvestor.prototype['investor_profile_id'] = undefined;
 
 /**
- * Current state on checkout page.
- * @member {String} checkout_state
+ * Current state on the checkout page.
+ * @member {module:model/V1EntitiesInvestor.CheckoutStateEnum} checkout_state
  */
 V1EntitiesInvestor.prototype['checkout_state'] = undefined;
 
@@ -527,6 +527,69 @@ V1EntitiesInvestor['VerificationStatusEnum'] = {
      * @const
      */
     "new_documents_requested": "new_documents_requested"
+};
+
+
+/**
+ * Allowed values for the <code>checkout_state</code> property.
+ * @enum {String}
+ * @readonly
+ */
+V1EntitiesInvestor['CheckoutStateEnum'] = {
+
+    /**
+     * value: "pre_checkout"
+     * @const
+     */
+    "pre_checkout": "pre_checkout",
+
+    /**
+     * value: "investment_amount"
+     * @const
+     */
+    "investment_amount": "investment_amount",
+
+    /**
+     * value: "contact_information"
+     * @const
+     */
+    "contact_information": "contact_information",
+
+    /**
+     * value: "investor_confirmation"
+     * @const
+     */
+    "investor_confirmation": "investor_confirmation",
+
+    /**
+     * value: "terms_conditions"
+     * @const
+     */
+    "terms_conditions": "terms_conditions",
+
+    /**
+     * value: "payment"
+     * @const
+     */
+    "payment": "payment",
+
+    /**
+     * value: "checkout_complete"
+     * @const
+     */
+    "checkout_complete": "checkout_complete",
+
+    /**
+     * value: "resubmit_agreement"
+     * @const
+     */
+    "resubmit_agreement": "resubmit_agreement",
+
+    /**
+     * value: "legacy_checkout"
+     * @const
+     */
+    "legacy_checkout": "legacy_checkout"
 };
 
 

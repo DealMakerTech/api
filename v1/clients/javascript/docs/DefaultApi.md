@@ -4,6 +4,7 @@ All URIs are relative to *http://api.dealmaker.tech*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**getDealsDealIdPaymentOnboardingQuestionnaireDigitalPaymentsConnectionData**](DefaultApi.md#getDealsDealIdPaymentOnboardingQuestionnaireDigitalPaymentsConnectionData) | **GET** /deals/{deal_id}/payment_onboarding/questionnaire/digital_payments_connection/data | Load data for the digital payments connection stage
 [**getDealsIdInvestorsInvestorIdPaymentsExpressWireInstructions**](DefaultApi.md#getDealsIdInvestorsInvestorIdPaymentsExpressWireInstructions) | **GET** /deals/{id}/investors/{investor_id}/payments/express_wire/instructions | Displays the express wire instructions for an investor on a deal
 [**getDealsIdInvestorsPaymentsExpressWireInstructions**](DefaultApi.md#getDealsIdInvestorsPaymentsExpressWireInstructions) | **GET** /deals/{id}/investors/payments/express_wire/instructions | Displays the express wire instructions for all the investors on a deal
 [**getWebhooks**](DefaultApi.md#getWebhooks) | **GET** /webhooks | Returns a list of webhook subscription which is associated to the user
@@ -16,6 +17,52 @@ Method | HTTP request | Description
 [**postWebhooks**](DefaultApi.md#postWebhooks) | **POST** /webhooks | Creates a webhook subscription which is associated to the user
 [**putWebhooksId**](DefaultApi.md#putWebhooksId) | **PUT** /webhooks/{id} | Updates webhook subscription and webhooks subcription deals
 
+
+
+## getDealsDealIdPaymentOnboardingQuestionnaireDigitalPaymentsConnectionData
+
+> V1EntitiesPaymentsSelfServeOnboardingDigitalPaymentsConnectionData getDealsDealIdPaymentOnboardingQuestionnaireDigitalPaymentsConnectionData(dealId)
+
+Load data for the digital payments connection stage
+
+Load data for the digital payments connection stage
+
+### Example
+
+```javascript
+import Api from 'api';
+let defaultClient = Api.ApiClient.instance;
+
+let apiInstance = new Api.DefaultApi();
+let dealId = 56; // Number | 
+apiInstance.getDealsDealIdPaymentOnboardingQuestionnaireDigitalPaymentsConnectionData(dealId, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **dealId** | **Number**|  | 
+
+### Return type
+
+[**V1EntitiesPaymentsSelfServeOnboardingDigitalPaymentsConnectionData**](V1EntitiesPaymentsSelfServeOnboardingDigitalPaymentsConnectionData.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
 ## getDealsIdInvestorsInvestorIdPaymentsExpressWireInstructions

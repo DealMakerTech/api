@@ -160,7 +160,7 @@ class InvestorProfileApi
      * @param  \DealMaker\Model\PostInvestorProfilesCorporations $investor_profiles_corporations investor_profiles_corporations (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createCorporationProfile'] to see the possible values for this operation
      *
-     * @throws \DealMaker\ApiException on non-2xx response
+     * @throws \DealMaker\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \DealMaker\Model\V1EntitiesInvestorProfileCorporation
      */
@@ -178,7 +178,7 @@ class InvestorProfileApi
      * @param  \DealMaker\Model\PostInvestorProfilesCorporations $investor_profiles_corporations (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createCorporationProfile'] to see the possible values for this operation
      *
-     * @throws \DealMaker\ApiException on non-2xx response
+     * @throws \DealMaker\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \DealMaker\Model\V1EntitiesInvestorProfileCorporation, HTTP status code, HTTP response headers (array of strings)
      */
@@ -228,7 +228,19 @@ class InvestorProfileApi
                     } else {
                         $content = (string) $response->getBody();
                         if ('\DealMaker\Model\V1EntitiesInvestorProfileCorporation' !== 'string') {
-                            $content = json_decode($content);
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                 );
+                            }
                         }
                     }
 
@@ -245,7 +257,19 @@ class InvestorProfileApi
             } else {
                 $content = (string) $response->getBody();
                 if ($returnType !== 'string') {
-                    $content = json_decode($content);
+                    try {
+                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                    } catch (\JsonException $exception) {
+                        throw new ApiException(
+                            sprintf(
+                                'Error JSON decoding server response (%s)',
+                                $request->getUri()
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $content
+                        );
+                    }
                 }
             }
 
@@ -442,7 +466,7 @@ class InvestorProfileApi
      * @param  \DealMaker\Model\PostInvestorProfilesIndividuals $investor_profiles_individuals investor_profiles_individuals (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createIndividualProfile'] to see the possible values for this operation
      *
-     * @throws \DealMaker\ApiException on non-2xx response
+     * @throws \DealMaker\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \DealMaker\Model\V1EntitiesInvestorProfileIndividual
      */
@@ -460,7 +484,7 @@ class InvestorProfileApi
      * @param  \DealMaker\Model\PostInvestorProfilesIndividuals $investor_profiles_individuals (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createIndividualProfile'] to see the possible values for this operation
      *
-     * @throws \DealMaker\ApiException on non-2xx response
+     * @throws \DealMaker\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \DealMaker\Model\V1EntitiesInvestorProfileIndividual, HTTP status code, HTTP response headers (array of strings)
      */
@@ -510,7 +534,19 @@ class InvestorProfileApi
                     } else {
                         $content = (string) $response->getBody();
                         if ('\DealMaker\Model\V1EntitiesInvestorProfileIndividual' !== 'string') {
-                            $content = json_decode($content);
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                 );
+                            }
                         }
                     }
 
@@ -527,7 +563,19 @@ class InvestorProfileApi
             } else {
                 $content = (string) $response->getBody();
                 if ($returnType !== 'string') {
-                    $content = json_decode($content);
+                    try {
+                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                    } catch (\JsonException $exception) {
+                        throw new ApiException(
+                            sprintf(
+                                'Error JSON decoding server response (%s)',
+                                $request->getUri()
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $content
+                        );
+                    }
                 }
             }
 
@@ -724,7 +772,7 @@ class InvestorProfileApi
      * @param  \DealMaker\Model\PostInvestorProfilesJoints $investor_profiles_joints investor_profiles_joints (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createJointProfile'] to see the possible values for this operation
      *
-     * @throws \DealMaker\ApiException on non-2xx response
+     * @throws \DealMaker\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \DealMaker\Model\V1EntitiesInvestorProfileJoint
      */
@@ -742,7 +790,7 @@ class InvestorProfileApi
      * @param  \DealMaker\Model\PostInvestorProfilesJoints $investor_profiles_joints (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createJointProfile'] to see the possible values for this operation
      *
-     * @throws \DealMaker\ApiException on non-2xx response
+     * @throws \DealMaker\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \DealMaker\Model\V1EntitiesInvestorProfileJoint, HTTP status code, HTTP response headers (array of strings)
      */
@@ -792,7 +840,19 @@ class InvestorProfileApi
                     } else {
                         $content = (string) $response->getBody();
                         if ('\DealMaker\Model\V1EntitiesInvestorProfileJoint' !== 'string') {
-                            $content = json_decode($content);
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                 );
+                            }
                         }
                     }
 
@@ -809,7 +869,19 @@ class InvestorProfileApi
             } else {
                 $content = (string) $response->getBody();
                 if ($returnType !== 'string') {
-                    $content = json_decode($content);
+                    try {
+                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                    } catch (\JsonException $exception) {
+                        throw new ApiException(
+                            sprintf(
+                                'Error JSON decoding server response (%s)',
+                                $request->getUri()
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $content
+                        );
+                    }
                 }
             }
 
@@ -1006,7 +1078,7 @@ class InvestorProfileApi
      * @param  \DealMaker\Model\PostInvestorProfilesTrusts $investor_profiles_trusts investor_profiles_trusts (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createTrustProfile'] to see the possible values for this operation
      *
-     * @throws \DealMaker\ApiException on non-2xx response
+     * @throws \DealMaker\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \DealMaker\Model\V1EntitiesInvestorProfileTrust
      */
@@ -1024,7 +1096,7 @@ class InvestorProfileApi
      * @param  \DealMaker\Model\PostInvestorProfilesTrusts $investor_profiles_trusts (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createTrustProfile'] to see the possible values for this operation
      *
-     * @throws \DealMaker\ApiException on non-2xx response
+     * @throws \DealMaker\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \DealMaker\Model\V1EntitiesInvestorProfileTrust, HTTP status code, HTTP response headers (array of strings)
      */
@@ -1074,7 +1146,19 @@ class InvestorProfileApi
                     } else {
                         $content = (string) $response->getBody();
                         if ('\DealMaker\Model\V1EntitiesInvestorProfileTrust' !== 'string') {
-                            $content = json_decode($content);
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                 );
+                            }
                         }
                     }
 
@@ -1091,7 +1175,19 @@ class InvestorProfileApi
             } else {
                 $content = (string) $response->getBody();
                 if ($returnType !== 'string') {
-                    $content = json_decode($content);
+                    try {
+                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                    } catch (\JsonException $exception) {
+                        throw new ApiException(
+                            sprintf(
+                                'Error JSON decoding server response (%s)',
+                                $request->getUri()
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $content
+                        );
+                    }
                 }
             }
 
@@ -1292,7 +1388,7 @@ class InvestorProfileApi
      * @param  int $user_id The user id filter. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDealInvestorProfiles'] to see the possible values for this operation
      *
-     * @throws \DealMaker\ApiException on non-2xx response
+     * @throws \DealMaker\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \DealMaker\Model\V1EntitiesInvestorProfiles
      */
@@ -1314,7 +1410,7 @@ class InvestorProfileApi
      * @param  int $user_id The user id filter. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDealInvestorProfiles'] to see the possible values for this operation
      *
-     * @throws \DealMaker\ApiException on non-2xx response
+     * @throws \DealMaker\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \DealMaker\Model\V1EntitiesInvestorProfiles, HTTP status code, HTTP response headers (array of strings)
      */
@@ -1364,7 +1460,19 @@ class InvestorProfileApi
                     } else {
                         $content = (string) $response->getBody();
                         if ('\DealMaker\Model\V1EntitiesInvestorProfiles' !== 'string') {
-                            $content = json_decode($content);
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                 );
+                            }
                         }
                     }
 
@@ -1381,7 +1489,19 @@ class InvestorProfileApi
             } else {
                 $content = (string) $response->getBody();
                 if ($returnType !== 'string') {
-                    $content = json_decode($content);
+                    try {
+                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                    } catch (\JsonException $exception) {
+                        throw new ApiException(
+                            sprintf(
+                                'Error JSON decoding server response (%s)',
+                                $request->getUri()
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $content
+                        );
+                    }
                 }
             }
 
@@ -1631,7 +1751,7 @@ class InvestorProfileApi
      * @param  int $id The id of the investor profile. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getInvestorProfile'] to see the possible values for this operation
      *
-     * @throws \DealMaker\ApiException on non-2xx response
+     * @throws \DealMaker\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \DealMaker\Model\V1EntitiesInvestorProfileItem
      */
@@ -1649,7 +1769,7 @@ class InvestorProfileApi
      * @param  int $id The id of the investor profile. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getInvestorProfile'] to see the possible values for this operation
      *
-     * @throws \DealMaker\ApiException on non-2xx response
+     * @throws \DealMaker\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \DealMaker\Model\V1EntitiesInvestorProfileItem, HTTP status code, HTTP response headers (array of strings)
      */
@@ -1699,7 +1819,19 @@ class InvestorProfileApi
                     } else {
                         $content = (string) $response->getBody();
                         if ('\DealMaker\Model\V1EntitiesInvestorProfileItem' !== 'string') {
-                            $content = json_decode($content);
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                 );
+                            }
                         }
                     }
 
@@ -1716,7 +1848,19 @@ class InvestorProfileApi
             } else {
                 $content = (string) $response->getBody();
                 if ($returnType !== 'string') {
-                    $content = json_decode($content);
+                    try {
+                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                    } catch (\JsonException $exception) {
+                        throw new ApiException(
+                            sprintf(
+                                'Error JSON decoding server response (%s)',
+                                $request->getUri()
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $content
+                        );
+                    }
                 }
             }
 
@@ -1916,7 +2060,7 @@ class InvestorProfileApi
      * @param  int $offset Pad a number of results. (optional, default to 0)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getInvestorProfiles'] to see the possible values for this operation
      *
-     * @throws \DealMaker\ApiException on non-2xx response
+     * @throws \DealMaker\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \DealMaker\Model\V1EntitiesInvestorProfiles
      */
@@ -1936,7 +2080,7 @@ class InvestorProfileApi
      * @param  int $offset Pad a number of results. (optional, default to 0)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getInvestorProfiles'] to see the possible values for this operation
      *
-     * @throws \DealMaker\ApiException on non-2xx response
+     * @throws \DealMaker\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \DealMaker\Model\V1EntitiesInvestorProfiles, HTTP status code, HTTP response headers (array of strings)
      */
@@ -1986,7 +2130,19 @@ class InvestorProfileApi
                     } else {
                         $content = (string) $response->getBody();
                         if ('\DealMaker\Model\V1EntitiesInvestorProfiles' !== 'string') {
-                            $content = json_decode($content);
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                 );
+                            }
                         }
                     }
 
@@ -2003,7 +2159,19 @@ class InvestorProfileApi
             } else {
                 $content = (string) $response->getBody();
                 if ($returnType !== 'string') {
-                    $content = json_decode($content);
+                    try {
+                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                    } catch (\JsonException $exception) {
+                        throw new ApiException(
+                            sprintf(
+                                'Error JSON decoding server response (%s)',
+                                $request->getUri()
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $content
+                        );
+                    }
                 }
             }
 
@@ -2223,7 +2391,7 @@ class InvestorProfileApi
      * @param  \DealMaker\Model\PatchInvestorProfilesCorporations $investor_profiles_corporations investor_profiles_corporations (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchCorporationProfile'] to see the possible values for this operation
      *
-     * @throws \DealMaker\ApiException on non-2xx response
+     * @throws \DealMaker\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \DealMaker\Model\V1EntitiesInvestorProfileCorporation
      */
@@ -2242,7 +2410,7 @@ class InvestorProfileApi
      * @param  \DealMaker\Model\PatchInvestorProfilesCorporations $investor_profiles_corporations (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchCorporationProfile'] to see the possible values for this operation
      *
-     * @throws \DealMaker\ApiException on non-2xx response
+     * @throws \DealMaker\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \DealMaker\Model\V1EntitiesInvestorProfileCorporation, HTTP status code, HTTP response headers (array of strings)
      */
@@ -2292,7 +2460,19 @@ class InvestorProfileApi
                     } else {
                         $content = (string) $response->getBody();
                         if ('\DealMaker\Model\V1EntitiesInvestorProfileCorporation' !== 'string') {
-                            $content = json_decode($content);
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                 );
+                            }
                         }
                     }
 
@@ -2309,7 +2489,19 @@ class InvestorProfileApi
             } else {
                 $content = (string) $response->getBody();
                 if ($returnType !== 'string') {
-                    $content = json_decode($content);
+                    try {
+                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                    } catch (\JsonException $exception) {
+                        throw new ApiException(
+                            sprintf(
+                                'Error JSON decoding server response (%s)',
+                                $request->getUri()
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $content
+                        );
+                    }
                 }
             }
 
@@ -2525,7 +2717,7 @@ class InvestorProfileApi
      * @param  \DealMaker\Model\PatchInvestorProfilesIndividuals $investor_profiles_individuals investor_profiles_individuals (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchIndividualProfile'] to see the possible values for this operation
      *
-     * @throws \DealMaker\ApiException on non-2xx response
+     * @throws \DealMaker\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \DealMaker\Model\V1EntitiesInvestorProfileIndividual
      */
@@ -2544,7 +2736,7 @@ class InvestorProfileApi
      * @param  \DealMaker\Model\PatchInvestorProfilesIndividuals $investor_profiles_individuals (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchIndividualProfile'] to see the possible values for this operation
      *
-     * @throws \DealMaker\ApiException on non-2xx response
+     * @throws \DealMaker\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \DealMaker\Model\V1EntitiesInvestorProfileIndividual, HTTP status code, HTTP response headers (array of strings)
      */
@@ -2594,7 +2786,19 @@ class InvestorProfileApi
                     } else {
                         $content = (string) $response->getBody();
                         if ('\DealMaker\Model\V1EntitiesInvestorProfileIndividual' !== 'string') {
-                            $content = json_decode($content);
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                 );
+                            }
                         }
                     }
 
@@ -2611,7 +2815,19 @@ class InvestorProfileApi
             } else {
                 $content = (string) $response->getBody();
                 if ($returnType !== 'string') {
-                    $content = json_decode($content);
+                    try {
+                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                    } catch (\JsonException $exception) {
+                        throw new ApiException(
+                            sprintf(
+                                'Error JSON decoding server response (%s)',
+                                $request->getUri()
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $content
+                        );
+                    }
                 }
             }
 
@@ -2827,7 +3043,7 @@ class InvestorProfileApi
      * @param  \DealMaker\Model\PatchInvestorProfilesJoints $investor_profiles_joints investor_profiles_joints (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchJointProfile'] to see the possible values for this operation
      *
-     * @throws \DealMaker\ApiException on non-2xx response
+     * @throws \DealMaker\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \DealMaker\Model\V1EntitiesInvestorProfileJoint
      */
@@ -2846,7 +3062,7 @@ class InvestorProfileApi
      * @param  \DealMaker\Model\PatchInvestorProfilesJoints $investor_profiles_joints (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchJointProfile'] to see the possible values for this operation
      *
-     * @throws \DealMaker\ApiException on non-2xx response
+     * @throws \DealMaker\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \DealMaker\Model\V1EntitiesInvestorProfileJoint, HTTP status code, HTTP response headers (array of strings)
      */
@@ -2896,7 +3112,19 @@ class InvestorProfileApi
                     } else {
                         $content = (string) $response->getBody();
                         if ('\DealMaker\Model\V1EntitiesInvestorProfileJoint' !== 'string') {
-                            $content = json_decode($content);
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                 );
+                            }
                         }
                     }
 
@@ -2913,7 +3141,19 @@ class InvestorProfileApi
             } else {
                 $content = (string) $response->getBody();
                 if ($returnType !== 'string') {
-                    $content = json_decode($content);
+                    try {
+                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                    } catch (\JsonException $exception) {
+                        throw new ApiException(
+                            sprintf(
+                                'Error JSON decoding server response (%s)',
+                                $request->getUri()
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $content
+                        );
+                    }
                 }
             }
 
@@ -3129,7 +3369,7 @@ class InvestorProfileApi
      * @param  \DealMaker\Model\PatchInvestorProfilesTrusts $investor_profiles_trusts investor_profiles_trusts (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchTrustProfile'] to see the possible values for this operation
      *
-     * @throws \DealMaker\ApiException on non-2xx response
+     * @throws \DealMaker\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \DealMaker\Model\V1EntitiesInvestorProfileTrust
      */
@@ -3148,7 +3388,7 @@ class InvestorProfileApi
      * @param  \DealMaker\Model\PatchInvestorProfilesTrusts $investor_profiles_trusts (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchTrustProfile'] to see the possible values for this operation
      *
-     * @throws \DealMaker\ApiException on non-2xx response
+     * @throws \DealMaker\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \DealMaker\Model\V1EntitiesInvestorProfileTrust, HTTP status code, HTTP response headers (array of strings)
      */
@@ -3198,7 +3438,19 @@ class InvestorProfileApi
                     } else {
                         $content = (string) $response->getBody();
                         if ('\DealMaker\Model\V1EntitiesInvestorProfileTrust' !== 'string') {
-                            $content = json_decode($content);
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                 );
+                            }
                         }
                     }
 
@@ -3215,7 +3467,19 @@ class InvestorProfileApi
             } else {
                 $content = (string) $response->getBody();
                 if ($returnType !== 'string') {
-                    $content = json_decode($content);
+                    try {
+                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                    } catch (\JsonException $exception) {
+                        throw new ApiException(
+                            sprintf(
+                                'Error JSON decoding server response (%s)',
+                                $request->getUri()
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $content
+                        );
+                    }
                 }
             }
 

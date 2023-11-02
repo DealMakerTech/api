@@ -72,6 +72,18 @@ class DefaultApiTest extends TestCase
     }
 
     /**
+     * Test case for getDealsDealIdPaymentOnboardingQuestionnaireDigitalPaymentsConnectionData
+     *
+     * Load data for the digital payments connection stage.
+     *
+     */
+    public function testGetDealsDealIdPaymentOnboardingQuestionnaireDigitalPaymentsConnectionData()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for getDealsIdInvestorsInvestorIdPaymentsExpressWireInstructions
      *
      * Displays the express wire instructions for an investor on a deal.

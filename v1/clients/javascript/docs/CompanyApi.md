@@ -15,6 +15,7 @@ Method | HTTP request | Description
 [**getCompany**](CompanyApi.md#getCompany) | **GET** /companies/{id} | Get a Company
 [**getDetailsErrorsGrouped**](CompanyApi.md#getDetailsErrorsGrouped) | **GET** /companies/{company_id}/documents/bulk_uploads/{bulk_upload_id}/details/grouped_errors | Return bulk upload details grouped by status
 [**getDividends**](CompanyApi.md#getDividends) | **GET** /companies/{company_id}/portal/dividends | Return dividends
+[**getUserAccessibleCompanies**](CompanyApi.md#getUserAccessibleCompanies) | **GET** /users/accessible_companies | Get list of all Companies accessible by the user
 [**sendPortalInvite**](CompanyApi.md#sendPortalInvite) | **POST** /companies/{id}/shareholders/{shareholder_id}/send_portal_invite | Send portal invite to shareholder
 
 
@@ -552,6 +553,58 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**V1EntitiesDividends**](V1EntitiesDividends.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## getUserAccessibleCompanies
+
+> V1EntitiesCompany getUserAccessibleCompanies(opts)
+
+Get list of all Companies accessible by the user
+
+Get user accessible companies
+
+### Example
+
+```javascript
+import Api from 'api';
+let defaultClient = Api.ApiClient.instance;
+
+let apiInstance = new Api.CompanyApi();
+let opts = {
+  'page': 1, // Number | Page offset to fetch.
+  'perPage': 25, // Number | Number of results to return per page.
+  'offset': 0 // Number | Pad a number of results.
+};
+apiInstance.getUserAccessibleCompanies(opts, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **page** | **Number**| Page offset to fetch. | [optional] [default to 1]
+ **perPage** | **Number**| Number of results to return per page. | [optional] [default to 25]
+ **offset** | **Number**| Pad a number of results. | [optional] [default to 0]
+
+### Return type
+
+[**V1EntitiesCompany**](V1EntitiesCompany.md)
 
 ### Authorization
 

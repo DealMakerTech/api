@@ -89,7 +89,7 @@ module DealMakerAPI
     # The investor profile id.
     attr_accessor :investor_profile_id
 
-    # Current state on checkout page.
+    # Current state on the checkout page.
     attr_accessor :checkout_state
 
     # The legacy link for the investor. If the investor is already on the legacy flow, this link will be null.
@@ -344,6 +344,8 @@ module DealMakerAPI
       return false unless funding_state_validator.valid?(@funding_state)
       verification_status_validator = EnumAttributeValidator.new('String', ["pending", "approved", "rejected", "new_documents_requested"])
       return false unless verification_status_validator.valid?(@verification_status)
+      checkout_state_validator = EnumAttributeValidator.new('String', ["pre_checkout", "investment_amount", "contact_information", "investor_confirmation", "terms_conditions", "payment", "checkout_complete", "resubmit_agreement", "legacy_checkout"])
+      return false unless checkout_state_validator.valid?(@checkout_state)
       true
     end
 
@@ -385,6 +387,16 @@ module DealMakerAPI
         fail ArgumentError, "invalid value for \"verification_status\", must be one of #{validator.allowable_values}."
       end
       @verification_status = verification_status
+    end
+
+    # Custom attribute writer method checking allowed values (enum).
+    # @param [Object] checkout_state Object to be assigned
+    def checkout_state=(checkout_state)
+      validator = EnumAttributeValidator.new('String', ["pre_checkout", "investment_amount", "contact_information", "investor_confirmation", "terms_conditions", "payment", "checkout_complete", "resubmit_agreement", "legacy_checkout"])
+      unless validator.valid?(checkout_state)
+        fail ArgumentError, "invalid value for \"checkout_state\", must be one of #{validator.allowable_values}."
+      end
+      @checkout_state = checkout_state
     end
 
     # Checks equality by comparing each attribute.

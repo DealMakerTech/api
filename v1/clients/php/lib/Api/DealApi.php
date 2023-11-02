@@ -136,7 +136,7 @@ class DealApi
      * @param  \DealMaker\Model\CreateDealSetupRequest $create_deal_setup_request create_deal_setup_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createDealSetup'] to see the possible values for this operation
      *
-     * @throws \DealMaker\ApiException on non-2xx response
+     * @throws \DealMaker\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \DealMaker\Model\V1EntitiesDealSetup
      */
@@ -154,7 +154,7 @@ class DealApi
      * @param  \DealMaker\Model\CreateDealSetupRequest $create_deal_setup_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createDealSetup'] to see the possible values for this operation
      *
-     * @throws \DealMaker\ApiException on non-2xx response
+     * @throws \DealMaker\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \DealMaker\Model\V1EntitiesDealSetup, HTTP status code, HTTP response headers (array of strings)
      */
@@ -204,7 +204,19 @@ class DealApi
                     } else {
                         $content = (string) $response->getBody();
                         if ('\DealMaker\Model\V1EntitiesDealSetup' !== 'string') {
-                            $content = json_decode($content);
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                 );
+                            }
                         }
                     }
 
@@ -221,7 +233,19 @@ class DealApi
             } else {
                 $content = (string) $response->getBody();
                 if ($returnType !== 'string') {
-                    $content = json_decode($content);
+                    try {
+                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                    } catch (\JsonException $exception) {
+                        throw new ApiException(
+                            sprintf(
+                                'Error JSON decoding server response (%s)',
+                                $request->getUri()
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $content
+                        );
+                    }
                 }
             }
 
@@ -418,7 +442,7 @@ class DealApi
      * @param  int $id The deal id. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDeal'] to see the possible values for this operation
      *
-     * @throws \DealMaker\ApiException on non-2xx response
+     * @throws \DealMaker\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \DealMaker\Model\V1EntitiesDeal
      */
@@ -436,7 +460,7 @@ class DealApi
      * @param  int $id The deal id. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDeal'] to see the possible values for this operation
      *
-     * @throws \DealMaker\ApiException on non-2xx response
+     * @throws \DealMaker\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \DealMaker\Model\V1EntitiesDeal, HTTP status code, HTTP response headers (array of strings)
      */
@@ -486,7 +510,19 @@ class DealApi
                     } else {
                         $content = (string) $response->getBody();
                         if ('\DealMaker\Model\V1EntitiesDeal' !== 'string') {
-                            $content = json_decode($content);
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                 );
+                            }
                         }
                     }
 
@@ -503,7 +539,19 @@ class DealApi
             } else {
                 $content = (string) $response->getBody();
                 if ($returnType !== 'string') {
-                    $content = json_decode($content);
+                    try {
+                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                    } catch (\JsonException $exception) {
+                        throw new ApiException(
+                            sprintf(
+                                'Error JSON decoding server response (%s)',
+                                $request->getUri()
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $content
+                        );
+                    }
                 }
             }
 
@@ -703,7 +751,7 @@ class DealApi
      * @param  int $offset Pad a number of results. (optional, default to 0)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listDeals'] to see the possible values for this operation
      *
-     * @throws \DealMaker\ApiException on non-2xx response
+     * @throws \DealMaker\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \DealMaker\Model\V1EntitiesDeals
      */
@@ -723,7 +771,7 @@ class DealApi
      * @param  int $offset Pad a number of results. (optional, default to 0)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listDeals'] to see the possible values for this operation
      *
-     * @throws \DealMaker\ApiException on non-2xx response
+     * @throws \DealMaker\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \DealMaker\Model\V1EntitiesDeals, HTTP status code, HTTP response headers (array of strings)
      */
@@ -773,7 +821,19 @@ class DealApi
                     } else {
                         $content = (string) $response->getBody();
                         if ('\DealMaker\Model\V1EntitiesDeals' !== 'string') {
-                            $content = json_decode($content);
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                 );
+                            }
                         }
                     }
 
@@ -790,7 +850,19 @@ class DealApi
             } else {
                 $content = (string) $response->getBody();
                 if ($returnType !== 'string') {
-                    $content = json_decode($content);
+                    try {
+                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                    } catch (\JsonException $exception) {
+                        throw new ApiException(
+                            sprintf(
+                                'Error JSON decoding server response (%s)',
+                                $request->getUri()
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $content
+                        );
+                    }
                 }
             }
 

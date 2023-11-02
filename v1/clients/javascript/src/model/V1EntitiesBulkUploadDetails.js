@@ -17,7 +17,7 @@ import V1EntitiesBulkUploadDetail from './V1EntitiesBulkUploadDetail';
 /**
  * The V1EntitiesBulkUploadDetails model module.
  * @module model/V1EntitiesBulkUploadDetails
- * @version 0.90.1
+ * @version 0.90.2
  */
 class V1EntitiesBulkUploadDetails {
     /**

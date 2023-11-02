@@ -158,6 +158,16 @@
         done();
       });
     });
+    describe('getUserAccessibleCompanies', function() {
+      it('should call getUserAccessibleCompanies successfully', function(done) {
+        //uncomment below and update the code to test getUserAccessibleCompanies
+        //instance.getUserAccessibleCompanies(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('sendPortalInvite', function() {
       it('should call sendPortalInvite successfully', function(done) {
         //uncomment below and update the code to test sendPortalInvite

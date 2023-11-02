@@ -15,6 +15,7 @@ All URIs are relative to *http://api.dealmaker.tech*
 | [**get_company**](CompanyApi.md#get_company) | **GET** /companies/{id} | Get a Company |
 | [**get_details_errors_grouped**](CompanyApi.md#get_details_errors_grouped) | **GET** /companies/{company_id}/documents/bulk_uploads/{bulk_upload_id}/details/grouped_errors | Return bulk upload details grouped by status |
 | [**get_dividends**](CompanyApi.md#get_dividends) | **GET** /companies/{company_id}/portal/dividends | Return dividends |
+| [**get_user_accessible_companies**](CompanyApi.md#get_user_accessible_companies) | **GET** /users/accessible_companies | Get list of all Companies accessible by the user |
 | [**send_portal_invite**](CompanyApi.md#send_portal_invite) | **POST** /companies/{id}/shareholders/{shareholder_id}/send_portal_invite | Send portal invite to shareholder |
 
 
@@ -771,6 +772,78 @@ end
 ### Return type
 
 [**V1EntitiesDividends**](V1EntitiesDividends.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## get_user_accessible_companies
+
+> <V1EntitiesCompany> get_user_accessible_companies(opts)
+
+Get list of all Companies accessible by the user
+
+Get user accessible companies
+
+### Examples
+
+```ruby
+require 'time'
+require 'DealMakerAPI'
+# setup authorization
+DealMakerAPI.configure do |config|end
+
+api_instance = DealMakerAPI::CompanyApi.new
+opts = {
+  page: 56, # Integer | Page offset to fetch.
+  per_page: 56, # Integer | Number of results to return per page.
+  offset: 56 # Integer | Pad a number of results.
+}
+
+begin
+  # Get list of all Companies accessible by the user
+  result = api_instance.get_user_accessible_companies(opts)
+  p result
+rescue DealMakerAPI::ApiError => e
+  puts "Error when calling CompanyApi->get_user_accessible_companies: #{e}"
+end
+```
+
+#### Using the get_user_accessible_companies_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<V1EntitiesCompany>, Integer, Hash)> get_user_accessible_companies_with_http_info(opts)
+
+```ruby
+begin
+  # Get list of all Companies accessible by the user
+  data, status_code, headers = api_instance.get_user_accessible_companies_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <V1EntitiesCompany>
+rescue DealMakerAPI::ApiError => e
+  puts "Error when calling CompanyApi->get_user_accessible_companies_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **page** | **Integer** | Page offset to fetch. | [optional][default to 1] |
+| **per_page** | **Integer** | Number of results to return per page. | [optional][default to 25] |
+| **offset** | **Integer** | Pad a number of results. | [optional][default to 0] |
+
+### Return type
+
+[**V1EntitiesCompany**](V1EntitiesCompany.md)
 
 ### Authorization
 

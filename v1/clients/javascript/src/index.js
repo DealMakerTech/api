@@ -42,6 +42,7 @@ import PutDealsIdInvestors from './model/PutDealsIdInvestors';
 import PutDealsIdScriptTagEnvironmentRequest from './model/PutDealsIdScriptTagEnvironmentRequest';
 import PutWebhooksIdRequest from './model/PutWebhooksIdRequest';
 import SendPortalInviteRequest from './model/SendPortalInviteRequest';
+import UpdateUserPasswordRequest from './model/UpdateUserPasswordRequest';
 import V1EntitiesAddress from './model/V1EntitiesAddress';
 import V1EntitiesAddresses from './model/V1EntitiesAddresses';
 import V1EntitiesAttachment from './model/V1EntitiesAttachment';
@@ -87,6 +88,7 @@ import V1EntitiesInvestorProfileTrust from './model/V1EntitiesInvestorProfileTru
 import V1EntitiesInvestorProfiles from './model/V1EntitiesInvestorProfiles';
 import V1EntitiesInvestorUser from './model/V1EntitiesInvestorUser';
 import V1EntitiesInvestors from './model/V1EntitiesInvestors';
+import V1EntitiesPaymentsSelfServeOnboardingDigitalPaymentsConnectionData from './model/V1EntitiesPaymentsSelfServeOnboardingDigitalPaymentsConnectionData';
 import V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsResult from './model/V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsResult';
 import V1EntitiesPaymentsSelfServeOnboardingQualificationQuestionnaireResult from './model/V1EntitiesPaymentsSelfServeOnboardingQualificationQuestionnaireResult';
 import V1EntitiesPresignedUrlResult from './model/V1EntitiesPresignedUrlResult';
@@ -95,6 +97,7 @@ import V1EntitiesShareholders from './model/V1EntitiesShareholders';
 import V1EntitiesShareholdersTags from './model/V1EntitiesShareholdersTags';
 import V1EntitiesState from './model/V1EntitiesState';
 import V1EntitiesSubscriptionAgreement from './model/V1EntitiesSubscriptionAgreement';
+import V1EntitiesUser from './model/V1EntitiesUser';
 import V1EntitiesWebhooksDeal from './model/V1EntitiesWebhooksDeal';
 import V1EntitiesWebhooksSecurityToken from './model/V1EntitiesWebhooksSecurityToken';
 import V1EntitiesWebhooksSubscription from './model/V1EntitiesWebhooksSubscription';
@@ -109,6 +112,7 @@ import InvestorApi from './api/InvestorApi';
 import InvestorProfileApi from './api/InvestorProfileApi';
 import ShareholderApi from './api/ShareholderApi';
 import UploadApi from './api/UploadApi';
+import UserApi from './api/UserApi';
 import UsersApi from './api/UsersApi';
 
 
@@ -141,7 +145,7 @@ import UsersApi from './api/UsersApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.90.1
+* @version 0.90.2
 */
 export {
     /**
@@ -323,6 +327,12 @@ export {
      * @property {module:model/SendPortalInviteRequest}
      */
     SendPortalInviteRequest,
+
+    /**
+     * The UpdateUserPasswordRequest model constructor.
+     * @property {module:model/UpdateUserPasswordRequest}
+     */
+    UpdateUserPasswordRequest,
 
     /**
      * The V1EntitiesAddress model constructor.
@@ -595,6 +605,12 @@ export {
     V1EntitiesInvestors,
 
     /**
+     * The V1EntitiesPaymentsSelfServeOnboardingDigitalPaymentsConnectionData model constructor.
+     * @property {module:model/V1EntitiesPaymentsSelfServeOnboardingDigitalPaymentsConnectionData}
+     */
+    V1EntitiesPaymentsSelfServeOnboardingDigitalPaymentsConnectionData,
+
+    /**
      * The V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsResult model constructor.
      * @property {module:model/V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsResult}
      */
@@ -641,6 +657,12 @@ export {
      * @property {module:model/V1EntitiesSubscriptionAgreement}
      */
     V1EntitiesSubscriptionAgreement,
+
+    /**
+     * The V1EntitiesUser model constructor.
+     * @property {module:model/V1EntitiesUser}
+     */
+    V1EntitiesUser,
 
     /**
      * The V1EntitiesWebhooksDeal model constructor.
@@ -725,6 +747,12 @@ export {
     * @property {module:api/UploadApi}
     */
     UploadApi,
+
+    /**
+    * The UserApi service constructor.
+    * @property {module:api/UserApi}
+    */
+    UserApi,
 
     /**
     * The UsersApi service constructor.

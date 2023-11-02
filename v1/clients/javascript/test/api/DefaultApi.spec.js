@@ -48,6 +48,16 @@
   }
 
   describe('DefaultApi', function() {
+    describe('getDealsDealIdPaymentOnboardingQuestionnaireDigitalPaymentsConnectionData', function() {
+      it('should call getDealsDealIdPaymentOnboardingQuestionnaireDigitalPaymentsConnectionData successfully', function(done) {
+        //uncomment below and update the code to test getDealsDealIdPaymentOnboardingQuestionnaireDigitalPaymentsConnectionData
+        //instance.getDealsDealIdPaymentOnboardingQuestionnaireDigitalPaymentsConnectionData(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('getDealsIdInvestorsInvestorIdPaymentsExpressWireInstructions', function() {
       it('should call getDealsIdInvestorsInvestorIdPaymentsExpressWireInstructions successfully', function(done) {
         //uncomment below and update the code to test getDealsIdInvestorsInvestorIdPaymentsExpressWireInstructions

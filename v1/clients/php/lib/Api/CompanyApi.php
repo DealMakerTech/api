@@ -104,6 +104,9 @@ class CompanyApi
         'getDividends' => [
             'application/json',
         ],
+        'getUserAccessibleCompanies' => [
+            'application/json',
+        ],
         'sendPortalInvite' => [
             'application/json',
         ],
@@ -164,7 +167,7 @@ class CompanyApi
      * @param  \DealMaker\Model\CreateBulkUploadRequest $create_bulk_upload_request create_bulk_upload_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createBulkUpload'] to see the possible values for this operation
      *
-     * @throws \DealMaker\ApiException on non-2xx response
+     * @throws \DealMaker\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \DealMaker\Model\V1EntitiesBulkUpload
      */
@@ -183,7 +186,7 @@ class CompanyApi
      * @param  \DealMaker\Model\CreateBulkUploadRequest $create_bulk_upload_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createBulkUpload'] to see the possible values for this operation
      *
-     * @throws \DealMaker\ApiException on non-2xx response
+     * @throws \DealMaker\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \DealMaker\Model\V1EntitiesBulkUpload, HTTP status code, HTTP response headers (array of strings)
      */
@@ -233,7 +236,19 @@ class CompanyApi
                     } else {
                         $content = (string) $response->getBody();
                         if ('\DealMaker\Model\V1EntitiesBulkUpload' !== 'string') {
-                            $content = json_decode($content);
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                 );
+                            }
                         }
                     }
 
@@ -250,7 +265,19 @@ class CompanyApi
             } else {
                 $content = (string) $response->getBody();
                 if ($returnType !== 'string') {
-                    $content = json_decode($content);
+                    try {
+                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                    } catch (\JsonException $exception) {
+                        throw new ApiException(
+                            sprintf(
+                                'Error JSON decoding server response (%s)',
+                                $request->getUri()
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $content
+                        );
+                    }
                 }
             }
 
@@ -467,7 +494,7 @@ class CompanyApi
      * @param  \DealMaker\Model\CreateBulkUploadDetailRequest $create_bulk_upload_detail_request create_bulk_upload_detail_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createBulkUploadDetail'] to see the possible values for this operation
      *
-     * @throws \DealMaker\ApiException on non-2xx response
+     * @throws \DealMaker\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \DealMaker\Model\V1EntitiesBulkUploadDetail
      */
@@ -487,7 +514,7 @@ class CompanyApi
      * @param  \DealMaker\Model\CreateBulkUploadDetailRequest $create_bulk_upload_detail_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createBulkUploadDetail'] to see the possible values for this operation
      *
-     * @throws \DealMaker\ApiException on non-2xx response
+     * @throws \DealMaker\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \DealMaker\Model\V1EntitiesBulkUploadDetail, HTTP status code, HTTP response headers (array of strings)
      */
@@ -537,7 +564,19 @@ class CompanyApi
                     } else {
                         $content = (string) $response->getBody();
                         if ('\DealMaker\Model\V1EntitiesBulkUploadDetail' !== 'string') {
-                            $content = json_decode($content);
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                 );
+                            }
                         }
                     }
 
@@ -554,7 +593,19 @@ class CompanyApi
             } else {
                 $content = (string) $response->getBody();
                 if ($returnType !== 'string') {
-                    $content = json_decode($content);
+                    try {
+                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                    } catch (\JsonException $exception) {
+                        throw new ApiException(
+                            sprintf(
+                                'Error JSON decoding server response (%s)',
+                                $request->getUri()
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $content
+                        );
+                    }
                 }
             }
 
@@ -787,7 +838,7 @@ class CompanyApi
      * @param  \DealMaker\Model\CreateCompanyRequest $create_company_request create_company_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createCompany'] to see the possible values for this operation
      *
-     * @throws \DealMaker\ApiException on non-2xx response
+     * @throws \DealMaker\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \DealMaker\Model\V1EntitiesCompany
      */
@@ -805,7 +856,7 @@ class CompanyApi
      * @param  \DealMaker\Model\CreateCompanyRequest $create_company_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createCompany'] to see the possible values for this operation
      *
-     * @throws \DealMaker\ApiException on non-2xx response
+     * @throws \DealMaker\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \DealMaker\Model\V1EntitiesCompany, HTTP status code, HTTP response headers (array of strings)
      */
@@ -855,7 +906,19 @@ class CompanyApi
                     } else {
                         $content = (string) $response->getBody();
                         if ('\DealMaker\Model\V1EntitiesCompany' !== 'string') {
-                            $content = json_decode($content);
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                 );
+                            }
                         }
                     }
 
@@ -872,7 +935,19 @@ class CompanyApi
             } else {
                 $content = (string) $response->getBody();
                 if ($returnType !== 'string') {
-                    $content = json_decode($content);
+                    try {
+                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                    } catch (\JsonException $exception) {
+                        throw new ApiException(
+                            sprintf(
+                                'Error JSON decoding server response (%s)',
+                                $request->getUri()
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $content
+                        );
+                    }
                 }
             }
 
@@ -1071,7 +1146,7 @@ class CompanyApi
      * @param  \DealMaker\Model\CreateShareholderActionRequest $create_shareholder_action_request create_shareholder_action_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createShareholderAction'] to see the possible values for this operation
      *
-     * @throws \DealMaker\ApiException on non-2xx response
+     * @throws \DealMaker\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \DealMaker\Model\V1EntitiesGenericResponse
      */
@@ -1091,7 +1166,7 @@ class CompanyApi
      * @param  \DealMaker\Model\CreateShareholderActionRequest $create_shareholder_action_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createShareholderAction'] to see the possible values for this operation
      *
-     * @throws \DealMaker\ApiException on non-2xx response
+     * @throws \DealMaker\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \DealMaker\Model\V1EntitiesGenericResponse, HTTP status code, HTTP response headers (array of strings)
      */
@@ -1141,7 +1216,19 @@ class CompanyApi
                     } else {
                         $content = (string) $response->getBody();
                         if ('\DealMaker\Model\V1EntitiesGenericResponse' !== 'string') {
-                            $content = json_decode($content);
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                 );
+                            }
                         }
                     }
 
@@ -1158,7 +1245,19 @@ class CompanyApi
             } else {
                 $content = (string) $response->getBody();
                 if ($returnType !== 'string') {
-                    $content = json_decode($content);
+                    try {
+                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                    } catch (\JsonException $exception) {
+                        throw new ApiException(
+                            sprintf(
+                                'Error JSON decoding server response (%s)',
+                                $request->getUri()
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $content
+                        );
+                    }
                 }
             }
 
@@ -1395,7 +1494,7 @@ class CompanyApi
      * @param  int $offset Pad a number of results. (optional, default to 0)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkUpload'] to see the possible values for this operation
      *
-     * @throws \DealMaker\ApiException on non-2xx response
+     * @throws \DealMaker\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \DealMaker\Model\V1EntitiesBulkUpload
      */
@@ -1417,7 +1516,7 @@ class CompanyApi
      * @param  int $offset Pad a number of results. (optional, default to 0)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkUpload'] to see the possible values for this operation
      *
-     * @throws \DealMaker\ApiException on non-2xx response
+     * @throws \DealMaker\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \DealMaker\Model\V1EntitiesBulkUpload, HTTP status code, HTTP response headers (array of strings)
      */
@@ -1467,7 +1566,19 @@ class CompanyApi
                     } else {
                         $content = (string) $response->getBody();
                         if ('\DealMaker\Model\V1EntitiesBulkUpload' !== 'string') {
-                            $content = json_decode($content);
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                 );
+                            }
                         }
                     }
 
@@ -1484,7 +1595,19 @@ class CompanyApi
             } else {
                 $content = (string) $response->getBody();
                 if ($returnType !== 'string') {
-                    $content = json_decode($content);
+                    try {
+                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                    } catch (\JsonException $exception) {
+                        throw new ApiException(
+                            sprintf(
+                                'Error JSON decoding server response (%s)',
+                                $request->getUri()
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $content
+                        );
+                    }
                 }
             }
 
@@ -1740,7 +1863,7 @@ class CompanyApi
      * @param  int $bulk_upload_id bulk_upload_id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkUploadDetailsErrors'] to see the possible values for this operation
      *
-     * @throws \DealMaker\ApiException on non-2xx response
+     * @throws \DealMaker\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \DealMaker\Model\V1EntitiesBulkUploadDetails
      */
@@ -1759,7 +1882,7 @@ class CompanyApi
      * @param  int $bulk_upload_id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkUploadDetailsErrors'] to see the possible values for this operation
      *
-     * @throws \DealMaker\ApiException on non-2xx response
+     * @throws \DealMaker\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \DealMaker\Model\V1EntitiesBulkUploadDetails, HTTP status code, HTTP response headers (array of strings)
      */
@@ -1809,7 +1932,19 @@ class CompanyApi
                     } else {
                         $content = (string) $response->getBody();
                         if ('\DealMaker\Model\V1EntitiesBulkUploadDetails' !== 'string') {
-                            $content = json_decode($content);
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                 );
+                            }
                         }
                     }
 
@@ -1826,7 +1961,19 @@ class CompanyApi
             } else {
                 $content = (string) $response->getBody();
                 if ($returnType !== 'string') {
-                    $content = json_decode($content);
+                    try {
+                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                    } catch (\JsonException $exception) {
+                        throw new ApiException(
+                            sprintf(
+                                'Error JSON decoding server response (%s)',
+                                $request->getUri()
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $content
+                        );
+                    }
                 }
             }
 
@@ -2045,7 +2192,7 @@ class CompanyApi
      * @param  int $offset Pad a number of results. (optional, default to 0)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkUploads'] to see the possible values for this operation
      *
-     * @throws \DealMaker\ApiException on non-2xx response
+     * @throws \DealMaker\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \DealMaker\Model\V1EntitiesBulkUploads
      */
@@ -2066,7 +2213,7 @@ class CompanyApi
      * @param  int $offset Pad a number of results. (optional, default to 0)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkUploads'] to see the possible values for this operation
      *
-     * @throws \DealMaker\ApiException on non-2xx response
+     * @throws \DealMaker\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \DealMaker\Model\V1EntitiesBulkUploads, HTTP status code, HTTP response headers (array of strings)
      */
@@ -2116,7 +2263,19 @@ class CompanyApi
                     } else {
                         $content = (string) $response->getBody();
                         if ('\DealMaker\Model\V1EntitiesBulkUploads' !== 'string') {
-                            $content = json_decode($content);
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                 );
+                            }
                         }
                     }
 
@@ -2133,7 +2292,19 @@ class CompanyApi
             } else {
                 $content = (string) $response->getBody();
                 if ($returnType !== 'string') {
-                    $content = json_decode($content);
+                    try {
+                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                    } catch (\JsonException $exception) {
+                        throw new ApiException(
+                            sprintf(
+                                'Error JSON decoding server response (%s)',
+                                $request->getUri()
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $content
+                        );
+                    }
                 }
             }
 
@@ -2372,7 +2543,7 @@ class CompanyApi
      * @param  int $offset Pad a number of results. (optional, default to 0)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCompanies'] to see the possible values for this operation
      *
-     * @throws \DealMaker\ApiException on non-2xx response
+     * @throws \DealMaker\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \DealMaker\Model\V1EntitiesCompany
      */
@@ -2392,7 +2563,7 @@ class CompanyApi
      * @param  int $offset Pad a number of results. (optional, default to 0)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCompanies'] to see the possible values for this operation
      *
-     * @throws \DealMaker\ApiException on non-2xx response
+     * @throws \DealMaker\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \DealMaker\Model\V1EntitiesCompany, HTTP status code, HTTP response headers (array of strings)
      */
@@ -2442,7 +2613,19 @@ class CompanyApi
                     } else {
                         $content = (string) $response->getBody();
                         if ('\DealMaker\Model\V1EntitiesCompany' !== 'string') {
-                            $content = json_decode($content);
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                 );
+                            }
                         }
                     }
 
@@ -2459,7 +2642,19 @@ class CompanyApi
             } else {
                 $content = (string) $response->getBody();
                 if ($returnType !== 'string') {
-                    $content = json_decode($content);
+                    try {
+                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                    } catch (\JsonException $exception) {
+                        throw new ApiException(
+                            sprintf(
+                                'Error JSON decoding server response (%s)',
+                                $request->getUri()
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $content
+                        );
+                    }
                 }
             }
 
@@ -2678,7 +2873,7 @@ class CompanyApi
      * @param  int $id id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCompany'] to see the possible values for this operation
      *
-     * @throws \DealMaker\ApiException on non-2xx response
+     * @throws \DealMaker\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \DealMaker\Model\V1EntitiesCompany
      */
@@ -2696,7 +2891,7 @@ class CompanyApi
      * @param  int $id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCompany'] to see the possible values for this operation
      *
-     * @throws \DealMaker\ApiException on non-2xx response
+     * @throws \DealMaker\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \DealMaker\Model\V1EntitiesCompany, HTTP status code, HTTP response headers (array of strings)
      */
@@ -2746,7 +2941,19 @@ class CompanyApi
                     } else {
                         $content = (string) $response->getBody();
                         if ('\DealMaker\Model\V1EntitiesCompany' !== 'string') {
-                            $content = json_decode($content);
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                 );
+                            }
                         }
                     }
 
@@ -2763,7 +2970,19 @@ class CompanyApi
             } else {
                 $content = (string) $response->getBody();
                 if ($returnType !== 'string') {
-                    $content = json_decode($content);
+                    try {
+                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                    } catch (\JsonException $exception) {
+                        throw new ApiException(
+                            sprintf(
+                                'Error JSON decoding server response (%s)',
+                                $request->getUri()
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $content
+                        );
+                    }
                 }
             }
 
@@ -2962,7 +3181,7 @@ class CompanyApi
      * @param  int $bulk_upload_id bulk_upload_id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDetailsErrorsGrouped'] to see the possible values for this operation
      *
-     * @throws \DealMaker\ApiException on non-2xx response
+     * @throws \DealMaker\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \DealMaker\Model\V1EntitiesBulkUploadDetails
      */
@@ -2981,7 +3200,7 @@ class CompanyApi
      * @param  int $bulk_upload_id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDetailsErrorsGrouped'] to see the possible values for this operation
      *
-     * @throws \DealMaker\ApiException on non-2xx response
+     * @throws \DealMaker\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \DealMaker\Model\V1EntitiesBulkUploadDetails, HTTP status code, HTTP response headers (array of strings)
      */
@@ -3031,7 +3250,19 @@ class CompanyApi
                     } else {
                         $content = (string) $response->getBody();
                         if ('\DealMaker\Model\V1EntitiesBulkUploadDetails' !== 'string') {
-                            $content = json_decode($content);
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                 );
+                            }
                         }
                     }
 
@@ -3048,7 +3279,19 @@ class CompanyApi
             } else {
                 $content = (string) $response->getBody();
                 if ($returnType !== 'string') {
-                    $content = json_decode($content);
+                    try {
+                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                    } catch (\JsonException $exception) {
+                        throw new ApiException(
+                            sprintf(
+                                'Error JSON decoding server response (%s)',
+                                $request->getUri()
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $content
+                        );
+                    }
                 }
             }
 
@@ -3264,7 +3507,7 @@ class CompanyApi
      * @param  int $company_id company_id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDividends'] to see the possible values for this operation
      *
-     * @throws \DealMaker\ApiException on non-2xx response
+     * @throws \DealMaker\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \DealMaker\Model\V1EntitiesDividends
      */
@@ -3282,7 +3525,7 @@ class CompanyApi
      * @param  int $company_id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDividends'] to see the possible values for this operation
      *
-     * @throws \DealMaker\ApiException on non-2xx response
+     * @throws \DealMaker\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \DealMaker\Model\V1EntitiesDividends, HTTP status code, HTTP response headers (array of strings)
      */
@@ -3332,7 +3575,19 @@ class CompanyApi
                     } else {
                         $content = (string) $response->getBody();
                         if ('\DealMaker\Model\V1EntitiesDividends' !== 'string') {
-                            $content = json_decode($content);
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                 );
+                            }
                         }
                     }
 
@@ -3349,7 +3604,19 @@ class CompanyApi
             } else {
                 $content = (string) $response->getBody();
                 if ($returnType !== 'string') {
-                    $content = json_decode($content);
+                    try {
+                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                    } catch (\JsonException $exception) {
+                        throw new ApiException(
+                            sprintf(
+                                'Error JSON decoding server response (%s)',
+                                $request->getUri()
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $content
+                        );
+                    }
                 }
             }
 
@@ -3540,6 +3807,338 @@ class CompanyApi
     }
 
     /**
+     * Operation getUserAccessibleCompanies
+     *
+     * Get list of all Companies accessible by the user
+     *
+     * @param  int $page Page offset to fetch. (optional, default to 1)
+     * @param  int $per_page Number of results to return per page. (optional, default to 25)
+     * @param  int $offset Pad a number of results. (optional, default to 0)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getUserAccessibleCompanies'] to see the possible values for this operation
+     *
+     * @throws \DealMaker\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \DealMaker\Model\V1EntitiesCompany
+     */
+    public function getUserAccessibleCompanies($page = 1, $per_page = 25, $offset = 0, string $contentType = self::contentTypes['getUserAccessibleCompanies'][0])
+    {
+        list($response) = $this->getUserAccessibleCompaniesWithHttpInfo($page, $per_page, $offset, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation getUserAccessibleCompaniesWithHttpInfo
+     *
+     * Get list of all Companies accessible by the user
+     *
+     * @param  int $page Page offset to fetch. (optional, default to 1)
+     * @param  int $per_page Number of results to return per page. (optional, default to 25)
+     * @param  int $offset Pad a number of results. (optional, default to 0)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getUserAccessibleCompanies'] to see the possible values for this operation
+     *
+     * @throws \DealMaker\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \DealMaker\Model\V1EntitiesCompany, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getUserAccessibleCompaniesWithHttpInfo($page = 1, $per_page = 25, $offset = 0, string $contentType = self::contentTypes['getUserAccessibleCompanies'][0])
+    {
+        $request = $this->getUserAccessibleCompaniesRequest($page, $per_page, $offset, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\DealMaker\Model\V1EntitiesCompany' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\DealMaker\Model\V1EntitiesCompany' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                 );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\DealMaker\Model\V1EntitiesCompany', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\DealMaker\Model\V1EntitiesCompany';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    try {
+                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                    } catch (\JsonException $exception) {
+                        throw new ApiException(
+                            sprintf(
+                                'Error JSON decoding server response (%s)',
+                                $request->getUri()
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $content
+                        );
+                    }
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\DealMaker\Model\V1EntitiesCompany',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getUserAccessibleCompaniesAsync
+     *
+     * Get list of all Companies accessible by the user
+     *
+     * @param  int $page Page offset to fetch. (optional, default to 1)
+     * @param  int $per_page Number of results to return per page. (optional, default to 25)
+     * @param  int $offset Pad a number of results. (optional, default to 0)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getUserAccessibleCompanies'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getUserAccessibleCompaniesAsync($page = 1, $per_page = 25, $offset = 0, string $contentType = self::contentTypes['getUserAccessibleCompanies'][0])
+    {
+        return $this->getUserAccessibleCompaniesAsyncWithHttpInfo($page, $per_page, $offset, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getUserAccessibleCompaniesAsyncWithHttpInfo
+     *
+     * Get list of all Companies accessible by the user
+     *
+     * @param  int $page Page offset to fetch. (optional, default to 1)
+     * @param  int $per_page Number of results to return per page. (optional, default to 25)
+     * @param  int $offset Pad a number of results. (optional, default to 0)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getUserAccessibleCompanies'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getUserAccessibleCompaniesAsyncWithHttpInfo($page = 1, $per_page = 25, $offset = 0, string $contentType = self::contentTypes['getUserAccessibleCompanies'][0])
+    {
+        $returnType = '\DealMaker\Model\V1EntitiesCompany';
+        $request = $this->getUserAccessibleCompaniesRequest($page, $per_page, $offset, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getUserAccessibleCompanies'
+     *
+     * @param  int $page Page offset to fetch. (optional, default to 1)
+     * @param  int $per_page Number of results to return per page. (optional, default to 25)
+     * @param  int $offset Pad a number of results. (optional, default to 0)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getUserAccessibleCompanies'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getUserAccessibleCompaniesRequest($page = 1, $per_page = 25, $offset = 0, string $contentType = self::contentTypes['getUserAccessibleCompanies'][0])
+    {
+
+
+
+
+
+        $resourcePath = '/users/accessible_companies';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $page,
+            'page', // param base name
+            'integer', // openApiType
+            '', // style
+            false, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $per_page,
+            'per_page', // param base name
+            'integer', // openApiType
+            '', // style
+            false, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $offset,
+            'offset', // param base name
+            'integer', // openApiType
+            '', // style
+            false, // explode
+            false // required
+        ) ?? []);
+
+
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation sendPortalInvite
      *
      * Send portal invite to shareholder
@@ -3549,7 +4148,7 @@ class CompanyApi
      * @param  \DealMaker\Model\SendPortalInviteRequest $send_portal_invite_request send_portal_invite_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sendPortalInvite'] to see the possible values for this operation
      *
-     * @throws \DealMaker\ApiException on non-2xx response
+     * @throws \DealMaker\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return void
      */
@@ -3568,7 +4167,7 @@ class CompanyApi
      * @param  \DealMaker\Model\SendPortalInviteRequest $send_portal_invite_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sendPortalInvite'] to see the possible values for this operation
      *
-     * @throws \DealMaker\ApiException on non-2xx response
+     * @throws \DealMaker\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */

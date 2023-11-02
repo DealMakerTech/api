@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The GenerateUrlRequest model module.
  * @module model/GenerateUrlRequest
- * @version 0.90.1
+ * @version 0.90.2
  */
 class GenerateUrlRequest {
     /**

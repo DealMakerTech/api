@@ -409,6 +409,15 @@ class V1EntitiesInvestor implements ModelInterface, ArrayAccess, \JsonSerializab
     public const VERIFICATION_STATUS_APPROVED = 'approved';
     public const VERIFICATION_STATUS_REJECTED = 'rejected';
     public const VERIFICATION_STATUS_NEW_DOCUMENTS_REQUESTED = 'new_documents_requested';
+    public const CHECKOUT_STATE_PRE_CHECKOUT = 'pre_checkout';
+    public const CHECKOUT_STATE_INVESTMENT_AMOUNT = 'investment_amount';
+    public const CHECKOUT_STATE_CONTACT_INFORMATION = 'contact_information';
+    public const CHECKOUT_STATE_INVESTOR_CONFIRMATION = 'investor_confirmation';
+    public const CHECKOUT_STATE_TERMS_CONDITIONS = 'terms_conditions';
+    public const CHECKOUT_STATE_PAYMENT = 'payment';
+    public const CHECKOUT_STATE_CHECKOUT_COMPLETE = 'checkout_complete';
+    public const CHECKOUT_STATE_RESUBMIT_AGREEMENT = 'resubmit_agreement';
+    public const CHECKOUT_STATE_LEGACY_CHECKOUT = 'legacy_checkout';
 
     /**
      * Gets allowable values of the enum
@@ -469,6 +478,26 @@ class V1EntitiesInvestor implements ModelInterface, ArrayAccess, \JsonSerializab
             self::VERIFICATION_STATUS_APPROVED,
             self::VERIFICATION_STATUS_REJECTED,
             self::VERIFICATION_STATUS_NEW_DOCUMENTS_REQUESTED,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getCheckoutStateAllowableValues()
+    {
+        return [
+            self::CHECKOUT_STATE_PRE_CHECKOUT,
+            self::CHECKOUT_STATE_INVESTMENT_AMOUNT,
+            self::CHECKOUT_STATE_CONTACT_INFORMATION,
+            self::CHECKOUT_STATE_INVESTOR_CONFIRMATION,
+            self::CHECKOUT_STATE_TERMS_CONDITIONS,
+            self::CHECKOUT_STATE_PAYMENT,
+            self::CHECKOUT_STATE_CHECKOUT_COMPLETE,
+            self::CHECKOUT_STATE_RESUBMIT_AGREEMENT,
+            self::CHECKOUT_STATE_LEGACY_CHECKOUT,
         ];
     }
 
@@ -576,6 +605,15 @@ class V1EntitiesInvestor implements ModelInterface, ArrayAccess, \JsonSerializab
             $invalidProperties[] = sprintf(
                 "invalid value '%s' for 'verification_status', must be one of '%s'",
                 $this->container['verification_status'],
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getCheckoutStateAllowableValues();
+        if (!is_null($this->container['checkout_state']) && !in_array($this->container['checkout_state'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'checkout_state', must be one of '%s'",
+                $this->container['checkout_state'],
                 implode("', '", $allowedValues)
             );
         }
@@ -1350,7 +1388,7 @@ class V1EntitiesInvestor implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets checkout_state
      *
-     * @param string|null $checkout_state Current state on checkout page.
+     * @param string|null $checkout_state Current state on the checkout page.
      *
      * @return self
      */
@@ -1358,6 +1396,16 @@ class V1EntitiesInvestor implements ModelInterface, ArrayAccess, \JsonSerializab
     {
         if (is_null($checkout_state)) {
             throw new \InvalidArgumentException('non-nullable checkout_state cannot be null');
+        }
+        $allowedValues = $this->getCheckoutStateAllowableValues();
+        if (!in_array($checkout_state, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'checkout_state', must be one of '%s'",
+                    $checkout_state,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['checkout_state'] = $checkout_state;
 

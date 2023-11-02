@@ -17,6 +17,7 @@ import PostWebhooksRequest from '../model/PostWebhooksRequest';
 import PutWebhooksIdRequest from '../model/PutWebhooksIdRequest';
 import V1EntitiesExpressWireInstruction from '../model/V1EntitiesExpressWireInstruction';
 import V1EntitiesExpressWireInstructions from '../model/V1EntitiesExpressWireInstructions';
+import V1EntitiesPaymentsSelfServeOnboardingDigitalPaymentsConnectionData from '../model/V1EntitiesPaymentsSelfServeOnboardingDigitalPaymentsConnectionData';
 import V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsResult from '../model/V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsResult';
 import V1EntitiesPaymentsSelfServeOnboardingQualificationQuestionnaireResult from '../model/V1EntitiesPaymentsSelfServeOnboardingQualificationQuestionnaireResult';
 import V1EntitiesWebhooksDeal from '../model/V1EntitiesWebhooksDeal';
@@ -26,7 +27,7 @@ import V1EntitiesWebhooksSubscription from '../model/V1EntitiesWebhooksSubscript
 /**
 * Default service.
 * @module api/DefaultApi
-* @version 0.90.1
+* @version 0.90.2
 */
 export default class DefaultApi {
 
@@ -41,6 +42,49 @@ export default class DefaultApi {
         this.apiClient = apiClient || ApiClient.instance;
     }
 
+
+    /**
+     * Callback function to receive the result of the getDealsDealIdPaymentOnboardingQuestionnaireDigitalPaymentsConnectionData operation.
+     * @callback module:api/DefaultApi~getDealsDealIdPaymentOnboardingQuestionnaireDigitalPaymentsConnectionDataCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/V1EntitiesPaymentsSelfServeOnboardingDigitalPaymentsConnectionData} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Load data for the digital payments connection stage
+     * Load data for the digital payments connection stage
+     * @param {Number} dealId 
+     * @param {module:api/DefaultApi~getDealsDealIdPaymentOnboardingQuestionnaireDigitalPaymentsConnectionDataCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/V1EntitiesPaymentsSelfServeOnboardingDigitalPaymentsConnectionData}
+     */
+    getDealsDealIdPaymentOnboardingQuestionnaireDigitalPaymentsConnectionData(dealId, callback) {
+      let postBody = null;
+      // verify the required parameter 'dealId' is set
+      if (dealId === undefined || dealId === null) {
+        throw new Error("Missing the required parameter 'dealId' when calling getDealsDealIdPaymentOnboardingQuestionnaireDigitalPaymentsConnectionData");
+      }
+
+      let pathParams = {
+        'deal_id': dealId
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = V1EntitiesPaymentsSelfServeOnboardingDigitalPaymentsConnectionData;
+      return this.apiClient.callApi(
+        '/deals/{deal_id}/payment_onboarding/questionnaire/digital_payments_connection/data', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
 
     /**
      * Callback function to receive the result of the getDealsIdInvestorsInvestorIdPaymentsExpressWireInstructions operation.

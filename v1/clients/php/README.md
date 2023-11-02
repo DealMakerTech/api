@@ -416,12 +416,14 @@ Class | Method | HTTP request | Description
 *CompanyApi* | [**getCompany**](docs/Api/CompanyApi.md#getcompany) | **GET** /companies/{id} | Get a Company
 *CompanyApi* | [**getDetailsErrorsGrouped**](docs/Api/CompanyApi.md#getdetailserrorsgrouped) | **GET** /companies/{company_id}/documents/bulk_uploads/{bulk_upload_id}/details/grouped_errors | Return bulk upload details grouped by status
 *CompanyApi* | [**getDividends**](docs/Api/CompanyApi.md#getdividends) | **GET** /companies/{company_id}/portal/dividends | Return dividends
+*CompanyApi* | [**getUserAccessibleCompanies**](docs/Api/CompanyApi.md#getuseraccessiblecompanies) | **GET** /users/accessible_companies | Get list of all Companies accessible by the user
 *CompanyApi* | [**sendPortalInvite**](docs/Api/CompanyApi.md#sendportalinvite) | **POST** /companies/{id}/shareholders/{shareholder_id}/send_portal_invite | Send portal invite to shareholder
 *CountryApi* | [**getCountryStates**](docs/Api/CountryApi.md#getcountrystates) | **GET** /country/states | Returns a list of all valid countries and it states
 *DealApi* | [**createDealSetup**](docs/Api/DealApi.md#createdealsetup) | **POST** /deal_setups | Create deal setup
 *DealApi* | [**getDeal**](docs/Api/DealApi.md#getdeal) | **GET** /deals/{id} | Get deal by Deal ID
 *DealApi* | [**listDeals**](docs/Api/DealApi.md#listdeals) | **GET** /deals | List available deals
 *DealsApi* | [**putDealsIdScriptTagEnvironment**](docs/Api/DealsApi.md#putdealsidscripttagenvironment) | **PUT** /deals/{id}/script_tag_environment | Update script tag environment for the deal.
+*DefaultApi* | [**getDealsDealIdPaymentOnboardingQuestionnaireDigitalPaymentsConnectionData**](docs/Api/DefaultApi.md#getdealsdealidpaymentonboardingquestionnairedigitalpaymentsconnectiondata) | **GET** /deals/{deal_id}/payment_onboarding/questionnaire/digital_payments_connection/data | Load data for the digital payments connection stage
 *DefaultApi* | [**getDealsIdInvestorsInvestorIdPaymentsExpressWireInstructions**](docs/Api/DefaultApi.md#getdealsidinvestorsinvestoridpaymentsexpresswireinstructions) | **GET** /deals/{id}/investors/{investor_id}/payments/express_wire/instructions | Displays the express wire instructions for an investor on a deal
 *DefaultApi* | [**getDealsIdInvestorsPaymentsExpressWireInstructions**](docs/Api/DefaultApi.md#getdealsidinvestorspaymentsexpresswireinstructions) | **GET** /deals/{id}/investors/payments/express_wire/instructions | Displays the express wire instructions for all the investors on a deal
 *DefaultApi* | [**getWebhooks**](docs/Api/DefaultApi.md#getwebhooks) | **GET** /webhooks | Returns a list of webhook subscription which is associated to the user
@@ -461,6 +463,8 @@ Class | Method | HTTP request | Description
 *ShareholderApi* | [**getShareholders**](docs/Api/ShareholderApi.md#getshareholders) | **GET** /companies/{id}/shareholders | Get a company shareholders list
 *ShareholderApi* | [**getShareholdersTags**](docs/Api/ShareholderApi.md#getshareholderstags) | **GET** /companies/{id}/shareholders/tags | Get a company shareholders list grouped by tags
 *UploadApi* | [**generateUrl**](docs/Api/UploadApi.md#generateurl) | **POST** /uploads/generate_url | Create a presigned URL for Amazon S3
+*UserApi* | [**getUser**](docs/Api/UserApi.md#getuser) | **GET** /users/{id} | Get user by User ID
+*UserApi* | [**updateUserPassword**](docs/Api/UserApi.md#updateuserpassword) | **PUT** /users/{id}/update_password | Update user password
 *UsersApi* | [**getUsersInvestments**](docs/Api/UsersApi.md#getusersinvestments) | **GET** /users/investments | Gets the investments for a specific user.
 
 ## Models
@@ -494,6 +498,7 @@ Class | Method | HTTP request | Description
 - [PutDealsIdScriptTagEnvironmentRequest](docs/Model/PutDealsIdScriptTagEnvironmentRequest.md)
 - [PutWebhooksIdRequest](docs/Model/PutWebhooksIdRequest.md)
 - [SendPortalInviteRequest](docs/Model/SendPortalInviteRequest.md)
+- [UpdateUserPasswordRequest](docs/Model/UpdateUserPasswordRequest.md)
 - [V1EntitiesAddress](docs/Model/V1EntitiesAddress.md)
 - [V1EntitiesAddresses](docs/Model/V1EntitiesAddresses.md)
 - [V1EntitiesAttachment](docs/Model/V1EntitiesAttachment.md)
@@ -539,6 +544,7 @@ Class | Method | HTTP request | Description
 - [V1EntitiesInvestorProfiles](docs/Model/V1EntitiesInvestorProfiles.md)
 - [V1EntitiesInvestorUser](docs/Model/V1EntitiesInvestorUser.md)
 - [V1EntitiesInvestors](docs/Model/V1EntitiesInvestors.md)
+- [V1EntitiesPaymentsSelfServeOnboardingDigitalPaymentsConnectionData](docs/Model/V1EntitiesPaymentsSelfServeOnboardingDigitalPaymentsConnectionData.md)
 - [V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsResult](docs/Model/V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsResult.md)
 - [V1EntitiesPaymentsSelfServeOnboardingQualificationQuestionnaireResult](docs/Model/V1EntitiesPaymentsSelfServeOnboardingQualificationQuestionnaireResult.md)
 - [V1EntitiesPresignedUrlResult](docs/Model/V1EntitiesPresignedUrlResult.md)
@@ -547,6 +553,7 @@ Class | Method | HTTP request | Description
 - [V1EntitiesShareholdersTags](docs/Model/V1EntitiesShareholdersTags.md)
 - [V1EntitiesState](docs/Model/V1EntitiesState.md)
 - [V1EntitiesSubscriptionAgreement](docs/Model/V1EntitiesSubscriptionAgreement.md)
+- [V1EntitiesUser](docs/Model/V1EntitiesUser.md)
 - [V1EntitiesWebhooksDeal](docs/Model/V1EntitiesWebhooksDeal.md)
 - [V1EntitiesWebhooksSecurityToken](docs/Model/V1EntitiesWebhooksSecurityToken.md)
 - [V1EntitiesWebhooksSubscription](docs/Model/V1EntitiesWebhooksSubscription.md)
@@ -574,5 +581,5 @@ vendor/bin/phpunit
 This PHP package is automatically generated by the [OpenAPI Generator](https://openapi-generator.tech) project:
 
 - API version: `1.75.0`
-    - Package version: `0.90.1`
+    - Package version: `0.90.2`
 - Build package: `org.openapitools.codegen.languages.PhpClientCodegen`

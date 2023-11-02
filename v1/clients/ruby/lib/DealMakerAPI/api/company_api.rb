@@ -801,6 +801,72 @@ module DealMakerAPI
       return data, status_code, headers
     end
 
+    # Get list of all Companies accessible by the user
+    # Get user accessible companies
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :page Page offset to fetch. (default to 1)
+    # @option opts [Integer] :per_page Number of results to return per page. (default to 25)
+    # @option opts [Integer] :offset Pad a number of results. (default to 0)
+    # @return [V1EntitiesCompany]
+    def get_user_accessible_companies(opts = {})
+      data, _status_code, _headers = get_user_accessible_companies_with_http_info(opts)
+      data
+    end
+
+    # Get list of all Companies accessible by the user
+    # Get user accessible companies
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :page Page offset to fetch. (default to 1)
+    # @option opts [Integer] :per_page Number of results to return per page. (default to 25)
+    # @option opts [Integer] :offset Pad a number of results. (default to 0)
+    # @return [Array<(V1EntitiesCompany, Integer, Hash)>] V1EntitiesCompany data, response status code and response headers
+    def get_user_accessible_companies_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CompanyApi.get_user_accessible_companies ...'
+      end
+      # resource path
+      local_var_path = '/users/accessible_companies'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'page'] = opts[:'page'] if !opts[:'page'].nil?
+      query_params[:'per_page'] = opts[:'per_page'] if !opts[:'per_page'].nil?
+      query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'V1EntitiesCompany'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"CompanyApi.get_user_accessible_companies",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CompanyApi#get_user_accessible_companies\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Send portal invite to shareholder
     # Send portal invite to shareholder.
     # @param id [Integer] 

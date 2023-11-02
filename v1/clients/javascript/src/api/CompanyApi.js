@@ -29,7 +29,7 @@ import V1EntitiesGenericResponse from '../model/V1EntitiesGenericResponse';
 /**
 * Company service.
 * @module api/CompanyApi
-* @version 0.90.1
+* @version 0.90.2
 */
 export default class CompanyApi {
 
@@ -575,6 +575,51 @@ export default class CompanyApi {
       let returnType = V1EntitiesDividends;
       return this.apiClient.callApi(
         '/companies/{company_id}/portal/dividends', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the getUserAccessibleCompanies operation.
+     * @callback module:api/CompanyApi~getUserAccessibleCompaniesCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/V1EntitiesCompany} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Get list of all Companies accessible by the user
+     * Get user accessible companies
+     * @param {Object} opts Optional parameters
+     * @param {Number} [page = 1)] Page offset to fetch.
+     * @param {Number} [perPage = 25)] Number of results to return per page.
+     * @param {Number} [offset = 0)] Pad a number of results.
+     * @param {module:api/CompanyApi~getUserAccessibleCompaniesCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/V1EntitiesCompany}
+     */
+    getUserAccessibleCompanies(opts, callback) {
+      opts = opts || {};
+      let postBody = null;
+
+      let pathParams = {
+      };
+      let queryParams = {
+        'page': opts['page'],
+        'per_page': opts['perPage'],
+        'offset': opts['offset']
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = V1EntitiesCompany;
+      return this.apiClient.callApi(
+        '/users/accessible_companies', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

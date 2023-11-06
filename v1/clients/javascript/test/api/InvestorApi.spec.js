@@ -128,6 +128,16 @@
         done();
       });
     });
+    describe('getIncentivePlan', function() {
+      it('should call getIncentivePlan successfully', function(done) {
+        //uncomment below and update the code to test getIncentivePlan
+        //instance.getIncentivePlan(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('getInvestor', function() {
       it('should call getInvestor successfully', function(done) {
         //uncomment below and update the code to test getInvestor

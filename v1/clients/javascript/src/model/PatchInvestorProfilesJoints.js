@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The PatchInvestorProfilesJoints model module.
  * @module model/PatchInvestorProfilesJoints
- * @version 0.90.2
+ * @version 0.90.3
  */
 class PatchInvestorProfilesJoints {
     /**

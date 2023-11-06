@@ -22,12 +22,13 @@ import PostDealsIdInvestors from '../model/PostDealsIdInvestors';
 import PutDealsIdInvestors from '../model/PutDealsIdInvestors';
 import V1EntitiesInvestor from '../model/V1EntitiesInvestor';
 import V1EntitiesInvestorOtpAccessLink from '../model/V1EntitiesInvestorOtpAccessLink';
+import V1EntitiesInvestorPriceDetails from '../model/V1EntitiesInvestorPriceDetails';
 import V1EntitiesInvestors from '../model/V1EntitiesInvestors';
 
 /**
 * Investor service.
 * @module api/InvestorApi
-* @version 0.90.2
+* @version 0.90.3
 */
 export default class InvestorApi {
 
@@ -453,6 +454,55 @@ export default class InvestorApi {
       let returnType = V1EntitiesInvestor;
       return this.apiClient.callApi(
         '/deals/{id}/investors/{investor_id}/background_checks/{search_entity_id}/enforcements', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the getIncentivePlan operation.
+     * @callback module:api/InvestorApi~getIncentivePlanCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/V1EntitiesInvestorPriceDetails} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Get investor incentive plan by investor id
+     * Gets a single investor incentive plan by the investor id.
+     * @param {Number} id The deal id.
+     * @param {Number} investorId The investor id.
+     * @param {module:api/InvestorApi~getIncentivePlanCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/V1EntitiesInvestorPriceDetails}
+     */
+    getIncentivePlan(id, investorId, callback) {
+      let postBody = null;
+      // verify the required parameter 'id' is set
+      if (id === undefined || id === null) {
+        throw new Error("Missing the required parameter 'id' when calling getIncentivePlan");
+      }
+      // verify the required parameter 'investorId' is set
+      if (investorId === undefined || investorId === null) {
+        throw new Error("Missing the required parameter 'investorId' when calling getIncentivePlan");
+      }
+
+      let pathParams = {
+        'id': id,
+        'investor_id': investorId
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = V1EntitiesInvestorPriceDetails;
+      return this.apiClient.callApi(
+        '/deals/{id}/investors/{investor_id}/incentive_plan', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

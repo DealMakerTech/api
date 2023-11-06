@@ -71,7 +71,10 @@ docs/V1EntitiesExpressWireInstruction.md
 docs/V1EntitiesExpressWireInstructions.md
 docs/V1EntitiesGenericResponse.md
 docs/V1EntitiesInvestor.md
+docs/V1EntitiesInvestorIncentivePlan.md
+docs/V1EntitiesInvestorIncentiveTier.md
 docs/V1EntitiesInvestorOtpAccessLink.md
+docs/V1EntitiesInvestorPriceDetails.md
 docs/V1EntitiesInvestorProfileAddress.md
 docs/V1EntitiesInvestorProfileCorporation.md
 docs/V1EntitiesInvestorProfileFieldsAccountHolder.md
@@ -89,6 +92,7 @@ docs/V1EntitiesInvestorProfileTrust.md
 docs/V1EntitiesInvestorProfiles.md
 docs/V1EntitiesInvestorUser.md
 docs/V1EntitiesInvestors.md
+docs/V1EntitiesMoneyEntity.md
 docs/V1EntitiesPaymentsSelfServeOnboardingDigitalPaymentsConnectionData.md
 docs/V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsResult.md
 docs/V1EntitiesPaymentsSelfServeOnboardingQualificationQuestionnaireResult.md
@@ -177,7 +181,10 @@ src/model/V1EntitiesExpressWireInstruction.js
 src/model/V1EntitiesExpressWireInstructions.js
 src/model/V1EntitiesGenericResponse.js
 src/model/V1EntitiesInvestor.js
+src/model/V1EntitiesInvestorIncentivePlan.js
+src/model/V1EntitiesInvestorIncentiveTier.js
 src/model/V1EntitiesInvestorOtpAccessLink.js
+src/model/V1EntitiesInvestorPriceDetails.js
 src/model/V1EntitiesInvestorProfileAddress.js
 src/model/V1EntitiesInvestorProfileCorporation.js
 src/model/V1EntitiesInvestorProfileFieldsAccountHolder.js
@@ -195,6 +202,7 @@ src/model/V1EntitiesInvestorProfileTrust.js
 src/model/V1EntitiesInvestorProfiles.js
 src/model/V1EntitiesInvestorUser.js
 src/model/V1EntitiesInvestors.js
+src/model/V1EntitiesMoneyEntity.js
 src/model/V1EntitiesPaymentsSelfServeOnboardingDigitalPaymentsConnectionData.js
 src/model/V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsResult.js
 src/model/V1EntitiesPaymentsSelfServeOnboardingQualificationQuestionnaireResult.js
@@ -278,7 +286,10 @@ test/model/V1EntitiesExpressWireInstruction.spec.js
 test/model/V1EntitiesExpressWireInstructions.spec.js
 test/model/V1EntitiesGenericResponse.spec.js
 test/model/V1EntitiesInvestor.spec.js
+test/model/V1EntitiesInvestorIncentivePlan.spec.js
+test/model/V1EntitiesInvestorIncentiveTier.spec.js
 test/model/V1EntitiesInvestorOtpAccessLink.spec.js
+test/model/V1EntitiesInvestorPriceDetails.spec.js
 test/model/V1EntitiesInvestorProfileAddress.spec.js
 test/model/V1EntitiesInvestorProfileCorporation.spec.js
 test/model/V1EntitiesInvestorProfileFieldsAccountHolder.spec.js
@@ -296,6 +307,7 @@ test/model/V1EntitiesInvestorProfileTrust.spec.js
 test/model/V1EntitiesInvestorProfiles.spec.js
 test/model/V1EntitiesInvestorUser.spec.js
 test/model/V1EntitiesInvestors.spec.js
+test/model/V1EntitiesMoneyEntity.spec.js
 test/model/V1EntitiesPaymentsSelfServeOnboardingDigitalPaymentsConnectionData.spec.js
 test/model/V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsResult.spec.js
 test/model/V1EntitiesPaymentsSelfServeOnboardingQualificationQuestionnaireResult.spec.js

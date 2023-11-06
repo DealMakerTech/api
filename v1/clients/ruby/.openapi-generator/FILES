@@ -76,7 +76,10 @@ docs/V1EntitiesExpressWireInstruction.md
 docs/V1EntitiesExpressWireInstructions.md
 docs/V1EntitiesGenericResponse.md
 docs/V1EntitiesInvestor.md
+docs/V1EntitiesInvestorIncentivePlan.md
+docs/V1EntitiesInvestorIncentiveTier.md
 docs/V1EntitiesInvestorOtpAccessLink.md
+docs/V1EntitiesInvestorPriceDetails.md
 docs/V1EntitiesInvestorProfileAddress.md
 docs/V1EntitiesInvestorProfileCorporation.md
 docs/V1EntitiesInvestorProfileFieldsAccountHolder.md
@@ -94,6 +97,7 @@ docs/V1EntitiesInvestorProfileTrust.md
 docs/V1EntitiesInvestorProfiles.md
 docs/V1EntitiesInvestorUser.md
 docs/V1EntitiesInvestors.md
+docs/V1EntitiesMoneyEntity.md
 docs/V1EntitiesPaymentsSelfServeOnboardingDigitalPaymentsConnectionData.md
 docs/V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsResult.md
 docs/V1EntitiesPaymentsSelfServeOnboardingQualificationQuestionnaireResult.md
@@ -182,7 +186,10 @@ lib/DealMakerAPI/models/v1_entities_express_wire_instruction.rb
 lib/DealMakerAPI/models/v1_entities_express_wire_instructions.rb
 lib/DealMakerAPI/models/v1_entities_generic_response.rb
 lib/DealMakerAPI/models/v1_entities_investor.rb
+lib/DealMakerAPI/models/v1_entities_investor_incentive_plan.rb
+lib/DealMakerAPI/models/v1_entities_investor_incentive_tier.rb
 lib/DealMakerAPI/models/v1_entities_investor_otp_access_link.rb
+lib/DealMakerAPI/models/v1_entities_investor_price_details.rb
 lib/DealMakerAPI/models/v1_entities_investor_profile_address.rb
 lib/DealMakerAPI/models/v1_entities_investor_profile_corporation.rb
 lib/DealMakerAPI/models/v1_entities_investor_profile_fields_account_holder.rb
@@ -200,6 +207,7 @@ lib/DealMakerAPI/models/v1_entities_investor_profile_trust.rb
 lib/DealMakerAPI/models/v1_entities_investor_profiles.rb
 lib/DealMakerAPI/models/v1_entities_investor_user.rb
 lib/DealMakerAPI/models/v1_entities_investors.rb
+lib/DealMakerAPI/models/v1_entities_money_entity.rb
 lib/DealMakerAPI/models/v1_entities_payments_self_serve_onboarding_digital_payments_connection_data.rb
 lib/DealMakerAPI/models/v1_entities_payments_self_serve_onboarding_payout_account_details_result.rb
 lib/DealMakerAPI/models/v1_entities_payments_self_serve_onboarding_qualification_questionnaire_result.rb
@@ -285,7 +293,10 @@ spec/models/v1_entities_dividends_spec.rb
 spec/models/v1_entities_express_wire_instruction_spec.rb
 spec/models/v1_entities_express_wire_instructions_spec.rb
 spec/models/v1_entities_generic_response_spec.rb
+spec/models/v1_entities_investor_incentive_plan_spec.rb
+spec/models/v1_entities_investor_incentive_tier_spec.rb
 spec/models/v1_entities_investor_otp_access_link_spec.rb
+spec/models/v1_entities_investor_price_details_spec.rb
 spec/models/v1_entities_investor_profile_address_spec.rb
 spec/models/v1_entities_investor_profile_corporation_spec.rb
 spec/models/v1_entities_investor_profile_fields_account_holder_spec.rb
@@ -304,6 +315,7 @@ spec/models/v1_entities_investor_profiles_spec.rb
 spec/models/v1_entities_investor_spec.rb
 spec/models/v1_entities_investor_user_spec.rb
 spec/models/v1_entities_investors_spec.rb
+spec/models/v1_entities_money_entity_spec.rb
 spec/models/v1_entities_payments_self_serve_onboarding_digital_payments_connection_data_spec.rb
 spec/models/v1_entities_payments_self_serve_onboarding_payout_account_details_result_spec.rb
 spec/models/v1_entities_payments_self_serve_onboarding_qualification_questionnaire_result_spec.rb

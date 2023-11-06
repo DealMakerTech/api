@@ -12,6 +12,7 @@ Method | HTTP request | Description
 [**deleteInvestorProfile**](InvestorApi.md#deleteInvestorProfile) | **DELETE** /investor_profiles/{type}/{id} | Delete investor profile.
 [**editInvestorTags**](InvestorApi.md#editInvestorTags) | **POST** /deals/{id}/investors/{investor_id}/edit_tags | Append or replace tag(s) for a specific investor
 [**getEnforcements**](InvestorApi.md#getEnforcements) | **GET** /deals/{id}/investors/{investor_id}/background_checks/{search_entity_id}/enforcements | Get enforcements for a background search
+[**getIncentivePlan**](InvestorApi.md#getIncentivePlan) | **GET** /deals/{id}/investors/{investor_id}/incentive_plan | Get investor incentive plan by investor id
 [**getInvestor**](InvestorApi.md#getInvestor) | **GET** /deals/{id}/investors/{investor_id} | Get a deal investor by id
 [**getInvestorOtpLink**](InvestorApi.md#getInvestorOtpLink) | **GET** /deals/{id}/investors/{investor_id}/otp_access_link | Get OTP access link for deal investor
 [**listInvestors**](InvestorApi.md#listInvestors) | **GET** /deals/{id}/investors | List deal investors
@@ -404,6 +405,54 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**V1EntitiesInvestor**](V1EntitiesInvestor.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## getIncentivePlan
+
+> V1EntitiesInvestorPriceDetails getIncentivePlan(id, investorId)
+
+Get investor incentive plan by investor id
+
+Gets a single investor incentive plan by the investor id.
+
+### Example
+
+```javascript
+import Api from 'api';
+let defaultClient = Api.ApiClient.instance;
+
+let apiInstance = new Api.InvestorApi();
+let id = 56; // Number | The deal id.
+let investorId = 56; // Number | The investor id.
+apiInstance.getIncentivePlan(id, investorId, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Number**| The deal id. | 
+ **investorId** | **Number**| The investor id. | 
+
+### Return type
+
+[**V1EntitiesInvestorPriceDetails**](V1EntitiesInvestorPriceDetails.md)
 
 ### Authorization
 

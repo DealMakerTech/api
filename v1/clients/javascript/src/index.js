@@ -70,7 +70,10 @@ import V1EntitiesExpressWireInstruction from './model/V1EntitiesExpressWireInstr
 import V1EntitiesExpressWireInstructions from './model/V1EntitiesExpressWireInstructions';
 import V1EntitiesGenericResponse from './model/V1EntitiesGenericResponse';
 import V1EntitiesInvestor from './model/V1EntitiesInvestor';
+import V1EntitiesInvestorIncentivePlan from './model/V1EntitiesInvestorIncentivePlan';
+import V1EntitiesInvestorIncentiveTier from './model/V1EntitiesInvestorIncentiveTier';
 import V1EntitiesInvestorOtpAccessLink from './model/V1EntitiesInvestorOtpAccessLink';
+import V1EntitiesInvestorPriceDetails from './model/V1EntitiesInvestorPriceDetails';
 import V1EntitiesInvestorProfileAddress from './model/V1EntitiesInvestorProfileAddress';
 import V1EntitiesInvestorProfileCorporation from './model/V1EntitiesInvestorProfileCorporation';
 import V1EntitiesInvestorProfileFieldsAccountHolder from './model/V1EntitiesInvestorProfileFieldsAccountHolder';
@@ -88,6 +91,7 @@ import V1EntitiesInvestorProfileTrust from './model/V1EntitiesInvestorProfileTru
 import V1EntitiesInvestorProfiles from './model/V1EntitiesInvestorProfiles';
 import V1EntitiesInvestorUser from './model/V1EntitiesInvestorUser';
 import V1EntitiesInvestors from './model/V1EntitiesInvestors';
+import V1EntitiesMoneyEntity from './model/V1EntitiesMoneyEntity';
 import V1EntitiesPaymentsSelfServeOnboardingDigitalPaymentsConnectionData from './model/V1EntitiesPaymentsSelfServeOnboardingDigitalPaymentsConnectionData';
 import V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsResult from './model/V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsResult';
 import V1EntitiesPaymentsSelfServeOnboardingQualificationQuestionnaireResult from './model/V1EntitiesPaymentsSelfServeOnboardingQualificationQuestionnaireResult';
@@ -145,7 +149,7 @@ import UsersApi from './api/UsersApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.90.2
+* @version 0.90.3
 */
 export {
     /**
@@ -497,10 +501,28 @@ export {
     V1EntitiesInvestor,
 
     /**
+     * The V1EntitiesInvestorIncentivePlan model constructor.
+     * @property {module:model/V1EntitiesInvestorIncentivePlan}
+     */
+    V1EntitiesInvestorIncentivePlan,
+
+    /**
+     * The V1EntitiesInvestorIncentiveTier model constructor.
+     * @property {module:model/V1EntitiesInvestorIncentiveTier}
+     */
+    V1EntitiesInvestorIncentiveTier,
+
+    /**
      * The V1EntitiesInvestorOtpAccessLink model constructor.
      * @property {module:model/V1EntitiesInvestorOtpAccessLink}
      */
     V1EntitiesInvestorOtpAccessLink,
+
+    /**
+     * The V1EntitiesInvestorPriceDetails model constructor.
+     * @property {module:model/V1EntitiesInvestorPriceDetails}
+     */
+    V1EntitiesInvestorPriceDetails,
 
     /**
      * The V1EntitiesInvestorProfileAddress model constructor.
@@ -603,6 +625,12 @@ export {
      * @property {module:model/V1EntitiesInvestors}
      */
     V1EntitiesInvestors,
+
+    /**
+     * The V1EntitiesMoneyEntity model constructor.
+     * @property {module:model/V1EntitiesMoneyEntity}
+     */
+    V1EntitiesMoneyEntity,
 
     /**
      * The V1EntitiesPaymentsSelfServeOnboardingDigitalPaymentsConnectionData model constructor.

@@ -168,6 +168,18 @@ class InvestorApiTest extends TestCase
     }
 
     /**
+     * Test case for getIncentivePlan
+     *
+     * Get investor incentive plan by investor id.
+     *
+     */
+    public function testGetIncentivePlan()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for getInvestor
      *
      * Get a deal investor by id.

@@ -12,6 +12,7 @@ All URIs are relative to http://api.dealmaker.tech, except if the operation defi
 | [**deleteInvestorProfile()**](InvestorApi.md#deleteInvestorProfile) | **DELETE** /investor_profiles/{type}/{id} | Delete investor profile. |
 | [**editInvestorTags()**](InvestorApi.md#editInvestorTags) | **POST** /deals/{id}/investors/{investor_id}/edit_tags | Append or replace tag(s) for a specific investor |
 | [**getEnforcements()**](InvestorApi.md#getEnforcements) | **GET** /deals/{id}/investors/{investor_id}/background_checks/{search_entity_id}/enforcements | Get enforcements for a background search |
+| [**getIncentivePlan()**](InvestorApi.md#getIncentivePlan) | **GET** /deals/{id}/investors/{investor_id}/incentive_plan | Get investor incentive plan by investor id |
 | [**getInvestor()**](InvestorApi.md#getInvestor) | **GET** /deals/{id}/investors/{investor_id} | Get a deal investor by id |
 | [**getInvestorOtpLink()**](InvestorApi.md#getInvestorOtpLink) | **GET** /deals/{id}/investors/{investor_id}/otp_access_link | Get OTP access link for deal investor |
 | [**listInvestors()**](InvestorApi.md#listInvestors) | **GET** /deals/{id}/investors | List deal investors |
@@ -486,6 +487,65 @@ try {
 ### Return type
 
 [**\DealMaker\Model\V1EntitiesInvestor**](../Model/V1EntitiesInvestor.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getIncentivePlan()`
+
+```php
+getIncentivePlan($id, $investor_id): \DealMaker\Model\V1EntitiesInvestorPriceDetails
+```
+
+Get investor incentive plan by investor id
+
+Gets a single investor incentive plan by the investor id.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new DealMaker\Api\InvestorApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = 56; // int | The deal id.
+$investor_id = 56; // int | The investor id.
+
+try {
+    $result = $apiInstance->getIncentivePlan($id, $investor_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling InvestorApi->getIncentivePlan: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **int**| The deal id. | |
+| **investor_id** | **int**| The investor id. | |
+
+### Return type
+
+[**\DealMaker\Model\V1EntitiesInvestorPriceDetails**](../Model/V1EntitiesInvestorPriceDetails.md)
 
 ### Authorization
 

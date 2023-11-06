@@ -141,6 +141,19 @@ describe 'InvestorApi' do
     end
   end
 
+  # unit tests for get_incentive_plan
+  # Get investor incentive plan by investor id
+  # Gets a single investor incentive plan by the investor id.
+  # @param id The deal id.
+  # @param investor_id The investor id.
+  # @param [Hash] opts the optional parameters
+  # @return [V1EntitiesInvestorPriceDetails]
+  describe 'get_incentive_plan test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for get_investor
   # Get a deal investor by id
   # Gets a single investor by the id.

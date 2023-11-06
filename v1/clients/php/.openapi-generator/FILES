@@ -72,7 +72,10 @@ docs/Model/V1EntitiesExpressWireInstruction.md
 docs/Model/V1EntitiesExpressWireInstructions.md
 docs/Model/V1EntitiesGenericResponse.md
 docs/Model/V1EntitiesInvestor.md
+docs/Model/V1EntitiesInvestorIncentivePlan.md
+docs/Model/V1EntitiesInvestorIncentiveTier.md
 docs/Model/V1EntitiesInvestorOtpAccessLink.md
+docs/Model/V1EntitiesInvestorPriceDetails.md
 docs/Model/V1EntitiesInvestorProfileAddress.md
 docs/Model/V1EntitiesInvestorProfileCorporation.md
 docs/Model/V1EntitiesInvestorProfileFieldsAccountHolder.md
@@ -90,6 +93,7 @@ docs/Model/V1EntitiesInvestorProfileTrust.md
 docs/Model/V1EntitiesInvestorProfiles.md
 docs/Model/V1EntitiesInvestorUser.md
 docs/Model/V1EntitiesInvestors.md
+docs/Model/V1EntitiesMoneyEntity.md
 docs/Model/V1EntitiesPaymentsSelfServeOnboardingDigitalPaymentsConnectionData.md
 docs/Model/V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsResult.md
 docs/Model/V1EntitiesPaymentsSelfServeOnboardingQualificationQuestionnaireResult.md
@@ -178,7 +182,10 @@ lib/Model/V1EntitiesExpressWireInstruction.php
 lib/Model/V1EntitiesExpressWireInstructions.php
 lib/Model/V1EntitiesGenericResponse.php
 lib/Model/V1EntitiesInvestor.php
+lib/Model/V1EntitiesInvestorIncentivePlan.php
+lib/Model/V1EntitiesInvestorIncentiveTier.php
 lib/Model/V1EntitiesInvestorOtpAccessLink.php
+lib/Model/V1EntitiesInvestorPriceDetails.php
 lib/Model/V1EntitiesInvestorProfileAddress.php
 lib/Model/V1EntitiesInvestorProfileCorporation.php
 lib/Model/V1EntitiesInvestorProfileFieldsAccountHolder.php
@@ -196,6 +203,7 @@ lib/Model/V1EntitiesInvestorProfileTrust.php
 lib/Model/V1EntitiesInvestorProfiles.php
 lib/Model/V1EntitiesInvestorUser.php
 lib/Model/V1EntitiesInvestors.php
+lib/Model/V1EntitiesMoneyEntity.php
 lib/Model/V1EntitiesPaymentsSelfServeOnboardingDigitalPaymentsConnectionData.php
 lib/Model/V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsResult.php
 lib/Model/V1EntitiesPaymentsSelfServeOnboardingQualificationQuestionnaireResult.php
@@ -280,7 +288,10 @@ test/Model/V1EntitiesDividendsTest.php
 test/Model/V1EntitiesExpressWireInstructionTest.php
 test/Model/V1EntitiesExpressWireInstructionsTest.php
 test/Model/V1EntitiesGenericResponseTest.php
+test/Model/V1EntitiesInvestorIncentivePlanTest.php
+test/Model/V1EntitiesInvestorIncentiveTierTest.php
 test/Model/V1EntitiesInvestorOtpAccessLinkTest.php
+test/Model/V1EntitiesInvestorPriceDetailsTest.php
 test/Model/V1EntitiesInvestorProfileAddressTest.php
 test/Model/V1EntitiesInvestorProfileCorporationTest.php
 test/Model/V1EntitiesInvestorProfileFieldsAccountHolderTest.php
@@ -299,6 +310,7 @@ test/Model/V1EntitiesInvestorProfilesTest.php
 test/Model/V1EntitiesInvestorTest.php
 test/Model/V1EntitiesInvestorUserTest.php
 test/Model/V1EntitiesInvestorsTest.php
+test/Model/V1EntitiesMoneyEntityTest.php
 test/Model/V1EntitiesPaymentsSelfServeOnboardingDigitalPaymentsConnectionDataTest.php
 test/Model/V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsResultTest.php
 test/Model/V1EntitiesPaymentsSelfServeOnboardingQualificationQuestionnaireResultTest.php

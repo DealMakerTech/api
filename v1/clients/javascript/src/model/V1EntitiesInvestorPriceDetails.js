@@ -19,7 +19,7 @@ import V1EntitiesMoneyEntity from './V1EntitiesMoneyEntity';
 /**
  * The V1EntitiesInvestorPriceDetails model module.
  * @module model/V1EntitiesInvestorPriceDetails
- * @version 0.90.3
+ * @version 0.91.0
  */
 class V1EntitiesInvestorPriceDetails {
     /**

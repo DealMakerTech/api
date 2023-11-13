@@ -2494,7 +2494,7 @@
         "operationId": "getDealsIdInvestorsPaymentsExpressWireInstructions"
       }
     },
-    "/deals/{id}/investors/{investor_id}/background_checks/{search_entity_id}/run": {
+    "/deals/{id}/investors/{investor_id}/background_checks/run": {
       "post": {
         "summary": "Run Alloy background search for the investor",
         "description": "Run Alloy background search for the investor",
@@ -2506,6 +2506,17 @@
         ],
         "parameters": [
           {
+            "in": "formData",
+            "name": "search_entity_ids",
+            "description": "An array of search entity ids.",
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "required": true
+          },
+          {
             "in": "path",
             "name": "id",
             "type": "integer",
@@ -2515,13 +2526,6 @@
           {
             "in": "path",
             "name": "investor_id",
-            "type": "integer",
-            "format": "int32",
-            "required": true
-          },
-          {
-            "in": "path",
-            "name": "search_entity_id",
             "type": "integer",
             "format": "int32",
             "required": true

@@ -41,6 +41,7 @@ import PostWebhooksRequest from './model/PostWebhooksRequest';
 import PutDealsIdInvestors from './model/PutDealsIdInvestors';
 import PutDealsIdScriptTagEnvironmentRequest from './model/PutDealsIdScriptTagEnvironmentRequest';
 import PutWebhooksIdRequest from './model/PutWebhooksIdRequest';
+import RunBackgroundSearchRequest from './model/RunBackgroundSearchRequest';
 import SendPortalInviteRequest from './model/SendPortalInviteRequest';
 import UpdateUserPasswordRequest from './model/UpdateUserPasswordRequest';
 import V1EntitiesAddress from './model/V1EntitiesAddress';
@@ -149,7 +150,7 @@ import UsersApi from './api/UsersApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.91.0
+* @version 0.91.1
 */
 export {
     /**
@@ -325,6 +326,12 @@ export {
      * @property {module:model/PutWebhooksIdRequest}
      */
     PutWebhooksIdRequest,
+
+    /**
+     * The RunBackgroundSearchRequest model constructor.
+     * @property {module:model/RunBackgroundSearchRequest}
+     */
+    RunBackgroundSearchRequest,
 
     /**
      * The SendPortalInviteRequest model constructor.

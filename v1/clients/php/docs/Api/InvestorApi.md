@@ -17,7 +17,7 @@ All URIs are relative to http://api.dealmaker.tech, except if the operation defi
 | [**getInvestorOtpLink()**](InvestorApi.md#getInvestorOtpLink) | **GET** /deals/{id}/investors/{investor_id}/otp_access_link | Get OTP access link for deal investor |
 | [**listInvestors()**](InvestorApi.md#listInvestors) | **GET** /deals/{id}/investors | List deal investors |
 | [**patchInvestor()**](InvestorApi.md#patchInvestor) | **PATCH** /deals/{id}/investors/{investor_id} | Patch a deal investor |
-| [**runBackgroundSearch()**](InvestorApi.md#runBackgroundSearch) | **POST** /deals/{id}/investors/{investor_id}/background_checks/{search_entity_id}/run | Run Alloy background search for the investor |
+| [**runBackgroundSearch()**](InvestorApi.md#runBackgroundSearch) | **POST** /deals/{id}/investors/{investor_id}/background_checks/run | Run Alloy background search for the investor |
 | [**updateInvestor()**](InvestorApi.md#updateInvestor) | **PUT** /deals/{id}/investors/{investor_id} | Update a deal investor |
 
 
@@ -809,7 +809,7 @@ No authorization required
 ## `runBackgroundSearch()`
 
 ```php
-runBackgroundSearch($id, $investor_id, $search_entity_id): \DealMaker\Model\V1EntitiesInvestor
+runBackgroundSearch($id, $investor_id, $run_background_search_request): \DealMaker\Model\V1EntitiesInvestor
 ```
 
 Run Alloy background search for the investor
@@ -831,10 +831,10 @@ $apiInstance = new DealMaker\Api\InvestorApi(
 );
 $id = 56; // int
 $investor_id = 56; // int
-$search_entity_id = 56; // int
+$run_background_search_request = new \DealMaker\Model\RunBackgroundSearchRequest(); // \DealMaker\Model\RunBackgroundSearchRequest
 
 try {
-    $result = $apiInstance->runBackgroundSearch($id, $investor_id, $search_entity_id);
+    $result = $apiInstance->runBackgroundSearch($id, $investor_id, $run_background_search_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling InvestorApi->runBackgroundSearch: ', $e->getMessage(), PHP_EOL;
@@ -847,7 +847,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **int**|  | |
 | **investor_id** | **int**|  | |
-| **search_entity_id** | **int**|  | |
+| **run_background_search_request** | [**\DealMaker\Model\RunBackgroundSearchRequest**](../Model/RunBackgroundSearchRequest.md)|  | |
 
 ### Return type
 
@@ -859,7 +859,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

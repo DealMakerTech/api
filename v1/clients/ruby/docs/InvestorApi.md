@@ -17,7 +17,7 @@ All URIs are relative to *http://api.dealmaker.tech*
 | [**get_investor_otp_link**](InvestorApi.md#get_investor_otp_link) | **GET** /deals/{id}/investors/{investor_id}/otp_access_link | Get OTP access link for deal investor |
 | [**list_investors**](InvestorApi.md#list_investors) | **GET** /deals/{id}/investors | List deal investors |
 | [**patch_investor**](InvestorApi.md#patch_investor) | **PATCH** /deals/{id}/investors/{investor_id} | Patch a deal investor |
-| [**run_background_search**](InvestorApi.md#run_background_search) | **POST** /deals/{id}/investors/{investor_id}/background_checks/{search_entity_id}/run | Run Alloy background search for the investor |
+| [**run_background_search**](InvestorApi.md#run_background_search) | **POST** /deals/{id}/investors/{investor_id}/background_checks/run | Run Alloy background search for the investor |
 | [**update_investor**](InvestorApi.md#update_investor) | **PUT** /deals/{id}/investors/{investor_id} | Update a deal investor |
 
 
@@ -927,7 +927,7 @@ No authorization required
 
 ## run_background_search
 
-> <V1EntitiesInvestor> run_background_search(id, investor_id, search_entity_id)
+> <V1EntitiesInvestor> run_background_search(id, investor_id, run_background_search_request)
 
 Run Alloy background search for the investor
 
@@ -942,11 +942,11 @@ require 'DealMakerAPI'
 api_instance = DealMakerAPI::InvestorApi.new
 id = 56 # Integer | 
 investor_id = 56 # Integer | 
-search_entity_id = 56 # Integer | 
+run_background_search_request = DealMakerAPI::RunBackgroundSearchRequest.new({search_entity_ids: [37]}) # RunBackgroundSearchRequest | 
 
 begin
   # Run Alloy background search for the investor
-  result = api_instance.run_background_search(id, investor_id, search_entity_id)
+  result = api_instance.run_background_search(id, investor_id, run_background_search_request)
   p result
 rescue DealMakerAPI::ApiError => e
   puts "Error when calling InvestorApi->run_background_search: #{e}"
@@ -957,12 +957,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<V1EntitiesInvestor>, Integer, Hash)> run_background_search_with_http_info(id, investor_id, search_entity_id)
+> <Array(<V1EntitiesInvestor>, Integer, Hash)> run_background_search_with_http_info(id, investor_id, run_background_search_request)
 
 ```ruby
 begin
   # Run Alloy background search for the investor
-  data, status_code, headers = api_instance.run_background_search_with_http_info(id, investor_id, search_entity_id)
+  data, status_code, headers = api_instance.run_background_search_with_http_info(id, investor_id, run_background_search_request)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <V1EntitiesInvestor>
@@ -977,7 +977,7 @@ end
 | ---- | ---- | ----------- | ----- |
 | **id** | **Integer** |  |  |
 | **investor_id** | **Integer** |  |  |
-| **search_entity_id** | **Integer** |  |  |
+| **run_background_search_request** | [**RunBackgroundSearchRequest**](RunBackgroundSearchRequest.md) |  |  |
 
 ### Return type
 
@@ -989,7 +989,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 

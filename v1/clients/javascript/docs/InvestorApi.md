@@ -17,7 +17,7 @@ Method | HTTP request | Description
 [**getInvestorOtpLink**](InvestorApi.md#getInvestorOtpLink) | **GET** /deals/{id}/investors/{investor_id}/otp_access_link | Get OTP access link for deal investor
 [**listInvestors**](InvestorApi.md#listInvestors) | **GET** /deals/{id}/investors | List deal investors
 [**patchInvestor**](InvestorApi.md#patchInvestor) | **PATCH** /deals/{id}/investors/{investor_id} | Patch a deal investor
-[**runBackgroundSearch**](InvestorApi.md#runBackgroundSearch) | **POST** /deals/{id}/investors/{investor_id}/background_checks/{search_entity_id}/run | Run Alloy background search for the investor
+[**runBackgroundSearch**](InvestorApi.md#runBackgroundSearch) | **POST** /deals/{id}/investors/{investor_id}/background_checks/run | Run Alloy background search for the investor
 [**updateInvestor**](InvestorApi.md#updateInvestor) | **PUT** /deals/{id}/investors/{investor_id} | Update a deal investor
 
 
@@ -670,7 +670,7 @@ No authorization required
 
 ## runBackgroundSearch
 
-> V1EntitiesInvestor runBackgroundSearch(id, investorId, searchEntityId)
+> V1EntitiesInvestor runBackgroundSearch(id, investorId, runBackgroundSearchRequest)
 
 Run Alloy background search for the investor
 
@@ -684,8 +684,8 @@ import Api from 'api';
 let apiInstance = new Api.InvestorApi();
 let id = 56; // Number | 
 let investorId = 56; // Number | 
-let searchEntityId = 56; // Number | 
-apiInstance.runBackgroundSearch(id, investorId, searchEntityId, (error, data, response) => {
+let runBackgroundSearchRequest = new Api.RunBackgroundSearchRequest(); // RunBackgroundSearchRequest | 
+apiInstance.runBackgroundSearch(id, investorId, runBackgroundSearchRequest, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -701,7 +701,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Number**|  | 
  **investorId** | **Number**|  | 
- **searchEntityId** | **Number**|  | 
+ **runBackgroundSearchRequest** | [**RunBackgroundSearchRequest**](RunBackgroundSearchRequest.md)|  | 
 
 ### Return type
 
@@ -713,7 +713,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 

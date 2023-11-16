@@ -17,7 +17,7 @@ import V1EntitiesInvestorProfileAddress from './V1EntitiesInvestorProfileAddress
 /**
  * The V1EntitiesInvestorProfileFieldsSigningOfficer model module.
  * @module model/V1EntitiesInvestorProfileFieldsSigningOfficer
- * @version 0.91.1
+ * @version 0.91.2
  */
 class V1EntitiesInvestorProfileFieldsSigningOfficer {
     /**

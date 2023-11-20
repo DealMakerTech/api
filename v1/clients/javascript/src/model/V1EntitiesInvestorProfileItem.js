@@ -12,12 +12,12 @@
  */
 
 import ApiClient from '../ApiClient';
-import V1EntitiesInvestorProfileTrust from './V1EntitiesInvestorProfileTrust';
+import V1EntitiesInvestorProfileManaged from './V1EntitiesInvestorProfileManaged';
 
 /**
  * The V1EntitiesInvestorProfileItem model module.
  * @module model/V1EntitiesInvestorProfileItem
- * @version 0.91.2
+ * @version 0.91.3
  */
 class V1EntitiesInvestorProfileItem {
     /**
@@ -50,7 +50,7 @@ class V1EntitiesInvestorProfileItem {
             obj = obj || new V1EntitiesInvestorProfileItem();
 
             if (data.hasOwnProperty('profile')) {
-                obj['profile'] = V1EntitiesInvestorProfileTrust.constructFromObject(data['profile']);
+                obj['profile'] = V1EntitiesInvestorProfileManaged.constructFromObject(data['profile']);
             }
         }
         return obj;
@@ -64,7 +64,7 @@ class V1EntitiesInvestorProfileItem {
     static validateJSON(data) {
         // validate the optional field `profile`
         if (data['profile']) { // data not null
-          V1EntitiesInvestorProfileTrust.validateJSON(data['profile']);
+          V1EntitiesInvestorProfileManaged.validateJSON(data['profile']);
         }
 
         return true;
@@ -76,7 +76,7 @@ class V1EntitiesInvestorProfileItem {
 
 
 /**
- * @member {module:model/V1EntitiesInvestorProfileTrust} profile
+ * @member {module:model/V1EntitiesInvestorProfileManaged} profile
  */
 V1EntitiesInvestorProfileItem.prototype['profile'] = undefined;
 

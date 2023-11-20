@@ -299,6 +299,7 @@ class V1EntitiesInvestorProfileJoint implements ModelInterface, ArrayAccess, \Js
     public const TYPE_JOINT = 'joint';
     public const TYPE_CORPORATION = 'corporation';
     public const TYPE_TRUST = 'trust';
+    public const TYPE_MANAGED = 'managed';
 
     /**
      * Gets allowable values of the enum
@@ -312,6 +313,7 @@ class V1EntitiesInvestorProfileJoint implements ModelInterface, ArrayAccess, \Js
             self::TYPE_JOINT,
             self::TYPE_CORPORATION,
             self::TYPE_TRUST,
+            self::TYPE_MANAGED,
         ];
     }
 

@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**createCorporationProfile**](InvestorProfileApi.md#createCorporationProfile) | **POST** /investor_profiles/corporations | Create new corporation investor profile.
 [**createIndividualProfile**](InvestorProfileApi.md#createIndividualProfile) | **POST** /investor_profiles/individuals | Create new individual investor profile
 [**createJointProfile**](InvestorProfileApi.md#createJointProfile) | **POST** /investor_profiles/joints | Create new joint investor profile
+[**createManagedProfile**](InvestorProfileApi.md#createManagedProfile) | **POST** /investor_profiles/managed | Create new managed investor profile.
 [**createTrustProfile**](InvestorProfileApi.md#createTrustProfile) | **POST** /investor_profiles/trusts | Create new trust investor profile.
 [**getDealInvestorProfiles**](InvestorProfileApi.md#getDealInvestorProfiles) | **GET** /investor_profiles/{deal_id} | Get list of InvestorProfiles for a specific deal
 [**getInvestorProfile**](InvestorProfileApi.md#getInvestorProfile) | **GET** /investor_profiles/profile/{id} | Get an investor profile by id
@@ -145,6 +146,52 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**V1EntitiesInvestorProfileJoint**](V1EntitiesInvestorProfileJoint.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## createManagedProfile
+
+> V1EntitiesInvestorProfileManaged createManagedProfile(investorProfilesManaged)
+
+Create new managed investor profile.
+
+Create new managed investor profile associated to the user by email.
+
+### Example
+
+```javascript
+import Api from 'api';
+let defaultClient = Api.ApiClient.instance;
+
+let apiInstance = new Api.InvestorProfileApi();
+let investorProfilesManaged = new Api.PostInvestorProfilesManaged(); // PostInvestorProfilesManaged | 
+apiInstance.createManagedProfile(investorProfilesManaged, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **investorProfilesManaged** | [**PostInvestorProfilesManaged**](PostInvestorProfilesManaged.md)|  | 
+
+### Return type
+
+[**V1EntitiesInvestorProfileManaged**](V1EntitiesInvestorProfileManaged.md)
 
 ### Authorization
 

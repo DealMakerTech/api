@@ -80,6 +80,51 @@ class V1EntitiesInvestorPriceDetailsTest extends TestCase
     }
 
     /**
+     * Test attribute "investment_amount"
+     */
+    public function testPropertyInvestmentAmount()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "full_investment_amount"
+     */
+    public function testPropertyFullInvestmentAmount()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "saved_investment_amount"
+     */
+    public function testPropertySavedInvestmentAmount()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "number_of_securities"
+     */
+    public function testPropertyNumberOfSecurities()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "full_number_of_securities"
+     */
+    public function testPropertyFullNumberOfSecurities()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "full_price"
      */
     public function testPropertyFullPrice()

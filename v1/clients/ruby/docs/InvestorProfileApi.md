@@ -7,6 +7,7 @@ All URIs are relative to *http://api.dealmaker.tech*
 | [**create_corporation_profile**](InvestorProfileApi.md#create_corporation_profile) | **POST** /investor_profiles/corporations | Create new corporation investor profile. |
 | [**create_individual_profile**](InvestorProfileApi.md#create_individual_profile) | **POST** /investor_profiles/individuals | Create new individual investor profile |
 | [**create_joint_profile**](InvestorProfileApi.md#create_joint_profile) | **POST** /investor_profiles/joints | Create new joint investor profile |
+| [**create_managed_profile**](InvestorProfileApi.md#create_managed_profile) | **POST** /investor_profiles/managed | Create new managed investor profile. |
 | [**create_trust_profile**](InvestorProfileApi.md#create_trust_profile) | **POST** /investor_profiles/trusts | Create new trust investor profile. |
 | [**get_deal_investor_profiles**](InvestorProfileApi.md#get_deal_investor_profiles) | **GET** /investor_profiles/{deal_id} | Get list of InvestorProfiles for a specific deal |
 | [**get_investor_profile**](InvestorProfileApi.md#get_investor_profile) | **GET** /investor_profiles/profile/{id} | Get an investor profile by id |
@@ -204,6 +205,72 @@ end
 ### Return type
 
 [**V1EntitiesInvestorProfileJoint**](V1EntitiesInvestorProfileJoint.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## create_managed_profile
+
+> <V1EntitiesInvestorProfileManaged> create_managed_profile(investor_profiles_managed)
+
+Create new managed investor profile.
+
+Create new managed investor profile associated to the user by email.
+
+### Examples
+
+```ruby
+require 'time'
+require 'DealMakerAPI'
+# setup authorization
+DealMakerAPI.configure do |config|end
+
+api_instance = DealMakerAPI::InvestorProfileApi.new
+investor_profiles_managed = DealMakerAPI::PostInvestorProfilesManaged.new({email: 'email_example'}) # PostInvestorProfilesManaged | 
+
+begin
+  # Create new managed investor profile.
+  result = api_instance.create_managed_profile(investor_profiles_managed)
+  p result
+rescue DealMakerAPI::ApiError => e
+  puts "Error when calling InvestorProfileApi->create_managed_profile: #{e}"
+end
+```
+
+#### Using the create_managed_profile_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<V1EntitiesInvestorProfileManaged>, Integer, Hash)> create_managed_profile_with_http_info(investor_profiles_managed)
+
+```ruby
+begin
+  # Create new managed investor profile.
+  data, status_code, headers = api_instance.create_managed_profile_with_http_info(investor_profiles_managed)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <V1EntitiesInvestorProfileManaged>
+rescue DealMakerAPI::ApiError => e
+  puts "Error when calling InvestorProfileApi->create_managed_profile_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **investor_profiles_managed** | [**PostInvestorProfilesManaged**](PostInvestorProfilesManaged.md) |  |  |
+
+### Return type
+
+[**V1EntitiesInvestorProfileManaged**](V1EntitiesInvestorProfileManaged.md)
 
 ### Authorization
 

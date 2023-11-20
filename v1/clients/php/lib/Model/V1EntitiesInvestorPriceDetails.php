@@ -58,6 +58,11 @@ class V1EntitiesInvestorPriceDetails implements ModelInterface, ArrayAccess, \Js
       * @var string[]
       */
     protected static $openAPITypes = [
+        'investment_amount' => 'string',
+        'full_investment_amount' => 'string',
+        'saved_investment_amount' => 'string',
+        'number_of_securities' => 'int',
+        'full_number_of_securities' => 'int',
         'full_price' => '\DealMaker\Model\V1EntitiesMoneyEntity',
         'final_price' => '\DealMaker\Model\V1EntitiesMoneyEntity',
         'effective_tier' => '\DealMaker\Model\V1EntitiesInvestorIncentiveTier',
@@ -72,6 +77,11 @@ class V1EntitiesInvestorPriceDetails implements ModelInterface, ArrayAccess, \Js
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'investment_amount' => null,
+        'full_investment_amount' => null,
+        'saved_investment_amount' => null,
+        'number_of_securities' => 'int32',
+        'full_number_of_securities' => 'int32',
         'full_price' => null,
         'final_price' => null,
         'effective_tier' => null,
@@ -84,7 +94,12 @@ class V1EntitiesInvestorPriceDetails implements ModelInterface, ArrayAccess, \Js
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'full_price' => false,
+        'investment_amount' => false,
+		'full_investment_amount' => false,
+		'saved_investment_amount' => false,
+		'number_of_securities' => false,
+		'full_number_of_securities' => false,
+		'full_price' => false,
 		'final_price' => false,
 		'effective_tier' => false,
 		'incentive_plan' => false
@@ -176,6 +191,11 @@ class V1EntitiesInvestorPriceDetails implements ModelInterface, ArrayAccess, \Js
      * @var string[]
      */
     protected static $attributeMap = [
+        'investment_amount' => 'investment_amount',
+        'full_investment_amount' => 'full_investment_amount',
+        'saved_investment_amount' => 'saved_investment_amount',
+        'number_of_securities' => 'number_of_securities',
+        'full_number_of_securities' => 'full_number_of_securities',
         'full_price' => 'full_price',
         'final_price' => 'final_price',
         'effective_tier' => 'effective_tier',
@@ -188,6 +208,11 @@ class V1EntitiesInvestorPriceDetails implements ModelInterface, ArrayAccess, \Js
      * @var string[]
      */
     protected static $setters = [
+        'investment_amount' => 'setInvestmentAmount',
+        'full_investment_amount' => 'setFullInvestmentAmount',
+        'saved_investment_amount' => 'setSavedInvestmentAmount',
+        'number_of_securities' => 'setNumberOfSecurities',
+        'full_number_of_securities' => 'setFullNumberOfSecurities',
         'full_price' => 'setFullPrice',
         'final_price' => 'setFinalPrice',
         'effective_tier' => 'setEffectiveTier',
@@ -200,6 +225,11 @@ class V1EntitiesInvestorPriceDetails implements ModelInterface, ArrayAccess, \Js
      * @var string[]
      */
     protected static $getters = [
+        'investment_amount' => 'getInvestmentAmount',
+        'full_investment_amount' => 'getFullInvestmentAmount',
+        'saved_investment_amount' => 'getSavedInvestmentAmount',
+        'number_of_securities' => 'getNumberOfSecurities',
+        'full_number_of_securities' => 'getFullNumberOfSecurities',
         'full_price' => 'getFullPrice',
         'final_price' => 'getFinalPrice',
         'effective_tier' => 'getEffectiveTier',
@@ -263,6 +293,11 @@ class V1EntitiesInvestorPriceDetails implements ModelInterface, ArrayAccess, \Js
      */
     public function __construct(array $data = null)
     {
+        $this->setIfExists('investment_amount', $data ?? [], null);
+        $this->setIfExists('full_investment_amount', $data ?? [], null);
+        $this->setIfExists('saved_investment_amount', $data ?? [], null);
+        $this->setIfExists('number_of_securities', $data ?? [], null);
+        $this->setIfExists('full_number_of_securities', $data ?? [], null);
         $this->setIfExists('full_price', $data ?? [], null);
         $this->setIfExists('final_price', $data ?? [], null);
         $this->setIfExists('effective_tier', $data ?? [], null);
@@ -310,6 +345,141 @@ class V1EntitiesInvestorPriceDetails implements ModelInterface, ArrayAccess, \Js
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets investment_amount
+     *
+     * @return string|null
+     */
+    public function getInvestmentAmount()
+    {
+        return $this->container['investment_amount'];
+    }
+
+    /**
+     * Sets investment_amount
+     *
+     * @param string|null $investment_amount The investment amount in dollar.
+     *
+     * @return self
+     */
+    public function setInvestmentAmount($investment_amount)
+    {
+        if (is_null($investment_amount)) {
+            throw new \InvalidArgumentException('non-nullable investment_amount cannot be null');
+        }
+        $this->container['investment_amount'] = $investment_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets full_investment_amount
+     *
+     * @return string|null
+     */
+    public function getFullInvestmentAmount()
+    {
+        return $this->container['full_investment_amount'];
+    }
+
+    /**
+     * Sets full_investment_amount
+     *
+     * @param string|null $full_investment_amount The investment amount at full price to get the same number of securities
+     *
+     * @return self
+     */
+    public function setFullInvestmentAmount($full_investment_amount)
+    {
+        if (is_null($full_investment_amount)) {
+            throw new \InvalidArgumentException('non-nullable full_investment_amount cannot be null');
+        }
+        $this->container['full_investment_amount'] = $full_investment_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets saved_investment_amount
+     *
+     * @return string|null
+     */
+    public function getSavedInvestmentAmount()
+    {
+        return $this->container['saved_investment_amount'];
+    }
+
+    /**
+     * Sets saved_investment_amount
+     *
+     * @param string|null $saved_investment_amount The saved amount.
+     *
+     * @return self
+     */
+    public function setSavedInvestmentAmount($saved_investment_amount)
+    {
+        if (is_null($saved_investment_amount)) {
+            throw new \InvalidArgumentException('non-nullable saved_investment_amount cannot be null');
+        }
+        $this->container['saved_investment_amount'] = $saved_investment_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets number_of_securities
+     *
+     * @return int|null
+     */
+    public function getNumberOfSecurities()
+    {
+        return $this->container['number_of_securities'];
+    }
+
+    /**
+     * Sets number_of_securities
+     *
+     * @param int|null $number_of_securities The number of securities.
+     *
+     * @return self
+     */
+    public function setNumberOfSecurities($number_of_securities)
+    {
+        if (is_null($number_of_securities)) {
+            throw new \InvalidArgumentException('non-nullable number_of_securities cannot be null');
+        }
+        $this->container['number_of_securities'] = $number_of_securities;
+
+        return $this;
+    }
+
+    /**
+     * Gets full_number_of_securities
+     *
+     * @return int|null
+     */
+    public function getFullNumberOfSecurities()
+    {
+        return $this->container['full_number_of_securities'];
+    }
+
+    /**
+     * Sets full_number_of_securities
+     *
+     * @param int|null $full_number_of_securities The number of securities you could get at full price
+     *
+     * @return self
+     */
+    public function setFullNumberOfSecurities($full_number_of_securities)
+    {
+        if (is_null($full_number_of_securities)) {
+            throw new \InvalidArgumentException('non-nullable full_number_of_securities cannot be null');
+        }
+        $this->container['full_number_of_securities'] = $full_number_of_securities;
+
+        return $this;
+    }
 
     /**
      * Gets full_price

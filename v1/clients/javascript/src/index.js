@@ -35,6 +35,7 @@ import PostInvestorProfilesCorporations from './model/PostInvestorProfilesCorpor
 import PostInvestorProfilesCorporationsBeneficialOwnersInner from './model/PostInvestorProfilesCorporationsBeneficialOwnersInner';
 import PostInvestorProfilesIndividuals from './model/PostInvestorProfilesIndividuals';
 import PostInvestorProfilesJoints from './model/PostInvestorProfilesJoints';
+import PostInvestorProfilesManaged from './model/PostInvestorProfilesManaged';
 import PostInvestorProfilesTrusts from './model/PostInvestorProfilesTrusts';
 import PostInvestorProfilesTrustsTrusteesInner from './model/PostInvestorProfilesTrustsTrusteesInner';
 import PostWebhooksRequest from './model/PostWebhooksRequest';
@@ -79,14 +80,17 @@ import V1EntitiesInvestorProfileAddress from './model/V1EntitiesInvestorProfileA
 import V1EntitiesInvestorProfileCorporation from './model/V1EntitiesInvestorProfileCorporation';
 import V1EntitiesInvestorProfileFieldsAccountHolder from './model/V1EntitiesInvestorProfileFieldsAccountHolder';
 import V1EntitiesInvestorProfileFieldsBeneficialOwner from './model/V1EntitiesInvestorProfileFieldsBeneficialOwner';
+import V1EntitiesInvestorProfileFieldsBeneficiary from './model/V1EntitiesInvestorProfileFieldsBeneficiary';
 import V1EntitiesInvestorProfileFieldsCorporation from './model/V1EntitiesInvestorProfileFieldsCorporation';
 import V1EntitiesInvestorProfileFieldsPrimaryHolder from './model/V1EntitiesInvestorProfileFieldsPrimaryHolder';
+import V1EntitiesInvestorProfileFieldsProvider from './model/V1EntitiesInvestorProfileFieldsProvider';
 import V1EntitiesInvestorProfileFieldsSigningOfficer from './model/V1EntitiesInvestorProfileFieldsSigningOfficer';
 import V1EntitiesInvestorProfileFieldsTrust from './model/V1EntitiesInvestorProfileFieldsTrust';
 import V1EntitiesInvestorProfileFieldsTrustee from './model/V1EntitiesInvestorProfileFieldsTrustee';
 import V1EntitiesInvestorProfileIndividual from './model/V1EntitiesInvestorProfileIndividual';
 import V1EntitiesInvestorProfileItem from './model/V1EntitiesInvestorProfileItem';
 import V1EntitiesInvestorProfileJoint from './model/V1EntitiesInvestorProfileJoint';
+import V1EntitiesInvestorProfileManaged from './model/V1EntitiesInvestorProfileManaged';
 import V1EntitiesInvestorProfileOwner from './model/V1EntitiesInvestorProfileOwner';
 import V1EntitiesInvestorProfileTrust from './model/V1EntitiesInvestorProfileTrust';
 import V1EntitiesInvestorProfiles from './model/V1EntitiesInvestorProfiles';
@@ -150,7 +154,7 @@ import UsersApi from './api/UsersApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.91.2
+* @version 0.91.3
 */
 export {
     /**
@@ -290,6 +294,12 @@ export {
      * @property {module:model/PostInvestorProfilesJoints}
      */
     PostInvestorProfilesJoints,
+
+    /**
+     * The PostInvestorProfilesManaged model constructor.
+     * @property {module:model/PostInvestorProfilesManaged}
+     */
+    PostInvestorProfilesManaged,
 
     /**
      * The PostInvestorProfilesTrusts model constructor.
@@ -556,6 +566,12 @@ export {
     V1EntitiesInvestorProfileFieldsBeneficialOwner,
 
     /**
+     * The V1EntitiesInvestorProfileFieldsBeneficiary model constructor.
+     * @property {module:model/V1EntitiesInvestorProfileFieldsBeneficiary}
+     */
+    V1EntitiesInvestorProfileFieldsBeneficiary,
+
+    /**
      * The V1EntitiesInvestorProfileFieldsCorporation model constructor.
      * @property {module:model/V1EntitiesInvestorProfileFieldsCorporation}
      */
@@ -566,6 +582,12 @@ export {
      * @property {module:model/V1EntitiesInvestorProfileFieldsPrimaryHolder}
      */
     V1EntitiesInvestorProfileFieldsPrimaryHolder,
+
+    /**
+     * The V1EntitiesInvestorProfileFieldsProvider model constructor.
+     * @property {module:model/V1EntitiesInvestorProfileFieldsProvider}
+     */
+    V1EntitiesInvestorProfileFieldsProvider,
 
     /**
      * The V1EntitiesInvestorProfileFieldsSigningOfficer model constructor.
@@ -602,6 +624,12 @@ export {
      * @property {module:model/V1EntitiesInvestorProfileJoint}
      */
     V1EntitiesInvestorProfileJoint,
+
+    /**
+     * The V1EntitiesInvestorProfileManaged model constructor.
+     * @property {module:model/V1EntitiesInvestorProfileManaged}
+     */
+    V1EntitiesInvestorProfileManaged,
 
     /**
      * The V1EntitiesInvestorProfileOwner model constructor.

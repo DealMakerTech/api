@@ -58,7 +58,7 @@ class V1EntitiesInvestorProfileItem implements ModelInterface, ArrayAccess, \Jso
       * @var string[]
       */
     protected static $openAPITypes = [
-        'profile' => '\DealMaker\Model\V1EntitiesInvestorProfileTrust'
+        'profile' => '\DealMaker\Model\V1EntitiesInvestorProfileManaged'
     ];
 
     /**
@@ -293,7 +293,7 @@ class V1EntitiesInvestorProfileItem implements ModelInterface, ArrayAccess, \Jso
     /**
      * Gets profile
      *
-     * @return \DealMaker\Model\V1EntitiesInvestorProfileTrust|null
+     * @return \DealMaker\Model\V1EntitiesInvestorProfileManaged|null
      */
     public function getProfile()
     {
@@ -303,7 +303,7 @@ class V1EntitiesInvestorProfileItem implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets profile
      *
-     * @param \DealMaker\Model\V1EntitiesInvestorProfileTrust|null $profile profile
+     * @param \DealMaker\Model\V1EntitiesInvestorProfileManaged|null $profile profile
      *
      * @return self
      */

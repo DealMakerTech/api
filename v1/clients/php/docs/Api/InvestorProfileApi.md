@@ -7,6 +7,7 @@ All URIs are relative to http://api.dealmaker.tech, except if the operation defi
 | [**createCorporationProfile()**](InvestorProfileApi.md#createCorporationProfile) | **POST** /investor_profiles/corporations | Create new corporation investor profile. |
 | [**createIndividualProfile()**](InvestorProfileApi.md#createIndividualProfile) | **POST** /investor_profiles/individuals | Create new individual investor profile |
 | [**createJointProfile()**](InvestorProfileApi.md#createJointProfile) | **POST** /investor_profiles/joints | Create new joint investor profile |
+| [**createManagedProfile()**](InvestorProfileApi.md#createManagedProfile) | **POST** /investor_profiles/managed | Create new managed investor profile. |
 | [**createTrustProfile()**](InvestorProfileApi.md#createTrustProfile) | **POST** /investor_profiles/trusts | Create new trust investor profile. |
 | [**getDealInvestorProfiles()**](InvestorProfileApi.md#getDealInvestorProfiles) | **GET** /investor_profiles/{deal_id} | Get list of InvestorProfiles for a specific deal |
 | [**getInvestorProfile()**](InvestorProfileApi.md#getInvestorProfile) | **GET** /investor_profiles/profile/{id} | Get an investor profile by id |
@@ -174,6 +175,63 @@ try {
 ### Return type
 
 [**\DealMaker\Model\V1EntitiesInvestorProfileJoint**](../Model/V1EntitiesInvestorProfileJoint.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `createManagedProfile()`
+
+```php
+createManagedProfile($investor_profiles_managed): \DealMaker\Model\V1EntitiesInvestorProfileManaged
+```
+
+Create new managed investor profile.
+
+Create new managed investor profile associated to the user by email.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new DealMaker\Api\InvestorProfileApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$investor_profiles_managed = new \DealMaker\Model\PostInvestorProfilesManaged(); // \DealMaker\Model\PostInvestorProfilesManaged
+
+try {
+    $result = $apiInstance->createManagedProfile($investor_profiles_managed);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling InvestorProfileApi->createManagedProfile: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **investor_profiles_managed** | [**\DealMaker\Model\PostInvestorProfilesManaged**](../Model/PostInvestorProfilesManaged.md)|  | |
+
+### Return type
+
+[**\DealMaker\Model\V1EntitiesInvestorProfileManaged**](../Model/V1EntitiesInvestorProfileManaged.md)
 
 ### Authorization
 

@@ -895,6 +895,63 @@
         ]
       }
     },
+    "/investor_profiles/managed": {
+      "post": {
+        "summary": "Create new managed investor profile.",
+        "description": "Create new managed investor profile associated to the user by email.",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "InvestorProfilesManaged",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/postInvestorProfilesManaged"
+            }
+          }
+        ],
+        "security": [
+          {
+            "oauth": [
+              "deals.write"
+            ]
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Create new managed investor profile.",
+            "schema": {
+              "$ref": "#/definitions/V1_Entities_InvestorProfile_Managed"
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Forbidden"
+          }
+        },
+        "tags": [
+          "investor_profile"
+        ],
+        "operationId": "createManagedProfile",
+        "x-codeSamples": [
+          {
+            "lang": "javascript",
+            "source": ""
+          },
+          {
+            "lang": "ruby",
+            "source": ""
+          }
+        ]
+      }
+    },
     "/uploads/generate_url": {
       "post": {
         "summary": "Create a presigned URL for Amazon S3",
@@ -4711,7 +4768,8 @@
             "individual",
             "joint",
             "corporation",
-            "trust"
+            "trust",
+            "managed"
           ],
           "description": "Investor Profile type"
         },
@@ -4856,7 +4914,8 @@
             "individual",
             "joint",
             "corporation",
-            "trust"
+            "trust",
+            "managed"
           ],
           "description": "Investor Profile type"
         },
@@ -4943,7 +5002,8 @@
             "individual",
             "joint",
             "corporation",
-            "trust"
+            "trust",
+            "managed"
           ],
           "description": "Investor Profile type"
         },
@@ -5104,7 +5164,8 @@
             "individual",
             "joint",
             "corporation",
-            "trust"
+            "trust",
+            "managed"
           ],
           "description": "Investor Profile type"
         },
@@ -5346,10 +5407,137 @@
       "type": "object",
       "properties": {
         "profile": {
-          "$ref": "#/definitions/V1_Entities_InvestorProfile_Trust"
+          "$ref": "#/definitions/V1_Entities_InvestorProfile_Managed"
         }
       },
       "description": "V1_Entities_InvestorProfileItem model"
+    },
+    "V1_Entities_InvestorProfile_Managed": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Investor Profile id"
+        },
+        "user_id": {
+          "type": "integer",
+          "format": "int32",
+          "description": "User id"
+        },
+        "email": {
+          "type": "string",
+          "description": "User email"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "individual",
+            "joint",
+            "corporation",
+            "trust",
+            "managed"
+          ],
+          "description": "Investor Profile type"
+        },
+        "us_accredited_category": {
+          "type": "string",
+          "description": "The United States accredited investor information"
+        },
+        "ca_accredited_investor": {
+          "type": "string",
+          "description": "The Canadian accredited investor information"
+        },
+        "complete": {
+          "type": "boolean",
+          "description": "To check if the profile is complete or not"
+        },
+        "owner_type": {
+          "type": "string",
+          "description": "Type of the investor profile owner"
+        },
+        "owner": {
+          "$ref": "#/definitions/V1_Entities_InvestorProfile_Owner"
+        },
+        "provider": {
+          "$ref": "#/definitions/V1_Entities_InvestorProfile_Fields_Provider"
+        },
+        "beneficiary": {
+          "$ref": "#/definitions/V1_Entities_InvestorProfile_Fields_Beneficiary"
+        }
+      },
+      "description": "V1_Entities_InvestorProfile_Managed model"
+    },
+    "V1_Entities_InvestorProfile_Fields_Provider": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "The provider name"
+        },
+        "taxpayer_id": {
+          "type": "string",
+          "description": "The taxpayer identification number"
+        },
+        "confirmation": {
+          "type": "boolean",
+          "description": "Confirms that the provider is able to custody these securities and release respective funds in order to complete the purchase"
+        },
+        "income": {
+          "type": "number",
+          "format": "float",
+          "description": "The income"
+        },
+        "net_worth": {
+          "type": "number",
+          "format": "float",
+          "description": "The net worth"
+        },
+        "reg_cf_prior_offerings_amount": {
+          "type": "number",
+          "format": "float",
+          "description": "The prior offering amount in the last 12 months"
+        },
+        "address": {
+          "$ref": "#/definitions/V1_Entities_InvestorProfile_Address"
+        }
+      }
+    },
+    "V1_Entities_InvestorProfile_Fields_Beneficiary": {
+      "type": "object",
+      "properties": {
+        "first_name": {
+          "type": "string",
+          "description": "Investor profile first name"
+        },
+        "last_name": {
+          "type": "string",
+          "description": "Investor profile last name"
+        },
+        "suffix": {
+          "type": "string",
+          "description": "Investor profile suffix"
+        },
+        "date_of_birth": {
+          "type": "string",
+          "description": "The date of birth"
+        },
+        "taxpayer_id": {
+          "type": "string",
+          "description": "The taxpayer identification number"
+        },
+        "address": {
+          "$ref": "#/definitions/V1_Entities_InvestorProfile_Address"
+        },
+        "account_number": {
+          "type": "string",
+          "description": "Beneficiary account number"
+        },
+        "phone_number": {
+          "type": "string",
+          "description": "Beneficiary phone number"
+        }
+      }
     },
     "postInvestorProfilesCorporations": {
       "type": "object",
@@ -6601,6 +6789,154 @@
       },
       "description": "Patch trust investor profile"
     },
+    "postInvestorProfilesManaged": {
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string",
+          "description": "User email which is associated with investor profile (required)."
+        },
+        "us_accredited_category": {
+          "type": "string",
+          "description": "The United States accredited investor information.",
+          "enum": [
+            "income_individual",
+            "assets_individual",
+            "director",
+            "knowledgable_employee",
+            "broker_or_dealer",
+            "investment_advisor_registered",
+            "investment_advisor_relying",
+            "designated_accredited_investor",
+            "not_accredited"
+          ]
+        },
+        "ca_accredited_investor": {
+          "type": "string",
+          "description": "The Canadian accredited investor information.",
+          "enum": [
+            "d",
+            "e",
+            "e_1",
+            "j",
+            "j_1",
+            "k_alone",
+            "k_spouse",
+            "l",
+            "q",
+            "v",
+            "x"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the provider (required)."
+        },
+        "country": {
+          "type": "Country",
+          "description": "The country of the provider (required)."
+        },
+        "street_address": {
+          "type": "string",
+          "description": "The street address of the provider (required)."
+        },
+        "unit2": {
+          "type": "string",
+          "description": "The street address line 2 of the provider."
+        },
+        "city": {
+          "type": "string",
+          "description": "The city of the provider (required)."
+        },
+        "region": {
+          "type": "string",
+          "description": "The region or state of the provider (required)."
+        },
+        "postal_code": {
+          "type": "string",
+          "description": "The postal code or zipcode of the provider (required)."
+        },
+        "taxpayer_id": {
+          "type": "string",
+          "description": "The taxpayer identification number of the provider (required)."
+        },
+        "confirmation": {
+          "type": "boolean",
+          "description": "Confirms that the provider is able to custody these securities and release respective funds in order to complete the purchase (required)."
+        },
+        "income": {
+          "type": "number",
+          "format": "float",
+          "description": "The income of the managed investor profile"
+        },
+        "net_worth": {
+          "type": "number",
+          "format": "float",
+          "description": "The net worth of the managed investor profile"
+        },
+        "reg_cf_prior_offerings_amount": {
+          "type": "number",
+          "format": "float",
+          "description": "The prior offering amount of the managed investor profile"
+        },
+        "beneficiary_account_number": {
+          "type": "string",
+          "description": "The account number of the beneficiary (required)."
+        },
+        "beneficiary_first_name": {
+          "type": "string",
+          "description": "The first name of the beneficiary (required)."
+        },
+        "beneficiary_last_name": {
+          "type": "string",
+          "description": "The last name of the beneficiary (required)."
+        },
+        "beneficiary_suffix": {
+          "type": "string",
+          "description": "The suffix of the beneficiary."
+        },
+        "beneficiary_country": {
+          "type": "Country",
+          "description": "The country of the beneficiary (required)."
+        },
+        "beneficiary_street_address": {
+          "type": "string",
+          "description": "The street address of the beneficiary (required)."
+        },
+        "beneficiary_unit2": {
+          "type": "string",
+          "description": "The street address line 2 of the beneficiary."
+        },
+        "beneficiary_city": {
+          "type": "string",
+          "description": "The city of the beneficiary (required)."
+        },
+        "beneficiary_region": {
+          "type": "string",
+          "description": "The region or state of the beneficiary (required)."
+        },
+        "beneficiary_postal_code": {
+          "type": "string",
+          "description": "The postal code or zipcode of the beneficiary (required)."
+        },
+        "beneficiary_date_of_birth": {
+          "type": "string",
+          "description": "The date of birth of the beneficiary (required)."
+        },
+        "beneficiary_taxpayer_id": {
+          "type": "string",
+          "description": "The taxpayer identification number of the beneficiary (required)."
+        },
+        "beneficiary_phone_number": {
+          "type": "string",
+          "description": "The phone number of the beneficiary (required)."
+        }
+      },
+      "required": [
+        "email"
+      ],
+      "description": "Create new managed investor profile."
+    },
     "V1_Entities_PresignedUrlResult": {
       "type": "object",
       "properties": {
@@ -6693,6 +7029,28 @@
     "V1_Entities_Investor_PriceDetails": {
       "type": "object",
       "properties": {
+        "investment_amount": {
+          "type": "string",
+          "description": "The investment amount in dollar."
+        },
+        "full_investment_amount": {
+          "type": "string",
+          "description": "The investment amount at full price to get the same number of securities"
+        },
+        "saved_investment_amount": {
+          "type": "string",
+          "description": "The saved amount."
+        },
+        "number_of_securities": {
+          "type": "integer",
+          "format": "int32",
+          "description": "The number of securities."
+        },
+        "full_number_of_securities": {
+          "type": "integer",
+          "format": "int32",
+          "description": "The number of securities you could get at full price"
+        },
         "full_price": {
           "$ref": "#/definitions/V1_Entities_MoneyEntity",
           "description": "The full price of the incentive plan."

@@ -223,6 +223,74 @@ module DealMakerAPI
       return data, status_code, headers
     end
 
+    # Create new managed investor profile.
+    # Create new managed investor profile associated to the user by email.
+    # @param investor_profiles_managed [PostInvestorProfilesManaged] 
+    # @param [Hash] opts the optional parameters
+    # @return [V1EntitiesInvestorProfileManaged]
+    def create_managed_profile(investor_profiles_managed, opts = {})
+      data, _status_code, _headers = create_managed_profile_with_http_info(investor_profiles_managed, opts)
+      data
+    end
+
+    # Create new managed investor profile.
+    # Create new managed investor profile associated to the user by email.
+    # @param investor_profiles_managed [PostInvestorProfilesManaged] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(V1EntitiesInvestorProfileManaged, Integer, Hash)>] V1EntitiesInvestorProfileManaged data, response status code and response headers
+    def create_managed_profile_with_http_info(investor_profiles_managed, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: InvestorProfileApi.create_managed_profile ...'
+      end
+      # verify the required parameter 'investor_profiles_managed' is set
+      if @api_client.config.client_side_validation && investor_profiles_managed.nil?
+        fail ArgumentError, "Missing the required parameter 'investor_profiles_managed' when calling InvestorProfileApi.create_managed_profile"
+      end
+      # resource path
+      local_var_path = '/investor_profiles/managed'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(investor_profiles_managed)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'V1EntitiesInvestorProfileManaged'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"InvestorProfileApi.create_managed_profile",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: InvestorProfileApi#create_managed_profile\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Create new trust investor profile.
     # Create new trust investor profile associated to the user by email.
     # @param investor_profiles_trusts [PostInvestorProfilesTrusts] 

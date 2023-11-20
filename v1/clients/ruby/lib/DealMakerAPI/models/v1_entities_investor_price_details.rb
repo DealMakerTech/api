@@ -16,6 +16,21 @@ require 'time'
 module DealMakerAPI
   # V1_Entities_Investor_PriceDetails model
   class V1EntitiesInvestorPriceDetails
+    # The investment amount in dollar.
+    attr_accessor :investment_amount
+
+    # The investment amount at full price to get the same number of securities
+    attr_accessor :full_investment_amount
+
+    # The saved amount.
+    attr_accessor :saved_investment_amount
+
+    # The number of securities.
+    attr_accessor :number_of_securities
+
+    # The number of securities you could get at full price
+    attr_accessor :full_number_of_securities
+
     attr_accessor :full_price
 
     attr_accessor :final_price
@@ -27,6 +42,11 @@ module DealMakerAPI
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'investment_amount' => :'investment_amount',
+        :'full_investment_amount' => :'full_investment_amount',
+        :'saved_investment_amount' => :'saved_investment_amount',
+        :'number_of_securities' => :'number_of_securities',
+        :'full_number_of_securities' => :'full_number_of_securities',
         :'full_price' => :'full_price',
         :'final_price' => :'final_price',
         :'effective_tier' => :'effective_tier',
@@ -42,6 +62,11 @@ module DealMakerAPI
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'investment_amount' => :'String',
+        :'full_investment_amount' => :'String',
+        :'saved_investment_amount' => :'String',
+        :'number_of_securities' => :'Integer',
+        :'full_number_of_securities' => :'Integer',
         :'full_price' => :'V1EntitiesMoneyEntity',
         :'final_price' => :'V1EntitiesMoneyEntity',
         :'effective_tier' => :'V1EntitiesInvestorIncentiveTier',
@@ -69,6 +94,26 @@ module DealMakerAPI
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'investment_amount')
+        self.investment_amount = attributes[:'investment_amount']
+      end
+
+      if attributes.key?(:'full_investment_amount')
+        self.full_investment_amount = attributes[:'full_investment_amount']
+      end
+
+      if attributes.key?(:'saved_investment_amount')
+        self.saved_investment_amount = attributes[:'saved_investment_amount']
+      end
+
+      if attributes.key?(:'number_of_securities')
+        self.number_of_securities = attributes[:'number_of_securities']
+      end
+
+      if attributes.key?(:'full_number_of_securities')
+        self.full_number_of_securities = attributes[:'full_number_of_securities']
+      end
 
       if attributes.key?(:'full_price')
         self.full_price = attributes[:'full_price']
@@ -107,6 +152,11 @@ module DealMakerAPI
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          investment_amount == o.investment_amount &&
+          full_investment_amount == o.full_investment_amount &&
+          saved_investment_amount == o.saved_investment_amount &&
+          number_of_securities == o.number_of_securities &&
+          full_number_of_securities == o.full_number_of_securities &&
           full_price == o.full_price &&
           final_price == o.final_price &&
           effective_tier == o.effective_tier &&
@@ -122,7 +172,7 @@ module DealMakerAPI
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [full_price, final_price, effective_tier, incentive_plan].hash
+      [investment_amount, full_investment_amount, saved_investment_amount, number_of_securities, full_number_of_securities, full_price, final_price, effective_tier, incentive_plan].hash
     end
 
     # Builds the object from hash

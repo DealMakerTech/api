@@ -20,18 +20,20 @@ import PatchInvestorProfilesTrusts from '../model/PatchInvestorProfilesTrusts';
 import PostInvestorProfilesCorporations from '../model/PostInvestorProfilesCorporations';
 import PostInvestorProfilesIndividuals from '../model/PostInvestorProfilesIndividuals';
 import PostInvestorProfilesJoints from '../model/PostInvestorProfilesJoints';
+import PostInvestorProfilesManaged from '../model/PostInvestorProfilesManaged';
 import PostInvestorProfilesTrusts from '../model/PostInvestorProfilesTrusts';
 import V1EntitiesInvestorProfileCorporation from '../model/V1EntitiesInvestorProfileCorporation';
 import V1EntitiesInvestorProfileIndividual from '../model/V1EntitiesInvestorProfileIndividual';
 import V1EntitiesInvestorProfileItem from '../model/V1EntitiesInvestorProfileItem';
 import V1EntitiesInvestorProfileJoint from '../model/V1EntitiesInvestorProfileJoint';
+import V1EntitiesInvestorProfileManaged from '../model/V1EntitiesInvestorProfileManaged';
 import V1EntitiesInvestorProfileTrust from '../model/V1EntitiesInvestorProfileTrust';
 import V1EntitiesInvestorProfiles from '../model/V1EntitiesInvestorProfiles';
 
 /**
 * InvestorProfile service.
 * @module api/InvestorProfileApi
-* @version 0.91.2
+* @version 0.91.3
 */
 export default class InvestorProfileApi {
 
@@ -168,6 +170,48 @@ export default class InvestorProfileApi {
       let returnType = V1EntitiesInvestorProfileJoint;
       return this.apiClient.callApi(
         '/investor_profiles/joints', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the createManagedProfile operation.
+     * @callback module:api/InvestorProfileApi~createManagedProfileCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/V1EntitiesInvestorProfileManaged} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Create new managed investor profile.
+     * Create new managed investor profile associated to the user by email.
+     * @param {module:model/PostInvestorProfilesManaged} investorProfilesManaged 
+     * @param {module:api/InvestorProfileApi~createManagedProfileCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/V1EntitiesInvestorProfileManaged}
+     */
+    createManagedProfile(investorProfilesManaged, callback) {
+      let postBody = investorProfilesManaged;
+      // verify the required parameter 'investorProfilesManaged' is set
+      if (investorProfilesManaged === undefined || investorProfilesManaged === null) {
+        throw new Error("Missing the required parameter 'investorProfilesManaged' when calling createManagedProfile");
+      }
+
+      let pathParams = {
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = V1EntitiesInvestorProfileManaged;
+      return this.apiClient.callApi(
+        '/investor_profiles/managed', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

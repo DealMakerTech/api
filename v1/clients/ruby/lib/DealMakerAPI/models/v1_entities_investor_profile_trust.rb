@@ -185,7 +185,7 @@ module DealMakerAPI
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
-      type_validator = EnumAttributeValidator.new('String', ["individual", "joint", "corporation", "trust"])
+      type_validator = EnumAttributeValidator.new('String', ["individual", "joint", "corporation", "trust", "managed"])
       return false unless type_validator.valid?(@type)
       true
     end
@@ -193,7 +193,7 @@ module DealMakerAPI
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] type Object to be assigned
     def type=(type)
-      validator = EnumAttributeValidator.new('String', ["individual", "joint", "corporation", "trust"])
+      validator = EnumAttributeValidator.new('String', ["individual", "joint", "corporation", "trust", "managed"])
       unless validator.valid?(type)
         fail ArgumentError, "invalid value for \"type\", must be one of #{validator.allowable_values}."
       end

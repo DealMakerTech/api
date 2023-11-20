@@ -29,6 +29,8 @@ Name | Type | Description | Notes
 
 * `trust` (value: `"trust"`)
 
+* `managed` (value: `"managed"`)
+
 
 
 

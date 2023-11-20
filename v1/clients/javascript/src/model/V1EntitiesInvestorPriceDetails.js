@@ -19,7 +19,7 @@ import V1EntitiesMoneyEntity from './V1EntitiesMoneyEntity';
 /**
  * The V1EntitiesInvestorPriceDetails model module.
  * @module model/V1EntitiesInvestorPriceDetails
- * @version 0.91.2
+ * @version 0.91.3
  */
 class V1EntitiesInvestorPriceDetails {
     /**
@@ -51,6 +51,21 @@ class V1EntitiesInvestorPriceDetails {
         if (data) {
             obj = obj || new V1EntitiesInvestorPriceDetails();
 
+            if (data.hasOwnProperty('investment_amount')) {
+                obj['investment_amount'] = ApiClient.convertToType(data['investment_amount'], 'String');
+            }
+            if (data.hasOwnProperty('full_investment_amount')) {
+                obj['full_investment_amount'] = ApiClient.convertToType(data['full_investment_amount'], 'String');
+            }
+            if (data.hasOwnProperty('saved_investment_amount')) {
+                obj['saved_investment_amount'] = ApiClient.convertToType(data['saved_investment_amount'], 'String');
+            }
+            if (data.hasOwnProperty('number_of_securities')) {
+                obj['number_of_securities'] = ApiClient.convertToType(data['number_of_securities'], 'Number');
+            }
+            if (data.hasOwnProperty('full_number_of_securities')) {
+                obj['full_number_of_securities'] = ApiClient.convertToType(data['full_number_of_securities'], 'Number');
+            }
             if (data.hasOwnProperty('full_price')) {
                 obj['full_price'] = V1EntitiesMoneyEntity.constructFromObject(data['full_price']);
             }
@@ -73,6 +88,18 @@ class V1EntitiesInvestorPriceDetails {
      * @return {boolean} to indicate whether the JSON data is valid with respect to <code>V1EntitiesInvestorPriceDetails</code>.
      */
     static validateJSON(data) {
+        // ensure the json data is a string
+        if (data['investment_amount'] && !(typeof data['investment_amount'] === 'string' || data['investment_amount'] instanceof String)) {
+            throw new Error("Expected the field `investment_amount` to be a primitive type in the JSON string but got " + data['investment_amount']);
+        }
+        // ensure the json data is a string
+        if (data['full_investment_amount'] && !(typeof data['full_investment_amount'] === 'string' || data['full_investment_amount'] instanceof String)) {
+            throw new Error("Expected the field `full_investment_amount` to be a primitive type in the JSON string but got " + data['full_investment_amount']);
+        }
+        // ensure the json data is a string
+        if (data['saved_investment_amount'] && !(typeof data['saved_investment_amount'] === 'string' || data['saved_investment_amount'] instanceof String)) {
+            throw new Error("Expected the field `saved_investment_amount` to be a primitive type in the JSON string but got " + data['saved_investment_amount']);
+        }
         // validate the optional field `full_price`
         if (data['full_price']) { // data not null
           V1EntitiesMoneyEntity.validateJSON(data['full_price']);
@@ -97,6 +124,36 @@ class V1EntitiesInvestorPriceDetails {
 }
 
 
+
+/**
+ * The investment amount in dollar.
+ * @member {String} investment_amount
+ */
+V1EntitiesInvestorPriceDetails.prototype['investment_amount'] = undefined;
+
+/**
+ * The investment amount at full price to get the same number of securities
+ * @member {String} full_investment_amount
+ */
+V1EntitiesInvestorPriceDetails.prototype['full_investment_amount'] = undefined;
+
+/**
+ * The saved amount.
+ * @member {String} saved_investment_amount
+ */
+V1EntitiesInvestorPriceDetails.prototype['saved_investment_amount'] = undefined;
+
+/**
+ * The number of securities.
+ * @member {Number} number_of_securities
+ */
+V1EntitiesInvestorPriceDetails.prototype['number_of_securities'] = undefined;
+
+/**
+ * The number of securities you could get at full price
+ * @member {Number} full_number_of_securities
+ */
+V1EntitiesInvestorPriceDetails.prototype['full_number_of_securities'] = undefined;
 
 /**
  * @member {module:model/V1EntitiesMoneyEntity} full_price

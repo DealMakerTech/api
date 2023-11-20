@@ -78,6 +78,16 @@
         done();
       });
     });
+    describe('createManagedProfile', function() {
+      it('should call createManagedProfile successfully', function(done) {
+        //uncomment below and update the code to test createManagedProfile
+        //instance.createManagedProfile(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('createTrustProfile', function() {
       it('should call createTrustProfile successfully', function(done) {
         //uncomment below and update the code to test createTrustProfile

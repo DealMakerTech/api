@@ -19,7 +19,7 @@ import V1EntitiesInvestorProfileOwner from './V1EntitiesInvestorProfileOwner';
 /**
  * The V1EntitiesInvestorProfileJoint model module.
  * @module model/V1EntitiesInvestorProfileJoint
- * @version 0.91.2
+ * @version 0.91.3
  */
 class V1EntitiesInvestorProfileJoint {
     /**
@@ -244,7 +244,13 @@ V1EntitiesInvestorProfileJoint['TypeEnum'] = {
      * value: "trust"
      * @const
      */
-    "trust": "trust"
+    "trust": "trust",
+
+    /**
+     * value: "managed"
+     * @const
+     */
+    "managed": "managed"
 };
 
 

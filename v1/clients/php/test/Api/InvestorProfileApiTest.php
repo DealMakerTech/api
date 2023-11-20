@@ -108,6 +108,18 @@ class InvestorProfileApiTest extends TestCase
     }
 
     /**
+     * Test case for createManagedProfile
+     *
+     * Create new managed investor profile..
+     *
+     */
+    public function testCreateManagedProfile()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for createTrustProfile
      *
      * Create new trust investor profile..

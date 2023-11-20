@@ -33,7 +33,7 @@ module DealMakerAPI
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'profile' => :'V1EntitiesInvestorProfileTrust'
+        :'profile' => :'V1EntitiesInvestorProfileManaged'
       }
     end
 

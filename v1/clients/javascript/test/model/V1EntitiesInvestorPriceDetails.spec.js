@@ -54,6 +54,36 @@
       //expect(instance).to.be.a(Api.V1EntitiesInvestorPriceDetails);
     });
 
+    it('should have the property investmentAmount (base name: "investment_amount")', function() {
+      // uncomment below and update the code to test the property investmentAmount
+      //var instance = new Api.V1EntitiesInvestorPriceDetails();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property fullInvestmentAmount (base name: "full_investment_amount")', function() {
+      // uncomment below and update the code to test the property fullInvestmentAmount
+      //var instance = new Api.V1EntitiesInvestorPriceDetails();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property savedInvestmentAmount (base name: "saved_investment_amount")', function() {
+      // uncomment below and update the code to test the property savedInvestmentAmount
+      //var instance = new Api.V1EntitiesInvestorPriceDetails();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property numberOfSecurities (base name: "number_of_securities")', function() {
+      // uncomment below and update the code to test the property numberOfSecurities
+      //var instance = new Api.V1EntitiesInvestorPriceDetails();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property fullNumberOfSecurities (base name: "full_number_of_securities")', function() {
+      // uncomment below and update the code to test the property fullNumberOfSecurities
+      //var instance = new Api.V1EntitiesInvestorPriceDetails();
+      //expect(instance).to.be();
+    });
+
     it('should have the property fullPrice (base name: "full_price")', function() {
       // uncomment below and update the code to test the property fullPrice
       //var instance = new Api.V1EntitiesInvestorPriceDetails();

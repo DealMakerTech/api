@@ -68,6 +68,18 @@ describe 'InvestorProfileApi' do
     end
   end
 
+  # unit tests for create_managed_profile
+  # Create new managed investor profile.
+  # Create new managed investor profile associated to the user by email.
+  # @param investor_profiles_managed 
+  # @param [Hash] opts the optional parameters
+  # @return [V1EntitiesInvestorProfileManaged]
+  describe 'create_managed_profile test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for create_trust_profile
   # Create new trust investor profile.
   # Create new trust investor profile associated to the user by email.

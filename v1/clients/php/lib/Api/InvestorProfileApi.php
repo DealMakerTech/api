@@ -80,6 +80,9 @@ class InvestorProfileApi
         'createJointProfile' => [
             'application/json',
         ],
+        'createManagedProfile' => [
+            'application/json',
+        ],
         'createTrustProfile' => [
             'application/json',
         ],
@@ -1023,6 +1026,312 @@ class InvestorProfileApi
                 $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($investor_profiles_joints));
             } else {
                 $httpBody = $investor_profiles_joints;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation createManagedProfile
+     *
+     * Create new managed investor profile.
+     *
+     * @param  \DealMaker\Model\PostInvestorProfilesManaged $investor_profiles_managed investor_profiles_managed (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createManagedProfile'] to see the possible values for this operation
+     *
+     * @throws \DealMaker\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \DealMaker\Model\V1EntitiesInvestorProfileManaged
+     */
+    public function createManagedProfile($investor_profiles_managed, string $contentType = self::contentTypes['createManagedProfile'][0])
+    {
+        list($response) = $this->createManagedProfileWithHttpInfo($investor_profiles_managed, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation createManagedProfileWithHttpInfo
+     *
+     * Create new managed investor profile.
+     *
+     * @param  \DealMaker\Model\PostInvestorProfilesManaged $investor_profiles_managed (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createManagedProfile'] to see the possible values for this operation
+     *
+     * @throws \DealMaker\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \DealMaker\Model\V1EntitiesInvestorProfileManaged, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function createManagedProfileWithHttpInfo($investor_profiles_managed, string $contentType = self::contentTypes['createManagedProfile'][0])
+    {
+        $request = $this->createManagedProfileRequest($investor_profiles_managed, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 201:
+                    if ('\DealMaker\Model\V1EntitiesInvestorProfileManaged' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\DealMaker\Model\V1EntitiesInvestorProfileManaged' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                 );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\DealMaker\Model\V1EntitiesInvestorProfileManaged', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\DealMaker\Model\V1EntitiesInvestorProfileManaged';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    try {
+                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                    } catch (\JsonException $exception) {
+                        throw new ApiException(
+                            sprintf(
+                                'Error JSON decoding server response (%s)',
+                                $request->getUri()
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $content
+                        );
+                    }
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 201:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\DealMaker\Model\V1EntitiesInvestorProfileManaged',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation createManagedProfileAsync
+     *
+     * Create new managed investor profile.
+     *
+     * @param  \DealMaker\Model\PostInvestorProfilesManaged $investor_profiles_managed (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createManagedProfile'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function createManagedProfileAsync($investor_profiles_managed, string $contentType = self::contentTypes['createManagedProfile'][0])
+    {
+        return $this->createManagedProfileAsyncWithHttpInfo($investor_profiles_managed, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation createManagedProfileAsyncWithHttpInfo
+     *
+     * Create new managed investor profile.
+     *
+     * @param  \DealMaker\Model\PostInvestorProfilesManaged $investor_profiles_managed (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createManagedProfile'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function createManagedProfileAsyncWithHttpInfo($investor_profiles_managed, string $contentType = self::contentTypes['createManagedProfile'][0])
+    {
+        $returnType = '\DealMaker\Model\V1EntitiesInvestorProfileManaged';
+        $request = $this->createManagedProfileRequest($investor_profiles_managed, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'createManagedProfile'
+     *
+     * @param  \DealMaker\Model\PostInvestorProfilesManaged $investor_profiles_managed (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createManagedProfile'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function createManagedProfileRequest($investor_profiles_managed, string $contentType = self::contentTypes['createManagedProfile'][0])
+    {
+
+        // verify the required parameter 'investor_profiles_managed' is set
+        if ($investor_profiles_managed === null || (is_array($investor_profiles_managed) && count($investor_profiles_managed) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $investor_profiles_managed when calling createManagedProfile'
+            );
+        }
+
+
+        $resourcePath = '/investor_profiles/managed';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($investor_profiles_managed)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($investor_profiles_managed));
+            } else {
+                $httpBody = $investor_profiles_managed;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

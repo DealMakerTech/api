@@ -4,6 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**profile** | [**V1EntitiesInvestorProfileTrust**](V1EntitiesInvestorProfileTrust.md) |  | [optional] 
+**profile** | [**V1EntitiesInvestorProfileManaged**](V1EntitiesInvestorProfileManaged.md) |  | [optional] 
 
 

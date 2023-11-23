@@ -17,7 +17,7 @@ import V1EntitiesCountry from './V1EntitiesCountry';
 /**
  * The V1EntitiesCountries model module.
  * @module model/V1EntitiesCountries
- * @version 0.91.3
+ * @version 0.91.4
  */
 class V1EntitiesCountries {
     /**

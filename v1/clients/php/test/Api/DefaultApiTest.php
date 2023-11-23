@@ -84,6 +84,18 @@ class DefaultApiTest extends TestCase
     }
 
     /**
+     * Test case for getDealsDealIdPaymentOnboardingQuestionnairePayoutAccountDetailsData
+     *
+     * Get payout account data.
+     *
+     */
+    public function testGetDealsDealIdPaymentOnboardingQuestionnairePayoutAccountDetailsData()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for getDealsIdInvestorsInvestorIdPaymentsExpressWireInstructions
      *
      * Displays the express wire instructions for an investor on a deal.

@@ -5,6 +5,7 @@ All URIs are relative to *http://api.dealmaker.tech*
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
 | [**get_deals_deal_id_payment_onboarding_questionnaire_digital_payments_connection_data**](DefaultApi.md#get_deals_deal_id_payment_onboarding_questionnaire_digital_payments_connection_data) | **GET** /deals/{deal_id}/payment_onboarding/questionnaire/digital_payments_connection/data | Load data for the digital payments connection stage |
+| [**get_deals_deal_id_payment_onboarding_questionnaire_payout_account_details_data**](DefaultApi.md#get_deals_deal_id_payment_onboarding_questionnaire_payout_account_details_data) | **GET** /deals/{deal_id}/payment_onboarding/questionnaire/payout_account_details/data | Get payout account data |
 | [**get_deals_id_investors_investor_id_payments_express_wire_instructions**](DefaultApi.md#get_deals_id_investors_investor_id_payments_express_wire_instructions) | **GET** /deals/{id}/investors/{investor_id}/payments/express_wire/instructions | Displays the express wire instructions for an investor on a deal |
 | [**get_deals_id_investors_payments_express_wire_instructions**](DefaultApi.md#get_deals_id_investors_payments_express_wire_instructions) | **GET** /deals/{id}/investors/payments/express_wire/instructions | Displays the express wire instructions for all the investors on a deal |
 | [**get_webhooks**](DefaultApi.md#get_webhooks) | **GET** /webhooks | Returns a list of webhook subscription which is associated to the user |
@@ -73,6 +74,72 @@ end
 ### Return type
 
 [**V1EntitiesPaymentsSelfServeOnboardingDigitalPaymentsConnectionData**](V1EntitiesPaymentsSelfServeOnboardingDigitalPaymentsConnectionData.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## get_deals_deal_id_payment_onboarding_questionnaire_payout_account_details_data
+
+> <V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsData> get_deals_deal_id_payment_onboarding_questionnaire_payout_account_details_data(deal_id)
+
+Get payout account data
+
+Get payout account data
+
+### Examples
+
+```ruby
+require 'time'
+require 'DealMakerAPI'
+# setup authorization
+DealMakerAPI.configure do |config|end
+
+api_instance = DealMakerAPI::DefaultApi.new
+deal_id = 56 # Integer | 
+
+begin
+  # Get payout account data
+  result = api_instance.get_deals_deal_id_payment_onboarding_questionnaire_payout_account_details_data(deal_id)
+  p result
+rescue DealMakerAPI::ApiError => e
+  puts "Error when calling DefaultApi->get_deals_deal_id_payment_onboarding_questionnaire_payout_account_details_data: #{e}"
+end
+```
+
+#### Using the get_deals_deal_id_payment_onboarding_questionnaire_payout_account_details_data_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsData>, Integer, Hash)> get_deals_deal_id_payment_onboarding_questionnaire_payout_account_details_data_with_http_info(deal_id)
+
+```ruby
+begin
+  # Get payout account data
+  data, status_code, headers = api_instance.get_deals_deal_id_payment_onboarding_questionnaire_payout_account_details_data_with_http_info(deal_id)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsData>
+rescue DealMakerAPI::ApiError => e
+  puts "Error when calling DefaultApi->get_deals_deal_id_payment_onboarding_questionnaire_payout_account_details_data_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **deal_id** | **Integer** |  |  |
+
+### Return type
+
+[**V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsData**](V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsData.md)
 
 ### Authorization
 

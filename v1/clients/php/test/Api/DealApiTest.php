@@ -96,6 +96,18 @@ class DealApiTest extends TestCase
     }
 
     /**
+     * Test case for getDealIncentivePlan
+     *
+     * Get incentive plan by deal id.
+     *
+     */
+    public function testGetDealIncentivePlan()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for listDeals
      *
      * List available deals.

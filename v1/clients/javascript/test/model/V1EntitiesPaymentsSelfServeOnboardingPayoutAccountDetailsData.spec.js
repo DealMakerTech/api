@@ -28,7 +28,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new Api.V1EntitiesInvestorPriceDetails();
+    instance = new Api.V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsData();
   });
 
   var getProperty = function(object, getter, property) {
@@ -47,64 +47,16 @@
       object[property] = value;
   }
 
-  describe('V1EntitiesInvestorPriceDetails', function() {
-    it('should create an instance of V1EntitiesInvestorPriceDetails', function() {
-      // uncomment below and update the code to test V1EntitiesInvestorPriceDetails
-      //var instance = new Api.V1EntitiesInvestorPriceDetails();
-      //expect(instance).to.be.a(Api.V1EntitiesInvestorPriceDetails);
+  describe('V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsData', function() {
+    it('should create an instance of V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsData', function() {
+      // uncomment below and update the code to test V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsData
+      //var instance = new Api.V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsData();
+      //expect(instance).to.be.a(Api.V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsData);
     });
 
-    it('should have the property investmentAmount (base name: "investment_amount")', function() {
-      // uncomment below and update the code to test the property investmentAmount
-      //var instance = new Api.V1EntitiesInvestorPriceDetails();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property fullInvestmentAmount (base name: "full_investment_amount")', function() {
-      // uncomment below and update the code to test the property fullInvestmentAmount
-      //var instance = new Api.V1EntitiesInvestorPriceDetails();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property savedInvestmentAmount (base name: "saved_investment_amount")', function() {
-      // uncomment below and update the code to test the property savedInvestmentAmount
-      //var instance = new Api.V1EntitiesInvestorPriceDetails();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property numberOfSecurities (base name: "number_of_securities")', function() {
-      // uncomment below and update the code to test the property numberOfSecurities
-      //var instance = new Api.V1EntitiesInvestorPriceDetails();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property fullNumberOfSecurities (base name: "full_number_of_securities")', function() {
-      // uncomment below and update the code to test the property fullNumberOfSecurities
-      //var instance = new Api.V1EntitiesInvestorPriceDetails();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property fullPrice (base name: "full_price")', function() {
-      // uncomment below and update the code to test the property fullPrice
-      //var instance = new Api.V1EntitiesInvestorPriceDetails();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property finalPrice (base name: "final_price")', function() {
-      // uncomment below and update the code to test the property finalPrice
-      //var instance = new Api.V1EntitiesInvestorPriceDetails();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property effectiveTier (base name: "effective_tier")', function() {
-      // uncomment below and update the code to test the property effectiveTier
-      //var instance = new Api.V1EntitiesInvestorPriceDetails();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property incentivePlan (base name: "incentive_plan")', function() {
-      // uncomment below and update the code to test the property incentivePlan
-      //var instance = new Api.V1EntitiesInvestorPriceDetails();
+    it('should have the property country (base name: "country")', function() {
+      // uncomment below and update the code to test the property country
+      //var instance = new Api.V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsData();
       //expect(instance).to.be();
     });
 

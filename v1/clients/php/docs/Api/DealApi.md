@@ -6,6 +6,7 @@ All URIs are relative to http://api.dealmaker.tech, except if the operation defi
 | ------------- | ------------- | ------------- |
 | [**createDealSetup()**](DealApi.md#createDealSetup) | **POST** /deal_setups | Create deal setup |
 | [**getDeal()**](DealApi.md#getDeal) | **GET** /deals/{id} | Get deal by Deal ID |
+| [**getDealIncentivePlan()**](DealApi.md#getDealIncentivePlan) | **GET** /deals/{id}/incentive_plan | Get incentive plan by deal id |
 | [**listDeals()**](DealApi.md#listDeals) | **GET** /deals | List available deals |
 
 
@@ -109,6 +110,64 @@ try {
 ### Return type
 
 [**\DealMaker\Model\V1EntitiesDeal**](../Model/V1EntitiesDeal.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getDealIncentivePlan()`
+
+```php
+getDealIncentivePlan($id, $investment_amount): \DealMaker\Model\V1EntitiesDealsPriceDetails
+```
+
+Get incentive plan by deal id
+
+Gets the current active incentive plan for the given deal id.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new DealMaker\Api\DealApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$id = 56; // int | The deal id.
+$investment_amount = 3.4; // float | The investment amount to get the security price for.
+
+try {
+    $result = $apiInstance->getDealIncentivePlan($id, $investment_amount);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling DealApi->getDealIncentivePlan: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **int**| The deal id. | |
+| **investment_amount** | **float**| The investment amount to get the security price for. | [optional] |
+
+### Return type
+
+[**\DealMaker\Model\V1EntitiesDealsPriceDetails**](../Model/V1EntitiesDealsPriceDetails.md)
 
 ### Authorization
 

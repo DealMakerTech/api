@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The PutDealsIdScriptTagEnvironmentRequest model module.
  * @module model/PutDealsIdScriptTagEnvironmentRequest
- * @version 0.91.3
+ * @version 0.91.4
  */
 class PutDealsIdScriptTagEnvironmentRequest {
     /**

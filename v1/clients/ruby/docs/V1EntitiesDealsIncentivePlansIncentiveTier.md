@@ -1,4 +1,4 @@
-# DealMakerAPI::V1EntitiesInvestorIncentiveTier
+# DealMakerAPI::V1EntitiesDealsIncentivePlansIncentiveTier
 
 ## Properties
 
@@ -15,7 +15,7 @@
 ```ruby
 require 'DealMakerAPI'
 
-instance = DealMakerAPI::V1EntitiesInvestorIncentiveTier.new(
+instance = DealMakerAPI::V1EntitiesDealsIncentivePlansIncentiveTier.new(
   id: null,
   incentive_percentage: null,
   end_at: null,

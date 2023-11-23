@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**createDealSetup**](DealApi.md#createDealSetup) | **POST** /deal_setups | Create deal setup
 [**getDeal**](DealApi.md#getDeal) | **GET** /deals/{id} | Get deal by Deal ID
+[**getDealIncentivePlan**](DealApi.md#getDealIncentivePlan) | **GET** /deals/{id}/incentive_plan | Get incentive plan by deal id
 [**listDeals**](DealApi.md#listDeals) | **GET** /deals | List available deals
 
 
@@ -91,6 +92,55 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**V1EntitiesDeal**](V1EntitiesDeal.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## getDealIncentivePlan
+
+> V1EntitiesDealsPriceDetails getDealIncentivePlan(id, opts)
+
+Get incentive plan by deal id
+
+Gets the current active incentive plan for the given deal id.
+
+### Example
+
+```javascript
+import Api from 'api';
+
+let apiInstance = new Api.DealApi();
+let id = 56; // Number | The deal id.
+let opts = {
+  'investmentAmount': 3.4 // Number | The investment amount to get the security price for.
+};
+apiInstance.getDealIncentivePlan(id, opts, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Number**| The deal id. | 
+ **investmentAmount** | **Number**| The investment amount to get the security price for. | [optional] 
+
+### Return type
+
+[**V1EntitiesDealsPriceDetails**](V1EntitiesDealsPriceDetails.md)
 
 ### Authorization
 

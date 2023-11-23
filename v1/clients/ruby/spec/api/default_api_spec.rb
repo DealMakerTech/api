@@ -44,6 +44,18 @@ describe 'DefaultApi' do
     end
   end
 
+  # unit tests for get_deals_deal_id_payment_onboarding_questionnaire_payout_account_details_data
+  # Get payout account data
+  # Get payout account data
+  # @param deal_id 
+  # @param [Hash] opts the optional parameters
+  # @return [V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsData]
+  describe 'get_deals_deal_id_payment_onboarding_questionnaire_payout_account_details_data test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for get_deals_id_investors_investor_id_payments_express_wire_instructions
   # Displays the express wire instructions for an investor on a deal
   # Get express wire instructions

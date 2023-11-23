@@ -14,18 +14,19 @@
 import ApiClient from '../ApiClient';
 
 /**
- * The V1EntitiesInvestorIncentivePlan model module.
- * @module model/V1EntitiesInvestorIncentivePlan
- * @version 0.91.3
+ * The V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsData model module.
+ * @module model/V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsData
+ * @version 0.91.4
  */
-class V1EntitiesInvestorIncentivePlan {
+class V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsData {
     /**
-     * Constructs a new <code>V1EntitiesInvestorIncentivePlan</code>.
-     * @alias module:model/V1EntitiesInvestorIncentivePlan
+     * Constructs a new <code>V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsData</code>.
+     * V1_Entities_Payments_SelfServeOnboarding_PayoutAccountDetails_Data model
+     * @alias module:model/V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsData
      */
     constructor() { 
         
-        V1EntitiesInvestorIncentivePlan.initialize(this);
+        V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsData.initialize(this);
     }
 
     /**
@@ -37,50 +38,32 @@ class V1EntitiesInvestorIncentivePlan {
     }
 
     /**
-     * Constructs a <code>V1EntitiesInvestorIncentivePlan</code> from a plain JavaScript object, optionally creating a new instance.
+     * Constructs a <code>V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsData</code> from a plain JavaScript object, optionally creating a new instance.
      * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @param {module:model/V1EntitiesInvestorIncentivePlan} obj Optional instance to populate.
-     * @return {module:model/V1EntitiesInvestorIncentivePlan} The populated <code>V1EntitiesInvestorIncentivePlan</code> instance.
+     * @param {module:model/V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsData} obj Optional instance to populate.
+     * @return {module:model/V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsData} The populated <code>V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsData</code> instance.
      */
     static constructFromObject(data, obj) {
         if (data) {
-            obj = obj || new V1EntitiesInvestorIncentivePlan();
+            obj = obj || new V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsData();
 
-            if (data.hasOwnProperty('id')) {
-                obj['id'] = ApiClient.convertToType(data['id'], 'Number');
-            }
-            if (data.hasOwnProperty('deal_id')) {
-                obj['deal_id'] = ApiClient.convertToType(data['deal_id'], 'Number');
-            }
-            if (data.hasOwnProperty('plan_type')) {
-                obj['plan_type'] = ApiClient.convertToType(data['plan_type'], 'String');
-            }
-            if (data.hasOwnProperty('funded_by_offset')) {
-                obj['funded_by_offset'] = ApiClient.convertToType(data['funded_by_offset'], 'Number');
-            }
-            if (data.hasOwnProperty('active_at')) {
-                obj['active_at'] = ApiClient.convertToType(data['active_at'], 'Date');
-            }
-            if (data.hasOwnProperty('created_at')) {
-                obj['created_at'] = ApiClient.convertToType(data['created_at'], 'Date');
-            }
-            if (data.hasOwnProperty('updated_at')) {
-                obj['updated_at'] = ApiClient.convertToType(data['updated_at'], 'Date');
+            if (data.hasOwnProperty('country')) {
+                obj['country'] = ApiClient.convertToType(data['country'], 'String');
             }
         }
         return obj;
     }
 
     /**
-     * Validates the JSON data with respect to <code>V1EntitiesInvestorIncentivePlan</code>.
+     * Validates the JSON data with respect to <code>V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsData</code>.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>V1EntitiesInvestorIncentivePlan</code>.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsData</code>.
      */
     static validateJSON(data) {
         // ensure the json data is a string
-        if (data['plan_type'] && !(typeof data['plan_type'] === 'string' || data['plan_type'] instanceof String)) {
-            throw new Error("Expected the field `plan_type` to be a primitive type in the JSON string but got " + data['plan_type']);
+        if (data['country'] && !(typeof data['country'] === 'string' || data['country'] instanceof String)) {
+            throw new Error("Expected the field `country` to be a primitive type in the JSON string but got " + data['country']);
         }
 
         return true;
@@ -92,51 +75,15 @@ class V1EntitiesInvestorIncentivePlan {
 
 
 /**
- * The incentive plan id.
- * @member {Number} id
+ * Payout account country
+ * @member {String} country
  */
-V1EntitiesInvestorIncentivePlan.prototype['id'] = undefined;
-
-/**
- * The deal id.
- * @member {Number} deal_id
- */
-V1EntitiesInvestorIncentivePlan.prototype['deal_id'] = undefined;
-
-/**
- * The incentive plan type.
- * @member {String} plan_type
- */
-V1EntitiesInvestorIncentivePlan.prototype['plan_type'] = undefined;
-
-/**
- * The incentive plan funded by offset.
- * @member {Number} funded_by_offset
- */
-V1EntitiesInvestorIncentivePlan.prototype['funded_by_offset'] = undefined;
-
-/**
- * The incentive plan active date.
- * @member {Date} active_at
- */
-V1EntitiesInvestorIncentivePlan.prototype['active_at'] = undefined;
-
-/**
- * The creation time.
- * @member {Date} created_at
- */
-V1EntitiesInvestorIncentivePlan.prototype['created_at'] = undefined;
-
-/**
- * The last update time.
- * @member {Date} updated_at
- */
-V1EntitiesInvestorIncentivePlan.prototype['updated_at'] = undefined;
+V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsData.prototype['country'] = undefined;
 
 
 
 
 
 
-export default V1EntitiesInvestorIncentivePlan;
+export default V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsData;
 

@@ -1,6 +1,6 @@
 <?php
 /**
- * V1EntitiesInvestorIncentivePlanTest
+ * V1EntitiesDealsPriceDetailsTest
  *
  * PHP version 7.4
  *
@@ -31,15 +31,15 @@ namespace DealMaker\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * V1EntitiesInvestorIncentivePlanTest Class Doc Comment
+ * V1EntitiesDealsPriceDetailsTest Class Doc Comment
  *
  * @category    Class
- * @description V1EntitiesInvestorIncentivePlan
+ * @description V1_Entities_Deals_PriceDetails model
  * @package     DealMaker
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class V1EntitiesInvestorIncentivePlanTest extends TestCase
+class V1EntitiesDealsPriceDetailsTest extends TestCase
 {
 
     /**
@@ -71,72 +71,63 @@ class V1EntitiesInvestorIncentivePlanTest extends TestCase
     }
 
     /**
-     * Test "V1EntitiesInvestorIncentivePlan"
+     * Test "V1EntitiesDealsPriceDetails"
      */
-    public function testV1EntitiesInvestorIncentivePlan()
+    public function testV1EntitiesDealsPriceDetails()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "id"
+     * Test attribute "full_price"
      */
-    public function testPropertyId()
+    public function testPropertyFullPrice()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "deal_id"
+     * Test attribute "final_price"
      */
-    public function testPropertyDealId()
+    public function testPropertyFinalPrice()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "plan_type"
+     * Test attribute "computed_investment_amount"
      */
-    public function testPropertyPlanType()
+    public function testPropertyComputedInvestmentAmount()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "funded_by_offset"
+     * Test attribute "computed_number_of_securities"
      */
-    public function testPropertyFundedByOffset()
+    public function testPropertyComputedNumberOfSecurities()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "active_at"
+     * Test attribute "effective_tier"
      */
-    public function testPropertyActiveAt()
+    public function testPropertyEffectiveTier()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "created_at"
+     * Test attribute "incentive_plan"
      */
-    public function testPropertyCreatedAt()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "updated_at"
-     */
-    public function testPropertyUpdatedAt()
+    public function testPropertyIncentivePlan()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

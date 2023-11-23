@@ -11,110 +11,79 @@
  *
  */
 
-import ApiClient from '../ApiClient';
+(function(root, factory) {
+  if (typeof define === 'function' && define.amd) {
+    // AMD.
+    define(['expect.js', process.cwd()+'/src/index'], factory);
+  } else if (typeof module === 'object' && module.exports) {
+    // CommonJS-like environments that support module.exports, like Node.
+    factory(require('expect.js'), require(process.cwd()+'/src/index'));
+  } else {
+    // Browser globals (root is window)
+    factory(root.expect, root.Api);
+  }
+}(this, function(expect, Api) {
+  'use strict';
 
-/**
- * The V1EntitiesInvestorIncentiveTier model module.
- * @module model/V1EntitiesInvestorIncentiveTier
- * @version 0.91.3
- */
-class V1EntitiesInvestorIncentiveTier {
-    /**
-     * Constructs a new <code>V1EntitiesInvestorIncentiveTier</code>.
-     * @alias module:model/V1EntitiesInvestorIncentiveTier
-     */
-    constructor() { 
-        
-        V1EntitiesInvestorIncentiveTier.initialize(this);
-    }
+  var instance;
 
-    /**
-     * Initializes the fields of this object.
-     * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
-     * Only for internal use.
-     */
-    static initialize(obj) { 
-    }
+  beforeEach(function() {
+    instance = new Api.V1EntitiesDealsIncentivePlansIncentiveTier();
+  });
 
-    /**
-     * Constructs a <code>V1EntitiesInvestorIncentiveTier</code> from a plain JavaScript object, optionally creating a new instance.
-     * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
-     * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @param {module:model/V1EntitiesInvestorIncentiveTier} obj Optional instance to populate.
-     * @return {module:model/V1EntitiesInvestorIncentiveTier} The populated <code>V1EntitiesInvestorIncentiveTier</code> instance.
-     */
-    static constructFromObject(data, obj) {
-        if (data) {
-            obj = obj || new V1EntitiesInvestorIncentiveTier();
+  var getProperty = function(object, getter, property) {
+    // Use getter method if present; otherwise, get the property directly.
+    if (typeof object[getter] === 'function')
+      return object[getter]();
+    else
+      return object[property];
+  }
 
-            if (data.hasOwnProperty('id')) {
-                obj['id'] = ApiClient.convertToType(data['id'], 'Number');
-            }
-            if (data.hasOwnProperty('incentive_percentage')) {
-                obj['incentive_percentage'] = ApiClient.convertToType(data['incentive_percentage'], 'Number');
-            }
-            if (data.hasOwnProperty('end_at')) {
-                obj['end_at'] = ApiClient.convertToType(data['end_at'], 'Date');
-            }
-            if (data.hasOwnProperty('created_at')) {
-                obj['created_at'] = ApiClient.convertToType(data['created_at'], 'Date');
-            }
-            if (data.hasOwnProperty('updated_at')) {
-                obj['updated_at'] = ApiClient.convertToType(data['updated_at'], 'Date');
-            }
-        }
-        return obj;
-    }
+  var setProperty = function(object, setter, property, value) {
+    // Use setter method if present; otherwise, set the property directly.
+    if (typeof object[setter] === 'function')
+      object[setter](value);
+    else
+      object[property] = value;
+  }
 
-    /**
-     * Validates the JSON data with respect to <code>V1EntitiesInvestorIncentiveTier</code>.
-     * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>V1EntitiesInvestorIncentiveTier</code>.
-     */
-    static validateJSON(data) {
+  describe('V1EntitiesDealsIncentivePlansIncentiveTier', function() {
+    it('should create an instance of V1EntitiesDealsIncentivePlansIncentiveTier', function() {
+      // uncomment below and update the code to test V1EntitiesDealsIncentivePlansIncentiveTier
+      //var instance = new Api.V1EntitiesDealsIncentivePlansIncentiveTier();
+      //expect(instance).to.be.a(Api.V1EntitiesDealsIncentivePlansIncentiveTier);
+    });
 
-        return true;
-    }
+    it('should have the property id (base name: "id")', function() {
+      // uncomment below and update the code to test the property id
+      //var instance = new Api.V1EntitiesDealsIncentivePlansIncentiveTier();
+      //expect(instance).to.be();
+    });
 
+    it('should have the property incentivePercentage (base name: "incentive_percentage")', function() {
+      // uncomment below and update the code to test the property incentivePercentage
+      //var instance = new Api.V1EntitiesDealsIncentivePlansIncentiveTier();
+      //expect(instance).to.be();
+    });
 
-}
+    it('should have the property endAt (base name: "end_at")', function() {
+      // uncomment below and update the code to test the property endAt
+      //var instance = new Api.V1EntitiesDealsIncentivePlansIncentiveTier();
+      //expect(instance).to.be();
+    });
 
+    it('should have the property createdAt (base name: "created_at")', function() {
+      // uncomment below and update the code to test the property createdAt
+      //var instance = new Api.V1EntitiesDealsIncentivePlansIncentiveTier();
+      //expect(instance).to.be();
+    });
 
+    it('should have the property updatedAt (base name: "updated_at")', function() {
+      // uncomment below and update the code to test the property updatedAt
+      //var instance = new Api.V1EntitiesDealsIncentivePlansIncentiveTier();
+      //expect(instance).to.be();
+    });
 
-/**
- * The incentive tier id.
- * @member {Number} id
- */
-V1EntitiesInvestorIncentiveTier.prototype['id'] = undefined;
+  });
 
-/**
- * The incentive tier percentage.
- * @member {Number} incentive_percentage
- */
-V1EntitiesInvestorIncentiveTier.prototype['incentive_percentage'] = undefined;
-
-/**
- * The incentive tier end date.
- * @member {Date} end_at
- */
-V1EntitiesInvestorIncentiveTier.prototype['end_at'] = undefined;
-
-/**
- * The creation time.
- * @member {Date} created_at
- */
-V1EntitiesInvestorIncentiveTier.prototype['created_at'] = undefined;
-
-/**
- * The last update time.
- * @member {Date} updated_at
- */
-V1EntitiesInvestorIncentiveTier.prototype['updated_at'] = undefined;
-
-
-
-
-
-
-export default V1EntitiesInvestorIncentiveTier;
-
+}));

@@ -56,6 +56,19 @@ describe 'DealApi' do
     end
   end
 
+  # unit tests for get_deal_incentive_plan
+  # Get incentive plan by deal id
+  # Gets the current active incentive plan for the given deal id.
+  # @param id The deal id.
+  # @param [Hash] opts the optional parameters
+  # @option opts [Float] :investment_amount The investment amount to get the security price for.
+  # @return [V1EntitiesDealsPriceDetails]
+  describe 'get_deal_incentive_plan test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for list_deals
   # List available deals
   # List available deals

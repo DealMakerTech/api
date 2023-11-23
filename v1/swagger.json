@@ -1787,7 +1787,7 @@
           "200": {
             "description": "Get deal investor incentive plan",
             "schema": {
-              "$ref": "#/definitions/V1_Entities_Investor_PriceDetails"
+              "$ref": "#/definitions/V1_Entities_Deals_PriceDetails"
             }
           },
           "403": {
@@ -1972,6 +1972,61 @@
           {
             "lang": "ruby",
             "source": ""
+          }
+        ]
+      }
+    },
+    "/deals/{id}/incentive_plan": {
+      "get": {
+        "summary": "Get incentive plan by deal id",
+        "description": "Gets the current active incentive plan for the given deal id.",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "description": "The deal id.",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          },
+          {
+            "in": "query",
+            "name": "investment_amount",
+            "description": "The investment amount to get the security price for.",
+            "type": "number",
+            "format": "float",
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get deal incentive plan",
+            "schema": {
+              "$ref": "#/definitions/V1_Entities_Deals_PriceDetails"
+            }
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not found"
+          }
+        },
+        "tags": [
+          "deal"
+        ],
+        "operationId": "getDealIncentivePlan",
+        "x-codeSamples": [
+          {
+            "lang": "javascript",
+            "source": "const dealApi = new Dealmakerapi.DealApi()\nconst dealId = 100\n\napi.getDealIncentivePlan(dealId, function(error, data, response) {\n  if (error) {\n    console.error(error)\n  } else {\n    console.log(JSON.stringify(data))\n  }\n})\n"
+          },
+          {
+            "lang": "ruby",
+            "source": "deal_api = DealMakerAPI::DealApi.new\n\ndeal_id = 100\n\nprint deal_api.get_deal_incentive_plan(deal_id)\n"
           }
         ]
       }
@@ -2703,6 +2758,46 @@
 
         ],
         "operationId": "postDealsDealIdPaymentOnboardingQuestionnaireQualificationQuestionnaireSubmit"
+      }
+    },
+    "/deals/{deal_id}/payment_onboarding/questionnaire/payout_account_details/data": {
+      "get": {
+        "summary": "Get payout account data",
+        "description": "Get payout account data",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "deal_id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "security": [
+          {
+            "oauth": [
+              "internal"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get payout account data",
+            "schema": {
+              "$ref": "#/definitions/V1_Entities_Payments_SelfServeOnboarding_PayoutAccountDetails_Data"
+            }
+          },
+          "403": {
+            "description": "Access to this resource requires scope \"internal\"."
+          }
+        },
+        "tags": [
+
+        ],
+        "operationId": "getDealsDealIdPaymentOnboardingQuestionnairePayoutAccountDetailsData"
       }
     },
     "/deals/{deal_id}/payment_onboarding/questionnaire/payout_account_details/submit": {
@@ -7026,31 +7121,9 @@
       },
       "description": "V1_Entities_InvestorOtpAccessLink model"
     },
-    "V1_Entities_Investor_PriceDetails": {
+    "V1_Entities_Deals_PriceDetails": {
       "type": "object",
       "properties": {
-        "investment_amount": {
-          "type": "string",
-          "description": "The investment amount in dollar."
-        },
-        "full_investment_amount": {
-          "type": "string",
-          "description": "The investment amount at full price to get the same number of securities"
-        },
-        "saved_investment_amount": {
-          "type": "string",
-          "description": "The saved amount."
-        },
-        "number_of_securities": {
-          "type": "integer",
-          "format": "int32",
-          "description": "The number of securities."
-        },
-        "full_number_of_securities": {
-          "type": "integer",
-          "format": "int32",
-          "description": "The number of securities you could get at full price"
-        },
         "full_price": {
           "$ref": "#/definitions/V1_Entities_MoneyEntity",
           "description": "The full price of the incentive plan."
@@ -7059,16 +7132,26 @@
           "$ref": "#/definitions/V1_Entities_MoneyEntity",
           "description": "The final price of the incentive plan."
         },
+        "computed_investment_amount": {
+          "type": "number",
+          "format": "float",
+          "description": "The computed valid investment amount based on a given investment amount."
+        },
+        "computed_number_of_securities": {
+          "type": "integer",
+          "format": "int32",
+          "description": "The computed number of securities that can be purchased with a given investment amount."
+        },
         "effective_tier": {
-          "$ref": "#/definitions/V1_Entities_Investor_IncentiveTier",
+          "$ref": "#/definitions/V1_Entities_Deals_IncentivePlans_IncentiveTier",
           "description": "The effective tier of the incentive plan."
         },
         "incentive_plan": {
-          "$ref": "#/definitions/V1_Entities_Investor_IncentivePlan",
+          "$ref": "#/definitions/V1_Entities_Deals_IncentivePlan",
           "description": "The incentive plan."
         }
       },
-      "description": "V1_Entities_Investor_PriceDetails model"
+      "description": "V1_Entities_Deals_PriceDetails model"
     },
     "V1_Entities_MoneyEntity": {
       "type": "object",
@@ -7084,7 +7167,7 @@
         }
       }
     },
-    "V1_Entities_Investor_IncentiveTier": {
+    "V1_Entities_Deals_IncentivePlans_IncentiveTier": {
       "type": "object",
       "properties": {
         "id": {
@@ -7114,7 +7197,7 @@
         }
       }
     },
-    "V1_Entities_Investor_IncentivePlan": {
+    "V1_Entities_Deals_IncentivePlan": {
       "type": "object",
       "properties": {
         "id": {
@@ -7129,6 +7212,9 @@
         },
         "plan_type": {
           "type": "string",
+          "enum": [
+            "time"
+          ],
           "description": "The incentive plan type."
         },
         "funded_by_offset": {
@@ -7299,6 +7385,16 @@
         }
       },
       "description": "V1_Entities_Payments_SelfServeOnboarding_QualificationQuestionnaire_Result model"
+    },
+    "V1_Entities_Payments_SelfServeOnboarding_PayoutAccountDetails_Data": {
+      "type": "object",
+      "properties": {
+        "country": {
+          "type": "string",
+          "description": "Payout account country"
+        }
+      },
+      "description": "V1_Entities_Payments_SelfServeOnboarding_PayoutAccountDetails_Data model"
     },
     "V1_Entities_Payments_SelfServeOnboarding_PayoutAccountDetails_Result": {
       "type": "object",

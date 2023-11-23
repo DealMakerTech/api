@@ -68,6 +68,16 @@
         done();
       });
     });
+    describe('getDealIncentivePlan', function() {
+      it('should call getDealIncentivePlan successfully', function(done) {
+        //uncomment below and update the code to test getDealIncentivePlan
+        //instance.getDealIncentivePlan(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('listDeals', function() {
       it('should call listDeals successfully', function(done) {
         //uncomment below and update the code to test listDeals

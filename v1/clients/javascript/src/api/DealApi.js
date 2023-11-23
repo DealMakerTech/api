@@ -17,11 +17,12 @@ import CreateDealSetupRequest from '../model/CreateDealSetupRequest';
 import V1EntitiesDeal from '../model/V1EntitiesDeal';
 import V1EntitiesDealSetup from '../model/V1EntitiesDealSetup';
 import V1EntitiesDeals from '../model/V1EntitiesDeals';
+import V1EntitiesDealsPriceDetails from '../model/V1EntitiesDealsPriceDetails';
 
 /**
 * Deal service.
 * @module api/DealApi
-* @version 0.91.3
+* @version 0.91.4
 */
 export default class DealApi {
 
@@ -117,6 +118,53 @@ export default class DealApi {
       let returnType = V1EntitiesDeal;
       return this.apiClient.callApi(
         '/deals/{id}', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the getDealIncentivePlan operation.
+     * @callback module:api/DealApi~getDealIncentivePlanCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/V1EntitiesDealsPriceDetails} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Get incentive plan by deal id
+     * Gets the current active incentive plan for the given deal id.
+     * @param {Number} id The deal id.
+     * @param {Object} opts Optional parameters
+     * @param {Number} [investmentAmount] The investment amount to get the security price for.
+     * @param {module:api/DealApi~getDealIncentivePlanCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/V1EntitiesDealsPriceDetails}
+     */
+    getDealIncentivePlan(id, opts, callback) {
+      opts = opts || {};
+      let postBody = null;
+      // verify the required parameter 'id' is set
+      if (id === undefined || id === null) {
+        throw new Error("Missing the required parameter 'id' when calling getDealIncentivePlan");
+      }
+
+      let pathParams = {
+        'id': id
+      };
+      let queryParams = {
+        'investment_amount': opts['investmentAmount']
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = V1EntitiesDealsPriceDetails;
+      return this.apiClient.callApi(
+        '/deals/{id}/incentive_plan', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

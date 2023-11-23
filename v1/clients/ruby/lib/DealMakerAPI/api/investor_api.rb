@@ -627,7 +627,7 @@ module DealMakerAPI
     # @param id [Integer] The deal id.
     # @param investor_id [Integer] The investor id.
     # @param [Hash] opts the optional parameters
-    # @return [V1EntitiesInvestorPriceDetails]
+    # @return [V1EntitiesDealsPriceDetails]
     def get_incentive_plan(id, investor_id, opts = {})
       data, _status_code, _headers = get_incentive_plan_with_http_info(id, investor_id, opts)
       data
@@ -638,7 +638,7 @@ module DealMakerAPI
     # @param id [Integer] The deal id.
     # @param investor_id [Integer] The investor id.
     # @param [Hash] opts the optional parameters
-    # @return [Array<(V1EntitiesInvestorPriceDetails, Integer, Hash)>] V1EntitiesInvestorPriceDetails data, response status code and response headers
+    # @return [Array<(V1EntitiesDealsPriceDetails, Integer, Hash)>] V1EntitiesDealsPriceDetails data, response status code and response headers
     def get_incentive_plan_with_http_info(id, investor_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: InvestorApi.get_incentive_plan ...'
@@ -669,7 +669,7 @@ module DealMakerAPI
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'V1EntitiesInvestorPriceDetails'
+      return_type = opts[:debug_return_type] || 'V1EntitiesDealsPriceDetails'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || []

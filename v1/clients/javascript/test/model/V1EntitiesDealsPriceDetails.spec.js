@@ -28,7 +28,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new Api.V1EntitiesInvestorIncentiveTier();
+    instance = new Api.V1EntitiesDealsPriceDetails();
   });
 
   var getProperty = function(object, getter, property) {
@@ -47,40 +47,46 @@
       object[property] = value;
   }
 
-  describe('V1EntitiesInvestorIncentiveTier', function() {
-    it('should create an instance of V1EntitiesInvestorIncentiveTier', function() {
-      // uncomment below and update the code to test V1EntitiesInvestorIncentiveTier
-      //var instance = new Api.V1EntitiesInvestorIncentiveTier();
-      //expect(instance).to.be.a(Api.V1EntitiesInvestorIncentiveTier);
+  describe('V1EntitiesDealsPriceDetails', function() {
+    it('should create an instance of V1EntitiesDealsPriceDetails', function() {
+      // uncomment below and update the code to test V1EntitiesDealsPriceDetails
+      //var instance = new Api.V1EntitiesDealsPriceDetails();
+      //expect(instance).to.be.a(Api.V1EntitiesDealsPriceDetails);
     });
 
-    it('should have the property id (base name: "id")', function() {
-      // uncomment below and update the code to test the property id
-      //var instance = new Api.V1EntitiesInvestorIncentiveTier();
+    it('should have the property fullPrice (base name: "full_price")', function() {
+      // uncomment below and update the code to test the property fullPrice
+      //var instance = new Api.V1EntitiesDealsPriceDetails();
       //expect(instance).to.be();
     });
 
-    it('should have the property incentivePercentage (base name: "incentive_percentage")', function() {
-      // uncomment below and update the code to test the property incentivePercentage
-      //var instance = new Api.V1EntitiesInvestorIncentiveTier();
+    it('should have the property finalPrice (base name: "final_price")', function() {
+      // uncomment below and update the code to test the property finalPrice
+      //var instance = new Api.V1EntitiesDealsPriceDetails();
       //expect(instance).to.be();
     });
 
-    it('should have the property endAt (base name: "end_at")', function() {
-      // uncomment below and update the code to test the property endAt
-      //var instance = new Api.V1EntitiesInvestorIncentiveTier();
+    it('should have the property computedInvestmentAmount (base name: "computed_investment_amount")', function() {
+      // uncomment below and update the code to test the property computedInvestmentAmount
+      //var instance = new Api.V1EntitiesDealsPriceDetails();
       //expect(instance).to.be();
     });
 
-    it('should have the property createdAt (base name: "created_at")', function() {
-      // uncomment below and update the code to test the property createdAt
-      //var instance = new Api.V1EntitiesInvestorIncentiveTier();
+    it('should have the property computedNumberOfSecurities (base name: "computed_number_of_securities")', function() {
+      // uncomment below and update the code to test the property computedNumberOfSecurities
+      //var instance = new Api.V1EntitiesDealsPriceDetails();
       //expect(instance).to.be();
     });
 
-    it('should have the property updatedAt (base name: "updated_at")', function() {
-      // uncomment below and update the code to test the property updatedAt
-      //var instance = new Api.V1EntitiesInvestorIncentiveTier();
+    it('should have the property effectiveTier (base name: "effective_tier")', function() {
+      // uncomment below and update the code to test the property effectiveTier
+      //var instance = new Api.V1EntitiesDealsPriceDetails();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property incentivePlan (base name: "incentive_plan")', function() {
+      // uncomment below and update the code to test the property incentivePlan
+      //var instance = new Api.V1EntitiesDealsPriceDetails();
       //expect(instance).to.be();
     });
 

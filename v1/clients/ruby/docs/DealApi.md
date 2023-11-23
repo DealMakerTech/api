@@ -6,6 +6,7 @@ All URIs are relative to *http://api.dealmaker.tech*
 | ------ | ------------ | ----------- |
 | [**create_deal_setup**](DealApi.md#create_deal_setup) | **POST** /deal_setups | Create deal setup |
 | [**get_deal**](DealApi.md#get_deal) | **GET** /deals/{id} | Get deal by Deal ID |
+| [**get_deal_incentive_plan**](DealApi.md#get_deal_incentive_plan) | **GET** /deals/{id}/incentive_plan | Get incentive plan by deal id |
 | [**list_deals**](DealApi.md#list_deals) | **GET** /deals | List available deals |
 
 
@@ -130,6 +131,74 @@ end
 ### Return type
 
 [**V1EntitiesDeal**](V1EntitiesDeal.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## get_deal_incentive_plan
+
+> <V1EntitiesDealsPriceDetails> get_deal_incentive_plan(id, opts)
+
+Get incentive plan by deal id
+
+Gets the current active incentive plan for the given deal id.
+
+### Examples
+
+```ruby
+require 'time'
+require 'DealMakerAPI'
+
+api_instance = DealMakerAPI::DealApi.new
+id = 56 # Integer | The deal id.
+opts = {
+  investment_amount: 3.4 # Float | The investment amount to get the security price for.
+}
+
+begin
+  # Get incentive plan by deal id
+  result = api_instance.get_deal_incentive_plan(id, opts)
+  p result
+rescue DealMakerAPI::ApiError => e
+  puts "Error when calling DealApi->get_deal_incentive_plan: #{e}"
+end
+```
+
+#### Using the get_deal_incentive_plan_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<V1EntitiesDealsPriceDetails>, Integer, Hash)> get_deal_incentive_plan_with_http_info(id, opts)
+
+```ruby
+begin
+  # Get incentive plan by deal id
+  data, status_code, headers = api_instance.get_deal_incentive_plan_with_http_info(id, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <V1EntitiesDealsPriceDetails>
+rescue DealMakerAPI::ApiError => e
+  puts "Error when calling DealApi->get_deal_incentive_plan_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **id** | **Integer** | The deal id. |  |
+| **investment_amount** | **Float** | The investment amount to get the security price for. | [optional] |
+
+### Return type
+
+[**V1EntitiesDealsPriceDetails**](V1EntitiesDealsPriceDetails.md)
 
 ### Authorization
 

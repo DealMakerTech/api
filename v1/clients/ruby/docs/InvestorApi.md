@@ -575,7 +575,7 @@ No authorization required
 
 ## get_incentive_plan
 
-> <V1EntitiesInvestorPriceDetails> get_incentive_plan(id, investor_id)
+> <V1EntitiesDealsPriceDetails> get_incentive_plan(id, investor_id)
 
 Get investor incentive plan by investor id
 
@@ -606,7 +606,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<V1EntitiesInvestorPriceDetails>, Integer, Hash)> get_incentive_plan_with_http_info(id, investor_id)
+> <Array(<V1EntitiesDealsPriceDetails>, Integer, Hash)> get_incentive_plan_with_http_info(id, investor_id)
 
 ```ruby
 begin
@@ -614,7 +614,7 @@ begin
   data, status_code, headers = api_instance.get_incentive_plan_with_http_info(id, investor_id)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <V1EntitiesInvestorPriceDetails>
+  p data # => <V1EntitiesDealsPriceDetails>
 rescue DealMakerAPI::ApiError => e
   puts "Error when calling InvestorApi->get_incentive_plan_with_http_info: #{e}"
 end
@@ -629,7 +629,7 @@ end
 
 ### Return type
 
-[**V1EntitiesInvestorPriceDetails**](V1EntitiesInvestorPriceDetails.md)
+[**V1EntitiesDealsPriceDetails**](V1EntitiesDealsPriceDetails.md)
 
 ### Authorization
 

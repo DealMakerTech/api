@@ -418,7 +418,7 @@ No authorization required
 
 ## getIncentivePlan
 
-> V1EntitiesInvestorPriceDetails getIncentivePlan(id, investorId)
+> V1EntitiesDealsPriceDetails getIncentivePlan(id, investorId)
 
 Get investor incentive plan by investor id
 
@@ -452,7 +452,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**V1EntitiesInvestorPriceDetails**](V1EntitiesInvestorPriceDetails.md)
+[**V1EntitiesDealsPriceDetails**](V1EntitiesDealsPriceDetails.md)
 
 ### Authorization
 

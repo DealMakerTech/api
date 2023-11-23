@@ -21,15 +21,15 @@ import PatchInvestorRequest from '../model/PatchInvestorRequest';
 import PostDealsIdInvestors from '../model/PostDealsIdInvestors';
 import PutDealsIdInvestors from '../model/PutDealsIdInvestors';
 import RunBackgroundSearchRequest from '../model/RunBackgroundSearchRequest';
+import V1EntitiesDealsPriceDetails from '../model/V1EntitiesDealsPriceDetails';
 import V1EntitiesInvestor from '../model/V1EntitiesInvestor';
 import V1EntitiesInvestorOtpAccessLink from '../model/V1EntitiesInvestorOtpAccessLink';
-import V1EntitiesInvestorPriceDetails from '../model/V1EntitiesInvestorPriceDetails';
 import V1EntitiesInvestors from '../model/V1EntitiesInvestors';
 
 /**
 * Investor service.
 * @module api/InvestorApi
-* @version 0.91.3
+* @version 0.91.4
 */
 export default class InvestorApi {
 
@@ -464,7 +464,7 @@ export default class InvestorApi {
      * Callback function to receive the result of the getIncentivePlan operation.
      * @callback module:api/InvestorApi~getIncentivePlanCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/V1EntitiesInvestorPriceDetails} data The data returned by the service call.
+     * @param {module:model/V1EntitiesDealsPriceDetails} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -474,7 +474,7 @@ export default class InvestorApi {
      * @param {Number} id The deal id.
      * @param {Number} investorId The investor id.
      * @param {module:api/InvestorApi~getIncentivePlanCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/V1EntitiesInvestorPriceDetails}
+     * data is of type: {@link module:model/V1EntitiesDealsPriceDetails}
      */
     getIncentivePlan(id, investorId, callback) {
       let postBody = null;
@@ -501,7 +501,7 @@ export default class InvestorApi {
       let authNames = [];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = V1EntitiesInvestorPriceDetails;
+      let returnType = V1EntitiesDealsPriceDetails;
       return this.apiClient.callApi(
         '/deals/{id}/investors/{investor_id}/incentive_plan', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,

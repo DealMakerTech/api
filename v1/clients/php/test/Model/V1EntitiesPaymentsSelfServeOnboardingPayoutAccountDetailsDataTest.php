@@ -1,6 +1,6 @@
 <?php
 /**
- * V1EntitiesInvestorIncentiveTierTest
+ * V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsDataTest
  *
  * PHP version 7.4
  *
@@ -31,15 +31,15 @@ namespace DealMaker\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * V1EntitiesInvestorIncentiveTierTest Class Doc Comment
+ * V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsDataTest Class Doc Comment
  *
  * @category    Class
- * @description V1EntitiesInvestorIncentiveTier
+ * @description V1_Entities_Payments_SelfServeOnboarding_PayoutAccountDetails_Data model
  * @package     DealMaker
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class V1EntitiesInvestorIncentiveTierTest extends TestCase
+class V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsDataTest extends TestCase
 {
 
     /**
@@ -71,54 +71,18 @@ class V1EntitiesInvestorIncentiveTierTest extends TestCase
     }
 
     /**
-     * Test "V1EntitiesInvestorIncentiveTier"
+     * Test "V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsData"
      */
-    public function testV1EntitiesInvestorIncentiveTier()
+    public function testV1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsData()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "id"
+     * Test attribute "country"
      */
-    public function testPropertyId()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "incentive_percentage"
-     */
-    public function testPropertyIncentivePercentage()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "end_at"
-     */
-    public function testPropertyEndAt()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "created_at"
-     */
-    public function testPropertyCreatedAt()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "updated_at"
-     */
-    public function testPropertyUpdatedAt()
+    public function testPropertyCountry()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

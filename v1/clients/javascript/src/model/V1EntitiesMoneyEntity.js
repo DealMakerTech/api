@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The V1EntitiesMoneyEntity model module.
  * @module model/V1EntitiesMoneyEntity
- * @version 0.91.3
+ * @version 0.91.4
  */
 class V1EntitiesMoneyEntity {
     /**

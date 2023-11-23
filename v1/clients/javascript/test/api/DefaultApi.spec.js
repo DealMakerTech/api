@@ -58,6 +58,16 @@
         done();
       });
     });
+    describe('getDealsDealIdPaymentOnboardingQuestionnairePayoutAccountDetailsData', function() {
+      it('should call getDealsDealIdPaymentOnboardingQuestionnairePayoutAccountDetailsData successfully', function(done) {
+        //uncomment below and update the code to test getDealsDealIdPaymentOnboardingQuestionnairePayoutAccountDetailsData
+        //instance.getDealsDealIdPaymentOnboardingQuestionnairePayoutAccountDetailsData(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('getDealsIdInvestorsInvestorIdPaymentsExpressWireInstructions', function() {
       it('should call getDealsIdInvestorsInvestorIdPaymentsExpressWireInstructions successfully', function(done) {
         //uncomment below and update the code to test getDealsIdInvestorsInvestorIdPaymentsExpressWireInstructions

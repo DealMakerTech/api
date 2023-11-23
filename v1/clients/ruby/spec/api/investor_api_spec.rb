@@ -147,7 +147,7 @@ describe 'InvestorApi' do
   # @param id The deal id.
   # @param investor_id The investor id.
   # @param [Hash] opts the optional parameters
-  # @return [V1EntitiesInvestorPriceDetails]
+  # @return [V1EntitiesDealsPriceDetails]
   describe 'get_incentive_plan test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/

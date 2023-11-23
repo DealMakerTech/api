@@ -504,7 +504,7 @@ No authorization required
 ## `getIncentivePlan()`
 
 ```php
-getIncentivePlan($id, $investor_id): \DealMaker\Model\V1EntitiesInvestorPriceDetails
+getIncentivePlan($id, $investor_id): \DealMaker\Model\V1EntitiesDealsPriceDetails
 ```
 
 Get investor incentive plan by investor id
@@ -545,7 +545,7 @@ try {
 
 ### Return type
 
-[**\DealMaker\Model\V1EntitiesInvestorPriceDetails**](../Model/V1EntitiesInvestorPriceDetails.md)
+[**\DealMaker\Model\V1EntitiesDealsPriceDetails**](../Model/V1EntitiesDealsPriceDetails.md)
 
 ### Authorization
 

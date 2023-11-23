@@ -1,6 +1,6 @@
 <?php
 /**
- * V1EntitiesInvestorIncentiveTier
+ * V1EntitiesDealsIncentivePlan
  *
  * PHP version 7.4
  *
@@ -32,7 +32,7 @@ use \ArrayAccess;
 use \DealMaker\ObjectSerializer;
 
 /**
- * V1EntitiesInvestorIncentiveTier Class Doc Comment
+ * V1EntitiesDealsIncentivePlan Class Doc Comment
  *
  * @category Class
  * @package  DealMaker
@@ -40,7 +40,7 @@ use \DealMaker\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class V1EntitiesInvestorIncentiveTier implements ModelInterface, ArrayAccess, \JsonSerializable
+class V1EntitiesDealsIncentivePlan implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class V1EntitiesInvestorIncentiveTier implements ModelInterface, ArrayAccess, \J
       *
       * @var string
       */
-    protected static $openAPIModelName = 'V1_Entities_Investor_IncentiveTier';
+    protected static $openAPIModelName = 'V1_Entities_Deals_IncentivePlan';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,8 +58,10 @@ class V1EntitiesInvestorIncentiveTier implements ModelInterface, ArrayAccess, \J
       */
     protected static $openAPITypes = [
         'id' => 'int',
-        'incentive_percentage' => 'float',
-        'end_at' => '\DateTime',
+        'deal_id' => 'int',
+        'plan_type' => 'string',
+        'funded_by_offset' => 'int',
+        'active_at' => '\DateTime',
         'created_at' => '\DateTime',
         'updated_at' => '\DateTime'
     ];
@@ -73,8 +75,10 @@ class V1EntitiesInvestorIncentiveTier implements ModelInterface, ArrayAccess, \J
       */
     protected static $openAPIFormats = [
         'id' => 'int32',
-        'incentive_percentage' => 'float',
-        'end_at' => 'date-time',
+        'deal_id' => 'int32',
+        'plan_type' => null,
+        'funded_by_offset' => 'int32',
+        'active_at' => 'date-time',
         'created_at' => 'date-time',
         'updated_at' => 'date-time'
     ];
@@ -86,8 +90,10 @@ class V1EntitiesInvestorIncentiveTier implements ModelInterface, ArrayAccess, \J
       */
     protected static array $openAPINullables = [
         'id' => false,
-		'incentive_percentage' => false,
-		'end_at' => false,
+		'deal_id' => false,
+		'plan_type' => false,
+		'funded_by_offset' => false,
+		'active_at' => false,
 		'created_at' => false,
 		'updated_at' => false
     ];
@@ -179,8 +185,10 @@ class V1EntitiesInvestorIncentiveTier implements ModelInterface, ArrayAccess, \J
      */
     protected static $attributeMap = [
         'id' => 'id',
-        'incentive_percentage' => 'incentive_percentage',
-        'end_at' => 'end_at',
+        'deal_id' => 'deal_id',
+        'plan_type' => 'plan_type',
+        'funded_by_offset' => 'funded_by_offset',
+        'active_at' => 'active_at',
         'created_at' => 'created_at',
         'updated_at' => 'updated_at'
     ];
@@ -192,8 +200,10 @@ class V1EntitiesInvestorIncentiveTier implements ModelInterface, ArrayAccess, \J
      */
     protected static $setters = [
         'id' => 'setId',
-        'incentive_percentage' => 'setIncentivePercentage',
-        'end_at' => 'setEndAt',
+        'deal_id' => 'setDealId',
+        'plan_type' => 'setPlanType',
+        'funded_by_offset' => 'setFundedByOffset',
+        'active_at' => 'setActiveAt',
         'created_at' => 'setCreatedAt',
         'updated_at' => 'setUpdatedAt'
     ];
@@ -205,8 +215,10 @@ class V1EntitiesInvestorIncentiveTier implements ModelInterface, ArrayAccess, \J
      */
     protected static $getters = [
         'id' => 'getId',
-        'incentive_percentage' => 'getIncentivePercentage',
-        'end_at' => 'getEndAt',
+        'deal_id' => 'getDealId',
+        'plan_type' => 'getPlanType',
+        'funded_by_offset' => 'getFundedByOffset',
+        'active_at' => 'getActiveAt',
         'created_at' => 'getCreatedAt',
         'updated_at' => 'getUpdatedAt'
     ];
@@ -252,6 +264,19 @@ class V1EntitiesInvestorIncentiveTier implements ModelInterface, ArrayAccess, \J
         return self::$openAPIModelName;
     }
 
+    public const PLAN_TYPE_TIME = 'time';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getPlanTypeAllowableValues()
+    {
+        return [
+            self::PLAN_TYPE_TIME,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -269,8 +294,10 @@ class V1EntitiesInvestorIncentiveTier implements ModelInterface, ArrayAccess, \J
     public function __construct(array $data = null)
     {
         $this->setIfExists('id', $data ?? [], null);
-        $this->setIfExists('incentive_percentage', $data ?? [], null);
-        $this->setIfExists('end_at', $data ?? [], null);
+        $this->setIfExists('deal_id', $data ?? [], null);
+        $this->setIfExists('plan_type', $data ?? [], null);
+        $this->setIfExists('funded_by_offset', $data ?? [], null);
+        $this->setIfExists('active_at', $data ?? [], null);
         $this->setIfExists('created_at', $data ?? [], null);
         $this->setIfExists('updated_at', $data ?? [], null);
     }
@@ -302,6 +329,15 @@ class V1EntitiesInvestorIncentiveTier implements ModelInterface, ArrayAccess, \J
     {
         $invalidProperties = [];
 
+        $allowedValues = $this->getPlanTypeAllowableValues();
+        if (!is_null($this->container['plan_type']) && !in_array($this->container['plan_type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'plan_type', must be one of '%s'",
+                $this->container['plan_type'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -330,7 +366,7 @@ class V1EntitiesInvestorIncentiveTier implements ModelInterface, ArrayAccess, \J
     /**
      * Sets id
      *
-     * @param int|null $id The incentive tier id.
+     * @param int|null $id The incentive plan id.
      *
      * @return self
      */
@@ -345,55 +381,119 @@ class V1EntitiesInvestorIncentiveTier implements ModelInterface, ArrayAccess, \J
     }
 
     /**
-     * Gets incentive_percentage
+     * Gets deal_id
      *
-     * @return float|null
+     * @return int|null
      */
-    public function getIncentivePercentage()
+    public function getDealId()
     {
-        return $this->container['incentive_percentage'];
+        return $this->container['deal_id'];
     }
 
     /**
-     * Sets incentive_percentage
+     * Sets deal_id
      *
-     * @param float|null $incentive_percentage The incentive tier percentage.
+     * @param int|null $deal_id The deal id.
      *
      * @return self
      */
-    public function setIncentivePercentage($incentive_percentage)
+    public function setDealId($deal_id)
     {
-        if (is_null($incentive_percentage)) {
-            throw new \InvalidArgumentException('non-nullable incentive_percentage cannot be null');
+        if (is_null($deal_id)) {
+            throw new \InvalidArgumentException('non-nullable deal_id cannot be null');
         }
-        $this->container['incentive_percentage'] = $incentive_percentage;
+        $this->container['deal_id'] = $deal_id;
 
         return $this;
     }
 
     /**
-     * Gets end_at
+     * Gets plan_type
      *
-     * @return \DateTime|null
+     * @return string|null
      */
-    public function getEndAt()
+    public function getPlanType()
     {
-        return $this->container['end_at'];
+        return $this->container['plan_type'];
     }
 
     /**
-     * Sets end_at
+     * Sets plan_type
      *
-     * @param \DateTime|null $end_at The incentive tier end date.
+     * @param string|null $plan_type The incentive plan type.
      *
      * @return self
      */
-    public function setEndAt($end_at)
+    public function setPlanType($plan_type)
     {
-        if (is_null($end_at)) {
-            throw new \InvalidArgumentException('non-nullable end_at cannot be null');
+        if (is_null($plan_type)) {
+            throw new \InvalidArgumentException('non-nullable plan_type cannot be null');
         }
-        $this->container['end_at'] = $end_at;
+        $allowedValues = $this->getPlanTypeAllowableValues();
+        if (!in_array($plan_type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'plan_type', must be one of '%s'",
+                    $plan_type,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['plan_type'] = $plan_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets funded_by_offset
+     *
+     * @return int|null
+     */
+    public function getFundedByOffset()
+    {
+        return $this->container['funded_by_offset'];
+    }
+
+    /**
+     * Sets funded_by_offset
+     *
+     * @param int|null $funded_by_offset The incentive plan funded by offset.
+     *
+     * @return self
+     */
+    public function setFundedByOffset($funded_by_offset)
+    {
+        if (is_null($funded_by_offset)) {
+            throw new \InvalidArgumentException('non-nullable funded_by_offset cannot be null');
+        }
+        $this->container['funded_by_offset'] = $funded_by_offset;
+
+        return $this;
+    }
+
+    /**
+     * Gets active_at
+     *
+     * @return \DateTime|null
+     */
+    public function getActiveAt()
+    {
+        return $this->container['active_at'];
+    }
+
+    /**
+     * Sets active_at
+     *
+     * @param \DateTime|null $active_at The incentive plan active date.
+     *
+     * @return self
+     */
+    public function setActiveAt($active_at)
+    {
+        if (is_null($active_at)) {
+            throw new \InvalidArgumentException('non-nullable active_at cannot be null');
+        }
+        $this->container['active_at'] = $active_at;
 
         return $this;
     }

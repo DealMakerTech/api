@@ -1,4 +1,4 @@
-# Api.V1EntitiesInvestorIncentivePlan
+# Api.V1EntitiesDealsIncentivePlan
 
 ## Properties
 
@@ -11,5 +11,14 @@ Name | Type | Description | Notes
 **activeAt** | **Date** | The incentive plan active date. | [optional] 
 **createdAt** | **Date** | The creation time. | [optional] 
 **updatedAt** | **Date** | The last update time. | [optional] 
+
+
+
+## Enum: PlanTypeEnum
+
+
+* `time` (value: `"time"`)
+
+
 
 

@@ -2730,7 +2730,7 @@ class InvestorApi
      *
      * @throws \DealMaker\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \DealMaker\Model\V1EntitiesInvestorPriceDetails
+     * @return \DealMaker\Model\V1EntitiesDealsPriceDetails
      */
     public function getIncentivePlan($id, $investor_id, string $contentType = self::contentTypes['getIncentivePlan'][0])
     {
@@ -2749,7 +2749,7 @@ class InvestorApi
      *
      * @throws \DealMaker\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \DealMaker\Model\V1EntitiesInvestorPriceDetails, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \DealMaker\Model\V1EntitiesDealsPriceDetails, HTTP status code, HTTP response headers (array of strings)
      */
     public function getIncentivePlanWithHttpInfo($id, $investor_id, string $contentType = self::contentTypes['getIncentivePlan'][0])
     {
@@ -2792,11 +2792,11 @@ class InvestorApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\DealMaker\Model\V1EntitiesInvestorPriceDetails' === '\SplFileObject') {
+                    if ('\DealMaker\Model\V1EntitiesDealsPriceDetails' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\DealMaker\Model\V1EntitiesInvestorPriceDetails' !== 'string') {
+                        if ('\DealMaker\Model\V1EntitiesDealsPriceDetails' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -2814,13 +2814,13 @@ class InvestorApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\DealMaker\Model\V1EntitiesInvestorPriceDetails', []),
+                        ObjectSerializer::deserialize($content, '\DealMaker\Model\V1EntitiesDealsPriceDetails', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\DealMaker\Model\V1EntitiesInvestorPriceDetails';
+            $returnType = '\DealMaker\Model\V1EntitiesDealsPriceDetails';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -2853,7 +2853,7 @@ class InvestorApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\DealMaker\Model\V1EntitiesInvestorPriceDetails',
+                        '\DealMaker\Model\V1EntitiesDealsPriceDetails',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2899,7 +2899,7 @@ class InvestorApi
      */
     public function getIncentivePlanAsyncWithHttpInfo($id, $investor_id, string $contentType = self::contentTypes['getIncentivePlan'][0])
     {
-        $returnType = '\DealMaker\Model\V1EntitiesInvestorPriceDetails';
+        $returnType = '\DealMaker\Model\V1EntitiesDealsPriceDetails';
         $request = $this->getIncentivePlanRequest($id, $investor_id, $contentType);
 
         return $this->client

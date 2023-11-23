@@ -11,174 +11,91 @@
  *
  */
 
-import ApiClient from '../ApiClient';
-import V1EntitiesInvestorIncentivePlan from './V1EntitiesInvestorIncentivePlan';
-import V1EntitiesInvestorIncentiveTier from './V1EntitiesInvestorIncentiveTier';
-import V1EntitiesMoneyEntity from './V1EntitiesMoneyEntity';
+(function(root, factory) {
+  if (typeof define === 'function' && define.amd) {
+    // AMD.
+    define(['expect.js', process.cwd()+'/src/index'], factory);
+  } else if (typeof module === 'object' && module.exports) {
+    // CommonJS-like environments that support module.exports, like Node.
+    factory(require('expect.js'), require(process.cwd()+'/src/index'));
+  } else {
+    // Browser globals (root is window)
+    factory(root.expect, root.Api);
+  }
+}(this, function(expect, Api) {
+  'use strict';
 
-/**
- * The V1EntitiesInvestorPriceDetails model module.
- * @module model/V1EntitiesInvestorPriceDetails
- * @version 0.91.3
- */
-class V1EntitiesInvestorPriceDetails {
-    /**
-     * Constructs a new <code>V1EntitiesInvestorPriceDetails</code>.
-     * V1_Entities_Investor_PriceDetails model
-     * @alias module:model/V1EntitiesInvestorPriceDetails
-     */
-    constructor() { 
-        
-        V1EntitiesInvestorPriceDetails.initialize(this);
-    }
+  var instance;
 
-    /**
-     * Initializes the fields of this object.
-     * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
-     * Only for internal use.
-     */
-    static initialize(obj) { 
-    }
+  beforeEach(function() {
+    instance = new Api.V1EntitiesDealsIncentivePlan();
+  });
 
-    /**
-     * Constructs a <code>V1EntitiesInvestorPriceDetails</code> from a plain JavaScript object, optionally creating a new instance.
-     * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
-     * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @param {module:model/V1EntitiesInvestorPriceDetails} obj Optional instance to populate.
-     * @return {module:model/V1EntitiesInvestorPriceDetails} The populated <code>V1EntitiesInvestorPriceDetails</code> instance.
-     */
-    static constructFromObject(data, obj) {
-        if (data) {
-            obj = obj || new V1EntitiesInvestorPriceDetails();
+  var getProperty = function(object, getter, property) {
+    // Use getter method if present; otherwise, get the property directly.
+    if (typeof object[getter] === 'function')
+      return object[getter]();
+    else
+      return object[property];
+  }
 
-            if (data.hasOwnProperty('investment_amount')) {
-                obj['investment_amount'] = ApiClient.convertToType(data['investment_amount'], 'String');
-            }
-            if (data.hasOwnProperty('full_investment_amount')) {
-                obj['full_investment_amount'] = ApiClient.convertToType(data['full_investment_amount'], 'String');
-            }
-            if (data.hasOwnProperty('saved_investment_amount')) {
-                obj['saved_investment_amount'] = ApiClient.convertToType(data['saved_investment_amount'], 'String');
-            }
-            if (data.hasOwnProperty('number_of_securities')) {
-                obj['number_of_securities'] = ApiClient.convertToType(data['number_of_securities'], 'Number');
-            }
-            if (data.hasOwnProperty('full_number_of_securities')) {
-                obj['full_number_of_securities'] = ApiClient.convertToType(data['full_number_of_securities'], 'Number');
-            }
-            if (data.hasOwnProperty('full_price')) {
-                obj['full_price'] = V1EntitiesMoneyEntity.constructFromObject(data['full_price']);
-            }
-            if (data.hasOwnProperty('final_price')) {
-                obj['final_price'] = V1EntitiesMoneyEntity.constructFromObject(data['final_price']);
-            }
-            if (data.hasOwnProperty('effective_tier')) {
-                obj['effective_tier'] = V1EntitiesInvestorIncentiveTier.constructFromObject(data['effective_tier']);
-            }
-            if (data.hasOwnProperty('incentive_plan')) {
-                obj['incentive_plan'] = V1EntitiesInvestorIncentivePlan.constructFromObject(data['incentive_plan']);
-            }
-        }
-        return obj;
-    }
+  var setProperty = function(object, setter, property, value) {
+    // Use setter method if present; otherwise, set the property directly.
+    if (typeof object[setter] === 'function')
+      object[setter](value);
+    else
+      object[property] = value;
+  }
 
-    /**
-     * Validates the JSON data with respect to <code>V1EntitiesInvestorPriceDetails</code>.
-     * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>V1EntitiesInvestorPriceDetails</code>.
-     */
-    static validateJSON(data) {
-        // ensure the json data is a string
-        if (data['investment_amount'] && !(typeof data['investment_amount'] === 'string' || data['investment_amount'] instanceof String)) {
-            throw new Error("Expected the field `investment_amount` to be a primitive type in the JSON string but got " + data['investment_amount']);
-        }
-        // ensure the json data is a string
-        if (data['full_investment_amount'] && !(typeof data['full_investment_amount'] === 'string' || data['full_investment_amount'] instanceof String)) {
-            throw new Error("Expected the field `full_investment_amount` to be a primitive type in the JSON string but got " + data['full_investment_amount']);
-        }
-        // ensure the json data is a string
-        if (data['saved_investment_amount'] && !(typeof data['saved_investment_amount'] === 'string' || data['saved_investment_amount'] instanceof String)) {
-            throw new Error("Expected the field `saved_investment_amount` to be a primitive type in the JSON string but got " + data['saved_investment_amount']);
-        }
-        // validate the optional field `full_price`
-        if (data['full_price']) { // data not null
-          V1EntitiesMoneyEntity.validateJSON(data['full_price']);
-        }
-        // validate the optional field `final_price`
-        if (data['final_price']) { // data not null
-          V1EntitiesMoneyEntity.validateJSON(data['final_price']);
-        }
-        // validate the optional field `effective_tier`
-        if (data['effective_tier']) { // data not null
-          V1EntitiesInvestorIncentiveTier.validateJSON(data['effective_tier']);
-        }
-        // validate the optional field `incentive_plan`
-        if (data['incentive_plan']) { // data not null
-          V1EntitiesInvestorIncentivePlan.validateJSON(data['incentive_plan']);
-        }
+  describe('V1EntitiesDealsIncentivePlan', function() {
+    it('should create an instance of V1EntitiesDealsIncentivePlan', function() {
+      // uncomment below and update the code to test V1EntitiesDealsIncentivePlan
+      //var instance = new Api.V1EntitiesDealsIncentivePlan();
+      //expect(instance).to.be.a(Api.V1EntitiesDealsIncentivePlan);
+    });
 
-        return true;
-    }
+    it('should have the property id (base name: "id")', function() {
+      // uncomment below and update the code to test the property id
+      //var instance = new Api.V1EntitiesDealsIncentivePlan();
+      //expect(instance).to.be();
+    });
 
+    it('should have the property dealId (base name: "deal_id")', function() {
+      // uncomment below and update the code to test the property dealId
+      //var instance = new Api.V1EntitiesDealsIncentivePlan();
+      //expect(instance).to.be();
+    });
 
-}
+    it('should have the property planType (base name: "plan_type")', function() {
+      // uncomment below and update the code to test the property planType
+      //var instance = new Api.V1EntitiesDealsIncentivePlan();
+      //expect(instance).to.be();
+    });
 
+    it('should have the property fundedByOffset (base name: "funded_by_offset")', function() {
+      // uncomment below and update the code to test the property fundedByOffset
+      //var instance = new Api.V1EntitiesDealsIncentivePlan();
+      //expect(instance).to.be();
+    });
 
+    it('should have the property activeAt (base name: "active_at")', function() {
+      // uncomment below and update the code to test the property activeAt
+      //var instance = new Api.V1EntitiesDealsIncentivePlan();
+      //expect(instance).to.be();
+    });
 
-/**
- * The investment amount in dollar.
- * @member {String} investment_amount
- */
-V1EntitiesInvestorPriceDetails.prototype['investment_amount'] = undefined;
+    it('should have the property createdAt (base name: "created_at")', function() {
+      // uncomment below and update the code to test the property createdAt
+      //var instance = new Api.V1EntitiesDealsIncentivePlan();
+      //expect(instance).to.be();
+    });
 
-/**
- * The investment amount at full price to get the same number of securities
- * @member {String} full_investment_amount
- */
-V1EntitiesInvestorPriceDetails.prototype['full_investment_amount'] = undefined;
+    it('should have the property updatedAt (base name: "updated_at")', function() {
+      // uncomment below and update the code to test the property updatedAt
+      //var instance = new Api.V1EntitiesDealsIncentivePlan();
+      //expect(instance).to.be();
+    });
 
-/**
- * The saved amount.
- * @member {String} saved_investment_amount
- */
-V1EntitiesInvestorPriceDetails.prototype['saved_investment_amount'] = undefined;
+  });
 
-/**
- * The number of securities.
- * @member {Number} number_of_securities
- */
-V1EntitiesInvestorPriceDetails.prototype['number_of_securities'] = undefined;
-
-/**
- * The number of securities you could get at full price
- * @member {Number} full_number_of_securities
- */
-V1EntitiesInvestorPriceDetails.prototype['full_number_of_securities'] = undefined;
-
-/**
- * @member {module:model/V1EntitiesMoneyEntity} full_price
- */
-V1EntitiesInvestorPriceDetails.prototype['full_price'] = undefined;
-
-/**
- * @member {module:model/V1EntitiesMoneyEntity} final_price
- */
-V1EntitiesInvestorPriceDetails.prototype['final_price'] = undefined;
-
-/**
- * @member {module:model/V1EntitiesInvestorIncentiveTier} effective_tier
- */
-V1EntitiesInvestorPriceDetails.prototype['effective_tier'] = undefined;
-
-/**
- * @member {module:model/V1EntitiesInvestorIncentivePlan} incentive_plan
- */
-V1EntitiesInvestorPriceDetails.prototype['incentive_plan'] = undefined;
-
-
-
-
-
-
-export default V1EntitiesInvestorPriceDetails;
-
+}));

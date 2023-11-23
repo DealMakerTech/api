@@ -1,6 +1,6 @@
 <?php
 /**
- * V1EntitiesInvestorPriceDetails
+ * V1EntitiesDealsIncentivePlansIncentiveTier
  *
  * PHP version 7.4
  *
@@ -32,16 +32,15 @@ use \ArrayAccess;
 use \DealMaker\ObjectSerializer;
 
 /**
- * V1EntitiesInvestorPriceDetails Class Doc Comment
+ * V1EntitiesDealsIncentivePlansIncentiveTier Class Doc Comment
  *
  * @category Class
- * @description V1_Entities_Investor_PriceDetails model
  * @package  DealMaker
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class V1EntitiesInvestorPriceDetails implements ModelInterface, ArrayAccess, \JsonSerializable
+class V1EntitiesDealsIncentivePlansIncentiveTier implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +49,7 @@ class V1EntitiesInvestorPriceDetails implements ModelInterface, ArrayAccess, \Js
       *
       * @var string
       */
-    protected static $openAPIModelName = 'V1_Entities_Investor_PriceDetails';
+    protected static $openAPIModelName = 'V1_Entities_Deals_IncentivePlans_IncentiveTier';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,15 +57,11 @@ class V1EntitiesInvestorPriceDetails implements ModelInterface, ArrayAccess, \Js
       * @var string[]
       */
     protected static $openAPITypes = [
-        'investment_amount' => 'string',
-        'full_investment_amount' => 'string',
-        'saved_investment_amount' => 'string',
-        'number_of_securities' => 'int',
-        'full_number_of_securities' => 'int',
-        'full_price' => '\DealMaker\Model\V1EntitiesMoneyEntity',
-        'final_price' => '\DealMaker\Model\V1EntitiesMoneyEntity',
-        'effective_tier' => '\DealMaker\Model\V1EntitiesInvestorIncentiveTier',
-        'incentive_plan' => '\DealMaker\Model\V1EntitiesInvestorIncentivePlan'
+        'id' => 'int',
+        'incentive_percentage' => 'float',
+        'end_at' => '\DateTime',
+        'created_at' => '\DateTime',
+        'updated_at' => '\DateTime'
     ];
 
     /**
@@ -77,15 +72,11 @@ class V1EntitiesInvestorPriceDetails implements ModelInterface, ArrayAccess, \Js
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'investment_amount' => null,
-        'full_investment_amount' => null,
-        'saved_investment_amount' => null,
-        'number_of_securities' => 'int32',
-        'full_number_of_securities' => 'int32',
-        'full_price' => null,
-        'final_price' => null,
-        'effective_tier' => null,
-        'incentive_plan' => null
+        'id' => 'int32',
+        'incentive_percentage' => 'float',
+        'end_at' => 'date-time',
+        'created_at' => 'date-time',
+        'updated_at' => 'date-time'
     ];
 
     /**
@@ -94,15 +85,11 @@ class V1EntitiesInvestorPriceDetails implements ModelInterface, ArrayAccess, \Js
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'investment_amount' => false,
-		'full_investment_amount' => false,
-		'saved_investment_amount' => false,
-		'number_of_securities' => false,
-		'full_number_of_securities' => false,
-		'full_price' => false,
-		'final_price' => false,
-		'effective_tier' => false,
-		'incentive_plan' => false
+        'id' => false,
+		'incentive_percentage' => false,
+		'end_at' => false,
+		'created_at' => false,
+		'updated_at' => false
     ];
 
     /**
@@ -191,15 +178,11 @@ class V1EntitiesInvestorPriceDetails implements ModelInterface, ArrayAccess, \Js
      * @var string[]
      */
     protected static $attributeMap = [
-        'investment_amount' => 'investment_amount',
-        'full_investment_amount' => 'full_investment_amount',
-        'saved_investment_amount' => 'saved_investment_amount',
-        'number_of_securities' => 'number_of_securities',
-        'full_number_of_securities' => 'full_number_of_securities',
-        'full_price' => 'full_price',
-        'final_price' => 'final_price',
-        'effective_tier' => 'effective_tier',
-        'incentive_plan' => 'incentive_plan'
+        'id' => 'id',
+        'incentive_percentage' => 'incentive_percentage',
+        'end_at' => 'end_at',
+        'created_at' => 'created_at',
+        'updated_at' => 'updated_at'
     ];
 
     /**
@@ -208,15 +191,11 @@ class V1EntitiesInvestorPriceDetails implements ModelInterface, ArrayAccess, \Js
      * @var string[]
      */
     protected static $setters = [
-        'investment_amount' => 'setInvestmentAmount',
-        'full_investment_amount' => 'setFullInvestmentAmount',
-        'saved_investment_amount' => 'setSavedInvestmentAmount',
-        'number_of_securities' => 'setNumberOfSecurities',
-        'full_number_of_securities' => 'setFullNumberOfSecurities',
-        'full_price' => 'setFullPrice',
-        'final_price' => 'setFinalPrice',
-        'effective_tier' => 'setEffectiveTier',
-        'incentive_plan' => 'setIncentivePlan'
+        'id' => 'setId',
+        'incentive_percentage' => 'setIncentivePercentage',
+        'end_at' => 'setEndAt',
+        'created_at' => 'setCreatedAt',
+        'updated_at' => 'setUpdatedAt'
     ];
 
     /**
@@ -225,15 +204,11 @@ class V1EntitiesInvestorPriceDetails implements ModelInterface, ArrayAccess, \Js
      * @var string[]
      */
     protected static $getters = [
-        'investment_amount' => 'getInvestmentAmount',
-        'full_investment_amount' => 'getFullInvestmentAmount',
-        'saved_investment_amount' => 'getSavedInvestmentAmount',
-        'number_of_securities' => 'getNumberOfSecurities',
-        'full_number_of_securities' => 'getFullNumberOfSecurities',
-        'full_price' => 'getFullPrice',
-        'final_price' => 'getFinalPrice',
-        'effective_tier' => 'getEffectiveTier',
-        'incentive_plan' => 'getIncentivePlan'
+        'id' => 'getId',
+        'incentive_percentage' => 'getIncentivePercentage',
+        'end_at' => 'getEndAt',
+        'created_at' => 'getCreatedAt',
+        'updated_at' => 'getUpdatedAt'
     ];
 
     /**
@@ -293,15 +268,11 @@ class V1EntitiesInvestorPriceDetails implements ModelInterface, ArrayAccess, \Js
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('investment_amount', $data ?? [], null);
-        $this->setIfExists('full_investment_amount', $data ?? [], null);
-        $this->setIfExists('saved_investment_amount', $data ?? [], null);
-        $this->setIfExists('number_of_securities', $data ?? [], null);
-        $this->setIfExists('full_number_of_securities', $data ?? [], null);
-        $this->setIfExists('full_price', $data ?? [], null);
-        $this->setIfExists('final_price', $data ?? [], null);
-        $this->setIfExists('effective_tier', $data ?? [], null);
-        $this->setIfExists('incentive_plan', $data ?? [], null);
+        $this->setIfExists('id', $data ?? [], null);
+        $this->setIfExists('incentive_percentage', $data ?? [], null);
+        $this->setIfExists('end_at', $data ?? [], null);
+        $this->setIfExists('created_at', $data ?? [], null);
+        $this->setIfExists('updated_at', $data ?? [], null);
     }
 
     /**
@@ -347,244 +318,136 @@ class V1EntitiesInvestorPriceDetails implements ModelInterface, ArrayAccess, \Js
 
 
     /**
-     * Gets investment_amount
-     *
-     * @return string|null
-     */
-    public function getInvestmentAmount()
-    {
-        return $this->container['investment_amount'];
-    }
-
-    /**
-     * Sets investment_amount
-     *
-     * @param string|null $investment_amount The investment amount in dollar.
-     *
-     * @return self
-     */
-    public function setInvestmentAmount($investment_amount)
-    {
-        if (is_null($investment_amount)) {
-            throw new \InvalidArgumentException('non-nullable investment_amount cannot be null');
-        }
-        $this->container['investment_amount'] = $investment_amount;
-
-        return $this;
-    }
-
-    /**
-     * Gets full_investment_amount
-     *
-     * @return string|null
-     */
-    public function getFullInvestmentAmount()
-    {
-        return $this->container['full_investment_amount'];
-    }
-
-    /**
-     * Sets full_investment_amount
-     *
-     * @param string|null $full_investment_amount The investment amount at full price to get the same number of securities
-     *
-     * @return self
-     */
-    public function setFullInvestmentAmount($full_investment_amount)
-    {
-        if (is_null($full_investment_amount)) {
-            throw new \InvalidArgumentException('non-nullable full_investment_amount cannot be null');
-        }
-        $this->container['full_investment_amount'] = $full_investment_amount;
-
-        return $this;
-    }
-
-    /**
-     * Gets saved_investment_amount
-     *
-     * @return string|null
-     */
-    public function getSavedInvestmentAmount()
-    {
-        return $this->container['saved_investment_amount'];
-    }
-
-    /**
-     * Sets saved_investment_amount
-     *
-     * @param string|null $saved_investment_amount The saved amount.
-     *
-     * @return self
-     */
-    public function setSavedInvestmentAmount($saved_investment_amount)
-    {
-        if (is_null($saved_investment_amount)) {
-            throw new \InvalidArgumentException('non-nullable saved_investment_amount cannot be null');
-        }
-        $this->container['saved_investment_amount'] = $saved_investment_amount;
-
-        return $this;
-    }
-
-    /**
-     * Gets number_of_securities
+     * Gets id
      *
      * @return int|null
      */
-    public function getNumberOfSecurities()
+    public function getId()
     {
-        return $this->container['number_of_securities'];
+        return $this->container['id'];
     }
 
     /**
-     * Sets number_of_securities
+     * Sets id
      *
-     * @param int|null $number_of_securities The number of securities.
+     * @param int|null $id The incentive tier id.
      *
      * @return self
      */
-    public function setNumberOfSecurities($number_of_securities)
+    public function setId($id)
     {
-        if (is_null($number_of_securities)) {
-            throw new \InvalidArgumentException('non-nullable number_of_securities cannot be null');
+        if (is_null($id)) {
+            throw new \InvalidArgumentException('non-nullable id cannot be null');
         }
-        $this->container['number_of_securities'] = $number_of_securities;
+        $this->container['id'] = $id;
 
         return $this;
     }
 
     /**
-     * Gets full_number_of_securities
+     * Gets incentive_percentage
      *
-     * @return int|null
+     * @return float|null
      */
-    public function getFullNumberOfSecurities()
+    public function getIncentivePercentage()
     {
-        return $this->container['full_number_of_securities'];
+        return $this->container['incentive_percentage'];
     }
 
     /**
-     * Sets full_number_of_securities
+     * Sets incentive_percentage
      *
-     * @param int|null $full_number_of_securities The number of securities you could get at full price
+     * @param float|null $incentive_percentage The incentive tier percentage.
      *
      * @return self
      */
-    public function setFullNumberOfSecurities($full_number_of_securities)
+    public function setIncentivePercentage($incentive_percentage)
     {
-        if (is_null($full_number_of_securities)) {
-            throw new \InvalidArgumentException('non-nullable full_number_of_securities cannot be null');
+        if (is_null($incentive_percentage)) {
+            throw new \InvalidArgumentException('non-nullable incentive_percentage cannot be null');
         }
-        $this->container['full_number_of_securities'] = $full_number_of_securities;
+        $this->container['incentive_percentage'] = $incentive_percentage;
 
         return $this;
     }
 
     /**
-     * Gets full_price
+     * Gets end_at
      *
-     * @return \DealMaker\Model\V1EntitiesMoneyEntity|null
+     * @return \DateTime|null
      */
-    public function getFullPrice()
+    public function getEndAt()
     {
-        return $this->container['full_price'];
+        return $this->container['end_at'];
     }
 
     /**
-     * Sets full_price
+     * Sets end_at
      *
-     * @param \DealMaker\Model\V1EntitiesMoneyEntity|null $full_price full_price
+     * @param \DateTime|null $end_at The incentive tier end date.
      *
      * @return self
      */
-    public function setFullPrice($full_price)
+    public function setEndAt($end_at)
     {
-        if (is_null($full_price)) {
-            throw new \InvalidArgumentException('non-nullable full_price cannot be null');
+        if (is_null($end_at)) {
+            throw new \InvalidArgumentException('non-nullable end_at cannot be null');
         }
-        $this->container['full_price'] = $full_price;
+        $this->container['end_at'] = $end_at;
 
         return $this;
     }
 
     /**
-     * Gets final_price
+     * Gets created_at
      *
-     * @return \DealMaker\Model\V1EntitiesMoneyEntity|null
+     * @return \DateTime|null
      */
-    public function getFinalPrice()
+    public function getCreatedAt()
     {
-        return $this->container['final_price'];
+        return $this->container['created_at'];
     }
 
     /**
-     * Sets final_price
+     * Sets created_at
      *
-     * @param \DealMaker\Model\V1EntitiesMoneyEntity|null $final_price final_price
+     * @param \DateTime|null $created_at The creation time.
      *
      * @return self
      */
-    public function setFinalPrice($final_price)
+    public function setCreatedAt($created_at)
     {
-        if (is_null($final_price)) {
-            throw new \InvalidArgumentException('non-nullable final_price cannot be null');
+        if (is_null($created_at)) {
+            throw new \InvalidArgumentException('non-nullable created_at cannot be null');
         }
-        $this->container['final_price'] = $final_price;
+        $this->container['created_at'] = $created_at;
 
         return $this;
     }
 
     /**
-     * Gets effective_tier
+     * Gets updated_at
      *
-     * @return \DealMaker\Model\V1EntitiesInvestorIncentiveTier|null
+     * @return \DateTime|null
      */
-    public function getEffectiveTier()
+    public function getUpdatedAt()
     {
-        return $this->container['effective_tier'];
+        return $this->container['updated_at'];
     }
 
     /**
-     * Sets effective_tier
+     * Sets updated_at
      *
-     * @param \DealMaker\Model\V1EntitiesInvestorIncentiveTier|null $effective_tier effective_tier
+     * @param \DateTime|null $updated_at The last update time.
      *
      * @return self
      */
-    public function setEffectiveTier($effective_tier)
+    public function setUpdatedAt($updated_at)
     {
-        if (is_null($effective_tier)) {
-            throw new \InvalidArgumentException('non-nullable effective_tier cannot be null');
+        if (is_null($updated_at)) {
+            throw new \InvalidArgumentException('non-nullable updated_at cannot be null');
         }
-        $this->container['effective_tier'] = $effective_tier;
-
-        return $this;
-    }
-
-    /**
-     * Gets incentive_plan
-     *
-     * @return \DealMaker\Model\V1EntitiesInvestorIncentivePlan|null
-     */
-    public function getIncentivePlan()
-    {
-        return $this->container['incentive_plan'];
-    }
-
-    /**
-     * Sets incentive_plan
-     *
-     * @param \DealMaker\Model\V1EntitiesInvestorIncentivePlan|null $incentive_plan incentive_plan
-     *
-     * @return self
-     */
-    public function setIncentivePlan($incentive_plan)
-    {
-        if (is_null($incentive_plan)) {
-            throw new \InvalidArgumentException('non-nullable incentive_plan cannot be null');
-        }
-        $this->container['incentive_plan'] = $incentive_plan;
+        $this->container['updated_at'] = $updated_at;
 
         return $this;
     }

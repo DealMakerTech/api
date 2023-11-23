@@ -1,4 +1,4 @@
-# Api.V1EntitiesInvestorIncentiveTier
+# Api.V1EntitiesDealsIncentivePlansIncentiveTier
 
 ## Properties
 

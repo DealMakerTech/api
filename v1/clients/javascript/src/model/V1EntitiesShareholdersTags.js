@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The V1EntitiesShareholdersTags model module.
  * @module model/V1EntitiesShareholdersTags
- * @version 0.91.3
+ * @version 0.91.4
  */
 class V1EntitiesShareholdersTags {
     /**

@@ -18,6 +18,7 @@ import PutWebhooksIdRequest from '../model/PutWebhooksIdRequest';
 import V1EntitiesExpressWireInstruction from '../model/V1EntitiesExpressWireInstruction';
 import V1EntitiesExpressWireInstructions from '../model/V1EntitiesExpressWireInstructions';
 import V1EntitiesPaymentsSelfServeOnboardingDigitalPaymentsConnectionData from '../model/V1EntitiesPaymentsSelfServeOnboardingDigitalPaymentsConnectionData';
+import V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsData from '../model/V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsData';
 import V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsResult from '../model/V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsResult';
 import V1EntitiesPaymentsSelfServeOnboardingQualificationQuestionnaireResult from '../model/V1EntitiesPaymentsSelfServeOnboardingQualificationQuestionnaireResult';
 import V1EntitiesWebhooksDeal from '../model/V1EntitiesWebhooksDeal';
@@ -27,7 +28,7 @@ import V1EntitiesWebhooksSubscription from '../model/V1EntitiesWebhooksSubscript
 /**
 * Default service.
 * @module api/DefaultApi
-* @version 0.91.3
+* @version 0.91.4
 */
 export default class DefaultApi {
 
@@ -81,6 +82,49 @@ export default class DefaultApi {
       let returnType = V1EntitiesPaymentsSelfServeOnboardingDigitalPaymentsConnectionData;
       return this.apiClient.callApi(
         '/deals/{deal_id}/payment_onboarding/questionnaire/digital_payments_connection/data', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the getDealsDealIdPaymentOnboardingQuestionnairePayoutAccountDetailsData operation.
+     * @callback module:api/DefaultApi~getDealsDealIdPaymentOnboardingQuestionnairePayoutAccountDetailsDataCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsData} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Get payout account data
+     * Get payout account data
+     * @param {Number} dealId 
+     * @param {module:api/DefaultApi~getDealsDealIdPaymentOnboardingQuestionnairePayoutAccountDetailsDataCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsData}
+     */
+    getDealsDealIdPaymentOnboardingQuestionnairePayoutAccountDetailsData(dealId, callback) {
+      let postBody = null;
+      // verify the required parameter 'dealId' is set
+      if (dealId === undefined || dealId === null) {
+        throw new Error("Missing the required parameter 'dealId' when calling getDealsDealIdPaymentOnboardingQuestionnairePayoutAccountDetailsData");
+      }
+
+      let pathParams = {
+        'deal_id': dealId
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsData;
+      return this.apiClient.callApi(
+        '/deals/{deal_id}/payment_onboarding/questionnaire/payout_account_details/data', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

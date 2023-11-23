@@ -14,38 +14,31 @@ require 'date'
 require 'time'
 
 module DealMakerAPI
-  class V1EntitiesInvestorIncentivePlan
-    # The incentive plan id.
-    attr_accessor :id
+  # V1_Entities_Deals_PriceDetails model
+  class V1EntitiesDealsPriceDetails
+    attr_accessor :full_price
 
-    # The deal id.
-    attr_accessor :deal_id
+    attr_accessor :final_price
 
-    # The incentive plan type.
-    attr_accessor :plan_type
+    # The computed valid investment amount based on a given investment amount.
+    attr_accessor :computed_investment_amount
 
-    # The incentive plan funded by offset.
-    attr_accessor :funded_by_offset
+    # The computed number of securities that can be purchased with a given investment amount.
+    attr_accessor :computed_number_of_securities
 
-    # The incentive plan active date.
-    attr_accessor :active_at
+    attr_accessor :effective_tier
 
-    # The creation time.
-    attr_accessor :created_at
-
-    # The last update time.
-    attr_accessor :updated_at
+    attr_accessor :incentive_plan
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'id' => :'id',
-        :'deal_id' => :'deal_id',
-        :'plan_type' => :'plan_type',
-        :'funded_by_offset' => :'funded_by_offset',
-        :'active_at' => :'active_at',
-        :'created_at' => :'created_at',
-        :'updated_at' => :'updated_at'
+        :'full_price' => :'full_price',
+        :'final_price' => :'final_price',
+        :'computed_investment_amount' => :'computed_investment_amount',
+        :'computed_number_of_securities' => :'computed_number_of_securities',
+        :'effective_tier' => :'effective_tier',
+        :'incentive_plan' => :'incentive_plan'
       }
     end
 
@@ -57,13 +50,12 @@ module DealMakerAPI
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'id' => :'Integer',
-        :'deal_id' => :'Integer',
-        :'plan_type' => :'String',
-        :'funded_by_offset' => :'Integer',
-        :'active_at' => :'Time',
-        :'created_at' => :'Time',
-        :'updated_at' => :'Time'
+        :'full_price' => :'V1EntitiesMoneyEntity',
+        :'final_price' => :'V1EntitiesMoneyEntity',
+        :'computed_investment_amount' => :'Float',
+        :'computed_number_of_securities' => :'Integer',
+        :'effective_tier' => :'V1EntitiesDealsIncentivePlansIncentiveTier',
+        :'incentive_plan' => :'V1EntitiesDealsIncentivePlan'
       }
     end
 
@@ -77,43 +69,39 @@ module DealMakerAPI
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DealMakerAPI::V1EntitiesInvestorIncentivePlan` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DealMakerAPI::V1EntitiesDealsPriceDetails` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `DealMakerAPI::V1EntitiesInvestorIncentivePlan`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DealMakerAPI::V1EntitiesDealsPriceDetails`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'id')
-        self.id = attributes[:'id']
+      if attributes.key?(:'full_price')
+        self.full_price = attributes[:'full_price']
       end
 
-      if attributes.key?(:'deal_id')
-        self.deal_id = attributes[:'deal_id']
+      if attributes.key?(:'final_price')
+        self.final_price = attributes[:'final_price']
       end
 
-      if attributes.key?(:'plan_type')
-        self.plan_type = attributes[:'plan_type']
+      if attributes.key?(:'computed_investment_amount')
+        self.computed_investment_amount = attributes[:'computed_investment_amount']
       end
 
-      if attributes.key?(:'funded_by_offset')
-        self.funded_by_offset = attributes[:'funded_by_offset']
+      if attributes.key?(:'computed_number_of_securities')
+        self.computed_number_of_securities = attributes[:'computed_number_of_securities']
       end
 
-      if attributes.key?(:'active_at')
-        self.active_at = attributes[:'active_at']
+      if attributes.key?(:'effective_tier')
+        self.effective_tier = attributes[:'effective_tier']
       end
 
-      if attributes.key?(:'created_at')
-        self.created_at = attributes[:'created_at']
-      end
-
-      if attributes.key?(:'updated_at')
-        self.updated_at = attributes[:'updated_at']
+      if attributes.key?(:'incentive_plan')
+        self.incentive_plan = attributes[:'incentive_plan']
       end
     end
 
@@ -137,13 +125,12 @@ module DealMakerAPI
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          id == o.id &&
-          deal_id == o.deal_id &&
-          plan_type == o.plan_type &&
-          funded_by_offset == o.funded_by_offset &&
-          active_at == o.active_at &&
-          created_at == o.created_at &&
-          updated_at == o.updated_at
+          full_price == o.full_price &&
+          final_price == o.final_price &&
+          computed_investment_amount == o.computed_investment_amount &&
+          computed_number_of_securities == o.computed_number_of_securities &&
+          effective_tier == o.effective_tier &&
+          incentive_plan == o.incentive_plan
     end
 
     # @see the `==` method
@@ -155,7 +142,7 @@ module DealMakerAPI
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, deal_id, plan_type, funded_by_offset, active_at, created_at, updated_at].hash
+      [full_price, final_price, computed_investment_amount, computed_number_of_securities, effective_tier, incentive_plan].hash
     end
 
     # Builds the object from hash

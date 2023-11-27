@@ -17,7 +17,7 @@ import V1EntitiesShareholder from './V1EntitiesShareholder';
 /**
  * The V1EntitiesShareholders model module.
  * @module model/V1EntitiesShareholders
- * @version 0.91.4
+ * @version 0.92.0
  */
 class V1EntitiesShareholders {
     /**

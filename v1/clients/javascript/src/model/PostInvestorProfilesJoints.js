@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The PostInvestorProfilesJoints model module.
  * @module model/PostInvestorProfilesJoints
- * @version 0.91.4
+ * @version 0.92.0
  */
 class PostInvestorProfilesJoints {
     /**

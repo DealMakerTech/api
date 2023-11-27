@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The BulkUploadInvestorsRequest model module.
  * @module model/BulkUploadInvestorsRequest
- * @version 0.91.4
+ * @version 0.92.0
  */
 class BulkUploadInvestorsRequest {
     /**

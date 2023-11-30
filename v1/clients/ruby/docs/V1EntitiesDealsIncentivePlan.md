@@ -11,6 +11,7 @@
 | **active_at** | **Time** | The incentive plan active date. | [optional] |
 | **created_at** | **Time** | The creation time. | [optional] |
 | **updated_at** | **Time** | The last update time. | [optional] |
+| **tiers** | [**V1EntitiesDealsIncentivePlansIncentiveTier**](V1EntitiesDealsIncentivePlansIncentiveTier.md) |  | [optional] |
 
 ## Example
 
@@ -24,7 +25,8 @@ instance = DealMakerAPI::V1EntitiesDealsIncentivePlan.new(
   funded_by_offset: null,
   active_at: null,
   created_at: null,
-  updated_at: null
+  updated_at: null,
+  tiers: null
 )
 ```
 

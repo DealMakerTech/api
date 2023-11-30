@@ -11,5 +11,6 @@ Name | Type | Description | Notes
 **active_at** | **\DateTime** | The incentive plan active date. | [optional]
 **created_at** | **\DateTime** | The creation time. | [optional]
 **updated_at** | **\DateTime** | The last update time. | [optional]
+**tiers** | [**\DealMaker\Model\V1EntitiesDealsIncentivePlansIncentiveTier**](V1EntitiesDealsIncentivePlansIncentiveTier.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

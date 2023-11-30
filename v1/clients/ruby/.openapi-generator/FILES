@@ -23,6 +23,7 @@ docs/DealsApi.md
 docs/DefaultApi.md
 docs/EditInvestorTagsRequest.md
 docs/GenerateUrlRequest.md
+docs/IncentivePlanApi.md
 docs/InvestorApi.md
 docs/InvestorProfileApi.md
 docs/PatchInvestorProfilesCorporations.md
@@ -126,6 +127,7 @@ lib/DealMakerAPI/api/country_api.rb
 lib/DealMakerAPI/api/deal_api.rb
 lib/DealMakerAPI/api/deals_api.rb
 lib/DealMakerAPI/api/default_api.rb
+lib/DealMakerAPI/api/incentive_plan_api.rb
 lib/DealMakerAPI/api/investor_api.rb
 lib/DealMakerAPI/api/investor_profile_api.rb
 lib/DealMakerAPI/api/shareholder_api.rb
@@ -241,6 +243,7 @@ spec/api/country_api_spec.rb
 spec/api/deal_api_spec.rb
 spec/api/deals_api_spec.rb
 spec/api/default_api_spec.rb
+spec/api/incentive_plan_api_spec.rb
 spec/api/investor_api_spec.rb
 spec/api/investor_profile_api_spec.rb
 spec/api/shareholder_api_spec.rb

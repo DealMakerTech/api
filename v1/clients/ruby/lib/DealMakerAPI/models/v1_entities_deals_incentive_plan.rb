@@ -36,6 +36,8 @@ module DealMakerAPI
     # The last update time.
     attr_accessor :updated_at
 
+    attr_accessor :tiers
+
     class EnumAttributeValidator
       attr_reader :datatype
       attr_reader :allowable_values
@@ -67,7 +69,8 @@ module DealMakerAPI
         :'funded_by_offset' => :'funded_by_offset',
         :'active_at' => :'active_at',
         :'created_at' => :'created_at',
-        :'updated_at' => :'updated_at'
+        :'updated_at' => :'updated_at',
+        :'tiers' => :'tiers'
       }
     end
 
@@ -85,7 +88,8 @@ module DealMakerAPI
         :'funded_by_offset' => :'Integer',
         :'active_at' => :'Time',
         :'created_at' => :'Time',
-        :'updated_at' => :'Time'
+        :'updated_at' => :'Time',
+        :'tiers' => :'V1EntitiesDealsIncentivePlansIncentiveTier'
       }
     end
 
@@ -137,6 +141,10 @@ module DealMakerAPI
       if attributes.key?(:'updated_at')
         self.updated_at = attributes[:'updated_at']
       end
+
+      if attributes.key?(:'tiers')
+        self.tiers = attributes[:'tiers']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -177,7 +185,8 @@ module DealMakerAPI
           funded_by_offset == o.funded_by_offset &&
           active_at == o.active_at &&
           created_at == o.created_at &&
-          updated_at == o.updated_at
+          updated_at == o.updated_at &&
+          tiers == o.tiers
     end
 
     # @see the `==` method
@@ -189,7 +198,7 @@ module DealMakerAPI
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, deal_id, plan_type, funded_by_offset, active_at, created_at, updated_at].hash
+      [id, deal_id, plan_type, funded_by_offset, active_at, created_at, updated_at, tiers].hash
     end
 
     # Builds the object from hash

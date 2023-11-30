@@ -9,6 +9,7 @@ docs/Api/CountryApi.md
 docs/Api/DealApi.md
 docs/Api/DealsApi.md
 docs/Api/DefaultApi.md
+docs/Api/IncentivePlanApi.md
 docs/Api/InvestorApi.md
 docs/Api/InvestorProfileApi.md
 docs/Api/ShareholderApi.md
@@ -121,6 +122,7 @@ lib/Api/CountryApi.php
 lib/Api/DealApi.php
 lib/Api/DealsApi.php
 lib/Api/DefaultApi.php
+lib/Api/IncentivePlanApi.php
 lib/Api/InvestorApi.php
 lib/Api/InvestorProfileApi.php
 lib/Api/ShareholderApi.php
@@ -238,6 +240,7 @@ test/Api/CountryApiTest.php
 test/Api/DealApiTest.php
 test/Api/DealsApiTest.php
 test/Api/DefaultApiTest.php
+test/Api/IncentivePlanApiTest.php
 test/Api/InvestorApiTest.php
 test/Api/InvestorProfileApiTest.php
 test/Api/ShareholderApiTest.php

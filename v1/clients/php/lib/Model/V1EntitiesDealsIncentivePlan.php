@@ -63,7 +63,8 @@ class V1EntitiesDealsIncentivePlan implements ModelInterface, ArrayAccess, \Json
         'funded_by_offset' => 'int',
         'active_at' => '\DateTime',
         'created_at' => '\DateTime',
-        'updated_at' => '\DateTime'
+        'updated_at' => '\DateTime',
+        'tiers' => '\DealMaker\Model\V1EntitiesDealsIncentivePlansIncentiveTier'
     ];
 
     /**
@@ -80,7 +81,8 @@ class V1EntitiesDealsIncentivePlan implements ModelInterface, ArrayAccess, \Json
         'funded_by_offset' => 'int32',
         'active_at' => 'date-time',
         'created_at' => 'date-time',
-        'updated_at' => 'date-time'
+        'updated_at' => 'date-time',
+        'tiers' => null
     ];
 
     /**
@@ -95,7 +97,8 @@ class V1EntitiesDealsIncentivePlan implements ModelInterface, ArrayAccess, \Json
 		'funded_by_offset' => false,
 		'active_at' => false,
 		'created_at' => false,
-		'updated_at' => false
+		'updated_at' => false,
+		'tiers' => false
     ];
 
     /**
@@ -190,7 +193,8 @@ class V1EntitiesDealsIncentivePlan implements ModelInterface, ArrayAccess, \Json
         'funded_by_offset' => 'funded_by_offset',
         'active_at' => 'active_at',
         'created_at' => 'created_at',
-        'updated_at' => 'updated_at'
+        'updated_at' => 'updated_at',
+        'tiers' => 'tiers'
     ];
 
     /**
@@ -205,7 +209,8 @@ class V1EntitiesDealsIncentivePlan implements ModelInterface, ArrayAccess, \Json
         'funded_by_offset' => 'setFundedByOffset',
         'active_at' => 'setActiveAt',
         'created_at' => 'setCreatedAt',
-        'updated_at' => 'setUpdatedAt'
+        'updated_at' => 'setUpdatedAt',
+        'tiers' => 'setTiers'
     ];
 
     /**
@@ -220,7 +225,8 @@ class V1EntitiesDealsIncentivePlan implements ModelInterface, ArrayAccess, \Json
         'funded_by_offset' => 'getFundedByOffset',
         'active_at' => 'getActiveAt',
         'created_at' => 'getCreatedAt',
-        'updated_at' => 'getUpdatedAt'
+        'updated_at' => 'getUpdatedAt',
+        'tiers' => 'getTiers'
     ];
 
     /**
@@ -300,6 +306,7 @@ class V1EntitiesDealsIncentivePlan implements ModelInterface, ArrayAccess, \Json
         $this->setIfExists('active_at', $data ?? [], null);
         $this->setIfExists('created_at', $data ?? [], null);
         $this->setIfExists('updated_at', $data ?? [], null);
+        $this->setIfExists('tiers', $data ?? [], null);
     }
 
     /**
@@ -548,6 +555,33 @@ class V1EntitiesDealsIncentivePlan implements ModelInterface, ArrayAccess, \Json
             throw new \InvalidArgumentException('non-nullable updated_at cannot be null');
         }
         $this->container['updated_at'] = $updated_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets tiers
+     *
+     * @return \DealMaker\Model\V1EntitiesDealsIncentivePlansIncentiveTier|null
+     */
+    public function getTiers()
+    {
+        return $this->container['tiers'];
+    }
+
+    /**
+     * Sets tiers
+     *
+     * @param \DealMaker\Model\V1EntitiesDealsIncentivePlansIncentiveTier|null $tiers tiers
+     *
+     * @return self
+     */
+    public function setTiers($tiers)
+    {
+        if (is_null($tiers)) {
+            throw new \InvalidArgumentException('non-nullable tiers cannot be null');
+        }
+        $this->container['tiers'] = $tiers;
 
         return $this;
     }

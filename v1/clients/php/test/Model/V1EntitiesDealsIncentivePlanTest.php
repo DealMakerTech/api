@@ -141,4 +141,13 @@ class V1EntitiesDealsIncentivePlanTest extends TestCase
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test attribute "tiers"
+     */
+    public function testPropertyTiers()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
 }

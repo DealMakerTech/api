@@ -18,6 +18,7 @@ docs/DealsApi.md
 docs/DefaultApi.md
 docs/EditInvestorTagsRequest.md
 docs/GenerateUrlRequest.md
+docs/IncentivePlanApi.md
 docs/InvestorApi.md
 docs/InvestorProfileApi.md
 docs/PatchInvestorProfilesCorporations.md
@@ -123,6 +124,7 @@ src/api/CountryApi.js
 src/api/DealApi.js
 src/api/DealsApi.js
 src/api/DefaultApi.js
+src/api/IncentivePlanApi.js
 src/api/InvestorApi.js
 src/api/InvestorProfileApi.js
 src/api/ShareholderApi.js
@@ -235,6 +237,7 @@ test/api/CountryApi.spec.js
 test/api/DealApi.spec.js
 test/api/DealsApi.spec.js
 test/api/DefaultApi.spec.js
+test/api/IncentivePlanApi.spec.js
 test/api/InvestorApi.spec.js
 test/api/InvestorProfileApi.spec.js
 test/api/ShareholderApi.spec.js

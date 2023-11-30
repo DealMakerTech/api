@@ -69,6 +69,10 @@
       "description": "Operations about users"
     },
     {
+      "name": "incentive_plan",
+      "description": "Operations about incentive_plans"
+    },
+    {
       "name": "deals",
       "description": "Operations about deals"
     },
@@ -2156,6 +2160,87 @@
           {
             "lang": "ruby",
             "source": "deal_api = DealMakerAPI::DealApi.new\n\ndeal_id = 100\n\nprint deal_api.get_deal(deal_id)"
+          }
+        ]
+      }
+    },
+    "/deals/{id}/incentive_plans/time": {
+      "get": {
+        "summary": "Get incentive plans by deal id",
+        "description": "Gets incentive plans with time tiers from the deal given deal id.",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "page",
+            "description": "Page offset to fetch.",
+            "type": "integer",
+            "format": "int32",
+            "default": 1,
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "per_page",
+            "description": "Number of results to return per page.",
+            "type": "integer",
+            "format": "int32",
+            "default": 25,
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "description": "Pad a number of results.",
+            "type": "integer",
+            "format": "int32",
+            "default": 0,
+            "required": false
+          },
+          {
+            "in": "path",
+            "name": "id",
+            "description": "The deal id.",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "security": [
+          {
+            "oauth": [
+              "deals.read"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get incentive plans with tiers from the deal",
+            "schema": {
+              "$ref": "#/definitions/V1_Entities_Deals_PriceDetails"
+            }
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not found"
+          }
+        },
+        "tags": [
+          "incentive_plan"
+        ],
+        "operationId": "getDealIncentivePlansTime",
+        "x-codeSamples": [
+          {
+            "lang": "javascript",
+            "source": "const dealApi = new Dealmakerapi.DealApi()\nconst dealId = 100\n\napi.getDealIncentivePlansTime(dealId, function(error, data, response) {\n  if (error) {\n    console.error(error)\n  } else {\n    console.log(JSON.stringify(data))\n  }\n})\n"
+          },
+          {
+            "lang": "ruby",
+            "source": "deal_api = DealMakerAPI::DealApi.new\n\ndeal_id = 100\n\nprint deal_api.get_deal_incentive_plans_time(deal_id)\n"
           }
         ]
       }
@@ -7236,6 +7321,9 @@
           "type": "string",
           "format": "date-time",
           "description": "The last update time."
+        },
+        "tiers": {
+          "$ref": "#/definitions/V1_Entities_Deals_IncentivePlans_IncentiveTier"
         }
       }
     },

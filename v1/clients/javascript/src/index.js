@@ -118,6 +118,7 @@ import CountryApi from './api/CountryApi';
 import DealApi from './api/DealApi';
 import DealsApi from './api/DealsApi';
 import DefaultApi from './api/DefaultApi';
+import IncentivePlanApi from './api/IncentivePlanApi';
 import InvestorApi from './api/InvestorApi';
 import InvestorProfileApi from './api/InvestorProfileApi';
 import ShareholderApi from './api/ShareholderApi';
@@ -155,7 +156,7 @@ import UsersApi from './api/UsersApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.92.0
+* @version 0.92.1
 */
 export {
     /**
@@ -793,6 +794,12 @@ export {
     * @property {module:api/DefaultApi}
     */
     DefaultApi,
+
+    /**
+    * The IncentivePlanApi service constructor.
+    * @property {module:api/IncentivePlanApi}
+    */
+    IncentivePlanApi,
 
     /**
     * The InvestorApi service constructor.

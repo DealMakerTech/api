@@ -12,11 +12,12 @@
  */
 
 import ApiClient from '../ApiClient';
+import V1EntitiesDealsIncentivePlansIncentiveTier from './V1EntitiesDealsIncentivePlansIncentiveTier';
 
 /**
  * The V1EntitiesDealsIncentivePlan model module.
  * @module model/V1EntitiesDealsIncentivePlan
- * @version 0.92.0
+ * @version 0.92.1
  */
 class V1EntitiesDealsIncentivePlan {
     /**
@@ -68,6 +69,9 @@ class V1EntitiesDealsIncentivePlan {
             if (data.hasOwnProperty('updated_at')) {
                 obj['updated_at'] = ApiClient.convertToType(data['updated_at'], 'Date');
             }
+            if (data.hasOwnProperty('tiers')) {
+                obj['tiers'] = V1EntitiesDealsIncentivePlansIncentiveTier.constructFromObject(data['tiers']);
+            }
         }
         return obj;
     }
@@ -81,6 +85,10 @@ class V1EntitiesDealsIncentivePlan {
         // ensure the json data is a string
         if (data['plan_type'] && !(typeof data['plan_type'] === 'string' || data['plan_type'] instanceof String)) {
             throw new Error("Expected the field `plan_type` to be a primitive type in the JSON string but got " + data['plan_type']);
+        }
+        // validate the optional field `tiers`
+        if (data['tiers']) { // data not null
+          V1EntitiesDealsIncentivePlansIncentiveTier.validateJSON(data['tiers']);
         }
 
         return true;
@@ -132,6 +140,11 @@ V1EntitiesDealsIncentivePlan.prototype['created_at'] = undefined;
  * @member {Date} updated_at
  */
 V1EntitiesDealsIncentivePlan.prototype['updated_at'] = undefined;
+
+/**
+ * @member {module:model/V1EntitiesDealsIncentivePlansIncentiveTier} tiers
+ */
+V1EntitiesDealsIncentivePlan.prototype['tiers'] = undefined;
 
 
 

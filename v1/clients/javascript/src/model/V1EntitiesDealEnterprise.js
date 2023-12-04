@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The V1EntitiesDealEnterprise model module.
  * @module model/V1EntitiesDealEnterprise
- * @version 0.92.1
+ * @version 0.92.2
  */
 class V1EntitiesDealEnterprise {
     /**

@@ -86,10 +86,10 @@ class PostWebhooksRequest implements ModelInterface, ArrayAccess, \JsonSerializa
       */
     protected static array $openAPINullables = [
         'name' => false,
-		'enabled' => false,
-		'url' => false,
-		'security_token' => false,
-		'webhook_subscription_deals_deal_id' => false
+        'enabled' => false,
+        'url' => false,
+        'security_token' => false,
+        'webhook_subscription_deals_deal_id' => false
     ];
 
     /**

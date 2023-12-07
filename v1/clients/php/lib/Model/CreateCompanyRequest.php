@@ -92,13 +92,13 @@ class CreateCompanyRequest implements ModelInterface, ArrayAccess, \JsonSerializ
       */
     protected static array $openAPINullables = [
         'name' => false,
-		'country' => false,
-		'street' => false,
-		'line_2' => false,
-		'city' => false,
-		'state' => false,
-		'postal_code' => false,
-		'primary_color' => false
+        'country' => false,
+        'street' => false,
+        'line_2' => false,
+        'city' => false,
+        'state' => false,
+        'postal_code' => false,
+        'primary_color' => false
     ];
 
     /**

@@ -80,7 +80,7 @@ class V1EntitiesInvestorUser implements ModelInterface, ArrayAccess, \JsonSerial
       */
     protected static array $openAPINullables = [
         'id' => false,
-		'email' => false
+        'email' => false
     ];
 
     /**

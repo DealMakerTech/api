@@ -80,7 +80,7 @@ class V1EntitiesMoneyEntity implements ModelInterface, ArrayAccess, \JsonSeriali
       */
     protected static array $openAPINullables = [
         'amount' => false,
-		'currency' => false
+        'currency' => false
     ];
 
     /**

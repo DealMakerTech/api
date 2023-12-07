@@ -88,11 +88,11 @@ class V1EntitiesInvestorProfileFieldsAccountHolder implements ModelInterface, Ar
       */
     protected static array $openAPINullables = [
         'first_name' => false,
-		'last_name' => false,
-		'suffix' => false,
-		'date_of_birth' => false,
-		'taxpayer_id' => false,
-		'address' => false
+        'last_name' => false,
+        'suffix' => false,
+        'date_of_birth' => false,
+        'taxpayer_id' => false,
+        'address' => false
     ];
 
     /**

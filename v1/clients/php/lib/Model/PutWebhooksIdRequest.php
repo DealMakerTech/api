@@ -90,12 +90,12 @@ class PutWebhooksIdRequest implements ModelInterface, ArrayAccess, \JsonSerializ
       */
     protected static array $openAPINullables = [
         'name' => false,
-		'enabled' => false,
-		'url' => false,
-		'security_token' => false,
-		'webhook_subscription_deals_id' => false,
-		'webhook_subscription_deals_deal_id' => false,
-		'webhook_subscription_deals__destroy' => false
+        'enabled' => false,
+        'url' => false,
+        'security_token' => false,
+        'webhook_subscription_deals_id' => false,
+        'webhook_subscription_deals_deal_id' => false,
+        'webhook_subscription_deals__destroy' => false
     ];
 
     /**

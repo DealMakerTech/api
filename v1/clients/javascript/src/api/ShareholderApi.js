@@ -19,7 +19,7 @@ import V1EntitiesShareholdersTags from '../model/V1EntitiesShareholdersTags';
 /**
 * Shareholder service.
 * @module api/ShareholderApi
-* @version 0.92.2
+* @version 0.93.0
 */
 export default class ShareholderApi {
 

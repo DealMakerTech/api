@@ -80,7 +80,7 @@ class Add506cDocumentRequest implements ModelInterface, ArrayAccess, \JsonSerial
       */
     protected static array $openAPINullables = [
         'file' => false,
-		'caption' => false
+        'caption' => false
     ];
 
     /**

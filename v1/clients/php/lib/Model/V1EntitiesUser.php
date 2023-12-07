@@ -83,8 +83,8 @@ class V1EntitiesUser implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static array $openAPINullables = [
         'id' => false,
-		'full_name' => false,
-		'email' => false
+        'full_name' => false,
+        'email' => false
     ];
 
     /**

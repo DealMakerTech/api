@@ -99,16 +99,16 @@ class V1EntitiesInvestorProfileManaged implements ModelInterface, ArrayAccess, \
       */
     protected static array $openAPINullables = [
         'id' => false,
-		'user_id' => false,
-		'email' => false,
-		'type' => false,
-		'us_accredited_category' => false,
-		'ca_accredited_investor' => false,
-		'complete' => false,
-		'owner_type' => false,
-		'owner' => false,
-		'provider' => false,
-		'beneficiary' => false
+        'user_id' => false,
+        'email' => false,
+        'type' => false,
+        'us_accredited_category' => false,
+        'ca_accredited_investor' => false,
+        'complete' => false,
+        'owner_type' => false,
+        'owner' => false,
+        'provider' => false,
+        'beneficiary' => false
     ];
 
     /**

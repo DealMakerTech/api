@@ -81,7 +81,7 @@ class V1EntitiesPaymentsSelfServeOnboardingQualificationQuestionnaireResult impl
       */
     protected static array $openAPINullables = [
         'onboarding_stage' => false,
-		'payout_account_country' => false
+        'payout_account_country' => false
     ];
 
     /**

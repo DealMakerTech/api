@@ -89,11 +89,11 @@ class V1EntitiesDealsPriceDetails implements ModelInterface, ArrayAccess, \JsonS
       */
     protected static array $openAPINullables = [
         'full_price' => false,
-		'final_price' => false,
-		'computed_investment_amount' => false,
-		'computed_number_of_securities' => false,
-		'effective_tier' => false,
-		'incentive_plan' => false
+        'final_price' => false,
+        'computed_investment_amount' => false,
+        'computed_number_of_securities' => false,
+        'effective_tier' => false,
+        'incentive_plan' => false
     ];
 
     /**

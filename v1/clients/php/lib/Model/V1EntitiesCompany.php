@@ -95,14 +95,14 @@ class V1EntitiesCompany implements ModelInterface, ArrayAccess, \JsonSerializabl
       */
     protected static array $openAPINullables = [
         'id' => false,
-		'type' => false,
-		'name' => false,
-		'description' => false,
-		'reply_email' => false,
-		'company_url' => false,
-		'addresses' => false,
-		'portals' => false,
-		'primary_color' => false
+        'type' => false,
+        'name' => false,
+        'description' => false,
+        'reply_email' => false,
+        'company_url' => false,
+        'addresses' => false,
+        'portals' => false,
+        'primary_color' => false
     ];
 
     /**

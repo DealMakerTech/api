@@ -84,9 +84,9 @@ class V1EntitiesWebhooksSubscriptionDeal implements ModelInterface, ArrayAccess,
       */
     protected static array $openAPINullables = [
         'id' => false,
-		'deal_id' => false,
-		'name' => false,
-		'company_name' => false
+        'deal_id' => false,
+        'name' => false,
+        'company_name' => false
     ];
 
     /**

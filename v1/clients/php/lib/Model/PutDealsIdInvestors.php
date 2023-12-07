@@ -87,10 +87,10 @@ class PutDealsIdInvestors implements ModelInterface, ArrayAccess, \JsonSerializa
       */
     protected static array $openAPINullables = [
         'warrant_expiry_date' => false,
-		'warrant_certificate_number' => false,
-		'allocated_amount' => false,
-		'allocation_unit' => false,
-		'notes' => false
+        'warrant_certificate_number' => false,
+        'allocated_amount' => false,
+        'allocation_unit' => false,
+        'notes' => false
     ];
 
     /**

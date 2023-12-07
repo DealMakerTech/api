@@ -93,13 +93,13 @@ class V1EntitiesExpressWireInstruction implements ModelInterface, ArrayAccess, \
       */
     protected static array $openAPINullables = [
         'investor_id' => false,
-		'bank_name' => false,
-		'bank_address' => false,
-		'beneficiary_address' => false,
-		'beneficiary_name' => false,
-		'account_number' => false,
-		'aba_routing' => false,
-		'swift_code' => false
+        'bank_name' => false,
+        'bank_address' => false,
+        'beneficiary_address' => false,
+        'beneficiary_name' => false,
+        'account_number' => false,
+        'aba_routing' => false,
+        'swift_code' => false
     ];
 
     /**

@@ -88,11 +88,11 @@ class V1EntitiesDealInvestorMetrics implements ModelInterface, ArrayAccess, \Jso
       */
     protected static array $openAPINullables = [
         'total' => false,
-		'draft' => false,
-		'invited' => false,
-		'signed' => false,
-		'waiting' => false,
-		'accepted' => false
+        'draft' => false,
+        'invited' => false,
+        'signed' => false,
+        'waiting' => false,
+        'accepted' => false
     ];
 
     /**

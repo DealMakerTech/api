@@ -92,13 +92,13 @@ class V1EntitiesInvestorProfileFieldsBeneficiary implements ModelInterface, Arra
       */
     protected static array $openAPINullables = [
         'first_name' => false,
-		'last_name' => false,
-		'suffix' => false,
-		'date_of_birth' => false,
-		'taxpayer_id' => false,
-		'address' => false,
-		'account_number' => false,
-		'phone_number' => false
+        'last_name' => false,
+        'suffix' => false,
+        'date_of_birth' => false,
+        'taxpayer_id' => false,
+        'address' => false,
+        'account_number' => false,
+        'phone_number' => false
     ];
 
     /**

@@ -80,7 +80,7 @@ class V1EntitiesCompanyDeal implements ModelInterface, ArrayAccess, \JsonSeriali
       */
     protected static array $openAPINullables = [
         'id' => false,
-		'name' => false
+        'name' => false
     ];
 
     /**

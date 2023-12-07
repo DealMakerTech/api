@@ -90,12 +90,12 @@ class V1EntitiesInvestorProfileFieldsProvider implements ModelInterface, ArrayAc
       */
     protected static array $openAPINullables = [
         'name' => false,
-		'taxpayer_id' => false,
-		'confirmation' => false,
-		'income' => false,
-		'net_worth' => false,
-		'reg_cf_prior_offerings_amount' => false,
-		'address' => false
+        'taxpayer_id' => false,
+        'confirmation' => false,
+        'income' => false,
+        'net_worth' => false,
+        'reg_cf_prior_offerings_amount' => false,
+        'address' => false
     ];
 
     /**

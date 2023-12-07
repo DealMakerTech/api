@@ -7270,6 +7270,11 @@
           "format": "date-time",
           "description": "The incentive tier end date."
         },
+        "funded_by": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The incentive tier funded by date, it is computed from the end at and plan funded by offset."
+        },
         "created_at": {
           "type": "string",
           "format": "date-time",

@@ -102,18 +102,18 @@ class PatchInvestorProfilesTrustsTrusteesInner implements ModelInterface, ArrayA
       */
     protected static array $openAPINullables = [
         'index' => false,
-		'_delete' => false,
-		'first_name' => false,
-		'last_name' => false,
-		'suffix' => false,
-		'street_address' => false,
-		'unit2' => false,
-		'city' => false,
-		'region' => false,
-		'postal_code' => false,
-		'date_of_birth' => false,
-		'taxpayer_id' => false,
-		'phone_number' => false
+        '_delete' => false,
+        'first_name' => false,
+        'last_name' => false,
+        'suffix' => false,
+        'street_address' => false,
+        'unit2' => false,
+        'city' => false,
+        'region' => false,
+        'postal_code' => false,
+        'date_of_birth' => false,
+        'taxpayer_id' => false,
+        'phone_number' => false
     ];
 
     /**

@@ -109,7 +109,7 @@ class InvestorProfileApi
         ],
     ];
 
-/**
+    /**
      * @param ClientInterface $client
      * @param Configuration   $config
      * @param HeaderSelector  $selector
@@ -242,7 +242,7 @@ class InvestorProfileApi
                                     $statusCode,
                                     $response->getHeaders(),
                                     $content
-                                 );
+                                );
                             }
                         }
                     }
@@ -548,7 +548,7 @@ class InvestorProfileApi
                                     $statusCode,
                                     $response->getHeaders(),
                                     $content
-                                 );
+                                );
                             }
                         }
                     }
@@ -854,7 +854,7 @@ class InvestorProfileApi
                                     $statusCode,
                                     $response->getHeaders(),
                                     $content
-                                 );
+                                );
                             }
                         }
                     }
@@ -1160,7 +1160,7 @@ class InvestorProfileApi
                                     $statusCode,
                                     $response->getHeaders(),
                                     $content
-                                 );
+                                );
                             }
                         }
                     }
@@ -1466,7 +1466,7 @@ class InvestorProfileApi
                                     $statusCode,
                                     $response->getHeaders(),
                                     $content
-                                 );
+                                );
                             }
                         }
                     }
@@ -1780,7 +1780,7 @@ class InvestorProfileApi
                                     $statusCode,
                                     $response->getHeaders(),
                                     $content
-                                 );
+                                );
                             }
                         }
                     }
@@ -2139,7 +2139,7 @@ class InvestorProfileApi
                                     $statusCode,
                                     $response->getHeaders(),
                                     $content
-                                 );
+                                );
                             }
                         }
                     }
@@ -2450,7 +2450,7 @@ class InvestorProfileApi
                                     $statusCode,
                                     $response->getHeaders(),
                                     $content
-                                 );
+                                );
                             }
                         }
                     }
@@ -2780,7 +2780,7 @@ class InvestorProfileApi
                                     $statusCode,
                                     $response->getHeaders(),
                                     $content
-                                 );
+                                );
                             }
                         }
                     }
@@ -3106,7 +3106,7 @@ class InvestorProfileApi
                                     $statusCode,
                                     $response->getHeaders(),
                                     $content
-                                 );
+                                );
                             }
                         }
                     }
@@ -3432,7 +3432,7 @@ class InvestorProfileApi
                                     $statusCode,
                                     $response->getHeaders(),
                                     $content
-                                 );
+                                );
                             }
                         }
                     }
@@ -3758,7 +3758,7 @@ class InvestorProfileApi
                                     $statusCode,
                                     $response->getHeaders(),
                                     $content
-                                 );
+                                );
                             }
                         }
                     }

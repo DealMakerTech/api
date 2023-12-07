@@ -88,11 +88,11 @@ class V1EntitiesInvestorProfileAddress implements ModelInterface, ArrayAccess, \
       */
     protected static array $openAPINullables = [
         'street_address' => false,
-		'unit2' => false,
-		'city' => false,
-		'region' => false,
-		'country' => false,
-		'postal_code' => false
+        'unit2' => false,
+        'city' => false,
+        'region' => false,
+        'country' => false,
+        'postal_code' => false
     ];
 
     /**

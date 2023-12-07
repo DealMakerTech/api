@@ -105,19 +105,19 @@ class PatchInvestorProfilesTrusts implements ModelInterface, ArrayAccess, \JsonS
       */
     protected static array $openAPINullables = [
         'us_accredited_category' => false,
-		'ca_accredited_investor' => false,
-		'name' => false,
-		'date' => false,
-		'phone_number' => false,
-		'street_address' => false,
-		'unit2' => false,
-		'city' => false,
-		'region' => false,
-		'postal_code' => false,
-		'income' => false,
-		'net_worth' => false,
-		'reg_cf_prior_offerings_amount' => false,
-		'trustees' => false
+        'ca_accredited_investor' => false,
+        'name' => false,
+        'date' => false,
+        'phone_number' => false,
+        'street_address' => false,
+        'unit2' => false,
+        'city' => false,
+        'region' => false,
+        'postal_code' => false,
+        'income' => false,
+        'net_worth' => false,
+        'reg_cf_prior_offerings_amount' => false,
+        'trustees' => false
     ];
 
     /**

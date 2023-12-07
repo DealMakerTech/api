@@ -90,12 +90,12 @@ class V1EntitiesInvestorProfileFieldsTrustee implements ModelInterface, ArrayAcc
       */
     protected static array $openAPINullables = [
         'first_name' => false,
-		'last_name' => false,
-		'suffix' => false,
-		'date_of_birth' => false,
-		'taxpayer_id' => false,
-		'address' => false,
-		'phone_number' => false
+        'last_name' => false,
+        'suffix' => false,
+        'date_of_birth' => false,
+        'taxpayer_id' => false,
+        'address' => false,
+        'phone_number' => false
     ];
 
     /**

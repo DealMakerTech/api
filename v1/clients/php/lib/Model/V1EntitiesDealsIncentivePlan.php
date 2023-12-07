@@ -92,13 +92,13 @@ class V1EntitiesDealsIncentivePlan implements ModelInterface, ArrayAccess, \Json
       */
     protected static array $openAPINullables = [
         'id' => false,
-		'deal_id' => false,
-		'plan_type' => false,
-		'funded_by_offset' => false,
-		'active_at' => false,
-		'created_at' => false,
-		'updated_at' => false,
-		'tiers' => false
+        'deal_id' => false,
+        'plan_type' => false,
+        'funded_by_offset' => false,
+        'active_at' => false,
+        'created_at' => false,
+        'updated_at' => false,
+        'tiers' => false
     ];
 
     /**

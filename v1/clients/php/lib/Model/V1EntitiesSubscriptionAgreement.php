@@ -80,7 +80,7 @@ class V1EntitiesSubscriptionAgreement implements ModelInterface, ArrayAccess, \J
       */
     protected static array $openAPINullables = [
         'id' => false,
-		'url' => false
+        'url' => false
     ];
 
     /**

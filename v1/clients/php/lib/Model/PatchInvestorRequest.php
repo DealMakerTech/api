@@ -80,7 +80,7 @@ class PatchInvestorRequest implements ModelInterface, ArrayAccess, \JsonSerializ
       */
     protected static array $openAPINullables = [
         'investor_profile_id' => false,
-		'current_step' => false
+        'current_step' => false
     ];
 
     /**

@@ -60,6 +60,7 @@ class V1EntitiesDealsIncentivePlansIncentiveTier implements ModelInterface, Arra
         'id' => 'int',
         'incentive_percentage' => 'float',
         'end_at' => '\DateTime',
+        'funded_by' => '\DateTime',
         'created_at' => '\DateTime',
         'updated_at' => '\DateTime'
     ];
@@ -75,6 +76,7 @@ class V1EntitiesDealsIncentivePlansIncentiveTier implements ModelInterface, Arra
         'id' => 'int32',
         'incentive_percentage' => 'float',
         'end_at' => 'date-time',
+        'funded_by' => 'date-time',
         'created_at' => 'date-time',
         'updated_at' => 'date-time'
     ];
@@ -86,10 +88,11 @@ class V1EntitiesDealsIncentivePlansIncentiveTier implements ModelInterface, Arra
       */
     protected static array $openAPINullables = [
         'id' => false,
-		'incentive_percentage' => false,
-		'end_at' => false,
-		'created_at' => false,
-		'updated_at' => false
+        'incentive_percentage' => false,
+        'end_at' => false,
+        'funded_by' => false,
+        'created_at' => false,
+        'updated_at' => false
     ];
 
     /**
@@ -181,6 +184,7 @@ class V1EntitiesDealsIncentivePlansIncentiveTier implements ModelInterface, Arra
         'id' => 'id',
         'incentive_percentage' => 'incentive_percentage',
         'end_at' => 'end_at',
+        'funded_by' => 'funded_by',
         'created_at' => 'created_at',
         'updated_at' => 'updated_at'
     ];
@@ -194,6 +198,7 @@ class V1EntitiesDealsIncentivePlansIncentiveTier implements ModelInterface, Arra
         'id' => 'setId',
         'incentive_percentage' => 'setIncentivePercentage',
         'end_at' => 'setEndAt',
+        'funded_by' => 'setFundedBy',
         'created_at' => 'setCreatedAt',
         'updated_at' => 'setUpdatedAt'
     ];
@@ -207,6 +212,7 @@ class V1EntitiesDealsIncentivePlansIncentiveTier implements ModelInterface, Arra
         'id' => 'getId',
         'incentive_percentage' => 'getIncentivePercentage',
         'end_at' => 'getEndAt',
+        'funded_by' => 'getFundedBy',
         'created_at' => 'getCreatedAt',
         'updated_at' => 'getUpdatedAt'
     ];
@@ -271,6 +277,7 @@ class V1EntitiesDealsIncentivePlansIncentiveTier implements ModelInterface, Arra
         $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('incentive_percentage', $data ?? [], null);
         $this->setIfExists('end_at', $data ?? [], null);
+        $this->setIfExists('funded_by', $data ?? [], null);
         $this->setIfExists('created_at', $data ?? [], null);
         $this->setIfExists('updated_at', $data ?? [], null);
     }
@@ -394,6 +401,33 @@ class V1EntitiesDealsIncentivePlansIncentiveTier implements ModelInterface, Arra
             throw new \InvalidArgumentException('non-nullable end_at cannot be null');
         }
         $this->container['end_at'] = $end_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets funded_by
+     *
+     * @return \DateTime|null
+     */
+    public function getFundedBy()
+    {
+        return $this->container['funded_by'];
+    }
+
+    /**
+     * Sets funded_by
+     *
+     * @param \DateTime|null $funded_by The incentive tier funded by date, it is computed from the end at and plan funded by offset.
+     *
+     * @return self
+     */
+    public function setFundedBy($funded_by)
+    {
+        if (is_null($funded_by)) {
+            throw new \InvalidArgumentException('non-nullable funded_by cannot be null');
+        }
+        $this->container['funded_by'] = $funded_by;
 
         return $this;
     }

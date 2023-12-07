@@ -107,6 +107,15 @@ class V1EntitiesDealsIncentivePlansIncentiveTierTest extends TestCase
     }
 
     /**
+     * Test attribute "funded_by"
+     */
+    public function testPropertyFundedBy()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "created_at"
      */
     public function testPropertyCreatedAt()

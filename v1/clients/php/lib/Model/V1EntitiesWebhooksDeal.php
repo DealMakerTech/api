@@ -83,8 +83,8 @@ class V1EntitiesWebhooksDeal implements ModelInterface, ArrayAccess, \JsonSerial
       */
     protected static array $openAPINullables = [
         'id' => false,
-		'name' => false,
-		'company_name' => false
+        'name' => false,
+        'company_name' => false
     ];
 
     /**

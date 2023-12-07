@@ -88,11 +88,11 @@ class V1EntitiesAddress implements ModelInterface, ArrayAccess, \JsonSerializabl
       */
     protected static array $openAPINullables = [
         'street' => false,
-		'line_2' => false,
-		'city' => false,
-		'state' => false,
-		'postal_code' => false,
-		'country' => false
+        'line_2' => false,
+        'city' => false,
+        'state' => false,
+        'postal_code' => false,
+        'country' => false
     ];
 
     /**

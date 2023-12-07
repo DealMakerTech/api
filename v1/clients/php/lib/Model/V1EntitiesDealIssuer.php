@@ -82,8 +82,8 @@ class V1EntitiesDealIssuer implements ModelInterface, ArrayAccess, \JsonSerializ
       */
     protected static array $openAPINullables = [
         'id' => false,
-		'name' => false,
-		'logo' => false
+        'name' => false,
+        'logo' => false
     ];
 
     /**

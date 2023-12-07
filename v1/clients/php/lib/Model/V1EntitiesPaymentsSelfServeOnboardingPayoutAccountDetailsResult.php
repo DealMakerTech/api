@@ -81,7 +81,7 @@ class V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsResult implements
       */
     protected static array $openAPINullables = [
         'data' => false,
-		'error' => false
+        'error' => false
     ];
 
     /**

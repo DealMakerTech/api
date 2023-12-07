@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The V1EntitiesDealsIncentivePlansIncentiveTier model module.
  * @module model/V1EntitiesDealsIncentivePlansIncentiveTier
- * @version 0.92.2
+ * @version 0.93.0
  */
 class V1EntitiesDealsIncentivePlansIncentiveTier {
     /**
@@ -55,6 +55,9 @@ class V1EntitiesDealsIncentivePlansIncentiveTier {
             }
             if (data.hasOwnProperty('end_at')) {
                 obj['end_at'] = ApiClient.convertToType(data['end_at'], 'Date');
+            }
+            if (data.hasOwnProperty('funded_by')) {
+                obj['funded_by'] = ApiClient.convertToType(data['funded_by'], 'Date');
             }
             if (data.hasOwnProperty('created_at')) {
                 obj['created_at'] = ApiClient.convertToType(data['created_at'], 'Date');
@@ -98,6 +101,12 @@ V1EntitiesDealsIncentivePlansIncentiveTier.prototype['incentive_percentage'] = u
  * @member {Date} end_at
  */
 V1EntitiesDealsIncentivePlansIncentiveTier.prototype['end_at'] = undefined;
+
+/**
+ * The incentive tier funded by date, it is computed from the end at and plan funded by offset.
+ * @member {Date} funded_by
+ */
+V1EntitiesDealsIncentivePlansIncentiveTier.prototype['funded_by'] = undefined;
 
 /**
  * The creation time.

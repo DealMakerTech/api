@@ -76,7 +76,7 @@ class IncentivePlanApi
         ],
     ];
 
-/**
+    /**
      * @param ClientInterface $client
      * @param Configuration   $config
      * @param HeaderSelector  $selector
@@ -215,7 +215,7 @@ class IncentivePlanApi
                                     $statusCode,
                                     $response->getHeaders(),
                                     $content
-                                 );
+                                );
                             }
                         }
                     }

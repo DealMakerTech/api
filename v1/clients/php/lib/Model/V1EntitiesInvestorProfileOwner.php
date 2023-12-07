@@ -82,8 +82,8 @@ class V1EntitiesInvestorProfileOwner implements ModelInterface, ArrayAccess, \Js
       */
     protected static array $openAPINullables = [
         'id' => false,
-		'name' => false,
-		'logo' => false
+        'name' => false,
+        'logo' => false
     ];
 
     /**

@@ -76,7 +76,7 @@ class CountryApi
         ],
     ];
 
-/**
+    /**
      * @param ClientInterface $client
      * @param Configuration   $config
      * @param HeaderSelector  $selector
@@ -207,7 +207,7 @@ class CountryApi
                                     $statusCode,
                                     $response->getHeaders(),
                                     $content
-                                 );
+                                );
                             }
                         }
                     }

@@ -72,6 +72,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property fundedBy (base name: "funded_by")', function() {
+      // uncomment below and update the code to test the property fundedBy
+      //var instance = new Api.V1EntitiesDealsIncentivePlansIncentiveTier();
+      //expect(instance).to.be();
+    });
+
     it('should have the property createdAt (base name: "created_at")', function() {
       // uncomment below and update the code to test the property createdAt
       //var instance = new Api.V1EntitiesDealsIncentivePlansIncentiveTier();

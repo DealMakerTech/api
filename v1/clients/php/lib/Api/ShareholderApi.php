@@ -79,7 +79,7 @@ class ShareholderApi
         ],
     ];
 
-/**
+    /**
      * @param ClientInterface $client
      * @param Configuration   $config
      * @param HeaderSelector  $selector
@@ -212,7 +212,7 @@ class ShareholderApi
                                     $statusCode,
                                     $response->getHeaders(),
                                     $content
-                                 );
+                                );
                             }
                         }
                     }
@@ -519,7 +519,7 @@ class ShareholderApi
                                     $statusCode,
                                     $response->getHeaders(),
                                     $content
-                                 );
+                                );
                             }
                         }
                     }

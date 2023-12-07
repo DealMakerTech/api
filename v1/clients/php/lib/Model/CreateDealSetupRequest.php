@@ -90,12 +90,12 @@ class CreateDealSetupRequest implements ModelInterface, ArrayAccess, \JsonSerial
       */
     protected static array $openAPINullables = [
         'invoicing_email' => false,
-		'issuer_industry' => false,
-		'prohibited_industry' => false,
-		'offering_type' => false,
-		'title' => false,
-		'company_id' => false,
-		'representative' => false
+        'issuer_industry' => false,
+        'prohibited_industry' => false,
+        'offering_type' => false,
+        'title' => false,
+        'company_id' => false,
+        'representative' => false
     ];
 
     /**

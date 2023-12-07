@@ -81,7 +81,7 @@ class V1EntitiesGenericResponse implements ModelInterface, ArrayAccess, \JsonSer
       */
     protected static array $openAPINullables = [
         'success' => false,
-		'message' => false
+        'message' => false
     ];
 
     /**

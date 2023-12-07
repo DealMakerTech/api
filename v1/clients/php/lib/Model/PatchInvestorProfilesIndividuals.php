@@ -109,21 +109,21 @@ class PatchInvestorProfilesIndividuals implements ModelInterface, ArrayAccess, \
       */
     protected static array $openAPINullables = [
         'us_accredited_category' => false,
-		'ca_accredited_investor' => false,
-		'first_name' => false,
-		'last_name' => false,
-		'suffix' => false,
-		'date_of_birth' => false,
-		'taxpayer_id' => false,
-		'phone_number' => false,
-		'street_address' => false,
-		'unit2' => false,
-		'city' => false,
-		'region' => false,
-		'postal_code' => false,
-		'income' => false,
-		'net_worth' => false,
-		'reg_cf_prior_offerings_amount' => false
+        'ca_accredited_investor' => false,
+        'first_name' => false,
+        'last_name' => false,
+        'suffix' => false,
+        'date_of_birth' => false,
+        'taxpayer_id' => false,
+        'phone_number' => false,
+        'street_address' => false,
+        'unit2' => false,
+        'city' => false,
+        'region' => false,
+        'postal_code' => false,
+        'income' => false,
+        'net_worth' => false,
+        'reg_cf_prior_offerings_amount' => false
     ];
 
     /**

@@ -84,9 +84,9 @@ class V1EntitiesDividend implements ModelInterface, ArrayAccess, \JsonSerializab
       */
     protected static array $openAPINullables = [
         'id' => false,
-		'filename' => false,
-		'created_at' => false,
-		'statement_link' => false
+        'filename' => false,
+        'created_at' => false,
+        'statement_link' => false
     ];
 
     /**

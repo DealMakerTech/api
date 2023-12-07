@@ -82,8 +82,8 @@ class CreateBulkUploadDetailRequest implements ModelInterface, ArrayAccess, \Jso
       */
     protected static array $openAPINullables = [
         'file_key' => false,
-		'file_name' => false,
-		'status' => false
+        'file_name' => false,
+        'status' => false
     ];
 
     /**

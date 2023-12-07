@@ -90,12 +90,12 @@ class V1EntitiesInvestorProfileFieldsCorporation implements ModelInterface, Arra
       */
     protected static array $openAPINullables = [
         'name' => false,
-		'business_number' => false,
-		'phone_number' => false,
-		'income' => false,
-		'net_worth' => false,
-		'reg_cf_prior_offerings_amount' => false,
-		'address' => false
+        'business_number' => false,
+        'phone_number' => false,
+        'income' => false,
+        'net_worth' => false,
+        'reg_cf_prior_offerings_amount' => false,
+        'address' => false
     ];
 
     /**

@@ -82,8 +82,8 @@ class V1EntitiesCountry implements ModelInterface, ArrayAccess, \JsonSerializabl
       */
     protected static array $openAPINullables = [
         'country' => false,
-		'country_code' => false,
-		'states' => false
+        'country_code' => false,
+        'states' => false
     ];
 
     /**

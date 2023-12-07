@@ -81,7 +81,7 @@ class V1EntitiesPresignedUrlResult implements ModelInterface, ArrayAccess, \Json
       */
     protected static array $openAPINullables = [
         'file_key' => false,
-		'presigned_url' => false
+        'presigned_url' => false
     ];
 
     /**

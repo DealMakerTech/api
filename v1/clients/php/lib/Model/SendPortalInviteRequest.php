@@ -80,7 +80,7 @@ class SendPortalInviteRequest implements ModelInterface, ArrayAccess, \JsonSeria
       */
     protected static array $openAPINullables = [
         'subject' => false,
-		'email_content' => false
+        'email_content' => false
     ];
 
     /**

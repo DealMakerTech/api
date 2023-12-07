@@ -80,7 +80,7 @@ class EditInvestorTagsRequest implements ModelInterface, ArrayAccess, \JsonSeria
       */
     protected static array $openAPINullables = [
         'tags' => false,
-		'mode' => false
+        'mode' => false
     ];
 
     /**

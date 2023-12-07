@@ -82,8 +82,8 @@ class V1EntitiesShareholder implements ModelInterface, ArrayAccess, \JsonSeriali
       */
     protected static array $openAPINullables = [
         'id' => false,
-		'email' => false,
-		'full_name' => false
+        'email' => false,
+        'full_name' => false
     ];
 
     /**

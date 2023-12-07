@@ -101,17 +101,17 @@ class V1EntitiesInvestorProfileJoint implements ModelInterface, ArrayAccess, \Js
       */
     protected static array $openAPINullables = [
         'id' => false,
-		'user_id' => false,
-		'email' => false,
-		'type' => false,
-		'us_accredited_category' => false,
-		'ca_accredited_investor' => false,
-		'complete' => false,
-		'owner_type' => false,
-		'owner' => false,
-		'joint_type' => false,
-		'primary_holder' => false,
-		'joint_holder' => false
+        'user_id' => false,
+        'email' => false,
+        'type' => false,
+        'us_accredited_category' => false,
+        'ca_accredited_investor' => false,
+        'complete' => false,
+        'owner_type' => false,
+        'owner' => false,
+        'joint_type' => false,
+        'primary_holder' => false,
+        'joint_holder' => false
     ];
 
     /**

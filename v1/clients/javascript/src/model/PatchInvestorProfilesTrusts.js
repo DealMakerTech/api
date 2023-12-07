@@ -17,7 +17,7 @@ import PatchInvestorProfilesTrustsTrusteesInner from './PatchInvestorProfilesTru
 /**
  * The PatchInvestorProfilesTrusts model module.
  * @module model/PatchInvestorProfilesTrusts
- * @version 0.92.2
+ * @version 0.93.0
  */
 class PatchInvestorProfilesTrusts {
     /**

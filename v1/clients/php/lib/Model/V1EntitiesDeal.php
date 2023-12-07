@@ -103,18 +103,18 @@ class V1EntitiesDeal implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static array $openAPINullables = [
         'id' => false,
-		'title' => false,
-		'state' => false,
-		'currency' => false,
-		'security_type' => false,
-		'price_per_security' => false,
-		'minimum_investment' => false,
-		'maximum_investment' => false,
-		'issuer' => false,
-		'enterprise' => false,
-		'deal_type' => false,
-		'investors' => false,
-		'funding' => false
+        'title' => false,
+        'state' => false,
+        'currency' => false,
+        'security_type' => false,
+        'price_per_security' => false,
+        'minimum_investment' => false,
+        'maximum_investment' => false,
+        'issuer' => false,
+        'enterprise' => false,
+        'deal_type' => false,
+        'investors' => false,
+        'funding' => false
     ];
 
     /**

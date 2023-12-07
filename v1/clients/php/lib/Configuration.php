@@ -100,7 +100,7 @@ class Configuration
      *
      * @var string
      */
-    protected $userAgent = 'OpenAPI-Generator/0.92.2/PHP';
+    protected $userAgent = 'OpenAPI-Generator/0.93.0/PHP';
 
     /**
      * Debug switch (default set to false)
@@ -209,7 +209,7 @@ class Configuration
     /**
      * Sets boolean format for query string.
      *
-     * @param string $booleanFormatForQueryString Boolean format for query string
+     * @param string $booleanFormat Boolean format for query string
      *
      * @return $this
      */
@@ -433,7 +433,7 @@ class Configuration
         $report .= '    OS: ' . php_uname() . PHP_EOL;
         $report .= '    PHP Version: ' . PHP_VERSION . PHP_EOL;
         $report .= '    The version of the OpenAPI document: 1.75.0' . PHP_EOL;
-        $report .= '    SDK Package Version: 0.92.2' . PHP_EOL;
+        $report .= '    SDK Package Version: 0.93.0' . PHP_EOL;
         $report .= '    Temp Folder Path: ' . self::getDefaultConfiguration()->getTempFolderPath() . PHP_EOL;
 
         return $report;
@@ -487,7 +487,7 @@ class Configuration
     * @param array|null $variables    hash of variable and the corresponding value (optional)
     * @return string URL based on host settings
     */
-    public static function getHostString(array $hostsSettings, $hostIndex, array $variables = null)
+    public static function getHostString(array $hostSettings, $hostIndex, array $variables = null)
     {
         if (null === $variables) {
             $variables = [];

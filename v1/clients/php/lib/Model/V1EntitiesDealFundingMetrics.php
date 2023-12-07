@@ -92,13 +92,13 @@ class V1EntitiesDealFundingMetrics implements ModelInterface, ArrayAccess, \Json
       */
     protected static array $openAPINullables = [
         'amount_subscribed' => false,
-		'funds_received' => false,
-		'funds_pending' => false,
-		'securities_subscribed' => false,
-		'amount_allocated' => false,
-		'securities_allocated' => false,
-		'amount_accepted' => false,
-		'securities_accepted' => false
+        'funds_received' => false,
+        'funds_pending' => false,
+        'securities_subscribed' => false,
+        'amount_allocated' => false,
+        'securities_allocated' => false,
+        'amount_accepted' => false,
+        'securities_accepted' => false
     ];
 
     /**

@@ -80,7 +80,7 @@ class V1EntitiesState implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static array $openAPINullables = [
         'name' => false,
-		'code' => false
+        'code' => false
     ];
 
     /**

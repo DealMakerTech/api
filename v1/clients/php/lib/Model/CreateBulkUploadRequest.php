@@ -86,10 +86,10 @@ class CreateBulkUploadRequest implements ModelInterface, ArrayAccess, \JsonSeria
       */
     protected static array $openAPINullables = [
         'file_identifier' => false,
-		'document_type' => false,
-		'upload_name' => false,
-		'send_notification' => false,
-		'notification_message' => false
+        'document_type' => false,
+        'upload_name' => false,
+        'send_notification' => false,
+        'notification_message' => false
     ];
 
     /**

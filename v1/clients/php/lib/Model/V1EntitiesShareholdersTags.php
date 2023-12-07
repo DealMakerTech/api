@@ -81,7 +81,7 @@ class V1EntitiesShareholdersTags implements ModelInterface, ArrayAccess, \JsonSe
       */
     protected static array $openAPINullables = [
         'tag_name' => false,
-		'shareholders' => false
+        'shareholders' => false
     ];
 
     /**

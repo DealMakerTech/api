@@ -82,8 +82,8 @@ class CreateShareholderActionRequest implements ModelInterface, ArrayAccess, \Js
       */
     protected static array $openAPINullables = [
         'request_type' => false,
-		'description' => false,
-		'request_documents' => false
+        'description' => false,
+        'request_documents' => false
     ];
 
     /**

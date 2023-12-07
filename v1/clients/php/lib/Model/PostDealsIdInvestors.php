@@ -101,17 +101,17 @@ class PostDealsIdInvestors implements ModelInterface, ArrayAccess, \JsonSerializ
       */
     protected static array $openAPINullables = [
         'email' => false,
-		'investor_profile_id' => false,
-		'tags' => false,
-		'first_name' => false,
-		'last_name' => false,
-		'phone_number' => false,
-		'message' => false,
-		'warrant_expiry_date' => false,
-		'warrant_certificate_number' => false,
-		'allocated_amount' => false,
-		'allocation_unit' => false,
-		'state' => false
+        'investor_profile_id' => false,
+        'tags' => false,
+        'first_name' => false,
+        'last_name' => false,
+        'phone_number' => false,
+        'message' => false,
+        'warrant_expiry_date' => false,
+        'warrant_certificate_number' => false,
+        'allocated_amount' => false,
+        'allocation_unit' => false,
+        'state' => false
     ];
 
     /**

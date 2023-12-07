@@ -82,8 +82,8 @@ class V1EntitiesBackgroundCheckSearch implements ModelInterface, ArrayAccess, \J
       */
     protected static array $openAPINullables = [
         'external_id' => false,
-		'id' => false,
-		'status' => false
+        'id' => false,
+        'status' => false
     ];
 
     /**

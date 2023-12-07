@@ -90,12 +90,12 @@ class V1EntitiesInvestorProfileFieldsTrust implements ModelInterface, ArrayAcces
       */
     protected static array $openAPINullables = [
         'name' => false,
-		'date' => false,
-		'phone_number' => false,
-		'income' => false,
-		'net_worth' => false,
-		'reg_cf_prior_offerings_amount' => false,
-		'address' => false
+        'date' => false,
+        'phone_number' => false,
+        'income' => false,
+        'net_worth' => false,
+        'reg_cf_prior_offerings_amount' => false,
+        'address' => false
     ];
 
     /**

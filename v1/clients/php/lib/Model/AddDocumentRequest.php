@@ -84,9 +84,9 @@ class AddDocumentRequest implements ModelInterface, ArrayAccess, \JsonSerializab
       */
     protected static array $openAPINullables = [
         'type' => false,
-		'file' => false,
-		'caption' => false,
-		'search_entity_id' => false
+        'file' => false,
+        'caption' => false,
+        'search_entity_id' => false
     ];
 
     /**

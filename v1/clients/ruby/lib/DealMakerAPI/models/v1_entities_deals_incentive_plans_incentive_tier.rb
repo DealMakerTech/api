@@ -24,6 +24,9 @@ module DealMakerAPI
     # The incentive tier end date.
     attr_accessor :end_at
 
+    # The incentive tier funded by date, it is computed from the end at and plan funded by offset.
+    attr_accessor :funded_by
+
     # The creation time.
     attr_accessor :created_at
 
@@ -36,6 +39,7 @@ module DealMakerAPI
         :'id' => :'id',
         :'incentive_percentage' => :'incentive_percentage',
         :'end_at' => :'end_at',
+        :'funded_by' => :'funded_by',
         :'created_at' => :'created_at',
         :'updated_at' => :'updated_at'
       }
@@ -52,6 +56,7 @@ module DealMakerAPI
         :'id' => :'Integer',
         :'incentive_percentage' => :'Float',
         :'end_at' => :'Time',
+        :'funded_by' => :'Time',
         :'created_at' => :'Time',
         :'updated_at' => :'Time'
       }
@@ -90,6 +95,10 @@ module DealMakerAPI
         self.end_at = attributes[:'end_at']
       end
 
+      if attributes.key?(:'funded_by')
+        self.funded_by = attributes[:'funded_by']
+      end
+
       if attributes.key?(:'created_at')
         self.created_at = attributes[:'created_at']
       end
@@ -122,6 +131,7 @@ module DealMakerAPI
           id == o.id &&
           incentive_percentage == o.incentive_percentage &&
           end_at == o.end_at &&
+          funded_by == o.funded_by &&
           created_at == o.created_at &&
           updated_at == o.updated_at
     end
@@ -135,7 +145,7 @@ module DealMakerAPI
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, incentive_percentage, end_at, created_at, updated_at].hash
+      [id, incentive_percentage, end_at, funded_by, created_at, updated_at].hash
     end
 
     # Builds the object from hash

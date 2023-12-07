@@ -80,7 +80,7 @@ class BulkUploadInvestorsRequest implements ModelInterface, ArrayAccess, \JsonSe
       */
     protected static array $openAPINullables = [
         'import_file' => false,
-		'alerts_email' => false
+        'alerts_email' => false
     ];
 
     /**

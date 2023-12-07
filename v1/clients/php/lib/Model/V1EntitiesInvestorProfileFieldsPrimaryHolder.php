@@ -96,15 +96,15 @@ class V1EntitiesInvestorProfileFieldsPrimaryHolder implements ModelInterface, Ar
       */
     protected static array $openAPINullables = [
         'first_name' => false,
-		'last_name' => false,
-		'suffix' => false,
-		'date_of_birth' => false,
-		'taxpayer_id' => false,
-		'phone_number' => false,
-		'income' => false,
-		'net_worth' => false,
-		'reg_cf_prior_offerings_amount' => false,
-		'address' => false
+        'last_name' => false,
+        'suffix' => false,
+        'date_of_birth' => false,
+        'taxpayer_id' => false,
+        'phone_number' => false,
+        'income' => false,
+        'net_worth' => false,
+        'reg_cf_prior_offerings_amount' => false,
+        'address' => false
     ];
 
     /**

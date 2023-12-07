@@ -82,8 +82,8 @@ class V1EntitiesAttachment implements ModelInterface, ArrayAccess, \JsonSerializ
       */
     protected static array $openAPINullables = [
         'id' => false,
-		'url' => false,
-		'file_name' => false
+        'url' => false,
+        'file_name' => false
     ];
 
     /**

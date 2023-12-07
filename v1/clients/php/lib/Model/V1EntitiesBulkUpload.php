@@ -99,16 +99,16 @@ class V1EntitiesBulkUpload implements ModelInterface, ArrayAccess, \JsonSerializ
       */
     protected static array $openAPINullables = [
         'id' => false,
-		'company_id' => false,
-		'file_identifier' => false,
-		'document_type' => false,
-		'upload_name' => false,
-		'files_count' => false,
-		'errors_count' => false,
-		'success_count' => false,
-		'status' => false,
-		'created_at' => false,
-		'updated_at' => false
+        'company_id' => false,
+        'file_identifier' => false,
+        'document_type' => false,
+        'upload_name' => false,
+        'files_count' => false,
+        'errors_count' => false,
+        'success_count' => false,
+        'status' => false,
+        'created_at' => false,
+        'updated_at' => false
     ];
 
     /**

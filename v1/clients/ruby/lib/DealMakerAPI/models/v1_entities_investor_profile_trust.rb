@@ -14,7 +14,6 @@ require 'date'
 require 'time'
 
 module DealMakerAPI
-  # V1_Entities_InvestorProfile_Trust model
   class V1EntitiesInvestorProfileTrust
     # Investor Profile id
     attr_accessor :id

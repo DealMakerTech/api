@@ -19,12 +19,11 @@ import V1EntitiesInvestorProfileOwner from './V1EntitiesInvestorProfileOwner';
 /**
  * The V1EntitiesInvestorProfileManaged model module.
  * @module model/V1EntitiesInvestorProfileManaged
- * @version 0.93.0
+ * @version 0.93.1
  */
 class V1EntitiesInvestorProfileManaged {
     /**
      * Constructs a new <code>V1EntitiesInvestorProfileManaged</code>.
-     * V1_Entities_InvestorProfile_Managed model
      * @alias module:model/V1EntitiesInvestorProfileManaged
      */
     constructor() { 

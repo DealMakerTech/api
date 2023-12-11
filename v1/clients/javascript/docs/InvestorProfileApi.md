@@ -21,7 +21,7 @@ Method | HTTP request | Description
 
 ## createCorporationProfile
 
-> V1EntitiesInvestorProfileCorporation createCorporationProfile(investorProfilesCorporations)
+> V1EntitiesInvestorProfileId createCorporationProfile(investorProfilesCorporations)
 
 Create new corporation investor profile.
 
@@ -53,7 +53,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**V1EntitiesInvestorProfileCorporation**](V1EntitiesInvestorProfileCorporation.md)
+[**V1EntitiesInvestorProfileId**](V1EntitiesInvestorProfileId.md)
 
 ### Authorization
 
@@ -67,7 +67,7 @@ No authorization required
 
 ## createIndividualProfile
 
-> V1EntitiesInvestorProfileIndividual createIndividualProfile(investorProfilesIndividuals)
+> V1EntitiesInvestorProfileId createIndividualProfile(investorProfilesIndividuals)
 
 Create new individual investor profile
 
@@ -99,7 +99,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**V1EntitiesInvestorProfileIndividual**](V1EntitiesInvestorProfileIndividual.md)
+[**V1EntitiesInvestorProfileId**](V1EntitiesInvestorProfileId.md)
 
 ### Authorization
 
@@ -113,7 +113,7 @@ No authorization required
 
 ## createJointProfile
 
-> V1EntitiesInvestorProfileJoint createJointProfile(investorProfilesJoints)
+> V1EntitiesInvestorProfileId createJointProfile(investorProfilesJoints)
 
 Create new joint investor profile
 
@@ -145,7 +145,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**V1EntitiesInvestorProfileJoint**](V1EntitiesInvestorProfileJoint.md)
+[**V1EntitiesInvestorProfileId**](V1EntitiesInvestorProfileId.md)
 
 ### Authorization
 
@@ -159,7 +159,7 @@ No authorization required
 
 ## createManagedProfile
 
-> V1EntitiesInvestorProfileManaged createManagedProfile(investorProfilesManaged)
+> V1EntitiesInvestorProfileId createManagedProfile(investorProfilesManaged)
 
 Create new managed investor profile.
 
@@ -191,7 +191,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**V1EntitiesInvestorProfileManaged**](V1EntitiesInvestorProfileManaged.md)
+[**V1EntitiesInvestorProfileId**](V1EntitiesInvestorProfileId.md)
 
 ### Authorization
 
@@ -205,7 +205,7 @@ No authorization required
 
 ## createTrustProfile
 
-> V1EntitiesInvestorProfileTrust createTrustProfile(investorProfilesTrusts)
+> V1EntitiesInvestorProfileId createTrustProfile(investorProfilesTrusts)
 
 Create new trust investor profile.
 
@@ -237,7 +237,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**V1EntitiesInvestorProfileTrust**](V1EntitiesInvestorProfileTrust.md)
+[**V1EntitiesInvestorProfileId**](V1EntitiesInvestorProfileId.md)
 
 ### Authorization
 
@@ -405,7 +405,7 @@ No authorization required
 
 ## patchCorporationProfile
 
-> V1EntitiesInvestorProfileCorporation patchCorporationProfile(investorProfileId, investorProfilesCorporations)
+> V1EntitiesInvestorProfileId patchCorporationProfile(investorProfileId, investorProfilesCorporations)
 
 Patch a corporation investor profile
 
@@ -439,7 +439,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**V1EntitiesInvestorProfileCorporation**](V1EntitiesInvestorProfileCorporation.md)
+[**V1EntitiesInvestorProfileId**](V1EntitiesInvestorProfileId.md)
 
 ### Authorization
 
@@ -453,7 +453,7 @@ No authorization required
 
 ## patchIndividualProfile
 
-> V1EntitiesInvestorProfileIndividual patchIndividualProfile(investorProfileId, investorProfilesIndividuals)
+> V1EntitiesInvestorProfileId patchIndividualProfile(investorProfileId, investorProfilesIndividuals)
 
 Patch an individual investor profile.
 
@@ -487,7 +487,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**V1EntitiesInvestorProfileIndividual**](V1EntitiesInvestorProfileIndividual.md)
+[**V1EntitiesInvestorProfileId**](V1EntitiesInvestorProfileId.md)
 
 ### Authorization
 
@@ -501,7 +501,7 @@ No authorization required
 
 ## patchJointProfile
 
-> V1EntitiesInvestorProfileJoint patchJointProfile(investorProfileId, investorProfilesJoints)
+> V1EntitiesInvestorProfileId patchJointProfile(investorProfileId, investorProfilesJoints)
 
 Patch a joint investor profile
 
@@ -535,7 +535,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**V1EntitiesInvestorProfileJoint**](V1EntitiesInvestorProfileJoint.md)
+[**V1EntitiesInvestorProfileId**](V1EntitiesInvestorProfileId.md)
 
 ### Authorization
 
@@ -549,7 +549,7 @@ No authorization required
 
 ## patchTrustProfile
 
-> V1EntitiesInvestorProfileTrust patchTrustProfile(investorProfileId, investorProfilesTrusts)
+> V1EntitiesInvestorProfileId patchTrustProfile(investorProfileId, investorProfilesTrusts)
 
 Patch a trust investor profile
 
@@ -583,7 +583,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**V1EntitiesInvestorProfileTrust**](V1EntitiesInvestorProfileTrust.md)
+[**V1EntitiesInvestorProfileId**](V1EntitiesInvestorProfileId.md)
 
 ### Authorization
 

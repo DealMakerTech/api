@@ -34,7 +34,7 @@ use PHPUnit\Framework\TestCase;
  * V1EntitiesInvestorProfileTrustTest Class Doc Comment
  *
  * @category    Class
- * @description V1_Entities_InvestorProfile_Trust model
+ * @description V1EntitiesInvestorProfileTrust
  * @package     DealMaker
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

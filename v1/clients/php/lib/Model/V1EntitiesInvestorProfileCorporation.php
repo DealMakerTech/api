@@ -35,7 +35,6 @@ use \DealMaker\ObjectSerializer;
  * V1EntitiesInvestorProfileCorporation Class Doc Comment
  *
  * @category Class
- * @description V1_Entities_InvestorProfile_Corporation model
  * @package  DealMaker
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

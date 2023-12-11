@@ -20,7 +20,7 @@ All URIs are relative to *http://api.dealmaker.tech*
 
 ## create_corporation_profile
 
-> <V1EntitiesInvestorProfileCorporation> create_corporation_profile(investor_profiles_corporations)
+> <V1EntitiesInvestorProfileId> create_corporation_profile(investor_profiles_corporations)
 
 Create new corporation investor profile.
 
@@ -50,7 +50,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<V1EntitiesInvestorProfileCorporation>, Integer, Hash)> create_corporation_profile_with_http_info(investor_profiles_corporations)
+> <Array(<V1EntitiesInvestorProfileId>, Integer, Hash)> create_corporation_profile_with_http_info(investor_profiles_corporations)
 
 ```ruby
 begin
@@ -58,7 +58,7 @@ begin
   data, status_code, headers = api_instance.create_corporation_profile_with_http_info(investor_profiles_corporations)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <V1EntitiesInvestorProfileCorporation>
+  p data # => <V1EntitiesInvestorProfileId>
 rescue DealMakerAPI::ApiError => e
   puts "Error when calling InvestorProfileApi->create_corporation_profile_with_http_info: #{e}"
 end
@@ -72,7 +72,7 @@ end
 
 ### Return type
 
-[**V1EntitiesInvestorProfileCorporation**](V1EntitiesInvestorProfileCorporation.md)
+[**V1EntitiesInvestorProfileId**](V1EntitiesInvestorProfileId.md)
 
 ### Authorization
 
@@ -86,7 +86,7 @@ No authorization required
 
 ## create_individual_profile
 
-> <V1EntitiesInvestorProfileIndividual> create_individual_profile(investor_profiles_individuals)
+> <V1EntitiesInvestorProfileId> create_individual_profile(investor_profiles_individuals)
 
 Create new individual investor profile
 
@@ -116,7 +116,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<V1EntitiesInvestorProfileIndividual>, Integer, Hash)> create_individual_profile_with_http_info(investor_profiles_individuals)
+> <Array(<V1EntitiesInvestorProfileId>, Integer, Hash)> create_individual_profile_with_http_info(investor_profiles_individuals)
 
 ```ruby
 begin
@@ -124,7 +124,7 @@ begin
   data, status_code, headers = api_instance.create_individual_profile_with_http_info(investor_profiles_individuals)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <V1EntitiesInvestorProfileIndividual>
+  p data # => <V1EntitiesInvestorProfileId>
 rescue DealMakerAPI::ApiError => e
   puts "Error when calling InvestorProfileApi->create_individual_profile_with_http_info: #{e}"
 end
@@ -138,7 +138,7 @@ end
 
 ### Return type
 
-[**V1EntitiesInvestorProfileIndividual**](V1EntitiesInvestorProfileIndividual.md)
+[**V1EntitiesInvestorProfileId**](V1EntitiesInvestorProfileId.md)
 
 ### Authorization
 
@@ -152,7 +152,7 @@ No authorization required
 
 ## create_joint_profile
 
-> <V1EntitiesInvestorProfileJoint> create_joint_profile(investor_profiles_joints)
+> <V1EntitiesInvestorProfileId> create_joint_profile(investor_profiles_joints)
 
 Create new joint investor profile
 
@@ -182,7 +182,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<V1EntitiesInvestorProfileJoint>, Integer, Hash)> create_joint_profile_with_http_info(investor_profiles_joints)
+> <Array(<V1EntitiesInvestorProfileId>, Integer, Hash)> create_joint_profile_with_http_info(investor_profiles_joints)
 
 ```ruby
 begin
@@ -190,7 +190,7 @@ begin
   data, status_code, headers = api_instance.create_joint_profile_with_http_info(investor_profiles_joints)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <V1EntitiesInvestorProfileJoint>
+  p data # => <V1EntitiesInvestorProfileId>
 rescue DealMakerAPI::ApiError => e
   puts "Error when calling InvestorProfileApi->create_joint_profile_with_http_info: #{e}"
 end
@@ -204,7 +204,7 @@ end
 
 ### Return type
 
-[**V1EntitiesInvestorProfileJoint**](V1EntitiesInvestorProfileJoint.md)
+[**V1EntitiesInvestorProfileId**](V1EntitiesInvestorProfileId.md)
 
 ### Authorization
 
@@ -218,7 +218,7 @@ No authorization required
 
 ## create_managed_profile
 
-> <V1EntitiesInvestorProfileManaged> create_managed_profile(investor_profiles_managed)
+> <V1EntitiesInvestorProfileId> create_managed_profile(investor_profiles_managed)
 
 Create new managed investor profile.
 
@@ -248,7 +248,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<V1EntitiesInvestorProfileManaged>, Integer, Hash)> create_managed_profile_with_http_info(investor_profiles_managed)
+> <Array(<V1EntitiesInvestorProfileId>, Integer, Hash)> create_managed_profile_with_http_info(investor_profiles_managed)
 
 ```ruby
 begin
@@ -256,7 +256,7 @@ begin
   data, status_code, headers = api_instance.create_managed_profile_with_http_info(investor_profiles_managed)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <V1EntitiesInvestorProfileManaged>
+  p data # => <V1EntitiesInvestorProfileId>
 rescue DealMakerAPI::ApiError => e
   puts "Error when calling InvestorProfileApi->create_managed_profile_with_http_info: #{e}"
 end
@@ -270,7 +270,7 @@ end
 
 ### Return type
 
-[**V1EntitiesInvestorProfileManaged**](V1EntitiesInvestorProfileManaged.md)
+[**V1EntitiesInvestorProfileId**](V1EntitiesInvestorProfileId.md)
 
 ### Authorization
 
@@ -284,7 +284,7 @@ No authorization required
 
 ## create_trust_profile
 
-> <V1EntitiesInvestorProfileTrust> create_trust_profile(investor_profiles_trusts)
+> <V1EntitiesInvestorProfileId> create_trust_profile(investor_profiles_trusts)
 
 Create new trust investor profile.
 
@@ -314,7 +314,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<V1EntitiesInvestorProfileTrust>, Integer, Hash)> create_trust_profile_with_http_info(investor_profiles_trusts)
+> <Array(<V1EntitiesInvestorProfileId>, Integer, Hash)> create_trust_profile_with_http_info(investor_profiles_trusts)
 
 ```ruby
 begin
@@ -322,7 +322,7 @@ begin
   data, status_code, headers = api_instance.create_trust_profile_with_http_info(investor_profiles_trusts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <V1EntitiesInvestorProfileTrust>
+  p data # => <V1EntitiesInvestorProfileId>
 rescue DealMakerAPI::ApiError => e
   puts "Error when calling InvestorProfileApi->create_trust_profile_with_http_info: #{e}"
 end
@@ -336,7 +336,7 @@ end
 
 ### Return type
 
-[**V1EntitiesInvestorProfileTrust**](V1EntitiesInvestorProfileTrust.md)
+[**V1EntitiesInvestorProfileId**](V1EntitiesInvestorProfileId.md)
 
 ### Authorization
 
@@ -564,7 +564,7 @@ No authorization required
 
 ## patch_corporation_profile
 
-> <V1EntitiesInvestorProfileCorporation> patch_corporation_profile(investor_profile_id, investor_profiles_corporations)
+> <V1EntitiesInvestorProfileId> patch_corporation_profile(investor_profile_id, investor_profiles_corporations)
 
 Patch a corporation investor profile
 
@@ -595,7 +595,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<V1EntitiesInvestorProfileCorporation>, Integer, Hash)> patch_corporation_profile_with_http_info(investor_profile_id, investor_profiles_corporations)
+> <Array(<V1EntitiesInvestorProfileId>, Integer, Hash)> patch_corporation_profile_with_http_info(investor_profile_id, investor_profiles_corporations)
 
 ```ruby
 begin
@@ -603,7 +603,7 @@ begin
   data, status_code, headers = api_instance.patch_corporation_profile_with_http_info(investor_profile_id, investor_profiles_corporations)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <V1EntitiesInvestorProfileCorporation>
+  p data # => <V1EntitiesInvestorProfileId>
 rescue DealMakerAPI::ApiError => e
   puts "Error when calling InvestorProfileApi->patch_corporation_profile_with_http_info: #{e}"
 end
@@ -618,7 +618,7 @@ end
 
 ### Return type
 
-[**V1EntitiesInvestorProfileCorporation**](V1EntitiesInvestorProfileCorporation.md)
+[**V1EntitiesInvestorProfileId**](V1EntitiesInvestorProfileId.md)
 
 ### Authorization
 
@@ -632,7 +632,7 @@ No authorization required
 
 ## patch_individual_profile
 
-> <V1EntitiesInvestorProfileIndividual> patch_individual_profile(investor_profile_id, investor_profiles_individuals)
+> <V1EntitiesInvestorProfileId> patch_individual_profile(investor_profile_id, investor_profiles_individuals)
 
 Patch an individual investor profile.
 
@@ -663,7 +663,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<V1EntitiesInvestorProfileIndividual>, Integer, Hash)> patch_individual_profile_with_http_info(investor_profile_id, investor_profiles_individuals)
+> <Array(<V1EntitiesInvestorProfileId>, Integer, Hash)> patch_individual_profile_with_http_info(investor_profile_id, investor_profiles_individuals)
 
 ```ruby
 begin
@@ -671,7 +671,7 @@ begin
   data, status_code, headers = api_instance.patch_individual_profile_with_http_info(investor_profile_id, investor_profiles_individuals)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <V1EntitiesInvestorProfileIndividual>
+  p data # => <V1EntitiesInvestorProfileId>
 rescue DealMakerAPI::ApiError => e
   puts "Error when calling InvestorProfileApi->patch_individual_profile_with_http_info: #{e}"
 end
@@ -686,7 +686,7 @@ end
 
 ### Return type
 
-[**V1EntitiesInvestorProfileIndividual**](V1EntitiesInvestorProfileIndividual.md)
+[**V1EntitiesInvestorProfileId**](V1EntitiesInvestorProfileId.md)
 
 ### Authorization
 
@@ -700,7 +700,7 @@ No authorization required
 
 ## patch_joint_profile
 
-> <V1EntitiesInvestorProfileJoint> patch_joint_profile(investor_profile_id, investor_profiles_joints)
+> <V1EntitiesInvestorProfileId> patch_joint_profile(investor_profile_id, investor_profiles_joints)
 
 Patch a joint investor profile
 
@@ -731,7 +731,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<V1EntitiesInvestorProfileJoint>, Integer, Hash)> patch_joint_profile_with_http_info(investor_profile_id, investor_profiles_joints)
+> <Array(<V1EntitiesInvestorProfileId>, Integer, Hash)> patch_joint_profile_with_http_info(investor_profile_id, investor_profiles_joints)
 
 ```ruby
 begin
@@ -739,7 +739,7 @@ begin
   data, status_code, headers = api_instance.patch_joint_profile_with_http_info(investor_profile_id, investor_profiles_joints)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <V1EntitiesInvestorProfileJoint>
+  p data # => <V1EntitiesInvestorProfileId>
 rescue DealMakerAPI::ApiError => e
   puts "Error when calling InvestorProfileApi->patch_joint_profile_with_http_info: #{e}"
 end
@@ -754,7 +754,7 @@ end
 
 ### Return type
 
-[**V1EntitiesInvestorProfileJoint**](V1EntitiesInvestorProfileJoint.md)
+[**V1EntitiesInvestorProfileId**](V1EntitiesInvestorProfileId.md)
 
 ### Authorization
 
@@ -768,7 +768,7 @@ No authorization required
 
 ## patch_trust_profile
 
-> <V1EntitiesInvestorProfileTrust> patch_trust_profile(investor_profile_id, investor_profiles_trusts)
+> <V1EntitiesInvestorProfileId> patch_trust_profile(investor_profile_id, investor_profiles_trusts)
 
 Patch a trust investor profile
 
@@ -799,7 +799,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<V1EntitiesInvestorProfileTrust>, Integer, Hash)> patch_trust_profile_with_http_info(investor_profile_id, investor_profiles_trusts)
+> <Array(<V1EntitiesInvestorProfileId>, Integer, Hash)> patch_trust_profile_with_http_info(investor_profile_id, investor_profiles_trusts)
 
 ```ruby
 begin
@@ -807,7 +807,7 @@ begin
   data, status_code, headers = api_instance.patch_trust_profile_with_http_info(investor_profile_id, investor_profiles_trusts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <V1EntitiesInvestorProfileTrust>
+  p data # => <V1EntitiesInvestorProfileId>
 rescue DealMakerAPI::ApiError => e
   puts "Error when calling InvestorProfileApi->patch_trust_profile_with_http_info: #{e}"
 end
@@ -822,7 +822,7 @@ end
 
 ### Return type
 
-[**V1EntitiesInvestorProfileTrust**](V1EntitiesInvestorProfileTrust.md)
+[**V1EntitiesInvestorProfileId**](V1EntitiesInvestorProfileId.md)
 
 ### Authorization
 

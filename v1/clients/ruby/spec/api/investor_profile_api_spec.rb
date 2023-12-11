@@ -37,7 +37,7 @@ describe 'InvestorProfileApi' do
   # Create new corporation investor profile associated to the user by email.
   # @param investor_profiles_corporations 
   # @param [Hash] opts the optional parameters
-  # @return [V1EntitiesInvestorProfileCorporation]
+  # @return [V1EntitiesInvestorProfileId]
   describe 'create_corporation_profile test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -49,7 +49,7 @@ describe 'InvestorProfileApi' do
   # Create new individual investor profile associated to the user by email.
   # @param investor_profiles_individuals 
   # @param [Hash] opts the optional parameters
-  # @return [V1EntitiesInvestorProfileIndividual]
+  # @return [V1EntitiesInvestorProfileId]
   describe 'create_individual_profile test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -61,7 +61,7 @@ describe 'InvestorProfileApi' do
   # Create new joint investor profile associated to the user by email.
   # @param investor_profiles_joints 
   # @param [Hash] opts the optional parameters
-  # @return [V1EntitiesInvestorProfileJoint]
+  # @return [V1EntitiesInvestorProfileId]
   describe 'create_joint_profile test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -73,7 +73,7 @@ describe 'InvestorProfileApi' do
   # Create new managed investor profile associated to the user by email.
   # @param investor_profiles_managed 
   # @param [Hash] opts the optional parameters
-  # @return [V1EntitiesInvestorProfileManaged]
+  # @return [V1EntitiesInvestorProfileId]
   describe 'create_managed_profile test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -85,7 +85,7 @@ describe 'InvestorProfileApi' do
   # Create new trust investor profile associated to the user by email.
   # @param investor_profiles_trusts 
   # @param [Hash] opts the optional parameters
-  # @return [V1EntitiesInvestorProfileTrust]
+  # @return [V1EntitiesInvestorProfileId]
   describe 'create_trust_profile test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -140,7 +140,7 @@ describe 'InvestorProfileApi' do
   # @param investor_profile_id 
   # @param investor_profiles_corporations 
   # @param [Hash] opts the optional parameters
-  # @return [V1EntitiesInvestorProfileCorporation]
+  # @return [V1EntitiesInvestorProfileId]
   describe 'patch_corporation_profile test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -153,7 +153,7 @@ describe 'InvestorProfileApi' do
   # @param investor_profile_id 
   # @param investor_profiles_individuals 
   # @param [Hash] opts the optional parameters
-  # @return [V1EntitiesInvestorProfileIndividual]
+  # @return [V1EntitiesInvestorProfileId]
   describe 'patch_individual_profile test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -166,7 +166,7 @@ describe 'InvestorProfileApi' do
   # @param investor_profile_id 
   # @param investor_profiles_joints 
   # @param [Hash] opts the optional parameters
-  # @return [V1EntitiesInvestorProfileJoint]
+  # @return [V1EntitiesInvestorProfileId]
   describe 'patch_joint_profile test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -179,7 +179,7 @@ describe 'InvestorProfileApi' do
   # @param investor_profile_id 
   # @param investor_profiles_trusts 
   # @param [Hash] opts the optional parameters
-  # @return [V1EntitiesInvestorProfileTrust]
+  # @return [V1EntitiesInvestorProfileId]
   describe 'patch_trust_profile test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/

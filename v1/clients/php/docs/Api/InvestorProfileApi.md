@@ -21,7 +21,7 @@ All URIs are relative to http://api.dealmaker.tech, except if the operation defi
 ## `createCorporationProfile()`
 
 ```php
-createCorporationProfile($investor_profiles_corporations): \DealMaker\Model\V1EntitiesInvestorProfileCorporation
+createCorporationProfile($investor_profiles_corporations): \DealMaker\Model\V1EntitiesInvestorProfileId
 ```
 
 Create new corporation investor profile.
@@ -60,7 +60,7 @@ try {
 
 ### Return type
 
-[**\DealMaker\Model\V1EntitiesInvestorProfileCorporation**](../Model/V1EntitiesInvestorProfileCorporation.md)
+[**\DealMaker\Model\V1EntitiesInvestorProfileId**](../Model/V1EntitiesInvestorProfileId.md)
 
 ### Authorization
 
@@ -78,7 +78,7 @@ No authorization required
 ## `createIndividualProfile()`
 
 ```php
-createIndividualProfile($investor_profiles_individuals): \DealMaker\Model\V1EntitiesInvestorProfileIndividual
+createIndividualProfile($investor_profiles_individuals): \DealMaker\Model\V1EntitiesInvestorProfileId
 ```
 
 Create new individual investor profile
@@ -117,7 +117,7 @@ try {
 
 ### Return type
 
-[**\DealMaker\Model\V1EntitiesInvestorProfileIndividual**](../Model/V1EntitiesInvestorProfileIndividual.md)
+[**\DealMaker\Model\V1EntitiesInvestorProfileId**](../Model/V1EntitiesInvestorProfileId.md)
 
 ### Authorization
 
@@ -135,7 +135,7 @@ No authorization required
 ## `createJointProfile()`
 
 ```php
-createJointProfile($investor_profiles_joints): \DealMaker\Model\V1EntitiesInvestorProfileJoint
+createJointProfile($investor_profiles_joints): \DealMaker\Model\V1EntitiesInvestorProfileId
 ```
 
 Create new joint investor profile
@@ -174,7 +174,7 @@ try {
 
 ### Return type
 
-[**\DealMaker\Model\V1EntitiesInvestorProfileJoint**](../Model/V1EntitiesInvestorProfileJoint.md)
+[**\DealMaker\Model\V1EntitiesInvestorProfileId**](../Model/V1EntitiesInvestorProfileId.md)
 
 ### Authorization
 
@@ -192,7 +192,7 @@ No authorization required
 ## `createManagedProfile()`
 
 ```php
-createManagedProfile($investor_profiles_managed): \DealMaker\Model\V1EntitiesInvestorProfileManaged
+createManagedProfile($investor_profiles_managed): \DealMaker\Model\V1EntitiesInvestorProfileId
 ```
 
 Create new managed investor profile.
@@ -231,7 +231,7 @@ try {
 
 ### Return type
 
-[**\DealMaker\Model\V1EntitiesInvestorProfileManaged**](../Model/V1EntitiesInvestorProfileManaged.md)
+[**\DealMaker\Model\V1EntitiesInvestorProfileId**](../Model/V1EntitiesInvestorProfileId.md)
 
 ### Authorization
 
@@ -249,7 +249,7 @@ No authorization required
 ## `createTrustProfile()`
 
 ```php
-createTrustProfile($investor_profiles_trusts): \DealMaker\Model\V1EntitiesInvestorProfileTrust
+createTrustProfile($investor_profiles_trusts): \DealMaker\Model\V1EntitiesInvestorProfileId
 ```
 
 Create new trust investor profile.
@@ -288,7 +288,7 @@ try {
 
 ### Return type
 
-[**\DealMaker\Model\V1EntitiesInvestorProfileTrust**](../Model/V1EntitiesInvestorProfileTrust.md)
+[**\DealMaker\Model\V1EntitiesInvestorProfileId**](../Model/V1EntitiesInvestorProfileId.md)
 
 ### Authorization
 
@@ -489,7 +489,7 @@ No authorization required
 ## `patchCorporationProfile()`
 
 ```php
-patchCorporationProfile($investor_profile_id, $investor_profiles_corporations): \DealMaker\Model\V1EntitiesInvestorProfileCorporation
+patchCorporationProfile($investor_profile_id, $investor_profiles_corporations): \DealMaker\Model\V1EntitiesInvestorProfileId
 ```
 
 Patch a corporation investor profile
@@ -530,7 +530,7 @@ try {
 
 ### Return type
 
-[**\DealMaker\Model\V1EntitiesInvestorProfileCorporation**](../Model/V1EntitiesInvestorProfileCorporation.md)
+[**\DealMaker\Model\V1EntitiesInvestorProfileId**](../Model/V1EntitiesInvestorProfileId.md)
 
 ### Authorization
 
@@ -548,7 +548,7 @@ No authorization required
 ## `patchIndividualProfile()`
 
 ```php
-patchIndividualProfile($investor_profile_id, $investor_profiles_individuals): \DealMaker\Model\V1EntitiesInvestorProfileIndividual
+patchIndividualProfile($investor_profile_id, $investor_profiles_individuals): \DealMaker\Model\V1EntitiesInvestorProfileId
 ```
 
 Patch an individual investor profile.
@@ -589,7 +589,7 @@ try {
 
 ### Return type
 
-[**\DealMaker\Model\V1EntitiesInvestorProfileIndividual**](../Model/V1EntitiesInvestorProfileIndividual.md)
+[**\DealMaker\Model\V1EntitiesInvestorProfileId**](../Model/V1EntitiesInvestorProfileId.md)
 
 ### Authorization
 
@@ -607,7 +607,7 @@ No authorization required
 ## `patchJointProfile()`
 
 ```php
-patchJointProfile($investor_profile_id, $investor_profiles_joints): \DealMaker\Model\V1EntitiesInvestorProfileJoint
+patchJointProfile($investor_profile_id, $investor_profiles_joints): \DealMaker\Model\V1EntitiesInvestorProfileId
 ```
 
 Patch a joint investor profile
@@ -648,7 +648,7 @@ try {
 
 ### Return type
 
-[**\DealMaker\Model\V1EntitiesInvestorProfileJoint**](../Model/V1EntitiesInvestorProfileJoint.md)
+[**\DealMaker\Model\V1EntitiesInvestorProfileId**](../Model/V1EntitiesInvestorProfileId.md)
 
 ### Authorization
 
@@ -666,7 +666,7 @@ No authorization required
 ## `patchTrustProfile()`
 
 ```php
-patchTrustProfile($investor_profile_id, $investor_profiles_trusts): \DealMaker\Model\V1EntitiesInvestorProfileTrust
+patchTrustProfile($investor_profile_id, $investor_profiles_trusts): \DealMaker\Model\V1EntitiesInvestorProfileId
 ```
 
 Patch a trust investor profile
@@ -707,7 +707,7 @@ try {
 
 ### Return type
 
-[**\DealMaker\Model\V1EntitiesInvestorProfileTrust**](../Model/V1EntitiesInvestorProfileTrust.md)
+[**\DealMaker\Model\V1EntitiesInvestorProfileId**](../Model/V1EntitiesInvestorProfileId.md)
 
 ### Authorization
 

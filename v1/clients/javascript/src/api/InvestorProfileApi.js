@@ -22,18 +22,14 @@ import PostInvestorProfilesIndividuals from '../model/PostInvestorProfilesIndivi
 import PostInvestorProfilesJoints from '../model/PostInvestorProfilesJoints';
 import PostInvestorProfilesManaged from '../model/PostInvestorProfilesManaged';
 import PostInvestorProfilesTrusts from '../model/PostInvestorProfilesTrusts';
-import V1EntitiesInvestorProfileCorporation from '../model/V1EntitiesInvestorProfileCorporation';
-import V1EntitiesInvestorProfileIndividual from '../model/V1EntitiesInvestorProfileIndividual';
+import V1EntitiesInvestorProfileId from '../model/V1EntitiesInvestorProfileId';
 import V1EntitiesInvestorProfileItem from '../model/V1EntitiesInvestorProfileItem';
-import V1EntitiesInvestorProfileJoint from '../model/V1EntitiesInvestorProfileJoint';
-import V1EntitiesInvestorProfileManaged from '../model/V1EntitiesInvestorProfileManaged';
-import V1EntitiesInvestorProfileTrust from '../model/V1EntitiesInvestorProfileTrust';
 import V1EntitiesInvestorProfiles from '../model/V1EntitiesInvestorProfiles';
 
 /**
 * InvestorProfile service.
 * @module api/InvestorProfileApi
-* @version 0.93.0
+* @version 0.93.1
 */
 export default class InvestorProfileApi {
 
@@ -53,7 +49,7 @@ export default class InvestorProfileApi {
      * Callback function to receive the result of the createCorporationProfile operation.
      * @callback module:api/InvestorProfileApi~createCorporationProfileCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/V1EntitiesInvestorProfileCorporation} data The data returned by the service call.
+     * @param {module:model/V1EntitiesInvestorProfileId} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -62,7 +58,7 @@ export default class InvestorProfileApi {
      * Create new corporation investor profile associated to the user by email.
      * @param {module:model/PostInvestorProfilesCorporations} investorProfilesCorporations 
      * @param {module:api/InvestorProfileApi~createCorporationProfileCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/V1EntitiesInvestorProfileCorporation}
+     * data is of type: {@link module:model/V1EntitiesInvestorProfileId}
      */
     createCorporationProfile(investorProfilesCorporations, callback) {
       let postBody = investorProfilesCorporations;
@@ -83,7 +79,7 @@ export default class InvestorProfileApi {
       let authNames = [];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
-      let returnType = V1EntitiesInvestorProfileCorporation;
+      let returnType = V1EntitiesInvestorProfileId;
       return this.apiClient.callApi(
         '/investor_profiles/corporations', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -95,7 +91,7 @@ export default class InvestorProfileApi {
      * Callback function to receive the result of the createIndividualProfile operation.
      * @callback module:api/InvestorProfileApi~createIndividualProfileCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/V1EntitiesInvestorProfileIndividual} data The data returned by the service call.
+     * @param {module:model/V1EntitiesInvestorProfileId} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -104,7 +100,7 @@ export default class InvestorProfileApi {
      * Create new individual investor profile associated to the user by email.
      * @param {module:model/PostInvestorProfilesIndividuals} investorProfilesIndividuals 
      * @param {module:api/InvestorProfileApi~createIndividualProfileCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/V1EntitiesInvestorProfileIndividual}
+     * data is of type: {@link module:model/V1EntitiesInvestorProfileId}
      */
     createIndividualProfile(investorProfilesIndividuals, callback) {
       let postBody = investorProfilesIndividuals;
@@ -125,7 +121,7 @@ export default class InvestorProfileApi {
       let authNames = [];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
-      let returnType = V1EntitiesInvestorProfileIndividual;
+      let returnType = V1EntitiesInvestorProfileId;
       return this.apiClient.callApi(
         '/investor_profiles/individuals', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -137,7 +133,7 @@ export default class InvestorProfileApi {
      * Callback function to receive the result of the createJointProfile operation.
      * @callback module:api/InvestorProfileApi~createJointProfileCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/V1EntitiesInvestorProfileJoint} data The data returned by the service call.
+     * @param {module:model/V1EntitiesInvestorProfileId} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -146,7 +142,7 @@ export default class InvestorProfileApi {
      * Create new joint investor profile associated to the user by email.
      * @param {module:model/PostInvestorProfilesJoints} investorProfilesJoints 
      * @param {module:api/InvestorProfileApi~createJointProfileCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/V1EntitiesInvestorProfileJoint}
+     * data is of type: {@link module:model/V1EntitiesInvestorProfileId}
      */
     createJointProfile(investorProfilesJoints, callback) {
       let postBody = investorProfilesJoints;
@@ -167,7 +163,7 @@ export default class InvestorProfileApi {
       let authNames = [];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
-      let returnType = V1EntitiesInvestorProfileJoint;
+      let returnType = V1EntitiesInvestorProfileId;
       return this.apiClient.callApi(
         '/investor_profiles/joints', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -179,7 +175,7 @@ export default class InvestorProfileApi {
      * Callback function to receive the result of the createManagedProfile operation.
      * @callback module:api/InvestorProfileApi~createManagedProfileCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/V1EntitiesInvestorProfileManaged} data The data returned by the service call.
+     * @param {module:model/V1EntitiesInvestorProfileId} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -188,7 +184,7 @@ export default class InvestorProfileApi {
      * Create new managed investor profile associated to the user by email.
      * @param {module:model/PostInvestorProfilesManaged} investorProfilesManaged 
      * @param {module:api/InvestorProfileApi~createManagedProfileCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/V1EntitiesInvestorProfileManaged}
+     * data is of type: {@link module:model/V1EntitiesInvestorProfileId}
      */
     createManagedProfile(investorProfilesManaged, callback) {
       let postBody = investorProfilesManaged;
@@ -209,7 +205,7 @@ export default class InvestorProfileApi {
       let authNames = [];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
-      let returnType = V1EntitiesInvestorProfileManaged;
+      let returnType = V1EntitiesInvestorProfileId;
       return this.apiClient.callApi(
         '/investor_profiles/managed', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -221,7 +217,7 @@ export default class InvestorProfileApi {
      * Callback function to receive the result of the createTrustProfile operation.
      * @callback module:api/InvestorProfileApi~createTrustProfileCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/V1EntitiesInvestorProfileTrust} data The data returned by the service call.
+     * @param {module:model/V1EntitiesInvestorProfileId} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -230,7 +226,7 @@ export default class InvestorProfileApi {
      * Create new trust investor profile associated to the user by email.
      * @param {module:model/PostInvestorProfilesTrusts} investorProfilesTrusts 
      * @param {module:api/InvestorProfileApi~createTrustProfileCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/V1EntitiesInvestorProfileTrust}
+     * data is of type: {@link module:model/V1EntitiesInvestorProfileId}
      */
     createTrustProfile(investorProfilesTrusts, callback) {
       let postBody = investorProfilesTrusts;
@@ -251,7 +247,7 @@ export default class InvestorProfileApi {
       let authNames = [];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
-      let returnType = V1EntitiesInvestorProfileTrust;
+      let returnType = V1EntitiesInvestorProfileId;
       return this.apiClient.callApi(
         '/investor_profiles/trusts', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -404,7 +400,7 @@ export default class InvestorProfileApi {
      * Callback function to receive the result of the patchCorporationProfile operation.
      * @callback module:api/InvestorProfileApi~patchCorporationProfileCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/V1EntitiesInvestorProfileCorporation} data The data returned by the service call.
+     * @param {module:model/V1EntitiesInvestorProfileId} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -414,7 +410,7 @@ export default class InvestorProfileApi {
      * @param {Number} investorProfileId 
      * @param {module:model/PatchInvestorProfilesCorporations} investorProfilesCorporations 
      * @param {module:api/InvestorProfileApi~patchCorporationProfileCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/V1EntitiesInvestorProfileCorporation}
+     * data is of type: {@link module:model/V1EntitiesInvestorProfileId}
      */
     patchCorporationProfile(investorProfileId, investorProfilesCorporations, callback) {
       let postBody = investorProfilesCorporations;
@@ -440,7 +436,7 @@ export default class InvestorProfileApi {
       let authNames = [];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
-      let returnType = V1EntitiesInvestorProfileCorporation;
+      let returnType = V1EntitiesInvestorProfileId;
       return this.apiClient.callApi(
         '/investor_profiles/corporations/{investor_profile_id}', 'PATCH',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -452,7 +448,7 @@ export default class InvestorProfileApi {
      * Callback function to receive the result of the patchIndividualProfile operation.
      * @callback module:api/InvestorProfileApi~patchIndividualProfileCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/V1EntitiesInvestorProfileIndividual} data The data returned by the service call.
+     * @param {module:model/V1EntitiesInvestorProfileId} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -462,7 +458,7 @@ export default class InvestorProfileApi {
      * @param {Number} investorProfileId 
      * @param {module:model/PatchInvestorProfilesIndividuals} investorProfilesIndividuals 
      * @param {module:api/InvestorProfileApi~patchIndividualProfileCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/V1EntitiesInvestorProfileIndividual}
+     * data is of type: {@link module:model/V1EntitiesInvestorProfileId}
      */
     patchIndividualProfile(investorProfileId, investorProfilesIndividuals, callback) {
       let postBody = investorProfilesIndividuals;
@@ -488,7 +484,7 @@ export default class InvestorProfileApi {
       let authNames = [];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
-      let returnType = V1EntitiesInvestorProfileIndividual;
+      let returnType = V1EntitiesInvestorProfileId;
       return this.apiClient.callApi(
         '/investor_profiles/individuals/{investor_profile_id}', 'PATCH',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -500,7 +496,7 @@ export default class InvestorProfileApi {
      * Callback function to receive the result of the patchJointProfile operation.
      * @callback module:api/InvestorProfileApi~patchJointProfileCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/V1EntitiesInvestorProfileJoint} data The data returned by the service call.
+     * @param {module:model/V1EntitiesInvestorProfileId} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -510,7 +506,7 @@ export default class InvestorProfileApi {
      * @param {Number} investorProfileId 
      * @param {module:model/PatchInvestorProfilesJoints} investorProfilesJoints 
      * @param {module:api/InvestorProfileApi~patchJointProfileCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/V1EntitiesInvestorProfileJoint}
+     * data is of type: {@link module:model/V1EntitiesInvestorProfileId}
      */
     patchJointProfile(investorProfileId, investorProfilesJoints, callback) {
       let postBody = investorProfilesJoints;
@@ -536,7 +532,7 @@ export default class InvestorProfileApi {
       let authNames = [];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
-      let returnType = V1EntitiesInvestorProfileJoint;
+      let returnType = V1EntitiesInvestorProfileId;
       return this.apiClient.callApi(
         '/investor_profiles/joints/{investor_profile_id}', 'PATCH',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -548,7 +544,7 @@ export default class InvestorProfileApi {
      * Callback function to receive the result of the patchTrustProfile operation.
      * @callback module:api/InvestorProfileApi~patchTrustProfileCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/V1EntitiesInvestorProfileTrust} data The data returned by the service call.
+     * @param {module:model/V1EntitiesInvestorProfileId} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -558,7 +554,7 @@ export default class InvestorProfileApi {
      * @param {Number} investorProfileId 
      * @param {module:model/PatchInvestorProfilesTrusts} investorProfilesTrusts 
      * @param {module:api/InvestorProfileApi~patchTrustProfileCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/V1EntitiesInvestorProfileTrust}
+     * data is of type: {@link module:model/V1EntitiesInvestorProfileId}
      */
     patchTrustProfile(investorProfileId, investorProfilesTrusts, callback) {
       let postBody = investorProfilesTrusts;
@@ -584,7 +580,7 @@ export default class InvestorProfileApi {
       let authNames = [];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
-      let returnType = V1EntitiesInvestorProfileTrust;
+      let returnType = V1EntitiesInvestorProfileId;
       return this.apiClient.callApi(
         '/investor_profiles/trusts/{investor_profile_id}', 'PATCH',
         pathParams, queryParams, headerParams, formParams, postBody,

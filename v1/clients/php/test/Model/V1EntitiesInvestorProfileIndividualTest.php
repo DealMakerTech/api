@@ -34,7 +34,7 @@ use PHPUnit\Framework\TestCase;
  * V1EntitiesInvestorProfileIndividualTest Class Doc Comment
  *
  * @category    Class
- * @description V1_Entities_InvestorProfile_Individual model
+ * @description V1EntitiesInvestorProfileIndividual
  * @package     DealMaker
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

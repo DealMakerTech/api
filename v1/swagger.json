@@ -437,7 +437,7 @@
           "201": {
             "description": "Create new corporation investor profile.",
             "schema": {
-              "$ref": "#/definitions/V1_Entities_InvestorProfile_Corporation"
+              "$ref": "#/definitions/V1_Entities_InvestorProfile_Id"
             }
           },
           "400": {
@@ -501,7 +501,7 @@
           "200": {
             "description": "Patch corporation investor profile",
             "schema": {
-              "$ref": "#/definitions/V1_Entities_InvestorProfile_Corporation"
+              "$ref": "#/definitions/V1_Entities_InvestorProfile_Id"
             }
           },
           "400": {
@@ -561,7 +561,7 @@
           "201": {
             "description": "Create new joint investor profile",
             "schema": {
-              "$ref": "#/definitions/V1_Entities_InvestorProfile_Joint"
+              "$ref": "#/definitions/V1_Entities_InvestorProfile_Id"
             }
           },
           "400": {
@@ -622,7 +622,7 @@
           "200": {
             "description": "Patch joint investor profile",
             "schema": {
-              "$ref": "#/definitions/V1_Entities_InvestorProfile_Joint"
+              "$ref": "#/definitions/V1_Entities_InvestorProfile_Id"
             }
           },
           "400": {
@@ -682,7 +682,7 @@
           "201": {
             "description": "Create new individual investor profile",
             "schema": {
-              "$ref": "#/definitions/V1_Entities_InvestorProfile_Individual"
+              "$ref": "#/definitions/V1_Entities_InvestorProfile_Id"
             }
           },
           "400": {
@@ -746,7 +746,7 @@
           "200": {
             "description": "Patch individual investor profile.",
             "schema": {
-              "$ref": "#/definitions/V1_Entities_InvestorProfile_Individual"
+              "$ref": "#/definitions/V1_Entities_InvestorProfile_Id"
             }
           },
           "400": {
@@ -806,7 +806,7 @@
           "201": {
             "description": "Create new trust investor profile.",
             "schema": {
-              "$ref": "#/definitions/V1_Entities_InvestorProfile_Trust"
+              "$ref": "#/definitions/V1_Entities_InvestorProfile_Id"
             }
           },
           "400": {
@@ -870,7 +870,7 @@
           "200": {
             "description": "Patch trust investor profile",
             "schema": {
-              "$ref": "#/definitions/V1_Entities_InvestorProfile_Trust"
+              "$ref": "#/definitions/V1_Entities_InvestorProfile_Id"
             }
           },
           "400": {
@@ -930,7 +930,7 @@
           "201": {
             "description": "Create new managed investor profile.",
             "schema": {
-              "$ref": "#/definitions/V1_Entities_InvestorProfile_Managed"
+              "$ref": "#/definitions/V1_Entities_InvestorProfile_Id"
             }
           },
           "400": {
@@ -4975,8 +4975,7 @@
         "account_holder": {
           "$ref": "#/definitions/V1_Entities_InvestorProfile_Fields_PrimaryHolder"
         }
-      },
-      "description": "V1_Entities_InvestorProfile_Individual model"
+      }
     },
     "V1_Entities_InvestorProfile_Owner": {
       "type": "object",
@@ -5128,8 +5127,7 @@
         "joint_holder": {
           "$ref": "#/definitions/V1_Entities_InvestorProfile_Fields_AccountHolder"
         }
-      },
-      "description": "V1_Entities_InvestorProfile_Joint model"
+      }
     },
     "V1_Entities_InvestorProfile_Fields_AccountHolder": {
       "type": "object",
@@ -5215,8 +5213,7 @@
         "beneficial_owners": {
           "$ref": "#/definitions/V1_Entities_InvestorProfile_Fields_BeneficialOwner"
         }
-      },
-      "description": "V1_Entities_InvestorProfile_Corporation model"
+      }
     },
     "V1_Entities_InvestorProfile_Fields_Corporation": {
       "type": "object",
@@ -5374,8 +5371,7 @@
         "trustees": {
           "$ref": "#/definitions/V1_Entities_InvestorProfile_Fields_Trustee"
         }
-      },
-      "description": "V1_Entities_InvestorProfile_Trust model"
+      }
     },
     "V1_Entities_InvestorProfile_Fields_Trust": {
       "type": "object",
@@ -5645,8 +5641,7 @@
         "beneficiary": {
           "$ref": "#/definitions/V1_Entities_InvestorProfile_Fields_Beneficiary"
         }
-      },
-      "description": "V1_Entities_InvestorProfile_Managed model"
+      }
     },
     "V1_Entities_InvestorProfile_Fields_Provider": {
       "type": "object",
@@ -5938,6 +5933,17 @@
         "email"
       ],
       "description": "Create new corporation investor profile."
+    },
+    "V1_Entities_InvestorProfile_Id": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Investor Profile id"
+        }
+      },
+      "description": "V1_Entities_InvestorProfile_Id model"
     },
     "patchInvestorProfilesCorporations": {
       "type": "object",

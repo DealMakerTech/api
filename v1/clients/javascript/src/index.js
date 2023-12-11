@@ -87,6 +87,7 @@ import V1EntitiesInvestorProfileFieldsProvider from './model/V1EntitiesInvestorP
 import V1EntitiesInvestorProfileFieldsSigningOfficer from './model/V1EntitiesInvestorProfileFieldsSigningOfficer';
 import V1EntitiesInvestorProfileFieldsTrust from './model/V1EntitiesInvestorProfileFieldsTrust';
 import V1EntitiesInvestorProfileFieldsTrustee from './model/V1EntitiesInvestorProfileFieldsTrustee';
+import V1EntitiesInvestorProfileId from './model/V1EntitiesInvestorProfileId';
 import V1EntitiesInvestorProfileIndividual from './model/V1EntitiesInvestorProfileIndividual';
 import V1EntitiesInvestorProfileItem from './model/V1EntitiesInvestorProfileItem';
 import V1EntitiesInvestorProfileJoint from './model/V1EntitiesInvestorProfileJoint';
@@ -156,7 +157,7 @@ import UsersApi from './api/UsersApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.93.0
+* @version 0.93.1
 */
 export {
     /**
@@ -608,6 +609,12 @@ export {
      * @property {module:model/V1EntitiesInvestorProfileFieldsTrustee}
      */
     V1EntitiesInvestorProfileFieldsTrustee,
+
+    /**
+     * The V1EntitiesInvestorProfileId model constructor.
+     * @property {module:model/V1EntitiesInvestorProfileId}
+     */
+    V1EntitiesInvestorProfileId,
 
     /**
      * The V1EntitiesInvestorProfileIndividual model constructor.

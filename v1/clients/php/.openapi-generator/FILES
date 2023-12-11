@@ -90,6 +90,7 @@ docs/Model/V1EntitiesInvestorProfileFieldsProvider.md
 docs/Model/V1EntitiesInvestorProfileFieldsSigningOfficer.md
 docs/Model/V1EntitiesInvestorProfileFieldsTrust.md
 docs/Model/V1EntitiesInvestorProfileFieldsTrustee.md
+docs/Model/V1EntitiesInvestorProfileId.md
 docs/Model/V1EntitiesInvestorProfileIndividual.md
 docs/Model/V1EntitiesInvestorProfileItem.md
 docs/Model/V1EntitiesInvestorProfileJoint.md
@@ -207,6 +208,7 @@ lib/Model/V1EntitiesInvestorProfileFieldsProvider.php
 lib/Model/V1EntitiesInvestorProfileFieldsSigningOfficer.php
 lib/Model/V1EntitiesInvestorProfileFieldsTrust.php
 lib/Model/V1EntitiesInvestorProfileFieldsTrustee.php
+lib/Model/V1EntitiesInvestorProfileId.php
 lib/Model/V1EntitiesInvestorProfileIndividual.php
 lib/Model/V1EntitiesInvestorProfileItem.php
 lib/Model/V1EntitiesInvestorProfileJoint.php
@@ -320,6 +322,7 @@ test/Model/V1EntitiesInvestorProfileFieldsProviderTest.php
 test/Model/V1EntitiesInvestorProfileFieldsSigningOfficerTest.php
 test/Model/V1EntitiesInvestorProfileFieldsTrustTest.php
 test/Model/V1EntitiesInvestorProfileFieldsTrusteeTest.php
+test/Model/V1EntitiesInvestorProfileIdTest.php
 test/Model/V1EntitiesInvestorProfileIndividualTest.php
 test/Model/V1EntitiesInvestorProfileItemTest.php
 test/Model/V1EntitiesInvestorProfileJointTest.php

@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The RunBackgroundSearchRequest model module.
  * @module model/RunBackgroundSearchRequest
- * @version 0.93.0
+ * @version 0.93.1
  */
 class RunBackgroundSearchRequest {
     /**

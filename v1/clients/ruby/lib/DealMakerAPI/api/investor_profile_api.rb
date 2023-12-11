@@ -23,7 +23,7 @@ module DealMakerAPI
     # Create new corporation investor profile associated to the user by email.
     # @param investor_profiles_corporations [PostInvestorProfilesCorporations] 
     # @param [Hash] opts the optional parameters
-    # @return [V1EntitiesInvestorProfileCorporation]
+    # @return [V1EntitiesInvestorProfileId]
     def create_corporation_profile(investor_profiles_corporations, opts = {})
       data, _status_code, _headers = create_corporation_profile_with_http_info(investor_profiles_corporations, opts)
       data
@@ -33,7 +33,7 @@ module DealMakerAPI
     # Create new corporation investor profile associated to the user by email.
     # @param investor_profiles_corporations [PostInvestorProfilesCorporations] 
     # @param [Hash] opts the optional parameters
-    # @return [Array<(V1EntitiesInvestorProfileCorporation, Integer, Hash)>] V1EntitiesInvestorProfileCorporation data, response status code and response headers
+    # @return [Array<(V1EntitiesInvestorProfileId, Integer, Hash)>] V1EntitiesInvestorProfileId data, response status code and response headers
     def create_corporation_profile_with_http_info(investor_profiles_corporations, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: InvestorProfileApi.create_corporation_profile ...'
@@ -65,7 +65,7 @@ module DealMakerAPI
       post_body = opts[:debug_body] || @api_client.object_to_http_body(investor_profiles_corporations)
 
       # return_type
-      return_type = opts[:debug_return_type] || 'V1EntitiesInvestorProfileCorporation'
+      return_type = opts[:debug_return_type] || 'V1EntitiesInvestorProfileId'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || []
@@ -91,7 +91,7 @@ module DealMakerAPI
     # Create new individual investor profile associated to the user by email.
     # @param investor_profiles_individuals [PostInvestorProfilesIndividuals] 
     # @param [Hash] opts the optional parameters
-    # @return [V1EntitiesInvestorProfileIndividual]
+    # @return [V1EntitiesInvestorProfileId]
     def create_individual_profile(investor_profiles_individuals, opts = {})
       data, _status_code, _headers = create_individual_profile_with_http_info(investor_profiles_individuals, opts)
       data
@@ -101,7 +101,7 @@ module DealMakerAPI
     # Create new individual investor profile associated to the user by email.
     # @param investor_profiles_individuals [PostInvestorProfilesIndividuals] 
     # @param [Hash] opts the optional parameters
-    # @return [Array<(V1EntitiesInvestorProfileIndividual, Integer, Hash)>] V1EntitiesInvestorProfileIndividual data, response status code and response headers
+    # @return [Array<(V1EntitiesInvestorProfileId, Integer, Hash)>] V1EntitiesInvestorProfileId data, response status code and response headers
     def create_individual_profile_with_http_info(investor_profiles_individuals, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: InvestorProfileApi.create_individual_profile ...'
@@ -133,7 +133,7 @@ module DealMakerAPI
       post_body = opts[:debug_body] || @api_client.object_to_http_body(investor_profiles_individuals)
 
       # return_type
-      return_type = opts[:debug_return_type] || 'V1EntitiesInvestorProfileIndividual'
+      return_type = opts[:debug_return_type] || 'V1EntitiesInvestorProfileId'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || []
@@ -159,7 +159,7 @@ module DealMakerAPI
     # Create new joint investor profile associated to the user by email.
     # @param investor_profiles_joints [PostInvestorProfilesJoints] 
     # @param [Hash] opts the optional parameters
-    # @return [V1EntitiesInvestorProfileJoint]
+    # @return [V1EntitiesInvestorProfileId]
     def create_joint_profile(investor_profiles_joints, opts = {})
       data, _status_code, _headers = create_joint_profile_with_http_info(investor_profiles_joints, opts)
       data
@@ -169,7 +169,7 @@ module DealMakerAPI
     # Create new joint investor profile associated to the user by email.
     # @param investor_profiles_joints [PostInvestorProfilesJoints] 
     # @param [Hash] opts the optional parameters
-    # @return [Array<(V1EntitiesInvestorProfileJoint, Integer, Hash)>] V1EntitiesInvestorProfileJoint data, response status code and response headers
+    # @return [Array<(V1EntitiesInvestorProfileId, Integer, Hash)>] V1EntitiesInvestorProfileId data, response status code and response headers
     def create_joint_profile_with_http_info(investor_profiles_joints, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: InvestorProfileApi.create_joint_profile ...'
@@ -201,7 +201,7 @@ module DealMakerAPI
       post_body = opts[:debug_body] || @api_client.object_to_http_body(investor_profiles_joints)
 
       # return_type
-      return_type = opts[:debug_return_type] || 'V1EntitiesInvestorProfileJoint'
+      return_type = opts[:debug_return_type] || 'V1EntitiesInvestorProfileId'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || []
@@ -227,7 +227,7 @@ module DealMakerAPI
     # Create new managed investor profile associated to the user by email.
     # @param investor_profiles_managed [PostInvestorProfilesManaged] 
     # @param [Hash] opts the optional parameters
-    # @return [V1EntitiesInvestorProfileManaged]
+    # @return [V1EntitiesInvestorProfileId]
     def create_managed_profile(investor_profiles_managed, opts = {})
       data, _status_code, _headers = create_managed_profile_with_http_info(investor_profiles_managed, opts)
       data
@@ -237,7 +237,7 @@ module DealMakerAPI
     # Create new managed investor profile associated to the user by email.
     # @param investor_profiles_managed [PostInvestorProfilesManaged] 
     # @param [Hash] opts the optional parameters
-    # @return [Array<(V1EntitiesInvestorProfileManaged, Integer, Hash)>] V1EntitiesInvestorProfileManaged data, response status code and response headers
+    # @return [Array<(V1EntitiesInvestorProfileId, Integer, Hash)>] V1EntitiesInvestorProfileId data, response status code and response headers
     def create_managed_profile_with_http_info(investor_profiles_managed, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: InvestorProfileApi.create_managed_profile ...'
@@ -269,7 +269,7 @@ module DealMakerAPI
       post_body = opts[:debug_body] || @api_client.object_to_http_body(investor_profiles_managed)
 
       # return_type
-      return_type = opts[:debug_return_type] || 'V1EntitiesInvestorProfileManaged'
+      return_type = opts[:debug_return_type] || 'V1EntitiesInvestorProfileId'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || []
@@ -295,7 +295,7 @@ module DealMakerAPI
     # Create new trust investor profile associated to the user by email.
     # @param investor_profiles_trusts [PostInvestorProfilesTrusts] 
     # @param [Hash] opts the optional parameters
-    # @return [V1EntitiesInvestorProfileTrust]
+    # @return [V1EntitiesInvestorProfileId]
     def create_trust_profile(investor_profiles_trusts, opts = {})
       data, _status_code, _headers = create_trust_profile_with_http_info(investor_profiles_trusts, opts)
       data
@@ -305,7 +305,7 @@ module DealMakerAPI
     # Create new trust investor profile associated to the user by email.
     # @param investor_profiles_trusts [PostInvestorProfilesTrusts] 
     # @param [Hash] opts the optional parameters
-    # @return [Array<(V1EntitiesInvestorProfileTrust, Integer, Hash)>] V1EntitiesInvestorProfileTrust data, response status code and response headers
+    # @return [Array<(V1EntitiesInvestorProfileId, Integer, Hash)>] V1EntitiesInvestorProfileId data, response status code and response headers
     def create_trust_profile_with_http_info(investor_profiles_trusts, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: InvestorProfileApi.create_trust_profile ...'
@@ -337,7 +337,7 @@ module DealMakerAPI
       post_body = opts[:debug_body] || @api_client.object_to_http_body(investor_profiles_trusts)
 
       # return_type
-      return_type = opts[:debug_return_type] || 'V1EntitiesInvestorProfileTrust'
+      return_type = opts[:debug_return_type] || 'V1EntitiesInvestorProfileId'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || []
@@ -568,7 +568,7 @@ module DealMakerAPI
     # @param investor_profile_id [Integer] 
     # @param investor_profiles_corporations [PatchInvestorProfilesCorporations] 
     # @param [Hash] opts the optional parameters
-    # @return [V1EntitiesInvestorProfileCorporation]
+    # @return [V1EntitiesInvestorProfileId]
     def patch_corporation_profile(investor_profile_id, investor_profiles_corporations, opts = {})
       data, _status_code, _headers = patch_corporation_profile_with_http_info(investor_profile_id, investor_profiles_corporations, opts)
       data
@@ -579,7 +579,7 @@ module DealMakerAPI
     # @param investor_profile_id [Integer] 
     # @param investor_profiles_corporations [PatchInvestorProfilesCorporations] 
     # @param [Hash] opts the optional parameters
-    # @return [Array<(V1EntitiesInvestorProfileCorporation, Integer, Hash)>] V1EntitiesInvestorProfileCorporation data, response status code and response headers
+    # @return [Array<(V1EntitiesInvestorProfileId, Integer, Hash)>] V1EntitiesInvestorProfileId data, response status code and response headers
     def patch_corporation_profile_with_http_info(investor_profile_id, investor_profiles_corporations, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: InvestorProfileApi.patch_corporation_profile ...'
@@ -615,7 +615,7 @@ module DealMakerAPI
       post_body = opts[:debug_body] || @api_client.object_to_http_body(investor_profiles_corporations)
 
       # return_type
-      return_type = opts[:debug_return_type] || 'V1EntitiesInvestorProfileCorporation'
+      return_type = opts[:debug_return_type] || 'V1EntitiesInvestorProfileId'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || []
@@ -642,7 +642,7 @@ module DealMakerAPI
     # @param investor_profile_id [Integer] 
     # @param investor_profiles_individuals [PatchInvestorProfilesIndividuals] 
     # @param [Hash] opts the optional parameters
-    # @return [V1EntitiesInvestorProfileIndividual]
+    # @return [V1EntitiesInvestorProfileId]
     def patch_individual_profile(investor_profile_id, investor_profiles_individuals, opts = {})
       data, _status_code, _headers = patch_individual_profile_with_http_info(investor_profile_id, investor_profiles_individuals, opts)
       data
@@ -653,7 +653,7 @@ module DealMakerAPI
     # @param investor_profile_id [Integer] 
     # @param investor_profiles_individuals [PatchInvestorProfilesIndividuals] 
     # @param [Hash] opts the optional parameters
-    # @return [Array<(V1EntitiesInvestorProfileIndividual, Integer, Hash)>] V1EntitiesInvestorProfileIndividual data, response status code and response headers
+    # @return [Array<(V1EntitiesInvestorProfileId, Integer, Hash)>] V1EntitiesInvestorProfileId data, response status code and response headers
     def patch_individual_profile_with_http_info(investor_profile_id, investor_profiles_individuals, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: InvestorProfileApi.patch_individual_profile ...'
@@ -689,7 +689,7 @@ module DealMakerAPI
       post_body = opts[:debug_body] || @api_client.object_to_http_body(investor_profiles_individuals)
 
       # return_type
-      return_type = opts[:debug_return_type] || 'V1EntitiesInvestorProfileIndividual'
+      return_type = opts[:debug_return_type] || 'V1EntitiesInvestorProfileId'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || []
@@ -716,7 +716,7 @@ module DealMakerAPI
     # @param investor_profile_id [Integer] 
     # @param investor_profiles_joints [PatchInvestorProfilesJoints] 
     # @param [Hash] opts the optional parameters
-    # @return [V1EntitiesInvestorProfileJoint]
+    # @return [V1EntitiesInvestorProfileId]
     def patch_joint_profile(investor_profile_id, investor_profiles_joints, opts = {})
       data, _status_code, _headers = patch_joint_profile_with_http_info(investor_profile_id, investor_profiles_joints, opts)
       data
@@ -727,7 +727,7 @@ module DealMakerAPI
     # @param investor_profile_id [Integer] 
     # @param investor_profiles_joints [PatchInvestorProfilesJoints] 
     # @param [Hash] opts the optional parameters
-    # @return [Array<(V1EntitiesInvestorProfileJoint, Integer, Hash)>] V1EntitiesInvestorProfileJoint data, response status code and response headers
+    # @return [Array<(V1EntitiesInvestorProfileId, Integer, Hash)>] V1EntitiesInvestorProfileId data, response status code and response headers
     def patch_joint_profile_with_http_info(investor_profile_id, investor_profiles_joints, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: InvestorProfileApi.patch_joint_profile ...'
@@ -763,7 +763,7 @@ module DealMakerAPI
       post_body = opts[:debug_body] || @api_client.object_to_http_body(investor_profiles_joints)
 
       # return_type
-      return_type = opts[:debug_return_type] || 'V1EntitiesInvestorProfileJoint'
+      return_type = opts[:debug_return_type] || 'V1EntitiesInvestorProfileId'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || []
@@ -790,7 +790,7 @@ module DealMakerAPI
     # @param investor_profile_id [Integer] 
     # @param investor_profiles_trusts [PatchInvestorProfilesTrusts] 
     # @param [Hash] opts the optional parameters
-    # @return [V1EntitiesInvestorProfileTrust]
+    # @return [V1EntitiesInvestorProfileId]
     def patch_trust_profile(investor_profile_id, investor_profiles_trusts, opts = {})
       data, _status_code, _headers = patch_trust_profile_with_http_info(investor_profile_id, investor_profiles_trusts, opts)
       data
@@ -801,7 +801,7 @@ module DealMakerAPI
     # @param investor_profile_id [Integer] 
     # @param investor_profiles_trusts [PatchInvestorProfilesTrusts] 
     # @param [Hash] opts the optional parameters
-    # @return [Array<(V1EntitiesInvestorProfileTrust, Integer, Hash)>] V1EntitiesInvestorProfileTrust data, response status code and response headers
+    # @return [Array<(V1EntitiesInvestorProfileId, Integer, Hash)>] V1EntitiesInvestorProfileId data, response status code and response headers
     def patch_trust_profile_with_http_info(investor_profile_id, investor_profiles_trusts, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: InvestorProfileApi.patch_trust_profile ...'
@@ -837,7 +837,7 @@ module DealMakerAPI
       post_body = opts[:debug_body] || @api_client.object_to_http_body(investor_profiles_trusts)
 
       # return_type
-      return_type = opts[:debug_return_type] || 'V1EntitiesInvestorProfileTrust'
+      return_type = opts[:debug_return_type] || 'V1EntitiesInvestorProfileId'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || []

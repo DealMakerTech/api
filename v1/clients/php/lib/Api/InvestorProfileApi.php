@@ -165,7 +165,7 @@ class InvestorProfileApi
      *
      * @throws \DealMaker\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \DealMaker\Model\V1EntitiesInvestorProfileCorporation
+     * @return \DealMaker\Model\V1EntitiesInvestorProfileId
      */
     public function createCorporationProfile($investor_profiles_corporations, string $contentType = self::contentTypes['createCorporationProfile'][0])
     {
@@ -183,7 +183,7 @@ class InvestorProfileApi
      *
      * @throws \DealMaker\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \DealMaker\Model\V1EntitiesInvestorProfileCorporation, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \DealMaker\Model\V1EntitiesInvestorProfileId, HTTP status code, HTTP response headers (array of strings)
      */
     public function createCorporationProfileWithHttpInfo($investor_profiles_corporations, string $contentType = self::contentTypes['createCorporationProfile'][0])
     {
@@ -226,11 +226,11 @@ class InvestorProfileApi
 
             switch($statusCode) {
                 case 201:
-                    if ('\DealMaker\Model\V1EntitiesInvestorProfileCorporation' === '\SplFileObject') {
+                    if ('\DealMaker\Model\V1EntitiesInvestorProfileId' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\DealMaker\Model\V1EntitiesInvestorProfileCorporation' !== 'string') {
+                        if ('\DealMaker\Model\V1EntitiesInvestorProfileId' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -248,13 +248,13 @@ class InvestorProfileApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\DealMaker\Model\V1EntitiesInvestorProfileCorporation', []),
+                        ObjectSerializer::deserialize($content, '\DealMaker\Model\V1EntitiesInvestorProfileId', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\DealMaker\Model\V1EntitiesInvestorProfileCorporation';
+            $returnType = '\DealMaker\Model\V1EntitiesInvestorProfileId';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -287,7 +287,7 @@ class InvestorProfileApi
                 case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\DealMaker\Model\V1EntitiesInvestorProfileCorporation',
+                        '\DealMaker\Model\V1EntitiesInvestorProfileId',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -331,7 +331,7 @@ class InvestorProfileApi
      */
     public function createCorporationProfileAsyncWithHttpInfo($investor_profiles_corporations, string $contentType = self::contentTypes['createCorporationProfile'][0])
     {
-        $returnType = '\DealMaker\Model\V1EntitiesInvestorProfileCorporation';
+        $returnType = '\DealMaker\Model\V1EntitiesInvestorProfileId';
         $request = $this->createCorporationProfileRequest($investor_profiles_corporations, $contentType);
 
         return $this->client
@@ -471,7 +471,7 @@ class InvestorProfileApi
      *
      * @throws \DealMaker\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \DealMaker\Model\V1EntitiesInvestorProfileIndividual
+     * @return \DealMaker\Model\V1EntitiesInvestorProfileId
      */
     public function createIndividualProfile($investor_profiles_individuals, string $contentType = self::contentTypes['createIndividualProfile'][0])
     {
@@ -489,7 +489,7 @@ class InvestorProfileApi
      *
      * @throws \DealMaker\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \DealMaker\Model\V1EntitiesInvestorProfileIndividual, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \DealMaker\Model\V1EntitiesInvestorProfileId, HTTP status code, HTTP response headers (array of strings)
      */
     public function createIndividualProfileWithHttpInfo($investor_profiles_individuals, string $contentType = self::contentTypes['createIndividualProfile'][0])
     {
@@ -532,11 +532,11 @@ class InvestorProfileApi
 
             switch($statusCode) {
                 case 201:
-                    if ('\DealMaker\Model\V1EntitiesInvestorProfileIndividual' === '\SplFileObject') {
+                    if ('\DealMaker\Model\V1EntitiesInvestorProfileId' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\DealMaker\Model\V1EntitiesInvestorProfileIndividual' !== 'string') {
+                        if ('\DealMaker\Model\V1EntitiesInvestorProfileId' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -554,13 +554,13 @@ class InvestorProfileApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\DealMaker\Model\V1EntitiesInvestorProfileIndividual', []),
+                        ObjectSerializer::deserialize($content, '\DealMaker\Model\V1EntitiesInvestorProfileId', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\DealMaker\Model\V1EntitiesInvestorProfileIndividual';
+            $returnType = '\DealMaker\Model\V1EntitiesInvestorProfileId';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -593,7 +593,7 @@ class InvestorProfileApi
                 case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\DealMaker\Model\V1EntitiesInvestorProfileIndividual',
+                        '\DealMaker\Model\V1EntitiesInvestorProfileId',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -637,7 +637,7 @@ class InvestorProfileApi
      */
     public function createIndividualProfileAsyncWithHttpInfo($investor_profiles_individuals, string $contentType = self::contentTypes['createIndividualProfile'][0])
     {
-        $returnType = '\DealMaker\Model\V1EntitiesInvestorProfileIndividual';
+        $returnType = '\DealMaker\Model\V1EntitiesInvestorProfileId';
         $request = $this->createIndividualProfileRequest($investor_profiles_individuals, $contentType);
 
         return $this->client
@@ -777,7 +777,7 @@ class InvestorProfileApi
      *
      * @throws \DealMaker\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \DealMaker\Model\V1EntitiesInvestorProfileJoint
+     * @return \DealMaker\Model\V1EntitiesInvestorProfileId
      */
     public function createJointProfile($investor_profiles_joints, string $contentType = self::contentTypes['createJointProfile'][0])
     {
@@ -795,7 +795,7 @@ class InvestorProfileApi
      *
      * @throws \DealMaker\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \DealMaker\Model\V1EntitiesInvestorProfileJoint, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \DealMaker\Model\V1EntitiesInvestorProfileId, HTTP status code, HTTP response headers (array of strings)
      */
     public function createJointProfileWithHttpInfo($investor_profiles_joints, string $contentType = self::contentTypes['createJointProfile'][0])
     {
@@ -838,11 +838,11 @@ class InvestorProfileApi
 
             switch($statusCode) {
                 case 201:
-                    if ('\DealMaker\Model\V1EntitiesInvestorProfileJoint' === '\SplFileObject') {
+                    if ('\DealMaker\Model\V1EntitiesInvestorProfileId' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\DealMaker\Model\V1EntitiesInvestorProfileJoint' !== 'string') {
+                        if ('\DealMaker\Model\V1EntitiesInvestorProfileId' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -860,13 +860,13 @@ class InvestorProfileApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\DealMaker\Model\V1EntitiesInvestorProfileJoint', []),
+                        ObjectSerializer::deserialize($content, '\DealMaker\Model\V1EntitiesInvestorProfileId', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\DealMaker\Model\V1EntitiesInvestorProfileJoint';
+            $returnType = '\DealMaker\Model\V1EntitiesInvestorProfileId';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -899,7 +899,7 @@ class InvestorProfileApi
                 case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\DealMaker\Model\V1EntitiesInvestorProfileJoint',
+                        '\DealMaker\Model\V1EntitiesInvestorProfileId',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -943,7 +943,7 @@ class InvestorProfileApi
      */
     public function createJointProfileAsyncWithHttpInfo($investor_profiles_joints, string $contentType = self::contentTypes['createJointProfile'][0])
     {
-        $returnType = '\DealMaker\Model\V1EntitiesInvestorProfileJoint';
+        $returnType = '\DealMaker\Model\V1EntitiesInvestorProfileId';
         $request = $this->createJointProfileRequest($investor_profiles_joints, $contentType);
 
         return $this->client
@@ -1083,7 +1083,7 @@ class InvestorProfileApi
      *
      * @throws \DealMaker\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \DealMaker\Model\V1EntitiesInvestorProfileManaged
+     * @return \DealMaker\Model\V1EntitiesInvestorProfileId
      */
     public function createManagedProfile($investor_profiles_managed, string $contentType = self::contentTypes['createManagedProfile'][0])
     {
@@ -1101,7 +1101,7 @@ class InvestorProfileApi
      *
      * @throws \DealMaker\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \DealMaker\Model\V1EntitiesInvestorProfileManaged, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \DealMaker\Model\V1EntitiesInvestorProfileId, HTTP status code, HTTP response headers (array of strings)
      */
     public function createManagedProfileWithHttpInfo($investor_profiles_managed, string $contentType = self::contentTypes['createManagedProfile'][0])
     {
@@ -1144,11 +1144,11 @@ class InvestorProfileApi
 
             switch($statusCode) {
                 case 201:
-                    if ('\DealMaker\Model\V1EntitiesInvestorProfileManaged' === '\SplFileObject') {
+                    if ('\DealMaker\Model\V1EntitiesInvestorProfileId' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\DealMaker\Model\V1EntitiesInvestorProfileManaged' !== 'string') {
+                        if ('\DealMaker\Model\V1EntitiesInvestorProfileId' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -1166,13 +1166,13 @@ class InvestorProfileApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\DealMaker\Model\V1EntitiesInvestorProfileManaged', []),
+                        ObjectSerializer::deserialize($content, '\DealMaker\Model\V1EntitiesInvestorProfileId', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\DealMaker\Model\V1EntitiesInvestorProfileManaged';
+            $returnType = '\DealMaker\Model\V1EntitiesInvestorProfileId';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1205,7 +1205,7 @@ class InvestorProfileApi
                 case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\DealMaker\Model\V1EntitiesInvestorProfileManaged',
+                        '\DealMaker\Model\V1EntitiesInvestorProfileId',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1249,7 +1249,7 @@ class InvestorProfileApi
      */
     public function createManagedProfileAsyncWithHttpInfo($investor_profiles_managed, string $contentType = self::contentTypes['createManagedProfile'][0])
     {
-        $returnType = '\DealMaker\Model\V1EntitiesInvestorProfileManaged';
+        $returnType = '\DealMaker\Model\V1EntitiesInvestorProfileId';
         $request = $this->createManagedProfileRequest($investor_profiles_managed, $contentType);
 
         return $this->client
@@ -1389,7 +1389,7 @@ class InvestorProfileApi
      *
      * @throws \DealMaker\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \DealMaker\Model\V1EntitiesInvestorProfileTrust
+     * @return \DealMaker\Model\V1EntitiesInvestorProfileId
      */
     public function createTrustProfile($investor_profiles_trusts, string $contentType = self::contentTypes['createTrustProfile'][0])
     {
@@ -1407,7 +1407,7 @@ class InvestorProfileApi
      *
      * @throws \DealMaker\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \DealMaker\Model\V1EntitiesInvestorProfileTrust, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \DealMaker\Model\V1EntitiesInvestorProfileId, HTTP status code, HTTP response headers (array of strings)
      */
     public function createTrustProfileWithHttpInfo($investor_profiles_trusts, string $contentType = self::contentTypes['createTrustProfile'][0])
     {
@@ -1450,11 +1450,11 @@ class InvestorProfileApi
 
             switch($statusCode) {
                 case 201:
-                    if ('\DealMaker\Model\V1EntitiesInvestorProfileTrust' === '\SplFileObject') {
+                    if ('\DealMaker\Model\V1EntitiesInvestorProfileId' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\DealMaker\Model\V1EntitiesInvestorProfileTrust' !== 'string') {
+                        if ('\DealMaker\Model\V1EntitiesInvestorProfileId' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -1472,13 +1472,13 @@ class InvestorProfileApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\DealMaker\Model\V1EntitiesInvestorProfileTrust', []),
+                        ObjectSerializer::deserialize($content, '\DealMaker\Model\V1EntitiesInvestorProfileId', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\DealMaker\Model\V1EntitiesInvestorProfileTrust';
+            $returnType = '\DealMaker\Model\V1EntitiesInvestorProfileId';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1511,7 +1511,7 @@ class InvestorProfileApi
                 case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\DealMaker\Model\V1EntitiesInvestorProfileTrust',
+                        '\DealMaker\Model\V1EntitiesInvestorProfileId',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1555,7 +1555,7 @@ class InvestorProfileApi
      */
     public function createTrustProfileAsyncWithHttpInfo($investor_profiles_trusts, string $contentType = self::contentTypes['createTrustProfile'][0])
     {
-        $returnType = '\DealMaker\Model\V1EntitiesInvestorProfileTrust';
+        $returnType = '\DealMaker\Model\V1EntitiesInvestorProfileId';
         $request = $this->createTrustProfileRequest($investor_profiles_trusts, $contentType);
 
         return $this->client
@@ -2702,7 +2702,7 @@ class InvestorProfileApi
      *
      * @throws \DealMaker\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \DealMaker\Model\V1EntitiesInvestorProfileCorporation
+     * @return \DealMaker\Model\V1EntitiesInvestorProfileId
      */
     public function patchCorporationProfile($investor_profile_id, $investor_profiles_corporations, string $contentType = self::contentTypes['patchCorporationProfile'][0])
     {
@@ -2721,7 +2721,7 @@ class InvestorProfileApi
      *
      * @throws \DealMaker\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \DealMaker\Model\V1EntitiesInvestorProfileCorporation, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \DealMaker\Model\V1EntitiesInvestorProfileId, HTTP status code, HTTP response headers (array of strings)
      */
     public function patchCorporationProfileWithHttpInfo($investor_profile_id, $investor_profiles_corporations, string $contentType = self::contentTypes['patchCorporationProfile'][0])
     {
@@ -2764,11 +2764,11 @@ class InvestorProfileApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\DealMaker\Model\V1EntitiesInvestorProfileCorporation' === '\SplFileObject') {
+                    if ('\DealMaker\Model\V1EntitiesInvestorProfileId' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\DealMaker\Model\V1EntitiesInvestorProfileCorporation' !== 'string') {
+                        if ('\DealMaker\Model\V1EntitiesInvestorProfileId' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -2786,13 +2786,13 @@ class InvestorProfileApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\DealMaker\Model\V1EntitiesInvestorProfileCorporation', []),
+                        ObjectSerializer::deserialize($content, '\DealMaker\Model\V1EntitiesInvestorProfileId', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\DealMaker\Model\V1EntitiesInvestorProfileCorporation';
+            $returnType = '\DealMaker\Model\V1EntitiesInvestorProfileId';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -2825,7 +2825,7 @@ class InvestorProfileApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\DealMaker\Model\V1EntitiesInvestorProfileCorporation',
+                        '\DealMaker\Model\V1EntitiesInvestorProfileId',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2871,7 +2871,7 @@ class InvestorProfileApi
      */
     public function patchCorporationProfileAsyncWithHttpInfo($investor_profile_id, $investor_profiles_corporations, string $contentType = self::contentTypes['patchCorporationProfile'][0])
     {
-        $returnType = '\DealMaker\Model\V1EntitiesInvestorProfileCorporation';
+        $returnType = '\DealMaker\Model\V1EntitiesInvestorProfileId';
         $request = $this->patchCorporationProfileRequest($investor_profile_id, $investor_profiles_corporations, $contentType);
 
         return $this->client
@@ -3028,7 +3028,7 @@ class InvestorProfileApi
      *
      * @throws \DealMaker\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \DealMaker\Model\V1EntitiesInvestorProfileIndividual
+     * @return \DealMaker\Model\V1EntitiesInvestorProfileId
      */
     public function patchIndividualProfile($investor_profile_id, $investor_profiles_individuals, string $contentType = self::contentTypes['patchIndividualProfile'][0])
     {
@@ -3047,7 +3047,7 @@ class InvestorProfileApi
      *
      * @throws \DealMaker\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \DealMaker\Model\V1EntitiesInvestorProfileIndividual, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \DealMaker\Model\V1EntitiesInvestorProfileId, HTTP status code, HTTP response headers (array of strings)
      */
     public function patchIndividualProfileWithHttpInfo($investor_profile_id, $investor_profiles_individuals, string $contentType = self::contentTypes['patchIndividualProfile'][0])
     {
@@ -3090,11 +3090,11 @@ class InvestorProfileApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\DealMaker\Model\V1EntitiesInvestorProfileIndividual' === '\SplFileObject') {
+                    if ('\DealMaker\Model\V1EntitiesInvestorProfileId' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\DealMaker\Model\V1EntitiesInvestorProfileIndividual' !== 'string') {
+                        if ('\DealMaker\Model\V1EntitiesInvestorProfileId' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -3112,13 +3112,13 @@ class InvestorProfileApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\DealMaker\Model\V1EntitiesInvestorProfileIndividual', []),
+                        ObjectSerializer::deserialize($content, '\DealMaker\Model\V1EntitiesInvestorProfileId', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\DealMaker\Model\V1EntitiesInvestorProfileIndividual';
+            $returnType = '\DealMaker\Model\V1EntitiesInvestorProfileId';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -3151,7 +3151,7 @@ class InvestorProfileApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\DealMaker\Model\V1EntitiesInvestorProfileIndividual',
+                        '\DealMaker\Model\V1EntitiesInvestorProfileId',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3197,7 +3197,7 @@ class InvestorProfileApi
      */
     public function patchIndividualProfileAsyncWithHttpInfo($investor_profile_id, $investor_profiles_individuals, string $contentType = self::contentTypes['patchIndividualProfile'][0])
     {
-        $returnType = '\DealMaker\Model\V1EntitiesInvestorProfileIndividual';
+        $returnType = '\DealMaker\Model\V1EntitiesInvestorProfileId';
         $request = $this->patchIndividualProfileRequest($investor_profile_id, $investor_profiles_individuals, $contentType);
 
         return $this->client
@@ -3354,7 +3354,7 @@ class InvestorProfileApi
      *
      * @throws \DealMaker\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \DealMaker\Model\V1EntitiesInvestorProfileJoint
+     * @return \DealMaker\Model\V1EntitiesInvestorProfileId
      */
     public function patchJointProfile($investor_profile_id, $investor_profiles_joints, string $contentType = self::contentTypes['patchJointProfile'][0])
     {
@@ -3373,7 +3373,7 @@ class InvestorProfileApi
      *
      * @throws \DealMaker\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \DealMaker\Model\V1EntitiesInvestorProfileJoint, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \DealMaker\Model\V1EntitiesInvestorProfileId, HTTP status code, HTTP response headers (array of strings)
      */
     public function patchJointProfileWithHttpInfo($investor_profile_id, $investor_profiles_joints, string $contentType = self::contentTypes['patchJointProfile'][0])
     {
@@ -3416,11 +3416,11 @@ class InvestorProfileApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\DealMaker\Model\V1EntitiesInvestorProfileJoint' === '\SplFileObject') {
+                    if ('\DealMaker\Model\V1EntitiesInvestorProfileId' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\DealMaker\Model\V1EntitiesInvestorProfileJoint' !== 'string') {
+                        if ('\DealMaker\Model\V1EntitiesInvestorProfileId' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -3438,13 +3438,13 @@ class InvestorProfileApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\DealMaker\Model\V1EntitiesInvestorProfileJoint', []),
+                        ObjectSerializer::deserialize($content, '\DealMaker\Model\V1EntitiesInvestorProfileId', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\DealMaker\Model\V1EntitiesInvestorProfileJoint';
+            $returnType = '\DealMaker\Model\V1EntitiesInvestorProfileId';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -3477,7 +3477,7 @@ class InvestorProfileApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\DealMaker\Model\V1EntitiesInvestorProfileJoint',
+                        '\DealMaker\Model\V1EntitiesInvestorProfileId',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3523,7 +3523,7 @@ class InvestorProfileApi
      */
     public function patchJointProfileAsyncWithHttpInfo($investor_profile_id, $investor_profiles_joints, string $contentType = self::contentTypes['patchJointProfile'][0])
     {
-        $returnType = '\DealMaker\Model\V1EntitiesInvestorProfileJoint';
+        $returnType = '\DealMaker\Model\V1EntitiesInvestorProfileId';
         $request = $this->patchJointProfileRequest($investor_profile_id, $investor_profiles_joints, $contentType);
 
         return $this->client
@@ -3680,7 +3680,7 @@ class InvestorProfileApi
      *
      * @throws \DealMaker\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \DealMaker\Model\V1EntitiesInvestorProfileTrust
+     * @return \DealMaker\Model\V1EntitiesInvestorProfileId
      */
     public function patchTrustProfile($investor_profile_id, $investor_profiles_trusts, string $contentType = self::contentTypes['patchTrustProfile'][0])
     {
@@ -3699,7 +3699,7 @@ class InvestorProfileApi
      *
      * @throws \DealMaker\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \DealMaker\Model\V1EntitiesInvestorProfileTrust, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \DealMaker\Model\V1EntitiesInvestorProfileId, HTTP status code, HTTP response headers (array of strings)
      */
     public function patchTrustProfileWithHttpInfo($investor_profile_id, $investor_profiles_trusts, string $contentType = self::contentTypes['patchTrustProfile'][0])
     {
@@ -3742,11 +3742,11 @@ class InvestorProfileApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\DealMaker\Model\V1EntitiesInvestorProfileTrust' === '\SplFileObject') {
+                    if ('\DealMaker\Model\V1EntitiesInvestorProfileId' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\DealMaker\Model\V1EntitiesInvestorProfileTrust' !== 'string') {
+                        if ('\DealMaker\Model\V1EntitiesInvestorProfileId' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -3764,13 +3764,13 @@ class InvestorProfileApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\DealMaker\Model\V1EntitiesInvestorProfileTrust', []),
+                        ObjectSerializer::deserialize($content, '\DealMaker\Model\V1EntitiesInvestorProfileId', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\DealMaker\Model\V1EntitiesInvestorProfileTrust';
+            $returnType = '\DealMaker\Model\V1EntitiesInvestorProfileId';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -3803,7 +3803,7 @@ class InvestorProfileApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\DealMaker\Model\V1EntitiesInvestorProfileTrust',
+                        '\DealMaker\Model\V1EntitiesInvestorProfileId',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3849,7 +3849,7 @@ class InvestorProfileApi
      */
     public function patchTrustProfileAsyncWithHttpInfo($investor_profile_id, $investor_profiles_trusts, string $contentType = self::contentTypes['patchTrustProfile'][0])
     {
-        $returnType = '\DealMaker\Model\V1EntitiesInvestorProfileTrust';
+        $returnType = '\DealMaker\Model\V1EntitiesInvestorProfileId';
         $request = $this->patchTrustProfileRequest($investor_profile_id, $investor_profiles_trusts, $contentType);
 
         return $this->client

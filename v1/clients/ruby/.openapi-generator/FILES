@@ -94,6 +94,7 @@ docs/V1EntitiesInvestorProfileFieldsProvider.md
 docs/V1EntitiesInvestorProfileFieldsSigningOfficer.md
 docs/V1EntitiesInvestorProfileFieldsTrust.md
 docs/V1EntitiesInvestorProfileFieldsTrustee.md
+docs/V1EntitiesInvestorProfileId.md
 docs/V1EntitiesInvestorProfileIndividual.md
 docs/V1EntitiesInvestorProfileItem.md
 docs/V1EntitiesInvestorProfileJoint.md
@@ -211,6 +212,7 @@ lib/DealMakerAPI/models/v1_entities_investor_profile_fields_provider.rb
 lib/DealMakerAPI/models/v1_entities_investor_profile_fields_signing_officer.rb
 lib/DealMakerAPI/models/v1_entities_investor_profile_fields_trust.rb
 lib/DealMakerAPI/models/v1_entities_investor_profile_fields_trustee.rb
+lib/DealMakerAPI/models/v1_entities_investor_profile_id.rb
 lib/DealMakerAPI/models/v1_entities_investor_profile_individual.rb
 lib/DealMakerAPI/models/v1_entities_investor_profile_item.rb
 lib/DealMakerAPI/models/v1_entities_investor_profile_joint.rb
@@ -325,6 +327,7 @@ spec/models/v1_entities_investor_profile_fields_provider_spec.rb
 spec/models/v1_entities_investor_profile_fields_signing_officer_spec.rb
 spec/models/v1_entities_investor_profile_fields_trust_spec.rb
 spec/models/v1_entities_investor_profile_fields_trustee_spec.rb
+spec/models/v1_entities_investor_profile_id_spec.rb
 spec/models/v1_entities_investor_profile_individual_spec.rb
 spec/models/v1_entities_investor_profile_item_spec.rb
 spec/models/v1_entities_investor_profile_joint_spec.rb

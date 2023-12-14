@@ -29,7 +29,7 @@ import V1EntitiesInvestorProfiles from '../model/V1EntitiesInvestorProfiles';
 /**
 * InvestorProfile service.
 * @module api/InvestorProfileApi
-* @version 0.93.1
+* @version 0.93.2
 */
 export default class InvestorProfileApi {
 
@@ -265,7 +265,7 @@ export default class InvestorProfileApi {
 
     /**
      * Get list of InvestorProfiles for a specific deal
-     * Get investor profiles for a specific deal
+     * Get investor profiles for a specific deal. Because an investor profile belongs                     to the user associated with it, external applications may not use this endpoint                     for other profiles. Only the user may use this endpoint for their own profiles                     (i.e. to see existing profiles within the DealMaker application).
      * @param {Number} dealId The deal id.
      * @param {Object} opts Optional parameters
      * @param {Number} [page = 1)] Page offset to fetch.
@@ -318,7 +318,7 @@ export default class InvestorProfileApi {
 
     /**
      * Get an investor profile by id
-     * Get an investor profile
+     * Get an investor profile. Because an investor profile belongs to the user associated with it, external applications                     may not use this endpoint for other profiles. Only the user may use this endpoint for their own profiles (i.e. to                     see existing profiles within the DealMaker application).
      * @param {Number} id The id of the investor profile.
      * @param {module:api/InvestorProfileApi~getInvestorProfileCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/V1EntitiesInvestorProfileItem}
@@ -361,7 +361,7 @@ export default class InvestorProfileApi {
 
     /**
      * Get list of InvestorProfiles
-     * Get investor profiles
+     * Get investor profiles. Because an investor profile belongs to the user associated with it, external                     applications may not use this endpoint for other profiles. Only the user may use this endpoint for                     their own profiles (i.e. to see existing profiles within the DealMaker application).
      * @param {Object} opts Optional parameters
      * @param {Number} [page = 1)] Page offset to fetch.
      * @param {Number} [perPage = 25)] Number of results to return per page.

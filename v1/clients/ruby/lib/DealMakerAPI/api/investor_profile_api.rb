@@ -360,7 +360,7 @@ module DealMakerAPI
     end
 
     # Get list of InvestorProfiles for a specific deal
-    # Get investor profiles for a specific deal
+    # Get investor profiles for a specific deal. Because an investor profile belongs                     to the user associated with it, external applications may not use this endpoint                     for other profiles. Only the user may use this endpoint for their own profiles                     (i.e. to see existing profiles within the DealMaker application).
     # @param deal_id [Integer] The deal id.
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :page Page offset to fetch. (default to 1)
@@ -374,7 +374,7 @@ module DealMakerAPI
     end
 
     # Get list of InvestorProfiles for a specific deal
-    # Get investor profiles for a specific deal
+    # Get investor profiles for a specific deal. Because an investor profile belongs                     to the user associated with it, external applications may not use this endpoint                     for other profiles. Only the user may use this endpoint for their own profiles                     (i.e. to see existing profiles within the DealMaker application).
     # @param deal_id [Integer] The deal id.
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :page Page offset to fetch. (default to 1)
@@ -435,7 +435,7 @@ module DealMakerAPI
     end
 
     # Get an investor profile by id
-    # Get an investor profile
+    # Get an investor profile. Because an investor profile belongs to the user associated with it, external applications                     may not use this endpoint for other profiles. Only the user may use this endpoint for their own profiles (i.e. to                     see existing profiles within the DealMaker application).
     # @param id [Integer] The id of the investor profile.
     # @param [Hash] opts the optional parameters
     # @return [V1EntitiesInvestorProfileItem]
@@ -445,7 +445,7 @@ module DealMakerAPI
     end
 
     # Get an investor profile by id
-    # Get an investor profile
+    # Get an investor profile. Because an investor profile belongs to the user associated with it, external applications                     may not use this endpoint for other profiles. Only the user may use this endpoint for their own profiles (i.e. to                     see existing profiles within the DealMaker application).
     # @param id [Integer] The id of the investor profile.
     # @param [Hash] opts the optional parameters
     # @return [Array<(V1EntitiesInvestorProfileItem, Integer, Hash)>] V1EntitiesInvestorProfileItem data, response status code and response headers
@@ -498,7 +498,7 @@ module DealMakerAPI
     end
 
     # Get list of InvestorProfiles
-    # Get investor profiles
+    # Get investor profiles. Because an investor profile belongs to the user associated with it, external                     applications may not use this endpoint for other profiles. Only the user may use this endpoint for                     their own profiles (i.e. to see existing profiles within the DealMaker application).
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :page Page offset to fetch. (default to 1)
     # @option opts [Integer] :per_page Number of results to return per page. (default to 25)
@@ -510,7 +510,7 @@ module DealMakerAPI
     end
 
     # Get list of InvestorProfiles
-    # Get investor profiles
+    # Get investor profiles. Because an investor profile belongs to the user associated with it, external                     applications may not use this endpoint for other profiles. Only the user may use this endpoint for                     their own profiles (i.e. to see existing profiles within the DealMaker application).
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :page Page offset to fetch. (default to 1)
     # @option opts [Integer] :per_page Number of results to return per page. (default to 25)

@@ -354,7 +354,7 @@ No authorization required
 
 Get list of InvestorProfiles for a specific deal
 
-Get investor profiles for a specific deal
+Get investor profiles for a specific deal. Because an investor profile belongs                     to the user associated with it, external applications may not use this endpoint                     for other profiles. Only the user may use this endpoint for their own profiles                     (i.e. to see existing profiles within the DealMaker application).
 
 ### Examples
 
@@ -430,7 +430,7 @@ No authorization required
 
 Get an investor profile by id
 
-Get an investor profile
+Get an investor profile. Because an investor profile belongs to the user associated with it, external applications                     may not use this endpoint for other profiles. Only the user may use this endpoint for their own profiles (i.e. to                     see existing profiles within the DealMaker application).
 
 ### Examples
 
@@ -496,7 +496,7 @@ No authorization required
 
 Get list of InvestorProfiles
 
-Get investor profiles
+Get investor profiles. Because an investor profile belongs to the user associated with it, external                     applications may not use this endpoint for other profiles. Only the user may use this endpoint for                     their own profiles (i.e. to see existing profiles within the DealMaker application).
 
 ### Examples
 

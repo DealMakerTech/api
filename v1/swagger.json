@@ -2164,6 +2164,226 @@
         ]
       }
     },
+    "/deals/{id}/incentive_plans/{incentive_plan_id}": {
+      "patch": {
+        "summary": "Updates incentive plan by deal id",
+        "description": "Updates an incentive plan for the given deal id with respectve tiers.",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "description": "The deal id.",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          },
+          {
+            "in": "path",
+            "name": "incentive_plan_id",
+            "description": "The deal id.",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "active_at",
+            "description": "The incentive plan active date.",
+            "type": "string",
+            "format": "date-time",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "funded_by_offset",
+            "description": "The incentive plan funded by offset in days.",
+            "type": "integer",
+            "format": "int32",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "tiers[id]",
+            "description": "The incentive plan tier id. If none it will be created",
+            "type": "array",
+            "required": false,
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "in": "formData",
+            "name": "tiers[_delete]",
+            "description": "If true, this entry will be cleared.",
+            "type": "array",
+            "required": false,
+            "items": {
+              "type": "boolean"
+            }
+          },
+          {
+            "in": "formData",
+            "name": "tiers[incentive_percentage]",
+            "description": "The incentive plan tier percentage.",
+            "type": "array",
+            "required": false,
+            "items": {
+              "type": "number",
+              "format": "float"
+            }
+          },
+          {
+            "in": "formData",
+            "name": "tiers[end_at]",
+            "description": "The incentive plan tier end date.",
+            "type": "array",
+            "required": false,
+            "items": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        ],
+        "security": [
+          {
+            "oauth": [
+              "deals.write"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Updates deal incentive plan",
+            "schema": {
+              "$ref": "#/definitions/V1_Entities_Deals_PriceDetails"
+            }
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not found"
+          }
+        },
+        "tags": [
+          "incentive_plan"
+        ],
+        "operationId": "patchDealIncentivePlan",
+        "x-codeSamples": [
+          {
+            "lang": "javascript",
+            "source": "const dealApi = new Dealmakerapi.DealApi()\nconst dealId = 100\n\napi.patchDealIncentivePlan(dealId, function(error, data, response) {\n  if (error) {\n    console.error(error)\n  } else {\n    console.log(JSON.stringify(data))\n  }\n})\n\nconst incentivePlanDetails = {\n  'funded_by_offset': 'test@example.com',\n  'active_at': '2023-11-29T23:59:59Z',\n  'tiers': [\n    {\n      'incentive_percentage': 0.1,\n      'end_at': '2023-12-08T23:59:59Z'\n    }\n  ]\n}\n\ndealApi.patchDealIncentivePlan(dealId, incentivePlanDetails, (error, data, response) => {\n  if (error) {\n    console.error(error)\n  } else {\n    console.log(JSON.stringify(data))\n  }\n})\n"
+          },
+          {
+            "lang": "ruby",
+            "source": "deal_api = DealMakerAPI::DealApi.new\n\ndeal_id = 100\n\nprint deal_api.get_deal_incentive_plan(deal_id)\n"
+          }
+        ]
+      }
+    },
+    "/deals/{id}/incentive_plans": {
+      "post": {
+        "summary": "Creates incentive plan by deal id",
+        "description": "Creates an incentive plan for the given deal id with respectve tiers.",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "description": "The deal id.",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "active_at",
+            "description": "The incentive plan active date.",
+            "type": "string",
+            "format": "date-time",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "funded_by_offset",
+            "description": "The incentive plan funded by offset in days.",
+            "type": "integer",
+            "format": "int32",
+            "default": 0,
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "tiers[incentive_percentage]",
+            "description": "The incentive plan tier percentage.",
+            "type": "array",
+            "required": true,
+            "items": {
+              "type": "number",
+              "format": "float"
+            }
+          },
+          {
+            "in": "formData",
+            "name": "tiers[end_at]",
+            "description": "The incentive plan tier end date.",
+            "type": "array",
+            "required": true,
+            "items": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        ],
+        "security": [
+          {
+            "oauth": [
+              "deals.write"
+            ]
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Creates deal incentive plan",
+            "schema": {
+              "$ref": "#/definitions/V1_Entities_Deals_PriceDetails"
+            }
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not found"
+          }
+        },
+        "tags": [
+          "incentive_plan"
+        ],
+        "operationId": "postDealIncentivePlan",
+        "x-codeSamples": [
+          {
+            "lang": "javascript",
+            "source": "const dealApi = new Dealmakerapi.DealApi()\nconst dealId = 100\n\napi.postDealIncentivePlan(dealId, function(error, data, response) {\n  if (error) {\n    console.error(error)\n  } else {\n    console.log(JSON.stringify(data))\n  }\n})\n\nconst incentivePlanDetails = {\n  'funded_by_offset': 'test@example.com',\n  'active_at': '2023-11-29T23:59:59Z',\n  'tiers': [\n    {\n      'incentive_percentage': 0.1,\n      'end_at': '2023-12-08T23:59:59Z'\n    }\n  ]\n}\n\ndealApi.postDealIncentivePlan(dealId, incentivePlanDetails, (error, data, response) => {\n  if (error) {\n    console.error(error)\n  } else {\n    console.log(JSON.stringify(data))\n  }\n})\n"
+          },
+          {
+            "lang": "ruby",
+            "source": "deal_api = DealMakerAPI::DealApi.new\n\ndeal_id = 100\n\nprint deal_api.get_deal_incentive_plan(deal_id)\n"
+          }
+        ]
+      }
+    },
     "/deals/{id}/incentive_plans/time": {
       "get": {
         "summary": "Get incentive plans by deal id",

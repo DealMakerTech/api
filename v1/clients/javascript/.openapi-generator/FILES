@@ -21,6 +21,7 @@ docs/GenerateUrlRequest.md
 docs/IncentivePlanApi.md
 docs/InvestorApi.md
 docs/InvestorProfileApi.md
+docs/PatchDealIncentivePlanRequest.md
 docs/PatchInvestorProfilesCorporations.md
 docs/PatchInvestorProfilesCorporationsBeneficialOwnersInner.md
 docs/PatchInvestorProfilesIndividuals.md
@@ -28,6 +29,7 @@ docs/PatchInvestorProfilesJoints.md
 docs/PatchInvestorProfilesTrusts.md
 docs/PatchInvestorProfilesTrustsTrusteesInner.md
 docs/PatchInvestorRequest.md
+docs/PostDealIncentivePlanRequest.md
 docs/PostDealsIdInvestors.md
 docs/PostInvestorProfilesCorporations.md
 docs/PostInvestorProfilesCorporationsBeneficialOwnersInner.md
@@ -143,6 +145,7 @@ src/model/CreateDealSetupRequest.js
 src/model/CreateShareholderActionRequest.js
 src/model/EditInvestorTagsRequest.js
 src/model/GenerateUrlRequest.js
+src/model/PatchDealIncentivePlanRequest.js
 src/model/PatchInvestorProfilesCorporations.js
 src/model/PatchInvestorProfilesCorporationsBeneficialOwnersInner.js
 src/model/PatchInvestorProfilesIndividuals.js
@@ -150,6 +153,7 @@ src/model/PatchInvestorProfilesJoints.js
 src/model/PatchInvestorProfilesTrusts.js
 src/model/PatchInvestorProfilesTrustsTrusteesInner.js
 src/model/PatchInvestorRequest.js
+src/model/PostDealIncentivePlanRequest.js
 src/model/PostDealsIdInvestors.js
 src/model/PostInvestorProfilesCorporations.js
 src/model/PostInvestorProfilesCorporationsBeneficialOwnersInner.js
@@ -256,6 +260,7 @@ test/model/CreateDealSetupRequest.spec.js
 test/model/CreateShareholderActionRequest.spec.js
 test/model/EditInvestorTagsRequest.spec.js
 test/model/GenerateUrlRequest.spec.js
+test/model/PatchDealIncentivePlanRequest.spec.js
 test/model/PatchInvestorProfilesCorporations.spec.js
 test/model/PatchInvestorProfilesCorporationsBeneficialOwnersInner.spec.js
 test/model/PatchInvestorProfilesIndividuals.spec.js
@@ -263,6 +268,7 @@ test/model/PatchInvestorProfilesJoints.spec.js
 test/model/PatchInvestorProfilesTrusts.spec.js
 test/model/PatchInvestorProfilesTrustsTrusteesInner.spec.js
 test/model/PatchInvestorRequest.spec.js
+test/model/PostDealIncentivePlanRequest.spec.js
 test/model/PostDealsIdInvestors.spec.js
 test/model/PostInvestorProfilesCorporations.spec.js
 test/model/PostInvestorProfilesCorporationsBeneficialOwnersInner.spec.js

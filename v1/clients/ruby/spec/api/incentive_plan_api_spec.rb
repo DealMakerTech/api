@@ -47,4 +47,31 @@ describe 'IncentivePlanApi' do
     end
   end
 
+  # unit tests for patch_deal_incentive_plan
+  # Updates incentive plan by deal id
+  # Updates an incentive plan for the given deal id with respectve tiers.
+  # @param id The deal id.
+  # @param incentive_plan_id The deal id.
+  # @param [Hash] opts the optional parameters
+  # @option opts [PatchDealIncentivePlanRequest] :patch_deal_incentive_plan_request 
+  # @return [V1EntitiesDealsPriceDetails]
+  describe 'patch_deal_incentive_plan test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for post_deal_incentive_plan
+  # Creates incentive plan by deal id
+  # Creates an incentive plan for the given deal id with respectve tiers.
+  # @param id The deal id.
+  # @param post_deal_incentive_plan_request 
+  # @param [Hash] opts the optional parameters
+  # @return [V1EntitiesDealsPriceDetails]
+  describe 'post_deal_incentive_plan test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
 end

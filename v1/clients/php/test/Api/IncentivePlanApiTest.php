@@ -82,4 +82,28 @@ class IncentivePlanApiTest extends TestCase
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test case for patchDealIncentivePlan
+     *
+     * Updates incentive plan by deal id.
+     *
+     */
+    public function testPatchDealIncentivePlan()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for postDealIncentivePlan
+     *
+     * Creates incentive plan by deal id.
+     *
+     */
+    public function testPostDealIncentivePlan()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
 }

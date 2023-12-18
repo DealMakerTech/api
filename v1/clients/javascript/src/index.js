@@ -23,6 +23,7 @@ import CreateDealSetupRequest from './model/CreateDealSetupRequest';
 import CreateShareholderActionRequest from './model/CreateShareholderActionRequest';
 import EditInvestorTagsRequest from './model/EditInvestorTagsRequest';
 import GenerateUrlRequest from './model/GenerateUrlRequest';
+import PatchDealIncentivePlanRequest from './model/PatchDealIncentivePlanRequest';
 import PatchInvestorProfilesCorporations from './model/PatchInvestorProfilesCorporations';
 import PatchInvestorProfilesCorporationsBeneficialOwnersInner from './model/PatchInvestorProfilesCorporationsBeneficialOwnersInner';
 import PatchInvestorProfilesIndividuals from './model/PatchInvestorProfilesIndividuals';
@@ -30,6 +31,7 @@ import PatchInvestorProfilesJoints from './model/PatchInvestorProfilesJoints';
 import PatchInvestorProfilesTrusts from './model/PatchInvestorProfilesTrusts';
 import PatchInvestorProfilesTrustsTrusteesInner from './model/PatchInvestorProfilesTrustsTrusteesInner';
 import PatchInvestorRequest from './model/PatchInvestorRequest';
+import PostDealIncentivePlanRequest from './model/PostDealIncentivePlanRequest';
 import PostDealsIdInvestors from './model/PostDealsIdInvestors';
 import PostInvestorProfilesCorporations from './model/PostInvestorProfilesCorporations';
 import PostInvestorProfilesCorporationsBeneficialOwnersInner from './model/PostInvestorProfilesCorporationsBeneficialOwnersInner';
@@ -157,7 +159,7 @@ import UsersApi from './api/UsersApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.93.2
+* @version 0.93.3
 */
 export {
     /**
@@ -227,6 +229,12 @@ export {
     GenerateUrlRequest,
 
     /**
+     * The PatchDealIncentivePlanRequest model constructor.
+     * @property {module:model/PatchDealIncentivePlanRequest}
+     */
+    PatchDealIncentivePlanRequest,
+
+    /**
      * The PatchInvestorProfilesCorporations model constructor.
      * @property {module:model/PatchInvestorProfilesCorporations}
      */
@@ -267,6 +275,12 @@ export {
      * @property {module:model/PatchInvestorRequest}
      */
     PatchInvestorRequest,
+
+    /**
+     * The PostDealIncentivePlanRequest model constructor.
+     * @property {module:model/PostDealIncentivePlanRequest}
+     */
+    PostDealIncentivePlanRequest,
 
     /**
      * The PostDealsIdInvestors model constructor.

@@ -10,219 +10,264 @@ OpenAPI Generator version: 7.2.0-SNAPSHOT
 
 =end
 
-require 'spec_helper'
+require 'date'
+require 'time'
 
-describe DealMakerAPI::ApiClient do
-  context 'initialization' do
-    context 'URL stuff' do
-      context 'host' do
-        it 'removes http from host' do
-          DealMakerAPI.configure { |c| c.host = 'http://example.com' }
-          expect(DealMakerAPI::Configuration.default.host).to eq('example.com')
+module DealMakerAPI
+  class PatchDealIncentivePlanRequest
+    # The incentive plan active date.
+    attr_accessor :active_at
+
+    # The incentive plan funded by offset in days.
+    attr_accessor :funded_by_offset
+
+    # The incentive plan tier id. If none it will be created
+    attr_accessor :tiers_id
+
+    # If true, this entry will be cleared.
+    attr_accessor :tiers__delete
+
+    # The incentive plan tier percentage.
+    attr_accessor :tiers_incentive_percentage
+
+    # The incentive plan tier end date.
+    attr_accessor :tiers_end_at
+
+    # Attribute mapping from ruby-style variable name to JSON key.
+    def self.attribute_map
+      {
+        :'active_at' => :'active_at',
+        :'funded_by_offset' => :'funded_by_offset',
+        :'tiers_id' => :'tiers[id]',
+        :'tiers__delete' => :'tiers[_delete]',
+        :'tiers_incentive_percentage' => :'tiers[incentive_percentage]',
+        :'tiers_end_at' => :'tiers[end_at]'
+      }
+    end
+
+    # Returns all the JSON keys this model knows about
+    def self.acceptable_attributes
+      attribute_map.values
+    end
+
+    # Attribute type mapping.
+    def self.openapi_types
+      {
+        :'active_at' => :'Time',
+        :'funded_by_offset' => :'Integer',
+        :'tiers_id' => :'Array<Integer>',
+        :'tiers__delete' => :'Array<Boolean>',
+        :'tiers_incentive_percentage' => :'Array<Float>',
+        :'tiers_end_at' => :'Array<Time>'
+      }
+    end
+
+    # List of attributes with nullable: true
+    def self.openapi_nullable
+      Set.new([
+      ])
+    end
+
+    # Initializes the object
+    # @param [Hash] attributes Model attributes in the form of hash
+    def initialize(attributes = {})
+      if (!attributes.is_a?(Hash))
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DealMakerAPI::PatchDealIncentivePlanRequest` initialize method"
+      end
+
+      # check to see if the attribute exists and convert string to symbol for hash key
+      attributes = attributes.each_with_object({}) { |(k, v), h|
+        if (!self.class.attribute_map.key?(k.to_sym))
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DealMakerAPI::PatchDealIncentivePlanRequest`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
+        h[k.to_sym] = v
+      }
 
-        it 'removes https from host' do
-          DealMakerAPI.configure { |c| c.host = 'https://wookiee.com' }
-          expect(DealMakerAPI::ApiClient.default.config.host).to eq('wookiee.com')
-        end
+      if attributes.key?(:'active_at')
+        self.active_at = attributes[:'active_at']
+      end
 
-        it 'removes trailing path from host' do
-          DealMakerAPI.configure { |c| c.host = 'hobo.com/v4' }
-          expect(DealMakerAPI::Configuration.default.host).to eq('hobo.com')
+      if attributes.key?(:'funded_by_offset')
+        self.funded_by_offset = attributes[:'funded_by_offset']
+      end
+
+      if attributes.key?(:'tiers_id')
+        if (value = attributes[:'tiers_id']).is_a?(Array)
+          self.tiers_id = value
         end
       end
 
-      context 'base_path' do
-        it "prepends a slash to base_path" do
-          DealMakerAPI.configure { |c| c.base_path = 'v4/dog' }
-          expect(DealMakerAPI::Configuration.default.base_path).to eq('/v4/dog')
+      if attributes.key?(:'tiers__delete')
+        if (value = attributes[:'tiers__delete']).is_a?(Array)
+          self.tiers__delete = value
         end
+      end
 
-        it "doesn't prepend a slash if one is already there" do
-          DealMakerAPI.configure { |c| c.base_path = '/v4/dog' }
-          expect(DealMakerAPI::Configuration.default.base_path).to eq('/v4/dog')
+      if attributes.key?(:'tiers_incentive_percentage')
+        if (value = attributes[:'tiers_incentive_percentage']).is_a?(Array)
+          self.tiers_incentive_percentage = value
         end
+      end
 
-        it "ends up as a blank string if nil" do
-          DealMakerAPI.configure { |c| c.base_path = nil }
-          expect(DealMakerAPI::Configuration.default.base_path).to eq('')
+      if attributes.key?(:'tiers_end_at')
+        if (value = attributes[:'tiers_end_at']).is_a?(Array)
+          self.tiers_end_at = value
         end
       end
     end
+
+    # Show invalid properties with the reasons. Usually used together with valid?
+    # @return Array for valid properties with the reasons
+    def list_invalid_properties
+      warn '[DEPRECATED] the `list_invalid_properties` method is obsolete'
+      invalid_properties = Array.new
+      invalid_properties
+    end
+
+    # Check to see if the all the properties in the model are valid
+    # @return true if the model is valid
+    def valid?
+      warn '[DEPRECATED] the `valid?` method is obsolete'
+      true
+    end
+
+    # Checks equality by comparing each attribute.
+    # @param [Object] Object to be compared
+    def ==(o)
+      return true if self.equal?(o)
+      self.class == o.class &&
+          active_at == o.active_at &&
+          funded_by_offset == o.funded_by_offset &&
+          tiers_id == o.tiers_id &&
+          tiers__delete == o.tiers__delete &&
+          tiers_incentive_percentage == o.tiers_incentive_percentage &&
+          tiers_end_at == o.tiers_end_at
+    end
+
+    # @see the `==` method
+    # @param [Object] Object to be compared
+    def eql?(o)
+      self == o
+    end
+
+    # Calculates hash code according to all attributes.
+    # @return [Integer] Hash code
+    def hash
+      [active_at, funded_by_offset, tiers_id, tiers__delete, tiers_incentive_percentage, tiers_end_at].hash
+    end
+
+    # Builds the object from hash
+    # @param [Hash] attributes Model attributes in the form of hash
+    # @return [Object] Returns the model itself
+    def self.build_from_hash(attributes)
+      return nil unless attributes.is_a?(Hash)
+      attributes = attributes.transform_keys(&:to_sym)
+      transformed_hash = {}
+      openapi_types.each_pair do |key, type|
+        if attributes.key?(attribute_map[key]) && attributes[attribute_map[key]].nil?
+          transformed_hash["#{key}"] = nil
+        elsif type =~ /\AArray<(.*)>/i
+          # check to ensure the input is an array given that the attribute
+          # is documented as an array but the input is not
+          if attributes[attribute_map[key]].is_a?(Array)
+            transformed_hash["#{key}"] = attributes[attribute_map[key]].map { |v| _deserialize($1, v) }
+          end
+        elsif !attributes[attribute_map[key]].nil?
+          transformed_hash["#{key}"] = _deserialize(type, attributes[attribute_map[key]])
+        end
+      end
+      new(transformed_hash)
+    end
+
+    # Deserializes the data based on type
+    # @param string type Data type
+    # @param string value Value to be deserialized
+    # @return [Object] Deserialized data
+    def self._deserialize(type, value)
+      case type.to_sym
+      when :Time
+        Time.parse(value)
+      when :Date
+        Date.parse(value)
+      when :String
+        value.to_s
+      when :Integer
+        value.to_i
+      when :Float
+        value.to_f
+      when :Boolean
+        if value.to_s =~ /\A(true|t|yes|y|1)\z/i
+          true
+        else
+          false
+        end
+      when :Object
+        # generic object (usually a Hash), return directly
+        value
+      when /\AArray<(?<inner_type>.+)>\z/
+        inner_type = Regexp.last_match[:inner_type]
+        value.map { |v| _deserialize(inner_type, v) }
+      when /\AHash<(?<k_type>.+?), (?<v_type>.+)>\z/
+        k_type = Regexp.last_match[:k_type]
+        v_type = Regexp.last_match[:v_type]
+        {}.tap do |hash|
+          value.each do |k, v|
+            hash[_deserialize(k_type, k)] = _deserialize(v_type, v)
+          end
+        end
+      else # model
+        # models (e.g. Pet) or oneOf
+        klass = DealMakerAPI.const_get(type)
+        klass.respond_to?(:openapi_any_of) || klass.respond_to?(:openapi_one_of) ? klass.build(value) : klass.build_from_hash(value)
+      end
+    end
+
+    # Returns the string representation of the object
+    # @return [String] String presentation of the object
+    def to_s
+      to_hash.to_s
+    end
+
+    # to_body is an alias to to_hash (backward compatibility)
+    # @return [Hash] Returns the object in the form of hash
+    def to_body
+      to_hash
+    end
+
+    # Returns the object in the form of hash
+    # @return [Hash] Returns the object in the form of hash
+    def to_hash
+      hash = {}
+      self.class.attribute_map.each_pair do |attr, param|
+        value = self.send(attr)
+        if value.nil?
+          is_nullable = self.class.openapi_nullable.include?(attr)
+          next if !is_nullable || (is_nullable && !instance_variable_defined?(:"@#{attr}"))
+        end
+
+        hash[param] = _to_hash(value)
+      end
+      hash
+    end
+
+    # Outputs non-array value in the form of hash
+    # For object, use to_hash. Otherwise, just return the value
+    # @param [Object] value Any valid value
+    # @return [Hash] Returns the value in the form of hash
+    def _to_hash(value)
+      if value.is_a?(Array)
+        value.compact.map { |v| _to_hash(v) }
+      elsif value.is_a?(Hash)
+        {}.tap do |hash|
+          value.each { |k, v| hash[k] = _to_hash(v) }
+        end
+      elsif value.respond_to? :to_hash
+        value.to_hash
+      else
+        value
+      end
+    end
+
   end
 
-  describe 'params_encoding in #build_request' do
-    let(:config) { DealMakerAPI::Configuration.new }
-    let(:api_client) { DealMakerAPI::ApiClient.new(config) }
-
-    it 'defaults to nil' do
-      expect(DealMakerAPI::Configuration.default.params_encoding).to eq(nil)
-      expect(config.params_encoding).to eq(nil)
-
-      request = api_client.build_request(:get, '/test')
-      expect(request.options[:params_encoding]).to eq(nil)
-    end
-
-    it 'can be customized' do
-      config.params_encoding = :multi
-      request = api_client.build_request(:get, '/test')
-      expect(request.options[:params_encoding]).to eq(:multi)
-    end
-  end
-
-  describe 'timeout in #build_request' do
-    let(:config) { DealMakerAPI::Configuration.new }
-    let(:api_client) { DealMakerAPI::ApiClient.new(config) }
-
-    it 'defaults to 0' do
-      expect(DealMakerAPI::Configuration.default.timeout).to eq(0)
-      expect(config.timeout).to eq(0)
-
-      request = api_client.build_request(:get, '/test')
-      expect(request.options[:timeout]).to eq(0)
-    end
-
-    it 'can be customized' do
-      config.timeout = 100
-      request = api_client.build_request(:get, '/test')
-      expect(request.options[:timeout]).to eq(100)
-    end
-  end
-
-
-
-  describe '#deserialize' do
-    it "handles Array<Integer>" do
-      api_client = DealMakerAPI::ApiClient.new
-      headers = { 'Content-Type' => 'application/json' }
-      response = double('response', headers: headers, body: '[12, 34]')
-      data = api_client.deserialize(response, 'Array<Integer>')
-      expect(data).to be_instance_of(Array)
-      expect(data).to eq([12, 34])
-    end
-
-    it 'handles Array<Array<Integer>>' do
-      api_client = DealMakerAPI::ApiClient.new
-      headers = { 'Content-Type' => 'application/json' }
-      response = double('response', headers: headers, body: '[[12, 34], [56]]')
-      data = api_client.deserialize(response, 'Array<Array<Integer>>')
-      expect(data).to be_instance_of(Array)
-      expect(data).to eq([[12, 34], [56]])
-    end
-
-    it 'handles Hash<String, String>' do
-      api_client = DealMakerAPI::ApiClient.new
-      headers = { 'Content-Type' => 'application/json' }
-      response = double('response', headers: headers, body: '{"message": "Hello"}')
-      data = api_client.deserialize(response, 'Hash<String, String>')
-      expect(data).to be_instance_of(Hash)
-      expect(data).to eq(:message => 'Hello')
-    end
-  end
-
-  describe "#object_to_hash" do
-    it 'ignores nils and includes empty arrays' do
-      # uncomment below to test object_to_hash for model
-      # api_client = DealMakerAPI::ApiClient.new
-      # _model = DealMakerAPI::ModelName.new
-      # update the model attribute below
-      # _model.id = 1
-      # update the expected value (hash) below
-      # expected = {id: 1, name: '', tags: []}
-      # expect(api_client.object_to_hash(_model)).to eq(expected)
-    end
-  end
-
-  describe '#build_collection_param' do
-    let(:param) { ['aa', 'bb', 'cc'] }
-    let(:api_client) { DealMakerAPI::ApiClient.new }
-
-    it 'works for csv' do
-      expect(api_client.build_collection_param(param, :csv)).to eq('aa,bb,cc')
-    end
-
-    it 'works for ssv' do
-      expect(api_client.build_collection_param(param, :ssv)).to eq('aa bb cc')
-    end
-
-    it 'works for tsv' do
-      expect(api_client.build_collection_param(param, :tsv)).to eq("aa\tbb\tcc")
-    end
-
-    it 'works for pipes' do
-      expect(api_client.build_collection_param(param, :pipes)).to eq('aa|bb|cc')
-    end
-
-    it 'works for multi' do
-      expect(api_client.build_collection_param(param, :multi)).to eq(['aa', 'bb', 'cc'])
-    end
-
-    it 'fails for invalid collection format' do
-      expect { api_client.build_collection_param(param, :INVALID) }.to raise_error(RuntimeError, 'unknown collection format: :INVALID')
-    end
-  end
-
-  describe '#json_mime?' do
-    let(:api_client) { DealMakerAPI::ApiClient.new }
-
-    it 'works' do
-      expect(api_client.json_mime?(nil)).to eq false
-      expect(api_client.json_mime?('')).to eq false
-
-      expect(api_client.json_mime?('application/json')).to eq true
-      expect(api_client.json_mime?('application/json; charset=UTF8')).to eq true
-      expect(api_client.json_mime?('APPLICATION/JSON')).to eq true
-
-      expect(api_client.json_mime?('application/xml')).to eq false
-      expect(api_client.json_mime?('text/plain')).to eq false
-      expect(api_client.json_mime?('application/jsonp')).to eq false
-    end
-  end
-
-  describe '#select_header_accept' do
-    let(:api_client) { DealMakerAPI::ApiClient.new }
-
-    it 'works' do
-      expect(api_client.select_header_accept(nil)).to be_nil
-      expect(api_client.select_header_accept([])).to be_nil
-
-      expect(api_client.select_header_accept(['application/json'])).to eq('application/json')
-      expect(api_client.select_header_accept(['application/xml', 'application/json; charset=UTF8'])).to eq('application/json; charset=UTF8')
-      expect(api_client.select_header_accept(['APPLICATION/JSON', 'text/html'])).to eq('APPLICATION/JSON')
-
-      expect(api_client.select_header_accept(['application/xml'])).to eq('application/xml')
-      expect(api_client.select_header_accept(['text/html', 'application/xml'])).to eq('text/html,application/xml')
-    end
-  end
-
-  describe '#select_header_content_type' do
-    let(:api_client) { DealMakerAPI::ApiClient.new }
-
-    it 'works' do
-      expect(api_client.select_header_content_type(nil)).to be_nil
-      expect(api_client.select_header_content_type([])).to be_nil
-
-      expect(api_client.select_header_content_type(['application/json'])).to eq('application/json')
-      expect(api_client.select_header_content_type(['application/xml', 'application/json; charset=UTF8'])).to eq('application/json; charset=UTF8')
-      expect(api_client.select_header_content_type(['APPLICATION/JSON', 'text/html'])).to eq('APPLICATION/JSON')
-      expect(api_client.select_header_content_type(['application/xml'])).to eq('application/xml')
-      expect(api_client.select_header_content_type(['text/plain', 'application/xml'])).to eq('text/plain')
-    end
-  end
-
-  describe '#sanitize_filename' do
-    let(:api_client) { DealMakerAPI::ApiClient.new }
-
-    it 'works' do
-      expect(api_client.sanitize_filename('sun')).to eq('sun')
-      expect(api_client.sanitize_filename('sun.gif')).to eq('sun.gif')
-      expect(api_client.sanitize_filename('../sun.gif')).to eq('sun.gif')
-      expect(api_client.sanitize_filename('/var/tmp/sun.gif')).to eq('sun.gif')
-      expect(api_client.sanitize_filename('./sun.gif')).to eq('sun.gif')
-      expect(api_client.sanitize_filename('..\sun.gif')).to eq('sun.gif')
-      expect(api_client.sanitize_filename('\var\tmp\sun.gif')).to eq('sun.gif')
-      expect(api_client.sanitize_filename('c:\var\tmp\sun.gif')).to eq('sun.gif')
-      expect(api_client.sanitize_filename('.\sun.gif')).to eq('sun.gif')
-    end
-  end
 end

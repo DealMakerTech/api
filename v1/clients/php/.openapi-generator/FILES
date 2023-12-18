@@ -26,6 +26,7 @@ docs/Model/CreateDealSetupRequest.md
 docs/Model/CreateShareholderActionRequest.md
 docs/Model/EditInvestorTagsRequest.md
 docs/Model/GenerateUrlRequest.md
+docs/Model/PatchDealIncentivePlanRequest.md
 docs/Model/PatchInvestorProfilesCorporations.md
 docs/Model/PatchInvestorProfilesCorporationsBeneficialOwnersInner.md
 docs/Model/PatchInvestorProfilesIndividuals.md
@@ -33,6 +34,7 @@ docs/Model/PatchInvestorProfilesJoints.md
 docs/Model/PatchInvestorProfilesTrusts.md
 docs/Model/PatchInvestorProfilesTrustsTrusteesInner.md
 docs/Model/PatchInvestorRequest.md
+docs/Model/PostDealIncentivePlanRequest.md
 docs/Model/PostDealsIdInvestors.md
 docs/Model/PostInvestorProfilesCorporations.md
 docs/Model/PostInvestorProfilesCorporationsBeneficialOwnersInner.md
@@ -144,6 +146,7 @@ lib/Model/CreateShareholderActionRequest.php
 lib/Model/EditInvestorTagsRequest.php
 lib/Model/GenerateUrlRequest.php
 lib/Model/ModelInterface.php
+lib/Model/PatchDealIncentivePlanRequest.php
 lib/Model/PatchInvestorProfilesCorporations.php
 lib/Model/PatchInvestorProfilesCorporationsBeneficialOwnersInner.php
 lib/Model/PatchInvestorProfilesIndividuals.php
@@ -151,6 +154,7 @@ lib/Model/PatchInvestorProfilesJoints.php
 lib/Model/PatchInvestorProfilesTrusts.php
 lib/Model/PatchInvestorProfilesTrustsTrusteesInner.php
 lib/Model/PatchInvestorRequest.php
+lib/Model/PostDealIncentivePlanRequest.php
 lib/Model/PostDealsIdInvestors.php
 lib/Model/PostInvestorProfilesCorporations.php
 lib/Model/PostInvestorProfilesCorporationsBeneficialOwnersInner.php
@@ -259,6 +263,7 @@ test/Model/CreateDealSetupRequestTest.php
 test/Model/CreateShareholderActionRequestTest.php
 test/Model/EditInvestorTagsRequestTest.php
 test/Model/GenerateUrlRequestTest.php
+test/Model/PatchDealIncentivePlanRequestTest.php
 test/Model/PatchInvestorProfilesCorporationsBeneficialOwnersInnerTest.php
 test/Model/PatchInvestorProfilesCorporationsTest.php
 test/Model/PatchInvestorProfilesIndividualsTest.php
@@ -266,6 +271,7 @@ test/Model/PatchInvestorProfilesJointsTest.php
 test/Model/PatchInvestorProfilesTrustsTest.php
 test/Model/PatchInvestorProfilesTrustsTrusteesInnerTest.php
 test/Model/PatchInvestorRequestTest.php
+test/Model/PostDealIncentivePlanRequestTest.php
 test/Model/PostDealsIdInvestorsTest.php
 test/Model/PostInvestorProfilesCorporationsBeneficialOwnersInnerTest.php
 test/Model/PostInvestorProfilesCorporationsTest.php

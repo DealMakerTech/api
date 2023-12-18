@@ -13,12 +13,14 @@
 
 
 import ApiClient from "../ApiClient";
+import PatchDealIncentivePlanRequest from '../model/PatchDealIncentivePlanRequest';
+import PostDealIncentivePlanRequest from '../model/PostDealIncentivePlanRequest';
 import V1EntitiesDealsPriceDetails from '../model/V1EntitiesDealsPriceDetails';
 
 /**
 * IncentivePlan service.
 * @module api/IncentivePlanApi
-* @version 0.93.2
+* @version 0.93.3
 */
 export default class IncentivePlanApi {
 
@@ -80,6 +82,106 @@ export default class IncentivePlanApi {
       let returnType = V1EntitiesDealsPriceDetails;
       return this.apiClient.callApi(
         '/deals/{id}/incentive_plans/time', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the patchDealIncentivePlan operation.
+     * @callback module:api/IncentivePlanApi~patchDealIncentivePlanCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/V1EntitiesDealsPriceDetails} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Updates incentive plan by deal id
+     * Updates an incentive plan for the given deal id with respectve tiers.
+     * @param {Number} id The deal id.
+     * @param {Number} incentivePlanId The deal id.
+     * @param {Object} opts Optional parameters
+     * @param {module:model/PatchDealIncentivePlanRequest} [patchDealIncentivePlanRequest] 
+     * @param {module:api/IncentivePlanApi~patchDealIncentivePlanCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/V1EntitiesDealsPriceDetails}
+     */
+    patchDealIncentivePlan(id, incentivePlanId, opts, callback) {
+      opts = opts || {};
+      let postBody = opts['patchDealIncentivePlanRequest'];
+      // verify the required parameter 'id' is set
+      if (id === undefined || id === null) {
+        throw new Error("Missing the required parameter 'id' when calling patchDealIncentivePlan");
+      }
+      // verify the required parameter 'incentivePlanId' is set
+      if (incentivePlanId === undefined || incentivePlanId === null) {
+        throw new Error("Missing the required parameter 'incentivePlanId' when calling patchDealIncentivePlan");
+      }
+
+      let pathParams = {
+        'id': id,
+        'incentive_plan_id': incentivePlanId
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = V1EntitiesDealsPriceDetails;
+      return this.apiClient.callApi(
+        '/deals/{id}/incentive_plans/{incentive_plan_id}', 'PATCH',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the postDealIncentivePlan operation.
+     * @callback module:api/IncentivePlanApi~postDealIncentivePlanCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/V1EntitiesDealsPriceDetails} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Creates incentive plan by deal id
+     * Creates an incentive plan for the given deal id with respectve tiers.
+     * @param {Number} id The deal id.
+     * @param {module:model/PostDealIncentivePlanRequest} postDealIncentivePlanRequest 
+     * @param {module:api/IncentivePlanApi~postDealIncentivePlanCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/V1EntitiesDealsPriceDetails}
+     */
+    postDealIncentivePlan(id, postDealIncentivePlanRequest, callback) {
+      let postBody = postDealIncentivePlanRequest;
+      // verify the required parameter 'id' is set
+      if (id === undefined || id === null) {
+        throw new Error("Missing the required parameter 'id' when calling postDealIncentivePlan");
+      }
+      // verify the required parameter 'postDealIncentivePlanRequest' is set
+      if (postDealIncentivePlanRequest === undefined || postDealIncentivePlanRequest === null) {
+        throw new Error("Missing the required parameter 'postDealIncentivePlanRequest' when calling postDealIncentivePlan");
+      }
+
+      let pathParams = {
+        'id': id
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = V1EntitiesDealsPriceDetails;
+      return this.apiClient.callApi(
+        '/deals/{id}/incentive_plans', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

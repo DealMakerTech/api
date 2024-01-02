@@ -29,7 +29,7 @@ import V1EntitiesGenericResponse from '../model/V1EntitiesGenericResponse';
 /**
 * Company service.
 * @module api/CompanyApi
-* @version 0.93.3
+* @version 0.93.4
 */
 export default class CompanyApi {
 

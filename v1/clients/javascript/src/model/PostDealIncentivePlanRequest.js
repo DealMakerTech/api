@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The PostDealIncentivePlanRequest model module.
  * @module model/PostDealIncentivePlanRequest
- * @version 0.93.3
+ * @version 0.93.4
  */
 class PostDealIncentivePlanRequest {
     /**
@@ -107,9 +107,8 @@ PostDealIncentivePlanRequest.prototype['active_at'] = undefined;
 /**
  * The incentive plan funded by offset in days.
  * @member {Number} funded_by_offset
- * @default 0
  */
-PostDealIncentivePlanRequest.prototype['funded_by_offset'] = 0;
+PostDealIncentivePlanRequest.prototype['funded_by_offset'] = undefined;
 
 /**
  * The incentive plan tier percentage.

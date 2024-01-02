@@ -54,6 +54,12 @@
       //expect(instance).to.be.a(Api.PatchInvestorProfilesCorporations);
     });
 
+    it('should have the property email (base name: "email")', function() {
+      // uncomment below and update the code to test the property email
+      //var instance = new Api.PatchInvestorProfilesCorporations();
+      //expect(instance).to.be();
+    });
+
     it('should have the property usAccreditedCategory (base name: "us_accredited_category")', function() {
       // uncomment below and update the code to test the property usAccreditedCategory
       //var instance = new Api.PatchInvestorProfilesCorporations();

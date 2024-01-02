@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**email** | **string** | The email associated with the profile to be updated. | [optional]
 **us_accredited_category** | **string** | The United States accredited investor information. | [optional]
 **ca_accredited_investor** | **string** | The Canadian accredited investor information. | [optional]
 **first_name** | **string** | The first name of the individual investor profile. | [optional]

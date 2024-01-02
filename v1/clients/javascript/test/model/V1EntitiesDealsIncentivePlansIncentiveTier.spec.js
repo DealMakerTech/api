@@ -60,6 +60,18 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property status (base name: "status")', function() {
+      // uncomment below and update the code to test the property status
+      //var instance = new Api.V1EntitiesDealsIncentivePlansIncentiveTier();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property humanizedIndex (base name: "humanized_index")', function() {
+      // uncomment below and update the code to test the property humanizedIndex
+      //var instance = new Api.V1EntitiesDealsIncentivePlansIncentiveTier();
+      //expect(instance).to.be();
+    });
+
     it('should have the property incentivePercentage (base name: "incentive_percentage")', function() {
       // uncomment below and update the code to test the property incentivePercentage
       //var instance = new Api.V1EntitiesDealsIncentivePlansIncentiveTier();
@@ -68,6 +80,12 @@
 
     it('should have the property endAt (base name: "end_at")', function() {
       // uncomment below and update the code to test the property endAt
+      //var instance = new Api.V1EntitiesDealsIncentivePlansIncentiveTier();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property startAt (base name: "start_at")', function() {
+      // uncomment below and update the code to test the property startAt
       //var instance = new Api.V1EntitiesDealsIncentivePlansIncentiveTier();
       //expect(instance).to.be();
     });

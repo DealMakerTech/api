@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The V1EntitiesDealsIncentivePlansIncentiveTier model module.
  * @module model/V1EntitiesDealsIncentivePlansIncentiveTier
- * @version 0.93.3
+ * @version 0.93.4
  */
 class V1EntitiesDealsIncentivePlansIncentiveTier {
     /**
@@ -50,11 +50,20 @@ class V1EntitiesDealsIncentivePlansIncentiveTier {
             if (data.hasOwnProperty('id')) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'Number');
             }
+            if (data.hasOwnProperty('status')) {
+                obj['status'] = ApiClient.convertToType(data['status'], 'String');
+            }
+            if (data.hasOwnProperty('humanized_index')) {
+                obj['humanized_index'] = ApiClient.convertToType(data['humanized_index'], 'Number');
+            }
             if (data.hasOwnProperty('incentive_percentage')) {
                 obj['incentive_percentage'] = ApiClient.convertToType(data['incentive_percentage'], 'Number');
             }
             if (data.hasOwnProperty('end_at')) {
                 obj['end_at'] = ApiClient.convertToType(data['end_at'], 'Date');
+            }
+            if (data.hasOwnProperty('start_at')) {
+                obj['start_at'] = ApiClient.convertToType(data['start_at'], 'Date');
             }
             if (data.hasOwnProperty('funded_by')) {
                 obj['funded_by'] = ApiClient.convertToType(data['funded_by'], 'Date');
@@ -75,6 +84,10 @@ class V1EntitiesDealsIncentivePlansIncentiveTier {
      * @return {boolean} to indicate whether the JSON data is valid with respect to <code>V1EntitiesDealsIncentivePlansIncentiveTier</code>.
      */
     static validateJSON(data) {
+        // ensure the json data is a string
+        if (data['status'] && !(typeof data['status'] === 'string' || data['status'] instanceof String)) {
+            throw new Error("Expected the field `status` to be a primitive type in the JSON string but got " + data['status']);
+        }
 
         return true;
     }
@@ -91,6 +104,18 @@ class V1EntitiesDealsIncentivePlansIncentiveTier {
 V1EntitiesDealsIncentivePlansIncentiveTier.prototype['id'] = undefined;
 
 /**
+ * The incentive tier status.
+ * @member {String} status
+ */
+V1EntitiesDealsIncentivePlansIncentiveTier.prototype['status'] = undefined;
+
+/**
+ * The incentive tier humanized index.
+ * @member {Number} humanized_index
+ */
+V1EntitiesDealsIncentivePlansIncentiveTier.prototype['humanized_index'] = undefined;
+
+/**
  * The incentive tier percentage.
  * @member {Number} incentive_percentage
  */
@@ -101,6 +126,12 @@ V1EntitiesDealsIncentivePlansIncentiveTier.prototype['incentive_percentage'] = u
  * @member {Date} end_at
  */
 V1EntitiesDealsIncentivePlansIncentiveTier.prototype['end_at'] = undefined;
+
+/**
+ * The incentive plan start date.
+ * @member {Date} start_at
+ */
+V1EntitiesDealsIncentivePlansIncentiveTier.prototype['start_at'] = undefined;
 
 /**
  * The incentive tier funded by date, it is computed from the end at and plan funded by offset.

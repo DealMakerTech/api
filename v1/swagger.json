@@ -507,7 +507,7 @@
           "400": {
             "description": "Bad Request"
           },
-          "401": {
+          "403": {
             "description": "Forbidden"
           },
           "404": {
@@ -628,7 +628,7 @@
           "400": {
             "description": "Bad Request"
           },
-          "401": {
+          "403": {
             "description": "Forbidden"
           },
           "404": {
@@ -752,7 +752,7 @@
           "400": {
             "description": "Bad Request"
           },
-          "401": {
+          "403": {
             "description": "Forbidden"
           },
           "404": {
@@ -876,7 +876,7 @@
           "400": {
             "description": "Bad Request"
           },
-          "401": {
+          "403": {
             "description": "Forbidden"
           },
           "404": {
@@ -2279,7 +2279,7 @@
         "x-codeSamples": [
           {
             "lang": "javascript",
-            "source": "const dealApi = new Dealmakerapi.DealApi()\nconst dealId = 100\n\napi.patchDealIncentivePlan(dealId, function(error, data, response) {\n  if (error) {\n    console.error(error)\n  } else {\n    console.log(JSON.stringify(data))\n  }\n})\n\nconst incentivePlanDetails = {\n  'funded_by_offset': 'test@example.com',\n  'active_at': '2023-11-29T23:59:59Z',\n  'tiers': [\n    {\n      'incentive_percentage': 0.1,\n      'end_at': '2023-12-08T23:59:59Z'\n    }\n  ]\n}\n\ndealApi.patchDealIncentivePlan(dealId, incentivePlanDetails, (error, data, response) => {\n  if (error) {\n    console.error(error)\n  } else {\n    console.log(JSON.stringify(data))\n  }\n})\n"
+            "source": "const dealApi = new Dealmakerapi.DealApi()\nconst dealId = 100\n\napi.patchDealIncentivePlan(dealId, function(error, data, response) {\n  if (error) {\n    console.error(error)\n  } else {\n    console.log(JSON.stringify(data))\n  }\n})\n\nconst incentivePlanDetails = {\n  'funded_by_offset': 1,\n  'active_at': '2023-11-29T23:59:59Z',\n  'tiers': [\n    {\n      'incentive_percentage': 0.1,\n      'end_at': '2023-12-08T23:59:59Z'\n    }\n  ]\n}\n\ndealApi.patchDealIncentivePlan(dealId, incentivePlanDetails, (error, data, response) => {\n  if (error) {\n    console.error(error)\n  } else {\n    console.log(JSON.stringify(data))\n  }\n})\n"
           },
           {
             "lang": "ruby",
@@ -2321,7 +2321,6 @@
             "description": "The incentive plan funded by offset in days.",
             "type": "integer",
             "format": "int32",
-            "default": 0,
             "required": false
           },
           {
@@ -2375,7 +2374,7 @@
         "x-codeSamples": [
           {
             "lang": "javascript",
-            "source": "const dealApi = new Dealmakerapi.DealApi()\nconst dealId = 100\n\napi.postDealIncentivePlan(dealId, function(error, data, response) {\n  if (error) {\n    console.error(error)\n  } else {\n    console.log(JSON.stringify(data))\n  }\n})\n\nconst incentivePlanDetails = {\n  'funded_by_offset': 'test@example.com',\n  'active_at': '2023-11-29T23:59:59Z',\n  'tiers': [\n    {\n      'incentive_percentage': 0.1,\n      'end_at': '2023-12-08T23:59:59Z'\n    }\n  ]\n}\n\ndealApi.postDealIncentivePlan(dealId, incentivePlanDetails, (error, data, response) => {\n  if (error) {\n    console.error(error)\n  } else {\n    console.log(JSON.stringify(data))\n  }\n})\n"
+            "source": "const dealApi = new Dealmakerapi.DealApi()\nconst dealId = 100\n\napi.postDealIncentivePlan(dealId, function(error, data, response) {\n  if (error) {\n    console.error(error)\n  } else {\n    console.log(JSON.stringify(data))\n  }\n})\n\nconst incentivePlanDetails = {\n  'funded_by_offset': 1,\n  'active_at': '2023-11-29T23:59:59Z',\n  'tiers': [\n    {\n      'incentive_percentage': 0.1,\n      'end_at': '2023-12-08T23:59:59Z'\n    }\n  ]\n}\n\ndealApi.postDealIncentivePlan(dealId, incentivePlanDetails, (error, data, response) => {\n  if (error) {\n    console.error(error)\n  } else {\n    console.log(JSON.stringify(data))\n  }\n})\n"
           },
           {
             "lang": "ruby",
@@ -6168,6 +6167,10 @@
     "patchInvestorProfilesCorporations": {
       "type": "object",
       "properties": {
+        "email": {
+          "type": "string",
+          "description": "The email associated with the profile to be updated."
+        },
         "us_accredited_category": {
           "type": "string",
           "description": "The United States accredited investor information.",
@@ -6554,6 +6557,10 @@
     "patchInvestorProfilesJoints": {
       "type": "object",
       "properties": {
+        "email": {
+          "type": "string",
+          "description": "The email associated with the profile to be updated."
+        },
         "us_accredited_category": {
           "type": "string",
           "description": "The United States accredited investor information.",
@@ -6816,6 +6823,10 @@
     "patchInvestorProfilesIndividuals": {
       "type": "object",
       "properties": {
+        "email": {
+          "type": "string",
+          "description": "The email associated with the profile to be updated."
+        },
         "us_accredited_category": {
           "type": "string",
           "description": "The United States accredited investor information.",
@@ -7055,6 +7066,10 @@
     "patchInvestorProfilesTrusts": {
       "type": "object",
       "properties": {
+        "email": {
+          "type": "string",
+          "description": "The email associated with the profile to be updated."
+        },
         "us_accredited_category": {
           "type": "string",
           "description": "The United States accredited investor information.",
@@ -7486,6 +7501,15 @@
           "format": "int32",
           "description": "The incentive tier id."
         },
+        "status": {
+          "type": "string",
+          "description": "The incentive tier status."
+        },
+        "humanized_index": {
+          "type": "integer",
+          "format": "int32",
+          "description": "The incentive tier humanized index."
+        },
         "incentive_percentage": {
           "type": "number",
           "format": "float",
@@ -7495,6 +7519,11 @@
           "type": "string",
           "format": "date-time",
           "description": "The incentive tier end date."
+        },
+        "start_at": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The incentive plan start date."
         },
         "funded_by": {
           "type": "string",

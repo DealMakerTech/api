@@ -17,7 +17,7 @@ import PatchInvestorProfilesTrustsTrusteesInner from './PatchInvestorProfilesTru
 /**
  * The PatchInvestorProfilesTrusts model module.
  * @module model/PatchInvestorProfilesTrusts
- * @version 0.93.3
+ * @version 0.93.4
  */
 class PatchInvestorProfilesTrusts {
     /**
@@ -49,6 +49,9 @@ class PatchInvestorProfilesTrusts {
         if (data) {
             obj = obj || new PatchInvestorProfilesTrusts();
 
+            if (data.hasOwnProperty('email')) {
+                obj['email'] = ApiClient.convertToType(data['email'], 'String');
+            }
             if (data.hasOwnProperty('us_accredited_category')) {
                 obj['us_accredited_category'] = ApiClient.convertToType(data['us_accredited_category'], 'String');
             }
@@ -101,6 +104,10 @@ class PatchInvestorProfilesTrusts {
      * @return {boolean} to indicate whether the JSON data is valid with respect to <code>PatchInvestorProfilesTrusts</code>.
      */
     static validateJSON(data) {
+        // ensure the json data is a string
+        if (data['email'] && !(typeof data['email'] === 'string' || data['email'] instanceof String)) {
+            throw new Error("Expected the field `email` to be a primitive type in the JSON string but got " + data['email']);
+        }
         // ensure the json data is a string
         if (data['us_accredited_category'] && !(typeof data['us_accredited_category'] === 'string' || data['us_accredited_category'] instanceof String)) {
             throw new Error("Expected the field `us_accredited_category` to be a primitive type in the JSON string but got " + data['us_accredited_category']);
@@ -159,6 +166,12 @@ class PatchInvestorProfilesTrusts {
 }
 
 
+
+/**
+ * The email associated with the profile to be updated.
+ * @member {String} email
+ */
+PatchInvestorProfilesTrusts.prototype['email'] = undefined;
 
 /**
  * The United States accredited investor information.

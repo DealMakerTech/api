@@ -4,6 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
+| **email** | **String** | The email associated with the profile to be updated. | [optional] |
 | **us_accredited_category** | **String** | The United States accredited investor information. | [optional] |
 | **ca_accredited_investor** | **String** | The Canadian accredited investor information. | [optional] |
 | **joint_type** | **String** | The kind of joint investor. | [optional] |
@@ -38,6 +39,7 @@
 require 'DealMakerAPI'
 
 instance = DealMakerAPI::PatchInvestorProfilesJoints.new(
+  email: null,
   us_accredited_category: null,
   ca_accredited_investor: null,
   joint_type: null,

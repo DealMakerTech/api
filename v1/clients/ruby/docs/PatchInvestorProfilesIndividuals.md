@@ -4,6 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
+| **email** | **String** | The email associated with the profile to be updated. | [optional] |
 | **us_accredited_category** | **String** | The United States accredited investor information. | [optional] |
 | **ca_accredited_investor** | **String** | The Canadian accredited investor information. | [optional] |
 | **first_name** | **String** | The first name of the individual investor profile. | [optional] |
@@ -27,6 +28,7 @@
 require 'DealMakerAPI'
 
 instance = DealMakerAPI::PatchInvestorProfilesIndividuals.new(
+  email: null,
   us_accredited_category: null,
   ca_accredited_investor: null,
   first_name: null,

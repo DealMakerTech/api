@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** | The incentive plan id. | [optional]
+**humanized_index** | **int** | The humanized index of the incentive plan. | [optional]
 **deal_id** | **int** | The deal id. | [optional]
 **plan_type** | **string** | The incentive plan type. | [optional]
 **funded_by_offset** | **int** | The incentive plan funded by offset. | [optional]

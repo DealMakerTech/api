@@ -17,7 +17,7 @@ import V1EntitiesDealsIncentivePlansIncentiveTier from './V1EntitiesDealsIncenti
 /**
  * The V1EntitiesDealsIncentivePlan model module.
  * @module model/V1EntitiesDealsIncentivePlan
- * @version 0.93.4
+ * @version 0.94.0
  */
 class V1EntitiesDealsIncentivePlan {
     /**
@@ -50,6 +50,9 @@ class V1EntitiesDealsIncentivePlan {
 
             if (data.hasOwnProperty('id')) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'Number');
+            }
+            if (data.hasOwnProperty('humanized_index')) {
+                obj['humanized_index'] = ApiClient.convertToType(data['humanized_index'], 'Number');
             }
             if (data.hasOwnProperty('deal_id')) {
                 obj['deal_id'] = ApiClient.convertToType(data['deal_id'], 'Number');
@@ -104,6 +107,12 @@ class V1EntitiesDealsIncentivePlan {
  * @member {Number} id
  */
 V1EntitiesDealsIncentivePlan.prototype['id'] = undefined;
+
+/**
+ * The humanized index of the incentive plan.
+ * @member {Number} humanized_index
+ */
+V1EntitiesDealsIncentivePlan.prototype['humanized_index'] = undefined;
 
 /**
  * The deal id.

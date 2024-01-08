@@ -18,6 +18,9 @@ module DealMakerAPI
     # The incentive plan id.
     attr_accessor :id
 
+    # The humanized index of the incentive plan.
+    attr_accessor :humanized_index
+
     # The deal id.
     attr_accessor :deal_id
 
@@ -64,6 +67,7 @@ module DealMakerAPI
     def self.attribute_map
       {
         :'id' => :'id',
+        :'humanized_index' => :'humanized_index',
         :'deal_id' => :'deal_id',
         :'plan_type' => :'plan_type',
         :'funded_by_offset' => :'funded_by_offset',
@@ -83,6 +87,7 @@ module DealMakerAPI
     def self.openapi_types
       {
         :'id' => :'Integer',
+        :'humanized_index' => :'Integer',
         :'deal_id' => :'Integer',
         :'plan_type' => :'String',
         :'funded_by_offset' => :'Integer',
@@ -116,6 +121,10 @@ module DealMakerAPI
 
       if attributes.key?(:'id')
         self.id = attributes[:'id']
+      end
+
+      if attributes.key?(:'humanized_index')
+        self.humanized_index = attributes[:'humanized_index']
       end
 
       if attributes.key?(:'deal_id')
@@ -180,6 +189,7 @@ module DealMakerAPI
       return true if self.equal?(o)
       self.class == o.class &&
           id == o.id &&
+          humanized_index == o.humanized_index &&
           deal_id == o.deal_id &&
           plan_type == o.plan_type &&
           funded_by_offset == o.funded_by_offset &&
@@ -198,7 +208,7 @@ module DealMakerAPI
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, deal_id, plan_type, funded_by_offset, active_at, created_at, updated_at, tiers].hash
+      [id, humanized_index, deal_id, plan_type, funded_by_offset, active_at, created_at, updated_at, tiers].hash
     end
 
     # Builds the object from hash

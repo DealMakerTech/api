@@ -89,6 +89,15 @@ class V1EntitiesDealsIncentivePlanTest extends TestCase
     }
 
     /**
+     * Test attribute "humanized_index"
+     */
+    public function testPropertyHumanizedIndex()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "deal_id"
      */
     public function testPropertyDealId()

@@ -7550,6 +7550,11 @@
           "format": "int32",
           "description": "The incentive plan id."
         },
+        "humanized_index": {
+          "type": "integer",
+          "format": "int32",
+          "description": "The humanized index of the incentive plan."
+        },
         "deal_id": {
           "type": "integer",
           "format": "int32",

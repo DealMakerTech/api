@@ -58,6 +58,7 @@ class V1EntitiesDealsIncentivePlan implements ModelInterface, ArrayAccess, \Json
       */
     protected static $openAPITypes = [
         'id' => 'int',
+        'humanized_index' => 'int',
         'deal_id' => 'int',
         'plan_type' => 'string',
         'funded_by_offset' => 'int',
@@ -76,6 +77,7 @@ class V1EntitiesDealsIncentivePlan implements ModelInterface, ArrayAccess, \Json
       */
     protected static $openAPIFormats = [
         'id' => 'int32',
+        'humanized_index' => 'int32',
         'deal_id' => 'int32',
         'plan_type' => null,
         'funded_by_offset' => 'int32',
@@ -92,6 +94,7 @@ class V1EntitiesDealsIncentivePlan implements ModelInterface, ArrayAccess, \Json
       */
     protected static array $openAPINullables = [
         'id' => false,
+        'humanized_index' => false,
         'deal_id' => false,
         'plan_type' => false,
         'funded_by_offset' => false,
@@ -188,6 +191,7 @@ class V1EntitiesDealsIncentivePlan implements ModelInterface, ArrayAccess, \Json
      */
     protected static $attributeMap = [
         'id' => 'id',
+        'humanized_index' => 'humanized_index',
         'deal_id' => 'deal_id',
         'plan_type' => 'plan_type',
         'funded_by_offset' => 'funded_by_offset',
@@ -204,6 +208,7 @@ class V1EntitiesDealsIncentivePlan implements ModelInterface, ArrayAccess, \Json
      */
     protected static $setters = [
         'id' => 'setId',
+        'humanized_index' => 'setHumanizedIndex',
         'deal_id' => 'setDealId',
         'plan_type' => 'setPlanType',
         'funded_by_offset' => 'setFundedByOffset',
@@ -220,6 +225,7 @@ class V1EntitiesDealsIncentivePlan implements ModelInterface, ArrayAccess, \Json
      */
     protected static $getters = [
         'id' => 'getId',
+        'humanized_index' => 'getHumanizedIndex',
         'deal_id' => 'getDealId',
         'plan_type' => 'getPlanType',
         'funded_by_offset' => 'getFundedByOffset',
@@ -300,6 +306,7 @@ class V1EntitiesDealsIncentivePlan implements ModelInterface, ArrayAccess, \Json
     public function __construct(array $data = null)
     {
         $this->setIfExists('id', $data ?? [], null);
+        $this->setIfExists('humanized_index', $data ?? [], null);
         $this->setIfExists('deal_id', $data ?? [], null);
         $this->setIfExists('plan_type', $data ?? [], null);
         $this->setIfExists('funded_by_offset', $data ?? [], null);
@@ -383,6 +390,33 @@ class V1EntitiesDealsIncentivePlan implements ModelInterface, ArrayAccess, \Json
             throw new \InvalidArgumentException('non-nullable id cannot be null');
         }
         $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets humanized_index
+     *
+     * @return int|null
+     */
+    public function getHumanizedIndex()
+    {
+        return $this->container['humanized_index'];
+    }
+
+    /**
+     * Sets humanized_index
+     *
+     * @param int|null $humanized_index The humanized index of the incentive plan.
+     *
+     * @return self
+     */
+    public function setHumanizedIndex($humanized_index)
+    {
+        if (is_null($humanized_index)) {
+            throw new \InvalidArgumentException('non-nullable humanized_index cannot be null');
+        }
+        $this->container['humanized_index'] = $humanized_index;
 
         return $this;
     }

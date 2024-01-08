@@ -5,6 +5,7 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **id** | **Integer** | The incentive plan id. | [optional] |
+| **humanized_index** | **Integer** | The humanized index of the incentive plan. | [optional] |
 | **deal_id** | **Integer** | The deal id. | [optional] |
 | **plan_type** | **String** | The incentive plan type. | [optional] |
 | **funded_by_offset** | **Integer** | The incentive plan funded by offset. | [optional] |
@@ -20,6 +21,7 @@ require 'DealMakerAPI'
 
 instance = DealMakerAPI::V1EntitiesDealsIncentivePlan.new(
   id: null,
+  humanized_index: null,
   deal_id: null,
   plan_type: null,
   funded_by_offset: null,

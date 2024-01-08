@@ -60,6 +60,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property humanizedIndex (base name: "humanized_index")', function() {
+      // uncomment below and update the code to test the property humanizedIndex
+      //var instance = new Api.V1EntitiesDealsIncentivePlan();
+      //expect(instance).to.be();
+    });
+
     it('should have the property dealId (base name: "deal_id")', function() {
       // uncomment below and update the code to test the property dealId
       //var instance = new Api.V1EntitiesDealsIncentivePlan();

@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The V1EntitiesExpressWireInstruction model module.
  * @module model/V1EntitiesExpressWireInstruction
- * @version 0.94.0
+ * @version 0.94.1
  */
 class V1EntitiesExpressWireInstruction {
     /**

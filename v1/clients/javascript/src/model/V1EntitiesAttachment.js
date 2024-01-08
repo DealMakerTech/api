@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The V1EntitiesAttachment model module.
  * @module model/V1EntitiesAttachment
- * @version 0.94.0
+ * @version 0.94.1
  */
 class V1EntitiesAttachment {
     /**

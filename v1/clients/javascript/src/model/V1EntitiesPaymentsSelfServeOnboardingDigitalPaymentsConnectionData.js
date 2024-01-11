@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The V1EntitiesPaymentsSelfServeOnboardingDigitalPaymentsConnectionData model module.
  * @module model/V1EntitiesPaymentsSelfServeOnboardingDigitalPaymentsConnectionData
- * @version 0.94.1
+ * @version 0.94.2
  */
 class V1EntitiesPaymentsSelfServeOnboardingDigitalPaymentsConnectionData {
     /**

@@ -3187,6 +3187,27 @@
         "operationId": "getDealsDealIdPaymentOnboardingQuestionnaireDigitalPaymentsConnectionData"
       }
     },
+    "/deals/payment_onboarding/questionnaire/initial_questions": {
+      "get": {
+        "summary": "Get initial questions",
+        "description": "Get initial questions",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Get initial questions"
+          },
+          "403": {
+            "description": ""
+          }
+        },
+        "tags": [
+
+        ],
+        "operationId": "getDealsPaymentOnboardingQuestionnaireInitialQuestions"
+      }
+    },
     "/deal_setups": {
       "post": {
         "summary": "Create deal setup",

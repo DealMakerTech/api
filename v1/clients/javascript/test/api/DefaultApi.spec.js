@@ -88,6 +88,16 @@
         done();
       });
     });
+    describe('getDealsPaymentOnboardingQuestionnaireInitialQuestions', function() {
+      it('should call getDealsPaymentOnboardingQuestionnaireInitialQuestions successfully', function(done) {
+        //uncomment below and update the code to test getDealsPaymentOnboardingQuestionnaireInitialQuestions
+        //instance.getDealsPaymentOnboardingQuestionnaireInitialQuestions(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('getWebhooks', function() {
       it('should call getWebhooks successfully', function(done) {
         //uncomment below and update the code to test getWebhooks

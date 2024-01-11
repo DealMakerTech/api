@@ -120,6 +120,18 @@ class DefaultApiTest extends TestCase
     }
 
     /**
+     * Test case for getDealsPaymentOnboardingQuestionnaireInitialQuestions
+     *
+     * Get initial questions.
+     *
+     */
+    public function testGetDealsPaymentOnboardingQuestionnaireInitialQuestions()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for getWebhooks
      *
      * Returns a list of webhook subscription which is associated to the user.

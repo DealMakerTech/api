@@ -8,6 +8,7 @@ All URIs are relative to *http://api.dealmaker.tech*
 | [**get_deals_deal_id_payment_onboarding_questionnaire_payout_account_details_data**](DefaultApi.md#get_deals_deal_id_payment_onboarding_questionnaire_payout_account_details_data) | **GET** /deals/{deal_id}/payment_onboarding/questionnaire/payout_account_details/data | Get payout account data |
 | [**get_deals_id_investors_investor_id_payments_express_wire_instructions**](DefaultApi.md#get_deals_id_investors_investor_id_payments_express_wire_instructions) | **GET** /deals/{id}/investors/{investor_id}/payments/express_wire/instructions | Displays the express wire instructions for an investor on a deal |
 | [**get_deals_id_investors_payments_express_wire_instructions**](DefaultApi.md#get_deals_id_investors_payments_express_wire_instructions) | **GET** /deals/{id}/investors/payments/express_wire/instructions | Displays the express wire instructions for all the investors on a deal |
+| [**get_deals_payment_onboarding_questionnaire_initial_questions**](DefaultApi.md#get_deals_payment_onboarding_questionnaire_initial_questions) | **GET** /deals/payment_onboarding/questionnaire/initial_questions | Get initial questions |
 | [**get_webhooks**](DefaultApi.md#get_webhooks) | **GET** /webhooks | Returns a list of webhook subscription which is associated to the user |
 | [**get_webhooks_deal_id**](DefaultApi.md#get_webhooks_deal_id) | **GET** /webhooks/deal/{id} | Finds a deal using the id |
 | [**get_webhooks_deals_search**](DefaultApi.md#get_webhooks_deals_search) | **GET** /webhooks/deals/search | Searches for deals for a given user |
@@ -283,6 +284,66 @@ No authorization required
 
 - **Content-Type**: Not defined
 - **Accept**: application/json
+
+
+## get_deals_payment_onboarding_questionnaire_initial_questions
+
+> get_deals_payment_onboarding_questionnaire_initial_questions
+
+Get initial questions
+
+Get initial questions
+
+### Examples
+
+```ruby
+require 'time'
+require 'DealMakerAPI'
+
+api_instance = DealMakerAPI::DefaultApi.new
+
+begin
+  # Get initial questions
+  api_instance.get_deals_payment_onboarding_questionnaire_initial_questions
+rescue DealMakerAPI::ApiError => e
+  puts "Error when calling DefaultApi->get_deals_payment_onboarding_questionnaire_initial_questions: #{e}"
+end
+```
+
+#### Using the get_deals_payment_onboarding_questionnaire_initial_questions_with_http_info variant
+
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
+
+> <Array(nil, Integer, Hash)> get_deals_payment_onboarding_questionnaire_initial_questions_with_http_info
+
+```ruby
+begin
+  # Get initial questions
+  data, status_code, headers = api_instance.get_deals_payment_onboarding_questionnaire_initial_questions_with_http_info
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => nil
+rescue DealMakerAPI::ApiError => e
+  puts "Error when calling DefaultApi->get_deals_payment_onboarding_questionnaire_initial_questions_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+nil (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
 
 
 ## get_webhooks

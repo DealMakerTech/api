@@ -28,7 +28,7 @@ import V1EntitiesWebhooksSubscription from '../model/V1EntitiesWebhooksSubscript
 /**
 * Default service.
 * @module api/DefaultApi
-* @version 0.94.1
+* @version 0.94.2
 */
 export default class DefaultApi {
 
@@ -217,6 +217,42 @@ export default class DefaultApi {
       let returnType = V1EntitiesExpressWireInstructions;
       return this.apiClient.callApi(
         '/deals/{id}/investors/payments/express_wire/instructions', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the getDealsPaymentOnboardingQuestionnaireInitialQuestions operation.
+     * @callback module:api/DefaultApi~getDealsPaymentOnboardingQuestionnaireInitialQuestionsCallback
+     * @param {String} error Error message, if any.
+     * @param data This operation does not return a value.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Get initial questions
+     * Get initial questions
+     * @param {module:api/DefaultApi~getDealsPaymentOnboardingQuestionnaireInitialQuestionsCallback} callback The callback function, accepting three arguments: error, data, response
+     */
+    getDealsPaymentOnboardingQuestionnaireInitialQuestions(callback) {
+      let postBody = null;
+
+      let pathParams = {
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = [];
+      let returnType = null;
+      return this.apiClient.callApi(
+        '/deals/payment_onboarding/questionnaire/initial_questions', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The V1EntitiesInvestorProfileOwner model module.
  * @module model/V1EntitiesInvestorProfileOwner
- * @version 0.94.3
+ * @version 0.95.0
  */
 class V1EntitiesInvestorProfileOwner {
     /**

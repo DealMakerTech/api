@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The PostInvestorProfilesManaged model module.
  * @module model/PostInvestorProfilesManaged
- * @version 0.94.3
+ * @version 0.95.0
  */
 class PostInvestorProfilesManaged {
     /**

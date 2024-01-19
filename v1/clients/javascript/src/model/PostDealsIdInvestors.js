@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The PostDealsIdInvestors model module.
  * @module model/PostDealsIdInvestors
- * @version 0.95.0
+ * @version 0.95.1
  */
 class PostDealsIdInvestors {
     /**

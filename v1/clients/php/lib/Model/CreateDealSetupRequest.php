@@ -294,7 +294,7 @@ class CreateDealSetupRequest implements ModelInterface, ArrayAccess, \JsonSerial
     public const OFFERING_TYPE_REGULATION_CF_OFFERING = 'regulation_cf_offering';
     public const OFFERING_TYPE_REG_D_506_C = 'reg_d_506_c';
     public const OFFERING_TYPE_REG_D_506_B = 'reg_d_506_b';
-    public const OFFERING_TYPE_DM_PLUS = 'dm_plus';
+    public const OFFERING_TYPE_REG_S = 'reg_s';
 
     /**
      * Gets allowable values of the enum
@@ -356,7 +356,7 @@ class CreateDealSetupRequest implements ModelInterface, ArrayAccess, \JsonSerial
             self::OFFERING_TYPE_REGULATION_CF_OFFERING,
             self::OFFERING_TYPE_REG_D_506_C,
             self::OFFERING_TYPE_REG_D_506_B,
-            self::OFFERING_TYPE_DM_PLUS,
+            self::OFFERING_TYPE_REG_S,
         ];
     }
 

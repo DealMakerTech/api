@@ -316,6 +316,7 @@ class V1EntitiesDeal implements ModelInterface, ArrayAccess, \JsonSerializable
     public const DEAL_TYPE_OFFERING_MEMORANDUM = 'offering_memorandum';
     public const DEAL_TYPE_REG_D_506_C = 'reg_d_506_c';
     public const DEAL_TYPE_REG_D_506_B = 'reg_d_506_b';
+    public const DEAL_TYPE_REG_S = 'reg_s';
 
     /**
      * Gets allowable values of the enum
@@ -351,6 +352,7 @@ class V1EntitiesDeal implements ModelInterface, ArrayAccess, \JsonSerializable
             self::DEAL_TYPE_OFFERING_MEMORANDUM,
             self::DEAL_TYPE_REG_D_506_C,
             self::DEAL_TYPE_REG_D_506_B,
+            self::DEAL_TYPE_REG_S,
         ];
     }
 

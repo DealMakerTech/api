@@ -3283,7 +3283,7 @@
               "regulation_cf_offering",
               "reg_d_506_c",
               "reg_d_506_b",
-              "dm_plus"
+              "reg_s"
             ],
             "required": true
           },
@@ -4790,7 +4790,8 @@
             "warrants",
             "offering_memorandum",
             "reg_d_506_c",
-            "reg_d_506_b"
+            "reg_d_506_b",
+            "reg_s"
           ],
           "description": "The deal type."
         },

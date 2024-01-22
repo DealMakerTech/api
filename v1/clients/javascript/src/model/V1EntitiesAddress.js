@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The V1EntitiesAddress model module.
  * @module model/V1EntitiesAddress
- * @version 0.95.1
+ * @version 0.95.2
  */
 class V1EntitiesAddress {
     /**

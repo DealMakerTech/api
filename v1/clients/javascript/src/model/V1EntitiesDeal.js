@@ -20,7 +20,7 @@ import V1EntitiesDealIssuer from './V1EntitiesDealIssuer';
 /**
  * The V1EntitiesDeal model module.
  * @module model/V1EntitiesDeal
- * @version 0.95.1
+ * @version 0.95.2
  */
 class V1EntitiesDeal {
     /**
@@ -328,7 +328,13 @@ V1EntitiesDeal['DealTypeEnum'] = {
      * value: "reg_d_506_b"
      * @const
      */
-    "reg_d_506_b": "reg_d_506_b"
+    "reg_d_506_b": "reg_d_506_b",
+
+    /**
+     * value: "reg_s"
+     * @const
+     */
+    "reg_s": "reg_s"
 };
 
 

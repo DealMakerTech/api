@@ -94,7 +94,7 @@ describe DealMakerAPI::V1EntitiesDeal do
   describe 'test attribute "deal_type"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
-      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["other_or_unknown", "dm_plus", "dm_basic", "mini_deal", "reg_cf", "reg_a", "warrants", "offering_memorandum", "reg_d_506_c", "reg_d_506_b"])
+      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["other_or_unknown", "dm_plus", "dm_basic", "mini_deal", "reg_cf", "reg_a", "warrants", "offering_memorandum", "reg_d_506_c", "reg_d_506_b", "reg_s"])
       # validator.allowable_values.each do |value|
       #   expect { instance.deal_type = value }.not_to raise_error
       # end

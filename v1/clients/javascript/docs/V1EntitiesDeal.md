@@ -60,6 +60,8 @@ Name | Type | Description | Notes
 
 * `reg_d_506_b` (value: `"reg_d_506_b"`)
 
+* `reg_s` (value: `"reg_s"`)
+
 
 
 

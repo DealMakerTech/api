@@ -56,7 +56,7 @@ describe DealMakerAPI::CreateDealSetupRequest do
   describe 'test attribute "offering_type"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
-      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["other", "canadian_private_placement", "regulation_a_plus_offering", "offering_memorandum", "regulation_cf_offering", "reg_d_506_c", "reg_d_506_b", "dm_plus"])
+      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["other", "canadian_private_placement", "regulation_a_plus_offering", "offering_memorandum", "regulation_cf_offering", "reg_d_506_c", "reg_d_506_b", "reg_s"])
       # validator.allowable_values.each do |value|
       #   expect { instance.offering_type = value }.not_to raise_error
       # end

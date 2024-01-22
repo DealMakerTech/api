@@ -91,7 +91,7 @@ Name | Type | Description | Notes
 
 * `reg_d_506_b` (value: `"reg_d_506_b"`)
 
-* `dm_plus` (value: `"dm_plus"`)
+* `reg_s` (value: `"reg_s"`)
 
 
 

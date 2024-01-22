@@ -204,7 +204,7 @@ module DealMakerAPI
       warn '[DEPRECATED] the `valid?` method is obsolete'
       state_validator = EnumAttributeValidator.new('String', ["draft", "close", "active", "amending", "ending"])
       return false unless state_validator.valid?(@state)
-      deal_type_validator = EnumAttributeValidator.new('String', ["other_or_unknown", "dm_plus", "dm_basic", "mini_deal", "reg_cf", "reg_a", "warrants", "offering_memorandum", "reg_d_506_c", "reg_d_506_b"])
+      deal_type_validator = EnumAttributeValidator.new('String', ["other_or_unknown", "dm_plus", "dm_basic", "mini_deal", "reg_cf", "reg_a", "warrants", "offering_memorandum", "reg_d_506_c", "reg_d_506_b", "reg_s"])
       return false unless deal_type_validator.valid?(@deal_type)
       true
     end
@@ -222,7 +222,7 @@ module DealMakerAPI
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] deal_type Object to be assigned
     def deal_type=(deal_type)
-      validator = EnumAttributeValidator.new('String', ["other_or_unknown", "dm_plus", "dm_basic", "mini_deal", "reg_cf", "reg_a", "warrants", "offering_memorandum", "reg_d_506_c", "reg_d_506_b"])
+      validator = EnumAttributeValidator.new('String', ["other_or_unknown", "dm_plus", "dm_basic", "mini_deal", "reg_cf", "reg_a", "warrants", "offering_memorandum", "reg_d_506_c", "reg_d_506_b", "reg_s"])
       unless validator.valid?(deal_type)
         fail ArgumentError, "invalid value for \"deal_type\", must be one of #{validator.allowable_values}."
       end

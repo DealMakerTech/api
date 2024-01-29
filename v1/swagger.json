@@ -69,6 +69,10 @@
       "description": "Operations about users"
     },
     {
+      "name": "custom_emails",
+      "description": "Operations about custom_emails"
+    },
+    {
       "name": "incentive_plan",
       "description": "Operations about incentive_plans"
     },
@@ -1306,6 +1310,66 @@
           "country"
         ],
         "operationId": "getCountryStates"
+      }
+    },
+    "/custom_emails/get_access_token": {
+      "post": {
+        "summary": "Generate authorization token information for initializing Beefree editor",
+        "description": "Generate authorization token information",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "formData",
+            "name": "user_id",
+            "description": "The user ID",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "security": [
+          {
+            "oauth": [
+              "internal"
+            ]
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Generate authorization token information",
+            "schema": {
+              "$ref": "#/definitions/V1_Entities_BeefreeAccessToken"
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not found"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "tags": [
+          "custom_emails"
+        ],
+        "operationId": "getAccessToken",
+        "x-codeSamples": [
+          {
+            "lang": "javascript",
+            "source": ""
+          },
+          {
+            "lang": "ruby",
+            "source": ""
+          }
+        ]
       }
     },
     "/deals/{id}/investors/{investor_id}": {
@@ -7420,6 +7484,21 @@
         }
       },
       "description": "V1_Entities_Countries model"
+    },
+    "V1_Entities_BeefreeAccessToken": {
+      "type": "object",
+      "properties": {
+        "access_token": {
+          "type": "string",
+          "description": "The access token for initializing beefree builders intances."
+        },
+        "expires_in": {
+          "type": "integer",
+          "format": "int32",
+          "description": "The expires in field."
+        }
+      },
+      "description": "V1_Entities_BeefreeAccessToken model"
     },
     "putDealsIdInvestors": {
       "type": "object",

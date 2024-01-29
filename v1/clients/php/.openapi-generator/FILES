@@ -6,6 +6,7 @@ README.md
 composer.json
 docs/Api/CompanyApi.md
 docs/Api/CountryApi.md
+docs/Api/CustomEmailsApi.md
 docs/Api/DealApi.md
 docs/Api/DealsApi.md
 docs/Api/DefaultApi.md
@@ -26,6 +27,7 @@ docs/Model/CreateDealSetupRequest.md
 docs/Model/CreateShareholderActionRequest.md
 docs/Model/EditInvestorTagsRequest.md
 docs/Model/GenerateUrlRequest.md
+docs/Model/GetAccessTokenRequest.md
 docs/Model/PatchDealIncentivePlanRequest.md
 docs/Model/PatchInvestorProfilesCorporations.md
 docs/Model/PatchInvestorProfilesCorporationsBeneficialOwnersInner.md
@@ -54,6 +56,7 @@ docs/Model/V1EntitiesAddress.md
 docs/Model/V1EntitiesAddresses.md
 docs/Model/V1EntitiesAttachment.md
 docs/Model/V1EntitiesBackgroundCheckSearch.md
+docs/Model/V1EntitiesBeefreeAccessToken.md
 docs/Model/V1EntitiesBulkUpload.md
 docs/Model/V1EntitiesBulkUploadDetail.md
 docs/Model/V1EntitiesBulkUploadDetails.md
@@ -122,6 +125,7 @@ docs/Model/V1EntitiesWebhooksSubscriptionDeals.md
 git_push.sh
 lib/Api/CompanyApi.php
 lib/Api/CountryApi.php
+lib/Api/CustomEmailsApi.php
 lib/Api/DealApi.php
 lib/Api/DealsApi.php
 lib/Api/DefaultApi.php
@@ -145,6 +149,7 @@ lib/Model/CreateDealSetupRequest.php
 lib/Model/CreateShareholderActionRequest.php
 lib/Model/EditInvestorTagsRequest.php
 lib/Model/GenerateUrlRequest.php
+lib/Model/GetAccessTokenRequest.php
 lib/Model/ModelInterface.php
 lib/Model/PatchDealIncentivePlanRequest.php
 lib/Model/PatchInvestorProfilesCorporations.php
@@ -174,6 +179,7 @@ lib/Model/V1EntitiesAddress.php
 lib/Model/V1EntitiesAddresses.php
 lib/Model/V1EntitiesAttachment.php
 lib/Model/V1EntitiesBackgroundCheckSearch.php
+lib/Model/V1EntitiesBeefreeAccessToken.php
 lib/Model/V1EntitiesBulkUpload.php
 lib/Model/V1EntitiesBulkUploadDetail.php
 lib/Model/V1EntitiesBulkUploadDetails.php
@@ -243,6 +249,7 @@ lib/ObjectSerializer.php
 phpunit.xml.dist
 test/Api/CompanyApiTest.php
 test/Api/CountryApiTest.php
+test/Api/CustomEmailsApiTest.php
 test/Api/DealApiTest.php
 test/Api/DealsApiTest.php
 test/Api/DefaultApiTest.php
@@ -263,6 +270,7 @@ test/Model/CreateDealSetupRequestTest.php
 test/Model/CreateShareholderActionRequestTest.php
 test/Model/EditInvestorTagsRequestTest.php
 test/Model/GenerateUrlRequestTest.php
+test/Model/GetAccessTokenRequestTest.php
 test/Model/PatchDealIncentivePlanRequestTest.php
 test/Model/PatchInvestorProfilesCorporationsBeneficialOwnersInnerTest.php
 test/Model/PatchInvestorProfilesCorporationsTest.php
@@ -291,6 +299,7 @@ test/Model/V1EntitiesAddressTest.php
 test/Model/V1EntitiesAddressesTest.php
 test/Model/V1EntitiesAttachmentTest.php
 test/Model/V1EntitiesBackgroundCheckSearchTest.php
+test/Model/V1EntitiesBeefreeAccessTokenTest.php
 test/Model/V1EntitiesBulkUploadDetailTest.php
 test/Model/V1EntitiesBulkUploadDetailsTest.php
 test/Model/V1EntitiesBulkUploadTest.php

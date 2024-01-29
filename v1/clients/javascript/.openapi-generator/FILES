@@ -13,11 +13,13 @@ docs/CreateBulkUploadRequest.md
 docs/CreateCompanyRequest.md
 docs/CreateDealSetupRequest.md
 docs/CreateShareholderActionRequest.md
+docs/CustomEmailsApi.md
 docs/DealApi.md
 docs/DealsApi.md
 docs/DefaultApi.md
 docs/EditInvestorTagsRequest.md
 docs/GenerateUrlRequest.md
+docs/GetAccessTokenRequest.md
 docs/IncentivePlanApi.md
 docs/InvestorApi.md
 docs/InvestorProfileApi.md
@@ -53,6 +55,7 @@ docs/V1EntitiesAddress.md
 docs/V1EntitiesAddresses.md
 docs/V1EntitiesAttachment.md
 docs/V1EntitiesBackgroundCheckSearch.md
+docs/V1EntitiesBeefreeAccessToken.md
 docs/V1EntitiesBulkUpload.md
 docs/V1EntitiesBulkUploadDetail.md
 docs/V1EntitiesBulkUploadDetails.md
@@ -124,6 +127,7 @@ package.json
 src/ApiClient.js
 src/api/CompanyApi.js
 src/api/CountryApi.js
+src/api/CustomEmailsApi.js
 src/api/DealApi.js
 src/api/DealsApi.js
 src/api/DefaultApi.js
@@ -145,6 +149,7 @@ src/model/CreateDealSetupRequest.js
 src/model/CreateShareholderActionRequest.js
 src/model/EditInvestorTagsRequest.js
 src/model/GenerateUrlRequest.js
+src/model/GetAccessTokenRequest.js
 src/model/PatchDealIncentivePlanRequest.js
 src/model/PatchInvestorProfilesCorporations.js
 src/model/PatchInvestorProfilesCorporationsBeneficialOwnersInner.js
@@ -173,6 +178,7 @@ src/model/V1EntitiesAddress.js
 src/model/V1EntitiesAddresses.js
 src/model/V1EntitiesAttachment.js
 src/model/V1EntitiesBackgroundCheckSearch.js
+src/model/V1EntitiesBeefreeAccessToken.js
 src/model/V1EntitiesBulkUpload.js
 src/model/V1EntitiesBulkUploadDetail.js
 src/model/V1EntitiesBulkUploadDetails.js
@@ -240,6 +246,7 @@ src/model/V1EntitiesWebhooksSubscriptionDeal.js
 src/model/V1EntitiesWebhooksSubscriptionDeals.js
 test/api/CompanyApi.spec.js
 test/api/CountryApi.spec.js
+test/api/CustomEmailsApi.spec.js
 test/api/DealApi.spec.js
 test/api/DealsApi.spec.js
 test/api/DefaultApi.spec.js
@@ -260,6 +267,7 @@ test/model/CreateDealSetupRequest.spec.js
 test/model/CreateShareholderActionRequest.spec.js
 test/model/EditInvestorTagsRequest.spec.js
 test/model/GenerateUrlRequest.spec.js
+test/model/GetAccessTokenRequest.spec.js
 test/model/PatchDealIncentivePlanRequest.spec.js
 test/model/PatchInvestorProfilesCorporations.spec.js
 test/model/PatchInvestorProfilesCorporationsBeneficialOwnersInner.spec.js
@@ -288,6 +296,7 @@ test/model/V1EntitiesAddress.spec.js
 test/model/V1EntitiesAddresses.spec.js
 test/model/V1EntitiesAttachment.spec.js
 test/model/V1EntitiesBackgroundCheckSearch.spec.js
+test/model/V1EntitiesBeefreeAccessToken.spec.js
 test/model/V1EntitiesBulkUpload.spec.js
 test/model/V1EntitiesBulkUploadDetail.spec.js
 test/model/V1EntitiesBulkUploadDetails.spec.js

@@ -18,11 +18,13 @@ docs/CreateBulkUploadRequest.md
 docs/CreateCompanyRequest.md
 docs/CreateDealSetupRequest.md
 docs/CreateShareholderActionRequest.md
+docs/CustomEmailsApi.md
 docs/DealApi.md
 docs/DealsApi.md
 docs/DefaultApi.md
 docs/EditInvestorTagsRequest.md
 docs/GenerateUrlRequest.md
+docs/GetAccessTokenRequest.md
 docs/IncentivePlanApi.md
 docs/InvestorApi.md
 docs/InvestorProfileApi.md
@@ -58,6 +60,7 @@ docs/V1EntitiesAddress.md
 docs/V1EntitiesAddresses.md
 docs/V1EntitiesAttachment.md
 docs/V1EntitiesBackgroundCheckSearch.md
+docs/V1EntitiesBeefreeAccessToken.md
 docs/V1EntitiesBulkUpload.md
 docs/V1EntitiesBulkUploadDetail.md
 docs/V1EntitiesBulkUploadDetails.md
@@ -127,6 +130,7 @@ git_push.sh
 lib/DealMakerAPI.rb
 lib/DealMakerAPI/api/company_api.rb
 lib/DealMakerAPI/api/country_api.rb
+lib/DealMakerAPI/api/custom_emails_api.rb
 lib/DealMakerAPI/api/deal_api.rb
 lib/DealMakerAPI/api/deals_api.rb
 lib/DealMakerAPI/api/default_api.rb
@@ -150,6 +154,7 @@ lib/DealMakerAPI/models/create_deal_setup_request.rb
 lib/DealMakerAPI/models/create_shareholder_action_request.rb
 lib/DealMakerAPI/models/edit_investor_tags_request.rb
 lib/DealMakerAPI/models/generate_url_request.rb
+lib/DealMakerAPI/models/get_access_token_request.rb
 lib/DealMakerAPI/models/patch_deal_incentive_plan_request.rb
 lib/DealMakerAPI/models/patch_investor_profiles_corporations.rb
 lib/DealMakerAPI/models/patch_investor_profiles_corporations_beneficial_owners_inner.rb
@@ -178,6 +183,7 @@ lib/DealMakerAPI/models/v1_entities_address.rb
 lib/DealMakerAPI/models/v1_entities_addresses.rb
 lib/DealMakerAPI/models/v1_entities_attachment.rb
 lib/DealMakerAPI/models/v1_entities_background_check_search.rb
+lib/DealMakerAPI/models/v1_entities_beefree_access_token.rb
 lib/DealMakerAPI/models/v1_entities_bulk_upload.rb
 lib/DealMakerAPI/models/v1_entities_bulk_upload_detail.rb
 lib/DealMakerAPI/models/v1_entities_bulk_upload_details.rb
@@ -246,6 +252,7 @@ lib/DealMakerAPI/models/v1_entities_webhooks_subscription_deals.rb
 lib/DealMakerAPI/version.rb
 spec/api/company_api_spec.rb
 spec/api/country_api_spec.rb
+spec/api/custom_emails_api_spec.rb
 spec/api/deal_api_spec.rb
 spec/api/deals_api_spec.rb
 spec/api/default_api_spec.rb
@@ -266,6 +273,7 @@ spec/models/create_deal_setup_request_spec.rb
 spec/models/create_shareholder_action_request_spec.rb
 spec/models/edit_investor_tags_request_spec.rb
 spec/models/generate_url_request_spec.rb
+spec/models/get_access_token_request_spec.rb
 spec/models/patch_deal_incentive_plan_request_spec.rb
 spec/models/patch_investor_profiles_corporations_beneficial_owners_inner_spec.rb
 spec/models/patch_investor_profiles_corporations_spec.rb
@@ -294,6 +302,7 @@ spec/models/v1_entities_address_spec.rb
 spec/models/v1_entities_addresses_spec.rb
 spec/models/v1_entities_attachment_spec.rb
 spec/models/v1_entities_background_check_search_spec.rb
+spec/models/v1_entities_beefree_access_token_spec.rb
 spec/models/v1_entities_bulk_upload_detail_spec.rb
 spec/models/v1_entities_bulk_upload_details_spec.rb
 spec/models/v1_entities_bulk_upload_spec.rb

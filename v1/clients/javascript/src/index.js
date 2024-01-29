@@ -23,6 +23,7 @@ import CreateDealSetupRequest from './model/CreateDealSetupRequest';
 import CreateShareholderActionRequest from './model/CreateShareholderActionRequest';
 import EditInvestorTagsRequest from './model/EditInvestorTagsRequest';
 import GenerateUrlRequest from './model/GenerateUrlRequest';
+import GetAccessTokenRequest from './model/GetAccessTokenRequest';
 import PatchDealIncentivePlanRequest from './model/PatchDealIncentivePlanRequest';
 import PatchInvestorProfilesCorporations from './model/PatchInvestorProfilesCorporations';
 import PatchInvestorProfilesCorporationsBeneficialOwnersInner from './model/PatchInvestorProfilesCorporationsBeneficialOwnersInner';
@@ -51,6 +52,7 @@ import V1EntitiesAddress from './model/V1EntitiesAddress';
 import V1EntitiesAddresses from './model/V1EntitiesAddresses';
 import V1EntitiesAttachment from './model/V1EntitiesAttachment';
 import V1EntitiesBackgroundCheckSearch from './model/V1EntitiesBackgroundCheckSearch';
+import V1EntitiesBeefreeAccessToken from './model/V1EntitiesBeefreeAccessToken';
 import V1EntitiesBulkUpload from './model/V1EntitiesBulkUpload';
 import V1EntitiesBulkUploadDetail from './model/V1EntitiesBulkUploadDetail';
 import V1EntitiesBulkUploadDetails from './model/V1EntitiesBulkUploadDetails';
@@ -118,6 +120,7 @@ import V1EntitiesWebhooksSubscriptionDeal from './model/V1EntitiesWebhooksSubscr
 import V1EntitiesWebhooksSubscriptionDeals from './model/V1EntitiesWebhooksSubscriptionDeals';
 import CompanyApi from './api/CompanyApi';
 import CountryApi from './api/CountryApi';
+import CustomEmailsApi from './api/CustomEmailsApi';
 import DealApi from './api/DealApi';
 import DealsApi from './api/DealsApi';
 import DefaultApi from './api/DefaultApi';
@@ -159,7 +162,7 @@ import UsersApi from './api/UsersApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.95.3
+* @version 0.95.4
 */
 export {
     /**
@@ -227,6 +230,12 @@ export {
      * @property {module:model/GenerateUrlRequest}
      */
     GenerateUrlRequest,
+
+    /**
+     * The GetAccessTokenRequest model constructor.
+     * @property {module:model/GetAccessTokenRequest}
+     */
+    GetAccessTokenRequest,
 
     /**
      * The PatchDealIncentivePlanRequest model constructor.
@@ -395,6 +404,12 @@ export {
      * @property {module:model/V1EntitiesBackgroundCheckSearch}
      */
     V1EntitiesBackgroundCheckSearch,
+
+    /**
+     * The V1EntitiesBeefreeAccessToken model constructor.
+     * @property {module:model/V1EntitiesBeefreeAccessToken}
+     */
+    V1EntitiesBeefreeAccessToken,
 
     /**
      * The V1EntitiesBulkUpload model constructor.
@@ -797,6 +812,12 @@ export {
     * @property {module:api/CountryApi}
     */
     CountryApi,
+
+    /**
+    * The CustomEmailsApi service constructor.
+    * @property {module:api/CustomEmailsApi}
+    */
+    CustomEmailsApi,
 
     /**
     * The DealApi service constructor.

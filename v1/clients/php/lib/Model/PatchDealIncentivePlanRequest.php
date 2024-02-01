@@ -391,7 +391,7 @@ class PatchDealIncentivePlanRequest implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets tiers_id
      *
-     * @param int[]|null $tiers_id The incentive plan tier id. If none it will be created
+     * @param int[]|null $tiers_id The incentive plan tier id. If none, it will be created
      *
      * @return self
      */

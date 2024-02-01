@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The V1EntitiesBeefreeAccessToken model module.
  * @module model/V1EntitiesBeefreeAccessToken
- * @version 0.95.4
+ * @version 0.95.5
  */
 class V1EntitiesBeefreeAccessToken {
     /**

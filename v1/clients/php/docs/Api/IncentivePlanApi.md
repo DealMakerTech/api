@@ -80,7 +80,7 @@ patchDealIncentivePlan($id, $incentive_plan_id, $patch_deal_incentive_plan_reque
 
 Updates incentive plan by deal id
 
-Updates an incentive plan for the given deal id with respectve tiers.
+Updates an incentive plan for the given deal id with respective tiers.
 
 ### Example
 
@@ -141,7 +141,7 @@ postDealIncentivePlan($id, $post_deal_incentive_plan_request): \DealMaker\Model\
 
 Creates incentive plan by deal id
 
-Creates an incentive plan for the given deal id with respectve tiers.
+Creates an incentive plan for the given deal id with respective tiers.
 
 ### Example
 

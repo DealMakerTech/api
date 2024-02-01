@@ -70,7 +70,7 @@ No authorization required
 
 Updates incentive plan by deal id
 
-Updates an incentive plan for the given deal id with respectve tiers.
+Updates an incentive plan for the given deal id with respective tiers.
 
 ### Example
 
@@ -122,7 +122,7 @@ No authorization required
 
 Creates incentive plan by deal id
 
-Creates an incentive plan for the given deal id with respectve tiers.
+Creates an incentive plan for the given deal id with respective tiers.
 
 ### Example
 

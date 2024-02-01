@@ -21,7 +21,7 @@ module DealMakerAPI
     # The incentive plan funded by offset in days.
     attr_accessor :funded_by_offset
 
-    # The incentive plan tier id. If none it will be created
+    # The incentive plan tier id. If none, it will be created
     attr_accessor :tiers_id
 
     # If true, this entry will be cleared.

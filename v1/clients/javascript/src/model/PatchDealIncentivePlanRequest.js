@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The PatchDealIncentivePlanRequest model module.
  * @module model/PatchDealIncentivePlanRequest
- * @version 0.95.4
+ * @version 0.95.5
  */
 class PatchDealIncentivePlanRequest {
     /**
@@ -113,7 +113,7 @@ PatchDealIncentivePlanRequest.prototype['active_at'] = undefined;
 PatchDealIncentivePlanRequest.prototype['funded_by_offset'] = undefined;
 
 /**
- * The incentive plan tier id. If none it will be created
+ * The incentive plan tier id. If none, it will be created
  * @member {Array.<Number>} tiers[id]
  */
 PatchDealIncentivePlanRequest.prototype['tiers[id]'] = undefined;

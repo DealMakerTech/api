@@ -2231,7 +2231,7 @@
     "/deals/{id}/incentive_plans/{incentive_plan_id}": {
       "patch": {
         "summary": "Updates incentive plan by deal id",
-        "description": "Updates an incentive plan for the given deal id with respectve tiers.",
+        "description": "Updates an incentive plan for the given deal id with respective tiers.",
         "produces": [
           "application/json"
         ],
@@ -2274,7 +2274,7 @@
           {
             "in": "formData",
             "name": "tiers[id]",
-            "description": "The incentive plan tier id. If none it will be created",
+            "description": "The incentive plan tier id. If none, it will be created",
             "type": "array",
             "required": false,
             "items": {
@@ -2355,7 +2355,7 @@
     "/deals/{id}/incentive_plans": {
       "post": {
         "summary": "Creates incentive plan by deal id",
-        "description": "Creates an incentive plan for the given deal id with respectve tiers.",
+        "description": "Creates an incentive plan for the given deal id with respective tiers.",
         "produces": [
           "application/json"
         ],

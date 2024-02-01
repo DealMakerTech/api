@@ -49,7 +49,7 @@ describe 'IncentivePlanApi' do
 
   # unit tests for patch_deal_incentive_plan
   # Updates incentive plan by deal id
-  # Updates an incentive plan for the given deal id with respectve tiers.
+  # Updates an incentive plan for the given deal id with respective tiers.
   # @param id The deal id.
   # @param incentive_plan_id The deal id.
   # @param [Hash] opts the optional parameters
@@ -63,7 +63,7 @@ describe 'IncentivePlanApi' do
 
   # unit tests for post_deal_incentive_plan
   # Creates incentive plan by deal id
-  # Creates an incentive plan for the given deal id with respectve tiers.
+  # Creates an incentive plan for the given deal id with respective tiers.
   # @param id The deal id.
   # @param post_deal_incentive_plan_request 
   # @param [Hash] opts the optional parameters

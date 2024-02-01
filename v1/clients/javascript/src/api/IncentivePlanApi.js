@@ -20,7 +20,7 @@ import V1EntitiesDealsPriceDetails from '../model/V1EntitiesDealsPriceDetails';
 /**
 * IncentivePlan service.
 * @module api/IncentivePlanApi
-* @version 0.95.4
+* @version 0.95.5
 */
 export default class IncentivePlanApi {
 
@@ -97,7 +97,7 @@ export default class IncentivePlanApi {
 
     /**
      * Updates incentive plan by deal id
-     * Updates an incentive plan for the given deal id with respectve tiers.
+     * Updates an incentive plan for the given deal id with respective tiers.
      * @param {Number} id The deal id.
      * @param {Number} incentivePlanId The deal id.
      * @param {Object} opts Optional parameters
@@ -149,7 +149,7 @@ export default class IncentivePlanApi {
 
     /**
      * Creates incentive plan by deal id
-     * Creates an incentive plan for the given deal id with respectve tiers.
+     * Creates an incentive plan for the given deal id with respective tiers.
      * @param {Number} id The deal id.
      * @param {module:model/PostDealIncentivePlanRequest} postDealIncentivePlanRequest 
      * @param {module:api/IncentivePlanApi~postDealIncentivePlanCallback} callback The callback function, accepting three arguments: error, data, response

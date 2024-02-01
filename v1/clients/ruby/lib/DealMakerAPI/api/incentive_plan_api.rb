@@ -92,7 +92,7 @@ module DealMakerAPI
     end
 
     # Updates incentive plan by deal id
-    # Updates an incentive plan for the given deal id with respectve tiers.
+    # Updates an incentive plan for the given deal id with respective tiers.
     # @param id [Integer] The deal id.
     # @param incentive_plan_id [Integer] The deal id.
     # @param [Hash] opts the optional parameters
@@ -104,7 +104,7 @@ module DealMakerAPI
     end
 
     # Updates incentive plan by deal id
-    # Updates an incentive plan for the given deal id with respectve tiers.
+    # Updates an incentive plan for the given deal id with respective tiers.
     # @param id [Integer] The deal id.
     # @param incentive_plan_id [Integer] The deal id.
     # @param [Hash] opts the optional parameters
@@ -168,7 +168,7 @@ module DealMakerAPI
     end
 
     # Creates incentive plan by deal id
-    # Creates an incentive plan for the given deal id with respectve tiers.
+    # Creates an incentive plan for the given deal id with respective tiers.
     # @param id [Integer] The deal id.
     # @param post_deal_incentive_plan_request [PostDealIncentivePlanRequest] 
     # @param [Hash] opts the optional parameters
@@ -179,7 +179,7 @@ module DealMakerAPI
     end
 
     # Creates incentive plan by deal id
-    # Creates an incentive plan for the given deal id with respectve tiers.
+    # Creates an incentive plan for the given deal id with respective tiers.
     # @param id [Integer] The deal id.
     # @param post_deal_incentive_plan_request [PostDealIncentivePlanRequest] 
     # @param [Hash] opts the optional parameters

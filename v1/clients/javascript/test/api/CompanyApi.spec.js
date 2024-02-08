@@ -158,6 +158,16 @@
         done();
       });
     });
+    describe('getEmailEvents', function() {
+      it('should call getEmailEvents successfully', function(done) {
+        //uncomment below and update the code to test getEmailEvents
+        //instance.getEmailEvents(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('getUserAccessibleCompanies', function() {
       it('should call getUserAccessibleCompanies successfully', function(done) {
         //uncomment below and update the code to test getUserAccessibleCompanies

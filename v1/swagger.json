@@ -3519,6 +3519,54 @@
         ]
       }
     },
+    "/companies/{company_communication_id}/email_events": {
+      "get": {
+        "summary": "Get a list of email events for a company communication",
+        "description": "Gets a list of email events for a specific company communication.",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "company_communication_id",
+            "description": "The id of the company communication.",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "security": [
+          {
+            "oauth": [
+              "internal"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List email events for company communications",
+            "schema": {
+              "$ref": "#/definitions/V1_Entities_EmailEvents"
+            }
+          }
+        },
+        "tags": [
+          "company"
+        ],
+        "operationId": "getEmailEvents",
+        "x-codeSamples": [
+          {
+            "lang": "javascript",
+            "source": ""
+          },
+          {
+            "lang": "ruby",
+            "source": ""
+          }
+        ]
+      }
+    },
     "/companies": {
       "post": {
         "summary": "Create new company",
@@ -7973,6 +8021,57 @@
         "tags": {
           "type": "Array[String]",
           "description": "Shareholder tags."
+        }
+      }
+    },
+    "V1_Entities_EmailEvents": {
+      "type": "object",
+      "properties": {
+        "rows": {
+          "$ref": "#/definitions/V1_Entities_EmailEvent"
+        },
+        "rowsCount": {
+          "type": "integer",
+          "format": "int32",
+          "description": "The number of email events."
+        }
+      },
+      "description": "V1_Entities_EmailEvents model"
+    },
+    "V1_Entities_EmailEvent": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The id of the email event."
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the shareholder."
+        },
+        "email": {
+          "type": "string",
+          "description": "The email of the shareholder."
+        },
+        "delivered": {
+          "type": "integer",
+          "format": "int32",
+          "description": "The number of email delivered."
+        },
+        "opened": {
+          "type": "integer",
+          "format": "int32",
+          "description": "The number of email opened."
+        },
+        "clicked": {
+          "type": "integer",
+          "format": "int32",
+          "description": "The number of email clicked."
+        },
+        "bounced": {
+          "type": "integer",
+          "format": "int32",
+          "description": "The number of email bounced."
         }
       }
     },

@@ -15,6 +15,7 @@ Method | HTTP request | Description
 [**getCompany**](CompanyApi.md#getCompany) | **GET** /companies/{id} | Get a Company
 [**getDetailsErrorsGrouped**](CompanyApi.md#getDetailsErrorsGrouped) | **GET** /companies/{company_id}/documents/bulk_uploads/{bulk_upload_id}/details/grouped_errors | Return bulk upload details grouped by status
 [**getDividends**](CompanyApi.md#getDividends) | **GET** /companies/{company_id}/portal/dividends | Return dividends
+[**getEmailEvents**](CompanyApi.md#getEmailEvents) | **GET** /companies/{company_communication_id}/email_events | Get a list of email events for a company communication
 [**getUserAccessibleCompanies**](CompanyApi.md#getUserAccessibleCompanies) | **GET** /users/accessible_companies | Get list of all Companies accessible by the user
 [**sendPortalInvite**](CompanyApi.md#sendPortalInvite) | **POST** /companies/{id}/shareholders/{shareholder_id}/send_portal_invite | Send portal invite to shareholder
 
@@ -553,6 +554,52 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**V1EntitiesDividends**](V1EntitiesDividends.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## getEmailEvents
+
+> V1EntitiesEmailEvents getEmailEvents(companyCommunicationId)
+
+Get a list of email events for a company communication
+
+Gets a list of email events for a specific company communication.
+
+### Example
+
+```javascript
+import Api from 'api';
+let defaultClient = Api.ApiClient.instance;
+
+let apiInstance = new Api.CompanyApi();
+let companyCommunicationId = 56; // Number | The id of the company communication.
+apiInstance.getEmailEvents(companyCommunicationId, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **companyCommunicationId** | **Number**| The id of the company communication. | 
+
+### Return type
+
+[**V1EntitiesEmailEvents**](V1EntitiesEmailEvents.md)
 
 ### Authorization
 

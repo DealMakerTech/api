@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The AddDocumentRequest model module.
  * @module model/AddDocumentRequest
- * @version 0.96.0
+ * @version 0.96.1
  */
 class AddDocumentRequest {
     /**
@@ -75,7 +75,7 @@ class AddDocumentRequest {
     static validateJSON(data) {
         // check to make sure all required properties are present in the JSON string
         for (const property of AddDocumentRequest.RequiredProperties) {
-            if (!data[property]) {
+            if (!data.hasOwnProperty(property)) {
                 throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
             }
         }

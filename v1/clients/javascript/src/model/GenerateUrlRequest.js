@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The GenerateUrlRequest model module.
  * @module model/GenerateUrlRequest
- * @version 0.96.0
+ * @version 0.96.1
  */
 class GenerateUrlRequest {
     /**
@@ -64,7 +64,7 @@ class GenerateUrlRequest {
     static validateJSON(data) {
         // check to make sure all required properties are present in the JSON string
         for (const property of GenerateUrlRequest.RequiredProperties) {
-            if (!data[property]) {
+            if (!data.hasOwnProperty(property)) {
                 throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
             }
         }

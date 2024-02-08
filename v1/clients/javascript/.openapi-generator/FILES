@@ -78,6 +78,8 @@ docs/V1EntitiesDealsIncentivePlansIncentiveTier.md
 docs/V1EntitiesDealsPriceDetails.md
 docs/V1EntitiesDividend.md
 docs/V1EntitiesDividends.md
+docs/V1EntitiesEmailEvent.md
+docs/V1EntitiesEmailEvents.md
 docs/V1EntitiesExpressWireInstruction.md
 docs/V1EntitiesExpressWireInstructions.md
 docs/V1EntitiesGenericResponse.md
@@ -201,6 +203,8 @@ src/model/V1EntitiesDealsIncentivePlansIncentiveTier.js
 src/model/V1EntitiesDealsPriceDetails.js
 src/model/V1EntitiesDividend.js
 src/model/V1EntitiesDividends.js
+src/model/V1EntitiesEmailEvent.js
+src/model/V1EntitiesEmailEvents.js
 src/model/V1EntitiesExpressWireInstruction.js
 src/model/V1EntitiesExpressWireInstructions.js
 src/model/V1EntitiesGenericResponse.js
@@ -319,6 +323,8 @@ test/model/V1EntitiesDealsIncentivePlansIncentiveTier.spec.js
 test/model/V1EntitiesDealsPriceDetails.spec.js
 test/model/V1EntitiesDividend.spec.js
 test/model/V1EntitiesDividends.spec.js
+test/model/V1EntitiesEmailEvent.spec.js
+test/model/V1EntitiesEmailEvents.spec.js
 test/model/V1EntitiesExpressWireInstruction.spec.js
 test/model/V1EntitiesExpressWireInstructions.spec.js
 test/model/V1EntitiesGenericResponse.spec.js

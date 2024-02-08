@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The PostInvestorProfilesManaged model module.
  * @module model/PostInvestorProfilesManaged
- * @version 0.96.0
+ * @version 0.96.1
  */
 class PostInvestorProfilesManaged {
     /**
@@ -140,7 +140,7 @@ class PostInvestorProfilesManaged {
     static validateJSON(data) {
         // check to make sure all required properties are present in the JSON string
         for (const property of PostInvestorProfilesManaged.RequiredProperties) {
-            if (!data[property]) {
+            if (!data.hasOwnProperty(property)) {
                 throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
             }
         }

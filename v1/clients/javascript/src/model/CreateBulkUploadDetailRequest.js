@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The CreateBulkUploadDetailRequest model module.
  * @module model/CreateBulkUploadDetailRequest
- * @version 0.96.0
+ * @version 0.96.1
  */
 class CreateBulkUploadDetailRequest {
     /**
@@ -72,7 +72,7 @@ class CreateBulkUploadDetailRequest {
     static validateJSON(data) {
         // check to make sure all required properties are present in the JSON string
         for (const property of CreateBulkUploadDetailRequest.RequiredProperties) {
-            if (!data[property]) {
+            if (!data.hasOwnProperty(property)) {
                 throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
             }
         }

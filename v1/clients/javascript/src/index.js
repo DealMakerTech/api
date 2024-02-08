@@ -75,6 +75,8 @@ import V1EntitiesDealsIncentivePlansIncentiveTier from './model/V1EntitiesDealsI
 import V1EntitiesDealsPriceDetails from './model/V1EntitiesDealsPriceDetails';
 import V1EntitiesDividend from './model/V1EntitiesDividend';
 import V1EntitiesDividends from './model/V1EntitiesDividends';
+import V1EntitiesEmailEvent from './model/V1EntitiesEmailEvent';
+import V1EntitiesEmailEvents from './model/V1EntitiesEmailEvents';
 import V1EntitiesExpressWireInstruction from './model/V1EntitiesExpressWireInstruction';
 import V1EntitiesExpressWireInstructions from './model/V1EntitiesExpressWireInstructions';
 import V1EntitiesGenericResponse from './model/V1EntitiesGenericResponse';
@@ -162,7 +164,7 @@ import UsersApi from './api/UsersApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.96.0
+* @version 0.96.1
 */
 export {
     /**
@@ -542,6 +544,18 @@ export {
      * @property {module:model/V1EntitiesDividends}
      */
     V1EntitiesDividends,
+
+    /**
+     * The V1EntitiesEmailEvent model constructor.
+     * @property {module:model/V1EntitiesEmailEvent}
+     */
+    V1EntitiesEmailEvent,
+
+    /**
+     * The V1EntitiesEmailEvents model constructor.
+     * @property {module:model/V1EntitiesEmailEvents}
+     */
+    V1EntitiesEmailEvents,
 
     /**
      * The V1EntitiesExpressWireInstruction model constructor.

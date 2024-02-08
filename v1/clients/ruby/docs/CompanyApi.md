@@ -15,6 +15,7 @@ All URIs are relative to *http://api.dealmaker.tech*
 | [**get_company**](CompanyApi.md#get_company) | **GET** /companies/{id} | Get a Company |
 | [**get_details_errors_grouped**](CompanyApi.md#get_details_errors_grouped) | **GET** /companies/{company_id}/documents/bulk_uploads/{bulk_upload_id}/details/grouped_errors | Return bulk upload details grouped by status |
 | [**get_dividends**](CompanyApi.md#get_dividends) | **GET** /companies/{company_id}/portal/dividends | Return dividends |
+| [**get_email_events**](CompanyApi.md#get_email_events) | **GET** /companies/{company_communication_id}/email_events | Get a list of email events for a company communication |
 | [**get_user_accessible_companies**](CompanyApi.md#get_user_accessible_companies) | **GET** /users/accessible_companies | Get list of all Companies accessible by the user |
 | [**send_portal_invite**](CompanyApi.md#send_portal_invite) | **POST** /companies/{id}/shareholders/{shareholder_id}/send_portal_invite | Send portal invite to shareholder |
 
@@ -772,6 +773,72 @@ end
 ### Return type
 
 [**V1EntitiesDividends**](V1EntitiesDividends.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## get_email_events
+
+> <V1EntitiesEmailEvents> get_email_events(company_communication_id)
+
+Get a list of email events for a company communication
+
+Gets a list of email events for a specific company communication.
+
+### Examples
+
+```ruby
+require 'time'
+require 'DealMakerAPI'
+# setup authorization
+DealMakerAPI.configure do |config|end
+
+api_instance = DealMakerAPI::CompanyApi.new
+company_communication_id = 56 # Integer | The id of the company communication.
+
+begin
+  # Get a list of email events for a company communication
+  result = api_instance.get_email_events(company_communication_id)
+  p result
+rescue DealMakerAPI::ApiError => e
+  puts "Error when calling CompanyApi->get_email_events: #{e}"
+end
+```
+
+#### Using the get_email_events_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<V1EntitiesEmailEvents>, Integer, Hash)> get_email_events_with_http_info(company_communication_id)
+
+```ruby
+begin
+  # Get a list of email events for a company communication
+  data, status_code, headers = api_instance.get_email_events_with_http_info(company_communication_id)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <V1EntitiesEmailEvents>
+rescue DealMakerAPI::ApiError => e
+  puts "Error when calling CompanyApi->get_email_events_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **company_communication_id** | **Integer** | The id of the company communication. |  |
+
+### Return type
+
+[**V1EntitiesEmailEvents**](V1EntitiesEmailEvents.md)
 
 ### Authorization
 

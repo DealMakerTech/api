@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The PostWebhooksRequest model module.
  * @module model/PostWebhooksRequest
- * @version 0.96.0
+ * @version 0.96.1
  */
 class PostWebhooksRequest {
     /**
@@ -80,7 +80,7 @@ class PostWebhooksRequest {
     static validateJSON(data) {
         // check to make sure all required properties are present in the JSON string
         for (const property of PostWebhooksRequest.RequiredProperties) {
-            if (!data[property]) {
+            if (!data.hasOwnProperty(property)) {
                 throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
             }
         }

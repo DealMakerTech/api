@@ -17,7 +17,7 @@ import querystring from "querystring";
 
 /**
 * @module ApiClient
-* @version 0.96.0
+* @version 0.96.1
 */
 
 /**
@@ -54,7 +54,7 @@ class ApiClient {
          * @default {}
          */
         this.defaultHeaders = {
-            'User-Agent': 'OpenAPI-Generator/0.96.0/Javascript'
+            'User-Agent': 'OpenAPI-Generator/0.96.1/Javascript'
         };
 
         /**
@@ -154,7 +154,7 @@ class ApiClient {
             url = apiBasePath + path;
         }
 
-        url = url.replace(/\{([\w-\.]+)\}/g, (fullMatch, key) => {
+        url = url.replace(/\{([\w-\.#]+)\}/g, (fullMatch, key) => {
             var value;
             if (pathParams.hasOwnProperty(key)) {
                 value = this.paramToString(pathParams[key]);

@@ -24,12 +24,13 @@ import V1EntitiesBulkUploadDetails from '../model/V1EntitiesBulkUploadDetails';
 import V1EntitiesBulkUploads from '../model/V1EntitiesBulkUploads';
 import V1EntitiesCompany from '../model/V1EntitiesCompany';
 import V1EntitiesDividends from '../model/V1EntitiesDividends';
+import V1EntitiesEmailEvents from '../model/V1EntitiesEmailEvents';
 import V1EntitiesGenericResponse from '../model/V1EntitiesGenericResponse';
 
 /**
 * Company service.
 * @module api/CompanyApi
-* @version 0.96.0
+* @version 0.96.1
 */
 export default class CompanyApi {
 
@@ -575,6 +576,49 @@ export default class CompanyApi {
       let returnType = V1EntitiesDividends;
       return this.apiClient.callApi(
         '/companies/{company_id}/portal/dividends', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the getEmailEvents operation.
+     * @callback module:api/CompanyApi~getEmailEventsCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/V1EntitiesEmailEvents} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Get a list of email events for a company communication
+     * Gets a list of email events for a specific company communication.
+     * @param {Number} companyCommunicationId The id of the company communication.
+     * @param {module:api/CompanyApi~getEmailEventsCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/V1EntitiesEmailEvents}
+     */
+    getEmailEvents(companyCommunicationId, callback) {
+      let postBody = null;
+      // verify the required parameter 'companyCommunicationId' is set
+      if (companyCommunicationId === undefined || companyCommunicationId === null) {
+        throw new Error("Missing the required parameter 'companyCommunicationId' when calling getEmailEvents");
+      }
+
+      let pathParams = {
+        'company_communication_id': companyCommunicationId
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = V1EntitiesEmailEvents;
+      return this.apiClient.callApi(
+        '/companies/{company_communication_id}/email_events', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

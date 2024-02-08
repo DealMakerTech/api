@@ -79,6 +79,8 @@ docs/Model/V1EntitiesDealsIncentivePlansIncentiveTier.md
 docs/Model/V1EntitiesDealsPriceDetails.md
 docs/Model/V1EntitiesDividend.md
 docs/Model/V1EntitiesDividends.md
+docs/Model/V1EntitiesEmailEvent.md
+docs/Model/V1EntitiesEmailEvents.md
 docs/Model/V1EntitiesExpressWireInstruction.md
 docs/Model/V1EntitiesExpressWireInstructions.md
 docs/Model/V1EntitiesGenericResponse.md
@@ -202,6 +204,8 @@ lib/Model/V1EntitiesDealsIncentivePlansIncentiveTier.php
 lib/Model/V1EntitiesDealsPriceDetails.php
 lib/Model/V1EntitiesDividend.php
 lib/Model/V1EntitiesDividends.php
+lib/Model/V1EntitiesEmailEvent.php
+lib/Model/V1EntitiesEmailEvents.php
 lib/Model/V1EntitiesExpressWireInstruction.php
 lib/Model/V1EntitiesExpressWireInstructions.php
 lib/Model/V1EntitiesGenericResponse.php
@@ -322,6 +326,8 @@ test/Model/V1EntitiesDealsPriceDetailsTest.php
 test/Model/V1EntitiesDealsTest.php
 test/Model/V1EntitiesDividendTest.php
 test/Model/V1EntitiesDividendsTest.php
+test/Model/V1EntitiesEmailEventTest.php
+test/Model/V1EntitiesEmailEventsTest.php
 test/Model/V1EntitiesExpressWireInstructionTest.php
 test/Model/V1EntitiesExpressWireInstructionsTest.php
 test/Model/V1EntitiesGenericResponseTest.php

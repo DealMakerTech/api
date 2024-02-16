@@ -57,7 +57,8 @@ class GenerateUrlRequest implements ModelInterface, ArrayAccess, \JsonSerializab
       * @var string[]
       */
     protected static $openAPITypes = [
-        'filename' => 'string'
+        'filename' => 'string',
+        'target' => 'string'
     ];
 
     /**
@@ -68,7 +69,8 @@ class GenerateUrlRequest implements ModelInterface, ArrayAccess, \JsonSerializab
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'filename' => null
+        'filename' => null,
+        'target' => null
     ];
 
     /**
@@ -77,7 +79,8 @@ class GenerateUrlRequest implements ModelInterface, ArrayAccess, \JsonSerializab
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'filename' => false
+        'filename' => false,
+        'target' => false
     ];
 
     /**
@@ -166,7 +169,8 @@ class GenerateUrlRequest implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $attributeMap = [
-        'filename' => 'filename'
+        'filename' => 'filename',
+        'target' => 'target'
     ];
 
     /**
@@ -175,7 +179,8 @@ class GenerateUrlRequest implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $setters = [
-        'filename' => 'setFilename'
+        'filename' => 'setFilename',
+        'target' => 'setTarget'
     ];
 
     /**
@@ -184,7 +189,8 @@ class GenerateUrlRequest implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $getters = [
-        'filename' => 'getFilename'
+        'filename' => 'getFilename',
+        'target' => 'getTarget'
     ];
 
     /**
@@ -228,6 +234,21 @@ class GenerateUrlRequest implements ModelInterface, ArrayAccess, \JsonSerializab
         return self::$openAPIModelName;
     }
 
+    public const TARGET_IDOCR = 'IDOCR';
+    public const TARGET_GENERAL_UPLOAD = 'GENERAL_UPLOAD';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTargetAllowableValues()
+    {
+        return [
+            self::TARGET_IDOCR,
+            self::TARGET_GENERAL_UPLOAD,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -245,6 +266,7 @@ class GenerateUrlRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     public function __construct(array $data = null)
     {
         $this->setIfExists('filename', $data ?? [], null);
+        $this->setIfExists('target', $data ?? [], null);
     }
 
     /**
@@ -277,6 +299,15 @@ class GenerateUrlRequest implements ModelInterface, ArrayAccess, \JsonSerializab
         if ($this->container['filename'] === null) {
             $invalidProperties[] = "'filename' can't be null";
         }
+        $allowedValues = $this->getTargetAllowableValues();
+        if (!is_null($this->container['target']) && !in_array($this->container['target'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'target', must be one of '%s'",
+                $this->container['target'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -315,6 +346,43 @@ class GenerateUrlRequest implements ModelInterface, ArrayAccess, \JsonSerializab
             throw new \InvalidArgumentException('non-nullable filename cannot be null');
         }
         $this->container['filename'] = $filename;
+
+        return $this;
+    }
+
+    /**
+     * Gets target
+     *
+     * @return string|null
+     */
+    public function getTarget()
+    {
+        return $this->container['target'];
+    }
+
+    /**
+     * Sets target
+     *
+     * @param string|null $target The target is used to figure out the intended destination (which cloud provider and which bucket)
+     *
+     * @return self
+     */
+    public function setTarget($target)
+    {
+        if (is_null($target)) {
+            throw new \InvalidArgumentException('non-nullable target cannot be null');
+        }
+        $allowedValues = $this->getTargetAllowableValues();
+        if (!in_array($target, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'target', must be one of '%s'",
+                    $target,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['target'] = $target;
 
         return $this;
     }

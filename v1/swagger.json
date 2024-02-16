@@ -977,6 +977,17 @@
             "description": "The name of the file to be uploaded to S3.",
             "type": "string",
             "required": true
+          },
+          {
+            "in": "formData",
+            "name": "target",
+            "description": "The target is used to figure out the intended destination (which cloud provider and which bucket)",
+            "type": "string",
+            "enum": [
+              "IDOCR",
+              "GENERAL_UPLOAD"
+            ],
+            "required": false
           }
         ],
         "security": [

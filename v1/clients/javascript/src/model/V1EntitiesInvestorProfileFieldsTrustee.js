@@ -17,7 +17,7 @@ import V1EntitiesInvestorProfileAddress from './V1EntitiesInvestorProfileAddress
 /**
  * The V1EntitiesInvestorProfileFieldsTrustee model module.
  * @module model/V1EntitiesInvestorProfileFieldsTrustee
- * @version 0.96.2
+ * @version 0.97.1
  */
 class V1EntitiesInvestorProfileFieldsTrustee {
     /**

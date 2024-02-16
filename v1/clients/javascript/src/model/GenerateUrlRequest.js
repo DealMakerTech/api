@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The GenerateUrlRequest model module.
  * @module model/GenerateUrlRequest
- * @version 0.96.2
+ * @version 0.97.1
  */
 class GenerateUrlRequest {
     /**
@@ -52,6 +52,9 @@ class GenerateUrlRequest {
             if (data.hasOwnProperty('filename')) {
                 obj['filename'] = ApiClient.convertToType(data['filename'], 'String');
             }
+            if (data.hasOwnProperty('target')) {
+                obj['target'] = ApiClient.convertToType(data['target'], 'String');
+            }
         }
         return obj;
     }
@@ -72,6 +75,10 @@ class GenerateUrlRequest {
         if (data['filename'] && !(typeof data['filename'] === 'string' || data['filename'] instanceof String)) {
             throw new Error("Expected the field `filename` to be a primitive type in the JSON string but got " + data['filename']);
         }
+        // ensure the json data is a string
+        if (data['target'] && !(typeof data['target'] === 'string' || data['target'] instanceof String)) {
+            throw new Error("Expected the field `target` to be a primitive type in the JSON string but got " + data['target']);
+        }
 
         return true;
     }
@@ -87,8 +94,35 @@ GenerateUrlRequest.RequiredProperties = ["filename"];
  */
 GenerateUrlRequest.prototype['filename'] = undefined;
 
+/**
+ * The target is used to figure out the intended destination (which cloud provider and which bucket)
+ * @member {module:model/GenerateUrlRequest.TargetEnum} target
+ */
+GenerateUrlRequest.prototype['target'] = undefined;
 
 
+
+
+
+/**
+ * Allowed values for the <code>target</code> property.
+ * @enum {String}
+ * @readonly
+ */
+GenerateUrlRequest['TargetEnum'] = {
+
+    /**
+     * value: "IDOCR"
+     * @const
+     */
+    "IDOCR": "IDOCR",
+
+    /**
+     * value: "GENERAL_UPLOAD"
+     * @const
+     */
+    "GENERAL_UPLOAD": "GENERAL_UPLOAD"
+};
 
 
 

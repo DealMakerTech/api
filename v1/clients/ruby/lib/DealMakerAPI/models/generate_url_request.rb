@@ -18,10 +18,36 @@ module DealMakerAPI
     # The name of the file to be uploaded to S3.
     attr_accessor :filename
 
+    # The target is used to figure out the intended destination (which cloud provider and which bucket)
+    attr_accessor :target
+
+    class EnumAttributeValidator
+      attr_reader :datatype
+      attr_reader :allowable_values
+
+      def initialize(datatype, allowable_values)
+        @allowable_values = allowable_values.map do |value|
+          case datatype.to_s
+          when /Integer/i
+            value.to_i
+          when /Float/i
+            value.to_f
+          else
+            value
+          end
+        end
+      end
+
+      def valid?(value)
+        !value || allowable_values.include?(value)
+      end
+    end
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'filename' => :'filename'
+        :'filename' => :'filename',
+        :'target' => :'target'
       }
     end
 
@@ -33,7 +59,8 @@ module DealMakerAPI
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'filename' => :'String'
+        :'filename' => :'String',
+        :'target' => :'String'
       }
     end
 
@@ -63,6 +90,10 @@ module DealMakerAPI
       else
         self.filename = nil
       end
+
+      if attributes.key?(:'target')
+        self.target = attributes[:'target']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -82,7 +113,19 @@ module DealMakerAPI
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
       return false if @filename.nil?
+      target_validator = EnumAttributeValidator.new('String', ["IDOCR", "GENERAL_UPLOAD"])
+      return false unless target_validator.valid?(@target)
       true
+    end
+
+    # Custom attribute writer method checking allowed values (enum).
+    # @param [Object] target Object to be assigned
+    def target=(target)
+      validator = EnumAttributeValidator.new('String', ["IDOCR", "GENERAL_UPLOAD"])
+      unless validator.valid?(target)
+        fail ArgumentError, "invalid value for \"target\", must be one of #{validator.allowable_values}."
+      end
+      @target = target
     end
 
     # Checks equality by comparing each attribute.
@@ -90,7 +133,8 @@ module DealMakerAPI
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          filename == o.filename
+          filename == o.filename &&
+          target == o.target
     end
 
     # @see the `==` method
@@ -102,7 +146,7 @@ module DealMakerAPI
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [filename].hash
+      [filename, target].hash
     end
 
     # Builds the object from hash

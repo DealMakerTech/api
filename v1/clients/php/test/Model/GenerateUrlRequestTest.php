@@ -87,4 +87,13 @@ class GenerateUrlRequestTest extends TestCase
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test attribute "target"
+     */
+    public function testPropertyTarget()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
 }

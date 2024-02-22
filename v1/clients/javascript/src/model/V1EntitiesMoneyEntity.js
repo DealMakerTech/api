@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The V1EntitiesMoneyEntity model module.
  * @module model/V1EntitiesMoneyEntity
- * @version 0.97.2
+ * @version 0.97.3
  */
 class V1EntitiesMoneyEntity {
     /**
@@ -50,6 +50,9 @@ class V1EntitiesMoneyEntity {
             if (data.hasOwnProperty('amount')) {
                 obj['amount'] = ApiClient.convertToType(data['amount'], 'Number');
             }
+            if (data.hasOwnProperty('amount_cents')) {
+                obj['amount_cents'] = ApiClient.convertToType(data['amount_cents'], 'Number');
+            }
             if (data.hasOwnProperty('currency')) {
                 obj['currency'] = ApiClient.convertToType(data['currency'], 'String');
             }
@@ -81,6 +84,12 @@ class V1EntitiesMoneyEntity {
  * @member {Number} amount
  */
 V1EntitiesMoneyEntity.prototype['amount'] = undefined;
+
+/**
+ * The amount of money in cents.
+ * @member {Number} amount_cents
+ */
+V1EntitiesMoneyEntity.prototype['amount_cents'] = undefined;
 
 /**
  * The currency of the money.

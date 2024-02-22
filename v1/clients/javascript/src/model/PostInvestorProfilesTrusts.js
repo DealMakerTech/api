@@ -17,7 +17,7 @@ import PostInvestorProfilesTrustsTrusteesInner from './PostInvestorProfilesTrust
 /**
  * The PostInvestorProfilesTrusts model module.
  * @module model/PostInvestorProfilesTrusts
- * @version 0.97.2
+ * @version 0.97.3
  */
 class PostInvestorProfilesTrusts {
     /**

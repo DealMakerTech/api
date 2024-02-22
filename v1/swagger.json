@@ -7647,6 +7647,11 @@
           "format": "float",
           "description": "The amount of money."
         },
+        "amount_cents": {
+          "type": "number",
+          "format": "float",
+          "description": "The amount of money in cents."
+        },
         "currency": {
           "type": "string",
           "description": "The currency of the money."

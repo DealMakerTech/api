@@ -58,6 +58,7 @@ class V1EntitiesMoneyEntity implements ModelInterface, ArrayAccess, \JsonSeriali
       */
     protected static $openAPITypes = [
         'amount' => 'float',
+        'amount_cents' => 'float',
         'currency' => 'string'
     ];
 
@@ -70,6 +71,7 @@ class V1EntitiesMoneyEntity implements ModelInterface, ArrayAccess, \JsonSeriali
       */
     protected static $openAPIFormats = [
         'amount' => 'float',
+        'amount_cents' => 'float',
         'currency' => null
     ];
 
@@ -80,6 +82,7 @@ class V1EntitiesMoneyEntity implements ModelInterface, ArrayAccess, \JsonSeriali
       */
     protected static array $openAPINullables = [
         'amount' => false,
+        'amount_cents' => false,
         'currency' => false
     ];
 
@@ -170,6 +173,7 @@ class V1EntitiesMoneyEntity implements ModelInterface, ArrayAccess, \JsonSeriali
      */
     protected static $attributeMap = [
         'amount' => 'amount',
+        'amount_cents' => 'amount_cents',
         'currency' => 'currency'
     ];
 
@@ -180,6 +184,7 @@ class V1EntitiesMoneyEntity implements ModelInterface, ArrayAccess, \JsonSeriali
      */
     protected static $setters = [
         'amount' => 'setAmount',
+        'amount_cents' => 'setAmountCents',
         'currency' => 'setCurrency'
     ];
 
@@ -190,6 +195,7 @@ class V1EntitiesMoneyEntity implements ModelInterface, ArrayAccess, \JsonSeriali
      */
     protected static $getters = [
         'amount' => 'getAmount',
+        'amount_cents' => 'getAmountCents',
         'currency' => 'getCurrency'
     ];
 
@@ -251,6 +257,7 @@ class V1EntitiesMoneyEntity implements ModelInterface, ArrayAccess, \JsonSeriali
     public function __construct(array $data = null)
     {
         $this->setIfExists('amount', $data ?? [], null);
+        $this->setIfExists('amount_cents', $data ?? [], null);
         $this->setIfExists('currency', $data ?? [], null);
     }
 
@@ -319,6 +326,33 @@ class V1EntitiesMoneyEntity implements ModelInterface, ArrayAccess, \JsonSeriali
             throw new \InvalidArgumentException('non-nullable amount cannot be null');
         }
         $this->container['amount'] = $amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets amount_cents
+     *
+     * @return float|null
+     */
+    public function getAmountCents()
+    {
+        return $this->container['amount_cents'];
+    }
+
+    /**
+     * Sets amount_cents
+     *
+     * @param float|null $amount_cents The amount of money in cents.
+     *
+     * @return self
+     */
+    public function setAmountCents($amount_cents)
+    {
+        if (is_null($amount_cents)) {
+            throw new \InvalidArgumentException('non-nullable amount_cents cannot be null');
+        }
+        $this->container['amount_cents'] = $amount_cents;
 
         return $this;
     }

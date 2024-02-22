@@ -89,6 +89,15 @@ class V1EntitiesMoneyEntityTest extends TestCase
     }
 
     /**
+     * Test attribute "amount_cents"
+     */
+    public function testPropertyAmountCents()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "currency"
      */
     public function testPropertyCurrency()

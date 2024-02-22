@@ -60,6 +60,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property amountCents (base name: "amount_cents")', function() {
+      // uncomment below and update the code to test the property amountCents
+      //var instance = new Api.V1EntitiesMoneyEntity();
+      //expect(instance).to.be();
+    });
+
     it('should have the property currency (base name: "currency")', function() {
       // uncomment below and update the code to test the property currency
       //var instance = new Api.V1EntitiesMoneyEntity();

@@ -114,6 +114,7 @@ require 'DealMakerAPI/models/v1_entities_payments_self_serve_onboarding_payout_a
 require 'DealMakerAPI/models/v1_entities_payments_self_serve_onboarding_qualification_questionnaire_result'
 require 'DealMakerAPI/models/v1_entities_presigned_url_result'
 require 'DealMakerAPI/models/v1_entities_shareholder'
+require 'DealMakerAPI/models/v1_entities_shareholder_ledger'
 require 'DealMakerAPI/models/v1_entities_shareholders'
 require 'DealMakerAPI/models/v1_entities_shareholders_tags'
 require 'DealMakerAPI/models/v1_entities_state'

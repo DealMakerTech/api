@@ -192,6 +192,18 @@ describe 'CompanyApi' do
     end
   end
 
+  # unit tests for get_shareholder_ledger
+  # Get shareholder ledger by company
+  # Get shareholder ledger by company.
+  # @param id 
+  # @param [Hash] opts the optional parameters
+  # @return [V1EntitiesShareholderLedger]
+  describe 'get_shareholder_ledger test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for get_user_accessible_companies
   # Get list of all Companies accessible by the user
   # Get user accessible companies

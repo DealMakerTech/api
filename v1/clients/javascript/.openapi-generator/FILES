@@ -113,6 +113,7 @@ docs/V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsResult.md
 docs/V1EntitiesPaymentsSelfServeOnboardingQualificationQuestionnaireResult.md
 docs/V1EntitiesPresignedUrlResult.md
 docs/V1EntitiesShareholder.md
+docs/V1EntitiesShareholderLedger.md
 docs/V1EntitiesShareholders.md
 docs/V1EntitiesShareholdersTags.md
 docs/V1EntitiesState.md
@@ -238,6 +239,7 @@ src/model/V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsResult.js
 src/model/V1EntitiesPaymentsSelfServeOnboardingQualificationQuestionnaireResult.js
 src/model/V1EntitiesPresignedUrlResult.js
 src/model/V1EntitiesShareholder.js
+src/model/V1EntitiesShareholderLedger.js
 src/model/V1EntitiesShareholders.js
 src/model/V1EntitiesShareholdersTags.js
 src/model/V1EntitiesState.js
@@ -358,6 +360,7 @@ test/model/V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsResult.spec.
 test/model/V1EntitiesPaymentsSelfServeOnboardingQualificationQuestionnaireResult.spec.js
 test/model/V1EntitiesPresignedUrlResult.spec.js
 test/model/V1EntitiesShareholder.spec.js
+test/model/V1EntitiesShareholderLedger.spec.js
 test/model/V1EntitiesShareholders.spec.js
 test/model/V1EntitiesShareholdersTags.spec.js
 test/model/V1EntitiesState.spec.js

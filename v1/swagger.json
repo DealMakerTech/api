@@ -3807,6 +3807,57 @@
         ]
       }
     },
+    "/companies/{id}/shareholder_ledger": {
+      "get": {
+        "summary": "Get shareholder ledger by company",
+        "description": "Get shareholder ledger by company.",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "security": [
+          {
+            "oauth": [
+              "companies.read",
+              "internal"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get shareholder ledger",
+            "schema": {
+              "$ref": "#/definitions/V1_Entities_ShareholderLedger"
+            }
+          },
+          "401": {
+            "description": "Forbidden"
+          }
+        },
+        "tags": [
+          "company"
+        ],
+        "operationId": "getShareholderLedger",
+        "x-codeSamples": [
+          {
+            "lang": "javascript",
+            "source": ""
+          },
+          {
+            "lang": "ruby",
+            "source": ""
+          }
+        ]
+      }
+    },
     "/companies/{company_id}/portal/dividends": {
       "get": {
         "summary": "Return dividends",
@@ -8090,6 +8141,21 @@
           "description": "The number of email bounced."
         }
       }
+    },
+    "V1_Entities_ShareholderLedger": {
+      "type": "object",
+      "properties": {
+        "shareholder_ledger_url": {
+          "type": "string",
+          "description": "The URL of the shareholder ledger."
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The date and time the shareholder ledger was created."
+        }
+      },
+      "description": "V1_Entities_ShareholderLedger model"
     },
     "V1_Entities_Dividends": {
       "type": "object",

@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The PostDealIncentivePlanRequest model module.
  * @module model/PostDealIncentivePlanRequest
- * @version 0.97.3
+ * @version 0.97.4
  */
 class PostDealIncentivePlanRequest {
     /**

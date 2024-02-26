@@ -110,6 +110,7 @@ import V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsResult from './m
 import V1EntitiesPaymentsSelfServeOnboardingQualificationQuestionnaireResult from './model/V1EntitiesPaymentsSelfServeOnboardingQualificationQuestionnaireResult';
 import V1EntitiesPresignedUrlResult from './model/V1EntitiesPresignedUrlResult';
 import V1EntitiesShareholder from './model/V1EntitiesShareholder';
+import V1EntitiesShareholderLedger from './model/V1EntitiesShareholderLedger';
 import V1EntitiesShareholders from './model/V1EntitiesShareholders';
 import V1EntitiesShareholdersTags from './model/V1EntitiesShareholdersTags';
 import V1EntitiesState from './model/V1EntitiesState';
@@ -164,7 +165,7 @@ import UsersApi from './api/UsersApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.97.3
+* @version 0.97.4
 */
 export {
     /**
@@ -754,6 +755,12 @@ export {
      * @property {module:model/V1EntitiesShareholder}
      */
     V1EntitiesShareholder,
+
+    /**
+     * The V1EntitiesShareholderLedger model constructor.
+     * @property {module:model/V1EntitiesShareholderLedger}
+     */
+    V1EntitiesShareholderLedger,
 
     /**
      * The V1EntitiesShareholders model constructor.

@@ -16,6 +16,7 @@ All URIs are relative to *http://api.dealmaker.tech*
 | [**get_details_errors_grouped**](CompanyApi.md#get_details_errors_grouped) | **GET** /companies/{company_id}/documents/bulk_uploads/{bulk_upload_id}/details/grouped_errors | Return bulk upload details grouped by status |
 | [**get_dividends**](CompanyApi.md#get_dividends) | **GET** /companies/{company_id}/portal/dividends | Return dividends |
 | [**get_email_events**](CompanyApi.md#get_email_events) | **GET** /companies/{company_communication_id}/email_events | Get a list of email events for a company communication |
+| [**get_shareholder_ledger**](CompanyApi.md#get_shareholder_ledger) | **GET** /companies/{id}/shareholder_ledger | Get shareholder ledger by company |
 | [**get_user_accessible_companies**](CompanyApi.md#get_user_accessible_companies) | **GET** /users/accessible_companies | Get list of all Companies accessible by the user |
 | [**send_portal_invite**](CompanyApi.md#send_portal_invite) | **POST** /companies/{id}/shareholders/{shareholder_id}/send_portal_invite | Send portal invite to shareholder |
 
@@ -839,6 +840,72 @@ end
 ### Return type
 
 [**V1EntitiesEmailEvents**](V1EntitiesEmailEvents.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## get_shareholder_ledger
+
+> <V1EntitiesShareholderLedger> get_shareholder_ledger(id)
+
+Get shareholder ledger by company
+
+Get shareholder ledger by company.
+
+### Examples
+
+```ruby
+require 'time'
+require 'DealMakerAPI'
+# setup authorization
+DealMakerAPI.configure do |config|end
+
+api_instance = DealMakerAPI::CompanyApi.new
+id = 56 # Integer | 
+
+begin
+  # Get shareholder ledger by company
+  result = api_instance.get_shareholder_ledger(id)
+  p result
+rescue DealMakerAPI::ApiError => e
+  puts "Error when calling CompanyApi->get_shareholder_ledger: #{e}"
+end
+```
+
+#### Using the get_shareholder_ledger_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<V1EntitiesShareholderLedger>, Integer, Hash)> get_shareholder_ledger_with_http_info(id)
+
+```ruby
+begin
+  # Get shareholder ledger by company
+  data, status_code, headers = api_instance.get_shareholder_ledger_with_http_info(id)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <V1EntitiesShareholderLedger>
+rescue DealMakerAPI::ApiError => e
+  puts "Error when calling CompanyApi->get_shareholder_ledger_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **id** | **Integer** |  |  |
+
+### Return type
+
+[**V1EntitiesShareholderLedger**](V1EntitiesShareholderLedger.md)
 
 ### Authorization
 

@@ -114,6 +114,7 @@ docs/Model/V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsResult.md
 docs/Model/V1EntitiesPaymentsSelfServeOnboardingQualificationQuestionnaireResult.md
 docs/Model/V1EntitiesPresignedUrlResult.md
 docs/Model/V1EntitiesShareholder.md
+docs/Model/V1EntitiesShareholderLedger.md
 docs/Model/V1EntitiesShareholders.md
 docs/Model/V1EntitiesShareholdersTags.md
 docs/Model/V1EntitiesState.md
@@ -239,6 +240,7 @@ lib/Model/V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsResult.php
 lib/Model/V1EntitiesPaymentsSelfServeOnboardingQualificationQuestionnaireResult.php
 lib/Model/V1EntitiesPresignedUrlResult.php
 lib/Model/V1EntitiesShareholder.php
+lib/Model/V1EntitiesShareholderLedger.php
 lib/Model/V1EntitiesShareholders.php
 lib/Model/V1EntitiesShareholdersTags.php
 lib/Model/V1EntitiesState.php
@@ -360,6 +362,7 @@ test/Model/V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsDataTest.php
 test/Model/V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsResultTest.php
 test/Model/V1EntitiesPaymentsSelfServeOnboardingQualificationQuestionnaireResultTest.php
 test/Model/V1EntitiesPresignedUrlResultTest.php
+test/Model/V1EntitiesShareholderLedgerTest.php
 test/Model/V1EntitiesShareholderTest.php
 test/Model/V1EntitiesShareholdersTagsTest.php
 test/Model/V1EntitiesShareholdersTest.php

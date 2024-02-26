@@ -168,6 +168,16 @@
         done();
       });
     });
+    describe('getShareholderLedger', function() {
+      it('should call getShareholderLedger successfully', function(done) {
+        //uncomment below and update the code to test getShareholderLedger
+        //instance.getShareholderLedger(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('getUserAccessibleCompanies', function() {
       it('should call getUserAccessibleCompanies successfully', function(done) {
         //uncomment below and update the code to test getUserAccessibleCompanies

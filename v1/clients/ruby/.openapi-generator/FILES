@@ -118,6 +118,7 @@ docs/V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsResult.md
 docs/V1EntitiesPaymentsSelfServeOnboardingQualificationQuestionnaireResult.md
 docs/V1EntitiesPresignedUrlResult.md
 docs/V1EntitiesShareholder.md
+docs/V1EntitiesShareholderLedger.md
 docs/V1EntitiesShareholders.md
 docs/V1EntitiesShareholdersTags.md
 docs/V1EntitiesState.md
@@ -243,6 +244,7 @@ lib/DealMakerAPI/models/v1_entities_payments_self_serve_onboarding_payout_accoun
 lib/DealMakerAPI/models/v1_entities_payments_self_serve_onboarding_qualification_questionnaire_result.rb
 lib/DealMakerAPI/models/v1_entities_presigned_url_result.rb
 lib/DealMakerAPI/models/v1_entities_shareholder.rb
+lib/DealMakerAPI/models/v1_entities_shareholder_ledger.rb
 lib/DealMakerAPI/models/v1_entities_shareholders.rb
 lib/DealMakerAPI/models/v1_entities_shareholders_tags.rb
 lib/DealMakerAPI/models/v1_entities_state.rb
@@ -363,6 +365,7 @@ spec/models/v1_entities_payments_self_serve_onboarding_payout_account_details_da
 spec/models/v1_entities_payments_self_serve_onboarding_payout_account_details_result_spec.rb
 spec/models/v1_entities_payments_self_serve_onboarding_qualification_questionnaire_result_spec.rb
 spec/models/v1_entities_presigned_url_result_spec.rb
+spec/models/v1_entities_shareholder_ledger_spec.rb
 spec/models/v1_entities_shareholder_spec.rb
 spec/models/v1_entities_shareholders_spec.rb
 spec/models/v1_entities_shareholders_tags_spec.rb

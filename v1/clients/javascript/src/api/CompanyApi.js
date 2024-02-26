@@ -26,11 +26,12 @@ import V1EntitiesCompany from '../model/V1EntitiesCompany';
 import V1EntitiesDividends from '../model/V1EntitiesDividends';
 import V1EntitiesEmailEvents from '../model/V1EntitiesEmailEvents';
 import V1EntitiesGenericResponse from '../model/V1EntitiesGenericResponse';
+import V1EntitiesShareholderLedger from '../model/V1EntitiesShareholderLedger';
 
 /**
 * Company service.
 * @module api/CompanyApi
-* @version 0.97.3
+* @version 0.97.4
 */
 export default class CompanyApi {
 
@@ -619,6 +620,49 @@ export default class CompanyApi {
       let returnType = V1EntitiesEmailEvents;
       return this.apiClient.callApi(
         '/companies/{company_communication_id}/email_events', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the getShareholderLedger operation.
+     * @callback module:api/CompanyApi~getShareholderLedgerCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/V1EntitiesShareholderLedger} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Get shareholder ledger by company
+     * Get shareholder ledger by company.
+     * @param {Number} id 
+     * @param {module:api/CompanyApi~getShareholderLedgerCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/V1EntitiesShareholderLedger}
+     */
+    getShareholderLedger(id, callback) {
+      let postBody = null;
+      // verify the required parameter 'id' is set
+      if (id === undefined || id === null) {
+        throw new Error("Missing the required parameter 'id' when calling getShareholderLedger");
+      }
+
+      let pathParams = {
+        'id': id
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = V1EntitiesShareholderLedger;
+      return this.apiClient.callApi(
+        '/companies/{id}/shareholder_ledger', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

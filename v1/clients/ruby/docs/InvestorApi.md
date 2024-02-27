@@ -927,7 +927,7 @@ No authorization required
 
 ## run_background_search
 
-> <V1EntitiesInvestor> run_background_search(id, investor_id, run_background_search_request)
+> run_background_search(id, investor_id, run_background_search_request)
 
 Run Alloy background search for the investor
 
@@ -946,8 +946,7 @@ run_background_search_request = DealMakerAPI::RunBackgroundSearchRequest.new({se
 
 begin
   # Run Alloy background search for the investor
-  result = api_instance.run_background_search(id, investor_id, run_background_search_request)
-  p result
+  api_instance.run_background_search(id, investor_id, run_background_search_request)
 rescue DealMakerAPI::ApiError => e
   puts "Error when calling InvestorApi->run_background_search: #{e}"
 end
@@ -955,9 +954,9 @@ end
 
 #### Using the run_background_search_with_http_info variant
 
-This returns an Array which contains the response data, status code and headers.
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
 
-> <Array(<V1EntitiesInvestor>, Integer, Hash)> run_background_search_with_http_info(id, investor_id, run_background_search_request)
+> <Array(nil, Integer, Hash)> run_background_search_with_http_info(id, investor_id, run_background_search_request)
 
 ```ruby
 begin
@@ -965,7 +964,7 @@ begin
   data, status_code, headers = api_instance.run_background_search_with_http_info(id, investor_id, run_background_search_request)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <V1EntitiesInvestor>
+  p data # => nil
 rescue DealMakerAPI::ApiError => e
   puts "Error when calling InvestorApi->run_background_search_with_http_info: #{e}"
 end
@@ -981,7 +980,7 @@ end
 
 ### Return type
 
-[**V1EntitiesInvestor**](V1EntitiesInvestor.md)
+nil (empty response body)
 
 ### Authorization
 
@@ -990,7 +989,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: application/json
-- **Accept**: application/json
+- **Accept**: Not defined
 
 
 ## update_investor

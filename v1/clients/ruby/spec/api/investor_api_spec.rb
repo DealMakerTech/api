@@ -218,7 +218,7 @@ describe 'InvestorApi' do
   # @param investor_id 
   # @param run_background_search_request 
   # @param [Hash] opts the optional parameters
-  # @return [V1EntitiesInvestor]
+  # @return [nil]
   describe 'run_background_search test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/

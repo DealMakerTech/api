@@ -993,10 +993,10 @@ module DealMakerAPI
     # @param investor_id [Integer] 
     # @param run_background_search_request [RunBackgroundSearchRequest] 
     # @param [Hash] opts the optional parameters
-    # @return [V1EntitiesInvestor]
+    # @return [nil]
     def run_background_search(id, investor_id, run_background_search_request, opts = {})
-      data, _status_code, _headers = run_background_search_with_http_info(id, investor_id, run_background_search_request, opts)
-      data
+      run_background_search_with_http_info(id, investor_id, run_background_search_request, opts)
+      nil
     end
 
     # Run Alloy background search for the investor
@@ -1005,7 +1005,7 @@ module DealMakerAPI
     # @param investor_id [Integer] 
     # @param run_background_search_request [RunBackgroundSearchRequest] 
     # @param [Hash] opts the optional parameters
-    # @return [Array<(V1EntitiesInvestor, Integer, Hash)>] V1EntitiesInvestor data, response status code and response headers
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def run_background_search_with_http_info(id, investor_id, run_background_search_request, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: InvestorApi.run_background_search ...'
@@ -1030,8 +1030,6 @@ module DealMakerAPI
 
       # header parameters
       header_params = opts[:header_params] || {}
-      # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
       content_type = @api_client.select_header_content_type(['application/json'])
       if !content_type.nil?
@@ -1045,7 +1043,7 @@ module DealMakerAPI
       post_body = opts[:debug_body] || @api_client.object_to_http_body(run_background_search_request)
 
       # return_type
-      return_type = opts[:debug_return_type] || 'V1EntitiesInvestor'
+      return_type = opts[:debug_return_type]
 
       # auth_names
       auth_names = opts[:debug_auth_names] || []

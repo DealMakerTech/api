@@ -809,7 +809,7 @@ No authorization required
 ## `runBackgroundSearch()`
 
 ```php
-runBackgroundSearch($id, $investor_id, $run_background_search_request): \DealMaker\Model\V1EntitiesInvestor
+runBackgroundSearch($id, $investor_id, $run_background_search_request)
 ```
 
 Run Alloy background search for the investor
@@ -834,8 +834,7 @@ $investor_id = 56; // int
 $run_background_search_request = new \DealMaker\Model\RunBackgroundSearchRequest(); // \DealMaker\Model\RunBackgroundSearchRequest
 
 try {
-    $result = $apiInstance->runBackgroundSearch($id, $investor_id, $run_background_search_request);
-    print_r($result);
+    $apiInstance->runBackgroundSearch($id, $investor_id, $run_background_search_request);
 } catch (Exception $e) {
     echo 'Exception when calling InvestorApi->runBackgroundSearch: ', $e->getMessage(), PHP_EOL;
 }
@@ -851,7 +850,7 @@ try {
 
 ### Return type
 
-[**\DealMaker\Model\V1EntitiesInvestor**](../Model/V1EntitiesInvestor.md)
+void (empty response body)
 
 ### Authorization
 
@@ -860,7 +859,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: `application/json`
-- **Accept**: `application/json`
+- **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)

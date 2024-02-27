@@ -670,7 +670,7 @@ No authorization required
 
 ## runBackgroundSearch
 
-> V1EntitiesInvestor runBackgroundSearch(id, investorId, runBackgroundSearchRequest)
+> runBackgroundSearch(id, investorId, runBackgroundSearchRequest)
 
 Run Alloy background search for the investor
 
@@ -689,7 +689,7 @@ apiInstance.runBackgroundSearch(id, investorId, runBackgroundSearchRequest, (err
   if (error) {
     console.error(error);
   } else {
-    console.log('API called successfully. Returned data: ' + data);
+    console.log('API called successfully.');
   }
 });
 ```
@@ -705,7 +705,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**V1EntitiesInvestor**](V1EntitiesInvestor.md)
+null (empty response body)
 
 ### Authorization
 
@@ -714,7 +714,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: application/json
-- **Accept**: application/json
+- **Accept**: Not defined
 
 
 ## updateInvestor

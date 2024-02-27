@@ -29,7 +29,7 @@ import V1EntitiesInvestors from '../model/V1EntitiesInvestors';
 /**
 * Investor service.
 * @module api/InvestorApi
-* @version 0.97.4
+* @version 0.97.5
 */
 export default class InvestorApi {
 
@@ -720,7 +720,7 @@ export default class InvestorApi {
      * Callback function to receive the result of the runBackgroundSearch operation.
      * @callback module:api/InvestorApi~runBackgroundSearchCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/V1EntitiesInvestor} data The data returned by the service call.
+     * @param data This operation does not return a value.
      * @param {String} response The complete HTTP response.
      */
 
@@ -731,7 +731,6 @@ export default class InvestorApi {
      * @param {Number} investorId 
      * @param {module:model/RunBackgroundSearchRequest} runBackgroundSearchRequest 
      * @param {module:api/InvestorApi~runBackgroundSearchCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/V1EntitiesInvestor}
      */
     runBackgroundSearch(id, investorId, runBackgroundSearchRequest, callback) {
       let postBody = runBackgroundSearchRequest;
@@ -761,8 +760,8 @@ export default class InvestorApi {
 
       let authNames = [];
       let contentTypes = ['application/json'];
-      let accepts = ['application/json'];
-      let returnType = V1EntitiesInvestor;
+      let accepts = [];
+      let returnType = null;
       return this.apiClient.callApi(
         '/deals/{id}/investors/{investor_id}/background_checks/run', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,

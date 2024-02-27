@@ -2825,73 +2825,6 @@
         ]
       }
     },
-    "/deals/{id}/investors/{investor_id}/background_checks/{search_entity_id}/enforcements": {
-      "get": {
-        "summary": "Get enforcements for a background search",
-        "description": "Get enforcements for a background search",
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "id",
-            "type": "integer",
-            "format": "int32",
-            "required": true
-          },
-          {
-            "in": "path",
-            "name": "investor_id",
-            "type": "integer",
-            "format": "int32",
-            "required": true
-          },
-          {
-            "in": "path",
-            "name": "search_entity_id",
-            "type": "integer",
-            "format": "int32",
-            "required": true
-          }
-        ],
-        "security": [
-          {
-            "oauth": [
-              "deals.investors.read"
-            ]
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Get enforcements for a background search",
-            "schema": {
-              "$ref": "#/definitions/V1_Entities_Investor"
-            }
-          },
-          "400": {
-            "description": "Bad Request"
-          },
-          "403": {
-            "description": "Forbidden"
-          }
-        },
-        "tags": [
-          "investor"
-        ],
-        "operationId": "getEnforcements",
-        "x-codeSamples": [
-          {
-            "lang": "javascript",
-            "source": ""
-          },
-          {
-            "lang": "ruby",
-            "source": ""
-          }
-        ]
-      }
-    },
     "/deals/{id}/investors/{investor_id}/payments/express_wire/instructions": {
       "get": {
         "summary": "Displays the express wire instructions for an investor on a deal",
@@ -2985,6 +2918,73 @@
         "operationId": "getDealsIdInvestorsPaymentsExpressWireInstructions"
       }
     },
+    "/deals/{id}/investors/{investor_id}/background_checks/{search_entity_id}/enforcements": {
+      "get": {
+        "summary": "Get enforcements for a background search",
+        "description": "Get enforcements for a background search",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          },
+          {
+            "in": "path",
+            "name": "investor_id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          },
+          {
+            "in": "path",
+            "name": "search_entity_id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "security": [
+          {
+            "oauth": [
+              "deals.investors.read"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get enforcements for a background search",
+            "schema": {
+              "$ref": "#/definitions/V1_Entities_Investor"
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "tags": [
+          "investor"
+        ],
+        "operationId": "getEnforcements",
+        "x-codeSamples": [
+          {
+            "lang": "javascript",
+            "source": ""
+          },
+          {
+            "lang": "ruby",
+            "source": ""
+          }
+        ]
+      }
+    },
     "/deals/{id}/investors/{investor_id}/background_checks/run": {
       "post": {
         "summary": "Run Alloy background search for the investor",
@@ -3027,11 +3027,8 @@
           }
         ],
         "responses": {
-          "201": {
-            "description": "Run Alloy background search for the investor",
-            "schema": {
-              "$ref": "#/definitions/V1_Entities_Investor"
-            }
+          "200": {
+            "description": "Run Alloy background search for the investor"
           },
           "400": {
             "description": "Bad Request"

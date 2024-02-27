@@ -4440,12 +4440,11 @@ class InvestorApi
      *
      * @throws \DealMaker\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \DealMaker\Model\V1EntitiesInvestor
+     * @return void
      */
     public function runBackgroundSearch($id, $investor_id, $run_background_search_request, string $contentType = self::contentTypes['runBackgroundSearch'][0])
     {
-        list($response) = $this->runBackgroundSearchWithHttpInfo($id, $investor_id, $run_background_search_request, $contentType);
-        return $response;
+        $this->runBackgroundSearchWithHttpInfo($id, $investor_id, $run_background_search_request, $contentType);
     }
 
     /**
@@ -4460,7 +4459,7 @@ class InvestorApi
      *
      * @throws \DealMaker\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \DealMaker\Model\V1EntitiesInvestor, HTTP status code, HTTP response headers (array of strings)
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
     public function runBackgroundSearchWithHttpInfo($id, $investor_id, $run_background_search_request, string $contentType = self::contentTypes['runBackgroundSearch'][0])
     {
@@ -4501,74 +4500,10 @@ class InvestorApi
                 );
             }
 
-            switch($statusCode) {
-                case 201:
-                    if ('\DealMaker\Model\V1EntitiesInvestor' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\DealMaker\Model\V1EntitiesInvestor' !== 'string') {
-                            try {
-                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                            } catch (\JsonException $exception) {
-                                throw new ApiException(
-                                    sprintf(
-                                        'Error JSON decoding server response (%s)',
-                                        $request->getUri()
-                                    ),
-                                    $statusCode,
-                                    $response->getHeaders(),
-                                    $content
-                                );
-                            }
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\DealMaker\Model\V1EntitiesInvestor', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = '\DealMaker\Model\V1EntitiesInvestor';
-            if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
-            } else {
-                $content = (string) $response->getBody();
-                if ($returnType !== 'string') {
-                    try {
-                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                    } catch (\JsonException $exception) {
-                        throw new ApiException(
-                            sprintf(
-                                'Error JSON decoding server response (%s)',
-                                $request->getUri()
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $content
-                        );
-                    }
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
+            return [null, $statusCode, $response->getHeaders()];
 
         } catch (ApiException $e) {
             switch ($e->getCode()) {
-                case 201:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\DealMaker\Model\V1EntitiesInvestor',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
             }
             throw $e;
         }
@@ -4612,27 +4547,14 @@ class InvestorApi
      */
     public function runBackgroundSearchAsyncWithHttpInfo($id, $investor_id, $run_background_search_request, string $contentType = self::contentTypes['runBackgroundSearch'][0])
     {
-        $returnType = '\DealMaker\Model\V1EntitiesInvestor';
+        $returnType = '';
         $request = $this->runBackgroundSearchRequest($id, $investor_id, $run_background_search_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
                 },
                 function ($exception) {
                     $response = $exception->getResponse();
@@ -4715,7 +4637,7 @@ class InvestorApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            ['application/json', ],
+            [],
             $contentType,
             $multipart
         );

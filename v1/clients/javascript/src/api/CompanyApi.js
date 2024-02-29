@@ -31,7 +31,7 @@ import V1EntitiesShareholderLedger from '../model/V1EntitiesShareholderLedger';
 /**
 * Company service.
 * @module api/CompanyApi
-* @version 0.97.5
+* @version 0.98.0
 */
 export default class CompanyApi {
 

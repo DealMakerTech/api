@@ -17,7 +17,7 @@ import PatchInvestorProfilesCorporationsBeneficialOwnersInner from './PatchInves
 /**
  * The PatchInvestorProfilesCorporations model module.
  * @module model/PatchInvestorProfilesCorporations
- * @version 0.97.5
+ * @version 0.98.0
  */
 class PatchInvestorProfilesCorporations {
     /**

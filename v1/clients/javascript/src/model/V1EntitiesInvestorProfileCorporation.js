@@ -20,7 +20,7 @@ import V1EntitiesInvestorProfileOwner from './V1EntitiesInvestorProfileOwner';
 /**
  * The V1EntitiesInvestorProfileCorporation model module.
  * @module model/V1EntitiesInvestorProfileCorporation
- * @version 0.97.5
+ * @version 0.98.0
  */
 class V1EntitiesInvestorProfileCorporation {
     /**

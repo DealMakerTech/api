@@ -18,7 +18,7 @@ import V1EntitiesInvestors from '../model/V1EntitiesInvestors';
 /**
 * Users service.
 * @module api/UsersApi
-* @version 0.97.5
+* @version 0.98.0
 */
 export default class UsersApi {
 

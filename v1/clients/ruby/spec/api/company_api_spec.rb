@@ -71,6 +71,19 @@ describe 'CompanyApi' do
     end
   end
 
+  # unit tests for create_email_template
+  # Creates an email template
+  # Create new email template
+  # @param id 
+  # @param create_email_template_request 
+  # @param [Hash] opts the optional parameters
+  # @return [V1EntitiesEmailTemplate]
+  describe 'create_email_template test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for create_shareholder_action
   # Create a shareholder action
   # Create a shareholder action

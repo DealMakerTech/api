@@ -156,6 +156,18 @@ class InvestorApiTest extends TestCase
     }
 
     /**
+     * Test case for getDealInvestorSearchEntities
+     *
+     * Get the search entities attached to the investor.
+     *
+     */
+    public function testGetDealInvestorSearchEntities()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for getEnforcements
      *
      * Get enforcements for a background search.

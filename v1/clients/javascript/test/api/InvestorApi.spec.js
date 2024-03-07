@@ -118,6 +118,16 @@
         done();
       });
     });
+    describe('getDealInvestorSearchEntities', function() {
+      it('should call getDealInvestorSearchEntities successfully', function(done) {
+        //uncomment below and update the code to test getDealInvestorSearchEntities
+        //instance.getDealInvestorSearchEntities(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('getEnforcements', function() {
       it('should call getEnforcements successfully', function(done) {
         //uncomment below and update the code to test getEnforcements

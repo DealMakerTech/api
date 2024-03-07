@@ -29,7 +29,7 @@ import V1EntitiesInvestorProfiles from '../model/V1EntitiesInvestorProfiles';
 /**
 * InvestorProfile service.
 * @module api/InvestorProfileApi
-* @version 0.98.1
+* @version 0.98.2
 */
 export default class InvestorProfileApi {
 

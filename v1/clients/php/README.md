@@ -408,6 +408,7 @@ Class | Method | HTTP request | Description
 *CompanyApi* | [**createBulkUpload**](docs/Api/CompanyApi.md#createbulkupload) | **POST** /companies/{id}/documents/bulk_uploads | Create bulk upload record
 *CompanyApi* | [**createBulkUploadDetail**](docs/Api/CompanyApi.md#createbulkuploaddetail) | **POST** /companies/{company_id}/documents/bulk_uploads/{bulk_upload_id}/details | Create a BulkUploadDetail class record
 *CompanyApi* | [**createCompany**](docs/Api/CompanyApi.md#createcompany) | **POST** /companies | Create new company
+*CompanyApi* | [**createEmailTemplate**](docs/Api/CompanyApi.md#createemailtemplate) | **POST** /companies/{id}/news_releases/email_template | Creates an email template
 *CompanyApi* | [**createShareholderAction**](docs/Api/CompanyApi.md#createshareholderaction) | **POST** /companies/{company_id}/shareholders/{shareholder_id}/actions | Create a shareholder action
 *CompanyApi* | [**getBulkUpload**](docs/Api/CompanyApi.md#getbulkupload) | **GET** /companies/{id}/documents/bulk_uploads/{bulk_upload_id} | Return a given bulk upload by id
 *CompanyApi* | [**getBulkUploadDetailsErrors**](docs/Api/CompanyApi.md#getbulkuploaddetailserrors) | **GET** /companies/{company_id}/documents/bulk_uploads/{bulk_upload_id}/details/errors | Returns a full list of details with errors of the given bulk upload ordered by status desc and id asc
@@ -431,6 +432,7 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**getDealsDealIdPaymentOnboardingQuestionnairePayoutAccountDetailsData**](docs/Api/DefaultApi.md#getdealsdealidpaymentonboardingquestionnairepayoutaccountdetailsdata) | **GET** /deals/{deal_id}/payment_onboarding/questionnaire/payout_account_details/data | Get payout account data
 *DefaultApi* | [**getDealsIdInvestorsInvestorIdPaymentsExpressWireInstructions**](docs/Api/DefaultApi.md#getdealsidinvestorsinvestoridpaymentsexpresswireinstructions) | **GET** /deals/{id}/investors/{investor_id}/payments/express_wire/instructions | Displays the express wire instructions for an investor on a deal
 *DefaultApi* | [**getDealsIdInvestorsPaymentsExpressWireInstructions**](docs/Api/DefaultApi.md#getdealsidinvestorspaymentsexpresswireinstructions) | **GET** /deals/{id}/investors/payments/express_wire/instructions | Displays the express wire instructions for all the investors on a deal
+*DefaultApi* | [**getDealsIdSummary**](docs/Api/DefaultApi.md#getdealsidsummary) | **GET** /deals/{id}/summary | Get Deal Overview
 *DefaultApi* | [**getDealsPaymentOnboardingQuestionnaireInitialQuestions**](docs/Api/DefaultApi.md#getdealspaymentonboardingquestionnaireinitialquestions) | **GET** /deals/payment_onboarding/questionnaire/initial_questions | Get initial questions
 *DefaultApi* | [**getWebhooks**](docs/Api/DefaultApi.md#getwebhooks) | **GET** /webhooks | Returns a list of webhook subscription which is associated to the user
 *DefaultApi* | [**getWebhooksDealId**](docs/Api/DefaultApi.md#getwebhooksdealid) | **GET** /webhooks/deal/{id} | Finds a deal using the id
@@ -451,6 +453,7 @@ Class | Method | HTTP request | Description
 *InvestorApi* | [**deleteDocument**](docs/Api/InvestorApi.md#deletedocument) | **DELETE** /deals/{id}/investors/{investor_id}/delete_document/{document_id} | Delete document for deal investor
 *InvestorApi* | [**deleteInvestorProfile**](docs/Api/InvestorApi.md#deleteinvestorprofile) | **DELETE** /investor_profiles/{type}/{id} | Delete investor profile.
 *InvestorApi* | [**editInvestorTags**](docs/Api/InvestorApi.md#editinvestortags) | **POST** /deals/{id}/investors/{investor_id}/edit_tags | Append or replace tag(s) for a specific investor
+*InvestorApi* | [**getDealInvestorSearchEntities**](docs/Api/InvestorApi.md#getdealinvestorsearchentities) | **GET** /deals/{id}/investors/{investor_id}/search_entities | Get the search entities attached to the investor
 *InvestorApi* | [**getEnforcements**](docs/Api/InvestorApi.md#getenforcements) | **GET** /deals/{id}/investors/{investor_id}/background_checks/{search_entity_id}/enforcements | Get enforcements for a background search
 *InvestorApi* | [**getIncentivePlan**](docs/Api/InvestorApi.md#getincentiveplan) | **GET** /deals/{id}/investors/{investor_id}/incentive_plan | Get investor incentive plan by investor id
 *InvestorApi* | [**getInvestor**](docs/Api/InvestorApi.md#getinvestor) | **GET** /deals/{id}/investors/{investor_id} | Get a deal investor by id
@@ -487,6 +490,7 @@ Class | Method | HTTP request | Description
 - [CreateBulkUploadRequest](docs/Model/CreateBulkUploadRequest.md)
 - [CreateCompanyRequest](docs/Model/CreateCompanyRequest.md)
 - [CreateDealSetupRequest](docs/Model/CreateDealSetupRequest.md)
+- [CreateEmailTemplateRequest](docs/Model/CreateEmailTemplateRequest.md)
 - [CreateShareholderActionRequest](docs/Model/CreateShareholderActionRequest.md)
 - [EditInvestorTagsRequest](docs/Model/EditInvestorTagsRequest.md)
 - [GenerateUrlRequest](docs/Model/GenerateUrlRequest.md)
@@ -544,6 +548,7 @@ Class | Method | HTTP request | Description
 - [V1EntitiesDividends](docs/Model/V1EntitiesDividends.md)
 - [V1EntitiesEmailEvent](docs/Model/V1EntitiesEmailEvent.md)
 - [V1EntitiesEmailEvents](docs/Model/V1EntitiesEmailEvents.md)
+- [V1EntitiesEmailTemplate](docs/Model/V1EntitiesEmailTemplate.md)
 - [V1EntitiesExpressWireInstruction](docs/Model/V1EntitiesExpressWireInstruction.md)
 - [V1EntitiesExpressWireInstructions](docs/Model/V1EntitiesExpressWireInstructions.md)
 - [V1EntitiesGenericResponse](docs/Model/V1EntitiesGenericResponse.md)
@@ -568,6 +573,8 @@ Class | Method | HTTP request | Description
 - [V1EntitiesInvestorProfileOwner](docs/Model/V1EntitiesInvestorProfileOwner.md)
 - [V1EntitiesInvestorProfileTrust](docs/Model/V1EntitiesInvestorProfileTrust.md)
 - [V1EntitiesInvestorProfiles](docs/Model/V1EntitiesInvestorProfiles.md)
+- [V1EntitiesInvestorSearchEntities](docs/Model/V1EntitiesInvestorSearchEntities.md)
+- [V1EntitiesInvestorSearchEntitiesRequiredFields](docs/Model/V1EntitiesInvestorSearchEntitiesRequiredFields.md)
 - [V1EntitiesInvestorUser](docs/Model/V1EntitiesInvestorUser.md)
 - [V1EntitiesInvestors](docs/Model/V1EntitiesInvestors.md)
 - [V1EntitiesMoneyEntity](docs/Model/V1EntitiesMoneyEntity.md)
@@ -610,5 +617,5 @@ vendor/bin/phpunit
 This PHP package is automatically generated by the [OpenAPI Generator](https://openapi-generator.tech) project:
 
 - API version: `1.75.0`
-    - Package version: `0.98.1`
+    - Package version: `0.98.2`
 - Build package: `org.openapitools.codegen.languages.PhpClientCodegen`

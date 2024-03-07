@@ -28,7 +28,7 @@ import V1EntitiesWebhooksSubscription from '../model/V1EntitiesWebhooksSubscript
 /**
 * Default service.
 * @module api/DefaultApi
-* @version 0.98.1
+* @version 0.98.2
 */
 export default class DefaultApi {
 
@@ -217,6 +217,48 @@ export default class DefaultApi {
       let returnType = V1EntitiesExpressWireInstructions;
       return this.apiClient.callApi(
         '/deals/{id}/investors/payments/express_wire/instructions', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the getDealsIdSummary operation.
+     * @callback module:api/DefaultApi~getDealsIdSummaryCallback
+     * @param {String} error Error message, if any.
+     * @param data This operation does not return a value.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Get Deal Overview
+     * Get Deal Overview
+     * @param {Number} id 
+     * @param {module:api/DefaultApi~getDealsIdSummaryCallback} callback The callback function, accepting three arguments: error, data, response
+     */
+    getDealsIdSummary(id, callback) {
+      let postBody = null;
+      // verify the required parameter 'id' is set
+      if (id === undefined || id === null) {
+        throw new Error("Missing the required parameter 'id' when calling getDealsIdSummary");
+      }
+
+      let pathParams = {
+        'id': id
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = [];
+      let returnType = null;
+      return this.apiClient.callApi(
+        '/deals/{id}/summary', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

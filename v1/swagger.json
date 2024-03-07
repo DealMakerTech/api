@@ -69,10 +69,6 @@
       "description": "Operations about users"
     },
     {
-      "name": "custom_emails",
-      "description": "Operations about custom_emails"
-    },
-    {
       "name": "incentive_plan",
       "description": "Operations about incentive_plans"
     },
@@ -83,6 +79,10 @@
     {
       "name": "shareholder",
       "description": "Operations about shareholders"
+    },
+    {
+      "name": "custom_emails",
+      "description": "Operations about custom_emails"
     },
     {
       "name": "deal",
@@ -1321,66 +1321,6 @@
           "country"
         ],
         "operationId": "getCountryStates"
-      }
-    },
-    "/custom_emails/get_access_token": {
-      "post": {
-        "summary": "Generate authorization token information for initializing Beefree editor",
-        "description": "Generate authorization token information",
-        "produces": [
-          "application/json"
-        ],
-        "consumes": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "in": "formData",
-            "name": "user_id",
-            "description": "The user ID",
-            "type": "integer",
-            "format": "int32",
-            "required": true
-          }
-        ],
-        "security": [
-          {
-            "oauth": [
-              "internal"
-            ]
-          }
-        ],
-        "responses": {
-          "201": {
-            "description": "Generate authorization token information",
-            "schema": {
-              "$ref": "#/definitions/V1_Entities_BeefreeAccessToken"
-            }
-          },
-          "400": {
-            "description": "Bad Request"
-          },
-          "404": {
-            "description": "Not found"
-          },
-          "403": {
-            "description": "Forbidden"
-          }
-        },
-        "tags": [
-          "custom_emails"
-        ],
-        "operationId": "getAccessToken",
-        "x-codeSamples": [
-          {
-            "lang": "javascript",
-            "source": ""
-          },
-          {
-            "lang": "ruby",
-            "source": ""
-          }
-        ]
       }
     },
     "/deals/{id}/investors/{investor_id}": {
@@ -2825,6 +2765,68 @@
         ]
       }
     },
+    "/deals/{id}/investors/{investor_id}/search_entities": {
+      "get": {
+        "summary": "Get the search entities attached to the investor",
+        "description": "Get the entities that needs to be updated due to wrong information.",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "description": "The deal id.",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          },
+          {
+            "in": "path",
+            "name": "investor_id",
+            "description": "The investor id.",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "security": [
+          {
+            "oauth": [
+              "deals.investors.read"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get the search entities attached to the investor",
+            "schema": {
+              "$ref": "#/definitions/V1_Entities_Investor_SearchEntities"
+            }
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not found"
+          }
+        },
+        "tags": [
+          "investor"
+        ],
+        "operationId": "getDealInvestorSearchEntities",
+        "x-codeSamples": [
+          {
+            "lang": "javascript",
+            "source": "const dealApi = new DealmakerApi.DealApi()\nconst dealId = 56\nconst investorId = 56\n\ndealApi.getDealInvestorSearchEntities(dealId, investorId, (error, data, response) => {\n  if (error) {\n    console.error(error)\n  } else {\n    console.log(JSON.stringify(data))\n  }\n})"
+          },
+          {
+            "lang": "ruby",
+            "source": "const dealApi = new DealmakerApi.DealApi()\nconst dealId = 56\nconst investorId = 56\n\n# Get a deal investor by id\nprint dealApi.getDealInvestorSearchEntities(dealId, investorId)"
+          }
+        ]
+      }
+    },
     "/deals/{id}/investors/{investor_id}/payments/express_wire/instructions": {
       "get": {
         "summary": "Displays the express wire instructions for an investor on a deal",
@@ -3024,6 +3026,9 @@
         ],
         "security": [
           {
+            "oauth": [
+              "internal"
+            ]
           }
         ],
         "responses": {
@@ -3280,6 +3285,47 @@
         "operationId": "getDealsPaymentOnboardingQuestionnaireInitialQuestions"
       }
     },
+    "/deals/{id}/summary": {
+      "get": {
+        "summary": "Get Deal Overview",
+        "description": "Get Deal Overview",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "security": [
+          {
+            "oauth": [
+              "deals.read",
+              "deals.information.read"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get Deal Overview"
+          },
+          "404": {
+            "description": "Not found"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "tags": [
+
+        ],
+        "operationId": "getDealsIdSummary"
+      }
+    },
     "/deal_setups": {
       "post": {
         "summary": "Create deal setup",
@@ -3407,6 +3453,83 @@
           "deal"
         ],
         "operationId": "createDealSetup",
+        "x-codeSamples": [
+          {
+            "lang": "javascript",
+            "source": ""
+          },
+          {
+            "lang": "ruby",
+            "source": ""
+          }
+        ]
+      }
+    },
+    "/companies/{id}/news_releases/email_template": {
+      "post": {
+        "summary": "Creates an email template",
+        "description": "Create new email template",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "formData",
+            "name": "name",
+            "description": "The name of the email template",
+            "type": "string",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "json_content",
+            "description": "The json content of the email template",
+            "type": "string",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "html_content",
+            "description": "The HTML content markup",
+            "type": "string",
+            "required": true
+          },
+          {
+            "in": "path",
+            "name": "id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "security": [
+          {
+            "oauth": [
+              "internal"
+            ]
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Create new email template",
+            "schema": {
+              "$ref": "#/definitions/V1_Entities_EmailTemplate"
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not found"
+          }
+        },
+        "tags": [
+          "company"
+        ],
+        "operationId": "createEmailTemplate",
         "x-codeSamples": [
           {
             "lang": "javascript",
@@ -4521,6 +4644,66 @@
           "company"
         ],
         "operationId": "sendPortalInvite",
+        "x-codeSamples": [
+          {
+            "lang": "javascript",
+            "source": ""
+          },
+          {
+            "lang": "ruby",
+            "source": ""
+          }
+        ]
+      }
+    },
+    "/custom_emails/get_access_token": {
+      "post": {
+        "summary": "Generate authorization token information for initializing Beefree editor",
+        "description": "Generate authorization token information",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "formData",
+            "name": "user_id",
+            "description": "The user ID",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "security": [
+          {
+            "oauth": [
+              "internal"
+            ]
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Generate authorization token information",
+            "schema": {
+              "$ref": "#/definitions/V1_Entities_BeefreeAccessToken"
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not found"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "tags": [
+          "custom_emails"
+        ],
+        "operationId": "getAccessToken",
         "x-codeSamples": [
           {
             "lang": "javascript",
@@ -7592,21 +7775,6 @@
       },
       "description": "V1_Entities_Countries model"
     },
-    "V1_Entities_BeefreeAccessToken": {
-      "type": "object",
-      "properties": {
-        "access_token": {
-          "type": "string",
-          "description": "The access token for initializing beefree builders intances."
-        },
-        "expires_in": {
-          "type": "integer",
-          "format": "int32",
-          "description": "The expires in field."
-        }
-      },
-      "description": "V1_Entities_BeefreeAccessToken model"
-    },
     "putDealsIdInvestors": {
       "type": "object",
       "properties": {
@@ -7891,6 +8059,63 @@
       },
       "description": "V1_Entities_Deals model"
     },
+    "V1_Entities_Investor_SearchEntities": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Search entity ID."
+        },
+        "name": {
+          "type": "string",
+          "description": "The full name of the entity."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "individual",
+            "joint_holder"
+          ],
+          "description": "The type of the entity."
+        },
+        "type_num": {
+          "type": "string",
+          "description": "The position in the list when beneficial owner of trustees, if none it returns null."
+        },
+        "required_fields": {
+          "$ref": "#/definitions/V1_Entities_Investor_SearchEntities_RequiredFields",
+          "description": "Object containing details about required fields that needs to be updated."
+        }
+      },
+      "description": "V1_Entities_Investor_SearchEntities model"
+    },
+    "V1_Entities_Investor_SearchEntities_RequiredFields": {
+      "type": "object",
+      "properties": {
+        "count": {
+          "type": "integer",
+          "format": "int32",
+          "description": "The quantity of fields that needs to be updated."
+        },
+        "name": {
+          "type": "boolean",
+          "description": "Whether or not the name needs to be updated."
+        },
+        "address": {
+          "type": "boolean",
+          "description": "Whether or not the address needs to be updated."
+        },
+        "date_of_birth": {
+          "type": "boolean",
+          "description": "Whether or not the date of birth needs to be updated."
+        },
+        "tin": {
+          "type": "boolean",
+          "description": "Whether or not the taxpayer identification number needs to be updated."
+        }
+      }
+    },
     "V1_Entities_ExpressWireInstruction": {
       "type": "object",
       "properties": {
@@ -8044,6 +8269,30 @@
           "description": "Investor user email address."
         }
       }
+    },
+    "V1_Entities_EmailTemplate": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32",
+          "description": "The ID of the email template."
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the email template."
+        },
+        "jsonContent": {
+          "type": "string",
+          "description": "The json content of the email template."
+        },
+        "companyId": {
+          "type": "integer",
+          "format": "int32",
+          "description": "The ID of the company."
+        }
+      },
+      "description": "V1_Entities_EmailTemplate model"
     },
     "V1_Entities_ShareholdersTags": {
       "type": "object",
@@ -8318,6 +8567,21 @@
         }
       },
       "description": "V1_Entities_GenericResponse model"
+    },
+    "V1_Entities_BeefreeAccessToken": {
+      "type": "object",
+      "properties": {
+        "access_token": {
+          "type": "string",
+          "description": "The access token for initializing beefree builders intances."
+        },
+        "expires_in": {
+          "type": "integer",
+          "format": "int32",
+          "description": "The expires in field."
+        }
+      },
+      "description": "V1_Entities_BeefreeAccessToken model"
     },
     "V1_Entities_Webhooks_SecurityToken": {
       "type": "object",

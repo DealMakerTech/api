@@ -108,6 +108,18 @@ class CompanyApiTest extends TestCase
     }
 
     /**
+     * Test case for createEmailTemplate
+     *
+     * Creates an email template.
+     *
+     */
+    public function testCreateEmailTemplate()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for createShareholderAction
      *
      * Create a shareholder action.

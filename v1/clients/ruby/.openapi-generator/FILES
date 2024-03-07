@@ -17,6 +17,7 @@ docs/CreateBulkUploadDetailRequest.md
 docs/CreateBulkUploadRequest.md
 docs/CreateCompanyRequest.md
 docs/CreateDealSetupRequest.md
+docs/CreateEmailTemplateRequest.md
 docs/CreateShareholderActionRequest.md
 docs/CustomEmailsApi.md
 docs/DealApi.md
@@ -85,6 +86,7 @@ docs/V1EntitiesDividend.md
 docs/V1EntitiesDividends.md
 docs/V1EntitiesEmailEvent.md
 docs/V1EntitiesEmailEvents.md
+docs/V1EntitiesEmailTemplate.md
 docs/V1EntitiesExpressWireInstruction.md
 docs/V1EntitiesExpressWireInstructions.md
 docs/V1EntitiesGenericResponse.md
@@ -109,6 +111,8 @@ docs/V1EntitiesInvestorProfileManaged.md
 docs/V1EntitiesInvestorProfileOwner.md
 docs/V1EntitiesInvestorProfileTrust.md
 docs/V1EntitiesInvestorProfiles.md
+docs/V1EntitiesInvestorSearchEntities.md
+docs/V1EntitiesInvestorSearchEntitiesRequiredFields.md
 docs/V1EntitiesInvestorUser.md
 docs/V1EntitiesInvestors.md
 docs/V1EntitiesMoneyEntity.md
@@ -154,6 +158,7 @@ lib/DealMakerAPI/models/create_bulk_upload_detail_request.rb
 lib/DealMakerAPI/models/create_bulk_upload_request.rb
 lib/DealMakerAPI/models/create_company_request.rb
 lib/DealMakerAPI/models/create_deal_setup_request.rb
+lib/DealMakerAPI/models/create_email_template_request.rb
 lib/DealMakerAPI/models/create_shareholder_action_request.rb
 lib/DealMakerAPI/models/edit_investor_tags_request.rb
 lib/DealMakerAPI/models/generate_url_request.rb
@@ -211,6 +216,7 @@ lib/DealMakerAPI/models/v1_entities_dividend.rb
 lib/DealMakerAPI/models/v1_entities_dividends.rb
 lib/DealMakerAPI/models/v1_entities_email_event.rb
 lib/DealMakerAPI/models/v1_entities_email_events.rb
+lib/DealMakerAPI/models/v1_entities_email_template.rb
 lib/DealMakerAPI/models/v1_entities_express_wire_instruction.rb
 lib/DealMakerAPI/models/v1_entities_express_wire_instructions.rb
 lib/DealMakerAPI/models/v1_entities_generic_response.rb
@@ -235,6 +241,8 @@ lib/DealMakerAPI/models/v1_entities_investor_profile_managed.rb
 lib/DealMakerAPI/models/v1_entities_investor_profile_owner.rb
 lib/DealMakerAPI/models/v1_entities_investor_profile_trust.rb
 lib/DealMakerAPI/models/v1_entities_investor_profiles.rb
+lib/DealMakerAPI/models/v1_entities_investor_search_entities.rb
+lib/DealMakerAPI/models/v1_entities_investor_search_entities_required_fields.rb
 lib/DealMakerAPI/models/v1_entities_investor_user.rb
 lib/DealMakerAPI/models/v1_entities_investors.rb
 lib/DealMakerAPI/models/v1_entities_money_entity.rb
@@ -276,6 +284,7 @@ spec/models/create_bulk_upload_detail_request_spec.rb
 spec/models/create_bulk_upload_request_spec.rb
 spec/models/create_company_request_spec.rb
 spec/models/create_deal_setup_request_spec.rb
+spec/models/create_email_template_request_spec.rb
 spec/models/create_shareholder_action_request_spec.rb
 spec/models/edit_investor_tags_request_spec.rb
 spec/models/generate_url_request_spec.rb
@@ -333,6 +342,7 @@ spec/models/v1_entities_dividend_spec.rb
 spec/models/v1_entities_dividends_spec.rb
 spec/models/v1_entities_email_event_spec.rb
 spec/models/v1_entities_email_events_spec.rb
+spec/models/v1_entities_email_template_spec.rb
 spec/models/v1_entities_express_wire_instruction_spec.rb
 spec/models/v1_entities_express_wire_instructions_spec.rb
 spec/models/v1_entities_generic_response_spec.rb
@@ -356,6 +366,8 @@ spec/models/v1_entities_investor_profile_managed_spec.rb
 spec/models/v1_entities_investor_profile_owner_spec.rb
 spec/models/v1_entities_investor_profile_trust_spec.rb
 spec/models/v1_entities_investor_profiles_spec.rb
+spec/models/v1_entities_investor_search_entities_required_fields_spec.rb
+spec/models/v1_entities_investor_search_entities_spec.rb
 spec/models/v1_entities_investor_spec.rb
 spec/models/v1_entities_investor_user_spec.rb
 spec/models/v1_entities_investors_spec.rb

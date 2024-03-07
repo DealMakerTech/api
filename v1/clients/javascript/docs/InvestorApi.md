@@ -11,6 +11,7 @@ Method | HTTP request | Description
 [**deleteDocument**](InvestorApi.md#deleteDocument) | **DELETE** /deals/{id}/investors/{investor_id}/delete_document/{document_id} | Delete document for deal investor
 [**deleteInvestorProfile**](InvestorApi.md#deleteInvestorProfile) | **DELETE** /investor_profiles/{type}/{id} | Delete investor profile.
 [**editInvestorTags**](InvestorApi.md#editInvestorTags) | **POST** /deals/{id}/investors/{investor_id}/edit_tags | Append or replace tag(s) for a specific investor
+[**getDealInvestorSearchEntities**](InvestorApi.md#getDealInvestorSearchEntities) | **GET** /deals/{id}/investors/{investor_id}/search_entities | Get the search entities attached to the investor
 [**getEnforcements**](InvestorApi.md#getEnforcements) | **GET** /deals/{id}/investors/{investor_id}/background_checks/{search_entity_id}/enforcements | Get enforcements for a background search
 [**getIncentivePlan**](InvestorApi.md#getIncentivePlan) | **GET** /deals/{id}/investors/{investor_id}/incentive_plan | Get investor incentive plan by investor id
 [**getInvestor**](InvestorApi.md#getInvestor) | **GET** /deals/{id}/investors/{investor_id} | Get a deal investor by id
@@ -366,6 +367,54 @@ No authorization required
 - **Accept**: application/json
 
 
+## getDealInvestorSearchEntities
+
+> V1EntitiesInvestorSearchEntities getDealInvestorSearchEntities(id, investorId)
+
+Get the search entities attached to the investor
+
+Get the entities that needs to be updated due to wrong information.
+
+### Example
+
+```javascript
+import Api from 'api';
+let defaultClient = Api.ApiClient.instance;
+
+let apiInstance = new Api.InvestorApi();
+let id = 56; // Number | The deal id.
+let investorId = 56; // Number | The investor id.
+apiInstance.getDealInvestorSearchEntities(id, investorId, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Number**| The deal id. | 
+ **investorId** | **Number**| The investor id. | 
+
+### Return type
+
+[**V1EntitiesInvestorSearchEntities**](V1EntitiesInvestorSearchEntities.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
 ## getEnforcements
 
 > V1EntitiesInvestor getEnforcements(id, investorId, searchEntityId)
@@ -680,6 +729,7 @@ Run Alloy background search for the investor
 
 ```javascript
 import Api from 'api';
+let defaultClient = Api.ApiClient.instance;
 
 let apiInstance = new Api.InvestorApi();
 let id = 56; // Number | 

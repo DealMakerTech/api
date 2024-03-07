@@ -78,6 +78,16 @@
         done();
       });
     });
+    describe('createEmailTemplate', function() {
+      it('should call createEmailTemplate successfully', function(done) {
+        //uncomment below and update the code to test createEmailTemplate
+        //instance.createEmailTemplate(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('createShareholderAction', function() {
       it('should call createShareholderAction successfully', function(done) {
         //uncomment below and update the code to test createShareholderAction

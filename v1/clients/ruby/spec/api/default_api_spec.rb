@@ -81,6 +81,18 @@ describe 'DefaultApi' do
     end
   end
 
+  # unit tests for get_deals_id_summary
+  # Get Deal Overview
+  # Get Deal Overview
+  # @param id 
+  # @param [Hash] opts the optional parameters
+  # @return [nil]
+  describe 'get_deals_id_summary test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for get_deals_payment_onboarding_questionnaire_initial_questions
   # Get initial questions
   # Get initial questions

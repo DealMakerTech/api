@@ -7,6 +7,7 @@ All URIs are relative to http://api.dealmaker.tech, except if the operation defi
 | [**createBulkUpload()**](CompanyApi.md#createBulkUpload) | **POST** /companies/{id}/documents/bulk_uploads | Create bulk upload record |
 | [**createBulkUploadDetail()**](CompanyApi.md#createBulkUploadDetail) | **POST** /companies/{company_id}/documents/bulk_uploads/{bulk_upload_id}/details | Create a BulkUploadDetail class record |
 | [**createCompany()**](CompanyApi.md#createCompany) | **POST** /companies | Create new company |
+| [**createEmailTemplate()**](CompanyApi.md#createEmailTemplate) | **POST** /companies/{id}/news_releases/email_template | Creates an email template |
 | [**createShareholderAction()**](CompanyApi.md#createShareholderAction) | **POST** /companies/{company_id}/shareholders/{shareholder_id}/actions | Create a shareholder action |
 | [**getBulkUpload()**](CompanyApi.md#getBulkUpload) | **GET** /companies/{id}/documents/bulk_uploads/{bulk_upload_id} | Return a given bulk upload by id |
 | [**getBulkUploadDetailsErrors()**](CompanyApi.md#getBulkUploadDetailsErrors) | **GET** /companies/{company_id}/documents/bulk_uploads/{bulk_upload_id}/details/errors | Returns a full list of details with errors of the given bulk upload ordered by status desc and id asc |
@@ -184,6 +185,65 @@ try {
 ### Return type
 
 [**\DealMaker\Model\V1EntitiesCompany**](../Model/V1EntitiesCompany.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `createEmailTemplate()`
+
+```php
+createEmailTemplate($id, $create_email_template_request): \DealMaker\Model\V1EntitiesEmailTemplate
+```
+
+Creates an email template
+
+Create new email template
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new DealMaker\Api\CompanyApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = 56; // int
+$create_email_template_request = new \DealMaker\Model\CreateEmailTemplateRequest(); // \DealMaker\Model\CreateEmailTemplateRequest
+
+try {
+    $result = $apiInstance->createEmailTemplate($id, $create_email_template_request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CompanyApi->createEmailTemplate: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **int**|  | |
+| **create_email_template_request** | [**\DealMaker\Model\CreateEmailTemplateRequest**](../Model/CreateEmailTemplateRequest.md)|  | |
+
+### Return type
+
+[**\DealMaker\Model\V1EntitiesEmailTemplate**](../Model/V1EntitiesEmailTemplate.md)
 
 ### Authorization
 

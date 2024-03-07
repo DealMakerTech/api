@@ -120,6 +120,18 @@ class DefaultApiTest extends TestCase
     }
 
     /**
+     * Test case for getDealsIdSummary
+     *
+     * Get Deal Overview.
+     *
+     */
+    public function testGetDealsIdSummary()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for getDealsPaymentOnboardingQuestionnaireInitialQuestions
      *
      * Get initial questions.

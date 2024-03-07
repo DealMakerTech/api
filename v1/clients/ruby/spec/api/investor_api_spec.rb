@@ -127,6 +127,19 @@ describe 'InvestorApi' do
     end
   end
 
+  # unit tests for get_deal_investor_search_entities
+  # Get the search entities attached to the investor
+  # Get the entities that needs to be updated due to wrong information.
+  # @param id The deal id.
+  # @param investor_id The investor id.
+  # @param [Hash] opts the optional parameters
+  # @return [V1EntitiesInvestorSearchEntities]
+  describe 'get_deal_investor_search_entities test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for get_enforcements
   # Get enforcements for a background search
   # Get enforcements for a background search

@@ -11,6 +11,7 @@ All URIs are relative to *http://api.dealmaker.tech*
 | [**delete_document**](InvestorApi.md#delete_document) | **DELETE** /deals/{id}/investors/{investor_id}/delete_document/{document_id} | Delete document for deal investor |
 | [**delete_investor_profile**](InvestorApi.md#delete_investor_profile) | **DELETE** /investor_profiles/{type}/{id} | Delete investor profile. |
 | [**edit_investor_tags**](InvestorApi.md#edit_investor_tags) | **POST** /deals/{id}/investors/{investor_id}/edit_tags | Append or replace tag(s) for a specific investor |
+| [**get_deal_investor_search_entities**](InvestorApi.md#get_deal_investor_search_entities) | **GET** /deals/{id}/investors/{investor_id}/search_entities | Get the search entities attached to the investor |
 | [**get_enforcements**](InvestorApi.md#get_enforcements) | **GET** /deals/{id}/investors/{investor_id}/background_checks/{search_entity_id}/enforcements | Get enforcements for a background search |
 | [**get_incentive_plan**](InvestorApi.md#get_incentive_plan) | **GET** /deals/{id}/investors/{investor_id}/incentive_plan | Get investor incentive plan by investor id |
 | [**get_investor**](InvestorApi.md#get_investor) | **GET** /deals/{id}/investors/{investor_id} | Get a deal investor by id |
@@ -503,6 +504,74 @@ No authorization required
 - **Accept**: application/json
 
 
+## get_deal_investor_search_entities
+
+> <V1EntitiesInvestorSearchEntities> get_deal_investor_search_entities(id, investor_id)
+
+Get the search entities attached to the investor
+
+Get the entities that needs to be updated due to wrong information.
+
+### Examples
+
+```ruby
+require 'time'
+require 'DealMakerAPI'
+# setup authorization
+DealMakerAPI.configure do |config|end
+
+api_instance = DealMakerAPI::InvestorApi.new
+id = 56 # Integer | The deal id.
+investor_id = 56 # Integer | The investor id.
+
+begin
+  # Get the search entities attached to the investor
+  result = api_instance.get_deal_investor_search_entities(id, investor_id)
+  p result
+rescue DealMakerAPI::ApiError => e
+  puts "Error when calling InvestorApi->get_deal_investor_search_entities: #{e}"
+end
+```
+
+#### Using the get_deal_investor_search_entities_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<V1EntitiesInvestorSearchEntities>, Integer, Hash)> get_deal_investor_search_entities_with_http_info(id, investor_id)
+
+```ruby
+begin
+  # Get the search entities attached to the investor
+  data, status_code, headers = api_instance.get_deal_investor_search_entities_with_http_info(id, investor_id)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <V1EntitiesInvestorSearchEntities>
+rescue DealMakerAPI::ApiError => e
+  puts "Error when calling InvestorApi->get_deal_investor_search_entities_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **id** | **Integer** | The deal id. |  |
+| **investor_id** | **Integer** | The investor id. |  |
+
+### Return type
+
+[**V1EntitiesInvestorSearchEntities**](V1EntitiesInvestorSearchEntities.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
 ## get_enforcements
 
 > <V1EntitiesInvestor> get_enforcements(id, investor_id, search_entity_id)
@@ -938,6 +1007,8 @@ Run Alloy background search for the investor
 ```ruby
 require 'time'
 require 'DealMakerAPI'
+# setup authorization
+DealMakerAPI.configure do |config|end
 
 api_instance = DealMakerAPI::InvestorApi.new
 id = 56 # Integer | 

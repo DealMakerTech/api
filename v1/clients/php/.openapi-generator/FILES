@@ -24,6 +24,7 @@ docs/Model/CreateBulkUploadDetailRequest.md
 docs/Model/CreateBulkUploadRequest.md
 docs/Model/CreateCompanyRequest.md
 docs/Model/CreateDealSetupRequest.md
+docs/Model/CreateEmailTemplateRequest.md
 docs/Model/CreateShareholderActionRequest.md
 docs/Model/EditInvestorTagsRequest.md
 docs/Model/GenerateUrlRequest.md
@@ -81,6 +82,7 @@ docs/Model/V1EntitiesDividend.md
 docs/Model/V1EntitiesDividends.md
 docs/Model/V1EntitiesEmailEvent.md
 docs/Model/V1EntitiesEmailEvents.md
+docs/Model/V1EntitiesEmailTemplate.md
 docs/Model/V1EntitiesExpressWireInstruction.md
 docs/Model/V1EntitiesExpressWireInstructions.md
 docs/Model/V1EntitiesGenericResponse.md
@@ -105,6 +107,8 @@ docs/Model/V1EntitiesInvestorProfileManaged.md
 docs/Model/V1EntitiesInvestorProfileOwner.md
 docs/Model/V1EntitiesInvestorProfileTrust.md
 docs/Model/V1EntitiesInvestorProfiles.md
+docs/Model/V1EntitiesInvestorSearchEntities.md
+docs/Model/V1EntitiesInvestorSearchEntitiesRequiredFields.md
 docs/Model/V1EntitiesInvestorUser.md
 docs/Model/V1EntitiesInvestors.md
 docs/Model/V1EntitiesMoneyEntity.md
@@ -149,6 +153,7 @@ lib/Model/CreateBulkUploadDetailRequest.php
 lib/Model/CreateBulkUploadRequest.php
 lib/Model/CreateCompanyRequest.php
 lib/Model/CreateDealSetupRequest.php
+lib/Model/CreateEmailTemplateRequest.php
 lib/Model/CreateShareholderActionRequest.php
 lib/Model/EditInvestorTagsRequest.php
 lib/Model/GenerateUrlRequest.php
@@ -207,6 +212,7 @@ lib/Model/V1EntitiesDividend.php
 lib/Model/V1EntitiesDividends.php
 lib/Model/V1EntitiesEmailEvent.php
 lib/Model/V1EntitiesEmailEvents.php
+lib/Model/V1EntitiesEmailTemplate.php
 lib/Model/V1EntitiesExpressWireInstruction.php
 lib/Model/V1EntitiesExpressWireInstructions.php
 lib/Model/V1EntitiesGenericResponse.php
@@ -231,6 +237,8 @@ lib/Model/V1EntitiesInvestorProfileManaged.php
 lib/Model/V1EntitiesInvestorProfileOwner.php
 lib/Model/V1EntitiesInvestorProfileTrust.php
 lib/Model/V1EntitiesInvestorProfiles.php
+lib/Model/V1EntitiesInvestorSearchEntities.php
+lib/Model/V1EntitiesInvestorSearchEntitiesRequiredFields.php
 lib/Model/V1EntitiesInvestorUser.php
 lib/Model/V1EntitiesInvestors.php
 lib/Model/V1EntitiesMoneyEntity.php
@@ -273,6 +281,7 @@ test/Model/CreateBulkUploadDetailRequestTest.php
 test/Model/CreateBulkUploadRequestTest.php
 test/Model/CreateCompanyRequestTest.php
 test/Model/CreateDealSetupRequestTest.php
+test/Model/CreateEmailTemplateRequestTest.php
 test/Model/CreateShareholderActionRequestTest.php
 test/Model/EditInvestorTagsRequestTest.php
 test/Model/GenerateUrlRequestTest.php
@@ -330,6 +339,7 @@ test/Model/V1EntitiesDividendTest.php
 test/Model/V1EntitiesDividendsTest.php
 test/Model/V1EntitiesEmailEventTest.php
 test/Model/V1EntitiesEmailEventsTest.php
+test/Model/V1EntitiesEmailTemplateTest.php
 test/Model/V1EntitiesExpressWireInstructionTest.php
 test/Model/V1EntitiesExpressWireInstructionsTest.php
 test/Model/V1EntitiesGenericResponseTest.php
@@ -353,6 +363,8 @@ test/Model/V1EntitiesInvestorProfileManagedTest.php
 test/Model/V1EntitiesInvestorProfileOwnerTest.php
 test/Model/V1EntitiesInvestorProfileTrustTest.php
 test/Model/V1EntitiesInvestorProfilesTest.php
+test/Model/V1EntitiesInvestorSearchEntitiesRequiredFieldsTest.php
+test/Model/V1EntitiesInvestorSearchEntitiesTest.php
 test/Model/V1EntitiesInvestorTest.php
 test/Model/V1EntitiesInvestorUserTest.php
 test/Model/V1EntitiesInvestorsTest.php

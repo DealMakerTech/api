@@ -16,6 +16,7 @@ import ApiClient from "../ApiClient";
 import CreateBulkUploadDetailRequest from '../model/CreateBulkUploadDetailRequest';
 import CreateBulkUploadRequest from '../model/CreateBulkUploadRequest';
 import CreateCompanyRequest from '../model/CreateCompanyRequest';
+import CreateEmailTemplateRequest from '../model/CreateEmailTemplateRequest';
 import CreateShareholderActionRequest from '../model/CreateShareholderActionRequest';
 import SendPortalInviteRequest from '../model/SendPortalInviteRequest';
 import V1EntitiesBulkUpload from '../model/V1EntitiesBulkUpload';
@@ -25,13 +26,14 @@ import V1EntitiesBulkUploads from '../model/V1EntitiesBulkUploads';
 import V1EntitiesCompany from '../model/V1EntitiesCompany';
 import V1EntitiesDividends from '../model/V1EntitiesDividends';
 import V1EntitiesEmailEvents from '../model/V1EntitiesEmailEvents';
+import V1EntitiesEmailTemplate from '../model/V1EntitiesEmailTemplate';
 import V1EntitiesGenericResponse from '../model/V1EntitiesGenericResponse';
 import V1EntitiesShareholderLedger from '../model/V1EntitiesShareholderLedger';
 
 /**
 * Company service.
 * @module api/CompanyApi
-* @version 0.98.1
+* @version 0.98.2
 */
 export default class CompanyApi {
 
@@ -186,6 +188,54 @@ export default class CompanyApi {
       let returnType = V1EntitiesCompany;
       return this.apiClient.callApi(
         '/companies', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the createEmailTemplate operation.
+     * @callback module:api/CompanyApi~createEmailTemplateCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/V1EntitiesEmailTemplate} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Creates an email template
+     * Create new email template
+     * @param {Number} id 
+     * @param {module:model/CreateEmailTemplateRequest} createEmailTemplateRequest 
+     * @param {module:api/CompanyApi~createEmailTemplateCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/V1EntitiesEmailTemplate}
+     */
+    createEmailTemplate(id, createEmailTemplateRequest, callback) {
+      let postBody = createEmailTemplateRequest;
+      // verify the required parameter 'id' is set
+      if (id === undefined || id === null) {
+        throw new Error("Missing the required parameter 'id' when calling createEmailTemplate");
+      }
+      // verify the required parameter 'createEmailTemplateRequest' is set
+      if (createEmailTemplateRequest === undefined || createEmailTemplateRequest === null) {
+        throw new Error("Missing the required parameter 'createEmailTemplateRequest' when calling createEmailTemplate");
+      }
+
+      let pathParams = {
+        'id': id
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = V1EntitiesEmailTemplate;
+      return this.apiClient.callApi(
+        '/companies/{id}/news_releases/email_template', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

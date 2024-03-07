@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**createBulkUpload**](CompanyApi.md#createBulkUpload) | **POST** /companies/{id}/documents/bulk_uploads | Create bulk upload record
 [**createBulkUploadDetail**](CompanyApi.md#createBulkUploadDetail) | **POST** /companies/{company_id}/documents/bulk_uploads/{bulk_upload_id}/details | Create a BulkUploadDetail class record
 [**createCompany**](CompanyApi.md#createCompany) | **POST** /companies | Create new company
+[**createEmailTemplate**](CompanyApi.md#createEmailTemplate) | **POST** /companies/{id}/news_releases/email_template | Creates an email template
 [**createShareholderAction**](CompanyApi.md#createShareholderAction) | **POST** /companies/{company_id}/shareholders/{shareholder_id}/actions | Create a shareholder action
 [**getBulkUpload**](CompanyApi.md#getBulkUpload) | **GET** /companies/{id}/documents/bulk_uploads/{bulk_upload_id} | Return a given bulk upload by id
 [**getBulkUploadDetailsErrors**](CompanyApi.md#getBulkUploadDetailsErrors) | **GET** /companies/{company_id}/documents/bulk_uploads/{bulk_upload_id}/details/errors | Returns a full list of details with errors of the given bulk upload ordered by status desc and id asc
@@ -155,6 +156,54 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**V1EntitiesCompany**](V1EntitiesCompany.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## createEmailTemplate
+
+> V1EntitiesEmailTemplate createEmailTemplate(id, createEmailTemplateRequest)
+
+Creates an email template
+
+Create new email template
+
+### Example
+
+```javascript
+import Api from 'api';
+let defaultClient = Api.ApiClient.instance;
+
+let apiInstance = new Api.CompanyApi();
+let id = 56; // Number | 
+let createEmailTemplateRequest = new Api.CreateEmailTemplateRequest(); // CreateEmailTemplateRequest | 
+apiInstance.createEmailTemplate(id, createEmailTemplateRequest, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Number**|  | 
+ **createEmailTemplateRequest** | [**CreateEmailTemplateRequest**](CreateEmailTemplateRequest.md)|  | 
+
+### Return type
+
+[**V1EntitiesEmailTemplate**](V1EntitiesEmailTemplate.md)
 
 ### Authorization
 

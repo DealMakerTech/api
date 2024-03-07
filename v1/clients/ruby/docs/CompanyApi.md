@@ -7,6 +7,7 @@ All URIs are relative to *http://api.dealmaker.tech*
 | [**create_bulk_upload**](CompanyApi.md#create_bulk_upload) | **POST** /companies/{id}/documents/bulk_uploads | Create bulk upload record |
 | [**create_bulk_upload_detail**](CompanyApi.md#create_bulk_upload_detail) | **POST** /companies/{company_id}/documents/bulk_uploads/{bulk_upload_id}/details | Create a BulkUploadDetail class record |
 | [**create_company**](CompanyApi.md#create_company) | **POST** /companies | Create new company |
+| [**create_email_template**](CompanyApi.md#create_email_template) | **POST** /companies/{id}/news_releases/email_template | Creates an email template |
 | [**create_shareholder_action**](CompanyApi.md#create_shareholder_action) | **POST** /companies/{company_id}/shareholders/{shareholder_id}/actions | Create a shareholder action |
 | [**get_bulk_upload**](CompanyApi.md#get_bulk_upload) | **GET** /companies/{id}/documents/bulk_uploads/{bulk_upload_id} | Return a given bulk upload by id |
 | [**get_bulk_upload_details_errors**](CompanyApi.md#get_bulk_upload_details_errors) | **GET** /companies/{company_id}/documents/bulk_uploads/{bulk_upload_id}/details/errors | Returns a full list of details with errors of the given bulk upload ordered by status desc and id asc |
@@ -214,6 +215,74 @@ end
 ### Return type
 
 [**V1EntitiesCompany**](V1EntitiesCompany.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## create_email_template
+
+> <V1EntitiesEmailTemplate> create_email_template(id, create_email_template_request)
+
+Creates an email template
+
+Create new email template
+
+### Examples
+
+```ruby
+require 'time'
+require 'DealMakerAPI'
+# setup authorization
+DealMakerAPI.configure do |config|end
+
+api_instance = DealMakerAPI::CompanyApi.new
+id = 56 # Integer | 
+create_email_template_request = DealMakerAPI::CreateEmailTemplateRequest.new({name: 'name_example', json_content: 'json_content_example', html_content: 'html_content_example'}) # CreateEmailTemplateRequest | 
+
+begin
+  # Creates an email template
+  result = api_instance.create_email_template(id, create_email_template_request)
+  p result
+rescue DealMakerAPI::ApiError => e
+  puts "Error when calling CompanyApi->create_email_template: #{e}"
+end
+```
+
+#### Using the create_email_template_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<V1EntitiesEmailTemplate>, Integer, Hash)> create_email_template_with_http_info(id, create_email_template_request)
+
+```ruby
+begin
+  # Creates an email template
+  data, status_code, headers = api_instance.create_email_template_with_http_info(id, create_email_template_request)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <V1EntitiesEmailTemplate>
+rescue DealMakerAPI::ApiError => e
+  puts "Error when calling CompanyApi->create_email_template_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **id** | **Integer** |  |  |
+| **create_email_template_request** | [**CreateEmailTemplateRequest**](CreateEmailTemplateRequest.md) |  |  |
+
+### Return type
+
+[**V1EntitiesEmailTemplate**](V1EntitiesEmailTemplate.md)
 
 ### Authorization
 

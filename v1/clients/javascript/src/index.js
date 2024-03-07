@@ -20,6 +20,7 @@ import CreateBulkUploadDetailRequest from './model/CreateBulkUploadDetailRequest
 import CreateBulkUploadRequest from './model/CreateBulkUploadRequest';
 import CreateCompanyRequest from './model/CreateCompanyRequest';
 import CreateDealSetupRequest from './model/CreateDealSetupRequest';
+import CreateEmailTemplateRequest from './model/CreateEmailTemplateRequest';
 import CreateShareholderActionRequest from './model/CreateShareholderActionRequest';
 import EditInvestorTagsRequest from './model/EditInvestorTagsRequest';
 import GenerateUrlRequest from './model/GenerateUrlRequest';
@@ -77,6 +78,7 @@ import V1EntitiesDividend from './model/V1EntitiesDividend';
 import V1EntitiesDividends from './model/V1EntitiesDividends';
 import V1EntitiesEmailEvent from './model/V1EntitiesEmailEvent';
 import V1EntitiesEmailEvents from './model/V1EntitiesEmailEvents';
+import V1EntitiesEmailTemplate from './model/V1EntitiesEmailTemplate';
 import V1EntitiesExpressWireInstruction from './model/V1EntitiesExpressWireInstruction';
 import V1EntitiesExpressWireInstructions from './model/V1EntitiesExpressWireInstructions';
 import V1EntitiesGenericResponse from './model/V1EntitiesGenericResponse';
@@ -101,6 +103,8 @@ import V1EntitiesInvestorProfileManaged from './model/V1EntitiesInvestorProfileM
 import V1EntitiesInvestorProfileOwner from './model/V1EntitiesInvestorProfileOwner';
 import V1EntitiesInvestorProfileTrust from './model/V1EntitiesInvestorProfileTrust';
 import V1EntitiesInvestorProfiles from './model/V1EntitiesInvestorProfiles';
+import V1EntitiesInvestorSearchEntities from './model/V1EntitiesInvestorSearchEntities';
+import V1EntitiesInvestorSearchEntitiesRequiredFields from './model/V1EntitiesInvestorSearchEntitiesRequiredFields';
 import V1EntitiesInvestorUser from './model/V1EntitiesInvestorUser';
 import V1EntitiesInvestors from './model/V1EntitiesInvestors';
 import V1EntitiesMoneyEntity from './model/V1EntitiesMoneyEntity';
@@ -165,7 +169,7 @@ import UsersApi from './api/UsersApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.98.1
+* @version 0.98.2
 */
 export {
     /**
@@ -215,6 +219,12 @@ export {
      * @property {module:model/CreateDealSetupRequest}
      */
     CreateDealSetupRequest,
+
+    /**
+     * The CreateEmailTemplateRequest model constructor.
+     * @property {module:model/CreateEmailTemplateRequest}
+     */
+    CreateEmailTemplateRequest,
 
     /**
      * The CreateShareholderActionRequest model constructor.
@@ -559,6 +569,12 @@ export {
     V1EntitiesEmailEvents,
 
     /**
+     * The V1EntitiesEmailTemplate model constructor.
+     * @property {module:model/V1EntitiesEmailTemplate}
+     */
+    V1EntitiesEmailTemplate,
+
+    /**
      * The V1EntitiesExpressWireInstruction model constructor.
      * @property {module:model/V1EntitiesExpressWireInstruction}
      */
@@ -701,6 +717,18 @@ export {
      * @property {module:model/V1EntitiesInvestorProfiles}
      */
     V1EntitiesInvestorProfiles,
+
+    /**
+     * The V1EntitiesInvestorSearchEntities model constructor.
+     * @property {module:model/V1EntitiesInvestorSearchEntities}
+     */
+    V1EntitiesInvestorSearchEntities,
+
+    /**
+     * The V1EntitiesInvestorSearchEntitiesRequiredFields model constructor.
+     * @property {module:model/V1EntitiesInvestorSearchEntitiesRequiredFields}
+     */
+    V1EntitiesInvestorSearchEntitiesRequiredFields,
 
     /**
      * The V1EntitiesInvestorUser model constructor.

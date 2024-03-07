@@ -12,6 +12,7 @@ docs/CreateBulkUploadDetailRequest.md
 docs/CreateBulkUploadRequest.md
 docs/CreateCompanyRequest.md
 docs/CreateDealSetupRequest.md
+docs/CreateEmailTemplateRequest.md
 docs/CreateShareholderActionRequest.md
 docs/CustomEmailsApi.md
 docs/DealApi.md
@@ -80,6 +81,7 @@ docs/V1EntitiesDividend.md
 docs/V1EntitiesDividends.md
 docs/V1EntitiesEmailEvent.md
 docs/V1EntitiesEmailEvents.md
+docs/V1EntitiesEmailTemplate.md
 docs/V1EntitiesExpressWireInstruction.md
 docs/V1EntitiesExpressWireInstructions.md
 docs/V1EntitiesGenericResponse.md
@@ -104,6 +106,8 @@ docs/V1EntitiesInvestorProfileManaged.md
 docs/V1EntitiesInvestorProfileOwner.md
 docs/V1EntitiesInvestorProfileTrust.md
 docs/V1EntitiesInvestorProfiles.md
+docs/V1EntitiesInvestorSearchEntities.md
+docs/V1EntitiesInvestorSearchEntitiesRequiredFields.md
 docs/V1EntitiesInvestorUser.md
 docs/V1EntitiesInvestors.md
 docs/V1EntitiesMoneyEntity.md
@@ -149,6 +153,7 @@ src/model/CreateBulkUploadDetailRequest.js
 src/model/CreateBulkUploadRequest.js
 src/model/CreateCompanyRequest.js
 src/model/CreateDealSetupRequest.js
+src/model/CreateEmailTemplateRequest.js
 src/model/CreateShareholderActionRequest.js
 src/model/EditInvestorTagsRequest.js
 src/model/GenerateUrlRequest.js
@@ -206,6 +211,7 @@ src/model/V1EntitiesDividend.js
 src/model/V1EntitiesDividends.js
 src/model/V1EntitiesEmailEvent.js
 src/model/V1EntitiesEmailEvents.js
+src/model/V1EntitiesEmailTemplate.js
 src/model/V1EntitiesExpressWireInstruction.js
 src/model/V1EntitiesExpressWireInstructions.js
 src/model/V1EntitiesGenericResponse.js
@@ -230,6 +236,8 @@ src/model/V1EntitiesInvestorProfileManaged.js
 src/model/V1EntitiesInvestorProfileOwner.js
 src/model/V1EntitiesInvestorProfileTrust.js
 src/model/V1EntitiesInvestorProfiles.js
+src/model/V1EntitiesInvestorSearchEntities.js
+src/model/V1EntitiesInvestorSearchEntitiesRequiredFields.js
 src/model/V1EntitiesInvestorUser.js
 src/model/V1EntitiesInvestors.js
 src/model/V1EntitiesMoneyEntity.js
@@ -270,6 +278,7 @@ test/model/CreateBulkUploadDetailRequest.spec.js
 test/model/CreateBulkUploadRequest.spec.js
 test/model/CreateCompanyRequest.spec.js
 test/model/CreateDealSetupRequest.spec.js
+test/model/CreateEmailTemplateRequest.spec.js
 test/model/CreateShareholderActionRequest.spec.js
 test/model/EditInvestorTagsRequest.spec.js
 test/model/GenerateUrlRequest.spec.js
@@ -327,6 +336,7 @@ test/model/V1EntitiesDividend.spec.js
 test/model/V1EntitiesDividends.spec.js
 test/model/V1EntitiesEmailEvent.spec.js
 test/model/V1EntitiesEmailEvents.spec.js
+test/model/V1EntitiesEmailTemplate.spec.js
 test/model/V1EntitiesExpressWireInstruction.spec.js
 test/model/V1EntitiesExpressWireInstructions.spec.js
 test/model/V1EntitiesGenericResponse.spec.js
@@ -351,6 +361,8 @@ test/model/V1EntitiesInvestorProfileManaged.spec.js
 test/model/V1EntitiesInvestorProfileOwner.spec.js
 test/model/V1EntitiesInvestorProfileTrust.spec.js
 test/model/V1EntitiesInvestorProfiles.spec.js
+test/model/V1EntitiesInvestorSearchEntities.spec.js
+test/model/V1EntitiesInvestorSearchEntitiesRequiredFields.spec.js
 test/model/V1EntitiesInvestorUser.spec.js
 test/model/V1EntitiesInvestors.spec.js
 test/model/V1EntitiesMoneyEntity.spec.js

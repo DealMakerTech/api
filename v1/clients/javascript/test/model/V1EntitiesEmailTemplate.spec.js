@@ -78,6 +78,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property thumbnailImage (base name: "thumbnailImage")', function() {
+      // uncomment below and update the code to test the property thumbnailImage
+      //var instance = new Api.V1EntitiesEmailTemplate();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

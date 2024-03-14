@@ -33,7 +33,7 @@ import V1EntitiesShareholderLedger from '../model/V1EntitiesShareholderLedger';
 /**
 * Company service.
 * @module api/CompanyApi
-* @version 0.98.3
+* @version 0.98.4
 */
 export default class CompanyApi {
 
@@ -670,6 +670,106 @@ export default class CompanyApi {
       let returnType = V1EntitiesEmailEvents;
       return this.apiClient.callApi(
         '/companies/{company_communication_id}/email_events', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the getEmailTemplate operation.
+     * @callback module:api/CompanyApi~getEmailTemplateCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/V1EntitiesEmailTemplate} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Get a email template
+     * Get a email template
+     * @param {Number} id The company id
+     * @param {Number} templateId The email template id
+     * @param {module:api/CompanyApi~getEmailTemplateCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/V1EntitiesEmailTemplate}
+     */
+    getEmailTemplate(id, templateId, callback) {
+      let postBody = null;
+      // verify the required parameter 'id' is set
+      if (id === undefined || id === null) {
+        throw new Error("Missing the required parameter 'id' when calling getEmailTemplate");
+      }
+      // verify the required parameter 'templateId' is set
+      if (templateId === undefined || templateId === null) {
+        throw new Error("Missing the required parameter 'templateId' when calling getEmailTemplate");
+      }
+
+      let pathParams = {
+        'id': id,
+        'template_id': templateId
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = V1EntitiesEmailTemplate;
+      return this.apiClient.callApi(
+        '/companies/{id}/news_releases/email_template/{template_id}', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the getEmailTemplates operation.
+     * @callback module:api/CompanyApi~getEmailTemplatesCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/V1EntitiesEmailTemplate} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Get list of email template
+     * Get list of email template
+     * @param {Number} id The company id
+     * @param {Object} opts Optional parameters
+     * @param {Number} [page = 1)] The page number
+     * @param {Number} [perPage = 10)] The number of items per page
+     * @param {Boolean} [publicTemplate = false)] The public template
+     * @param {module:api/CompanyApi~getEmailTemplatesCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/V1EntitiesEmailTemplate}
+     */
+    getEmailTemplates(id, opts, callback) {
+      opts = opts || {};
+      let postBody = null;
+      // verify the required parameter 'id' is set
+      if (id === undefined || id === null) {
+        throw new Error("Missing the required parameter 'id' when calling getEmailTemplates");
+      }
+
+      let pathParams = {
+        'id': id
+      };
+      let queryParams = {
+        'page': opts['page'],
+        'per_page': opts['perPage'],
+        'public_template': opts['publicTemplate']
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = V1EntitiesEmailTemplate;
+      return this.apiClient.callApi(
+        '/companies/{id}/news_releases/email_templates', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

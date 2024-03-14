@@ -17,6 +17,8 @@ All URIs are relative to *http://api.dealmaker.tech*
 | [**get_details_errors_grouped**](CompanyApi.md#get_details_errors_grouped) | **GET** /companies/{company_id}/documents/bulk_uploads/{bulk_upload_id}/details/grouped_errors | Return bulk upload details grouped by status |
 | [**get_dividends**](CompanyApi.md#get_dividends) | **GET** /companies/{company_id}/portal/dividends | Return dividends |
 | [**get_email_events**](CompanyApi.md#get_email_events) | **GET** /companies/{company_communication_id}/email_events | Get a list of email events for a company communication |
+| [**get_email_template**](CompanyApi.md#get_email_template) | **GET** /companies/{id}/news_releases/email_template/{template_id} | Get a email template |
+| [**get_email_templates**](CompanyApi.md#get_email_templates) | **GET** /companies/{id}/news_releases/email_templates | Get list of email template |
 | [**get_shareholder_ledger**](CompanyApi.md#get_shareholder_ledger) | **GET** /companies/{id}/shareholder_ledger | Get shareholder ledger by company |
 | [**get_user_accessible_companies**](CompanyApi.md#get_user_accessible_companies) | **GET** /users/accessible_companies | Get list of all Companies accessible by the user |
 | [**send_portal_invite**](CompanyApi.md#send_portal_invite) | **POST** /companies/{id}/shareholders/{shareholder_id}/send_portal_invite | Send portal invite to shareholder |
@@ -909,6 +911,148 @@ end
 ### Return type
 
 [**V1EntitiesEmailEvents**](V1EntitiesEmailEvents.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## get_email_template
+
+> <V1EntitiesEmailTemplate> get_email_template(id, template_id)
+
+Get a email template
+
+Get a email template
+
+### Examples
+
+```ruby
+require 'time'
+require 'DealMakerAPI'
+# setup authorization
+DealMakerAPI.configure do |config|end
+
+api_instance = DealMakerAPI::CompanyApi.new
+id = 56 # Integer | The company id
+template_id = 56 # Integer | The email template id
+
+begin
+  # Get a email template
+  result = api_instance.get_email_template(id, template_id)
+  p result
+rescue DealMakerAPI::ApiError => e
+  puts "Error when calling CompanyApi->get_email_template: #{e}"
+end
+```
+
+#### Using the get_email_template_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<V1EntitiesEmailTemplate>, Integer, Hash)> get_email_template_with_http_info(id, template_id)
+
+```ruby
+begin
+  # Get a email template
+  data, status_code, headers = api_instance.get_email_template_with_http_info(id, template_id)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <V1EntitiesEmailTemplate>
+rescue DealMakerAPI::ApiError => e
+  puts "Error when calling CompanyApi->get_email_template_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **id** | **Integer** | The company id |  |
+| **template_id** | **Integer** | The email template id |  |
+
+### Return type
+
+[**V1EntitiesEmailTemplate**](V1EntitiesEmailTemplate.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## get_email_templates
+
+> <V1EntitiesEmailTemplate> get_email_templates(id, opts)
+
+Get list of email template
+
+Get list of email template
+
+### Examples
+
+```ruby
+require 'time'
+require 'DealMakerAPI'
+# setup authorization
+DealMakerAPI.configure do |config|end
+
+api_instance = DealMakerAPI::CompanyApi.new
+id = 56 # Integer | The company id
+opts = {
+  page: 56, # Integer | The page number
+  per_page: 56, # Integer | The number of items per page
+  public_template: true # Boolean | The public template
+}
+
+begin
+  # Get list of email template
+  result = api_instance.get_email_templates(id, opts)
+  p result
+rescue DealMakerAPI::ApiError => e
+  puts "Error when calling CompanyApi->get_email_templates: #{e}"
+end
+```
+
+#### Using the get_email_templates_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<V1EntitiesEmailTemplate>, Integer, Hash)> get_email_templates_with_http_info(id, opts)
+
+```ruby
+begin
+  # Get list of email template
+  data, status_code, headers = api_instance.get_email_templates_with_http_info(id, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <V1EntitiesEmailTemplate>
+rescue DealMakerAPI::ApiError => e
+  puts "Error when calling CompanyApi->get_email_templates_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **id** | **Integer** | The company id |  |
+| **page** | **Integer** | The page number | [optional][default to 1] |
+| **per_page** | **Integer** | The number of items per page | [optional][default to 10] |
+| **public_template** | **Boolean** | The public template | [optional][default to false] |
+
+### Return type
+
+[**V1EntitiesEmailTemplate**](V1EntitiesEmailTemplate.md)
 
 ### Authorization
 

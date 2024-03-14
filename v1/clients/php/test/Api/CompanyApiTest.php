@@ -228,6 +228,30 @@ class CompanyApiTest extends TestCase
     }
 
     /**
+     * Test case for getEmailTemplate
+     *
+     * Get a email template.
+     *
+     */
+    public function testGetEmailTemplate()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for getEmailTemplates
+     *
+     * Get list of email template.
+     *
+     */
+    public function testGetEmailTemplates()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for getShareholderLedger
      *
      * Get shareholder ledger by company.

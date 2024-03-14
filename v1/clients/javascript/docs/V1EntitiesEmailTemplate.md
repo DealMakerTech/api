@@ -8,5 +8,6 @@ Name | Type | Description | Notes
 **name** | **String** | The name of the email template. | [optional] 
 **jsonContent** | **String** | The json content of the email template. | [optional] 
 **companyId** | **Number** | The ID of the company. | [optional] 
+**thumbnailImage** | **String** | The thumbnail image of the email template. | [optional] 
 
 

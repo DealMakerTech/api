@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The V1EntitiesInvestorSearchEntitiesRequiredFields model module.
  * @module model/V1EntitiesInvestorSearchEntitiesRequiredFields
- * @version 0.98.3
+ * @version 0.98.4
  */
 class V1EntitiesInvestorSearchEntitiesRequiredFields {
     /**

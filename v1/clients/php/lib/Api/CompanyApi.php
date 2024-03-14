@@ -110,6 +110,12 @@ class CompanyApi
         'getEmailEvents' => [
             'application/json',
         ],
+        'getEmailTemplate' => [
+            'application/json',
+        ],
+        'getEmailTemplates' => [
+            'application/json',
+        ],
         'getShareholderLedger' => [
             'application/json',
         ],
@@ -4390,6 +4396,685 @@ class CompanyApi
             $resourcePath = str_replace(
                 '{' . 'company_communication_id' . '}',
                 ObjectSerializer::toPathValue($company_communication_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getEmailTemplate
+     *
+     * Get a email template
+     *
+     * @param  int $id The company id (required)
+     * @param  int $template_id The email template id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getEmailTemplate'] to see the possible values for this operation
+     *
+     * @throws \DealMaker\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \DealMaker\Model\V1EntitiesEmailTemplate
+     */
+    public function getEmailTemplate($id, $template_id, string $contentType = self::contentTypes['getEmailTemplate'][0])
+    {
+        list($response) = $this->getEmailTemplateWithHttpInfo($id, $template_id, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation getEmailTemplateWithHttpInfo
+     *
+     * Get a email template
+     *
+     * @param  int $id The company id (required)
+     * @param  int $template_id The email template id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getEmailTemplate'] to see the possible values for this operation
+     *
+     * @throws \DealMaker\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \DealMaker\Model\V1EntitiesEmailTemplate, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getEmailTemplateWithHttpInfo($id, $template_id, string $contentType = self::contentTypes['getEmailTemplate'][0])
+    {
+        $request = $this->getEmailTemplateRequest($id, $template_id, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\DealMaker\Model\V1EntitiesEmailTemplate' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\DealMaker\Model\V1EntitiesEmailTemplate' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\DealMaker\Model\V1EntitiesEmailTemplate', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\DealMaker\Model\V1EntitiesEmailTemplate';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    try {
+                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                    } catch (\JsonException $exception) {
+                        throw new ApiException(
+                            sprintf(
+                                'Error JSON decoding server response (%s)',
+                                $request->getUri()
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $content
+                        );
+                    }
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\DealMaker\Model\V1EntitiesEmailTemplate',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getEmailTemplateAsync
+     *
+     * Get a email template
+     *
+     * @param  int $id The company id (required)
+     * @param  int $template_id The email template id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getEmailTemplate'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getEmailTemplateAsync($id, $template_id, string $contentType = self::contentTypes['getEmailTemplate'][0])
+    {
+        return $this->getEmailTemplateAsyncWithHttpInfo($id, $template_id, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getEmailTemplateAsyncWithHttpInfo
+     *
+     * Get a email template
+     *
+     * @param  int $id The company id (required)
+     * @param  int $template_id The email template id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getEmailTemplate'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getEmailTemplateAsyncWithHttpInfo($id, $template_id, string $contentType = self::contentTypes['getEmailTemplate'][0])
+    {
+        $returnType = '\DealMaker\Model\V1EntitiesEmailTemplate';
+        $request = $this->getEmailTemplateRequest($id, $template_id, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getEmailTemplate'
+     *
+     * @param  int $id The company id (required)
+     * @param  int $template_id The email template id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getEmailTemplate'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getEmailTemplateRequest($id, $template_id, string $contentType = self::contentTypes['getEmailTemplate'][0])
+    {
+
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling getEmailTemplate'
+            );
+        }
+
+        // verify the required parameter 'template_id' is set
+        if ($template_id === null || (is_array($template_id) && count($template_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $template_id when calling getEmailTemplate'
+            );
+        }
+
+
+        $resourcePath = '/companies/{id}/news_releases/email_template/{template_id}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'id' . '}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($template_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'template_id' . '}',
+                ObjectSerializer::toPathValue($template_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getEmailTemplates
+     *
+     * Get list of email template
+     *
+     * @param  int $id The company id (required)
+     * @param  int $page The page number (optional, default to 1)
+     * @param  int $per_page The number of items per page (optional, default to 10)
+     * @param  bool $public_template The public template (optional, default to false)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getEmailTemplates'] to see the possible values for this operation
+     *
+     * @throws \DealMaker\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \DealMaker\Model\V1EntitiesEmailTemplate
+     */
+    public function getEmailTemplates($id, $page = 1, $per_page = 10, $public_template = false, string $contentType = self::contentTypes['getEmailTemplates'][0])
+    {
+        list($response) = $this->getEmailTemplatesWithHttpInfo($id, $page, $per_page, $public_template, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation getEmailTemplatesWithHttpInfo
+     *
+     * Get list of email template
+     *
+     * @param  int $id The company id (required)
+     * @param  int $page The page number (optional, default to 1)
+     * @param  int $per_page The number of items per page (optional, default to 10)
+     * @param  bool $public_template The public template (optional, default to false)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getEmailTemplates'] to see the possible values for this operation
+     *
+     * @throws \DealMaker\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \DealMaker\Model\V1EntitiesEmailTemplate, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getEmailTemplatesWithHttpInfo($id, $page = 1, $per_page = 10, $public_template = false, string $contentType = self::contentTypes['getEmailTemplates'][0])
+    {
+        $request = $this->getEmailTemplatesRequest($id, $page, $per_page, $public_template, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\DealMaker\Model\V1EntitiesEmailTemplate' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\DealMaker\Model\V1EntitiesEmailTemplate' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\DealMaker\Model\V1EntitiesEmailTemplate', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\DealMaker\Model\V1EntitiesEmailTemplate';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    try {
+                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                    } catch (\JsonException $exception) {
+                        throw new ApiException(
+                            sprintf(
+                                'Error JSON decoding server response (%s)',
+                                $request->getUri()
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $content
+                        );
+                    }
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\DealMaker\Model\V1EntitiesEmailTemplate',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getEmailTemplatesAsync
+     *
+     * Get list of email template
+     *
+     * @param  int $id The company id (required)
+     * @param  int $page The page number (optional, default to 1)
+     * @param  int $per_page The number of items per page (optional, default to 10)
+     * @param  bool $public_template The public template (optional, default to false)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getEmailTemplates'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getEmailTemplatesAsync($id, $page = 1, $per_page = 10, $public_template = false, string $contentType = self::contentTypes['getEmailTemplates'][0])
+    {
+        return $this->getEmailTemplatesAsyncWithHttpInfo($id, $page, $per_page, $public_template, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getEmailTemplatesAsyncWithHttpInfo
+     *
+     * Get list of email template
+     *
+     * @param  int $id The company id (required)
+     * @param  int $page The page number (optional, default to 1)
+     * @param  int $per_page The number of items per page (optional, default to 10)
+     * @param  bool $public_template The public template (optional, default to false)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getEmailTemplates'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getEmailTemplatesAsyncWithHttpInfo($id, $page = 1, $per_page = 10, $public_template = false, string $contentType = self::contentTypes['getEmailTemplates'][0])
+    {
+        $returnType = '\DealMaker\Model\V1EntitiesEmailTemplate';
+        $request = $this->getEmailTemplatesRequest($id, $page, $per_page, $public_template, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getEmailTemplates'
+     *
+     * @param  int $id The company id (required)
+     * @param  int $page The page number (optional, default to 1)
+     * @param  int $per_page The number of items per page (optional, default to 10)
+     * @param  bool $public_template The public template (optional, default to false)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getEmailTemplates'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getEmailTemplatesRequest($id, $page = 1, $per_page = 10, $public_template = false, string $contentType = self::contentTypes['getEmailTemplates'][0])
+    {
+
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling getEmailTemplates'
+            );
+        }
+
+
+
+
+
+        $resourcePath = '/companies/{id}/news_releases/email_templates';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $page,
+            'page', // param base name
+            'integer', // openApiType
+            '', // style
+            false, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $per_page,
+            'per_page', // param base name
+            'integer', // openApiType
+            '', // style
+            false, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $public_template,
+            'public_template', // param base name
+            'boolean', // openApiType
+            '', // style
+            false, // explode
+            false // required
+        ) ?? []);
+
+
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'id' . '}',
+                ObjectSerializer::toPathValue($id),
                 $resourcePath
             );
         }

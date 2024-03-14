@@ -28,13 +28,17 @@ module DealMakerAPI
     # The ID of the company.
     attr_accessor :company_id
 
+    # The thumbnail image of the email template.
+    attr_accessor :thumbnail_image
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'id' => :'id',
         :'name' => :'name',
         :'json_content' => :'jsonContent',
-        :'company_id' => :'companyId'
+        :'company_id' => :'companyId',
+        :'thumbnail_image' => :'thumbnailImage'
       }
     end
 
@@ -49,7 +53,8 @@ module DealMakerAPI
         :'id' => :'Integer',
         :'name' => :'String',
         :'json_content' => :'String',
-        :'company_id' => :'Integer'
+        :'company_id' => :'Integer',
+        :'thumbnail_image' => :'String'
       }
     end
 
@@ -89,6 +94,10 @@ module DealMakerAPI
       if attributes.key?(:'company_id')
         self.company_id = attributes[:'company_id']
       end
+
+      if attributes.key?(:'thumbnail_image')
+        self.thumbnail_image = attributes[:'thumbnail_image']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -114,7 +123,8 @@ module DealMakerAPI
           id == o.id &&
           name == o.name &&
           json_content == o.json_content &&
-          company_id == o.company_id
+          company_id == o.company_id &&
+          thumbnail_image == o.thumbnail_image
     end
 
     # @see the `==` method
@@ -126,7 +136,7 @@ module DealMakerAPI
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, name, json_content, company_id].hash
+      [id, name, json_content, company_id, thumbnail_image].hash
     end
 
     # Builds the object from hash

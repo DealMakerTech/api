@@ -169,7 +169,7 @@ import UsersApi from './api/UsersApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.98.3
+* @version 0.98.4
 */
 export {
     /**

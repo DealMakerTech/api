@@ -114,4 +114,13 @@ class V1EntitiesEmailTemplateTest extends TestCase
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test attribute "thumbnail_image"
+     */
+    public function testPropertyThumbnailImage()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
 }

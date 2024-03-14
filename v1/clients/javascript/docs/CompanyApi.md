@@ -17,6 +17,8 @@ Method | HTTP request | Description
 [**getDetailsErrorsGrouped**](CompanyApi.md#getDetailsErrorsGrouped) | **GET** /companies/{company_id}/documents/bulk_uploads/{bulk_upload_id}/details/grouped_errors | Return bulk upload details grouped by status
 [**getDividends**](CompanyApi.md#getDividends) | **GET** /companies/{company_id}/portal/dividends | Return dividends
 [**getEmailEvents**](CompanyApi.md#getEmailEvents) | **GET** /companies/{company_communication_id}/email_events | Get a list of email events for a company communication
+[**getEmailTemplate**](CompanyApi.md#getEmailTemplate) | **GET** /companies/{id}/news_releases/email_template/{template_id} | Get a email template
+[**getEmailTemplates**](CompanyApi.md#getEmailTemplates) | **GET** /companies/{id}/news_releases/email_templates | Get list of email template
 [**getShareholderLedger**](CompanyApi.md#getShareholderLedger) | **GET** /companies/{id}/shareholder_ledger | Get shareholder ledger by company
 [**getUserAccessibleCompanies**](CompanyApi.md#getUserAccessibleCompanies) | **GET** /users/accessible_companies | Get list of all Companies accessible by the user
 [**sendPortalInvite**](CompanyApi.md#sendPortalInvite) | **POST** /companies/{id}/shareholders/{shareholder_id}/send_portal_invite | Send portal invite to shareholder
@@ -650,6 +652,108 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**V1EntitiesEmailEvents**](V1EntitiesEmailEvents.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## getEmailTemplate
+
+> V1EntitiesEmailTemplate getEmailTemplate(id, templateId)
+
+Get a email template
+
+Get a email template
+
+### Example
+
+```javascript
+import Api from 'api';
+let defaultClient = Api.ApiClient.instance;
+
+let apiInstance = new Api.CompanyApi();
+let id = 56; // Number | The company id
+let templateId = 56; // Number | The email template id
+apiInstance.getEmailTemplate(id, templateId, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Number**| The company id | 
+ **templateId** | **Number**| The email template id | 
+
+### Return type
+
+[**V1EntitiesEmailTemplate**](V1EntitiesEmailTemplate.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## getEmailTemplates
+
+> V1EntitiesEmailTemplate getEmailTemplates(id, opts)
+
+Get list of email template
+
+Get list of email template
+
+### Example
+
+```javascript
+import Api from 'api';
+let defaultClient = Api.ApiClient.instance;
+
+let apiInstance = new Api.CompanyApi();
+let id = 56; // Number | The company id
+let opts = {
+  'page': 1, // Number | The page number
+  'perPage': 10, // Number | The number of items per page
+  'publicTemplate': false // Boolean | The public template
+};
+apiInstance.getEmailTemplates(id, opts, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Number**| The company id | 
+ **page** | **Number**| The page number | [optional] [default to 1]
+ **perPage** | **Number**| The number of items per page | [optional] [default to 10]
+ **publicTemplate** | **Boolean**| The public template | [optional] [default to false]
+
+### Return type
+
+[**V1EntitiesEmailTemplate**](V1EntitiesEmailTemplate.md)
 
 ### Authorization
 

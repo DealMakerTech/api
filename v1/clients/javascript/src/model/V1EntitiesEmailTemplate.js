@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The V1EntitiesEmailTemplate model module.
  * @module model/V1EntitiesEmailTemplate
- * @version 0.98.3
+ * @version 0.98.4
  */
 class V1EntitiesEmailTemplate {
     /**
@@ -60,6 +60,9 @@ class V1EntitiesEmailTemplate {
             if (data.hasOwnProperty('companyId')) {
                 obj['companyId'] = ApiClient.convertToType(data['companyId'], 'Number');
             }
+            if (data.hasOwnProperty('thumbnailImage')) {
+                obj['thumbnailImage'] = ApiClient.convertToType(data['thumbnailImage'], 'String');
+            }
         }
         return obj;
     }
@@ -77,6 +80,10 @@ class V1EntitiesEmailTemplate {
         // ensure the json data is a string
         if (data['jsonContent'] && !(typeof data['jsonContent'] === 'string' || data['jsonContent'] instanceof String)) {
             throw new Error("Expected the field `jsonContent` to be a primitive type in the JSON string but got " + data['jsonContent']);
+        }
+        // ensure the json data is a string
+        if (data['thumbnailImage'] && !(typeof data['thumbnailImage'] === 'string' || data['thumbnailImage'] instanceof String)) {
+            throw new Error("Expected the field `thumbnailImage` to be a primitive type in the JSON string but got " + data['thumbnailImage']);
         }
 
         return true;
@@ -110,6 +117,12 @@ V1EntitiesEmailTemplate.prototype['jsonContent'] = undefined;
  * @member {Number} companyId
  */
 V1EntitiesEmailTemplate.prototype['companyId'] = undefined;
+
+/**
+ * The thumbnail image of the email template.
+ * @member {String} thumbnailImage
+ */
+V1EntitiesEmailTemplate.prototype['thumbnailImage'] = undefined;
 
 
 

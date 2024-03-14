@@ -17,6 +17,8 @@ All URIs are relative to http://api.dealmaker.tech, except if the operation defi
 | [**getDetailsErrorsGrouped()**](CompanyApi.md#getDetailsErrorsGrouped) | **GET** /companies/{company_id}/documents/bulk_uploads/{bulk_upload_id}/details/grouped_errors | Return bulk upload details grouped by status |
 | [**getDividends()**](CompanyApi.md#getDividends) | **GET** /companies/{company_id}/portal/dividends | Return dividends |
 | [**getEmailEvents()**](CompanyApi.md#getEmailEvents) | **GET** /companies/{company_communication_id}/email_events | Get a list of email events for a company communication |
+| [**getEmailTemplate()**](CompanyApi.md#getEmailTemplate) | **GET** /companies/{id}/news_releases/email_template/{template_id} | Get a email template |
+| [**getEmailTemplates()**](CompanyApi.md#getEmailTemplates) | **GET** /companies/{id}/news_releases/email_templates | Get list of email template |
 | [**getShareholderLedger()**](CompanyApi.md#getShareholderLedger) | **GET** /companies/{id}/shareholder_ledger | Get shareholder ledger by company |
 | [**getUserAccessibleCompanies()**](CompanyApi.md#getUserAccessibleCompanies) | **GET** /users/accessible_companies | Get list of all Companies accessible by the user |
 | [**sendPortalInvite()**](CompanyApi.md#sendPortalInvite) | **POST** /companies/{id}/shareholders/{shareholder_id}/send_portal_invite | Send portal invite to shareholder |
@@ -783,6 +785,128 @@ try {
 ### Return type
 
 [**\DealMaker\Model\V1EntitiesEmailEvents**](../Model/V1EntitiesEmailEvents.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getEmailTemplate()`
+
+```php
+getEmailTemplate($id, $template_id): \DealMaker\Model\V1EntitiesEmailTemplate
+```
+
+Get a email template
+
+Get a email template
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new DealMaker\Api\CompanyApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = 56; // int | The company id
+$template_id = 56; // int | The email template id
+
+try {
+    $result = $apiInstance->getEmailTemplate($id, $template_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CompanyApi->getEmailTemplate: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **int**| The company id | |
+| **template_id** | **int**| The email template id | |
+
+### Return type
+
+[**\DealMaker\Model\V1EntitiesEmailTemplate**](../Model/V1EntitiesEmailTemplate.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getEmailTemplates()`
+
+```php
+getEmailTemplates($id, $page, $per_page, $public_template): \DealMaker\Model\V1EntitiesEmailTemplate
+```
+
+Get list of email template
+
+Get list of email template
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new DealMaker\Api\CompanyApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = 56; // int | The company id
+$page = 1; // int | The page number
+$per_page = 10; // int | The number of items per page
+$public_template = false; // bool | The public template
+
+try {
+    $result = $apiInstance->getEmailTemplates($id, $page, $per_page, $public_template);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CompanyApi->getEmailTemplates: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **int**| The company id | |
+| **page** | **int**| The page number | [optional] [default to 1] |
+| **per_page** | **int**| The number of items per page | [optional] [default to 10] |
+| **public_template** | **bool**| The public template | [optional] [default to false] |
+
+### Return type
+
+[**\DealMaker\Model\V1EntitiesEmailTemplate**](../Model/V1EntitiesEmailTemplate.md)
 
 ### Authorization
 

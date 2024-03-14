@@ -61,7 +61,8 @@ class V1EntitiesEmailTemplate implements ModelInterface, ArrayAccess, \JsonSeria
         'id' => 'int',
         'name' => 'string',
         'json_content' => 'string',
-        'company_id' => 'int'
+        'company_id' => 'int',
+        'thumbnail_image' => 'string'
     ];
 
     /**
@@ -75,7 +76,8 @@ class V1EntitiesEmailTemplate implements ModelInterface, ArrayAccess, \JsonSeria
         'id' => 'int32',
         'name' => null,
         'json_content' => null,
-        'company_id' => 'int32'
+        'company_id' => 'int32',
+        'thumbnail_image' => null
     ];
 
     /**
@@ -87,7 +89,8 @@ class V1EntitiesEmailTemplate implements ModelInterface, ArrayAccess, \JsonSeria
         'id' => false,
         'name' => false,
         'json_content' => false,
-        'company_id' => false
+        'company_id' => false,
+        'thumbnail_image' => false
     ];
 
     /**
@@ -179,7 +182,8 @@ class V1EntitiesEmailTemplate implements ModelInterface, ArrayAccess, \JsonSeria
         'id' => 'id',
         'name' => 'name',
         'json_content' => 'jsonContent',
-        'company_id' => 'companyId'
+        'company_id' => 'companyId',
+        'thumbnail_image' => 'thumbnailImage'
     ];
 
     /**
@@ -191,7 +195,8 @@ class V1EntitiesEmailTemplate implements ModelInterface, ArrayAccess, \JsonSeria
         'id' => 'setId',
         'name' => 'setName',
         'json_content' => 'setJsonContent',
-        'company_id' => 'setCompanyId'
+        'company_id' => 'setCompanyId',
+        'thumbnail_image' => 'setThumbnailImage'
     ];
 
     /**
@@ -203,7 +208,8 @@ class V1EntitiesEmailTemplate implements ModelInterface, ArrayAccess, \JsonSeria
         'id' => 'getId',
         'name' => 'getName',
         'json_content' => 'getJsonContent',
-        'company_id' => 'getCompanyId'
+        'company_id' => 'getCompanyId',
+        'thumbnail_image' => 'getThumbnailImage'
     ];
 
     /**
@@ -267,6 +273,7 @@ class V1EntitiesEmailTemplate implements ModelInterface, ArrayAccess, \JsonSeria
         $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('json_content', $data ?? [], null);
         $this->setIfExists('company_id', $data ?? [], null);
+        $this->setIfExists('thumbnail_image', $data ?? [], null);
     }
 
     /**
@@ -415,6 +422,33 @@ class V1EntitiesEmailTemplate implements ModelInterface, ArrayAccess, \JsonSeria
             throw new \InvalidArgumentException('non-nullable company_id cannot be null');
         }
         $this->container['company_id'] = $company_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets thumbnail_image
+     *
+     * @return string|null
+     */
+    public function getThumbnailImage()
+    {
+        return $this->container['thumbnail_image'];
+    }
+
+    /**
+     * Sets thumbnail_image
+     *
+     * @param string|null $thumbnail_image The thumbnail image of the email template.
+     *
+     * @return self
+     */
+    public function setThumbnailImage($thumbnail_image)
+    {
+        if (is_null($thumbnail_image)) {
+            throw new \InvalidArgumentException('non-nullable thumbnail_image cannot be null');
+        }
+        $this->container['thumbnail_image'] = $thumbnail_image;
 
         return $this;
     }

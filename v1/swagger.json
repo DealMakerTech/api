@@ -4656,6 +4656,142 @@
         ]
       }
     },
+    "/companies/{id}/news_releases/email_template/{template_id}": {
+      "get": {
+        "summary": "Get a email template",
+        "description": "Get a email template",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "description": "The company id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          },
+          {
+            "in": "path",
+            "name": "template_id",
+            "description": "The email template id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "security": [
+          {
+            "oauth": [
+              "internal"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get a email template",
+            "schema": {
+              "$ref": "#/definitions/V1_Entities_EmailTemplate"
+            }
+          },
+          "404": {
+            "description": "Not found"
+          }
+        },
+        "tags": [
+          "company"
+        ],
+        "operationId": "getEmailTemplate",
+        "x-codeSamples": [
+          {
+            "lang": "javascript",
+            "source": ""
+          },
+          {
+            "lang": "ruby",
+            "source": ""
+          }
+        ]
+      }
+    },
+    "/companies/{id}/news_releases/email_templates": {
+      "get": {
+        "summary": "Get list of email template",
+        "description": "Get list of email template",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "description": "The company id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          },
+          {
+            "in": "query",
+            "name": "page",
+            "description": "The page number",
+            "type": "integer",
+            "format": "int32",
+            "default": 1,
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "per_page",
+            "description": "The number of items per page",
+            "type": "integer",
+            "format": "int32",
+            "default": 10,
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "public_template",
+            "description": "The public template",
+            "type": "boolean",
+            "default": false,
+            "required": false
+          }
+        ],
+        "security": [
+          {
+            "oauth": [
+              "internal"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get list of email template",
+            "schema": {
+              "$ref": "#/definitions/V1_Entities_EmailTemplate"
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        },
+        "tags": [
+          "company"
+        ],
+        "operationId": "getEmailTemplates",
+        "x-codeSamples": [
+          {
+            "lang": "javascript",
+            "source": ""
+          },
+          {
+            "lang": "ruby",
+            "source": ""
+          }
+        ]
+      }
+    },
     "/custom_emails/get_access_token": {
       "post": {
         "summary": "Generate authorization token information for initializing Beefree editor",
@@ -8290,6 +8426,10 @@
           "type": "integer",
           "format": "int32",
           "description": "The ID of the company."
+        },
+        "thumbnailImage": {
+          "type": "string",
+          "description": "The thumbnail image of the email template."
         }
       },
       "description": "V1_Entities_EmailTemplate model"

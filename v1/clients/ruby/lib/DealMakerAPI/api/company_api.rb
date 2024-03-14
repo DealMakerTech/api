@@ -938,6 +938,147 @@ module DealMakerAPI
       return data, status_code, headers
     end
 
+    # Get a email template
+    # Get a email template
+    # @param id [Integer] The company id
+    # @param template_id [Integer] The email template id
+    # @param [Hash] opts the optional parameters
+    # @return [V1EntitiesEmailTemplate]
+    def get_email_template(id, template_id, opts = {})
+      data, _status_code, _headers = get_email_template_with_http_info(id, template_id, opts)
+      data
+    end
+
+    # Get a email template
+    # Get a email template
+    # @param id [Integer] The company id
+    # @param template_id [Integer] The email template id
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(V1EntitiesEmailTemplate, Integer, Hash)>] V1EntitiesEmailTemplate data, response status code and response headers
+    def get_email_template_with_http_info(id, template_id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CompanyApi.get_email_template ...'
+      end
+      # verify the required parameter 'id' is set
+      if @api_client.config.client_side_validation && id.nil?
+        fail ArgumentError, "Missing the required parameter 'id' when calling CompanyApi.get_email_template"
+      end
+      # verify the required parameter 'template_id' is set
+      if @api_client.config.client_side_validation && template_id.nil?
+        fail ArgumentError, "Missing the required parameter 'template_id' when calling CompanyApi.get_email_template"
+      end
+      # resource path
+      local_var_path = '/companies/{id}/news_releases/email_template/{template_id}'.sub('{' + 'id' + '}', CGI.escape(id.to_s)).sub('{' + 'template_id' + '}', CGI.escape(template_id.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'V1EntitiesEmailTemplate'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"CompanyApi.get_email_template",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CompanyApi#get_email_template\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get list of email template
+    # Get list of email template
+    # @param id [Integer] The company id
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :page The page number (default to 1)
+    # @option opts [Integer] :per_page The number of items per page (default to 10)
+    # @option opts [Boolean] :public_template The public template (default to false)
+    # @return [V1EntitiesEmailTemplate]
+    def get_email_templates(id, opts = {})
+      data, _status_code, _headers = get_email_templates_with_http_info(id, opts)
+      data
+    end
+
+    # Get list of email template
+    # Get list of email template
+    # @param id [Integer] The company id
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :page The page number (default to 1)
+    # @option opts [Integer] :per_page The number of items per page (default to 10)
+    # @option opts [Boolean] :public_template The public template (default to false)
+    # @return [Array<(V1EntitiesEmailTemplate, Integer, Hash)>] V1EntitiesEmailTemplate data, response status code and response headers
+    def get_email_templates_with_http_info(id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CompanyApi.get_email_templates ...'
+      end
+      # verify the required parameter 'id' is set
+      if @api_client.config.client_side_validation && id.nil?
+        fail ArgumentError, "Missing the required parameter 'id' when calling CompanyApi.get_email_templates"
+      end
+      # resource path
+      local_var_path = '/companies/{id}/news_releases/email_templates'.sub('{' + 'id' + '}', CGI.escape(id.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'page'] = opts[:'page'] if !opts[:'page'].nil?
+      query_params[:'per_page'] = opts[:'per_page'] if !opts[:'per_page'].nil?
+      query_params[:'public_template'] = opts[:'public_template'] if !opts[:'public_template'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'V1EntitiesEmailTemplate'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"CompanyApi.get_email_templates",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CompanyApi#get_email_templates\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get shareholder ledger by company
     # Get shareholder ledger by company.
     # @param id [Integer] 

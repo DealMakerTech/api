@@ -17,7 +17,7 @@ import V1EntitiesDealsIncentivePlansIncentiveTier from './V1EntitiesDealsIncenti
 /**
  * The V1EntitiesDealsIncentivePlan model module.
  * @module model/V1EntitiesDealsIncentivePlan
- * @version 0.98.4
+ * @version 0.99.0
  */
 class V1EntitiesDealsIncentivePlan {
     /**

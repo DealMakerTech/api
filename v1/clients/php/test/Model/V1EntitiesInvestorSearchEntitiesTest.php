@@ -116,6 +116,33 @@ class V1EntitiesInvestorSearchEntitiesTest extends TestCase
     }
 
     /**
+     * Test attribute "status"
+     */
+    public function testPropertyStatus()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "re_run_performed"
+     */
+    public function testPropertyReRunPerformed()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "email_content"
+     */
+    public function testPropertyEmailContent()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "required_fields"
      */
     public function testPropertyRequiredFields()

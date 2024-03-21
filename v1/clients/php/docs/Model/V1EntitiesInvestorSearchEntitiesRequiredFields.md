@@ -9,5 +9,6 @@ Name | Type | Description | Notes
 **address** | **bool** | Whether or not the address needs to be updated. | [optional]
 **date_of_birth** | **bool** | Whether or not the date of birth needs to be updated. | [optional]
 **tin** | **bool** | Whether or not the taxpayer identification number needs to be updated. | [optional]
+**enforcements** | **bool** | Whether or not entity is flagged due to enforcements | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

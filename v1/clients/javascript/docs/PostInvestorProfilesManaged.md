@@ -71,7 +71,7 @@ Name | Type | Description | Notes
 
 * `j_1` (value: `"j_1"`)
 
-* `k_alone` (value: `"k_alone"`)
+* `k_individual` (value: `"k_individual"`)
 
 * `k_spouse` (value: `"k_spouse"`)
 

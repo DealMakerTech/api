@@ -46,7 +46,7 @@ describe DealMakerAPI::PatchInvestorProfilesIndividuals do
   describe 'test attribute "ca_accredited_investor"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
-      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["d", "e", "e_1", "j", "j_1", "k_alone", "k_spouse", "l", "q", "v", "x"])
+      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["d", "e", "e_1", "j", "j_1", "k_individual", "k_spouse", "l", "q", "v", "x"])
       # validator.allowable_values.each do |value|
       #   expect { instance.ca_accredited_investor = value }.not_to raise_error
       # end

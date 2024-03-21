@@ -339,7 +339,7 @@ class PatchInvestorProfilesIndividuals implements ModelInterface, ArrayAccess, \
     public const CA_ACCREDITED_INVESTOR_E_1 = 'e_1';
     public const CA_ACCREDITED_INVESTOR_J = 'j';
     public const CA_ACCREDITED_INVESTOR_J_1 = 'j_1';
-    public const CA_ACCREDITED_INVESTOR_K_ALONE = 'k_alone';
+    public const CA_ACCREDITED_INVESTOR_K_INDIVIDUAL = 'k_individual';
     public const CA_ACCREDITED_INVESTOR_K_SPOUSE = 'k_spouse';
     public const CA_ACCREDITED_INVESTOR_L = 'l';
     public const CA_ACCREDITED_INVESTOR_Q = 'q';
@@ -379,7 +379,7 @@ class PatchInvestorProfilesIndividuals implements ModelInterface, ArrayAccess, \
             self::CA_ACCREDITED_INVESTOR_E_1,
             self::CA_ACCREDITED_INVESTOR_J,
             self::CA_ACCREDITED_INVESTOR_J_1,
-            self::CA_ACCREDITED_INVESTOR_K_ALONE,
+            self::CA_ACCREDITED_INVESTOR_K_INDIVIDUAL,
             self::CA_ACCREDITED_INVESTOR_K_SPOUSE,
             self::CA_ACCREDITED_INVESTOR_L,
             self::CA_ACCREDITED_INVESTOR_Q,

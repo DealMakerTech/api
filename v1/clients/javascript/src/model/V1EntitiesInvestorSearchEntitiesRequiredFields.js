@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The V1EntitiesInvestorSearchEntitiesRequiredFields model module.
  * @module model/V1EntitiesInvestorSearchEntitiesRequiredFields
- * @version 0.99.0
+ * @version 0.99.1
  */
 class V1EntitiesInvestorSearchEntitiesRequiredFields {
     /**
@@ -61,6 +61,9 @@ class V1EntitiesInvestorSearchEntitiesRequiredFields {
             }
             if (data.hasOwnProperty('tin')) {
                 obj['tin'] = ApiClient.convertToType(data['tin'], 'Boolean');
+            }
+            if (data.hasOwnProperty('enforcements')) {
+                obj['enforcements'] = ApiClient.convertToType(data['enforcements'], 'Boolean');
             }
         }
         return obj;
@@ -110,6 +113,12 @@ V1EntitiesInvestorSearchEntitiesRequiredFields.prototype['date_of_birth'] = unde
  * @member {Boolean} tin
  */
 V1EntitiesInvestorSearchEntitiesRequiredFields.prototype['tin'] = undefined;
+
+/**
+ * Whether or not entity is flagged due to enforcements
+ * @member {Boolean} enforcements
+ */
+V1EntitiesInvestorSearchEntitiesRequiredFields.prototype['enforcements'] = undefined;
 
 
 

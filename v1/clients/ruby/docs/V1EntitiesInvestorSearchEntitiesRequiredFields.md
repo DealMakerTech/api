@@ -9,6 +9,7 @@
 | **address** | **Boolean** | Whether or not the address needs to be updated. | [optional] |
 | **date_of_birth** | **Boolean** | Whether or not the date of birth needs to be updated. | [optional] |
 | **tin** | **Boolean** | Whether or not the taxpayer identification number needs to be updated. | [optional] |
+| **enforcements** | **Boolean** | Whether or not entity is flagged due to enforcements | [optional] |
 
 ## Example
 
@@ -20,7 +21,8 @@ instance = DealMakerAPI::V1EntitiesInvestorSearchEntitiesRequiredFields.new(
   name: null,
   address: null,
   date_of_birth: null,
-  tin: null
+  tin: null,
+  enforcements: null
 )
 ```
 

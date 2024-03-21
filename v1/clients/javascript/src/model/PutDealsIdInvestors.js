@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The PutDealsIdInvestors model module.
  * @module model/PutDealsIdInvestors
- * @version 0.99.0
+ * @version 0.99.1
  */
 class PutDealsIdInvestors {
     /**

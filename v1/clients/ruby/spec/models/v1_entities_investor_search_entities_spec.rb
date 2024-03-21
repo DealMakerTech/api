@@ -55,6 +55,28 @@ describe DealMakerAPI::V1EntitiesInvestorSearchEntities do
     end
   end
 
+  describe 'test attribute "status"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["pending", "document_upload_pending", "document_review_pending", "cleared", "flagged"])
+      # validator.allowable_values.each do |value|
+      #   expect { instance.status = value }.not_to raise_error
+      # end
+    end
+  end
+
+  describe 'test attribute "re_run_performed"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  describe 'test attribute "email_content"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   describe 'test attribute "required_fields"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/

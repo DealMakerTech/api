@@ -84,6 +84,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property enforcements (base name: "enforcements")', function() {
+      // uncomment below and update the code to test the property enforcements
+      //var instance = new Api.V1EntitiesInvestorSearchEntitiesRequiredFields();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

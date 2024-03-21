@@ -30,6 +30,9 @@ module DealMakerAPI
     # Whether or not the taxpayer identification number needs to be updated.
     attr_accessor :tin
 
+    # Whether or not entity is flagged due to enforcements
+    attr_accessor :enforcements
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -37,7 +40,8 @@ module DealMakerAPI
         :'name' => :'name',
         :'address' => :'address',
         :'date_of_birth' => :'date_of_birth',
-        :'tin' => :'tin'
+        :'tin' => :'tin',
+        :'enforcements' => :'enforcements'
       }
     end
 
@@ -53,7 +57,8 @@ module DealMakerAPI
         :'name' => :'Boolean',
         :'address' => :'Boolean',
         :'date_of_birth' => :'Boolean',
-        :'tin' => :'Boolean'
+        :'tin' => :'Boolean',
+        :'enforcements' => :'Boolean'
       }
     end
 
@@ -97,6 +102,10 @@ module DealMakerAPI
       if attributes.key?(:'tin')
         self.tin = attributes[:'tin']
       end
+
+      if attributes.key?(:'enforcements')
+        self.enforcements = attributes[:'enforcements']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -123,7 +132,8 @@ module DealMakerAPI
           name == o.name &&
           address == o.address &&
           date_of_birth == o.date_of_birth &&
-          tin == o.tin
+          tin == o.tin &&
+          enforcements == o.enforcements
     end
 
     # @see the `==` method
@@ -135,7 +145,7 @@ module DealMakerAPI
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [count, name, address, date_of_birth, tin].hash
+      [count, name, address, date_of_birth, tin, enforcements].hash
     end
 
     # Builds the object from hash

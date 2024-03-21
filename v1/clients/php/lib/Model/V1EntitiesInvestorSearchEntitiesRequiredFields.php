@@ -61,7 +61,8 @@ class V1EntitiesInvestorSearchEntitiesRequiredFields implements ModelInterface, 
         'name' => 'bool',
         'address' => 'bool',
         'date_of_birth' => 'bool',
-        'tin' => 'bool'
+        'tin' => 'bool',
+        'enforcements' => 'bool'
     ];
 
     /**
@@ -76,7 +77,8 @@ class V1EntitiesInvestorSearchEntitiesRequiredFields implements ModelInterface, 
         'name' => null,
         'address' => null,
         'date_of_birth' => null,
-        'tin' => null
+        'tin' => null,
+        'enforcements' => null
     ];
 
     /**
@@ -89,7 +91,8 @@ class V1EntitiesInvestorSearchEntitiesRequiredFields implements ModelInterface, 
         'name' => false,
         'address' => false,
         'date_of_birth' => false,
-        'tin' => false
+        'tin' => false,
+        'enforcements' => false
     ];
 
     /**
@@ -182,7 +185,8 @@ class V1EntitiesInvestorSearchEntitiesRequiredFields implements ModelInterface, 
         'name' => 'name',
         'address' => 'address',
         'date_of_birth' => 'date_of_birth',
-        'tin' => 'tin'
+        'tin' => 'tin',
+        'enforcements' => 'enforcements'
     ];
 
     /**
@@ -195,7 +199,8 @@ class V1EntitiesInvestorSearchEntitiesRequiredFields implements ModelInterface, 
         'name' => 'setName',
         'address' => 'setAddress',
         'date_of_birth' => 'setDateOfBirth',
-        'tin' => 'setTin'
+        'tin' => 'setTin',
+        'enforcements' => 'setEnforcements'
     ];
 
     /**
@@ -208,7 +213,8 @@ class V1EntitiesInvestorSearchEntitiesRequiredFields implements ModelInterface, 
         'name' => 'getName',
         'address' => 'getAddress',
         'date_of_birth' => 'getDateOfBirth',
-        'tin' => 'getTin'
+        'tin' => 'getTin',
+        'enforcements' => 'getEnforcements'
     ];
 
     /**
@@ -273,6 +279,7 @@ class V1EntitiesInvestorSearchEntitiesRequiredFields implements ModelInterface, 
         $this->setIfExists('address', $data ?? [], null);
         $this->setIfExists('date_of_birth', $data ?? [], null);
         $this->setIfExists('tin', $data ?? [], null);
+        $this->setIfExists('enforcements', $data ?? [], null);
     }
 
     /**
@@ -448,6 +455,33 @@ class V1EntitiesInvestorSearchEntitiesRequiredFields implements ModelInterface, 
             throw new \InvalidArgumentException('non-nullable tin cannot be null');
         }
         $this->container['tin'] = $tin;
+
+        return $this;
+    }
+
+    /**
+     * Gets enforcements
+     *
+     * @return bool|null
+     */
+    public function getEnforcements()
+    {
+        return $this->container['enforcements'];
+    }
+
+    /**
+     * Sets enforcements
+     *
+     * @param bool|null $enforcements Whether or not entity is flagged due to enforcements
+     *
+     * @return self
+     */
+    public function setEnforcements($enforcements)
+    {
+        if (is_null($enforcements)) {
+            throw new \InvalidArgumentException('non-nullable enforcements cannot be null');
+        }
+        $this->container['enforcements'] = $enforcements;
 
         return $this;
     }

@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The V1EntitiesEmailTemplate model module.
  * @module model/V1EntitiesEmailTemplate
- * @version 0.99.0
+ * @version 0.99.1
  */
 class V1EntitiesEmailTemplate {
     /**

@@ -6936,7 +6936,7 @@
             "e_1",
             "j",
             "j_1",
-            "k_alone",
+            "k_individual",
             "k_spouse",
             "l",
             "q",
@@ -7097,7 +7097,7 @@
             "e_1",
             "j",
             "j_1",
-            "k_alone",
+            "k_individual",
             "k_spouse",
             "l",
             "q",
@@ -7255,7 +7255,7 @@
             "e_1",
             "j",
             "j_1",
-            "k_alone",
+            "k_individual",
             "k_spouse",
             "l",
             "q",
@@ -7363,7 +7363,7 @@
             "e_1",
             "j",
             "j_1",
-            "k_alone",
+            "k_individual",
             "k_spouse",
             "l",
             "q",
@@ -7753,7 +7753,7 @@
             "e_1",
             "j",
             "j_1",
-            "k_alone",
+            "k_individual",
             "k_spouse",
             "l",
             "q",
@@ -8219,6 +8219,25 @@
           "type": "string",
           "description": "The position in the list when beneficial owner of trustees, if none it returns null."
         },
+        "status": {
+          "type": "string",
+          "enum": [
+            "pending",
+            "document_upload_pending",
+            "document_review_pending",
+            "cleared",
+            "flagged"
+          ],
+          "description": "Overall status of all entities."
+        },
+        "re_run_performed": {
+          "type": "boolean",
+          "description": "Whether or not the entity has been re-run."
+        },
+        "email_content": {
+          "type": "string",
+          "description": "The custom message for the entity"
+        },
         "required_fields": {
           "$ref": "#/definitions/V1_Entities_Investor_SearchEntities_RequiredFields",
           "description": "Object containing details about required fields that needs to be updated."
@@ -8249,6 +8268,10 @@
         "tin": {
           "type": "boolean",
           "description": "Whether or not the taxpayer identification number needs to be updated."
+        },
+        "enforcements": {
+          "type": "boolean",
+          "description": "Whether or not entity is flagged due to enforcements"
         }
       }
     },

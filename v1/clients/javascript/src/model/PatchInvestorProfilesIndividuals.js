@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The PatchInvestorProfilesIndividuals model module.
  * @module model/PatchInvestorProfilesIndividuals
- * @version 0.99.0
+ * @version 0.99.1
  */
 class PatchInvestorProfilesIndividuals {
     /**
@@ -381,10 +381,10 @@ PatchInvestorProfilesIndividuals['CaAccreditedInvestorEnum'] = {
     "j_1": "j_1",
 
     /**
-     * value: "k_alone"
+     * value: "k_individual"
      * @const
      */
-    "k_alone": "k_alone",
+    "k_individual": "k_individual",
 
     /**
      * value: "k_spouse"

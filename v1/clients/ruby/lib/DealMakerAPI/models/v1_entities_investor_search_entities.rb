@@ -28,6 +28,15 @@ module DealMakerAPI
     # The position in the list when beneficial owner of trustees, if none it returns null.
     attr_accessor :type_num
 
+    # Overall status of all entities.
+    attr_accessor :status
+
+    # Whether or not the entity has been re-run.
+    attr_accessor :re_run_performed
+
+    # The custom message for the entity
+    attr_accessor :email_content
+
     attr_accessor :required_fields
 
     class EnumAttributeValidator
@@ -59,6 +68,9 @@ module DealMakerAPI
         :'name' => :'name',
         :'type' => :'type',
         :'type_num' => :'type_num',
+        :'status' => :'status',
+        :'re_run_performed' => :'re_run_performed',
+        :'email_content' => :'email_content',
         :'required_fields' => :'required_fields'
       }
     end
@@ -75,6 +87,9 @@ module DealMakerAPI
         :'name' => :'String',
         :'type' => :'String',
         :'type_num' => :'String',
+        :'status' => :'String',
+        :'re_run_performed' => :'Boolean',
+        :'email_content' => :'String',
         :'required_fields' => :'V1EntitiesInvestorSearchEntitiesRequiredFields'
       }
     end
@@ -116,6 +131,18 @@ module DealMakerAPI
         self.type_num = attributes[:'type_num']
       end
 
+      if attributes.key?(:'status')
+        self.status = attributes[:'status']
+      end
+
+      if attributes.key?(:'re_run_performed')
+        self.re_run_performed = attributes[:'re_run_performed']
+      end
+
+      if attributes.key?(:'email_content')
+        self.email_content = attributes[:'email_content']
+      end
+
       if attributes.key?(:'required_fields')
         self.required_fields = attributes[:'required_fields']
       end
@@ -135,6 +162,8 @@ module DealMakerAPI
       warn '[DEPRECATED] the `valid?` method is obsolete'
       type_validator = EnumAttributeValidator.new('String', ["individual", "joint_holder"])
       return false unless type_validator.valid?(@type)
+      status_validator = EnumAttributeValidator.new('String', ["pending", "document_upload_pending", "document_review_pending", "cleared", "flagged"])
+      return false unless status_validator.valid?(@status)
       true
     end
 
@@ -148,6 +177,16 @@ module DealMakerAPI
       @type = type
     end
 
+    # Custom attribute writer method checking allowed values (enum).
+    # @param [Object] status Object to be assigned
+    def status=(status)
+      validator = EnumAttributeValidator.new('String', ["pending", "document_upload_pending", "document_review_pending", "cleared", "flagged"])
+      unless validator.valid?(status)
+        fail ArgumentError, "invalid value for \"status\", must be one of #{validator.allowable_values}."
+      end
+      @status = status
+    end
+
     # Checks equality by comparing each attribute.
     # @param [Object] Object to be compared
     def ==(o)
@@ -157,6 +196,9 @@ module DealMakerAPI
           name == o.name &&
           type == o.type &&
           type_num == o.type_num &&
+          status == o.status &&
+          re_run_performed == o.re_run_performed &&
+          email_content == o.email_content &&
           required_fields == o.required_fields
     end
 
@@ -169,7 +211,7 @@ module DealMakerAPI
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, name, type, type_num, required_fields].hash
+      [id, name, type, type_num, status, re_run_performed, email_content, required_fields].hash
     end
 
     # Builds the object from hash

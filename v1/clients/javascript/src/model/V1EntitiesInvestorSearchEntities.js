@@ -17,7 +17,7 @@ import V1EntitiesInvestorSearchEntitiesRequiredFields from './V1EntitiesInvestor
 /**
  * The V1EntitiesInvestorSearchEntities model module.
  * @module model/V1EntitiesInvestorSearchEntities
- * @version 0.99.0
+ * @version 0.99.1
  */
 class V1EntitiesInvestorSearchEntities {
     /**
@@ -61,6 +61,15 @@ class V1EntitiesInvestorSearchEntities {
             if (data.hasOwnProperty('type_num')) {
                 obj['type_num'] = ApiClient.convertToType(data['type_num'], 'String');
             }
+            if (data.hasOwnProperty('status')) {
+                obj['status'] = ApiClient.convertToType(data['status'], 'String');
+            }
+            if (data.hasOwnProperty('re_run_performed')) {
+                obj['re_run_performed'] = ApiClient.convertToType(data['re_run_performed'], 'Boolean');
+            }
+            if (data.hasOwnProperty('email_content')) {
+                obj['email_content'] = ApiClient.convertToType(data['email_content'], 'String');
+            }
             if (data.hasOwnProperty('required_fields')) {
                 obj['required_fields'] = V1EntitiesInvestorSearchEntitiesRequiredFields.constructFromObject(data['required_fields']);
             }
@@ -85,6 +94,14 @@ class V1EntitiesInvestorSearchEntities {
         // ensure the json data is a string
         if (data['type_num'] && !(typeof data['type_num'] === 'string' || data['type_num'] instanceof String)) {
             throw new Error("Expected the field `type_num` to be a primitive type in the JSON string but got " + data['type_num']);
+        }
+        // ensure the json data is a string
+        if (data['status'] && !(typeof data['status'] === 'string' || data['status'] instanceof String)) {
+            throw new Error("Expected the field `status` to be a primitive type in the JSON string but got " + data['status']);
+        }
+        // ensure the json data is a string
+        if (data['email_content'] && !(typeof data['email_content'] === 'string' || data['email_content'] instanceof String)) {
+            throw new Error("Expected the field `email_content` to be a primitive type in the JSON string but got " + data['email_content']);
         }
         // validate the optional field `required_fields`
         if (data['required_fields']) { // data not null
@@ -124,6 +141,24 @@ V1EntitiesInvestorSearchEntities.prototype['type'] = undefined;
 V1EntitiesInvestorSearchEntities.prototype['type_num'] = undefined;
 
 /**
+ * Overall status of all entities.
+ * @member {module:model/V1EntitiesInvestorSearchEntities.StatusEnum} status
+ */
+V1EntitiesInvestorSearchEntities.prototype['status'] = undefined;
+
+/**
+ * Whether or not the entity has been re-run.
+ * @member {Boolean} re_run_performed
+ */
+V1EntitiesInvestorSearchEntities.prototype['re_run_performed'] = undefined;
+
+/**
+ * The custom message for the entity
+ * @member {String} email_content
+ */
+V1EntitiesInvestorSearchEntities.prototype['email_content'] = undefined;
+
+/**
  * @member {module:model/V1EntitiesInvestorSearchEntitiesRequiredFields} required_fields
  */
 V1EntitiesInvestorSearchEntities.prototype['required_fields'] = undefined;
@@ -150,6 +185,45 @@ V1EntitiesInvestorSearchEntities['TypeEnum'] = {
      * @const
      */
     "joint_holder": "joint_holder"
+};
+
+
+/**
+ * Allowed values for the <code>status</code> property.
+ * @enum {String}
+ * @readonly
+ */
+V1EntitiesInvestorSearchEntities['StatusEnum'] = {
+
+    /**
+     * value: "pending"
+     * @const
+     */
+    "pending": "pending",
+
+    /**
+     * value: "document_upload_pending"
+     * @const
+     */
+    "document_upload_pending": "document_upload_pending",
+
+    /**
+     * value: "document_review_pending"
+     * @const
+     */
+    "document_review_pending": "document_review_pending",
+
+    /**
+     * value: "cleared"
+     * @const
+     */
+    "cleared": "cleared",
+
+    /**
+     * value: "flagged"
+     * @const
+     */
+    "flagged": "flagged"
 };
 
 

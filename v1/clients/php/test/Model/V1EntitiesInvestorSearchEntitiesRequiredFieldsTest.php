@@ -123,4 +123,13 @@ class V1EntitiesInvestorSearchEntitiesRequiredFieldsTest extends TestCase
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test attribute "enforcements"
+     */
+    public function testPropertyEnforcements()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
 }

@@ -9,5 +9,6 @@ Name | Type | Description | Notes
 **address** | **Boolean** | Whether or not the address needs to be updated. | [optional] 
 **dateOfBirth** | **Boolean** | Whether or not the date of birth needs to be updated. | [optional] 
 **tin** | **Boolean** | Whether or not the taxpayer identification number needs to be updated. | [optional] 
+**enforcements** | **Boolean** | Whether or not entity is flagged due to enforcements | [optional] 
 
 

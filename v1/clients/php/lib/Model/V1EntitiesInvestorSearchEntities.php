@@ -62,6 +62,9 @@ class V1EntitiesInvestorSearchEntities implements ModelInterface, ArrayAccess, \
         'name' => 'string',
         'type' => 'string',
         'type_num' => 'string',
+        'status' => 'string',
+        're_run_performed' => 'bool',
+        'email_content' => 'string',
         'required_fields' => '\DealMaker\Model\V1EntitiesInvestorSearchEntitiesRequiredFields'
     ];
 
@@ -77,6 +80,9 @@ class V1EntitiesInvestorSearchEntities implements ModelInterface, ArrayAccess, \
         'name' => null,
         'type' => null,
         'type_num' => null,
+        'status' => null,
+        're_run_performed' => null,
+        'email_content' => null,
         'required_fields' => null
     ];
 
@@ -90,6 +96,9 @@ class V1EntitiesInvestorSearchEntities implements ModelInterface, ArrayAccess, \
         'name' => false,
         'type' => false,
         'type_num' => false,
+        'status' => false,
+        're_run_performed' => false,
+        'email_content' => false,
         'required_fields' => false
     ];
 
@@ -183,6 +192,9 @@ class V1EntitiesInvestorSearchEntities implements ModelInterface, ArrayAccess, \
         'name' => 'name',
         'type' => 'type',
         'type_num' => 'type_num',
+        'status' => 'status',
+        're_run_performed' => 're_run_performed',
+        'email_content' => 'email_content',
         'required_fields' => 'required_fields'
     ];
 
@@ -196,6 +208,9 @@ class V1EntitiesInvestorSearchEntities implements ModelInterface, ArrayAccess, \
         'name' => 'setName',
         'type' => 'setType',
         'type_num' => 'setTypeNum',
+        'status' => 'setStatus',
+        're_run_performed' => 'setReRunPerformed',
+        'email_content' => 'setEmailContent',
         'required_fields' => 'setRequiredFields'
     ];
 
@@ -209,6 +224,9 @@ class V1EntitiesInvestorSearchEntities implements ModelInterface, ArrayAccess, \
         'name' => 'getName',
         'type' => 'getType',
         'type_num' => 'getTypeNum',
+        'status' => 'getStatus',
+        're_run_performed' => 'getReRunPerformed',
+        'email_content' => 'getEmailContent',
         'required_fields' => 'getRequiredFields'
     ];
 
@@ -255,6 +273,11 @@ class V1EntitiesInvestorSearchEntities implements ModelInterface, ArrayAccess, \
 
     public const TYPE_INDIVIDUAL = 'individual';
     public const TYPE_JOINT_HOLDER = 'joint_holder';
+    public const STATUS_PENDING = 'pending';
+    public const STATUS_DOCUMENT_UPLOAD_PENDING = 'document_upload_pending';
+    public const STATUS_DOCUMENT_REVIEW_PENDING = 'document_review_pending';
+    public const STATUS_CLEARED = 'cleared';
+    public const STATUS_FLAGGED = 'flagged';
 
     /**
      * Gets allowable values of the enum
@@ -266,6 +289,22 @@ class V1EntitiesInvestorSearchEntities implements ModelInterface, ArrayAccess, \
         return [
             self::TYPE_INDIVIDUAL,
             self::TYPE_JOINT_HOLDER,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getStatusAllowableValues()
+    {
+        return [
+            self::STATUS_PENDING,
+            self::STATUS_DOCUMENT_UPLOAD_PENDING,
+            self::STATUS_DOCUMENT_REVIEW_PENDING,
+            self::STATUS_CLEARED,
+            self::STATUS_FLAGGED,
         ];
     }
 
@@ -288,6 +327,9 @@ class V1EntitiesInvestorSearchEntities implements ModelInterface, ArrayAccess, \
         $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('type', $data ?? [], null);
         $this->setIfExists('type_num', $data ?? [], null);
+        $this->setIfExists('status', $data ?? [], null);
+        $this->setIfExists('re_run_performed', $data ?? [], null);
+        $this->setIfExists('email_content', $data ?? [], null);
         $this->setIfExists('required_fields', $data ?? [], null);
     }
 
@@ -323,6 +365,15 @@ class V1EntitiesInvestorSearchEntities implements ModelInterface, ArrayAccess, \
             $invalidProperties[] = sprintf(
                 "invalid value '%s' for 'type', must be one of '%s'",
                 $this->container['type'],
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getStatusAllowableValues();
+        if (!is_null($this->container['status']) && !in_array($this->container['status'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'status', must be one of '%s'",
+                $this->container['status'],
                 implode("', '", $allowedValues)
             );
         }
@@ -456,6 +507,97 @@ class V1EntitiesInvestorSearchEntities implements ModelInterface, ArrayAccess, \
             throw new \InvalidArgumentException('non-nullable type_num cannot be null');
         }
         $this->container['type_num'] = $type_num;
+
+        return $this;
+    }
+
+    /**
+     * Gets status
+     *
+     * @return string|null
+     */
+    public function getStatus()
+    {
+        return $this->container['status'];
+    }
+
+    /**
+     * Sets status
+     *
+     * @param string|null $status Overall status of all entities.
+     *
+     * @return self
+     */
+    public function setStatus($status)
+    {
+        if (is_null($status)) {
+            throw new \InvalidArgumentException('non-nullable status cannot be null');
+        }
+        $allowedValues = $this->getStatusAllowableValues();
+        if (!in_array($status, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'status', must be one of '%s'",
+                    $status,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['status'] = $status;
+
+        return $this;
+    }
+
+    /**
+     * Gets re_run_performed
+     *
+     * @return bool|null
+     */
+    public function getReRunPerformed()
+    {
+        return $this->container['re_run_performed'];
+    }
+
+    /**
+     * Sets re_run_performed
+     *
+     * @param bool|null $re_run_performed Whether or not the entity has been re-run.
+     *
+     * @return self
+     */
+    public function setReRunPerformed($re_run_performed)
+    {
+        if (is_null($re_run_performed)) {
+            throw new \InvalidArgumentException('non-nullable re_run_performed cannot be null');
+        }
+        $this->container['re_run_performed'] = $re_run_performed;
+
+        return $this;
+    }
+
+    /**
+     * Gets email_content
+     *
+     * @return string|null
+     */
+    public function getEmailContent()
+    {
+        return $this->container['email_content'];
+    }
+
+    /**
+     * Sets email_content
+     *
+     * @param string|null $email_content The custom message for the entity
+     *
+     * @return self
+     */
+    public function setEmailContent($email_content)
+    {
+        if (is_null($email_content)) {
+            throw new \InvalidArgumentException('non-nullable email_content cannot be null');
+        }
+        $this->container['email_content'] = $email_content;
 
         return $this;
     }

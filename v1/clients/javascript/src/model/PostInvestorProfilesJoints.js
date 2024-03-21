@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The PostInvestorProfilesJoints model module.
  * @module model/PostInvestorProfilesJoints
- * @version 0.99.0
+ * @version 0.99.1
  */
 class PostInvestorProfilesJoints {
     /**
@@ -532,10 +532,10 @@ PostInvestorProfilesJoints['CaAccreditedInvestorEnum'] = {
     "j_1": "j_1",
 
     /**
-     * value: "k_alone"
+     * value: "k_individual"
      * @const
      */
-    "k_alone": "k_alone",
+    "k_individual": "k_individual",
 
     /**
      * value: "k_spouse"

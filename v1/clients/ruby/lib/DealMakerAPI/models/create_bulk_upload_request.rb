@@ -30,6 +30,9 @@ module DealMakerAPI
     # Notification message
     attr_accessor :notification_message
 
+    # JSON notification message
+    attr_accessor :json_notification_message
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -37,7 +40,8 @@ module DealMakerAPI
         :'document_type' => :'document_type',
         :'upload_name' => :'upload_name',
         :'send_notification' => :'send_notification',
-        :'notification_message' => :'notification_message'
+        :'notification_message' => :'notification_message',
+        :'json_notification_message' => :'json_notification_message'
       }
     end
 
@@ -53,13 +57,15 @@ module DealMakerAPI
         :'document_type' => :'String',
         :'upload_name' => :'String',
         :'send_notification' => :'Boolean',
-        :'notification_message' => :'String'
+        :'notification_message' => :'String',
+        :'json_notification_message' => :'Object'
       }
     end
 
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
+        :'json_notification_message'
       ])
     end
 
@@ -106,6 +112,12 @@ module DealMakerAPI
         self.notification_message = attributes[:'notification_message']
       else
         self.notification_message = nil
+      end
+
+      if attributes.key?(:'json_notification_message')
+        self.json_notification_message = attributes[:'json_notification_message']
+      else
+        self.json_notification_message = nil
       end
     end
 
@@ -158,7 +170,8 @@ module DealMakerAPI
           document_type == o.document_type &&
           upload_name == o.upload_name &&
           send_notification == o.send_notification &&
-          notification_message == o.notification_message
+          notification_message == o.notification_message &&
+          json_notification_message == o.json_notification_message
     end
 
     # @see the `==` method
@@ -170,7 +183,7 @@ module DealMakerAPI
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [file_identifier, document_type, upload_name, send_notification, notification_message].hash
+      [file_identifier, document_type, upload_name, send_notification, notification_message, json_notification_message].hash
     end
 
     # Builds the object from hash

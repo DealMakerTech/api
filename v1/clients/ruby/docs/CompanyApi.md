@@ -8,6 +8,7 @@ All URIs are relative to *http://api.dealmaker.tech*
 | [**create_bulk_upload_detail**](CompanyApi.md#create_bulk_upload_detail) | **POST** /companies/{company_id}/documents/bulk_uploads/{bulk_upload_id}/details | Create a BulkUploadDetail class record |
 | [**create_company**](CompanyApi.md#create_company) | **POST** /companies | Create new company |
 | [**create_email_template**](CompanyApi.md#create_email_template) | **POST** /companies/{id}/news_releases/email_template | Creates an email template |
+| [**create_members_bulk_upload**](CompanyApi.md#create_members_bulk_upload) | **POST** /companies/{id}/members/bulk_uploads | Create bulk upload record |
 | [**create_shareholder_action**](CompanyApi.md#create_shareholder_action) | **POST** /companies/{company_id}/shareholders/{shareholder_id}/actions | Create a shareholder action |
 | [**get_bulk_upload**](CompanyApi.md#get_bulk_upload) | **GET** /companies/{id}/documents/bulk_uploads/{bulk_upload_id} | Return a given bulk upload by id |
 | [**get_bulk_upload_details_errors**](CompanyApi.md#get_bulk_upload_details_errors) | **GET** /companies/{company_id}/documents/bulk_uploads/{bulk_upload_id}/details/errors | Returns a full list of details with errors of the given bulk upload ordered by status desc and id asc |
@@ -19,6 +20,8 @@ All URIs are relative to *http://api.dealmaker.tech*
 | [**get_email_events**](CompanyApi.md#get_email_events) | **GET** /companies/{company_communication_id}/email_events | Get a list of email events for a company communication |
 | [**get_email_template**](CompanyApi.md#get_email_template) | **GET** /companies/{id}/news_releases/email_template/{template_id} | Get a email template |
 | [**get_email_templates**](CompanyApi.md#get_email_templates) | **GET** /companies/{id}/news_releases/email_templates | Get list of email template |
+| [**get_members_bulk_upload**](CompanyApi.md#get_members_bulk_upload) | **GET** /companies/{id}/members/bulk_uploads/{id_members_bulk_upload} | Get bulk upload record |
+| [**get_members_bulk_uploads**](CompanyApi.md#get_members_bulk_uploads) | **GET** /companies/{id}/members/bulk_uploads | Get bulk uploads records |
 | [**get_shareholder_ledger**](CompanyApi.md#get_shareholder_ledger) | **GET** /companies/{id}/shareholder_ledger | Get shareholder ledger by company |
 | [**get_user_accessible_companies**](CompanyApi.md#get_user_accessible_companies) | **GET** /users/accessible_companies | Get list of all Companies accessible by the user |
 | [**send_portal_invite**](CompanyApi.md#send_portal_invite) | **POST** /companies/{id}/shareholders/{shareholder_id}/send_portal_invite | Send portal invite to shareholder |
@@ -42,7 +45,7 @@ DealMakerAPI.configure do |config|end
 
 api_instance = DealMakerAPI::CompanyApi.new
 id = 56 # Integer | The company id
-create_bulk_upload_request = DealMakerAPI::CreateBulkUploadRequest.new({file_identifier: 'file_identifier_example', document_type: 'document_type_example', upload_name: 'upload_name_example', send_notification: false, notification_message: 'notification_message_example'}) # CreateBulkUploadRequest | 
+create_bulk_upload_request = DealMakerAPI::CreateBulkUploadRequest.new({file_identifier: 'file_identifier_example', document_type: 'document_type_example', upload_name: 'upload_name_example', send_notification: false, notification_message: 'notification_message_example', json_notification_message: 3.56}) # CreateBulkUploadRequest | 
 
 begin
   # Create bulk upload record
@@ -285,6 +288,74 @@ end
 ### Return type
 
 [**V1EntitiesEmailTemplate**](V1EntitiesEmailTemplate.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## create_members_bulk_upload
+
+> <V1EntitiesMembersBulkUpload> create_members_bulk_upload(id, create_members_bulk_upload_request)
+
+Create bulk upload record
+
+Create members bulk upload record
+
+### Examples
+
+```ruby
+require 'time'
+require 'DealMakerAPI'
+# setup authorization
+DealMakerAPI.configure do |config|end
+
+api_instance = DealMakerAPI::CompanyApi.new
+id = 56 # Integer | The company id
+create_members_bulk_upload_request = DealMakerAPI::CreateMembersBulkUploadRequest.new({csv_file: File.new('/path/to/some/file')}) # CreateMembersBulkUploadRequest | 
+
+begin
+  # Create bulk upload record
+  result = api_instance.create_members_bulk_upload(id, create_members_bulk_upload_request)
+  p result
+rescue DealMakerAPI::ApiError => e
+  puts "Error when calling CompanyApi->create_members_bulk_upload: #{e}"
+end
+```
+
+#### Using the create_members_bulk_upload_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<V1EntitiesMembersBulkUpload>, Integer, Hash)> create_members_bulk_upload_with_http_info(id, create_members_bulk_upload_request)
+
+```ruby
+begin
+  # Create bulk upload record
+  data, status_code, headers = api_instance.create_members_bulk_upload_with_http_info(id, create_members_bulk_upload_request)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <V1EntitiesMembersBulkUpload>
+rescue DealMakerAPI::ApiError => e
+  puts "Error when calling CompanyApi->create_members_bulk_upload_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **id** | **Integer** | The company id |  |
+| **create_members_bulk_upload_request** | [**CreateMembersBulkUploadRequest**](CreateMembersBulkUploadRequest.md) |  |  |
+
+### Return type
+
+[**V1EntitiesMembersBulkUpload**](V1EntitiesMembersBulkUpload.md)
 
 ### Authorization
 
@@ -1046,13 +1117,147 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **id** | **Integer** | The company id |  |
-| **page** | **Integer** | The page number | [optional][default to 1] |
+| **page** | **Integer** | The page number | [optional][default to 0] |
 | **per_page** | **Integer** | The number of items per page | [optional][default to 10] |
 | **public_template** | **Boolean** | The public template | [optional][default to false] |
 
 ### Return type
 
 [**V1EntitiesEmailTemplate**](V1EntitiesEmailTemplate.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## get_members_bulk_upload
+
+> <V1EntitiesMembersBulkUpload> get_members_bulk_upload(id, id_members_bulk_upload)
+
+Get bulk upload record
+
+Get members bulk upload record
+
+### Examples
+
+```ruby
+require 'time'
+require 'DealMakerAPI'
+# setup authorization
+DealMakerAPI.configure do |config|end
+
+api_instance = DealMakerAPI::CompanyApi.new
+id = 56 # Integer | The company id
+id_members_bulk_upload = 56 # Integer | The bulk upload id
+
+begin
+  # Get bulk upload record
+  result = api_instance.get_members_bulk_upload(id, id_members_bulk_upload)
+  p result
+rescue DealMakerAPI::ApiError => e
+  puts "Error when calling CompanyApi->get_members_bulk_upload: #{e}"
+end
+```
+
+#### Using the get_members_bulk_upload_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<V1EntitiesMembersBulkUpload>, Integer, Hash)> get_members_bulk_upload_with_http_info(id, id_members_bulk_upload)
+
+```ruby
+begin
+  # Get bulk upload record
+  data, status_code, headers = api_instance.get_members_bulk_upload_with_http_info(id, id_members_bulk_upload)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <V1EntitiesMembersBulkUpload>
+rescue DealMakerAPI::ApiError => e
+  puts "Error when calling CompanyApi->get_members_bulk_upload_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **id** | **Integer** | The company id |  |
+| **id_members_bulk_upload** | **Integer** | The bulk upload id |  |
+
+### Return type
+
+[**V1EntitiesMembersBulkUpload**](V1EntitiesMembersBulkUpload.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## get_members_bulk_uploads
+
+> <V1EntitiesMembersBulkUploads> get_members_bulk_uploads(id)
+
+Get bulk uploads records
+
+Get members bulk uploads records
+
+### Examples
+
+```ruby
+require 'time'
+require 'DealMakerAPI'
+# setup authorization
+DealMakerAPI.configure do |config|end
+
+api_instance = DealMakerAPI::CompanyApi.new
+id = 56 # Integer | The company id
+
+begin
+  # Get bulk uploads records
+  result = api_instance.get_members_bulk_uploads(id)
+  p result
+rescue DealMakerAPI::ApiError => e
+  puts "Error when calling CompanyApi->get_members_bulk_uploads: #{e}"
+end
+```
+
+#### Using the get_members_bulk_uploads_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<V1EntitiesMembersBulkUploads>, Integer, Hash)> get_members_bulk_uploads_with_http_info(id)
+
+```ruby
+begin
+  # Get bulk uploads records
+  data, status_code, headers = api_instance.get_members_bulk_uploads_with_http_info(id)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <V1EntitiesMembersBulkUploads>
+rescue DealMakerAPI::ApiError => e
+  puts "Error when calling CompanyApi->get_members_bulk_uploads_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **id** | **Integer** | The company id |  |
+
+### Return type
+
+[**V1EntitiesMembersBulkUploads**](V1EntitiesMembersBulkUploads.md)
 
 ### Authorization
 

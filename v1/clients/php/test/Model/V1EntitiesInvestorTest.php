@@ -233,6 +233,15 @@ class V1EntitiesInvestorTest extends TestCase
     }
 
     /**
+     * Test attribute "subscription_id"
+     */
+    public function testPropertySubscriptionId()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "subscription_agreement"
      */
     public function testPropertySubscriptionAgreement()

@@ -9,5 +9,6 @@ Name | Type | Description | Notes
 **upload_name** | **string** | The bulk upload name |
 **send_notification** | **bool** | Send notification to the user |
 **notification_message** | **string** | Notification message |
+**json_notification_message** | **mixed** | JSON notification message |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

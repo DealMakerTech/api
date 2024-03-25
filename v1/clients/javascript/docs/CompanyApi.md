@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**createBulkUploadDetail**](CompanyApi.md#createBulkUploadDetail) | **POST** /companies/{company_id}/documents/bulk_uploads/{bulk_upload_id}/details | Create a BulkUploadDetail class record
 [**createCompany**](CompanyApi.md#createCompany) | **POST** /companies | Create new company
 [**createEmailTemplate**](CompanyApi.md#createEmailTemplate) | **POST** /companies/{id}/news_releases/email_template | Creates an email template
+[**createMembersBulkUpload**](CompanyApi.md#createMembersBulkUpload) | **POST** /companies/{id}/members/bulk_uploads | Create bulk upload record
 [**createShareholderAction**](CompanyApi.md#createShareholderAction) | **POST** /companies/{company_id}/shareholders/{shareholder_id}/actions | Create a shareholder action
 [**getBulkUpload**](CompanyApi.md#getBulkUpload) | **GET** /companies/{id}/documents/bulk_uploads/{bulk_upload_id} | Return a given bulk upload by id
 [**getBulkUploadDetailsErrors**](CompanyApi.md#getBulkUploadDetailsErrors) | **GET** /companies/{company_id}/documents/bulk_uploads/{bulk_upload_id}/details/errors | Returns a full list of details with errors of the given bulk upload ordered by status desc and id asc
@@ -19,6 +20,8 @@ Method | HTTP request | Description
 [**getEmailEvents**](CompanyApi.md#getEmailEvents) | **GET** /companies/{company_communication_id}/email_events | Get a list of email events for a company communication
 [**getEmailTemplate**](CompanyApi.md#getEmailTemplate) | **GET** /companies/{id}/news_releases/email_template/{template_id} | Get a email template
 [**getEmailTemplates**](CompanyApi.md#getEmailTemplates) | **GET** /companies/{id}/news_releases/email_templates | Get list of email template
+[**getMembersBulkUpload**](CompanyApi.md#getMembersBulkUpload) | **GET** /companies/{id}/members/bulk_uploads/{id_members_bulk_upload} | Get bulk upload record
+[**getMembersBulkUploads**](CompanyApi.md#getMembersBulkUploads) | **GET** /companies/{id}/members/bulk_uploads | Get bulk uploads records
 [**getShareholderLedger**](CompanyApi.md#getShareholderLedger) | **GET** /companies/{id}/shareholder_ledger | Get shareholder ledger by company
 [**getUserAccessibleCompanies**](CompanyApi.md#getUserAccessibleCompanies) | **GET** /users/accessible_companies | Get list of all Companies accessible by the user
 [**sendPortalInvite**](CompanyApi.md#sendPortalInvite) | **POST** /companies/{id}/shareholders/{shareholder_id}/send_portal_invite | Send portal invite to shareholder
@@ -206,6 +209,54 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**V1EntitiesEmailTemplate**](V1EntitiesEmailTemplate.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## createMembersBulkUpload
+
+> V1EntitiesMembersBulkUpload createMembersBulkUpload(id, createMembersBulkUploadRequest)
+
+Create bulk upload record
+
+Create members bulk upload record
+
+### Example
+
+```javascript
+import Api from 'api';
+let defaultClient = Api.ApiClient.instance;
+
+let apiInstance = new Api.CompanyApi();
+let id = 56; // Number | The company id
+let createMembersBulkUploadRequest = new Api.CreateMembersBulkUploadRequest(); // CreateMembersBulkUploadRequest | 
+apiInstance.createMembersBulkUpload(id, createMembersBulkUploadRequest, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Number**| The company id | 
+ **createMembersBulkUploadRequest** | [**CreateMembersBulkUploadRequest**](CreateMembersBulkUploadRequest.md)|  | 
+
+### Return type
+
+[**V1EntitiesMembersBulkUpload**](V1EntitiesMembersBulkUpload.md)
 
 ### Authorization
 
@@ -728,7 +779,7 @@ let defaultClient = Api.ApiClient.instance;
 let apiInstance = new Api.CompanyApi();
 let id = 56; // Number | The company id
 let opts = {
-  'page': 1, // Number | The page number
+  'page': 0, // Number | The page number
   'perPage': 10, // Number | The number of items per page
   'publicTemplate': false // Boolean | The public template
 };
@@ -747,13 +798,107 @@ apiInstance.getEmailTemplates(id, opts, (error, data, response) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Number**| The company id | 
- **page** | **Number**| The page number | [optional] [default to 1]
+ **page** | **Number**| The page number | [optional] [default to 0]
  **perPage** | **Number**| The number of items per page | [optional] [default to 10]
  **publicTemplate** | **Boolean**| The public template | [optional] [default to false]
 
 ### Return type
 
 [**V1EntitiesEmailTemplate**](V1EntitiesEmailTemplate.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## getMembersBulkUpload
+
+> V1EntitiesMembersBulkUpload getMembersBulkUpload(id, idMembersBulkUpload)
+
+Get bulk upload record
+
+Get members bulk upload record
+
+### Example
+
+```javascript
+import Api from 'api';
+let defaultClient = Api.ApiClient.instance;
+
+let apiInstance = new Api.CompanyApi();
+let id = 56; // Number | The company id
+let idMembersBulkUpload = 56; // Number | The bulk upload id
+apiInstance.getMembersBulkUpload(id, idMembersBulkUpload, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Number**| The company id | 
+ **idMembersBulkUpload** | **Number**| The bulk upload id | 
+
+### Return type
+
+[**V1EntitiesMembersBulkUpload**](V1EntitiesMembersBulkUpload.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## getMembersBulkUploads
+
+> V1EntitiesMembersBulkUploads getMembersBulkUploads(id)
+
+Get bulk uploads records
+
+Get members bulk uploads records
+
+### Example
+
+```javascript
+import Api from 'api';
+let defaultClient = Api.ApiClient.instance;
+
+let apiInstance = new Api.CompanyApi();
+let id = 56; // Number | The company id
+apiInstance.getMembersBulkUploads(id, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Number**| The company id | 
+
+### Return type
+
+[**V1EntitiesMembersBulkUploads**](V1EntitiesMembersBulkUploads.md)
 
 ### Authorization
 

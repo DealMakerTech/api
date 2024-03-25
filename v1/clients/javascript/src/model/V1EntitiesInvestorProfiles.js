@@ -17,7 +17,7 @@ import V1EntitiesInvestorProfileItem from './V1EntitiesInvestorProfileItem';
 /**
  * The V1EntitiesInvestorProfiles model module.
  * @module model/V1EntitiesInvestorProfiles
- * @version 0.99.1
+ * @version 0.99.2
  */
 class V1EntitiesInvestorProfiles {
     /**

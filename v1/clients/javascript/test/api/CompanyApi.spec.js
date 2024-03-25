@@ -88,6 +88,16 @@
         done();
       });
     });
+    describe('createMembersBulkUpload', function() {
+      it('should call createMembersBulkUpload successfully', function(done) {
+        //uncomment below and update the code to test createMembersBulkUpload
+        //instance.createMembersBulkUpload(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('createShareholderAction', function() {
       it('should call createShareholderAction successfully', function(done) {
         //uncomment below and update the code to test createShareholderAction
@@ -192,6 +202,26 @@
       it('should call getEmailTemplates successfully', function(done) {
         //uncomment below and update the code to test getEmailTemplates
         //instance.getEmailTemplates(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('getMembersBulkUpload', function() {
+      it('should call getMembersBulkUpload successfully', function(done) {
+        //uncomment below and update the code to test getMembersBulkUpload
+        //instance.getMembersBulkUpload(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('getMembersBulkUploads', function() {
+      it('should call getMembersBulkUploads successfully', function(done) {
+        //uncomment below and update the code to test getMembersBulkUploads
+        //instance.getMembersBulkUploads(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});

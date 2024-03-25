@@ -25,6 +25,7 @@ docs/Model/CreateBulkUploadRequest.md
 docs/Model/CreateCompanyRequest.md
 docs/Model/CreateDealSetupRequest.md
 docs/Model/CreateEmailTemplateRequest.md
+docs/Model/CreateMembersBulkUploadRequest.md
 docs/Model/CreateShareholderActionRequest.md
 docs/Model/EditInvestorTagsRequest.md
 docs/Model/GenerateUrlRequest.md
@@ -111,6 +112,8 @@ docs/Model/V1EntitiesInvestorSearchEntities.md
 docs/Model/V1EntitiesInvestorSearchEntitiesRequiredFields.md
 docs/Model/V1EntitiesInvestorUser.md
 docs/Model/V1EntitiesInvestors.md
+docs/Model/V1EntitiesMembersBulkUpload.md
+docs/Model/V1EntitiesMembersBulkUploads.md
 docs/Model/V1EntitiesMoneyEntity.md
 docs/Model/V1EntitiesPaymentsSelfServeOnboardingDigitalPaymentsConnectionData.md
 docs/Model/V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsData.md
@@ -154,6 +157,7 @@ lib/Model/CreateBulkUploadRequest.php
 lib/Model/CreateCompanyRequest.php
 lib/Model/CreateDealSetupRequest.php
 lib/Model/CreateEmailTemplateRequest.php
+lib/Model/CreateMembersBulkUploadRequest.php
 lib/Model/CreateShareholderActionRequest.php
 lib/Model/EditInvestorTagsRequest.php
 lib/Model/GenerateUrlRequest.php
@@ -241,6 +245,8 @@ lib/Model/V1EntitiesInvestorSearchEntities.php
 lib/Model/V1EntitiesInvestorSearchEntitiesRequiredFields.php
 lib/Model/V1EntitiesInvestorUser.php
 lib/Model/V1EntitiesInvestors.php
+lib/Model/V1EntitiesMembersBulkUpload.php
+lib/Model/V1EntitiesMembersBulkUploads.php
 lib/Model/V1EntitiesMoneyEntity.php
 lib/Model/V1EntitiesPaymentsSelfServeOnboardingDigitalPaymentsConnectionData.php
 lib/Model/V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsData.php
@@ -282,6 +288,7 @@ test/Model/CreateBulkUploadRequestTest.php
 test/Model/CreateCompanyRequestTest.php
 test/Model/CreateDealSetupRequestTest.php
 test/Model/CreateEmailTemplateRequestTest.php
+test/Model/CreateMembersBulkUploadRequestTest.php
 test/Model/CreateShareholderActionRequestTest.php
 test/Model/EditInvestorTagsRequestTest.php
 test/Model/GenerateUrlRequestTest.php
@@ -368,6 +375,8 @@ test/Model/V1EntitiesInvestorSearchEntitiesTest.php
 test/Model/V1EntitiesInvestorTest.php
 test/Model/V1EntitiesInvestorUserTest.php
 test/Model/V1EntitiesInvestorsTest.php
+test/Model/V1EntitiesMembersBulkUploadTest.php
+test/Model/V1EntitiesMembersBulkUploadsTest.php
 test/Model/V1EntitiesMoneyEntityTest.php
 test/Model/V1EntitiesPaymentsSelfServeOnboardingDigitalPaymentsConnectionDataTest.php
 test/Model/V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsDataTest.php

@@ -20,7 +20,7 @@ import V1EntitiesSubscriptionAgreement from './V1EntitiesSubscriptionAgreement';
 /**
  * The V1EntitiesInvestor model module.
  * @module model/V1EntitiesInvestor
- * @version 0.99.1
+ * @version 0.99.2
  */
 class V1EntitiesInvestor {
     /**
@@ -102,6 +102,9 @@ class V1EntitiesInvestor {
             }
             if (data.hasOwnProperty('access_link')) {
                 obj['access_link'] = ApiClient.convertToType(data['access_link'], 'String');
+            }
+            if (data.hasOwnProperty('subscription_id')) {
+                obj['subscription_id'] = ApiClient.convertToType(data['subscription_id'], 'Number');
             }
             if (data.hasOwnProperty('subscription_agreement')) {
                 obj['subscription_agreement'] = V1EntitiesSubscriptionAgreement.constructFromObject(data['subscription_agreement']);
@@ -319,6 +322,12 @@ V1EntitiesInvestor.prototype['funds_value'] = undefined;
  * @member {String} access_link
  */
 V1EntitiesInvestor.prototype['access_link'] = undefined;
+
+/**
+ * The investor subscription id.
+ * @member {Number} subscription_id
+ */
+V1EntitiesInvestor.prototype['subscription_id'] = undefined;
 
 /**
  * @member {module:model/V1EntitiesSubscriptionAgreement} subscription_agreement

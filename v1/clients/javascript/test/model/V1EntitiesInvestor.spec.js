@@ -156,6 +156,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property subscriptionId (base name: "subscription_id")', function() {
+      // uncomment below and update the code to test the property subscriptionId
+      //var instance = new Api.V1EntitiesInvestor();
+      //expect(instance).to.be();
+    });
+
     it('should have the property subscriptionAgreement (base name: "subscription_agreement")', function() {
       // uncomment below and update the code to test the property subscriptionAgreement
       //var instance = new Api.V1EntitiesInvestor();

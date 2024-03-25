@@ -120,6 +120,18 @@ class CompanyApiTest extends TestCase
     }
 
     /**
+     * Test case for createMembersBulkUpload
+     *
+     * Create bulk upload record.
+     *
+     */
+    public function testCreateMembersBulkUpload()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for createShareholderAction
      *
      * Create a shareholder action.
@@ -246,6 +258,30 @@ class CompanyApiTest extends TestCase
      *
      */
     public function testGetEmailTemplates()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for getMembersBulkUpload
+     *
+     * Get bulk upload record.
+     *
+     */
+    public function testGetMembersBulkUpload()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for getMembersBulkUploads
+     *
+     * Get bulk uploads records.
+     *
+     */
+    public function testGetMembersBulkUploads()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

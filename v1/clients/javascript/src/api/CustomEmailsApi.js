@@ -19,7 +19,7 @@ import V1EntitiesBeefreeAccessToken from '../model/V1EntitiesBeefreeAccessToken'
 /**
 * CustomEmails service.
 * @module api/CustomEmailsApi
-* @version 0.99.1
+* @version 0.99.2
 */
 export default class CustomEmailsApi {
 

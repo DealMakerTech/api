@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The PatchDealIncentivePlanRequest model module.
  * @module model/PatchDealIncentivePlanRequest
- * @version 0.99.1
+ * @version 0.99.2
  */
 class PatchDealIncentivePlanRequest {
     /**

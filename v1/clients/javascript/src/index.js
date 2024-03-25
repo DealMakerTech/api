@@ -21,6 +21,7 @@ import CreateBulkUploadRequest from './model/CreateBulkUploadRequest';
 import CreateCompanyRequest from './model/CreateCompanyRequest';
 import CreateDealSetupRequest from './model/CreateDealSetupRequest';
 import CreateEmailTemplateRequest from './model/CreateEmailTemplateRequest';
+import CreateMembersBulkUploadRequest from './model/CreateMembersBulkUploadRequest';
 import CreateShareholderActionRequest from './model/CreateShareholderActionRequest';
 import EditInvestorTagsRequest from './model/EditInvestorTagsRequest';
 import GenerateUrlRequest from './model/GenerateUrlRequest';
@@ -107,6 +108,8 @@ import V1EntitiesInvestorSearchEntities from './model/V1EntitiesInvestorSearchEn
 import V1EntitiesInvestorSearchEntitiesRequiredFields from './model/V1EntitiesInvestorSearchEntitiesRequiredFields';
 import V1EntitiesInvestorUser from './model/V1EntitiesInvestorUser';
 import V1EntitiesInvestors from './model/V1EntitiesInvestors';
+import V1EntitiesMembersBulkUpload from './model/V1EntitiesMembersBulkUpload';
+import V1EntitiesMembersBulkUploads from './model/V1EntitiesMembersBulkUploads';
 import V1EntitiesMoneyEntity from './model/V1EntitiesMoneyEntity';
 import V1EntitiesPaymentsSelfServeOnboardingDigitalPaymentsConnectionData from './model/V1EntitiesPaymentsSelfServeOnboardingDigitalPaymentsConnectionData';
 import V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsData from './model/V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsData';
@@ -169,7 +172,7 @@ import UsersApi from './api/UsersApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.99.1
+* @version 0.99.2
 */
 export {
     /**
@@ -225,6 +228,12 @@ export {
      * @property {module:model/CreateEmailTemplateRequest}
      */
     CreateEmailTemplateRequest,
+
+    /**
+     * The CreateMembersBulkUploadRequest model constructor.
+     * @property {module:model/CreateMembersBulkUploadRequest}
+     */
+    CreateMembersBulkUploadRequest,
 
     /**
      * The CreateShareholderActionRequest model constructor.
@@ -741,6 +750,18 @@ export {
      * @property {module:model/V1EntitiesInvestors}
      */
     V1EntitiesInvestors,
+
+    /**
+     * The V1EntitiesMembersBulkUpload model constructor.
+     * @property {module:model/V1EntitiesMembersBulkUpload}
+     */
+    V1EntitiesMembersBulkUpload,
+
+    /**
+     * The V1EntitiesMembersBulkUploads model constructor.
+     * @property {module:model/V1EntitiesMembersBulkUploads}
+     */
+    V1EntitiesMembersBulkUploads,
 
     /**
      * The V1EntitiesMoneyEntity model constructor.

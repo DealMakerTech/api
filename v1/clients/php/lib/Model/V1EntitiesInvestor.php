@@ -75,6 +75,7 @@ class V1EntitiesInvestor implements ModelInterface, ArrayAccess, \JsonSerializab
         'allocated_amount' => 'float',
         'funds_value' => 'float',
         'access_link' => 'string',
+        'subscription_id' => 'int',
         'subscription_agreement' => '\DealMaker\Model\V1EntitiesSubscriptionAgreement',
         'attachments' => '\DealMaker\Model\V1EntitiesAttachment',
         'background_check_searches' => '\DealMaker\Model\V1EntitiesBackgroundCheckSearch',
@@ -113,6 +114,7 @@ class V1EntitiesInvestor implements ModelInterface, ArrayAccess, \JsonSerializab
         'allocated_amount' => 'float',
         'funds_value' => 'float',
         'access_link' => null,
+        'subscription_id' => 'int32',
         'subscription_agreement' => null,
         'attachments' => null,
         'background_check_searches' => null,
@@ -149,6 +151,7 @@ class V1EntitiesInvestor implements ModelInterface, ArrayAccess, \JsonSerializab
         'allocated_amount' => false,
         'funds_value' => false,
         'access_link' => false,
+        'subscription_id' => false,
         'subscription_agreement' => false,
         'attachments' => false,
         'background_check_searches' => false,
@@ -265,6 +268,7 @@ class V1EntitiesInvestor implements ModelInterface, ArrayAccess, \JsonSerializab
         'allocated_amount' => 'allocated_amount',
         'funds_value' => 'funds_value',
         'access_link' => 'access_link',
+        'subscription_id' => 'subscription_id',
         'subscription_agreement' => 'subscription_agreement',
         'attachments' => 'attachments',
         'background_check_searches' => 'background_check_searches',
@@ -301,6 +305,7 @@ class V1EntitiesInvestor implements ModelInterface, ArrayAccess, \JsonSerializab
         'allocated_amount' => 'setAllocatedAmount',
         'funds_value' => 'setFundsValue',
         'access_link' => 'setAccessLink',
+        'subscription_id' => 'setSubscriptionId',
         'subscription_agreement' => 'setSubscriptionAgreement',
         'attachments' => 'setAttachments',
         'background_check_searches' => 'setBackgroundCheckSearches',
@@ -337,6 +342,7 @@ class V1EntitiesInvestor implements ModelInterface, ArrayAccess, \JsonSerializab
         'allocated_amount' => 'getAllocatedAmount',
         'funds_value' => 'getFundsValue',
         'access_link' => 'getAccessLink',
+        'subscription_id' => 'getSubscriptionId',
         'subscription_agreement' => 'getSubscriptionAgreement',
         'attachments' => 'getAttachments',
         'background_check_searches' => 'getBackgroundCheckSearches',
@@ -533,6 +539,7 @@ class V1EntitiesInvestor implements ModelInterface, ArrayAccess, \JsonSerializab
         $this->setIfExists('allocated_amount', $data ?? [], null);
         $this->setIfExists('funds_value', $data ?? [], null);
         $this->setIfExists('access_link', $data ?? [], null);
+        $this->setIfExists('subscription_id', $data ?? [], null);
         $this->setIfExists('subscription_agreement', $data ?? [], null);
         $this->setIfExists('attachments', $data ?? [], null);
         $this->setIfExists('background_check_searches', $data ?? [], null);
@@ -1118,6 +1125,33 @@ class V1EntitiesInvestor implements ModelInterface, ArrayAccess, \JsonSerializab
             throw new \InvalidArgumentException('non-nullable access_link cannot be null');
         }
         $this->container['access_link'] = $access_link;
+
+        return $this;
+    }
+
+    /**
+     * Gets subscription_id
+     *
+     * @return int|null
+     */
+    public function getSubscriptionId()
+    {
+        return $this->container['subscription_id'];
+    }
+
+    /**
+     * Sets subscription_id
+     *
+     * @param int|null $subscription_id The investor subscription id.
+     *
+     * @return self
+     */
+    public function setSubscriptionId($subscription_id)
+    {
+        if (is_null($subscription_id)) {
+            throw new \InvalidArgumentException('non-nullable subscription_id cannot be null');
+        }
+        $this->container['subscription_id'] = $subscription_id;
 
         return $this;
     }

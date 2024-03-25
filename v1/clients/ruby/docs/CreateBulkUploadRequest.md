@@ -9,6 +9,7 @@
 | **upload_name** | **String** | The bulk upload name |  |
 | **send_notification** | **Boolean** | Send notification to the user |  |
 | **notification_message** | **String** | Notification message |  |
+| **json_notification_message** | **Object** | JSON notification message |  |
 
 ## Example
 
@@ -20,7 +21,8 @@ instance = DealMakerAPI::CreateBulkUploadRequest.new(
   document_type: null,
   upload_name: null,
   send_notification: null,
-  notification_message: null
+  notification_message: null,
+  json_notification_message: null
 )
 ```
 

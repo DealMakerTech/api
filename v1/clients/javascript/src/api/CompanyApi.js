@@ -17,6 +17,7 @@ import CreateBulkUploadDetailRequest from '../model/CreateBulkUploadDetailReques
 import CreateBulkUploadRequest from '../model/CreateBulkUploadRequest';
 import CreateCompanyRequest from '../model/CreateCompanyRequest';
 import CreateEmailTemplateRequest from '../model/CreateEmailTemplateRequest';
+import CreateMembersBulkUploadRequest from '../model/CreateMembersBulkUploadRequest';
 import CreateShareholderActionRequest from '../model/CreateShareholderActionRequest';
 import SendPortalInviteRequest from '../model/SendPortalInviteRequest';
 import V1EntitiesBulkUpload from '../model/V1EntitiesBulkUpload';
@@ -28,12 +29,14 @@ import V1EntitiesDividends from '../model/V1EntitiesDividends';
 import V1EntitiesEmailEvents from '../model/V1EntitiesEmailEvents';
 import V1EntitiesEmailTemplate from '../model/V1EntitiesEmailTemplate';
 import V1EntitiesGenericResponse from '../model/V1EntitiesGenericResponse';
+import V1EntitiesMembersBulkUpload from '../model/V1EntitiesMembersBulkUpload';
+import V1EntitiesMembersBulkUploads from '../model/V1EntitiesMembersBulkUploads';
 import V1EntitiesShareholderLedger from '../model/V1EntitiesShareholderLedger';
 
 /**
 * Company service.
 * @module api/CompanyApi
-* @version 0.99.1
+* @version 0.99.2
 */
 export default class CompanyApi {
 
@@ -236,6 +239,54 @@ export default class CompanyApi {
       let returnType = V1EntitiesEmailTemplate;
       return this.apiClient.callApi(
         '/companies/{id}/news_releases/email_template', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the createMembersBulkUpload operation.
+     * @callback module:api/CompanyApi~createMembersBulkUploadCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/V1EntitiesMembersBulkUpload} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Create bulk upload record
+     * Create members bulk upload record
+     * @param {Number} id The company id
+     * @param {module:model/CreateMembersBulkUploadRequest} createMembersBulkUploadRequest 
+     * @param {module:api/CompanyApi~createMembersBulkUploadCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/V1EntitiesMembersBulkUpload}
+     */
+    createMembersBulkUpload(id, createMembersBulkUploadRequest, callback) {
+      let postBody = createMembersBulkUploadRequest;
+      // verify the required parameter 'id' is set
+      if (id === undefined || id === null) {
+        throw new Error("Missing the required parameter 'id' when calling createMembersBulkUpload");
+      }
+      // verify the required parameter 'createMembersBulkUploadRequest' is set
+      if (createMembersBulkUploadRequest === undefined || createMembersBulkUploadRequest === null) {
+        throw new Error("Missing the required parameter 'createMembersBulkUploadRequest' when calling createMembersBulkUpload");
+      }
+
+      let pathParams = {
+        'id': id
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = V1EntitiesMembersBulkUpload;
+      return this.apiClient.callApi(
+        '/companies/{id}/members/bulk_uploads', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -737,7 +788,7 @@ export default class CompanyApi {
      * Get list of email template
      * @param {Number} id The company id
      * @param {Object} opts Optional parameters
-     * @param {Number} [page = 1)] The page number
+     * @param {Number} [page = 0)] The page number
      * @param {Number} [perPage = 10)] The number of items per page
      * @param {Boolean} [publicTemplate = false)] The public template
      * @param {module:api/CompanyApi~getEmailTemplatesCallback} callback The callback function, accepting three arguments: error, data, response
@@ -770,6 +821,98 @@ export default class CompanyApi {
       let returnType = V1EntitiesEmailTemplate;
       return this.apiClient.callApi(
         '/companies/{id}/news_releases/email_templates', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the getMembersBulkUpload operation.
+     * @callback module:api/CompanyApi~getMembersBulkUploadCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/V1EntitiesMembersBulkUpload} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Get bulk upload record
+     * Get members bulk upload record
+     * @param {Number} id The company id
+     * @param {Number} idMembersBulkUpload The bulk upload id
+     * @param {module:api/CompanyApi~getMembersBulkUploadCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/V1EntitiesMembersBulkUpload}
+     */
+    getMembersBulkUpload(id, idMembersBulkUpload, callback) {
+      let postBody = null;
+      // verify the required parameter 'id' is set
+      if (id === undefined || id === null) {
+        throw new Error("Missing the required parameter 'id' when calling getMembersBulkUpload");
+      }
+      // verify the required parameter 'idMembersBulkUpload' is set
+      if (idMembersBulkUpload === undefined || idMembersBulkUpload === null) {
+        throw new Error("Missing the required parameter 'idMembersBulkUpload' when calling getMembersBulkUpload");
+      }
+
+      let pathParams = {
+        'id': id,
+        'id_members_bulk_upload': idMembersBulkUpload
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = V1EntitiesMembersBulkUpload;
+      return this.apiClient.callApi(
+        '/companies/{id}/members/bulk_uploads/{id_members_bulk_upload}', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the getMembersBulkUploads operation.
+     * @callback module:api/CompanyApi~getMembersBulkUploadsCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/V1EntitiesMembersBulkUploads} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Get bulk uploads records
+     * Get members bulk uploads records
+     * @param {Number} id The company id
+     * @param {module:api/CompanyApi~getMembersBulkUploadsCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/V1EntitiesMembersBulkUploads}
+     */
+    getMembersBulkUploads(id, callback) {
+      let postBody = null;
+      // verify the required parameter 'id' is set
+      if (id === undefined || id === null) {
+        throw new Error("Missing the required parameter 'id' when calling getMembersBulkUploads");
+      }
+
+      let pathParams = {
+        'id': id
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = V1EntitiesMembersBulkUploads;
+      return this.apiClient.callApi(
+        '/companies/{id}/members/bulk_uploads', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

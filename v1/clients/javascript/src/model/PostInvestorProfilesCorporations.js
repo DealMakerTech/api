@@ -17,7 +17,7 @@ import PostInvestorProfilesCorporationsBeneficialOwnersInner from './PostInvesto
 /**
  * The PostInvestorProfilesCorporations model module.
  * @module model/PostInvestorProfilesCorporations
- * @version 0.99.1
+ * @version 0.99.2
  */
 class PostInvestorProfilesCorporations {
     /**

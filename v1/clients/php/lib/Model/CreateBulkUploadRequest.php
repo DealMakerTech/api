@@ -61,7 +61,8 @@ class CreateBulkUploadRequest implements ModelInterface, ArrayAccess, \JsonSeria
         'document_type' => 'string',
         'upload_name' => 'string',
         'send_notification' => 'bool',
-        'notification_message' => 'string'
+        'notification_message' => 'string',
+        'json_notification_message' => 'mixed'
     ];
 
     /**
@@ -76,7 +77,8 @@ class CreateBulkUploadRequest implements ModelInterface, ArrayAccess, \JsonSeria
         'document_type' => null,
         'upload_name' => null,
         'send_notification' => null,
-        'notification_message' => null
+        'notification_message' => null,
+        'json_notification_message' => null
     ];
 
     /**
@@ -89,7 +91,8 @@ class CreateBulkUploadRequest implements ModelInterface, ArrayAccess, \JsonSeria
         'document_type' => false,
         'upload_name' => false,
         'send_notification' => false,
-        'notification_message' => false
+        'notification_message' => false,
+        'json_notification_message' => true
     ];
 
     /**
@@ -182,7 +185,8 @@ class CreateBulkUploadRequest implements ModelInterface, ArrayAccess, \JsonSeria
         'document_type' => 'document_type',
         'upload_name' => 'upload_name',
         'send_notification' => 'send_notification',
-        'notification_message' => 'notification_message'
+        'notification_message' => 'notification_message',
+        'json_notification_message' => 'json_notification_message'
     ];
 
     /**
@@ -195,7 +199,8 @@ class CreateBulkUploadRequest implements ModelInterface, ArrayAccess, \JsonSeria
         'document_type' => 'setDocumentType',
         'upload_name' => 'setUploadName',
         'send_notification' => 'setSendNotification',
-        'notification_message' => 'setNotificationMessage'
+        'notification_message' => 'setNotificationMessage',
+        'json_notification_message' => 'setJsonNotificationMessage'
     ];
 
     /**
@@ -208,7 +213,8 @@ class CreateBulkUploadRequest implements ModelInterface, ArrayAccess, \JsonSeria
         'document_type' => 'getDocumentType',
         'upload_name' => 'getUploadName',
         'send_notification' => 'getSendNotification',
-        'notification_message' => 'getNotificationMessage'
+        'notification_message' => 'getNotificationMessage',
+        'json_notification_message' => 'getJsonNotificationMessage'
     ];
 
     /**
@@ -273,6 +279,7 @@ class CreateBulkUploadRequest implements ModelInterface, ArrayAccess, \JsonSeria
         $this->setIfExists('upload_name', $data ?? [], null);
         $this->setIfExists('send_notification', $data ?? [], null);
         $this->setIfExists('notification_message', $data ?? [], null);
+        $this->setIfExists('json_notification_message', $data ?? [], null);
     }
 
     /**
@@ -316,6 +323,9 @@ class CreateBulkUploadRequest implements ModelInterface, ArrayAccess, \JsonSeria
         }
         if ($this->container['notification_message'] === null) {
             $invalidProperties[] = "'notification_message' can't be null";
+        }
+        if ($this->container['json_notification_message'] === null) {
+            $invalidProperties[] = "'json_notification_message' can't be null";
         }
         return $invalidProperties;
     }
@@ -463,6 +473,40 @@ class CreateBulkUploadRequest implements ModelInterface, ArrayAccess, \JsonSeria
             throw new \InvalidArgumentException('non-nullable notification_message cannot be null');
         }
         $this->container['notification_message'] = $notification_message;
+
+        return $this;
+    }
+
+    /**
+     * Gets json_notification_message
+     *
+     * @return mixed
+     */
+    public function getJsonNotificationMessage()
+    {
+        return $this->container['json_notification_message'];
+    }
+
+    /**
+     * Sets json_notification_message
+     *
+     * @param mixed $json_notification_message JSON notification message
+     *
+     * @return self
+     */
+    public function setJsonNotificationMessage($json_notification_message)
+    {
+        if (is_null($json_notification_message)) {
+            array_push($this->openAPINullablesSetToNull, 'json_notification_message');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('json_notification_message', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['json_notification_message'] = $json_notification_message;
 
         return $this;
     }

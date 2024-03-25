@@ -8,6 +8,7 @@ All URIs are relative to http://api.dealmaker.tech, except if the operation defi
 | [**createBulkUploadDetail()**](CompanyApi.md#createBulkUploadDetail) | **POST** /companies/{company_id}/documents/bulk_uploads/{bulk_upload_id}/details | Create a BulkUploadDetail class record |
 | [**createCompany()**](CompanyApi.md#createCompany) | **POST** /companies | Create new company |
 | [**createEmailTemplate()**](CompanyApi.md#createEmailTemplate) | **POST** /companies/{id}/news_releases/email_template | Creates an email template |
+| [**createMembersBulkUpload()**](CompanyApi.md#createMembersBulkUpload) | **POST** /companies/{id}/members/bulk_uploads | Create bulk upload record |
 | [**createShareholderAction()**](CompanyApi.md#createShareholderAction) | **POST** /companies/{company_id}/shareholders/{shareholder_id}/actions | Create a shareholder action |
 | [**getBulkUpload()**](CompanyApi.md#getBulkUpload) | **GET** /companies/{id}/documents/bulk_uploads/{bulk_upload_id} | Return a given bulk upload by id |
 | [**getBulkUploadDetailsErrors()**](CompanyApi.md#getBulkUploadDetailsErrors) | **GET** /companies/{company_id}/documents/bulk_uploads/{bulk_upload_id}/details/errors | Returns a full list of details with errors of the given bulk upload ordered by status desc and id asc |
@@ -19,6 +20,8 @@ All URIs are relative to http://api.dealmaker.tech, except if the operation defi
 | [**getEmailEvents()**](CompanyApi.md#getEmailEvents) | **GET** /companies/{company_communication_id}/email_events | Get a list of email events for a company communication |
 | [**getEmailTemplate()**](CompanyApi.md#getEmailTemplate) | **GET** /companies/{id}/news_releases/email_template/{template_id} | Get a email template |
 | [**getEmailTemplates()**](CompanyApi.md#getEmailTemplates) | **GET** /companies/{id}/news_releases/email_templates | Get list of email template |
+| [**getMembersBulkUpload()**](CompanyApi.md#getMembersBulkUpload) | **GET** /companies/{id}/members/bulk_uploads/{id_members_bulk_upload} | Get bulk upload record |
+| [**getMembersBulkUploads()**](CompanyApi.md#getMembersBulkUploads) | **GET** /companies/{id}/members/bulk_uploads | Get bulk uploads records |
 | [**getShareholderLedger()**](CompanyApi.md#getShareholderLedger) | **GET** /companies/{id}/shareholder_ledger | Get shareholder ledger by company |
 | [**getUserAccessibleCompanies()**](CompanyApi.md#getUserAccessibleCompanies) | **GET** /users/accessible_companies | Get list of all Companies accessible by the user |
 | [**sendPortalInvite()**](CompanyApi.md#sendPortalInvite) | **POST** /companies/{id}/shareholders/{shareholder_id}/send_portal_invite | Send portal invite to shareholder |
@@ -246,6 +249,65 @@ try {
 ### Return type
 
 [**\DealMaker\Model\V1EntitiesEmailTemplate**](../Model/V1EntitiesEmailTemplate.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `createMembersBulkUpload()`
+
+```php
+createMembersBulkUpload($id, $create_members_bulk_upload_request): \DealMaker\Model\V1EntitiesMembersBulkUpload
+```
+
+Create bulk upload record
+
+Create members bulk upload record
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new DealMaker\Api\CompanyApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = 56; // int | The company id
+$create_members_bulk_upload_request = new \DealMaker\Model\CreateMembersBulkUploadRequest(); // \DealMaker\Model\CreateMembersBulkUploadRequest
+
+try {
+    $result = $apiInstance->createMembersBulkUpload($id, $create_members_bulk_upload_request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CompanyApi->createMembersBulkUpload: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **int**| The company id | |
+| **create_members_bulk_upload_request** | [**\DealMaker\Model\CreateMembersBulkUploadRequest**](../Model/CreateMembersBulkUploadRequest.md)|  | |
+
+### Return type
+
+[**\DealMaker\Model\V1EntitiesMembersBulkUpload**](../Model/V1EntitiesMembersBulkUpload.md)
 
 ### Authorization
 
@@ -883,7 +945,7 @@ $apiInstance = new DealMaker\Api\CompanyApi(
     $config
 );
 $id = 56; // int | The company id
-$page = 1; // int | The page number
+$page = 0; // int | The page number
 $per_page = 10; // int | The number of items per page
 $public_template = false; // bool | The public template
 
@@ -900,13 +962,129 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **int**| The company id | |
-| **page** | **int**| The page number | [optional] [default to 1] |
+| **page** | **int**| The page number | [optional] [default to 0] |
 | **per_page** | **int**| The number of items per page | [optional] [default to 10] |
 | **public_template** | **bool**| The public template | [optional] [default to false] |
 
 ### Return type
 
 [**\DealMaker\Model\V1EntitiesEmailTemplate**](../Model/V1EntitiesEmailTemplate.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getMembersBulkUpload()`
+
+```php
+getMembersBulkUpload($id, $id_members_bulk_upload): \DealMaker\Model\V1EntitiesMembersBulkUpload
+```
+
+Get bulk upload record
+
+Get members bulk upload record
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new DealMaker\Api\CompanyApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = 56; // int | The company id
+$id_members_bulk_upload = 56; // int | The bulk upload id
+
+try {
+    $result = $apiInstance->getMembersBulkUpload($id, $id_members_bulk_upload);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CompanyApi->getMembersBulkUpload: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **int**| The company id | |
+| **id_members_bulk_upload** | **int**| The bulk upload id | |
+
+### Return type
+
+[**\DealMaker\Model\V1EntitiesMembersBulkUpload**](../Model/V1EntitiesMembersBulkUpload.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getMembersBulkUploads()`
+
+```php
+getMembersBulkUploads($id): \DealMaker\Model\V1EntitiesMembersBulkUploads
+```
+
+Get bulk uploads records
+
+Get members bulk uploads records
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new DealMaker\Api\CompanyApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = 56; // int | The company id
+
+try {
+    $result = $apiInstance->getMembersBulkUploads($id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CompanyApi->getMembersBulkUploads: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **int**| The company id | |
+
+### Return type
+
+[**\DealMaker\Model\V1EntitiesMembersBulkUploads**](../Model/V1EntitiesMembersBulkUploads.md)
 
 ### Authorization
 

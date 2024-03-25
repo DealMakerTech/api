@@ -13,6 +13,7 @@ docs/CreateBulkUploadRequest.md
 docs/CreateCompanyRequest.md
 docs/CreateDealSetupRequest.md
 docs/CreateEmailTemplateRequest.md
+docs/CreateMembersBulkUploadRequest.md
 docs/CreateShareholderActionRequest.md
 docs/CustomEmailsApi.md
 docs/DealApi.md
@@ -110,6 +111,8 @@ docs/V1EntitiesInvestorSearchEntities.md
 docs/V1EntitiesInvestorSearchEntitiesRequiredFields.md
 docs/V1EntitiesInvestorUser.md
 docs/V1EntitiesInvestors.md
+docs/V1EntitiesMembersBulkUpload.md
+docs/V1EntitiesMembersBulkUploads.md
 docs/V1EntitiesMoneyEntity.md
 docs/V1EntitiesPaymentsSelfServeOnboardingDigitalPaymentsConnectionData.md
 docs/V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsData.md
@@ -154,6 +157,7 @@ src/model/CreateBulkUploadRequest.js
 src/model/CreateCompanyRequest.js
 src/model/CreateDealSetupRequest.js
 src/model/CreateEmailTemplateRequest.js
+src/model/CreateMembersBulkUploadRequest.js
 src/model/CreateShareholderActionRequest.js
 src/model/EditInvestorTagsRequest.js
 src/model/GenerateUrlRequest.js
@@ -240,6 +244,8 @@ src/model/V1EntitiesInvestorSearchEntities.js
 src/model/V1EntitiesInvestorSearchEntitiesRequiredFields.js
 src/model/V1EntitiesInvestorUser.js
 src/model/V1EntitiesInvestors.js
+src/model/V1EntitiesMembersBulkUpload.js
+src/model/V1EntitiesMembersBulkUploads.js
 src/model/V1EntitiesMoneyEntity.js
 src/model/V1EntitiesPaymentsSelfServeOnboardingDigitalPaymentsConnectionData.js
 src/model/V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsData.js
@@ -279,6 +285,7 @@ test/model/CreateBulkUploadRequest.spec.js
 test/model/CreateCompanyRequest.spec.js
 test/model/CreateDealSetupRequest.spec.js
 test/model/CreateEmailTemplateRequest.spec.js
+test/model/CreateMembersBulkUploadRequest.spec.js
 test/model/CreateShareholderActionRequest.spec.js
 test/model/EditInvestorTagsRequest.spec.js
 test/model/GenerateUrlRequest.spec.js
@@ -365,6 +372,8 @@ test/model/V1EntitiesInvestorSearchEntities.spec.js
 test/model/V1EntitiesInvestorSearchEntitiesRequiredFields.spec.js
 test/model/V1EntitiesInvestorUser.spec.js
 test/model/V1EntitiesInvestors.spec.js
+test/model/V1EntitiesMembersBulkUpload.spec.js
+test/model/V1EntitiesMembersBulkUploads.spec.js
 test/model/V1EntitiesMoneyEntity.spec.js
 test/model/V1EntitiesPaymentsSelfServeOnboardingDigitalPaymentsConnectionData.spec.js
 test/model/V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsData.spec.js

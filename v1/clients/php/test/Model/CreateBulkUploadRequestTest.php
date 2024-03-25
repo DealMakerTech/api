@@ -123,4 +123,13 @@ class CreateBulkUploadRequestTest extends TestCase
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test attribute "json_notification_message"
+     */
+    public function testPropertyJsonNotificationMessage()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
 }

@@ -66,6 +66,9 @@ module DealMakerAPI
     # The access link for the investor. This is the access link for the specific investment, not the user. If the same user has multiple investments, each one will have a different access link. Please note that this access link expires every hour. In order to redirect the investor into their authentication screen, use the https://app.dealmaker.tech/deals/{{deal_id}}/investors/{{investor_id}}/otp_access url.
     attr_accessor :access_link
 
+    # The investor subscription id.
+    attr_accessor :subscription_id
+
     attr_accessor :subscription_agreement
 
     attr_accessor :attachments
@@ -137,6 +140,7 @@ module DealMakerAPI
         :'allocated_amount' => :'allocated_amount',
         :'funds_value' => :'funds_value',
         :'access_link' => :'access_link',
+        :'subscription_id' => :'subscription_id',
         :'subscription_agreement' => :'subscription_agreement',
         :'attachments' => :'attachments',
         :'background_check_searches' => :'background_check_searches',
@@ -176,6 +180,7 @@ module DealMakerAPI
         :'allocated_amount' => :'Float',
         :'funds_value' => :'Float',
         :'access_link' => :'String',
+        :'subscription_id' => :'Integer',
         :'subscription_agreement' => :'V1EntitiesSubscriptionAgreement',
         :'attachments' => :'V1EntitiesAttachment',
         :'background_check_searches' => :'V1EntitiesBackgroundCheckSearch',
@@ -277,6 +282,10 @@ module DealMakerAPI
 
       if attributes.key?(:'access_link')
         self.access_link = attributes[:'access_link']
+      end
+
+      if attributes.key?(:'subscription_id')
+        self.subscription_id = attributes[:'subscription_id']
       end
 
       if attributes.key?(:'subscription_agreement')
@@ -421,6 +430,7 @@ module DealMakerAPI
           allocated_amount == o.allocated_amount &&
           funds_value == o.funds_value &&
           access_link == o.access_link &&
+          subscription_id == o.subscription_id &&
           subscription_agreement == o.subscription_agreement &&
           attachments == o.attachments &&
           background_check_searches == o.background_check_searches &&
@@ -443,7 +453,7 @@ module DealMakerAPI
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, user, created_at, updated_at, name, allocation_unit, state, funding_state, funds_pending, beneficial_address, phone_number, investor_currency, number_of_securities, investment_value, allocated_amount, funds_value, access_link, subscription_agreement, attachments, background_check_searches, verification_status, warrant_expiry_date, warrant_certificate_number, ranking_score, investor_profile, investor_profile_id, checkout_state, legacy_flow_link].hash
+      [id, user, created_at, updated_at, name, allocation_unit, state, funding_state, funds_pending, beneficial_address, phone_number, investor_currency, number_of_securities, investment_value, allocated_amount, funds_value, access_link, subscription_id, subscription_agreement, attachments, background_check_searches, verification_status, warrant_expiry_date, warrant_certificate_number, ranking_score, investor_profile, investor_profile_id, checkout_state, legacy_flow_link].hash
     end
 
     # Builds the object from hash

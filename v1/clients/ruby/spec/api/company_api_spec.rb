@@ -84,6 +84,19 @@ describe 'CompanyApi' do
     end
   end
 
+  # unit tests for create_members_bulk_upload
+  # Create bulk upload record
+  # Create members bulk upload record
+  # @param id The company id
+  # @param create_members_bulk_upload_request 
+  # @param [Hash] opts the optional parameters
+  # @return [V1EntitiesMembersBulkUpload]
+  describe 'create_members_bulk_upload test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for create_shareholder_action
   # Create a shareholder action
   # Create a shareholder action
@@ -228,6 +241,31 @@ describe 'CompanyApi' do
   # @option opts [Boolean] :public_template The public template
   # @return [V1EntitiesEmailTemplate]
   describe 'get_email_templates test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for get_members_bulk_upload
+  # Get bulk upload record
+  # Get members bulk upload record
+  # @param id The company id
+  # @param id_members_bulk_upload The bulk upload id
+  # @param [Hash] opts the optional parameters
+  # @return [V1EntitiesMembersBulkUpload]
+  describe 'get_members_bulk_upload test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for get_members_bulk_uploads
+  # Get bulk uploads records
+  # Get members bulk uploads records
+  # @param id The company id
+  # @param [Hash] opts the optional parameters
+  # @return [V1EntitiesMembersBulkUploads]
+  describe 'get_members_bulk_uploads test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end

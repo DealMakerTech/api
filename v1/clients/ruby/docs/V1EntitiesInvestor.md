@@ -21,6 +21,7 @@
 | **allocated_amount** | **Float** | The amount allocated. | [optional] |
 | **funds_value** | **Float** | The current amount that has been funded. | [optional] |
 | **access_link** | **String** | The access link for the investor. This is the access link for the specific investment, not the user. If the same user has multiple investments, each one will have a different access link. Please note that this access link expires every hour. In order to redirect the investor into their authentication screen, use the https://app.dealmaker.tech/deals/{{deal_id}}/investors/{{investor_id}}/otp_access url. | [optional] |
+| **subscription_id** | **Integer** | The investor subscription id. | [optional] |
 | **subscription_agreement** | [**V1EntitiesSubscriptionAgreement**](V1EntitiesSubscriptionAgreement.md) |  | [optional] |
 | **attachments** | [**V1EntitiesAttachment**](V1EntitiesAttachment.md) |  | [optional] |
 | **background_check_searches** | [**V1EntitiesBackgroundCheckSearch**](V1EntitiesBackgroundCheckSearch.md) |  | [optional] |
@@ -56,6 +57,7 @@ instance = DealMakerAPI::V1EntitiesInvestor.new(
   allocated_amount: null,
   funds_value: null,
   access_link: null,
+  subscription_id: null,
   subscription_agreement: null,
   attachments: null,
   background_check_searches: null,

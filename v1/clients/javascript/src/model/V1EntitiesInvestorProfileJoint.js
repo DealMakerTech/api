@@ -19,7 +19,7 @@ import V1EntitiesInvestorProfileOwner from './V1EntitiesInvestorProfileOwner';
 /**
  * The V1EntitiesInvestorProfileJoint model module.
  * @module model/V1EntitiesInvestorProfileJoint
- * @version 0.99.1
+ * @version 0.99.2
  */
 class V1EntitiesInvestorProfileJoint {
     /**

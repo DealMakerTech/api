@@ -84,6 +84,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property jsonNotificationMessage (base name: "json_notification_message")', function() {
+      // uncomment below and update the code to test the property jsonNotificationMessage
+      //var instance = new Api.CreateBulkUploadRequest();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

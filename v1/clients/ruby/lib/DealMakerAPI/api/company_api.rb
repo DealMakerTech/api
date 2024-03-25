@@ -315,6 +315,80 @@ module DealMakerAPI
       return data, status_code, headers
     end
 
+    # Create bulk upload record
+    # Create members bulk upload record
+    # @param id [Integer] The company id
+    # @param create_members_bulk_upload_request [CreateMembersBulkUploadRequest] 
+    # @param [Hash] opts the optional parameters
+    # @return [V1EntitiesMembersBulkUpload]
+    def create_members_bulk_upload(id, create_members_bulk_upload_request, opts = {})
+      data, _status_code, _headers = create_members_bulk_upload_with_http_info(id, create_members_bulk_upload_request, opts)
+      data
+    end
+
+    # Create bulk upload record
+    # Create members bulk upload record
+    # @param id [Integer] The company id
+    # @param create_members_bulk_upload_request [CreateMembersBulkUploadRequest] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(V1EntitiesMembersBulkUpload, Integer, Hash)>] V1EntitiesMembersBulkUpload data, response status code and response headers
+    def create_members_bulk_upload_with_http_info(id, create_members_bulk_upload_request, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CompanyApi.create_members_bulk_upload ...'
+      end
+      # verify the required parameter 'id' is set
+      if @api_client.config.client_side_validation && id.nil?
+        fail ArgumentError, "Missing the required parameter 'id' when calling CompanyApi.create_members_bulk_upload"
+      end
+      # verify the required parameter 'create_members_bulk_upload_request' is set
+      if @api_client.config.client_side_validation && create_members_bulk_upload_request.nil?
+        fail ArgumentError, "Missing the required parameter 'create_members_bulk_upload_request' when calling CompanyApi.create_members_bulk_upload"
+      end
+      # resource path
+      local_var_path = '/companies/{id}/members/bulk_uploads'.sub('{' + 'id' + '}', CGI.escape(id.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(create_members_bulk_upload_request)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'V1EntitiesMembersBulkUpload'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"CompanyApi.create_members_bulk_upload",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CompanyApi#create_members_bulk_upload\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Create a shareholder action
     # Create a shareholder action
     # @param company_id [Integer] The company id
@@ -1011,7 +1085,7 @@ module DealMakerAPI
     # Get list of email template
     # @param id [Integer] The company id
     # @param [Hash] opts the optional parameters
-    # @option opts [Integer] :page The page number (default to 1)
+    # @option opts [Integer] :page The page number (default to 0)
     # @option opts [Integer] :per_page The number of items per page (default to 10)
     # @option opts [Boolean] :public_template The public template (default to false)
     # @return [V1EntitiesEmailTemplate]
@@ -1024,7 +1098,7 @@ module DealMakerAPI
     # Get list of email template
     # @param id [Integer] The company id
     # @param [Hash] opts the optional parameters
-    # @option opts [Integer] :page The page number (default to 1)
+    # @option opts [Integer] :page The page number (default to 0)
     # @option opts [Integer] :per_page The number of items per page (default to 10)
     # @option opts [Boolean] :public_template The public template (default to false)
     # @return [Array<(V1EntitiesEmailTemplate, Integer, Hash)>] V1EntitiesEmailTemplate data, response status code and response headers
@@ -1075,6 +1149,138 @@ module DealMakerAPI
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: CompanyApi#get_email_templates\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get bulk upload record
+    # Get members bulk upload record
+    # @param id [Integer] The company id
+    # @param id_members_bulk_upload [Integer] The bulk upload id
+    # @param [Hash] opts the optional parameters
+    # @return [V1EntitiesMembersBulkUpload]
+    def get_members_bulk_upload(id, id_members_bulk_upload, opts = {})
+      data, _status_code, _headers = get_members_bulk_upload_with_http_info(id, id_members_bulk_upload, opts)
+      data
+    end
+
+    # Get bulk upload record
+    # Get members bulk upload record
+    # @param id [Integer] The company id
+    # @param id_members_bulk_upload [Integer] The bulk upload id
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(V1EntitiesMembersBulkUpload, Integer, Hash)>] V1EntitiesMembersBulkUpload data, response status code and response headers
+    def get_members_bulk_upload_with_http_info(id, id_members_bulk_upload, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CompanyApi.get_members_bulk_upload ...'
+      end
+      # verify the required parameter 'id' is set
+      if @api_client.config.client_side_validation && id.nil?
+        fail ArgumentError, "Missing the required parameter 'id' when calling CompanyApi.get_members_bulk_upload"
+      end
+      # verify the required parameter 'id_members_bulk_upload' is set
+      if @api_client.config.client_side_validation && id_members_bulk_upload.nil?
+        fail ArgumentError, "Missing the required parameter 'id_members_bulk_upload' when calling CompanyApi.get_members_bulk_upload"
+      end
+      # resource path
+      local_var_path = '/companies/{id}/members/bulk_uploads/{id_members_bulk_upload}'.sub('{' + 'id' + '}', CGI.escape(id.to_s)).sub('{' + 'id_members_bulk_upload' + '}', CGI.escape(id_members_bulk_upload.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'V1EntitiesMembersBulkUpload'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"CompanyApi.get_members_bulk_upload",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CompanyApi#get_members_bulk_upload\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get bulk uploads records
+    # Get members bulk uploads records
+    # @param id [Integer] The company id
+    # @param [Hash] opts the optional parameters
+    # @return [V1EntitiesMembersBulkUploads]
+    def get_members_bulk_uploads(id, opts = {})
+      data, _status_code, _headers = get_members_bulk_uploads_with_http_info(id, opts)
+      data
+    end
+
+    # Get bulk uploads records
+    # Get members bulk uploads records
+    # @param id [Integer] The company id
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(V1EntitiesMembersBulkUploads, Integer, Hash)>] V1EntitiesMembersBulkUploads data, response status code and response headers
+    def get_members_bulk_uploads_with_http_info(id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CompanyApi.get_members_bulk_uploads ...'
+      end
+      # verify the required parameter 'id' is set
+      if @api_client.config.client_side_validation && id.nil?
+        fail ArgumentError, "Missing the required parameter 'id' when calling CompanyApi.get_members_bulk_uploads"
+      end
+      # resource path
+      local_var_path = '/companies/{id}/members/bulk_uploads'.sub('{' + 'id' + '}', CGI.escape(id.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'V1EntitiesMembersBulkUploads'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"CompanyApi.get_members_bulk_uploads",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CompanyApi#get_members_bulk_uploads\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

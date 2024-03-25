@@ -83,6 +83,9 @@ class CompanyApi
         'createEmailTemplate' => [
             'application/json',
         ],
+        'createMembersBulkUpload' => [
+            'application/json',
+        ],
         'createShareholderAction' => [
             'application/json',
         ],
@@ -114,6 +117,12 @@ class CompanyApi
             'application/json',
         ],
         'getEmailTemplates' => [
+            'application/json',
+        ],
+        'getMembersBulkUpload' => [
+            'application/json',
+        ],
+        'getMembersBulkUploads' => [
             'application/json',
         ],
         'getShareholderLedger' => [
@@ -1430,6 +1439,332 @@ class CompanyApi
                 $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($create_email_template_request));
             } else {
                 $httpBody = $create_email_template_request;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation createMembersBulkUpload
+     *
+     * Create bulk upload record
+     *
+     * @param  int $id The company id (required)
+     * @param  \DealMaker\Model\CreateMembersBulkUploadRequest $create_members_bulk_upload_request create_members_bulk_upload_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createMembersBulkUpload'] to see the possible values for this operation
+     *
+     * @throws \DealMaker\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \DealMaker\Model\V1EntitiesMembersBulkUpload
+     */
+    public function createMembersBulkUpload($id, $create_members_bulk_upload_request, string $contentType = self::contentTypes['createMembersBulkUpload'][0])
+    {
+        list($response) = $this->createMembersBulkUploadWithHttpInfo($id, $create_members_bulk_upload_request, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation createMembersBulkUploadWithHttpInfo
+     *
+     * Create bulk upload record
+     *
+     * @param  int $id The company id (required)
+     * @param  \DealMaker\Model\CreateMembersBulkUploadRequest $create_members_bulk_upload_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createMembersBulkUpload'] to see the possible values for this operation
+     *
+     * @throws \DealMaker\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \DealMaker\Model\V1EntitiesMembersBulkUpload, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function createMembersBulkUploadWithHttpInfo($id, $create_members_bulk_upload_request, string $contentType = self::contentTypes['createMembersBulkUpload'][0])
+    {
+        $request = $this->createMembersBulkUploadRequest($id, $create_members_bulk_upload_request, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 201:
+                    if ('\DealMaker\Model\V1EntitiesMembersBulkUpload' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\DealMaker\Model\V1EntitiesMembersBulkUpload' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\DealMaker\Model\V1EntitiesMembersBulkUpload', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\DealMaker\Model\V1EntitiesMembersBulkUpload';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    try {
+                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                    } catch (\JsonException $exception) {
+                        throw new ApiException(
+                            sprintf(
+                                'Error JSON decoding server response (%s)',
+                                $request->getUri()
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $content
+                        );
+                    }
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 201:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\DealMaker\Model\V1EntitiesMembersBulkUpload',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation createMembersBulkUploadAsync
+     *
+     * Create bulk upload record
+     *
+     * @param  int $id The company id (required)
+     * @param  \DealMaker\Model\CreateMembersBulkUploadRequest $create_members_bulk_upload_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createMembersBulkUpload'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function createMembersBulkUploadAsync($id, $create_members_bulk_upload_request, string $contentType = self::contentTypes['createMembersBulkUpload'][0])
+    {
+        return $this->createMembersBulkUploadAsyncWithHttpInfo($id, $create_members_bulk_upload_request, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation createMembersBulkUploadAsyncWithHttpInfo
+     *
+     * Create bulk upload record
+     *
+     * @param  int $id The company id (required)
+     * @param  \DealMaker\Model\CreateMembersBulkUploadRequest $create_members_bulk_upload_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createMembersBulkUpload'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function createMembersBulkUploadAsyncWithHttpInfo($id, $create_members_bulk_upload_request, string $contentType = self::contentTypes['createMembersBulkUpload'][0])
+    {
+        $returnType = '\DealMaker\Model\V1EntitiesMembersBulkUpload';
+        $request = $this->createMembersBulkUploadRequest($id, $create_members_bulk_upload_request, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'createMembersBulkUpload'
+     *
+     * @param  int $id The company id (required)
+     * @param  \DealMaker\Model\CreateMembersBulkUploadRequest $create_members_bulk_upload_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createMembersBulkUpload'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function createMembersBulkUploadRequest($id, $create_members_bulk_upload_request, string $contentType = self::contentTypes['createMembersBulkUpload'][0])
+    {
+
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling createMembersBulkUpload'
+            );
+        }
+
+        // verify the required parameter 'create_members_bulk_upload_request' is set
+        if ($create_members_bulk_upload_request === null || (is_array($create_members_bulk_upload_request) && count($create_members_bulk_upload_request) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $create_members_bulk_upload_request when calling createMembersBulkUpload'
+            );
+        }
+
+
+        $resourcePath = '/companies/{id}/members/bulk_uploads';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'id' . '}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($create_members_bulk_upload_request)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($create_members_bulk_upload_request));
+            } else {
+                $httpBody = $create_members_bulk_upload_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -4787,7 +5122,7 @@ class CompanyApi
      * Get list of email template
      *
      * @param  int $id The company id (required)
-     * @param  int $page The page number (optional, default to 1)
+     * @param  int $page The page number (optional, default to 0)
      * @param  int $per_page The number of items per page (optional, default to 10)
      * @param  bool $public_template The public template (optional, default to false)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getEmailTemplates'] to see the possible values for this operation
@@ -4796,7 +5131,7 @@ class CompanyApi
      * @throws \InvalidArgumentException
      * @return \DealMaker\Model\V1EntitiesEmailTemplate
      */
-    public function getEmailTemplates($id, $page = 1, $per_page = 10, $public_template = false, string $contentType = self::contentTypes['getEmailTemplates'][0])
+    public function getEmailTemplates($id, $page = 0, $per_page = 10, $public_template = false, string $contentType = self::contentTypes['getEmailTemplates'][0])
     {
         list($response) = $this->getEmailTemplatesWithHttpInfo($id, $page, $per_page, $public_template, $contentType);
         return $response;
@@ -4808,7 +5143,7 @@ class CompanyApi
      * Get list of email template
      *
      * @param  int $id The company id (required)
-     * @param  int $page The page number (optional, default to 1)
+     * @param  int $page The page number (optional, default to 0)
      * @param  int $per_page The number of items per page (optional, default to 10)
      * @param  bool $public_template The public template (optional, default to false)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getEmailTemplates'] to see the possible values for this operation
@@ -4817,7 +5152,7 @@ class CompanyApi
      * @throws \InvalidArgumentException
      * @return array of \DealMaker\Model\V1EntitiesEmailTemplate, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getEmailTemplatesWithHttpInfo($id, $page = 1, $per_page = 10, $public_template = false, string $contentType = self::contentTypes['getEmailTemplates'][0])
+    public function getEmailTemplatesWithHttpInfo($id, $page = 0, $per_page = 10, $public_template = false, string $contentType = self::contentTypes['getEmailTemplates'][0])
     {
         $request = $this->getEmailTemplatesRequest($id, $page, $per_page, $public_template, $contentType);
 
@@ -4935,7 +5270,7 @@ class CompanyApi
      * Get list of email template
      *
      * @param  int $id The company id (required)
-     * @param  int $page The page number (optional, default to 1)
+     * @param  int $page The page number (optional, default to 0)
      * @param  int $per_page The number of items per page (optional, default to 10)
      * @param  bool $public_template The public template (optional, default to false)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getEmailTemplates'] to see the possible values for this operation
@@ -4943,7 +5278,7 @@ class CompanyApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getEmailTemplatesAsync($id, $page = 1, $per_page = 10, $public_template = false, string $contentType = self::contentTypes['getEmailTemplates'][0])
+    public function getEmailTemplatesAsync($id, $page = 0, $per_page = 10, $public_template = false, string $contentType = self::contentTypes['getEmailTemplates'][0])
     {
         return $this->getEmailTemplatesAsyncWithHttpInfo($id, $page, $per_page, $public_template, $contentType)
             ->then(
@@ -4959,7 +5294,7 @@ class CompanyApi
      * Get list of email template
      *
      * @param  int $id The company id (required)
-     * @param  int $page The page number (optional, default to 1)
+     * @param  int $page The page number (optional, default to 0)
      * @param  int $per_page The number of items per page (optional, default to 10)
      * @param  bool $public_template The public template (optional, default to false)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getEmailTemplates'] to see the possible values for this operation
@@ -4967,7 +5302,7 @@ class CompanyApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getEmailTemplatesAsyncWithHttpInfo($id, $page = 1, $per_page = 10, $public_template = false, string $contentType = self::contentTypes['getEmailTemplates'][0])
+    public function getEmailTemplatesAsyncWithHttpInfo($id, $page = 0, $per_page = 10, $public_template = false, string $contentType = self::contentTypes['getEmailTemplates'][0])
     {
         $returnType = '\DealMaker\Model\V1EntitiesEmailTemplate';
         $request = $this->getEmailTemplatesRequest($id, $page, $per_page, $public_template, $contentType);
@@ -5012,7 +5347,7 @@ class CompanyApi
      * Create request for operation 'getEmailTemplates'
      *
      * @param  int $id The company id (required)
-     * @param  int $page The page number (optional, default to 1)
+     * @param  int $page The page number (optional, default to 0)
      * @param  int $per_page The number of items per page (optional, default to 10)
      * @param  bool $public_template The public template (optional, default to false)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getEmailTemplates'] to see the possible values for this operation
@@ -5020,7 +5355,7 @@ class CompanyApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getEmailTemplatesRequest($id, $page = 1, $per_page = 10, $public_template = false, string $contentType = self::contentTypes['getEmailTemplates'][0])
+    public function getEmailTemplatesRequest($id, $page = 0, $per_page = 10, $public_template = false, string $contentType = self::contentTypes['getEmailTemplates'][0])
     {
 
         // verify the required parameter 'id' is set
@@ -5068,6 +5403,640 @@ class CompanyApi
             false, // explode
             false // required
         ) ?? []);
+
+
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'id' . '}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getMembersBulkUpload
+     *
+     * Get bulk upload record
+     *
+     * @param  int $id The company id (required)
+     * @param  int $id_members_bulk_upload The bulk upload id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMembersBulkUpload'] to see the possible values for this operation
+     *
+     * @throws \DealMaker\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \DealMaker\Model\V1EntitiesMembersBulkUpload
+     */
+    public function getMembersBulkUpload($id, $id_members_bulk_upload, string $contentType = self::contentTypes['getMembersBulkUpload'][0])
+    {
+        list($response) = $this->getMembersBulkUploadWithHttpInfo($id, $id_members_bulk_upload, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation getMembersBulkUploadWithHttpInfo
+     *
+     * Get bulk upload record
+     *
+     * @param  int $id The company id (required)
+     * @param  int $id_members_bulk_upload The bulk upload id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMembersBulkUpload'] to see the possible values for this operation
+     *
+     * @throws \DealMaker\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \DealMaker\Model\V1EntitiesMembersBulkUpload, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getMembersBulkUploadWithHttpInfo($id, $id_members_bulk_upload, string $contentType = self::contentTypes['getMembersBulkUpload'][0])
+    {
+        $request = $this->getMembersBulkUploadRequest($id, $id_members_bulk_upload, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\DealMaker\Model\V1EntitiesMembersBulkUpload' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\DealMaker\Model\V1EntitiesMembersBulkUpload' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\DealMaker\Model\V1EntitiesMembersBulkUpload', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\DealMaker\Model\V1EntitiesMembersBulkUpload';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    try {
+                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                    } catch (\JsonException $exception) {
+                        throw new ApiException(
+                            sprintf(
+                                'Error JSON decoding server response (%s)',
+                                $request->getUri()
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $content
+                        );
+                    }
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\DealMaker\Model\V1EntitiesMembersBulkUpload',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getMembersBulkUploadAsync
+     *
+     * Get bulk upload record
+     *
+     * @param  int $id The company id (required)
+     * @param  int $id_members_bulk_upload The bulk upload id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMembersBulkUpload'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getMembersBulkUploadAsync($id, $id_members_bulk_upload, string $contentType = self::contentTypes['getMembersBulkUpload'][0])
+    {
+        return $this->getMembersBulkUploadAsyncWithHttpInfo($id, $id_members_bulk_upload, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getMembersBulkUploadAsyncWithHttpInfo
+     *
+     * Get bulk upload record
+     *
+     * @param  int $id The company id (required)
+     * @param  int $id_members_bulk_upload The bulk upload id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMembersBulkUpload'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getMembersBulkUploadAsyncWithHttpInfo($id, $id_members_bulk_upload, string $contentType = self::contentTypes['getMembersBulkUpload'][0])
+    {
+        $returnType = '\DealMaker\Model\V1EntitiesMembersBulkUpload';
+        $request = $this->getMembersBulkUploadRequest($id, $id_members_bulk_upload, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getMembersBulkUpload'
+     *
+     * @param  int $id The company id (required)
+     * @param  int $id_members_bulk_upload The bulk upload id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMembersBulkUpload'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getMembersBulkUploadRequest($id, $id_members_bulk_upload, string $contentType = self::contentTypes['getMembersBulkUpload'][0])
+    {
+
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling getMembersBulkUpload'
+            );
+        }
+
+        // verify the required parameter 'id_members_bulk_upload' is set
+        if ($id_members_bulk_upload === null || (is_array($id_members_bulk_upload) && count($id_members_bulk_upload) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id_members_bulk_upload when calling getMembersBulkUpload'
+            );
+        }
+
+
+        $resourcePath = '/companies/{id}/members/bulk_uploads/{id_members_bulk_upload}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'id' . '}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($id_members_bulk_upload !== null) {
+            $resourcePath = str_replace(
+                '{' . 'id_members_bulk_upload' . '}',
+                ObjectSerializer::toPathValue($id_members_bulk_upload),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getMembersBulkUploads
+     *
+     * Get bulk uploads records
+     *
+     * @param  int $id The company id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMembersBulkUploads'] to see the possible values for this operation
+     *
+     * @throws \DealMaker\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \DealMaker\Model\V1EntitiesMembersBulkUploads
+     */
+    public function getMembersBulkUploads($id, string $contentType = self::contentTypes['getMembersBulkUploads'][0])
+    {
+        list($response) = $this->getMembersBulkUploadsWithHttpInfo($id, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation getMembersBulkUploadsWithHttpInfo
+     *
+     * Get bulk uploads records
+     *
+     * @param  int $id The company id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMembersBulkUploads'] to see the possible values for this operation
+     *
+     * @throws \DealMaker\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \DealMaker\Model\V1EntitiesMembersBulkUploads, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getMembersBulkUploadsWithHttpInfo($id, string $contentType = self::contentTypes['getMembersBulkUploads'][0])
+    {
+        $request = $this->getMembersBulkUploadsRequest($id, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\DealMaker\Model\V1EntitiesMembersBulkUploads' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\DealMaker\Model\V1EntitiesMembersBulkUploads' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\DealMaker\Model\V1EntitiesMembersBulkUploads', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\DealMaker\Model\V1EntitiesMembersBulkUploads';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    try {
+                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                    } catch (\JsonException $exception) {
+                        throw new ApiException(
+                            sprintf(
+                                'Error JSON decoding server response (%s)',
+                                $request->getUri()
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $content
+                        );
+                    }
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\DealMaker\Model\V1EntitiesMembersBulkUploads',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getMembersBulkUploadsAsync
+     *
+     * Get bulk uploads records
+     *
+     * @param  int $id The company id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMembersBulkUploads'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getMembersBulkUploadsAsync($id, string $contentType = self::contentTypes['getMembersBulkUploads'][0])
+    {
+        return $this->getMembersBulkUploadsAsyncWithHttpInfo($id, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getMembersBulkUploadsAsyncWithHttpInfo
+     *
+     * Get bulk uploads records
+     *
+     * @param  int $id The company id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMembersBulkUploads'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getMembersBulkUploadsAsyncWithHttpInfo($id, string $contentType = self::contentTypes['getMembersBulkUploads'][0])
+    {
+        $returnType = '\DealMaker\Model\V1EntitiesMembersBulkUploads';
+        $request = $this->getMembersBulkUploadsRequest($id, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getMembersBulkUploads'
+     *
+     * @param  int $id The company id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMembersBulkUploads'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getMembersBulkUploadsRequest($id, string $contentType = self::contentTypes['getMembersBulkUploads'][0])
+    {
+
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling getMembersBulkUploads'
+            );
+        }
+
+
+        $resourcePath = '/companies/{id}/members/bulk_uploads';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
 
 
         // path params

@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The PatchInvestorRequest model module.
  * @module model/PatchInvestorRequest
- * @version 0.99.2
+ * @version 0.99.3
  */
 class PatchInvestorRequest {
     /**

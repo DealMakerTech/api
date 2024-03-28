@@ -20,7 +20,7 @@ import V1EntitiesDealIssuer from './V1EntitiesDealIssuer';
 /**
  * The V1EntitiesDeal model module.
  * @module model/V1EntitiesDeal
- * @version 0.99.2
+ * @version 0.99.3
  */
 class V1EntitiesDeal {
     /**

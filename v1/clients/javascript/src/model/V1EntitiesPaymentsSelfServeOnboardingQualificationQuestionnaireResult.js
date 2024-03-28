@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The V1EntitiesPaymentsSelfServeOnboardingQualificationQuestionnaireResult model module.
  * @module model/V1EntitiesPaymentsSelfServeOnboardingQualificationQuestionnaireResult
- * @version 0.99.3
+ * @version 0.99.4
  */
 class V1EntitiesPaymentsSelfServeOnboardingQualificationQuestionnaireResult {
     /**

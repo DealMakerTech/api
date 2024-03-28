@@ -353,7 +353,7 @@ module DealMakerAPI
       return false unless funding_state_validator.valid?(@funding_state)
       verification_status_validator = EnumAttributeValidator.new('String', ["pending", "approved", "rejected", "new_documents_requested"])
       return false unless verification_status_validator.valid?(@verification_status)
-      checkout_state_validator = EnumAttributeValidator.new('String', ["pre_checkout", "investment_amount", "contact_information", "investor_confirmation", "terms_conditions", "payment", "checkout_complete", "resubmit_agreement", "legacy_checkout"])
+      checkout_state_validator = EnumAttributeValidator.new('String', ["pre_checkout", "investment_amount", "contact_information", "investor_confirmation", "terms_conditions", "payment", "checkout_complete", "resubmit_agreement", "legacy_checkout", "document_upload"])
       return false unless checkout_state_validator.valid?(@checkout_state)
       true
     end
@@ -401,7 +401,7 @@ module DealMakerAPI
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] checkout_state Object to be assigned
     def checkout_state=(checkout_state)
-      validator = EnumAttributeValidator.new('String', ["pre_checkout", "investment_amount", "contact_information", "investor_confirmation", "terms_conditions", "payment", "checkout_complete", "resubmit_agreement", "legacy_checkout"])
+      validator = EnumAttributeValidator.new('String', ["pre_checkout", "investment_amount", "contact_information", "investor_confirmation", "terms_conditions", "payment", "checkout_complete", "resubmit_agreement", "legacy_checkout", "document_upload"])
       unless validator.valid?(checkout_state)
         fail ArgumentError, "invalid value for \"checkout_state\", must be one of #{validator.allowable_values}."
       end

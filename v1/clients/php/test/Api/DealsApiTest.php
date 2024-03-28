@@ -72,6 +72,18 @@ class DealsApiTest extends TestCase
     }
 
     /**
+     * Test case for postDealsIdEmailCampaignEmailCampaignIdSendEmail
+     *
+     * Send emails to all the investors invited to the material change campaign.
+     *
+     */
+    public function testPostDealsIdEmailCampaignEmailCampaignIdSendEmail()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for putDealsIdScriptTagEnvironment
      *
      * Update script tag environment for the deal..

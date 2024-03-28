@@ -20,7 +20,7 @@ import V1EntitiesSubscriptionAgreement from './V1EntitiesSubscriptionAgreement';
 /**
  * The V1EntitiesInvestor model module.
  * @module model/V1EntitiesInvestor
- * @version 0.99.3
+ * @version 0.99.4
  */
 class V1EntitiesInvestor {
     /**
@@ -598,7 +598,13 @@ V1EntitiesInvestor['CheckoutStateEnum'] = {
      * value: "legacy_checkout"
      * @const
      */
-    "legacy_checkout": "legacy_checkout"
+    "legacy_checkout": "legacy_checkout",
+
+    /**
+     * value: "document_upload"
+     * @const
+     */
+    "document_upload": "document_upload"
 };
 
 

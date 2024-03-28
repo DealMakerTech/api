@@ -424,6 +424,7 @@ class V1EntitiesInvestor implements ModelInterface, ArrayAccess, \JsonSerializab
     public const CHECKOUT_STATE_CHECKOUT_COMPLETE = 'checkout_complete';
     public const CHECKOUT_STATE_RESUBMIT_AGREEMENT = 'resubmit_agreement';
     public const CHECKOUT_STATE_LEGACY_CHECKOUT = 'legacy_checkout';
+    public const CHECKOUT_STATE_DOCUMENT_UPLOAD = 'document_upload';
 
     /**
      * Gets allowable values of the enum
@@ -504,6 +505,7 @@ class V1EntitiesInvestor implements ModelInterface, ArrayAccess, \JsonSerializab
             self::CHECKOUT_STATE_CHECKOUT_COMPLETE,
             self::CHECKOUT_STATE_RESUBMIT_AGREEMENT,
             self::CHECKOUT_STATE_LEGACY_CHECKOUT,
+            self::CHECKOUT_STATE_DOCUMENT_UPLOAD,
         ];
     }
 

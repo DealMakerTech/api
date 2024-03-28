@@ -71,6 +71,9 @@ class DealsApi
 
     /** @var string[] $contentTypes **/
     public const contentTypes = [
+        'postDealsIdEmailCampaignEmailCampaignIdSendEmail' => [
+            'application/json',
+        ],
         'putDealsIdScriptTagEnvironment' => [
             'application/json',
         ],
@@ -120,6 +123,255 @@ class DealsApi
     public function getConfig()
     {
         return $this->config;
+    }
+
+    /**
+     * Operation postDealsIdEmailCampaignEmailCampaignIdSendEmail
+     *
+     * Send emails to all the investors invited to the material change campaign
+     *
+     * @param  int $id The deal id. (required)
+     * @param  int $email_campaign_id The email campaign id. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postDealsIdEmailCampaignEmailCampaignIdSendEmail'] to see the possible values for this operation
+     *
+     * @throws \DealMaker\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return void
+     */
+    public function postDealsIdEmailCampaignEmailCampaignIdSendEmail($id, $email_campaign_id, string $contentType = self::contentTypes['postDealsIdEmailCampaignEmailCampaignIdSendEmail'][0])
+    {
+        $this->postDealsIdEmailCampaignEmailCampaignIdSendEmailWithHttpInfo($id, $email_campaign_id, $contentType);
+    }
+
+    /**
+     * Operation postDealsIdEmailCampaignEmailCampaignIdSendEmailWithHttpInfo
+     *
+     * Send emails to all the investors invited to the material change campaign
+     *
+     * @param  int $id The deal id. (required)
+     * @param  int $email_campaign_id The email campaign id. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postDealsIdEmailCampaignEmailCampaignIdSendEmail'] to see the possible values for this operation
+     *
+     * @throws \DealMaker\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function postDealsIdEmailCampaignEmailCampaignIdSendEmailWithHttpInfo($id, $email_campaign_id, string $contentType = self::contentTypes['postDealsIdEmailCampaignEmailCampaignIdSendEmail'][0])
+    {
+        $request = $this->postDealsIdEmailCampaignEmailCampaignIdSendEmailRequest($id, $email_campaign_id, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return [null, $statusCode, $response->getHeaders()];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation postDealsIdEmailCampaignEmailCampaignIdSendEmailAsync
+     *
+     * Send emails to all the investors invited to the material change campaign
+     *
+     * @param  int $id The deal id. (required)
+     * @param  int $email_campaign_id The email campaign id. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postDealsIdEmailCampaignEmailCampaignIdSendEmail'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function postDealsIdEmailCampaignEmailCampaignIdSendEmailAsync($id, $email_campaign_id, string $contentType = self::contentTypes['postDealsIdEmailCampaignEmailCampaignIdSendEmail'][0])
+    {
+        return $this->postDealsIdEmailCampaignEmailCampaignIdSendEmailAsyncWithHttpInfo($id, $email_campaign_id, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation postDealsIdEmailCampaignEmailCampaignIdSendEmailAsyncWithHttpInfo
+     *
+     * Send emails to all the investors invited to the material change campaign
+     *
+     * @param  int $id The deal id. (required)
+     * @param  int $email_campaign_id The email campaign id. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postDealsIdEmailCampaignEmailCampaignIdSendEmail'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function postDealsIdEmailCampaignEmailCampaignIdSendEmailAsyncWithHttpInfo($id, $email_campaign_id, string $contentType = self::contentTypes['postDealsIdEmailCampaignEmailCampaignIdSendEmail'][0])
+    {
+        $returnType = '';
+        $request = $this->postDealsIdEmailCampaignEmailCampaignIdSendEmailRequest($id, $email_campaign_id, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'postDealsIdEmailCampaignEmailCampaignIdSendEmail'
+     *
+     * @param  int $id The deal id. (required)
+     * @param  int $email_campaign_id The email campaign id. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postDealsIdEmailCampaignEmailCampaignIdSendEmail'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function postDealsIdEmailCampaignEmailCampaignIdSendEmailRequest($id, $email_campaign_id, string $contentType = self::contentTypes['postDealsIdEmailCampaignEmailCampaignIdSendEmail'][0])
+    {
+
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling postDealsIdEmailCampaignEmailCampaignIdSendEmail'
+            );
+        }
+
+        // verify the required parameter 'email_campaign_id' is set
+        if ($email_campaign_id === null || (is_array($email_campaign_id) && count($email_campaign_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $email_campaign_id when calling postDealsIdEmailCampaignEmailCampaignIdSendEmail'
+            );
+        }
+
+
+        $resourcePath = '/deals/{id}/email_campaign/{email_campaign_id}/send_email';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'id' . '}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($email_campaign_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'email_campaign_id' . '}',
+                ObjectSerializer::toPathValue($email_campaign_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            [],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
     }
 
     /**

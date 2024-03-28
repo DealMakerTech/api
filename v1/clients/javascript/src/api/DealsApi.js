@@ -18,7 +18,7 @@ import PutDealsIdScriptTagEnvironmentRequest from '../model/PutDealsIdScriptTagE
 /**
 * Deals service.
 * @module api/DealsApi
-* @version 0.99.3
+* @version 0.99.4
 */
 export default class DealsApi {
 
@@ -33,6 +33,54 @@ export default class DealsApi {
         this.apiClient = apiClient || ApiClient.instance;
     }
 
+
+    /**
+     * Callback function to receive the result of the postDealsIdEmailCampaignEmailCampaignIdSendEmail operation.
+     * @callback module:api/DealsApi~postDealsIdEmailCampaignEmailCampaignIdSendEmailCallback
+     * @param {String} error Error message, if any.
+     * @param data This operation does not return a value.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Send emails to all the investors invited to the material change campaign
+     * Send material campaign emails
+     * @param {Number} id The deal id.
+     * @param {Number} emailCampaignId The email campaign id.
+     * @param {module:api/DealsApi~postDealsIdEmailCampaignEmailCampaignIdSendEmailCallback} callback The callback function, accepting three arguments: error, data, response
+     */
+    postDealsIdEmailCampaignEmailCampaignIdSendEmail(id, emailCampaignId, callback) {
+      let postBody = null;
+      // verify the required parameter 'id' is set
+      if (id === undefined || id === null) {
+        throw new Error("Missing the required parameter 'id' when calling postDealsIdEmailCampaignEmailCampaignIdSendEmail");
+      }
+      // verify the required parameter 'emailCampaignId' is set
+      if (emailCampaignId === undefined || emailCampaignId === null) {
+        throw new Error("Missing the required parameter 'emailCampaignId' when calling postDealsIdEmailCampaignEmailCampaignIdSendEmail");
+      }
+
+      let pathParams = {
+        'id': id,
+        'email_campaign_id': emailCampaignId
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = [];
+      let returnType = null;
+      return this.apiClient.callApi(
+        '/deals/{id}/email_campaign/{email_campaign_id}/send_email', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
 
     /**
      * Callback function to receive the result of the putDealsIdScriptTagEnvironment operation.

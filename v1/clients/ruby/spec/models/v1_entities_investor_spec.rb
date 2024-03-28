@@ -208,7 +208,7 @@ describe DealMakerAPI::V1EntitiesInvestor do
   describe 'test attribute "checkout_state"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
-      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["pre_checkout", "investment_amount", "contact_information", "investor_confirmation", "terms_conditions", "payment", "checkout_complete", "resubmit_agreement", "legacy_checkout"])
+      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["pre_checkout", "investment_amount", "contact_information", "investor_confirmation", "terms_conditions", "payment", "checkout_complete", "resubmit_agreement", "legacy_checkout", "document_upload"])
       # validator.allowable_values.each do |value|
       #   expect { instance.checkout_state = value }.not_to raise_error
       # end

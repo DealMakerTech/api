@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The CreateShareholderActionRequest model module.
  * @module model/CreateShareholderActionRequest
- * @version 0.99.3
+ * @version 0.99.4
  */
 class CreateShareholderActionRequest {
     /**

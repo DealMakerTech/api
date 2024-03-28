@@ -121,6 +121,8 @@ Name | Type | Description | Notes
 
 * `legacy_checkout` (value: `"legacy_checkout"`)
 
+* `document_upload` (value: `"document_upload"`)
+
 
 
 

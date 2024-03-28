@@ -48,6 +48,16 @@
   }
 
   describe('DealsApi', function() {
+    describe('postDealsIdEmailCampaignEmailCampaignIdSendEmail', function() {
+      it('should call postDealsIdEmailCampaignEmailCampaignIdSendEmail successfully', function(done) {
+        //uncomment below and update the code to test postDealsIdEmailCampaignEmailCampaignIdSendEmail
+        //instance.postDealsIdEmailCampaignEmailCampaignIdSendEmail(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('putDealsIdScriptTagEnvironment', function() {
       it('should call putDealsIdScriptTagEnvironment successfully', function(done) {
         //uncomment below and update the code to test putDealsIdScriptTagEnvironment

@@ -32,6 +32,19 @@ describe 'DealsApi' do
     end
   end
 
+  # unit tests for post_deals_id_email_campaign_email_campaign_id_send_email
+  # Send emails to all the investors invited to the material change campaign
+  # Send material campaign emails
+  # @param id The deal id.
+  # @param email_campaign_id The email campaign id.
+  # @param [Hash] opts the optional parameters
+  # @return [nil]
+  describe 'post_deals_id_email_campaign_email_campaign_id_send_email test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for put_deals_id_script_tag_environment
   # Update script tag environment for the deal.
   # Update script tag environment for the deal.

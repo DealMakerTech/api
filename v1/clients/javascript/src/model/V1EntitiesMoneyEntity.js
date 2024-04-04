@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The V1EntitiesMoneyEntity model module.
  * @module model/V1EntitiesMoneyEntity
- * @version 0.99.4
+ * @version 0.100.1
  */
 class V1EntitiesMoneyEntity {
     /**
@@ -53,6 +53,9 @@ class V1EntitiesMoneyEntity {
             if (data.hasOwnProperty('amount_cents')) {
                 obj['amount_cents'] = ApiClient.convertToType(data['amount_cents'], 'Number');
             }
+            if (data.hasOwnProperty('formatted_amount')) {
+                obj['formatted_amount'] = ApiClient.convertToType(data['formatted_amount'], 'String');
+            }
             if (data.hasOwnProperty('currency')) {
                 obj['currency'] = ApiClient.convertToType(data['currency'], 'String');
             }
@@ -66,6 +69,10 @@ class V1EntitiesMoneyEntity {
      * @return {boolean} to indicate whether the JSON data is valid with respect to <code>V1EntitiesMoneyEntity</code>.
      */
     static validateJSON(data) {
+        // ensure the json data is a string
+        if (data['formatted_amount'] && !(typeof data['formatted_amount'] === 'string' || data['formatted_amount'] instanceof String)) {
+            throw new Error("Expected the field `formatted_amount` to be a primitive type in the JSON string but got " + data['formatted_amount']);
+        }
         // ensure the json data is a string
         if (data['currency'] && !(typeof data['currency'] === 'string' || data['currency'] instanceof String)) {
             throw new Error("Expected the field `currency` to be a primitive type in the JSON string but got " + data['currency']);
@@ -90,6 +97,12 @@ V1EntitiesMoneyEntity.prototype['amount'] = undefined;
  * @member {Number} amount_cents
  */
 V1EntitiesMoneyEntity.prototype['amount_cents'] = undefined;
+
+/**
+ * A string representation of the amount
+ * @member {String} formatted_amount
+ */
+V1EntitiesMoneyEntity.prototype['formatted_amount'] = undefined;
 
 /**
  * The currency of the money.

@@ -1354,6 +1354,7 @@
         "security": [
           {
             "oauth": [
+              "internal",
               "deals.write"
             ]
           }
@@ -8285,6 +8286,10 @@
           "type": "number",
           "format": "float",
           "description": "The amount of money in cents."
+        },
+        "formatted_amount": {
+          "type": "string",
+          "description": "A string representation of the amount"
         },
         "currency": {
           "type": "string",

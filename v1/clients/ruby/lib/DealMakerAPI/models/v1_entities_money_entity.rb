@@ -21,6 +21,9 @@ module DealMakerAPI
     # The amount of money in cents.
     attr_accessor :amount_cents
 
+    # A string representation of the amount
+    attr_accessor :formatted_amount
+
     # The currency of the money.
     attr_accessor :currency
 
@@ -29,6 +32,7 @@ module DealMakerAPI
       {
         :'amount' => :'amount',
         :'amount_cents' => :'amount_cents',
+        :'formatted_amount' => :'formatted_amount',
         :'currency' => :'currency'
       }
     end
@@ -43,6 +47,7 @@ module DealMakerAPI
       {
         :'amount' => :'Float',
         :'amount_cents' => :'Float',
+        :'formatted_amount' => :'String',
         :'currency' => :'String'
       }
     end
@@ -76,6 +81,10 @@ module DealMakerAPI
         self.amount_cents = attributes[:'amount_cents']
       end
 
+      if attributes.key?(:'formatted_amount')
+        self.formatted_amount = attributes[:'formatted_amount']
+      end
+
       if attributes.key?(:'currency')
         self.currency = attributes[:'currency']
       end
@@ -103,6 +112,7 @@ module DealMakerAPI
       self.class == o.class &&
           amount == o.amount &&
           amount_cents == o.amount_cents &&
+          formatted_amount == o.formatted_amount &&
           currency == o.currency
     end
 
@@ -115,7 +125,7 @@ module DealMakerAPI
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [amount, amount_cents, currency].hash
+      [amount, amount_cents, formatted_amount, currency].hash
     end
 
     # Builds the object from hash

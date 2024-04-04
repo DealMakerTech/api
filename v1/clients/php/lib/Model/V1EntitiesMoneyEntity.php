@@ -59,6 +59,7 @@ class V1EntitiesMoneyEntity implements ModelInterface, ArrayAccess, \JsonSeriali
     protected static $openAPITypes = [
         'amount' => 'float',
         'amount_cents' => 'float',
+        'formatted_amount' => 'string',
         'currency' => 'string'
     ];
 
@@ -72,6 +73,7 @@ class V1EntitiesMoneyEntity implements ModelInterface, ArrayAccess, \JsonSeriali
     protected static $openAPIFormats = [
         'amount' => 'float',
         'amount_cents' => 'float',
+        'formatted_amount' => null,
         'currency' => null
     ];
 
@@ -83,6 +85,7 @@ class V1EntitiesMoneyEntity implements ModelInterface, ArrayAccess, \JsonSeriali
     protected static array $openAPINullables = [
         'amount' => false,
         'amount_cents' => false,
+        'formatted_amount' => false,
         'currency' => false
     ];
 
@@ -174,6 +177,7 @@ class V1EntitiesMoneyEntity implements ModelInterface, ArrayAccess, \JsonSeriali
     protected static $attributeMap = [
         'amount' => 'amount',
         'amount_cents' => 'amount_cents',
+        'formatted_amount' => 'formatted_amount',
         'currency' => 'currency'
     ];
 
@@ -185,6 +189,7 @@ class V1EntitiesMoneyEntity implements ModelInterface, ArrayAccess, \JsonSeriali
     protected static $setters = [
         'amount' => 'setAmount',
         'amount_cents' => 'setAmountCents',
+        'formatted_amount' => 'setFormattedAmount',
         'currency' => 'setCurrency'
     ];
 
@@ -196,6 +201,7 @@ class V1EntitiesMoneyEntity implements ModelInterface, ArrayAccess, \JsonSeriali
     protected static $getters = [
         'amount' => 'getAmount',
         'amount_cents' => 'getAmountCents',
+        'formatted_amount' => 'getFormattedAmount',
         'currency' => 'getCurrency'
     ];
 
@@ -258,6 +264,7 @@ class V1EntitiesMoneyEntity implements ModelInterface, ArrayAccess, \JsonSeriali
     {
         $this->setIfExists('amount', $data ?? [], null);
         $this->setIfExists('amount_cents', $data ?? [], null);
+        $this->setIfExists('formatted_amount', $data ?? [], null);
         $this->setIfExists('currency', $data ?? [], null);
     }
 
@@ -353,6 +360,33 @@ class V1EntitiesMoneyEntity implements ModelInterface, ArrayAccess, \JsonSeriali
             throw new \InvalidArgumentException('non-nullable amount_cents cannot be null');
         }
         $this->container['amount_cents'] = $amount_cents;
+
+        return $this;
+    }
+
+    /**
+     * Gets formatted_amount
+     *
+     * @return string|null
+     */
+    public function getFormattedAmount()
+    {
+        return $this->container['formatted_amount'];
+    }
+
+    /**
+     * Sets formatted_amount
+     *
+     * @param string|null $formatted_amount A string representation of the amount
+     *
+     * @return self
+     */
+    public function setFormattedAmount($formatted_amount)
+    {
+        if (is_null($formatted_amount)) {
+            throw new \InvalidArgumentException('non-nullable formatted_amount cannot be null');
+        }
+        $this->container['formatted_amount'] = $formatted_amount;
 
         return $this;
     }

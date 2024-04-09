@@ -224,6 +224,21 @@ describe 'InvestorApi' do
     end
   end
 
+  # unit tests for request_new_document
+  # Request new document for a specific entity
+  # Request new document to entity
+  # @param id 
+  # @param investor_id 
+  # @param search_entity_id 
+  # @param request_new_document_request 
+  # @param [Hash] opts the optional parameters
+  # @return [nil]
+  describe 'request_new_document test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for run_background_search
   # Run Alloy background search for the investor
   # Run Alloy background search for the investor

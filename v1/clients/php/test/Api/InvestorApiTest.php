@@ -240,6 +240,18 @@ class InvestorApiTest extends TestCase
     }
 
     /**
+     * Test case for requestNewDocument
+     *
+     * Request new document for a specific entity.
+     *
+     */
+    public function testRequestNewDocument()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for runBackgroundSearch
      *
      * Run Alloy background search for the investor.

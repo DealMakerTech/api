@@ -18,6 +18,7 @@ All URIs are relative to *http://api.dealmaker.tech*
 | [**get_investor_otp_link**](InvestorApi.md#get_investor_otp_link) | **GET** /deals/{id}/investors/{investor_id}/otp_access_link | Get OTP access link for deal investor |
 | [**list_investors**](InvestorApi.md#list_investors) | **GET** /deals/{id}/investors | List deal investors |
 | [**patch_investor**](InvestorApi.md#patch_investor) | **PATCH** /deals/{id}/investors/{investor_id} | Patch a deal investor |
+| [**request_new_document**](InvestorApi.md#request_new_document) | **POST** /deals/{id}/investors/{investor_id}/background_checks/{search_entity_id}/request_new_document | Request new document for a specific entity |
 | [**run_background_search**](InvestorApi.md#run_background_search) | **POST** /deals/{id}/investors/{investor_id}/background_checks/run | Run Alloy background search for the investor |
 | [**update_investor**](InvestorApi.md#update_investor) | **PUT** /deals/{id}/investors/{investor_id} | Update a deal investor |
 
@@ -992,6 +993,77 @@ No authorization required
 
 - **Content-Type**: application/json
 - **Accept**: application/json
+
+
+## request_new_document
+
+> request_new_document(id, investor_id, search_entity_id, request_new_document_request)
+
+Request new document for a specific entity
+
+Request new document to entity
+
+### Examples
+
+```ruby
+require 'time'
+require 'DealMakerAPI'
+# setup authorization
+DealMakerAPI.configure do |config|end
+
+api_instance = DealMakerAPI::InvestorApi.new
+id = 56 # Integer | 
+investor_id = 56 # Integer | 
+search_entity_id = 56 # Integer | 
+request_new_document_request = DealMakerAPI::RequestNewDocumentRequest.new({message: 'message_example'}) # RequestNewDocumentRequest | 
+
+begin
+  # Request new document for a specific entity
+  api_instance.request_new_document(id, investor_id, search_entity_id, request_new_document_request)
+rescue DealMakerAPI::ApiError => e
+  puts "Error when calling InvestorApi->request_new_document: #{e}"
+end
+```
+
+#### Using the request_new_document_with_http_info variant
+
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
+
+> <Array(nil, Integer, Hash)> request_new_document_with_http_info(id, investor_id, search_entity_id, request_new_document_request)
+
+```ruby
+begin
+  # Request new document for a specific entity
+  data, status_code, headers = api_instance.request_new_document_with_http_info(id, investor_id, search_entity_id, request_new_document_request)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => nil
+rescue DealMakerAPI::ApiError => e
+  puts "Error when calling InvestorApi->request_new_document_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **id** | **Integer** |  |  |
+| **investor_id** | **Integer** |  |  |
+| **search_entity_id** | **Integer** |  |  |
+| **request_new_document_request** | [**RequestNewDocumentRequest**](RequestNewDocumentRequest.md) |  |  |
+
+### Return type
+
+nil (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: Not defined
 
 
 ## run_background_search

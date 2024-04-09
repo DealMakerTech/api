@@ -51,6 +51,7 @@ docs/PostWebhooksRequest.md
 docs/PutDealsIdInvestors.md
 docs/PutDealsIdScriptTagEnvironmentRequest.md
 docs/PutWebhooksIdRequest.md
+docs/RequestNewDocumentRequest.md
 docs/RunBackgroundSearchRequest.md
 docs/SendPortalInviteRequest.md
 docs/ShareholderApi.md
@@ -188,6 +189,7 @@ lib/DealMakerAPI/models/post_webhooks_request.rb
 lib/DealMakerAPI/models/put_deals_id_investors.rb
 lib/DealMakerAPI/models/put_deals_id_script_tag_environment_request.rb
 lib/DealMakerAPI/models/put_webhooks_id_request.rb
+lib/DealMakerAPI/models/request_new_document_request.rb
 lib/DealMakerAPI/models/run_background_search_request.rb
 lib/DealMakerAPI/models/send_portal_invite_request.rb
 lib/DealMakerAPI/models/update_user_password_request.rb
@@ -317,6 +319,7 @@ spec/models/post_webhooks_request_spec.rb
 spec/models/put_deals_id_investors_spec.rb
 spec/models/put_deals_id_script_tag_environment_request_spec.rb
 spec/models/put_webhooks_id_request_spec.rb
+spec/models/request_new_document_request_spec.rb
 spec/models/run_background_search_request_spec.rb
 spec/models/send_portal_invite_request_spec.rb
 spec/models/update_user_password_request_spec.rb

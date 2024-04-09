@@ -113,6 +113,9 @@ class InvestorApi
         'patchInvestor' => [
             'application/json',
         ],
+        'requestNewDocument' => [
+            'application/json',
+        ],
         'runBackgroundSearch' => [
             'application/json',
         ],
@@ -4752,6 +4755,294 @@ class InvestorApi
         $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'PATCH',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation requestNewDocument
+     *
+     * Request new document for a specific entity
+     *
+     * @param  int $id id (required)
+     * @param  int $investor_id investor_id (required)
+     * @param  int $search_entity_id search_entity_id (required)
+     * @param  \DealMaker\Model\RequestNewDocumentRequest $request_new_document_request request_new_document_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['requestNewDocument'] to see the possible values for this operation
+     *
+     * @throws \DealMaker\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return void
+     */
+    public function requestNewDocument($id, $investor_id, $search_entity_id, $request_new_document_request, string $contentType = self::contentTypes['requestNewDocument'][0])
+    {
+        $this->requestNewDocumentWithHttpInfo($id, $investor_id, $search_entity_id, $request_new_document_request, $contentType);
+    }
+
+    /**
+     * Operation requestNewDocumentWithHttpInfo
+     *
+     * Request new document for a specific entity
+     *
+     * @param  int $id (required)
+     * @param  int $investor_id (required)
+     * @param  int $search_entity_id (required)
+     * @param  \DealMaker\Model\RequestNewDocumentRequest $request_new_document_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['requestNewDocument'] to see the possible values for this operation
+     *
+     * @throws \DealMaker\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function requestNewDocumentWithHttpInfo($id, $investor_id, $search_entity_id, $request_new_document_request, string $contentType = self::contentTypes['requestNewDocument'][0])
+    {
+        $request = $this->requestNewDocumentRequest($id, $investor_id, $search_entity_id, $request_new_document_request, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return [null, $statusCode, $response->getHeaders()];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation requestNewDocumentAsync
+     *
+     * Request new document for a specific entity
+     *
+     * @param  int $id (required)
+     * @param  int $investor_id (required)
+     * @param  int $search_entity_id (required)
+     * @param  \DealMaker\Model\RequestNewDocumentRequest $request_new_document_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['requestNewDocument'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function requestNewDocumentAsync($id, $investor_id, $search_entity_id, $request_new_document_request, string $contentType = self::contentTypes['requestNewDocument'][0])
+    {
+        return $this->requestNewDocumentAsyncWithHttpInfo($id, $investor_id, $search_entity_id, $request_new_document_request, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation requestNewDocumentAsyncWithHttpInfo
+     *
+     * Request new document for a specific entity
+     *
+     * @param  int $id (required)
+     * @param  int $investor_id (required)
+     * @param  int $search_entity_id (required)
+     * @param  \DealMaker\Model\RequestNewDocumentRequest $request_new_document_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['requestNewDocument'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function requestNewDocumentAsyncWithHttpInfo($id, $investor_id, $search_entity_id, $request_new_document_request, string $contentType = self::contentTypes['requestNewDocument'][0])
+    {
+        $returnType = '';
+        $request = $this->requestNewDocumentRequest($id, $investor_id, $search_entity_id, $request_new_document_request, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'requestNewDocument'
+     *
+     * @param  int $id (required)
+     * @param  int $investor_id (required)
+     * @param  int $search_entity_id (required)
+     * @param  \DealMaker\Model\RequestNewDocumentRequest $request_new_document_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['requestNewDocument'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function requestNewDocumentRequest($id, $investor_id, $search_entity_id, $request_new_document_request, string $contentType = self::contentTypes['requestNewDocument'][0])
+    {
+
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling requestNewDocument'
+            );
+        }
+
+        // verify the required parameter 'investor_id' is set
+        if ($investor_id === null || (is_array($investor_id) && count($investor_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $investor_id when calling requestNewDocument'
+            );
+        }
+
+        // verify the required parameter 'search_entity_id' is set
+        if ($search_entity_id === null || (is_array($search_entity_id) && count($search_entity_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $search_entity_id when calling requestNewDocument'
+            );
+        }
+
+        // verify the required parameter 'request_new_document_request' is set
+        if ($request_new_document_request === null || (is_array($request_new_document_request) && count($request_new_document_request) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $request_new_document_request when calling requestNewDocument'
+            );
+        }
+
+
+        $resourcePath = '/deals/{id}/investors/{investor_id}/background_checks/{search_entity_id}/request_new_document';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'id' . '}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($investor_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'investor_id' . '}',
+                ObjectSerializer::toPathValue($investor_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($search_entity_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'search_entity_id' . '}',
+                ObjectSerializer::toPathValue($search_entity_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            [],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($request_new_document_request)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($request_new_document_request));
+            } else {
+                $httpBody = $request_new_document_request;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
             $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody

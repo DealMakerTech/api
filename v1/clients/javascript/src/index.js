@@ -47,6 +47,7 @@ import PostWebhooksRequest from './model/PostWebhooksRequest';
 import PutDealsIdInvestors from './model/PutDealsIdInvestors';
 import PutDealsIdScriptTagEnvironmentRequest from './model/PutDealsIdScriptTagEnvironmentRequest';
 import PutWebhooksIdRequest from './model/PutWebhooksIdRequest';
+import RequestNewDocumentRequest from './model/RequestNewDocumentRequest';
 import RunBackgroundSearchRequest from './model/RunBackgroundSearchRequest';
 import SendPortalInviteRequest from './model/SendPortalInviteRequest';
 import UpdateUserPasswordRequest from './model/UpdateUserPasswordRequest';
@@ -172,7 +173,7 @@ import UsersApi from './api/UsersApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.100.3
+* @version 0.100.4
 */
 export {
     /**
@@ -384,6 +385,12 @@ export {
      * @property {module:model/PutWebhooksIdRequest}
      */
     PutWebhooksIdRequest,
+
+    /**
+     * The RequestNewDocumentRequest model constructor.
+     * @property {module:model/RequestNewDocumentRequest}
+     */
+    RequestNewDocumentRequest,
 
     /**
      * The RunBackgroundSearchRequest model constructor.

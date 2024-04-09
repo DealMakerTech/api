@@ -20,6 +20,7 @@ import EditInvestorTagsRequest from '../model/EditInvestorTagsRequest';
 import PatchInvestorRequest from '../model/PatchInvestorRequest';
 import PostDealsIdInvestors from '../model/PostDealsIdInvestors';
 import PutDealsIdInvestors from '../model/PutDealsIdInvestors';
+import RequestNewDocumentRequest from '../model/RequestNewDocumentRequest';
 import RunBackgroundSearchRequest from '../model/RunBackgroundSearchRequest';
 import V1EntitiesDealsPriceDetails from '../model/V1EntitiesDealsPriceDetails';
 import V1EntitiesInvestor from '../model/V1EntitiesInvestor';
@@ -30,7 +31,7 @@ import V1EntitiesInvestors from '../model/V1EntitiesInvestors';
 /**
 * Investor service.
 * @module api/InvestorApi
-* @version 0.100.3
+* @version 0.100.4
 */
 export default class InvestorApi {
 
@@ -761,6 +762,65 @@ export default class InvestorApi {
       let returnType = V1EntitiesInvestor;
       return this.apiClient.callApi(
         '/deals/{id}/investors/{investor_id}', 'PATCH',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the requestNewDocument operation.
+     * @callback module:api/InvestorApi~requestNewDocumentCallback
+     * @param {String} error Error message, if any.
+     * @param data This operation does not return a value.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Request new document for a specific entity
+     * Request new document to entity
+     * @param {Number} id 
+     * @param {Number} investorId 
+     * @param {Number} searchEntityId 
+     * @param {module:model/RequestNewDocumentRequest} requestNewDocumentRequest 
+     * @param {module:api/InvestorApi~requestNewDocumentCallback} callback The callback function, accepting three arguments: error, data, response
+     */
+    requestNewDocument(id, investorId, searchEntityId, requestNewDocumentRequest, callback) {
+      let postBody = requestNewDocumentRequest;
+      // verify the required parameter 'id' is set
+      if (id === undefined || id === null) {
+        throw new Error("Missing the required parameter 'id' when calling requestNewDocument");
+      }
+      // verify the required parameter 'investorId' is set
+      if (investorId === undefined || investorId === null) {
+        throw new Error("Missing the required parameter 'investorId' when calling requestNewDocument");
+      }
+      // verify the required parameter 'searchEntityId' is set
+      if (searchEntityId === undefined || searchEntityId === null) {
+        throw new Error("Missing the required parameter 'searchEntityId' when calling requestNewDocument");
+      }
+      // verify the required parameter 'requestNewDocumentRequest' is set
+      if (requestNewDocumentRequest === undefined || requestNewDocumentRequest === null) {
+        throw new Error("Missing the required parameter 'requestNewDocumentRequest' when calling requestNewDocument");
+      }
+
+      let pathParams = {
+        'id': id,
+        'investor_id': investorId,
+        'search_entity_id': searchEntityId
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = ['application/json'];
+      let accepts = [];
+      let returnType = null;
+      return this.apiClient.callApi(
+        '/deals/{id}/investors/{investor_id}/background_checks/{search_entity_id}/request_new_document', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

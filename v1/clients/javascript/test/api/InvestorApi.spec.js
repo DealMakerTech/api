@@ -188,6 +188,16 @@
         done();
       });
     });
+    describe('requestNewDocument', function() {
+      it('should call requestNewDocument successfully', function(done) {
+        //uncomment below and update the code to test requestNewDocument
+        //instance.requestNewDocument(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('runBackgroundSearch', function() {
       it('should call runBackgroundSearch successfully', function(done) {
         //uncomment below and update the code to test runBackgroundSearch

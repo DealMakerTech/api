@@ -51,6 +51,7 @@ docs/Model/PostWebhooksRequest.md
 docs/Model/PutDealsIdInvestors.md
 docs/Model/PutDealsIdScriptTagEnvironmentRequest.md
 docs/Model/PutWebhooksIdRequest.md
+docs/Model/RequestNewDocumentRequest.md
 docs/Model/RunBackgroundSearchRequest.md
 docs/Model/SendPortalInviteRequest.md
 docs/Model/UpdateUserPasswordRequest.md
@@ -184,6 +185,7 @@ lib/Model/PostWebhooksRequest.php
 lib/Model/PutDealsIdInvestors.php
 lib/Model/PutDealsIdScriptTagEnvironmentRequest.php
 lib/Model/PutWebhooksIdRequest.php
+lib/Model/RequestNewDocumentRequest.php
 lib/Model/RunBackgroundSearchRequest.php
 lib/Model/SendPortalInviteRequest.php
 lib/Model/UpdateUserPasswordRequest.php
@@ -314,6 +316,7 @@ test/Model/PostWebhooksRequestTest.php
 test/Model/PutDealsIdInvestorsTest.php
 test/Model/PutDealsIdScriptTagEnvironmentRequestTest.php
 test/Model/PutWebhooksIdRequestTest.php
+test/Model/RequestNewDocumentRequestTest.php
 test/Model/RunBackgroundSearchRequestTest.php
 test/Model/SendPortalInviteRequestTest.php
 test/Model/UpdateUserPasswordRequestTest.php

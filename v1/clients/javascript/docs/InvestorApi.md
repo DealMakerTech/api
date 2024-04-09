@@ -18,6 +18,7 @@ Method | HTTP request | Description
 [**getInvestorOtpLink**](InvestorApi.md#getInvestorOtpLink) | **GET** /deals/{id}/investors/{investor_id}/otp_access_link | Get OTP access link for deal investor
 [**listInvestors**](InvestorApi.md#listInvestors) | **GET** /deals/{id}/investors | List deal investors
 [**patchInvestor**](InvestorApi.md#patchInvestor) | **PATCH** /deals/{id}/investors/{investor_id} | Patch a deal investor
+[**requestNewDocument**](InvestorApi.md#requestNewDocument) | **POST** /deals/{id}/investors/{investor_id}/background_checks/{search_entity_id}/request_new_document | Request new document for a specific entity
 [**runBackgroundSearch**](InvestorApi.md#runBackgroundSearch) | **POST** /deals/{id}/investors/{investor_id}/background_checks/run | Run Alloy background search for the investor
 [**updateInvestor**](InvestorApi.md#updateInvestor) | **PUT** /deals/{id}/investors/{investor_id} | Update a deal investor
 
@@ -715,6 +716,58 @@ No authorization required
 
 - **Content-Type**: application/json
 - **Accept**: application/json
+
+
+## requestNewDocument
+
+> requestNewDocument(id, investorId, searchEntityId, requestNewDocumentRequest)
+
+Request new document for a specific entity
+
+Request new document to entity
+
+### Example
+
+```javascript
+import Api from 'api';
+let defaultClient = Api.ApiClient.instance;
+
+let apiInstance = new Api.InvestorApi();
+let id = 56; // Number | 
+let investorId = 56; // Number | 
+let searchEntityId = 56; // Number | 
+let requestNewDocumentRequest = new Api.RequestNewDocumentRequest(); // RequestNewDocumentRequest | 
+apiInstance.requestNewDocument(id, investorId, searchEntityId, requestNewDocumentRequest, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully.');
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Number**|  | 
+ **investorId** | **Number**|  | 
+ **searchEntityId** | **Number**|  | 
+ **requestNewDocumentRequest** | [**RequestNewDocumentRequest**](RequestNewDocumentRequest.md)|  | 
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: Not defined
 
 
 ## runBackgroundSearch

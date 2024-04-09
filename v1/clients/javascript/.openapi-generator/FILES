@@ -46,6 +46,7 @@ docs/PostWebhooksRequest.md
 docs/PutDealsIdInvestors.md
 docs/PutDealsIdScriptTagEnvironmentRequest.md
 docs/PutWebhooksIdRequest.md
+docs/RequestNewDocumentRequest.md
 docs/RunBackgroundSearchRequest.md
 docs/SendPortalInviteRequest.md
 docs/ShareholderApi.md
@@ -183,6 +184,7 @@ src/model/PostWebhooksRequest.js
 src/model/PutDealsIdInvestors.js
 src/model/PutDealsIdScriptTagEnvironmentRequest.js
 src/model/PutWebhooksIdRequest.js
+src/model/RequestNewDocumentRequest.js
 src/model/RunBackgroundSearchRequest.js
 src/model/SendPortalInviteRequest.js
 src/model/UpdateUserPasswordRequest.js
@@ -311,6 +313,7 @@ test/model/PostWebhooksRequest.spec.js
 test/model/PutDealsIdInvestors.spec.js
 test/model/PutDealsIdScriptTagEnvironmentRequest.spec.js
 test/model/PutWebhooksIdRequest.spec.js
+test/model/RequestNewDocumentRequest.spec.js
 test/model/RunBackgroundSearchRequest.spec.js
 test/model/SendPortalInviteRequest.spec.js
 test/model/UpdateUserPasswordRequest.spec.js

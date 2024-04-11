@@ -17,7 +17,7 @@ import V1EntitiesInvestorSearchEntitiesRequiredFields from './V1EntitiesInvestor
 /**
  * The V1EntitiesInvestorSearchEntities model module.
  * @module model/V1EntitiesInvestorSearchEntities
- * @version 0.101.0
+ * @version 0.101.1
  */
 class V1EntitiesInvestorSearchEntities {
     /**

@@ -1098,7 +1098,7 @@ module DealMakerAPI
         fail ArgumentError, "Missing the required parameter 'request_new_document_request' when calling InvestorApi.request_new_document"
       end
       # resource path
-      local_var_path = '/deals/{id}/investors/{investor_id}/background_checks/{search_entity_id}/request_new_document'.sub('{' + 'id' + '}', CGI.escape(id.to_s)).sub('{' + 'investor_id' + '}', CGI.escape(investor_id.to_s)).sub('{' + 'search_entity_id' + '}', CGI.escape(search_entity_id.to_s))
+      local_var_path = '/deals/{id}/investors/{investor_id}/background_checks/{search_entity_id}/send_review'.sub('{' + 'id' + '}', CGI.escape(id.to_s)).sub('{' + 'investor_id' + '}', CGI.escape(investor_id.to_s)).sub('{' + 'search_entity_id' + '}', CGI.escape(search_entity_id.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}

@@ -57,6 +57,7 @@ class RequestNewDocumentRequest implements ModelInterface, ArrayAccess, \JsonSer
       * @var string[]
       */
     protected static $openAPITypes = [
+        'type' => 'string',
         'message' => 'string'
     ];
 
@@ -68,6 +69,7 @@ class RequestNewDocumentRequest implements ModelInterface, ArrayAccess, \JsonSer
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'type' => null,
         'message' => null
     ];
 
@@ -77,6 +79,7 @@ class RequestNewDocumentRequest implements ModelInterface, ArrayAccess, \JsonSer
       * @var boolean[]
       */
     protected static array $openAPINullables = [
+        'type' => false,
         'message' => false
     ];
 
@@ -166,6 +169,7 @@ class RequestNewDocumentRequest implements ModelInterface, ArrayAccess, \JsonSer
      * @var string[]
      */
     protected static $attributeMap = [
+        'type' => 'type',
         'message' => 'message'
     ];
 
@@ -175,6 +179,7 @@ class RequestNewDocumentRequest implements ModelInterface, ArrayAccess, \JsonSer
      * @var string[]
      */
     protected static $setters = [
+        'type' => 'setType',
         'message' => 'setMessage'
     ];
 
@@ -184,6 +189,7 @@ class RequestNewDocumentRequest implements ModelInterface, ArrayAccess, \JsonSer
      * @var string[]
      */
     protected static $getters = [
+        'type' => 'getType',
         'message' => 'getMessage'
     ];
 
@@ -228,6 +234,25 @@ class RequestNewDocumentRequest implements ModelInterface, ArrayAccess, \JsonSer
         return self::$openAPIModelName;
     }
 
+    public const TYPE_INCOMPLETE = 'incomplete';
+    public const TYPE_APPROVED = 'approved';
+    public const TYPE_ADDITIONAL_DOCS_REQUESTED = 'additional_docs_requested';
+    public const TYPE_FLAGGED = 'flagged';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTypeAllowableValues()
+    {
+        return [
+            self::TYPE_INCOMPLETE,
+            self::TYPE_APPROVED,
+            self::TYPE_ADDITIONAL_DOCS_REQUESTED,
+            self::TYPE_FLAGGED,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -244,6 +269,7 @@ class RequestNewDocumentRequest implements ModelInterface, ArrayAccess, \JsonSer
      */
     public function __construct(array $data = null)
     {
+        $this->setIfExists('type', $data ?? [], null);
         $this->setIfExists('message', $data ?? [], null);
     }
 
@@ -274,9 +300,18 @@ class RequestNewDocumentRequest implements ModelInterface, ArrayAccess, \JsonSer
     {
         $invalidProperties = [];
 
-        if ($this->container['message'] === null) {
-            $invalidProperties[] = "'message' can't be null";
+        if ($this->container['type'] === null) {
+            $invalidProperties[] = "'type' can't be null";
         }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'type', must be one of '%s'",
+                $this->container['type'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -293,9 +328,46 @@ class RequestNewDocumentRequest implements ModelInterface, ArrayAccess, \JsonSer
 
 
     /**
-     * Gets message
+     * Gets type
      *
      * @return string
+     */
+    public function getType()
+    {
+        return $this->container['type'];
+    }
+
+    /**
+     * Sets type
+     *
+     * @param string $type The type of request.
+     *
+     * @return self
+     */
+    public function setType($type)
+    {
+        if (is_null($type)) {
+            throw new \InvalidArgumentException('non-nullable type cannot be null');
+        }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!in_array($type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'type', must be one of '%s'",
+                    $type,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['type'] = $type;
+
+        return $this;
+    }
+
+    /**
+     * Gets message
+     *
+     * @return string|null
      */
     public function getMessage()
     {
@@ -305,7 +377,7 @@ class RequestNewDocumentRequest implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets message
      *
-     * @param string $message The message added by the reviewer.
+     * @param string|null $message The message added by the reviewer.
      *
      * @return self
      */

@@ -4954,7 +4954,7 @@ class InvestorApi
         }
 
 
-        $resourcePath = '/deals/{id}/investors/{investor_id}/background_checks/{search_entity_id}/request_new_document';
+        $resourcePath = '/deals/{id}/investors/{investor_id}/background_checks/{search_entity_id}/send_review';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];

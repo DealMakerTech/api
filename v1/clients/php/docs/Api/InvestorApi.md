@@ -18,7 +18,7 @@ All URIs are relative to http://api.dealmaker.tech, except if the operation defi
 | [**getInvestorOtpLink()**](InvestorApi.md#getInvestorOtpLink) | **GET** /deals/{id}/investors/{investor_id}/otp_access_link | Get OTP access link for deal investor |
 | [**listInvestors()**](InvestorApi.md#listInvestors) | **GET** /deals/{id}/investors | List deal investors |
 | [**patchInvestor()**](InvestorApi.md#patchInvestor) | **PATCH** /deals/{id}/investors/{investor_id} | Patch a deal investor |
-| [**requestNewDocument()**](InvestorApi.md#requestNewDocument) | **POST** /deals/{id}/investors/{investor_id}/background_checks/{search_entity_id}/request_new_document | Request new document for a specific entity |
+| [**requestNewDocument()**](InvestorApi.md#requestNewDocument) | **POST** /deals/{id}/investors/{investor_id}/background_checks/{search_entity_id}/send_review | Request new document for a specific entity |
 | [**runBackgroundSearch()**](InvestorApi.md#runBackgroundSearch) | **POST** /deals/{id}/investors/{investor_id}/background_checks/run | Run Alloy background search for the investor |
 | [**updateInvestor()**](InvestorApi.md#updateInvestor) | **PUT** /deals/{id}/investors/{investor_id} | Update a deal investor |
 

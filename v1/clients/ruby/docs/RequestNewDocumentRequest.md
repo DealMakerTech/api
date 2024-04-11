@@ -4,7 +4,8 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **message** | **String** | The message added by the reviewer. |  |
+| **type** | **String** | The type of request. |  |
+| **message** | **String** | The message added by the reviewer. | [optional] |
 
 ## Example
 
@@ -12,6 +13,7 @@
 require 'DealMakerAPI'
 
 instance = DealMakerAPI::RequestNewDocumentRequest.new(
+  type: null,
   message: null
 )
 ```

@@ -80,6 +80,15 @@ class RequestNewDocumentRequestTest extends TestCase
     }
 
     /**
+     * Test attribute "type"
+     */
+    public function testPropertyType()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "message"
      */
     public function testPropertyMessage()

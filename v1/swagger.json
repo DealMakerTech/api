@@ -3114,7 +3114,7 @@
         ]
       }
     },
-    "/deals/{id}/investors/{investor_id}/background_checks/{search_entity_id}/request_new_document": {
+    "/deals/{id}/investors/{investor_id}/background_checks/{search_entity_id}/send_review": {
       "post": {
         "summary": "Request new document for a specific entity",
         "description": "Request new document to entity",
@@ -3127,10 +3127,23 @@
         "parameters": [
           {
             "in": "formData",
+            "name": "type",
+            "description": "The type of request.",
+            "type": "string",
+            "enum": [
+              "incomplete",
+              "approved",
+              "additional_docs_requested",
+              "flagged"
+            ],
+            "required": true
+          },
+          {
+            "in": "formData",
             "name": "message",
             "description": "The message added by the reviewer.",
             "type": "string",
-            "required": true
+            "required": false
           },
           {
             "in": "path",

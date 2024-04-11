@@ -16,17 +16,17 @@ import ApiClient from '../ApiClient';
 /**
  * The RequestNewDocumentRequest model module.
  * @module model/RequestNewDocumentRequest
- * @version 0.100.4
+ * @version 0.101.0
  */
 class RequestNewDocumentRequest {
     /**
      * Constructs a new <code>RequestNewDocumentRequest</code>.
      * @alias module:model/RequestNewDocumentRequest
-     * @param message {String} The message added by the reviewer.
+     * @param type {module:model/RequestNewDocumentRequest.TypeEnum} The type of request.
      */
-    constructor(message) { 
+    constructor(type) { 
         
-        RequestNewDocumentRequest.initialize(this, message);
+        RequestNewDocumentRequest.initialize(this, type);
     }
 
     /**
@@ -34,8 +34,8 @@ class RequestNewDocumentRequest {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, message) { 
-        obj['message'] = message;
+    static initialize(obj, type) { 
+        obj['type'] = type;
     }
 
     /**
@@ -49,6 +49,9 @@ class RequestNewDocumentRequest {
         if (data) {
             obj = obj || new RequestNewDocumentRequest();
 
+            if (data.hasOwnProperty('type')) {
+                obj['type'] = ApiClient.convertToType(data['type'], 'String');
+            }
             if (data.hasOwnProperty('message')) {
                 obj['message'] = ApiClient.convertToType(data['message'], 'String');
             }
@@ -69,6 +72,10 @@ class RequestNewDocumentRequest {
             }
         }
         // ensure the json data is a string
+        if (data['type'] && !(typeof data['type'] === 'string' || data['type'] instanceof String)) {
+            throw new Error("Expected the field `type` to be a primitive type in the JSON string but got " + data['type']);
+        }
+        // ensure the json data is a string
         if (data['message'] && !(typeof data['message'] === 'string' || data['message'] instanceof String)) {
             throw new Error("Expected the field `message` to be a primitive type in the JSON string but got " + data['message']);
         }
@@ -79,7 +86,13 @@ class RequestNewDocumentRequest {
 
 }
 
-RequestNewDocumentRequest.RequiredProperties = ["message"];
+RequestNewDocumentRequest.RequiredProperties = ["type"];
+
+/**
+ * The type of request.
+ * @member {module:model/RequestNewDocumentRequest.TypeEnum} type
+ */
+RequestNewDocumentRequest.prototype['type'] = undefined;
 
 /**
  * The message added by the reviewer.
@@ -89,6 +102,39 @@ RequestNewDocumentRequest.prototype['message'] = undefined;
 
 
 
+
+
+/**
+ * Allowed values for the <code>type</code> property.
+ * @enum {String}
+ * @readonly
+ */
+RequestNewDocumentRequest['TypeEnum'] = {
+
+    /**
+     * value: "incomplete"
+     * @const
+     */
+    "incomplete": "incomplete",
+
+    /**
+     * value: "approved"
+     * @const
+     */
+    "approved": "approved",
+
+    /**
+     * value: "additional_docs_requested"
+     * @const
+     */
+    "additional_docs_requested": "additional_docs_requested",
+
+    /**
+     * value: "flagged"
+     * @const
+     */
+    "flagged": "flagged"
+};
 
 
 

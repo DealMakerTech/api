@@ -15,12 +15,38 @@ require 'time'
 
 module DealMakerAPI
   class RequestNewDocumentRequest
+    # The type of request.
+    attr_accessor :type
+
     # The message added by the reviewer.
     attr_accessor :message
+
+    class EnumAttributeValidator
+      attr_reader :datatype
+      attr_reader :allowable_values
+
+      def initialize(datatype, allowable_values)
+        @allowable_values = allowable_values.map do |value|
+          case datatype.to_s
+          when /Integer/i
+            value.to_i
+          when /Float/i
+            value.to_f
+          else
+            value
+          end
+        end
+      end
+
+      def valid?(value)
+        !value || allowable_values.include?(value)
+      end
+    end
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'type' => :'type',
         :'message' => :'message'
       }
     end
@@ -33,6 +59,7 @@ module DealMakerAPI
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'type' => :'String',
         :'message' => :'String'
       }
     end
@@ -58,10 +85,14 @@ module DealMakerAPI
         h[k.to_sym] = v
       }
 
+      if attributes.key?(:'type')
+        self.type = attributes[:'type']
+      else
+        self.type = nil
+      end
+
       if attributes.key?(:'message')
         self.message = attributes[:'message']
-      else
-        self.message = nil
       end
     end
 
@@ -70,8 +101,8 @@ module DealMakerAPI
     def list_invalid_properties
       warn '[DEPRECATED] the `list_invalid_properties` method is obsolete'
       invalid_properties = Array.new
-      if @message.nil?
-        invalid_properties.push('invalid value for "message", message cannot be nil.')
+      if @type.nil?
+        invalid_properties.push('invalid value for "type", type cannot be nil.')
       end
 
       invalid_properties
@@ -81,8 +112,20 @@ module DealMakerAPI
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
-      return false if @message.nil?
+      return false if @type.nil?
+      type_validator = EnumAttributeValidator.new('String', ["incomplete", "approved", "additional_docs_requested", "flagged"])
+      return false unless type_validator.valid?(@type)
       true
+    end
+
+    # Custom attribute writer method checking allowed values (enum).
+    # @param [Object] type Object to be assigned
+    def type=(type)
+      validator = EnumAttributeValidator.new('String', ["incomplete", "approved", "additional_docs_requested", "flagged"])
+      unless validator.valid?(type)
+        fail ArgumentError, "invalid value for \"type\", must be one of #{validator.allowable_values}."
+      end
+      @type = type
     end
 
     # Checks equality by comparing each attribute.
@@ -90,6 +133,7 @@ module DealMakerAPI
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          type == o.type &&
           message == o.message
     end
 
@@ -102,7 +146,7 @@ module DealMakerAPI
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [message].hash
+      [type, message].hash
     end
 
     # Builds the object from hash

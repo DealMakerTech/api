@@ -31,7 +31,7 @@ import V1EntitiesInvestors from '../model/V1EntitiesInvestors';
 /**
 * Investor service.
 * @module api/InvestorApi
-* @version 0.100.4
+* @version 0.101.0
 */
 export default class InvestorApi {
 
@@ -820,7 +820,7 @@ export default class InvestorApi {
       let accepts = [];
       let returnType = null;
       return this.apiClient.callApi(
-        '/deals/{id}/investors/{investor_id}/background_checks/{search_entity_id}/request_new_document', 'POST',
+        '/deals/{id}/investors/{investor_id}/background_checks/{search_entity_id}/send_review', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

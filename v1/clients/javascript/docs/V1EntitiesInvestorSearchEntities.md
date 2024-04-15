@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **status** | **String** | Overall status of all entities. | [optional] 
 **reRunPerformed** | **Boolean** | Whether or not the entity has been re-run. | [optional] 
 **emailContent** | **String** | The custom message for the entity | [optional] 
+**attachments** | [**V1EntitiesAttachment**](V1EntitiesAttachment.md) |  | [optional] 
 **requiredFields** | [**V1EntitiesInvestorSearchEntitiesRequiredFields**](V1EntitiesInvestorSearchEntitiesRequiredFields.md) |  | [optional] 
 
 

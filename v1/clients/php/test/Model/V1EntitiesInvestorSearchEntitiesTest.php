@@ -143,6 +143,15 @@ class V1EntitiesInvestorSearchEntitiesTest extends TestCase
     }
 
     /**
+     * Test attribute "attachments"
+     */
+    public function testPropertyAttachments()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "required_fields"
      */
     public function testPropertyRequiredFields()

@@ -35,6 +35,7 @@ docs/PatchInvestorProfilesCorporations.md
 docs/PatchInvestorProfilesCorporationsBeneficialOwnersInner.md
 docs/PatchInvestorProfilesIndividuals.md
 docs/PatchInvestorProfilesJoints.md
+docs/PatchInvestorProfilesManaged.md
 docs/PatchInvestorProfilesTrusts.md
 docs/PatchInvestorProfilesTrustsTrusteesInner.md
 docs/PatchInvestorRequest.md
@@ -173,6 +174,7 @@ lib/DealMakerAPI/models/patch_investor_profiles_corporations.rb
 lib/DealMakerAPI/models/patch_investor_profiles_corporations_beneficial_owners_inner.rb
 lib/DealMakerAPI/models/patch_investor_profiles_individuals.rb
 lib/DealMakerAPI/models/patch_investor_profiles_joints.rb
+lib/DealMakerAPI/models/patch_investor_profiles_managed.rb
 lib/DealMakerAPI/models/patch_investor_profiles_trusts.rb
 lib/DealMakerAPI/models/patch_investor_profiles_trusts_trustees_inner.rb
 lib/DealMakerAPI/models/patch_investor_request.rb
@@ -303,6 +305,7 @@ spec/models/patch_investor_profiles_corporations_beneficial_owners_inner_spec.rb
 spec/models/patch_investor_profiles_corporations_spec.rb
 spec/models/patch_investor_profiles_individuals_spec.rb
 spec/models/patch_investor_profiles_joints_spec.rb
+spec/models/patch_investor_profiles_managed_spec.rb
 spec/models/patch_investor_profiles_trusts_spec.rb
 spec/models/patch_investor_profiles_trusts_trustees_inner_spec.rb
 spec/models/patch_investor_request_spec.rb

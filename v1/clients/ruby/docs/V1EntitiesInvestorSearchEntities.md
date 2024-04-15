@@ -11,6 +11,7 @@
 | **status** | **String** | Overall status of all entities. | [optional] |
 | **re_run_performed** | **Boolean** | Whether or not the entity has been re-run. | [optional] |
 | **email_content** | **String** | The custom message for the entity | [optional] |
+| **attachments** | [**V1EntitiesAttachment**](V1EntitiesAttachment.md) |  | [optional] |
 | **required_fields** | [**V1EntitiesInvestorSearchEntitiesRequiredFields**](V1EntitiesInvestorSearchEntitiesRequiredFields.md) |  | [optional] |
 
 ## Example
@@ -26,6 +27,7 @@ instance = DealMakerAPI::V1EntitiesInvestorSearchEntities.new(
   status: null,
   re_run_performed: null,
   email_content: null,
+  attachments: null,
   required_fields: null
 )
 ```

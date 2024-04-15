@@ -57,9 +57,13 @@ class V1EntitiesAttachment implements ModelInterface, ArrayAccess, \JsonSerializ
       * @var string[]
       */
     protected static $openAPITypes = [
-        'id' => 'string',
+        'id' => 'int',
         'url' => 'string',
-        'file_name' => 'string'
+        'file_name' => 'string',
+        'original_file_name' => 'string',
+        'file_size' => 'int',
+        'formatted_file_size' => 'string',
+        'created_at' => '\DateTime'
     ];
 
     /**
@@ -70,9 +74,13 @@ class V1EntitiesAttachment implements ModelInterface, ArrayAccess, \JsonSerializ
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'id' => null,
+        'id' => 'int32',
         'url' => null,
-        'file_name' => null
+        'file_name' => null,
+        'original_file_name' => null,
+        'file_size' => 'int32',
+        'formatted_file_size' => null,
+        'created_at' => 'date-time'
     ];
 
     /**
@@ -83,7 +91,11 @@ class V1EntitiesAttachment implements ModelInterface, ArrayAccess, \JsonSerializ
     protected static array $openAPINullables = [
         'id' => false,
         'url' => false,
-        'file_name' => false
+        'file_name' => false,
+        'original_file_name' => false,
+        'file_size' => false,
+        'formatted_file_size' => false,
+        'created_at' => false
     ];
 
     /**
@@ -174,7 +186,11 @@ class V1EntitiesAttachment implements ModelInterface, ArrayAccess, \JsonSerializ
     protected static $attributeMap = [
         'id' => 'id',
         'url' => 'url',
-        'file_name' => 'file_name'
+        'file_name' => 'file_name',
+        'original_file_name' => 'original_file_name',
+        'file_size' => 'file_size',
+        'formatted_file_size' => 'formatted_file_size',
+        'created_at' => 'created_at'
     ];
 
     /**
@@ -185,7 +201,11 @@ class V1EntitiesAttachment implements ModelInterface, ArrayAccess, \JsonSerializ
     protected static $setters = [
         'id' => 'setId',
         'url' => 'setUrl',
-        'file_name' => 'setFileName'
+        'file_name' => 'setFileName',
+        'original_file_name' => 'setOriginalFileName',
+        'file_size' => 'setFileSize',
+        'formatted_file_size' => 'setFormattedFileSize',
+        'created_at' => 'setCreatedAt'
     ];
 
     /**
@@ -196,7 +216,11 @@ class V1EntitiesAttachment implements ModelInterface, ArrayAccess, \JsonSerializ
     protected static $getters = [
         'id' => 'getId',
         'url' => 'getUrl',
-        'file_name' => 'getFileName'
+        'file_name' => 'getFileName',
+        'original_file_name' => 'getOriginalFileName',
+        'file_size' => 'getFileSize',
+        'formatted_file_size' => 'getFormattedFileSize',
+        'created_at' => 'getCreatedAt'
     ];
 
     /**
@@ -259,6 +283,10 @@ class V1EntitiesAttachment implements ModelInterface, ArrayAccess, \JsonSerializ
         $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('url', $data ?? [], null);
         $this->setIfExists('file_name', $data ?? [], null);
+        $this->setIfExists('original_file_name', $data ?? [], null);
+        $this->setIfExists('file_size', $data ?? [], null);
+        $this->setIfExists('formatted_file_size', $data ?? [], null);
+        $this->setIfExists('created_at', $data ?? [], null);
     }
 
     /**
@@ -306,7 +334,7 @@ class V1EntitiesAttachment implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets id
      *
-     * @return string|null
+     * @return int|null
      */
     public function getId()
     {
@@ -316,7 +344,7 @@ class V1EntitiesAttachment implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets id
      *
-     * @param string|null $id The attachment id.
+     * @param int|null $id The attachment id.
      *
      * @return self
      */
@@ -370,7 +398,7 @@ class V1EntitiesAttachment implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets file_name
      *
-     * @param string|null $file_name The attachment filename.
+     * @param string|null $file_name The attachment file name.
      *
      * @return self
      */
@@ -380,6 +408,114 @@ class V1EntitiesAttachment implements ModelInterface, ArrayAccess, \JsonSerializ
             throw new \InvalidArgumentException('non-nullable file_name cannot be null');
         }
         $this->container['file_name'] = $file_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets original_file_name
+     *
+     * @return string|null
+     */
+    public function getOriginalFileName()
+    {
+        return $this->container['original_file_name'];
+    }
+
+    /**
+     * Sets original_file_name
+     *
+     * @param string|null $original_file_name The attachment original file name.
+     *
+     * @return self
+     */
+    public function setOriginalFileName($original_file_name)
+    {
+        if (is_null($original_file_name)) {
+            throw new \InvalidArgumentException('non-nullable original_file_name cannot be null');
+        }
+        $this->container['original_file_name'] = $original_file_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets file_size
+     *
+     * @return int|null
+     */
+    public function getFileSize()
+    {
+        return $this->container['file_size'];
+    }
+
+    /**
+     * Sets file_size
+     *
+     * @param int|null $file_size The size of the file in bytes.
+     *
+     * @return self
+     */
+    public function setFileSize($file_size)
+    {
+        if (is_null($file_size)) {
+            throw new \InvalidArgumentException('non-nullable file_size cannot be null');
+        }
+        $this->container['file_size'] = $file_size;
+
+        return $this;
+    }
+
+    /**
+     * Gets formatted_file_size
+     *
+     * @return string|null
+     */
+    public function getFormattedFileSize()
+    {
+        return $this->container['formatted_file_size'];
+    }
+
+    /**
+     * Sets formatted_file_size
+     *
+     * @param string|null $formatted_file_size The size of the file in human readable format.
+     *
+     * @return self
+     */
+    public function setFormattedFileSize($formatted_file_size)
+    {
+        if (is_null($formatted_file_size)) {
+            throw new \InvalidArgumentException('non-nullable formatted_file_size cannot be null');
+        }
+        $this->container['formatted_file_size'] = $formatted_file_size;
+
+        return $this;
+    }
+
+    /**
+     * Gets created_at
+     *
+     * @return \DateTime|null
+     */
+    public function getCreatedAt()
+    {
+        return $this->container['created_at'];
+    }
+
+    /**
+     * Sets created_at
+     *
+     * @param \DateTime|null $created_at String representation of the date uploaded.
+     *
+     * @return self
+     */
+    public function setCreatedAt($created_at)
+    {
+        if (is_null($created_at)) {
+            throw new \InvalidArgumentException('non-nullable created_at cannot be null');
+        }
+        $this->container['created_at'] = $created_at;
 
         return $this;
     }

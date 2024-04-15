@@ -21,15 +21,31 @@ module DealMakerAPI
     # The attachment url.
     attr_accessor :url
 
-    # The attachment filename.
+    # The attachment file name.
     attr_accessor :file_name
+
+    # The attachment original file name.
+    attr_accessor :original_file_name
+
+    # The size of the file in bytes.
+    attr_accessor :file_size
+
+    # The size of the file in human readable format.
+    attr_accessor :formatted_file_size
+
+    # String representation of the date uploaded.
+    attr_accessor :created_at
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'id' => :'id',
         :'url' => :'url',
-        :'file_name' => :'file_name'
+        :'file_name' => :'file_name',
+        :'original_file_name' => :'original_file_name',
+        :'file_size' => :'file_size',
+        :'formatted_file_size' => :'formatted_file_size',
+        :'created_at' => :'created_at'
       }
     end
 
@@ -41,9 +57,13 @@ module DealMakerAPI
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'id' => :'String',
+        :'id' => :'Integer',
         :'url' => :'String',
-        :'file_name' => :'String'
+        :'file_name' => :'String',
+        :'original_file_name' => :'String',
+        :'file_size' => :'Integer',
+        :'formatted_file_size' => :'String',
+        :'created_at' => :'Time'
       }
     end
 
@@ -79,6 +99,22 @@ module DealMakerAPI
       if attributes.key?(:'file_name')
         self.file_name = attributes[:'file_name']
       end
+
+      if attributes.key?(:'original_file_name')
+        self.original_file_name = attributes[:'original_file_name']
+      end
+
+      if attributes.key?(:'file_size')
+        self.file_size = attributes[:'file_size']
+      end
+
+      if attributes.key?(:'formatted_file_size')
+        self.formatted_file_size = attributes[:'formatted_file_size']
+      end
+
+      if attributes.key?(:'created_at')
+        self.created_at = attributes[:'created_at']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -103,7 +139,11 @@ module DealMakerAPI
       self.class == o.class &&
           id == o.id &&
           url == o.url &&
-          file_name == o.file_name
+          file_name == o.file_name &&
+          original_file_name == o.original_file_name &&
+          file_size == o.file_size &&
+          formatted_file_size == o.formatted_file_size &&
+          created_at == o.created_at
     end
 
     # @see the `==` method
@@ -115,7 +155,7 @@ module DealMakerAPI
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, url, file_name].hash
+      [id, url, file_name, original_file_name, file_size, formatted_file_size, created_at].hash
     end
 
     # Builds the object from hash

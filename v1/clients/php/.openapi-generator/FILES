@@ -35,6 +35,7 @@ docs/Model/PatchInvestorProfilesCorporations.md
 docs/Model/PatchInvestorProfilesCorporationsBeneficialOwnersInner.md
 docs/Model/PatchInvestorProfilesIndividuals.md
 docs/Model/PatchInvestorProfilesJoints.md
+docs/Model/PatchInvestorProfilesManaged.md
 docs/Model/PatchInvestorProfilesTrusts.md
 docs/Model/PatchInvestorProfilesTrustsTrusteesInner.md
 docs/Model/PatchInvestorRequest.md
@@ -169,6 +170,7 @@ lib/Model/PatchInvestorProfilesCorporations.php
 lib/Model/PatchInvestorProfilesCorporationsBeneficialOwnersInner.php
 lib/Model/PatchInvestorProfilesIndividuals.php
 lib/Model/PatchInvestorProfilesJoints.php
+lib/Model/PatchInvestorProfilesManaged.php
 lib/Model/PatchInvestorProfilesTrusts.php
 lib/Model/PatchInvestorProfilesTrustsTrusteesInner.php
 lib/Model/PatchInvestorRequest.php
@@ -300,6 +302,7 @@ test/Model/PatchInvestorProfilesCorporationsBeneficialOwnersInnerTest.php
 test/Model/PatchInvestorProfilesCorporationsTest.php
 test/Model/PatchInvestorProfilesIndividualsTest.php
 test/Model/PatchInvestorProfilesJointsTest.php
+test/Model/PatchInvestorProfilesManagedTest.php
 test/Model/PatchInvestorProfilesTrustsTest.php
 test/Model/PatchInvestorProfilesTrustsTrusteesInnerTest.php
 test/Model/PatchInvestorRequestTest.php

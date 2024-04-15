@@ -158,6 +158,16 @@
         done();
       });
     });
+    describe('patchManagedProfile', function() {
+      it('should call patchManagedProfile successfully', function(done) {
+        //uncomment below and update the code to test patchManagedProfile
+        //instance.patchManagedProfile(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('patchTrustProfile', function() {
       it('should call patchTrustProfile successfully', function(done) {
         //uncomment below and update the code to test patchTrustProfile

@@ -96,6 +96,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property attachments (base name: "attachments")', function() {
+      // uncomment below and update the code to test the property attachments
+      //var instance = new Api.V1EntitiesInvestorSearchEntities();
+      //expect(instance).to.be();
+    });
+
     it('should have the property requiredFields (base name: "required_fields")', function() {
       // uncomment below and update the code to test the property requiredFields
       //var instance = new Api.V1EntitiesInvestorSearchEntities();

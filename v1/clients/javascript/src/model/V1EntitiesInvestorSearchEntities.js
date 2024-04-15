@@ -12,12 +12,13 @@
  */
 
 import ApiClient from '../ApiClient';
+import V1EntitiesAttachment from './V1EntitiesAttachment';
 import V1EntitiesInvestorSearchEntitiesRequiredFields from './V1EntitiesInvestorSearchEntitiesRequiredFields';
 
 /**
  * The V1EntitiesInvestorSearchEntities model module.
  * @module model/V1EntitiesInvestorSearchEntities
- * @version 0.101.1
+ * @version 0.101.2
  */
 class V1EntitiesInvestorSearchEntities {
     /**
@@ -70,6 +71,9 @@ class V1EntitiesInvestorSearchEntities {
             if (data.hasOwnProperty('email_content')) {
                 obj['email_content'] = ApiClient.convertToType(data['email_content'], 'String');
             }
+            if (data.hasOwnProperty('attachments')) {
+                obj['attachments'] = V1EntitiesAttachment.constructFromObject(data['attachments']);
+            }
             if (data.hasOwnProperty('required_fields')) {
                 obj['required_fields'] = V1EntitiesInvestorSearchEntitiesRequiredFields.constructFromObject(data['required_fields']);
             }
@@ -102,6 +106,10 @@ class V1EntitiesInvestorSearchEntities {
         // ensure the json data is a string
         if (data['email_content'] && !(typeof data['email_content'] === 'string' || data['email_content'] instanceof String)) {
             throw new Error("Expected the field `email_content` to be a primitive type in the JSON string but got " + data['email_content']);
+        }
+        // validate the optional field `attachments`
+        if (data['attachments']) { // data not null
+          V1EntitiesAttachment.validateJSON(data['attachments']);
         }
         // validate the optional field `required_fields`
         if (data['required_fields']) { // data not null
@@ -157,6 +165,11 @@ V1EntitiesInvestorSearchEntities.prototype['re_run_performed'] = undefined;
  * @member {String} email_content
  */
 V1EntitiesInvestorSearchEntities.prototype['email_content'] = undefined;
+
+/**
+ * @member {module:model/V1EntitiesAttachment} attachments
+ */
+V1EntitiesInvestorSearchEntities.prototype['attachments'] = undefined;
 
 /**
  * @member {module:model/V1EntitiesInvestorSearchEntitiesRequiredFields} required_fields

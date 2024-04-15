@@ -31,6 +31,7 @@ import PatchInvestorProfilesCorporations from './model/PatchInvestorProfilesCorp
 import PatchInvestorProfilesCorporationsBeneficialOwnersInner from './model/PatchInvestorProfilesCorporationsBeneficialOwnersInner';
 import PatchInvestorProfilesIndividuals from './model/PatchInvestorProfilesIndividuals';
 import PatchInvestorProfilesJoints from './model/PatchInvestorProfilesJoints';
+import PatchInvestorProfilesManaged from './model/PatchInvestorProfilesManaged';
 import PatchInvestorProfilesTrusts from './model/PatchInvestorProfilesTrusts';
 import PatchInvestorProfilesTrustsTrusteesInner from './model/PatchInvestorProfilesTrustsTrusteesInner';
 import PatchInvestorRequest from './model/PatchInvestorRequest';
@@ -173,7 +174,7 @@ import UsersApi from './api/UsersApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.101.1
+* @version 0.101.2
 */
 export {
     /**
@@ -289,6 +290,12 @@ export {
      * @property {module:model/PatchInvestorProfilesJoints}
      */
     PatchInvestorProfilesJoints,
+
+    /**
+     * The PatchInvestorProfilesManaged model constructor.
+     * @property {module:model/PatchInvestorProfilesManaged}
+     */
+    PatchInvestorProfilesManaged,
 
     /**
      * The PatchInvestorProfilesTrusts model constructor.

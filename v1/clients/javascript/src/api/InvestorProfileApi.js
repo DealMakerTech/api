@@ -16,6 +16,7 @@ import ApiClient from "../ApiClient";
 import PatchInvestorProfilesCorporations from '../model/PatchInvestorProfilesCorporations';
 import PatchInvestorProfilesIndividuals from '../model/PatchInvestorProfilesIndividuals';
 import PatchInvestorProfilesJoints from '../model/PatchInvestorProfilesJoints';
+import PatchInvestorProfilesManaged from '../model/PatchInvestorProfilesManaged';
 import PatchInvestorProfilesTrusts from '../model/PatchInvestorProfilesTrusts';
 import PostInvestorProfilesCorporations from '../model/PostInvestorProfilesCorporations';
 import PostInvestorProfilesIndividuals from '../model/PostInvestorProfilesIndividuals';
@@ -29,7 +30,7 @@ import V1EntitiesInvestorProfiles from '../model/V1EntitiesInvestorProfiles';
 /**
 * InvestorProfile service.
 * @module api/InvestorProfileApi
-* @version 0.101.1
+* @version 0.101.2
 */
 export default class InvestorProfileApi {
 
@@ -535,6 +536,54 @@ export default class InvestorProfileApi {
       let returnType = V1EntitiesInvestorProfileId;
       return this.apiClient.callApi(
         '/investor_profiles/joints/{investor_profile_id}', 'PATCH',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the patchManagedProfile operation.
+     * @callback module:api/InvestorProfileApi~patchManagedProfileCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/V1EntitiesInvestorProfileId} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Patch managed investor profile.
+     * Patch managed investor profile associated to the profile id.
+     * @param {Number} investorProfileId 
+     * @param {module:model/PatchInvestorProfilesManaged} investorProfilesManaged 
+     * @param {module:api/InvestorProfileApi~patchManagedProfileCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/V1EntitiesInvestorProfileId}
+     */
+    patchManagedProfile(investorProfileId, investorProfilesManaged, callback) {
+      let postBody = investorProfilesManaged;
+      // verify the required parameter 'investorProfileId' is set
+      if (investorProfileId === undefined || investorProfileId === null) {
+        throw new Error("Missing the required parameter 'investorProfileId' when calling patchManagedProfile");
+      }
+      // verify the required parameter 'investorProfilesManaged' is set
+      if (investorProfilesManaged === undefined || investorProfilesManaged === null) {
+        throw new Error("Missing the required parameter 'investorProfilesManaged' when calling patchManagedProfile");
+      }
+
+      let pathParams = {
+        'investor_profile_id': investorProfileId
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = V1EntitiesInvestorProfileId;
+      return this.apiClient.callApi(
+        '/investor_profiles/managed/{investor_profile_id}', 'PATCH',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

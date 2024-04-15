@@ -15,6 +15,7 @@ All URIs are relative to http://api.dealmaker.tech, except if the operation defi
 | [**patchCorporationProfile()**](InvestorProfileApi.md#patchCorporationProfile) | **PATCH** /investor_profiles/corporations/{investor_profile_id} | Patch a corporation investor profile |
 | [**patchIndividualProfile()**](InvestorProfileApi.md#patchIndividualProfile) | **PATCH** /investor_profiles/individuals/{investor_profile_id} | Patch an individual investor profile. |
 | [**patchJointProfile()**](InvestorProfileApi.md#patchJointProfile) | **PATCH** /investor_profiles/joints/{investor_profile_id} | Patch a joint investor profile |
+| [**patchManagedProfile()**](InvestorProfileApi.md#patchManagedProfile) | **PATCH** /investor_profiles/managed/{investor_profile_id} | Patch managed investor profile. |
 | [**patchTrustProfile()**](InvestorProfileApi.md#patchTrustProfile) | **PATCH** /investor_profiles/trusts/{investor_profile_id} | Patch a trust investor profile |
 
 
@@ -645,6 +646,65 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **investor_profile_id** | **int**|  | |
 | **investor_profiles_joints** | [**\DealMaker\Model\PatchInvestorProfilesJoints**](../Model/PatchInvestorProfilesJoints.md)|  | |
+
+### Return type
+
+[**\DealMaker\Model\V1EntitiesInvestorProfileId**](../Model/V1EntitiesInvestorProfileId.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `patchManagedProfile()`
+
+```php
+patchManagedProfile($investor_profile_id, $investor_profiles_managed): \DealMaker\Model\V1EntitiesInvestorProfileId
+```
+
+Patch managed investor profile.
+
+Patch managed investor profile associated to the profile id.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new DealMaker\Api\InvestorProfileApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$investor_profile_id = 56; // int
+$investor_profiles_managed = new \DealMaker\Model\PatchInvestorProfilesManaged(); // \DealMaker\Model\PatchInvestorProfilesManaged
+
+try {
+    $result = $apiInstance->patchManagedProfile($investor_profile_id, $investor_profiles_managed);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling InvestorProfileApi->patchManagedProfile: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **investor_profile_id** | **int**|  | |
+| **investor_profiles_managed** | [**\DealMaker\Model\PatchInvestorProfilesManaged**](../Model/PatchInvestorProfilesManaged.md)|  | |
 
 ### Return type
 

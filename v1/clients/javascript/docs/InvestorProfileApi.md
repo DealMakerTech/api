@@ -15,6 +15,7 @@ Method | HTTP request | Description
 [**patchCorporationProfile**](InvestorProfileApi.md#patchCorporationProfile) | **PATCH** /investor_profiles/corporations/{investor_profile_id} | Patch a corporation investor profile
 [**patchIndividualProfile**](InvestorProfileApi.md#patchIndividualProfile) | **PATCH** /investor_profiles/individuals/{investor_profile_id} | Patch an individual investor profile.
 [**patchJointProfile**](InvestorProfileApi.md#patchJointProfile) | **PATCH** /investor_profiles/joints/{investor_profile_id} | Patch a joint investor profile
+[**patchManagedProfile**](InvestorProfileApi.md#patchManagedProfile) | **PATCH** /investor_profiles/managed/{investor_profile_id} | Patch managed investor profile.
 [**patchTrustProfile**](InvestorProfileApi.md#patchTrustProfile) | **PATCH** /investor_profiles/trusts/{investor_profile_id} | Patch a trust investor profile
 
 
@@ -532,6 +533,54 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **investorProfileId** | **Number**|  | 
  **investorProfilesJoints** | [**PatchInvestorProfilesJoints**](PatchInvestorProfilesJoints.md)|  | 
+
+### Return type
+
+[**V1EntitiesInvestorProfileId**](V1EntitiesInvestorProfileId.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## patchManagedProfile
+
+> V1EntitiesInvestorProfileId patchManagedProfile(investorProfileId, investorProfilesManaged)
+
+Patch managed investor profile.
+
+Patch managed investor profile associated to the profile id.
+
+### Example
+
+```javascript
+import Api from 'api';
+let defaultClient = Api.ApiClient.instance;
+
+let apiInstance = new Api.InvestorProfileApi();
+let investorProfileId = 56; // Number | 
+let investorProfilesManaged = new Api.PatchInvestorProfilesManaged(); // PatchInvestorProfilesManaged | 
+apiInstance.patchManagedProfile(investorProfileId, investorProfilesManaged, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **investorProfileId** | **Number**|  | 
+ **investorProfilesManaged** | [**PatchInvestorProfilesManaged**](PatchInvestorProfilesManaged.md)|  | 
 
 ### Return type
 

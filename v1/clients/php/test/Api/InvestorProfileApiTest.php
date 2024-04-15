@@ -204,6 +204,18 @@ class InvestorProfileApiTest extends TestCase
     }
 
     /**
+     * Test case for patchManagedProfile
+     *
+     * Patch managed investor profile..
+     *
+     */
+    public function testPatchManagedProfile()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for patchTrustProfile
      *
      * Patch a trust investor profile.

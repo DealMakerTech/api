@@ -72,6 +72,30 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property originalFileName (base name: "original_file_name")', function() {
+      // uncomment below and update the code to test the property originalFileName
+      //var instance = new Api.V1EntitiesAttachment();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property fileSize (base name: "file_size")', function() {
+      // uncomment below and update the code to test the property fileSize
+      //var instance = new Api.V1EntitiesAttachment();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property formattedFileSize (base name: "formatted_file_size")', function() {
+      // uncomment below and update the code to test the property formattedFileSize
+      //var instance = new Api.V1EntitiesAttachment();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property createdAt (base name: "created_at")', function() {
+      // uncomment below and update the code to test the property createdAt
+      //var instance = new Api.V1EntitiesAttachment();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

@@ -37,6 +37,8 @@ module DealMakerAPI
     # The custom message for the entity
     attr_accessor :email_content
 
+    attr_accessor :attachments
+
     attr_accessor :required_fields
 
     class EnumAttributeValidator
@@ -71,6 +73,7 @@ module DealMakerAPI
         :'status' => :'status',
         :'re_run_performed' => :'re_run_performed',
         :'email_content' => :'email_content',
+        :'attachments' => :'attachments',
         :'required_fields' => :'required_fields'
       }
     end
@@ -90,6 +93,7 @@ module DealMakerAPI
         :'status' => :'String',
         :'re_run_performed' => :'Boolean',
         :'email_content' => :'String',
+        :'attachments' => :'V1EntitiesAttachment',
         :'required_fields' => :'V1EntitiesInvestorSearchEntitiesRequiredFields'
       }
     end
@@ -141,6 +145,10 @@ module DealMakerAPI
 
       if attributes.key?(:'email_content')
         self.email_content = attributes[:'email_content']
+      end
+
+      if attributes.key?(:'attachments')
+        self.attachments = attributes[:'attachments']
       end
 
       if attributes.key?(:'required_fields')
@@ -199,6 +207,7 @@ module DealMakerAPI
           status == o.status &&
           re_run_performed == o.re_run_performed &&
           email_content == o.email_content &&
+          attachments == o.attachments &&
           required_fields == o.required_fields
     end
 
@@ -211,7 +220,7 @@ module DealMakerAPI
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, name, type, type_num, status, re_run_performed, email_content, required_fields].hash
+      [id, name, type, type_num, status, re_run_performed, email_content, attachments, required_fields].hash
     end
 
     # Builds the object from hash

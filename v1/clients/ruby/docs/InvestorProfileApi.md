@@ -15,6 +15,7 @@ All URIs are relative to *http://api.dealmaker.tech*
 | [**patch_corporation_profile**](InvestorProfileApi.md#patch_corporation_profile) | **PATCH** /investor_profiles/corporations/{investor_profile_id} | Patch a corporation investor profile |
 | [**patch_individual_profile**](InvestorProfileApi.md#patch_individual_profile) | **PATCH** /investor_profiles/individuals/{investor_profile_id} | Patch an individual investor profile. |
 | [**patch_joint_profile**](InvestorProfileApi.md#patch_joint_profile) | **PATCH** /investor_profiles/joints/{investor_profile_id} | Patch a joint investor profile |
+| [**patch_managed_profile**](InvestorProfileApi.md#patch_managed_profile) | **PATCH** /investor_profiles/managed/{investor_profile_id} | Patch managed investor profile. |
 | [**patch_trust_profile**](InvestorProfileApi.md#patch_trust_profile) | **PATCH** /investor_profiles/trusts/{investor_profile_id} | Patch a trust investor profile |
 
 
@@ -751,6 +752,74 @@ end
 | ---- | ---- | ----------- | ----- |
 | **investor_profile_id** | **Integer** |  |  |
 | **investor_profiles_joints** | [**PatchInvestorProfilesJoints**](PatchInvestorProfilesJoints.md) |  |  |
+
+### Return type
+
+[**V1EntitiesInvestorProfileId**](V1EntitiesInvestorProfileId.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## patch_managed_profile
+
+> <V1EntitiesInvestorProfileId> patch_managed_profile(investor_profile_id, investor_profiles_managed)
+
+Patch managed investor profile.
+
+Patch managed investor profile associated to the profile id.
+
+### Examples
+
+```ruby
+require 'time'
+require 'DealMakerAPI'
+# setup authorization
+DealMakerAPI.configure do |config|end
+
+api_instance = DealMakerAPI::InvestorProfileApi.new
+investor_profile_id = 56 # Integer | 
+investor_profiles_managed = DealMakerAPI::PatchInvestorProfilesManaged.new({email: 'email_example'}) # PatchInvestorProfilesManaged | 
+
+begin
+  # Patch managed investor profile.
+  result = api_instance.patch_managed_profile(investor_profile_id, investor_profiles_managed)
+  p result
+rescue DealMakerAPI::ApiError => e
+  puts "Error when calling InvestorProfileApi->patch_managed_profile: #{e}"
+end
+```
+
+#### Using the patch_managed_profile_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<V1EntitiesInvestorProfileId>, Integer, Hash)> patch_managed_profile_with_http_info(investor_profile_id, investor_profiles_managed)
+
+```ruby
+begin
+  # Patch managed investor profile.
+  data, status_code, headers = api_instance.patch_managed_profile_with_http_info(investor_profile_id, investor_profiles_managed)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <V1EntitiesInvestorProfileId>
+rescue DealMakerAPI::ApiError => e
+  puts "Error when calling InvestorProfileApi->patch_managed_profile_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **investor_profile_id** | **Integer** |  |  |
+| **investor_profiles_managed** | [**PatchInvestorProfilesManaged**](PatchInvestorProfilesManaged.md) |  |  |
 
 ### Return type
 

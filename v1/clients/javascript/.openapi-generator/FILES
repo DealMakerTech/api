@@ -30,6 +30,7 @@ docs/PatchInvestorProfilesCorporations.md
 docs/PatchInvestorProfilesCorporationsBeneficialOwnersInner.md
 docs/PatchInvestorProfilesIndividuals.md
 docs/PatchInvestorProfilesJoints.md
+docs/PatchInvestorProfilesManaged.md
 docs/PatchInvestorProfilesTrusts.md
 docs/PatchInvestorProfilesTrustsTrusteesInner.md
 docs/PatchInvestorRequest.md
@@ -168,6 +169,7 @@ src/model/PatchInvestorProfilesCorporations.js
 src/model/PatchInvestorProfilesCorporationsBeneficialOwnersInner.js
 src/model/PatchInvestorProfilesIndividuals.js
 src/model/PatchInvestorProfilesJoints.js
+src/model/PatchInvestorProfilesManaged.js
 src/model/PatchInvestorProfilesTrusts.js
 src/model/PatchInvestorProfilesTrustsTrusteesInner.js
 src/model/PatchInvestorRequest.js
@@ -297,6 +299,7 @@ test/model/PatchInvestorProfilesCorporations.spec.js
 test/model/PatchInvestorProfilesCorporationsBeneficialOwnersInner.spec.js
 test/model/PatchInvestorProfilesIndividuals.spec.js
 test/model/PatchInvestorProfilesJoints.spec.js
+test/model/PatchInvestorProfilesManaged.spec.js
 test/model/PatchInvestorProfilesTrusts.spec.js
 test/model/PatchInvestorProfilesTrustsTrusteesInner.spec.js
 test/model/PatchInvestorRequest.spec.js

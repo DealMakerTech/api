@@ -65,6 +65,7 @@ class V1EntitiesInvestorSearchEntities implements ModelInterface, ArrayAccess, \
         'status' => 'string',
         're_run_performed' => 'bool',
         'email_content' => 'string',
+        'attachments' => '\DealMaker\Model\V1EntitiesAttachment',
         'required_fields' => '\DealMaker\Model\V1EntitiesInvestorSearchEntitiesRequiredFields'
     ];
 
@@ -83,6 +84,7 @@ class V1EntitiesInvestorSearchEntities implements ModelInterface, ArrayAccess, \
         'status' => null,
         're_run_performed' => null,
         'email_content' => null,
+        'attachments' => null,
         'required_fields' => null
     ];
 
@@ -99,6 +101,7 @@ class V1EntitiesInvestorSearchEntities implements ModelInterface, ArrayAccess, \
         'status' => false,
         're_run_performed' => false,
         'email_content' => false,
+        'attachments' => false,
         'required_fields' => false
     ];
 
@@ -195,6 +198,7 @@ class V1EntitiesInvestorSearchEntities implements ModelInterface, ArrayAccess, \
         'status' => 'status',
         're_run_performed' => 're_run_performed',
         'email_content' => 'email_content',
+        'attachments' => 'attachments',
         'required_fields' => 'required_fields'
     ];
 
@@ -211,6 +215,7 @@ class V1EntitiesInvestorSearchEntities implements ModelInterface, ArrayAccess, \
         'status' => 'setStatus',
         're_run_performed' => 'setReRunPerformed',
         'email_content' => 'setEmailContent',
+        'attachments' => 'setAttachments',
         'required_fields' => 'setRequiredFields'
     ];
 
@@ -227,6 +232,7 @@ class V1EntitiesInvestorSearchEntities implements ModelInterface, ArrayAccess, \
         'status' => 'getStatus',
         're_run_performed' => 'getReRunPerformed',
         'email_content' => 'getEmailContent',
+        'attachments' => 'getAttachments',
         'required_fields' => 'getRequiredFields'
     ];
 
@@ -330,6 +336,7 @@ class V1EntitiesInvestorSearchEntities implements ModelInterface, ArrayAccess, \
         $this->setIfExists('status', $data ?? [], null);
         $this->setIfExists('re_run_performed', $data ?? [], null);
         $this->setIfExists('email_content', $data ?? [], null);
+        $this->setIfExists('attachments', $data ?? [], null);
         $this->setIfExists('required_fields', $data ?? [], null);
     }
 
@@ -598,6 +605,33 @@ class V1EntitiesInvestorSearchEntities implements ModelInterface, ArrayAccess, \
             throw new \InvalidArgumentException('non-nullable email_content cannot be null');
         }
         $this->container['email_content'] = $email_content;
+
+        return $this;
+    }
+
+    /**
+     * Gets attachments
+     *
+     * @return \DealMaker\Model\V1EntitiesAttachment|null
+     */
+    public function getAttachments()
+    {
+        return $this->container['attachments'];
+    }
+
+    /**
+     * Sets attachments
+     *
+     * @param \DealMaker\Model\V1EntitiesAttachment|null $attachments attachments
+     *
+     * @return self
+     */
+    public function setAttachments($attachments)
+    {
+        if (is_null($attachments)) {
+            throw new \InvalidArgumentException('non-nullable attachments cannot be null');
+        }
+        $this->container['attachments'] = $attachments;
 
         return $this;
     }

@@ -942,6 +942,12 @@
           },
           "401": {
             "description": "Forbidden"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not found"
           }
         },
         "tags": [
@@ -951,11 +957,78 @@
         "x-codeSamples": [
           {
             "lang": "javascript",
-            "source": ""
+            "source": "const dealApi = new DealmakerApi.DealApi()\nconst payload = {\n  name: 'Provider Institution',\n  country: 'United States',\n}\n\ndealApi.createManagedProfile(payload, (error, data, response) => {\n  if (error) {\n    console.error(error)\n  } else {\n    console.log(JSON.stringify(data))\n  }\n})"
           },
           {
             "lang": "ruby",
-            "source": ""
+            "source": "deal_api = DealMakerAPI::DealApi.new\n\npayload = {}\n\nprint deal_api.create_managed_profile(payload)\n"
+          }
+        ]
+      }
+    },
+    "/investor_profiles/managed/{investor_profile_id}": {
+      "patch": {
+        "summary": "Patch managed investor profile.",
+        "description": "Patch managed investor profile associated to the profile id.",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "investor_profile_id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          },
+          {
+            "name": "InvestorProfilesManaged",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/patchInvestorProfilesManaged"
+            }
+          }
+        ],
+        "security": [
+          {
+            "oauth": [
+              "deals.write"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Patch managed investor profile.",
+            "schema": {
+              "$ref": "#/definitions/V1_Entities_InvestorProfile_Id"
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not found"
+          }
+        },
+        "tags": [
+          "investor_profile"
+        ],
+        "operationId": "patchManagedProfile",
+        "x-codeSamples": [
+          {
+            "lang": "javascript",
+            "source": "const dealApi = new DealmakerApi.DealApi()\nconst investorProfileId = 100\nconst payload = {\n  name: 'Provider Institution',\n  country: 'United States',\n}\n\ndealApi.patchManagedProfile(investorProfileId, payload, (error, data, response) => {\n  if (error) {\n    console.error(error)\n  } else {\n    console.log(JSON.stringify(data))\n  }\n})"
+          },
+          {
+            "lang": "ruby",
+            "source": "deal_api = DealMakerAPI::DealApi.new\n\ninvestor_profile_id = 100\npayload = {}\n\nprint deal_api.patch_managed_profile(investor_profile_id, payload)\n"
           }
         ]
       }
@@ -5986,7 +6059,8 @@
       "type": "object",
       "properties": {
         "id": {
-          "type": "string",
+          "type": "integer",
+          "format": "int32",
           "description": "The attachment id."
         },
         "url": {
@@ -5995,7 +6069,25 @@
         },
         "file_name": {
           "type": "string",
-          "description": "The attachment filename."
+          "description": "The attachment file name."
+        },
+        "original_file_name": {
+          "type": "string",
+          "description": "The attachment original file name."
+        },
+        "file_size": {
+          "type": "integer",
+          "format": "int32",
+          "description": "The size of the file in bytes."
+        },
+        "formatted_file_size": {
+          "type": "string",
+          "description": "The size of the file in human readable format."
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time",
+          "description": "String representation of the date uploaded."
         }
       }
     },
@@ -8240,6 +8332,154 @@
       ],
       "description": "Create new managed investor profile."
     },
+    "patchInvestorProfilesManaged": {
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string",
+          "description": "User email which is associated with investor profile (required)."
+        },
+        "us_accredited_category": {
+          "type": "string",
+          "description": "The United States accredited investor information.",
+          "enum": [
+            "income_individual",
+            "assets_individual",
+            "director",
+            "knowledgable_employee",
+            "broker_or_dealer",
+            "investment_advisor_registered",
+            "investment_advisor_relying",
+            "designated_accredited_investor",
+            "not_accredited"
+          ]
+        },
+        "ca_accredited_investor": {
+          "type": "string",
+          "description": "The Canadian accredited investor information.",
+          "enum": [
+            "d",
+            "e",
+            "e_1",
+            "j",
+            "j_1",
+            "k_individual",
+            "k_spouse",
+            "l",
+            "q",
+            "v",
+            "x"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the provider."
+        },
+        "country": {
+          "type": "Country",
+          "description": "The country of the provider."
+        },
+        "street_address": {
+          "type": "string",
+          "description": "The street address of the provider."
+        },
+        "unit2": {
+          "type": "string",
+          "description": "The street address line 2 of the provider."
+        },
+        "city": {
+          "type": "string",
+          "description": "The city of the provider."
+        },
+        "region": {
+          "type": "string",
+          "description": "The region or state of the provider."
+        },
+        "postal_code": {
+          "type": "string",
+          "description": "The postal code or zipcode of the provider."
+        },
+        "taxpayer_id": {
+          "type": "string",
+          "description": "The taxpayer identification number of the provider."
+        },
+        "confirmation": {
+          "type": "boolean",
+          "description": "Confirms that the provider is able to custody these securities and release respective funds in order to complete the purchase."
+        },
+        "income": {
+          "type": "number",
+          "format": "float",
+          "description": "The income of the managed investor profile."
+        },
+        "net_worth": {
+          "type": "number",
+          "format": "float",
+          "description": "The net worth of the managed investor profile"
+        },
+        "reg_cf_prior_offerings_amount": {
+          "type": "number",
+          "format": "float",
+          "description": "The prior offering amount of the managed investor profile."
+        },
+        "beneficiary_account_number": {
+          "type": "string",
+          "description": "The account number of the beneficiary."
+        },
+        "beneficiary_first_name": {
+          "type": "string",
+          "description": "The first name of the beneficiary."
+        },
+        "beneficiary_last_name": {
+          "type": "string",
+          "description": "The last name of the beneficiary."
+        },
+        "beneficiary_suffix": {
+          "type": "string",
+          "description": "The suffix of the beneficiary."
+        },
+        "beneficiary_country": {
+          "type": "Country",
+          "description": "The country of the beneficiary."
+        },
+        "beneficiary_street_address": {
+          "type": "string",
+          "description": "The street address of the beneficiary."
+        },
+        "beneficiary_unit2": {
+          "type": "string",
+          "description": "The street address line 2 of the beneficiary."
+        },
+        "beneficiary_city": {
+          "type": "string",
+          "description": "The city of the beneficiary."
+        },
+        "beneficiary_region": {
+          "type": "string",
+          "description": "The region or state of the beneficiary."
+        },
+        "beneficiary_postal_code": {
+          "type": "string",
+          "description": "The postal code or zipcode of the beneficiary."
+        },
+        "beneficiary_date_of_birth": {
+          "type": "string",
+          "description": "The date of birth of the beneficiary."
+        },
+        "beneficiary_taxpayer_id": {
+          "type": "string",
+          "description": "The taxpayer identification number of the beneficiary."
+        },
+        "beneficiary_phone_number": {
+          "type": "string",
+          "description": "The phone number of the beneficiary."
+        }
+      },
+      "required": [
+        "email"
+      ],
+      "description": "Patch managed investor profile."
+    },
     "V1_Entities_PresignedUrlResult": {
       "type": "object",
       "properties": {
@@ -8611,6 +8851,10 @@
         "email_content": {
           "type": "string",
           "description": "The custom message for the entity"
+        },
+        "attachments": {
+          "$ref": "#/definitions/V1_Entities_Attachment",
+          "description": "An array of the attachments for the search entity."
         },
         "required_fields": {
           "$ref": "#/definitions/V1_Entities_Investor_SearchEntities_RequiredFields",

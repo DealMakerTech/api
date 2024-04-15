@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The V1EntitiesAttachment model module.
  * @module model/V1EntitiesAttachment
- * @version 0.101.1
+ * @version 0.101.2
  */
 class V1EntitiesAttachment {
     /**
@@ -48,13 +48,25 @@ class V1EntitiesAttachment {
             obj = obj || new V1EntitiesAttachment();
 
             if (data.hasOwnProperty('id')) {
-                obj['id'] = ApiClient.convertToType(data['id'], 'String');
+                obj['id'] = ApiClient.convertToType(data['id'], 'Number');
             }
             if (data.hasOwnProperty('url')) {
                 obj['url'] = ApiClient.convertToType(data['url'], 'String');
             }
             if (data.hasOwnProperty('file_name')) {
                 obj['file_name'] = ApiClient.convertToType(data['file_name'], 'String');
+            }
+            if (data.hasOwnProperty('original_file_name')) {
+                obj['original_file_name'] = ApiClient.convertToType(data['original_file_name'], 'String');
+            }
+            if (data.hasOwnProperty('file_size')) {
+                obj['file_size'] = ApiClient.convertToType(data['file_size'], 'Number');
+            }
+            if (data.hasOwnProperty('formatted_file_size')) {
+                obj['formatted_file_size'] = ApiClient.convertToType(data['formatted_file_size'], 'String');
+            }
+            if (data.hasOwnProperty('created_at')) {
+                obj['created_at'] = ApiClient.convertToType(data['created_at'], 'Date');
             }
         }
         return obj;
@@ -67,16 +79,20 @@ class V1EntitiesAttachment {
      */
     static validateJSON(data) {
         // ensure the json data is a string
-        if (data['id'] && !(typeof data['id'] === 'string' || data['id'] instanceof String)) {
-            throw new Error("Expected the field `id` to be a primitive type in the JSON string but got " + data['id']);
-        }
-        // ensure the json data is a string
         if (data['url'] && !(typeof data['url'] === 'string' || data['url'] instanceof String)) {
             throw new Error("Expected the field `url` to be a primitive type in the JSON string but got " + data['url']);
         }
         // ensure the json data is a string
         if (data['file_name'] && !(typeof data['file_name'] === 'string' || data['file_name'] instanceof String)) {
             throw new Error("Expected the field `file_name` to be a primitive type in the JSON string but got " + data['file_name']);
+        }
+        // ensure the json data is a string
+        if (data['original_file_name'] && !(typeof data['original_file_name'] === 'string' || data['original_file_name'] instanceof String)) {
+            throw new Error("Expected the field `original_file_name` to be a primitive type in the JSON string but got " + data['original_file_name']);
+        }
+        // ensure the json data is a string
+        if (data['formatted_file_size'] && !(typeof data['formatted_file_size'] === 'string' || data['formatted_file_size'] instanceof String)) {
+            throw new Error("Expected the field `formatted_file_size` to be a primitive type in the JSON string but got " + data['formatted_file_size']);
         }
 
         return true;
@@ -89,7 +105,7 @@ class V1EntitiesAttachment {
 
 /**
  * The attachment id.
- * @member {String} id
+ * @member {Number} id
  */
 V1EntitiesAttachment.prototype['id'] = undefined;
 
@@ -100,10 +116,34 @@ V1EntitiesAttachment.prototype['id'] = undefined;
 V1EntitiesAttachment.prototype['url'] = undefined;
 
 /**
- * The attachment filename.
+ * The attachment file name.
  * @member {String} file_name
  */
 V1EntitiesAttachment.prototype['file_name'] = undefined;
+
+/**
+ * The attachment original file name.
+ * @member {String} original_file_name
+ */
+V1EntitiesAttachment.prototype['original_file_name'] = undefined;
+
+/**
+ * The size of the file in bytes.
+ * @member {Number} file_size
+ */
+V1EntitiesAttachment.prototype['file_size'] = undefined;
+
+/**
+ * The size of the file in human readable format.
+ * @member {String} formatted_file_size
+ */
+V1EntitiesAttachment.prototype['formatted_file_size'] = undefined;
+
+/**
+ * String representation of the date uploaded.
+ * @member {Date} created_at
+ */
+V1EntitiesAttachment.prototype['created_at'] = undefined;
 
 
 

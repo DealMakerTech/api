@@ -173,6 +173,19 @@ describe 'InvestorProfileApi' do
     end
   end
 
+  # unit tests for patch_managed_profile
+  # Patch managed investor profile.
+  # Patch managed investor profile associated to the profile id.
+  # @param investor_profile_id 
+  # @param investor_profiles_managed 
+  # @param [Hash] opts the optional parameters
+  # @return [V1EntitiesInvestorProfileId]
+  describe 'patch_managed_profile test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for patch_trust_profile
   # Patch a trust investor profile
   # Patch trust investor profile

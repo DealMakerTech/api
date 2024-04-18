@@ -78,6 +78,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property providerEmail (base name: "provider_email")', function() {
+      // uncomment below and update the code to test the property providerEmail
+      //var instance = new Api.PostInvestorProfilesManaged();
+      //expect(instance).to.be();
+    });
+
     it('should have the property streetAddress (base name: "street_address")', function() {
       // uncomment below and update the code to test the property streetAddress
       //var instance = new Api.PostInvestorProfilesManaged();

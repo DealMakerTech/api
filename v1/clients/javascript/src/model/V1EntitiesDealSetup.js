@@ -17,7 +17,7 @@ import V1EntitiesDealSetupUser from './V1EntitiesDealSetupUser';
 /**
  * The V1EntitiesDealSetup model module.
  * @module model/V1EntitiesDealSetup
- * @version 0.101.2
+ * @version 0.101.3
  */
 class V1EntitiesDealSetup {
     /**

@@ -8,6 +8,7 @@
 | **us_accredited_category** | **String** | The United States accredited investor information. | [optional] |
 | **ca_accredited_investor** | **String** | The Canadian accredited investor information. | [optional] |
 | **name** | **String** | The name of the provider (required). | [optional] |
+| **provider_email** | **String** | The email of the provider (required). | [optional] |
 | **street_address** | **String** | The street address of the provider (required). | [optional] |
 | **unit2** | **String** | The street address line 2 of the provider. | [optional] |
 | **city** | **String** | The city of the provider (required). | [optional] |
@@ -41,6 +42,7 @@ instance = DealMakerAPI::PostInvestorProfilesManaged.new(
   us_accredited_category: null,
   ca_accredited_investor: null,
   name: null,
+  provider_email: null,
   street_address: null,
   unit2: null,
   city: null,

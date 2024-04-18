@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **usAccreditedCategory** | **String** | The United States accredited investor information. | [optional] 
 **caAccreditedInvestor** | **String** | The Canadian accredited investor information. | [optional] 
 **name** | **String** | The name of the provider. | [optional] 
+**providerEmail** | **String** | The email of the provider. | [optional] 
 **streetAddress** | **String** | The street address of the provider. | [optional] 
 **unit2** | **String** | The street address line 2 of the provider. | [optional] 
 **city** | **String** | The city of the provider. | [optional] 

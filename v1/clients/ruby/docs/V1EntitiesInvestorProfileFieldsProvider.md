@@ -5,6 +5,7 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **name** | **String** | The provider name | [optional] |
+| **email** | **String** | The provider email | [optional] |
 | **taxpayer_id** | **String** | The taxpayer identification number | [optional] |
 | **confirmation** | **Boolean** | Confirms that the provider is able to custody these securities and release respective funds in order to complete the purchase | [optional] |
 | **income** | **Float** | The income | [optional] |
@@ -19,6 +20,7 @@ require 'DealMakerAPI'
 
 instance = DealMakerAPI::V1EntitiesInvestorProfileFieldsProvider.new(
   name: null,
+  email: null,
   taxpayer_id: null,
   confirmation: null,
   income: null,

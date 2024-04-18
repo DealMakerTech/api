@@ -60,6 +60,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property email (base name: "email")', function() {
+      // uncomment below and update the code to test the property email
+      //var instance = new Api.V1EntitiesInvestorProfileFieldsProvider();
+      //expect(instance).to.be();
+    });
+
     it('should have the property taxpayerId (base name: "taxpayer_id")', function() {
       // uncomment below and update the code to test the property taxpayerId
       //var instance = new Api.V1EntitiesInvestorProfileFieldsProvider();

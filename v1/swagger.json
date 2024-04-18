@@ -6843,6 +6843,10 @@
           "type": "string",
           "description": "The provider name"
         },
+        "email": {
+          "type": "string",
+          "description": "The provider email"
+        },
         "taxpayer_id": {
           "type": "string",
           "description": "The taxpayer identification number"
@@ -8227,6 +8231,10 @@
           "type": "string",
           "description": "The name of the provider (required)."
         },
+        "provider_email": {
+          "type": "string",
+          "description": "The email of the provider (required)."
+        },
         "country": {
           "type": "Country",
           "description": "The country of the provider (required)."
@@ -8374,6 +8382,10 @@
         "name": {
           "type": "string",
           "description": "The name of the provider."
+        },
+        "provider_email": {
+          "type": "string",
+          "description": "The email of the provider."
         },
         "country": {
           "type": "Country",

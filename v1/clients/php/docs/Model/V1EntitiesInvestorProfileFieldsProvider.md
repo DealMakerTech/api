@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **string** | The provider name | [optional]
+**email** | **string** | The provider email | [optional]
 **taxpayer_id** | **string** | The taxpayer identification number | [optional]
 **confirmation** | **bool** | Confirms that the provider is able to custody these securities and release respective funds in order to complete the purchase | [optional]
 **income** | **float** | The income | [optional]

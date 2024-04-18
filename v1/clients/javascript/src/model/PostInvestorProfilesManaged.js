@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The PostInvestorProfilesManaged model module.
  * @module model/PostInvestorProfilesManaged
- * @version 0.101.2
+ * @version 0.101.3
  */
 class PostInvestorProfilesManaged {
     /**
@@ -61,6 +61,9 @@ class PostInvestorProfilesManaged {
             }
             if (data.hasOwnProperty('name')) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
+            }
+            if (data.hasOwnProperty('provider_email')) {
+                obj['provider_email'] = ApiClient.convertToType(data['provider_email'], 'String');
             }
             if (data.hasOwnProperty('street_address')) {
                 obj['street_address'] = ApiClient.convertToType(data['street_address'], 'String');
@@ -159,6 +162,10 @@ class PostInvestorProfilesManaged {
         // ensure the json data is a string
         if (data['name'] && !(typeof data['name'] === 'string' || data['name'] instanceof String)) {
             throw new Error("Expected the field `name` to be a primitive type in the JSON string but got " + data['name']);
+        }
+        // ensure the json data is a string
+        if (data['provider_email'] && !(typeof data['provider_email'] === 'string' || data['provider_email'] instanceof String)) {
+            throw new Error("Expected the field `provider_email` to be a primitive type in the JSON string but got " + data['provider_email']);
         }
         // ensure the json data is a string
         if (data['street_address'] && !(typeof data['street_address'] === 'string' || data['street_address'] instanceof String)) {
@@ -264,6 +271,12 @@ PostInvestorProfilesManaged.prototype['ca_accredited_investor'] = undefined;
  * @member {String} name
  */
 PostInvestorProfilesManaged.prototype['name'] = undefined;
+
+/**
+ * The email of the provider (required).
+ * @member {String} provider_email
+ */
+PostInvestorProfilesManaged.prototype['provider_email'] = undefined;
 
 /**
  * The street address of the provider (required).

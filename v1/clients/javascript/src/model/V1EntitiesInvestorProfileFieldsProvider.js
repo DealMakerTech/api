@@ -17,7 +17,7 @@ import V1EntitiesInvestorProfileAddress from './V1EntitiesInvestorProfileAddress
 /**
  * The V1EntitiesInvestorProfileFieldsProvider model module.
  * @module model/V1EntitiesInvestorProfileFieldsProvider
- * @version 0.101.2
+ * @version 0.101.3
  */
 class V1EntitiesInvestorProfileFieldsProvider {
     /**
@@ -50,6 +50,9 @@ class V1EntitiesInvestorProfileFieldsProvider {
 
             if (data.hasOwnProperty('name')) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
+            }
+            if (data.hasOwnProperty('email')) {
+                obj['email'] = ApiClient.convertToType(data['email'], 'String');
             }
             if (data.hasOwnProperty('taxpayer_id')) {
                 obj['taxpayer_id'] = ApiClient.convertToType(data['taxpayer_id'], 'String');
@@ -84,6 +87,10 @@ class V1EntitiesInvestorProfileFieldsProvider {
             throw new Error("Expected the field `name` to be a primitive type in the JSON string but got " + data['name']);
         }
         // ensure the json data is a string
+        if (data['email'] && !(typeof data['email'] === 'string' || data['email'] instanceof String)) {
+            throw new Error("Expected the field `email` to be a primitive type in the JSON string but got " + data['email']);
+        }
+        // ensure the json data is a string
         if (data['taxpayer_id'] && !(typeof data['taxpayer_id'] === 'string' || data['taxpayer_id'] instanceof String)) {
             throw new Error("Expected the field `taxpayer_id` to be a primitive type in the JSON string but got " + data['taxpayer_id']);
         }
@@ -105,6 +112,12 @@ class V1EntitiesInvestorProfileFieldsProvider {
  * @member {String} name
  */
 V1EntitiesInvestorProfileFieldsProvider.prototype['name'] = undefined;
+
+/**
+ * The provider email
+ * @member {String} email
+ */
+V1EntitiesInvestorProfileFieldsProvider.prototype['email'] = undefined;
 
 /**
  * The taxpayer identification number

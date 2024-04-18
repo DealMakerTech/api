@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The PostWebhooksRequest model module.
  * @module model/PostWebhooksRequest
- * @version 0.101.3
+ * @version 0.101.4
  */
 class PostWebhooksRequest {
     /**

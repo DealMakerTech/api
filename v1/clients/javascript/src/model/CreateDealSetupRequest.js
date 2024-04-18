@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The CreateDealSetupRequest model module.
  * @module model/CreateDealSetupRequest
- * @version 0.101.3
+ * @version 0.101.4
  */
 class CreateDealSetupRequest {
     /**

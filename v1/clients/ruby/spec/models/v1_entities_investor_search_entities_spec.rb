@@ -83,6 +83,12 @@ describe DealMakerAPI::V1EntitiesInvestorSearchEntities do
     end
   end
 
+  describe 'test attribute "last_review_time"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   describe 'test attribute "required_fields"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/

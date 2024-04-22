@@ -152,6 +152,15 @@ class V1EntitiesInvestorSearchEntitiesTest extends TestCase
     }
 
     /**
+     * Test attribute "last_review_time"
+     */
+    public function testPropertyLastReviewTime()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "required_fields"
      */
     public function testPropertyRequiredFields()

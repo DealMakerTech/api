@@ -39,6 +39,9 @@ module DealMakerAPI
 
     attr_accessor :attachments
 
+    # The last time that the search entity was manually reviewed
+    attr_accessor :last_review_time
+
     attr_accessor :required_fields
 
     class EnumAttributeValidator
@@ -74,6 +77,7 @@ module DealMakerAPI
         :'re_run_performed' => :'re_run_performed',
         :'email_content' => :'email_content',
         :'attachments' => :'attachments',
+        :'last_review_time' => :'last_review_time',
         :'required_fields' => :'required_fields'
       }
     end
@@ -94,6 +98,7 @@ module DealMakerAPI
         :'re_run_performed' => :'Boolean',
         :'email_content' => :'String',
         :'attachments' => :'V1EntitiesAttachment',
+        :'last_review_time' => :'Time',
         :'required_fields' => :'V1EntitiesInvestorSearchEntitiesRequiredFields'
       }
     end
@@ -149,6 +154,10 @@ module DealMakerAPI
 
       if attributes.key?(:'attachments')
         self.attachments = attributes[:'attachments']
+      end
+
+      if attributes.key?(:'last_review_time')
+        self.last_review_time = attributes[:'last_review_time']
       end
 
       if attributes.key?(:'required_fields')
@@ -208,6 +217,7 @@ module DealMakerAPI
           re_run_performed == o.re_run_performed &&
           email_content == o.email_content &&
           attachments == o.attachments &&
+          last_review_time == o.last_review_time &&
           required_fields == o.required_fields
     end
 
@@ -220,7 +230,7 @@ module DealMakerAPI
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, name, type, type_num, status, re_run_performed, email_content, attachments, required_fields].hash
+      [id, name, type, type_num, status, re_run_performed, email_content, attachments, last_review_time, required_fields].hash
     end
 
     # Builds the object from hash

@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The V1EntitiesShareholderLedger model module.
  * @module model/V1EntitiesShareholderLedger
- * @version 0.101.4
+ * @version 0.101.5
  */
 class V1EntitiesShareholderLedger {
     /**

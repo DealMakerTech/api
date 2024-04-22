@@ -12,6 +12,7 @@
 | **re_run_performed** | **Boolean** | Whether or not the entity has been re-run. | [optional] |
 | **email_content** | **String** | The custom message for the entity | [optional] |
 | **attachments** | [**V1EntitiesAttachment**](V1EntitiesAttachment.md) |  | [optional] |
+| **last_review_time** | **Time** | The last time that the search entity was manually reviewed | [optional] |
 | **required_fields** | [**V1EntitiesInvestorSearchEntitiesRequiredFields**](V1EntitiesInvestorSearchEntitiesRequiredFields.md) |  | [optional] |
 
 ## Example
@@ -28,6 +29,7 @@ instance = DealMakerAPI::V1EntitiesInvestorSearchEntities.new(
   re_run_performed: null,
   email_content: null,
   attachments: null,
+  last_review_time: null,
   required_fields: null
 )
 ```

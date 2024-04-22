@@ -32,6 +32,20 @@ describe 'DealApi' do
     end
   end
 
+  # unit tests for bank_account_setup_intent
+  # Prepares an investor for payment
+  # Prepare investor for payment
+  # @param id The deal id
+  # @param investor_id The investor id
+  # @param subscription_id The subscription id
+  # @param [Hash] opts the optional parameters
+  # @return [V1EntitiesDealsInvestorsPaymentAcssBankAccountSetupIntent]
+  describe 'bank_account_setup_intent test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for create_deal_setup
   # Create deal setup
   # Create deal setup

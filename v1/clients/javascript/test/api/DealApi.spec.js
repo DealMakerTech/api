@@ -48,6 +48,16 @@
   }
 
   describe('DealApi', function() {
+    describe('bankAccountSetupIntent', function() {
+      it('should call bankAccountSetupIntent successfully', function(done) {
+        //uncomment below and update the code to test bankAccountSetupIntent
+        //instance.bankAccountSetupIntent(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('createDealSetup', function() {
       it('should call createDealSetup successfully', function(done) {
         //uncomment below and update the code to test createDealSetup

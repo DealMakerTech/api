@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **re_run_performed** | **bool** | Whether or not the entity has been re-run. | [optional]
 **email_content** | **string** | The custom message for the entity | [optional]
 **attachments** | [**\DealMaker\Model\V1EntitiesAttachment**](V1EntitiesAttachment.md) |  | [optional]
+**last_review_time** | **\DateTime** | The last time that the search entity was manually reviewed | [optional]
 **required_fields** | [**\DealMaker\Model\V1EntitiesInvestorSearchEntitiesRequiredFields**](V1EntitiesInvestorSearchEntitiesRequiredFields.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

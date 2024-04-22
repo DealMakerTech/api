@@ -102,6 +102,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property lastReviewTime (base name: "last_review_time")', function() {
+      // uncomment below and update the code to test the property lastReviewTime
+      //var instance = new Api.V1EntitiesInvestorSearchEntities();
+      //expect(instance).to.be();
+    });
+
     it('should have the property requiredFields (base name: "required_fields")', function() {
       // uncomment below and update the code to test the property requiredFields
       //var instance = new Api.V1EntitiesInvestorSearchEntities();

@@ -66,6 +66,7 @@ class V1EntitiesInvestorSearchEntities implements ModelInterface, ArrayAccess, \
         're_run_performed' => 'bool',
         'email_content' => 'string',
         'attachments' => '\DealMaker\Model\V1EntitiesAttachment',
+        'last_review_time' => '\DateTime',
         'required_fields' => '\DealMaker\Model\V1EntitiesInvestorSearchEntitiesRequiredFields'
     ];
 
@@ -85,6 +86,7 @@ class V1EntitiesInvestorSearchEntities implements ModelInterface, ArrayAccess, \
         're_run_performed' => null,
         'email_content' => null,
         'attachments' => null,
+        'last_review_time' => 'date-time',
         'required_fields' => null
     ];
 
@@ -102,6 +104,7 @@ class V1EntitiesInvestorSearchEntities implements ModelInterface, ArrayAccess, \
         're_run_performed' => false,
         'email_content' => false,
         'attachments' => false,
+        'last_review_time' => false,
         'required_fields' => false
     ];
 
@@ -199,6 +202,7 @@ class V1EntitiesInvestorSearchEntities implements ModelInterface, ArrayAccess, \
         're_run_performed' => 're_run_performed',
         'email_content' => 'email_content',
         'attachments' => 'attachments',
+        'last_review_time' => 'last_review_time',
         'required_fields' => 'required_fields'
     ];
 
@@ -216,6 +220,7 @@ class V1EntitiesInvestorSearchEntities implements ModelInterface, ArrayAccess, \
         're_run_performed' => 'setReRunPerformed',
         'email_content' => 'setEmailContent',
         'attachments' => 'setAttachments',
+        'last_review_time' => 'setLastReviewTime',
         'required_fields' => 'setRequiredFields'
     ];
 
@@ -233,6 +238,7 @@ class V1EntitiesInvestorSearchEntities implements ModelInterface, ArrayAccess, \
         're_run_performed' => 'getReRunPerformed',
         'email_content' => 'getEmailContent',
         'attachments' => 'getAttachments',
+        'last_review_time' => 'getLastReviewTime',
         'required_fields' => 'getRequiredFields'
     ];
 
@@ -337,6 +343,7 @@ class V1EntitiesInvestorSearchEntities implements ModelInterface, ArrayAccess, \
         $this->setIfExists('re_run_performed', $data ?? [], null);
         $this->setIfExists('email_content', $data ?? [], null);
         $this->setIfExists('attachments', $data ?? [], null);
+        $this->setIfExists('last_review_time', $data ?? [], null);
         $this->setIfExists('required_fields', $data ?? [], null);
     }
 
@@ -632,6 +639,33 @@ class V1EntitiesInvestorSearchEntities implements ModelInterface, ArrayAccess, \
             throw new \InvalidArgumentException('non-nullable attachments cannot be null');
         }
         $this->container['attachments'] = $attachments;
+
+        return $this;
+    }
+
+    /**
+     * Gets last_review_time
+     *
+     * @return \DateTime|null
+     */
+    public function getLastReviewTime()
+    {
+        return $this->container['last_review_time'];
+    }
+
+    /**
+     * Sets last_review_time
+     *
+     * @param \DateTime|null $last_review_time The last time that the search entity was manually reviewed
+     *
+     * @return self
+     */
+    public function setLastReviewTime($last_review_time)
+    {
+        if (is_null($last_review_time)) {
+            throw new \InvalidArgumentException('non-nullable last_review_time cannot be null');
+        }
+        $this->container['last_review_time'] = $last_review_time;
 
         return $this;
     }

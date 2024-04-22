@@ -18,7 +18,7 @@ import V1EntitiesInvestorSearchEntitiesRequiredFields from './V1EntitiesInvestor
 /**
  * The V1EntitiesInvestorSearchEntities model module.
  * @module model/V1EntitiesInvestorSearchEntities
- * @version 0.101.4
+ * @version 0.101.5
  */
 class V1EntitiesInvestorSearchEntities {
     /**
@@ -73,6 +73,9 @@ class V1EntitiesInvestorSearchEntities {
             }
             if (data.hasOwnProperty('attachments')) {
                 obj['attachments'] = V1EntitiesAttachment.constructFromObject(data['attachments']);
+            }
+            if (data.hasOwnProperty('last_review_time')) {
+                obj['last_review_time'] = ApiClient.convertToType(data['last_review_time'], 'Date');
             }
             if (data.hasOwnProperty('required_fields')) {
                 obj['required_fields'] = V1EntitiesInvestorSearchEntitiesRequiredFields.constructFromObject(data['required_fields']);
@@ -170,6 +173,12 @@ V1EntitiesInvestorSearchEntities.prototype['email_content'] = undefined;
  * @member {module:model/V1EntitiesAttachment} attachments
  */
 V1EntitiesInvestorSearchEntities.prototype['attachments'] = undefined;
+
+/**
+ * The last time that the search entity was manually reviewed
+ * @member {Date} last_review_time
+ */
+V1EntitiesInvestorSearchEntities.prototype['last_review_time'] = undefined;
 
 /**
  * @member {module:model/V1EntitiesInvestorSearchEntitiesRequiredFields} required_fields

@@ -3049,6 +3049,78 @@
         "operationId": "getDealsIdInvestorsPaymentsExpressWireInstructions"
       }
     },
+    "/deals/{id}/investor/{investor_id}/subscription/{subscription_id}/payments/acss/bank_account_setup_intent": {
+      "get": {
+        "summary": "Prepares an investor for payment",
+        "description": "Prepare investor for payment",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "description": "The deal id",
+            "type": "string",
+            "required": true
+          },
+          {
+            "in": "path",
+            "name": "investor_id",
+            "description": "The investor id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          },
+          {
+            "in": "path",
+            "name": "subscription_id",
+            "description": "The subscription id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "security": [
+          {
+            "oauth": [
+              "internal"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Prepare investor for payment",
+            "schema": {
+              "$ref": "#/definitions/V1_Entities_Deals_Investors_Payment_Acss_BankAccountSetupIntent"
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not found"
+          }
+        },
+        "tags": [
+          "deal"
+        ],
+        "operationId": "BankAccountSetupIntent",
+        "x-codeSamples": [
+          {
+            "lang": "javascript",
+            "source": ""
+          },
+          {
+            "lang": "ruby",
+            "source": ""
+          }
+        ]
+      }
+    },
     "/deals/{id}/investors/{investor_id}/background_checks/{search_entity_id}/enforcements": {
       "get": {
         "summary": "Get enforcements for a background search",
@@ -8868,6 +8940,11 @@
           "$ref": "#/definitions/V1_Entities_Attachment",
           "description": "An array of the attachments for the search entity."
         },
+        "last_review_time": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The last time that the search entity was manually reviewed"
+        },
         "required_fields": {
           "$ref": "#/definitions/V1_Entities_Investor_SearchEntities_RequiredFields",
           "description": "Object containing details about required fields that needs to be updated."
@@ -8951,6 +9028,24 @@
         }
       },
       "description": "V1_Entities_ExpressWireInstructions model"
+    },
+    "V1_Entities_Deals_Investors_Payment_Acss_BankAccountSetupIntent": {
+      "type": "object",
+      "properties": {
+        "clientSecret": {
+          "type": "string",
+          "description": "The client secret for the payment"
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the investor"
+        },
+        "email": {
+          "type": "string",
+          "description": "The email of the investor"
+        }
+      },
+      "description": "V1_Entities_Deals_Investors_Payment_Acss_BankAccountSetupIntent model"
     },
     "V1_Entities_Payments_SelfServeOnboarding_QualificationQuestionnaire_Result": {
       "type": "object",

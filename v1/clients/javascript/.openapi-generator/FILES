@@ -79,6 +79,7 @@ docs/V1EntitiesDealSetupUser.md
 docs/V1EntitiesDeals.md
 docs/V1EntitiesDealsIncentivePlan.md
 docs/V1EntitiesDealsIncentivePlansIncentiveTier.md
+docs/V1EntitiesDealsInvestorsPaymentAcssBankAccountSetupIntent.md
 docs/V1EntitiesDealsPriceDetails.md
 docs/V1EntitiesDividend.md
 docs/V1EntitiesDividends.md
@@ -214,6 +215,7 @@ src/model/V1EntitiesDealSetupUser.js
 src/model/V1EntitiesDeals.js
 src/model/V1EntitiesDealsIncentivePlan.js
 src/model/V1EntitiesDealsIncentivePlansIncentiveTier.js
+src/model/V1EntitiesDealsInvestorsPaymentAcssBankAccountSetupIntent.js
 src/model/V1EntitiesDealsPriceDetails.js
 src/model/V1EntitiesDividend.js
 src/model/V1EntitiesDividends.js
@@ -344,6 +346,7 @@ test/model/V1EntitiesDealSetupUser.spec.js
 test/model/V1EntitiesDeals.spec.js
 test/model/V1EntitiesDealsIncentivePlan.spec.js
 test/model/V1EntitiesDealsIncentivePlansIncentiveTier.spec.js
+test/model/V1EntitiesDealsInvestorsPaymentAcssBankAccountSetupIntent.spec.js
 test/model/V1EntitiesDealsPriceDetails.spec.js
 test/model/V1EntitiesDividend.spec.js
 test/model/V1EntitiesDividends.spec.js

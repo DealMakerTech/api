@@ -76,6 +76,7 @@ import V1EntitiesDealSetupUser from './model/V1EntitiesDealSetupUser';
 import V1EntitiesDeals from './model/V1EntitiesDeals';
 import V1EntitiesDealsIncentivePlan from './model/V1EntitiesDealsIncentivePlan';
 import V1EntitiesDealsIncentivePlansIncentiveTier from './model/V1EntitiesDealsIncentivePlansIncentiveTier';
+import V1EntitiesDealsInvestorsPaymentAcssBankAccountSetupIntent from './model/V1EntitiesDealsInvestorsPaymentAcssBankAccountSetupIntent';
 import V1EntitiesDealsPriceDetails from './model/V1EntitiesDealsPriceDetails';
 import V1EntitiesDividend from './model/V1EntitiesDividend';
 import V1EntitiesDividends from './model/V1EntitiesDividends';
@@ -174,7 +175,7 @@ import UsersApi from './api/UsersApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.101.4
+* @version 0.101.5
 */
 export {
     /**
@@ -560,6 +561,12 @@ export {
      * @property {module:model/V1EntitiesDealsIncentivePlansIncentiveTier}
      */
     V1EntitiesDealsIncentivePlansIncentiveTier,
+
+    /**
+     * The V1EntitiesDealsInvestorsPaymentAcssBankAccountSetupIntent model constructor.
+     * @property {module:model/V1EntitiesDealsInvestorsPaymentAcssBankAccountSetupIntent}
+     */
+    V1EntitiesDealsInvestorsPaymentAcssBankAccountSetupIntent,
 
     /**
      * The V1EntitiesDealsPriceDetails model constructor.

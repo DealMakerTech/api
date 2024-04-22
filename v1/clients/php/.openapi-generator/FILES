@@ -80,6 +80,7 @@ docs/Model/V1EntitiesDealSetupUser.md
 docs/Model/V1EntitiesDeals.md
 docs/Model/V1EntitiesDealsIncentivePlan.md
 docs/Model/V1EntitiesDealsIncentivePlansIncentiveTier.md
+docs/Model/V1EntitiesDealsInvestorsPaymentAcssBankAccountSetupIntent.md
 docs/Model/V1EntitiesDealsPriceDetails.md
 docs/Model/V1EntitiesDividend.md
 docs/Model/V1EntitiesDividends.md
@@ -215,6 +216,7 @@ lib/Model/V1EntitiesDealSetupUser.php
 lib/Model/V1EntitiesDeals.php
 lib/Model/V1EntitiesDealsIncentivePlan.php
 lib/Model/V1EntitiesDealsIncentivePlansIncentiveTier.php
+lib/Model/V1EntitiesDealsInvestorsPaymentAcssBankAccountSetupIntent.php
 lib/Model/V1EntitiesDealsPriceDetails.php
 lib/Model/V1EntitiesDividend.php
 lib/Model/V1EntitiesDividends.php
@@ -346,6 +348,7 @@ test/Model/V1EntitiesDealSetupUserTest.php
 test/Model/V1EntitiesDealTest.php
 test/Model/V1EntitiesDealsIncentivePlanTest.php
 test/Model/V1EntitiesDealsIncentivePlansIncentiveTierTest.php
+test/Model/V1EntitiesDealsInvestorsPaymentAcssBankAccountSetupIntentTest.php
 test/Model/V1EntitiesDealsPriceDetailsTest.php
 test/Model/V1EntitiesDealsTest.php
 test/Model/V1EntitiesDividendTest.php

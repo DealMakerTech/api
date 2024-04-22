@@ -72,6 +72,18 @@ class DealApiTest extends TestCase
     }
 
     /**
+     * Test case for bankAccountSetupIntent
+     *
+     * Prepares an investor for payment.
+     *
+     */
+    public function testBankAccountSetupIntent()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for createDealSetup
      *
      * Create deal setup.

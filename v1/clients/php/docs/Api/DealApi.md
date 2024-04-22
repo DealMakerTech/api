@@ -4,11 +4,73 @@ All URIs are relative to http://api.dealmaker.tech, except if the operation defi
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
+| [**bankAccountSetupIntent()**](DealApi.md#bankAccountSetupIntent) | **GET** /deals/{id}/investor/{investor_id}/subscription/{subscription_id}/payments/acss/bank_account_setup_intent | Prepares an investor for payment |
 | [**createDealSetup()**](DealApi.md#createDealSetup) | **POST** /deal_setups | Create deal setup |
 | [**getDeal()**](DealApi.md#getDeal) | **GET** /deals/{id} | Get deal by Deal ID |
 | [**getDealIncentivePlan()**](DealApi.md#getDealIncentivePlan) | **GET** /deals/{id}/incentive_plan | Get incentive plan by deal id |
 | [**listDeals()**](DealApi.md#listDeals) | **GET** /deals | List available deals |
 
+
+## `bankAccountSetupIntent()`
+
+```php
+bankAccountSetupIntent($id, $investor_id, $subscription_id): \DealMaker\Model\V1EntitiesDealsInvestorsPaymentAcssBankAccountSetupIntent
+```
+
+Prepares an investor for payment
+
+Prepare investor for payment
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new DealMaker\Api\DealApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = 'id_example'; // string | The deal id
+$investor_id = 56; // int | The investor id
+$subscription_id = 56; // int | The subscription id
+
+try {
+    $result = $apiInstance->bankAccountSetupIntent($id, $investor_id, $subscription_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling DealApi->bankAccountSetupIntent: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **string**| The deal id | |
+| **investor_id** | **int**| The investor id | |
+| **subscription_id** | **int**| The subscription id | |
+
+### Return type
+
+[**\DealMaker\Model\V1EntitiesDealsInvestorsPaymentAcssBankAccountSetupIntent**](../Model/V1EntitiesDealsInvestorsPaymentAcssBankAccountSetupIntent.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
 
 ## `createDealSetup()`
 

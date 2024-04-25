@@ -36,7 +36,7 @@ import V1EntitiesShareholderLedger from '../model/V1EntitiesShareholderLedger';
 /**
 * Company service.
 * @module api/CompanyApi
-* @version 0.102.0
+* @version 0.102.1
 */
 export default class CompanyApi {
 
@@ -238,7 +238,7 @@ export default class CompanyApi {
       let accepts = ['application/json'];
       let returnType = V1EntitiesEmailTemplate;
       return this.apiClient.callApi(
-        '/companies/{id}/news_releases/email_template', 'POST',
+        '/companies/{id}/news_releases/email_templates', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -341,6 +341,54 @@ export default class CompanyApi {
       let returnType = V1EntitiesGenericResponse;
       return this.apiClient.callApi(
         '/companies/{company_id}/shareholders/{shareholder_id}/actions', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the deleteEmailTemplate operation.
+     * @callback module:api/CompanyApi~deleteEmailTemplateCallback
+     * @param {String} error Error message, if any.
+     * @param data This operation does not return a value.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Deletes an email template
+     * Delete an email template
+     * @param {Number} id The company id
+     * @param {Number} templateId The email template id
+     * @param {module:api/CompanyApi~deleteEmailTemplateCallback} callback The callback function, accepting three arguments: error, data, response
+     */
+    deleteEmailTemplate(id, templateId, callback) {
+      let postBody = null;
+      // verify the required parameter 'id' is set
+      if (id === undefined || id === null) {
+        throw new Error("Missing the required parameter 'id' when calling deleteEmailTemplate");
+      }
+      // verify the required parameter 'templateId' is set
+      if (templateId === undefined || templateId === null) {
+        throw new Error("Missing the required parameter 'templateId' when calling deleteEmailTemplate");
+      }
+
+      let pathParams = {
+        'id': id,
+        'template_id': templateId
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = [];
+      let returnType = null;
+      return this.apiClient.callApi(
+        '/companies/{id}/news_releases/email_templates/{template_id}', 'DELETE',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -735,8 +783,8 @@ export default class CompanyApi {
      */
 
     /**
-     * Get a email template
-     * Get a email template
+     * Get an email template
+     * Get an email template
      * @param {Number} id The company id
      * @param {Number} templateId The email template id
      * @param {module:api/CompanyApi~getEmailTemplateCallback} callback The callback function, accepting three arguments: error, data, response
@@ -769,7 +817,7 @@ export default class CompanyApi {
       let accepts = ['application/json'];
       let returnType = V1EntitiesEmailTemplate;
       return this.apiClient.callApi(
-        '/companies/{id}/news_releases/email_template/{template_id}', 'GET',
+        '/companies/{id}/news_releases/email_templates/{template_id}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

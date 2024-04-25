@@ -144,6 +144,18 @@ class CompanyApiTest extends TestCase
     }
 
     /**
+     * Test case for deleteEmailTemplate
+     *
+     * Deletes an email template.
+     *
+     */
+    public function testDeleteEmailTemplate()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for getBulkUpload
      *
      * Return a given bulk upload by id.
@@ -242,7 +254,7 @@ class CompanyApiTest extends TestCase
     /**
      * Test case for getEmailTemplate
      *
-     * Get a email template.
+     * Get an email template.
      *
      */
     public function testGetEmailTemplate()

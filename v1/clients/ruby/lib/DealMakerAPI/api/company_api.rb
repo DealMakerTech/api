@@ -271,7 +271,7 @@ module DealMakerAPI
         fail ArgumentError, "Missing the required parameter 'create_email_template_request' when calling CompanyApi.create_email_template"
       end
       # resource path
-      local_var_path = '/companies/{id}/news_releases/email_template'.sub('{' + 'id' + '}', CGI.escape(id.to_s))
+      local_var_path = '/companies/{id}/news_releases/email_templates'.sub('{' + 'id' + '}', CGI.escape(id.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -465,6 +465,73 @@ module DealMakerAPI
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: CompanyApi#create_shareholder_action\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Deletes an email template
+    # Delete an email template
+    # @param id [Integer] The company id
+    # @param template_id [Integer] The email template id
+    # @param [Hash] opts the optional parameters
+    # @return [nil]
+    def delete_email_template(id, template_id, opts = {})
+      delete_email_template_with_http_info(id, template_id, opts)
+      nil
+    end
+
+    # Deletes an email template
+    # Delete an email template
+    # @param id [Integer] The company id
+    # @param template_id [Integer] The email template id
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def delete_email_template_with_http_info(id, template_id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CompanyApi.delete_email_template ...'
+      end
+      # verify the required parameter 'id' is set
+      if @api_client.config.client_side_validation && id.nil?
+        fail ArgumentError, "Missing the required parameter 'id' when calling CompanyApi.delete_email_template"
+      end
+      # verify the required parameter 'template_id' is set
+      if @api_client.config.client_side_validation && template_id.nil?
+        fail ArgumentError, "Missing the required parameter 'template_id' when calling CompanyApi.delete_email_template"
+      end
+      # resource path
+      local_var_path = '/companies/{id}/news_releases/email_templates/{template_id}'.sub('{' + 'id' + '}', CGI.escape(id.to_s)).sub('{' + 'template_id' + '}', CGI.escape(template_id.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"CompanyApi.delete_email_template",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CompanyApi#delete_email_template\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1012,8 +1079,8 @@ module DealMakerAPI
       return data, status_code, headers
     end
 
-    # Get a email template
-    # Get a email template
+    # Get an email template
+    # Get an email template
     # @param id [Integer] The company id
     # @param template_id [Integer] The email template id
     # @param [Hash] opts the optional parameters
@@ -1023,8 +1090,8 @@ module DealMakerAPI
       data
     end
 
-    # Get a email template
-    # Get a email template
+    # Get an email template
+    # Get an email template
     # @param id [Integer] The company id
     # @param template_id [Integer] The email template id
     # @param [Hash] opts the optional parameters
@@ -1042,7 +1109,7 @@ module DealMakerAPI
         fail ArgumentError, "Missing the required parameter 'template_id' when calling CompanyApi.get_email_template"
       end
       # resource path
-      local_var_path = '/companies/{id}/news_releases/email_template/{template_id}'.sub('{' + 'id' + '}', CGI.escape(id.to_s)).sub('{' + 'template_id' + '}', CGI.escape(template_id.to_s))
+      local_var_path = '/companies/{id}/news_releases/email_templates/{template_id}'.sub('{' + 'id' + '}', CGI.escape(id.to_s)).sub('{' + 'template_id' + '}', CGI.escape(template_id.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}

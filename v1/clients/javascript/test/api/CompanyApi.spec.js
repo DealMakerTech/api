@@ -108,6 +108,16 @@
         done();
       });
     });
+    describe('deleteEmailTemplate', function() {
+      it('should call deleteEmailTemplate successfully', function(done) {
+        //uncomment below and update the code to test deleteEmailTemplate
+        //instance.deleteEmailTemplate(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('getBulkUpload', function() {
       it('should call getBulkUpload successfully', function(done) {
         //uncomment below and update the code to test getBulkUpload

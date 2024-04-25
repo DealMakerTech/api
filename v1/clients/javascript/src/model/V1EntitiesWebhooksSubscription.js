@@ -17,7 +17,7 @@ import V1EntitiesWebhooksSubscriptionDeals from './V1EntitiesWebhooksSubscriptio
 /**
  * The V1EntitiesWebhooksSubscription model module.
  * @module model/V1EntitiesWebhooksSubscription
- * @version 0.102.0
+ * @version 0.102.1
  */
 class V1EntitiesWebhooksSubscription {
     /**

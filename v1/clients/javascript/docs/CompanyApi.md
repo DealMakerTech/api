@@ -7,9 +7,10 @@ Method | HTTP request | Description
 [**createBulkUpload**](CompanyApi.md#createBulkUpload) | **POST** /companies/{id}/documents/bulk_uploads | Create bulk upload record
 [**createBulkUploadDetail**](CompanyApi.md#createBulkUploadDetail) | **POST** /companies/{company_id}/documents/bulk_uploads/{bulk_upload_id}/details | Create a BulkUploadDetail class record
 [**createCompany**](CompanyApi.md#createCompany) | **POST** /companies | Create new company
-[**createEmailTemplate**](CompanyApi.md#createEmailTemplate) | **POST** /companies/{id}/news_releases/email_template | Creates an email template
+[**createEmailTemplate**](CompanyApi.md#createEmailTemplate) | **POST** /companies/{id}/news_releases/email_templates | Creates an email template
 [**createMembersBulkUpload**](CompanyApi.md#createMembersBulkUpload) | **POST** /companies/{id}/members/bulk_uploads | Create bulk upload record
 [**createShareholderAction**](CompanyApi.md#createShareholderAction) | **POST** /companies/{company_id}/shareholders/{shareholder_id}/actions | Create a shareholder action
+[**deleteEmailTemplate**](CompanyApi.md#deleteEmailTemplate) | **DELETE** /companies/{id}/news_releases/email_templates/{template_id} | Deletes an email template
 [**getBulkUpload**](CompanyApi.md#getBulkUpload) | **GET** /companies/{id}/documents/bulk_uploads/{bulk_upload_id} | Return a given bulk upload by id
 [**getBulkUploadDetailsErrors**](CompanyApi.md#getBulkUploadDetailsErrors) | **GET** /companies/{company_id}/documents/bulk_uploads/{bulk_upload_id}/details/errors | Returns a full list of details with errors of the given bulk upload ordered by status desc and id asc
 [**getBulkUploads**](CompanyApi.md#getBulkUploads) | **GET** /companies/{id}/documents/bulk_uploads | Return bulk uploads
@@ -18,7 +19,7 @@ Method | HTTP request | Description
 [**getDetailsErrorsGrouped**](CompanyApi.md#getDetailsErrorsGrouped) | **GET** /companies/{company_id}/documents/bulk_uploads/{bulk_upload_id}/details/grouped_errors | Return bulk upload details grouped by status
 [**getDividends**](CompanyApi.md#getDividends) | **GET** /companies/{company_id}/portal/dividends | Return dividends
 [**getEmailEvents**](CompanyApi.md#getEmailEvents) | **GET** /companies/{company_communication_id}/email_events | Get a list of email events for a company communication
-[**getEmailTemplate**](CompanyApi.md#getEmailTemplate) | **GET** /companies/{id}/news_releases/email_template/{template_id} | Get a email template
+[**getEmailTemplate**](CompanyApi.md#getEmailTemplate) | **GET** /companies/{id}/news_releases/email_templates/{template_id} | Get an email template
 [**getEmailTemplates**](CompanyApi.md#getEmailTemplates) | **GET** /companies/{id}/news_releases/email_templates | Get list of email template
 [**getMembersBulkUpload**](CompanyApi.md#getMembersBulkUpload) | **GET** /companies/{id}/members/bulk_uploads/{id_members_bulk_upload} | Get bulk upload record
 [**getMembersBulkUploads**](CompanyApi.md#getMembersBulkUploads) | **GET** /companies/{id}/members/bulk_uploads | Get bulk uploads records
@@ -316,6 +317,54 @@ No authorization required
 
 - **Content-Type**: application/json
 - **Accept**: application/json
+
+
+## deleteEmailTemplate
+
+> deleteEmailTemplate(id, templateId)
+
+Deletes an email template
+
+Delete an email template
+
+### Example
+
+```javascript
+import Api from 'api';
+let defaultClient = Api.ApiClient.instance;
+
+let apiInstance = new Api.CompanyApi();
+let id = 56; // Number | The company id
+let templateId = 56; // Number | The email template id
+apiInstance.deleteEmailTemplate(id, templateId, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully.');
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Number**| The company id | 
+ **templateId** | **Number**| The email template id | 
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
 
 
 ## getBulkUpload
@@ -718,9 +767,9 @@ No authorization required
 
 > V1EntitiesEmailTemplate getEmailTemplate(id, templateId)
 
-Get a email template
+Get an email template
 
-Get a email template
+Get an email template
 
 ### Example
 

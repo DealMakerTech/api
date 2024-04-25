@@ -19,7 +19,7 @@ import V1EntitiesUser from '../model/V1EntitiesUser';
 /**
 * User service.
 * @module api/UserApi
-* @version 0.102.0
+* @version 0.102.1
 */
 export default class UserApi {
 

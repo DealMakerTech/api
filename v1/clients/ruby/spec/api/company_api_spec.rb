@@ -111,6 +111,19 @@ describe 'CompanyApi' do
     end
   end
 
+  # unit tests for delete_email_template
+  # Deletes an email template
+  # Delete an email template
+  # @param id The company id
+  # @param template_id The email template id
+  # @param [Hash] opts the optional parameters
+  # @return [nil]
+  describe 'delete_email_template test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for get_bulk_upload
   # Return a given bulk upload by id
   # Return a given bulk upload by id
@@ -219,8 +232,8 @@ describe 'CompanyApi' do
   end
 
   # unit tests for get_email_template
-  # Get a email template
-  # Get a email template
+  # Get an email template
+  # Get an email template
   # @param id The company id
   # @param template_id The email template id
   # @param [Hash] opts the optional parameters

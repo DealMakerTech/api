@@ -18,7 +18,7 @@ import PutDealsIdScriptTagEnvironmentRequest from '../model/PutDealsIdScriptTagE
 /**
 * Deals service.
 * @module api/DealsApi
-* @version 0.102.0
+* @version 0.102.1
 */
 export default class DealsApi {
 

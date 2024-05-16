@@ -72,6 +72,30 @@ class UserApiTest extends TestCase
     }
 
     /**
+     * Test case for createFactor
+     *
+     * Creates an API endpoint for creating a new TOTP factor.
+     *
+     */
+    public function testCreateFactor()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for getTwoFactorChannels
+     *
+     * Creates an API endpoint to return a list of existing TOTP factor.
+     *
+     */
+    public function testGetTwoFactorChannels()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for getUser
      *
      * Get user by User ID.
@@ -84,12 +108,36 @@ class UserApiTest extends TestCase
     }
 
     /**
+     * Test case for setupSmsVerification
+     *
+     * Start a setup for a SMS Verification by creating a two factor channel of sms type.
+     *
+     */
+    public function testSetupSmsVerification()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for updateUserPassword
      *
      * Update user password.
      *
      */
     public function testUpdateUserPassword()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for verifyFactor
+     *
+     * Creates an API endpoint to verify an existing TOTP factor.
+     *
+     */
+    public function testVerifyFactor()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

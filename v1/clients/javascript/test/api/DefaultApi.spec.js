@@ -88,6 +88,16 @@
         done();
       });
     });
+    describe('getDealsIdProgressPageKind', function() {
+      it('should call getDealsIdProgressPageKind successfully', function(done) {
+        //uncomment below and update the code to test getDealsIdProgressPageKind
+        //instance.getDealsIdProgressPageKind(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('getDealsIdSummary', function() {
       it('should call getDealsIdSummary successfully', function(done) {
         //uncomment below and update the code to test getDealsIdSummary

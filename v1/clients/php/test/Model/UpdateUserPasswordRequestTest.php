@@ -87,4 +87,13 @@ class UpdateUserPasswordRequestTest extends TestCase
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test attribute "current_password"
+     */
+    public function testPropertyCurrentPassword()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
 }

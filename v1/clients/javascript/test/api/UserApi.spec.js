@@ -48,6 +48,26 @@
   }
 
   describe('UserApi', function() {
+    describe('createFactor', function() {
+      it('should call createFactor successfully', function(done) {
+        //uncomment below and update the code to test createFactor
+        //instance.createFactor(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('getTwoFactorChannels', function() {
+      it('should call getTwoFactorChannels successfully', function(done) {
+        //uncomment below and update the code to test getTwoFactorChannels
+        //instance.getTwoFactorChannels(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('getUser', function() {
       it('should call getUser successfully', function(done) {
         //uncomment below and update the code to test getUser
@@ -58,10 +78,30 @@
         done();
       });
     });
+    describe('setupSmsVerification', function() {
+      it('should call setupSmsVerification successfully', function(done) {
+        //uncomment below and update the code to test setupSmsVerification
+        //instance.setupSmsVerification(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('updateUserPassword', function() {
       it('should call updateUserPassword successfully', function(done) {
         //uncomment below and update the code to test updateUserPassword
         //instance.updateUserPassword(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('verifyFactor', function() {
+      it('should call verifyFactor successfully', function(done) {
+        //uncomment below and update the code to test verifyFactor
+        //instance.verifyFactor(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});

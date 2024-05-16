@@ -427,9 +427,11 @@ Class | Method | HTTP request | Description
 *CompanyApi* | [**getShareholderLedger**](docs/Api/CompanyApi.md#getshareholderledger) | **GET** /companies/{id}/shareholder_ledger | Get shareholder ledger by company
 *CompanyApi* | [**getUserAccessibleCompanies**](docs/Api/CompanyApi.md#getuseraccessiblecompanies) | **GET** /users/accessible_companies | Get list of all Companies accessible by the user
 *CompanyApi* | [**sendPortalInvite**](docs/Api/CompanyApi.md#sendportalinvite) | **POST** /companies/{id}/shareholders/{shareholder_id}/send_portal_invite | Send portal invite to shareholder
+*CompanyApi* | [**testDocumentUploadEmail**](docs/Api/CompanyApi.md#testdocumentuploademail) | **POST** /companies/{id}/documents/test_upload_email | Send document upload test email to given user
 *CountryApi* | [**getCountryStates**](docs/Api/CountryApi.md#getcountrystates) | **GET** /country/states | Returns a list of all valid countries and it states
 *CustomEmailsApi* | [**getAccessToken**](docs/Api/CustomEmailsApi.md#getaccesstoken) | **POST** /custom_emails/get_access_token | Generate authorization token information for initializing Beefree editor
-*DealApi* | [**bankAccountSetupIntent**](docs/Api/DealApi.md#bankaccountsetupintent) | **GET** /deals/{id}/investor/{investor_id}/subscription/{subscription_id}/payments/acss/bank_account_setup_intent | Prepares an investor for payment
+*DealApi* | [**achBankAccountSetupIntent**](docs/Api/DealApi.md#achbankaccountsetupintent) | **GET** /deals/{id}/investor/{investor_id}/subscription/{subscription_id}/payments/ach/bank_account_setup_intent | Prepares an investor for payment
+*DealApi* | [**acssBankAccountSetupIntent**](docs/Api/DealApi.md#acssbankaccountsetupintent) | **GET** /deals/{id}/investor/{investor_id}/subscription/{subscription_id}/payments/acss/bank_account_setup_intent | Prepares an investor for payment
 *DealApi* | [**createDealSetup**](docs/Api/DealApi.md#createdealsetup) | **POST** /deal_setups | Create deal setup
 *DealApi* | [**getDeal**](docs/Api/DealApi.md#getdeal) | **GET** /deals/{id} | Get deal by Deal ID
 *DealApi* | [**getDealIncentivePlan**](docs/Api/DealApi.md#getdealincentiveplan) | **GET** /deals/{id}/incentive_plan | Get incentive plan by deal id
@@ -440,6 +442,7 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**getDealsDealIdPaymentOnboardingQuestionnairePayoutAccountDetailsData**](docs/Api/DefaultApi.md#getdealsdealidpaymentonboardingquestionnairepayoutaccountdetailsdata) | **GET** /deals/{deal_id}/payment_onboarding/questionnaire/payout_account_details/data | Get payout account data
 *DefaultApi* | [**getDealsIdInvestorsInvestorIdPaymentsExpressWireInstructions**](docs/Api/DefaultApi.md#getdealsidinvestorsinvestoridpaymentsexpresswireinstructions) | **GET** /deals/{id}/investors/{investor_id}/payments/express_wire/instructions | Displays the express wire instructions for an investor on a deal
 *DefaultApi* | [**getDealsIdInvestorsPaymentsExpressWireInstructions**](docs/Api/DefaultApi.md#getdealsidinvestorspaymentsexpresswireinstructions) | **GET** /deals/{id}/investors/payments/express_wire/instructions | Displays the express wire instructions for all the investors on a deal
+*DefaultApi* | [**getDealsIdProgressPageKind**](docs/Api/DefaultApi.md#getdealsidprogresspagekind) | **GET** /deals/{id}/progress_page/{kind} | Get deal progress for a specific kind
 *DefaultApi* | [**getDealsIdSummary**](docs/Api/DefaultApi.md#getdealsidsummary) | **GET** /deals/{id}/summary | Get Deal Overview
 *DefaultApi* | [**getDealsPaymentOnboardingQuestionnaireInitialQuestions**](docs/Api/DefaultApi.md#getdealspaymentonboardingquestionnaireinitialquestions) | **GET** /deals/payment_onboarding/questionnaire/initial_questions | Get initial questions
 *DefaultApi* | [**getWebhooks**](docs/Api/DefaultApi.md#getwebhooks) | **GET** /webhooks | Returns a list of webhook subscription which is associated to the user
@@ -487,8 +490,12 @@ Class | Method | HTTP request | Description
 *ShareholderApi* | [**getShareholders**](docs/Api/ShareholderApi.md#getshareholders) | **GET** /companies/{id}/shareholders | Get a company shareholders list
 *ShareholderApi* | [**getShareholdersTags**](docs/Api/ShareholderApi.md#getshareholderstags) | **GET** /companies/{id}/shareholders/tags | Get a company shareholders list grouped by tags
 *UploadApi* | [**generateUrl**](docs/Api/UploadApi.md#generateurl) | **POST** /uploads/generate_url | Create a presigned URL for Amazon S3
+*UserApi* | [**createFactor**](docs/Api/UserApi.md#createfactor) | **POST** /users/{id}/create_factor | Creates an API endpoint for creating a new TOTP factor
+*UserApi* | [**getTwoFactorChannels**](docs/Api/UserApi.md#gettwofactorchannels) | **GET** /users/{id}/two_factor_channels | Creates an API endpoint to return a list of existing TOTP factor
 *UserApi* | [**getUser**](docs/Api/UserApi.md#getuser) | **GET** /users/{id} | Get user by User ID
+*UserApi* | [**setupSmsVerification**](docs/Api/UserApi.md#setupsmsverification) | **POST** /users/{id}/setup_sms_verification | Start a setup for a SMS Verification by creating a two factor channel of sms type
 *UserApi* | [**updateUserPassword**](docs/Api/UserApi.md#updateuserpassword) | **PUT** /users/{id}/update_password | Update user password
+*UserApi* | [**verifyFactor**](docs/Api/UserApi.md#verifyfactor) | **PUT** /users/{id}/verify_factor | Creates an API endpoint to verify an existing TOTP factor
 *UsersApi* | [**getUsersInvestments**](docs/Api/UsersApi.md#getusersinvestments) | **GET** /users/investments | Gets the investments for a specific user.
 
 ## Models
@@ -531,6 +538,8 @@ Class | Method | HTTP request | Description
 - [RequestNewDocumentRequest](docs/Model/RequestNewDocumentRequest.md)
 - [RunBackgroundSearchRequest](docs/Model/RunBackgroundSearchRequest.md)
 - [SendPortalInviteRequest](docs/Model/SendPortalInviteRequest.md)
+- [SetupSmsVerificationRequest](docs/Model/SetupSmsVerificationRequest.md)
+- [TestDocumentUploadEmailRequest](docs/Model/TestDocumentUploadEmailRequest.md)
 - [UpdateUserPasswordRequest](docs/Model/UpdateUserPasswordRequest.md)
 - [V1EntitiesAddress](docs/Model/V1EntitiesAddress.md)
 - [V1EntitiesAddresses](docs/Model/V1EntitiesAddresses.md)
@@ -556,8 +565,11 @@ Class | Method | HTTP request | Description
 - [V1EntitiesDeals](docs/Model/V1EntitiesDeals.md)
 - [V1EntitiesDealsIncentivePlan](docs/Model/V1EntitiesDealsIncentivePlan.md)
 - [V1EntitiesDealsIncentivePlansIncentiveTier](docs/Model/V1EntitiesDealsIncentivePlansIncentiveTier.md)
+- [V1EntitiesDealsInvestorsPaymentAchBankAccountSetupIntent](docs/Model/V1EntitiesDealsInvestorsPaymentAchBankAccountSetupIntent.md)
 - [V1EntitiesDealsInvestorsPaymentAcssBankAccountSetupIntent](docs/Model/V1EntitiesDealsInvestorsPaymentAcssBankAccountSetupIntent.md)
 - [V1EntitiesDealsPriceDetails](docs/Model/V1EntitiesDealsPriceDetails.md)
+- [V1EntitiesDealsProgress](docs/Model/V1EntitiesDealsProgress.md)
+- [V1EntitiesDealsProgressColumn](docs/Model/V1EntitiesDealsProgressColumn.md)
 - [V1EntitiesDividend](docs/Model/V1EntitiesDividend.md)
 - [V1EntitiesDividends](docs/Model/V1EntitiesDividends.md)
 - [V1EntitiesEmailEvent](docs/Model/V1EntitiesEmailEvent.md)
@@ -606,11 +618,16 @@ Class | Method | HTTP request | Description
 - [V1EntitiesState](docs/Model/V1EntitiesState.md)
 - [V1EntitiesSubscriptionAgreement](docs/Model/V1EntitiesSubscriptionAgreement.md)
 - [V1EntitiesUser](docs/Model/V1EntitiesUser.md)
+- [V1EntitiesUsersBinding](docs/Model/V1EntitiesUsersBinding.md)
+- [V1EntitiesUsersFactor](docs/Model/V1EntitiesUsersFactor.md)
+- [V1EntitiesUsersTwoFactorChannel](docs/Model/V1EntitiesUsersTwoFactorChannel.md)
+- [V1EntitiesUsersTwoFactorChannels](docs/Model/V1EntitiesUsersTwoFactorChannels.md)
 - [V1EntitiesWebhooksDeal](docs/Model/V1EntitiesWebhooksDeal.md)
 - [V1EntitiesWebhooksSecurityToken](docs/Model/V1EntitiesWebhooksSecurityToken.md)
 - [V1EntitiesWebhooksSubscription](docs/Model/V1EntitiesWebhooksSubscription.md)
 - [V1EntitiesWebhooksSubscriptionDeal](docs/Model/V1EntitiesWebhooksSubscriptionDeal.md)
 - [V1EntitiesWebhooksSubscriptionDeals](docs/Model/V1EntitiesWebhooksSubscriptionDeals.md)
+- [VerifyFactorRequest](docs/Model/VerifyFactorRequest.md)
 
 ## Authorization
 Endpoints do not require authorization.
@@ -633,6 +650,6 @@ vendor/bin/phpunit
 This PHP package is automatically generated by the [OpenAPI Generator](https://openapi-generator.tech) project:
 
 - API version: `1.75.0`
-    - Package version: `0.102.1`
+    - Package version: `0.103.5`
     - Generator version: `7.6.0-SNAPSHOT`
 - Build package: `org.openapitools.codegen.languages.PhpClientCodegen`

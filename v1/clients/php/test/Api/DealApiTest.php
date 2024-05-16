@@ -72,12 +72,24 @@ class DealApiTest extends TestCase
     }
 
     /**
-     * Test case for bankAccountSetupIntent
+     * Test case for achBankAccountSetupIntent
      *
      * Prepares an investor for payment.
      *
      */
-    public function testBankAccountSetupIntent()
+    public function testAchBankAccountSetupIntent()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for acssBankAccountSetupIntent
+     *
+     * Prepares an investor for payment.
+     *
+     */
+    public function testAcssBankAccountSetupIntent()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

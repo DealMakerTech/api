@@ -268,6 +268,16 @@
         done();
       });
     });
+    describe('testDocumentUploadEmail', function() {
+      it('should call testDocumentUploadEmail successfully', function(done) {
+        //uncomment below and update the code to test testDocumentUploadEmail
+        //instance.testDocumentUploadEmail(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
   });
 
 }));

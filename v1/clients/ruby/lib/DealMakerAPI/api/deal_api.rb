@@ -25,9 +25,84 @@ module DealMakerAPI
     # @param investor_id [Integer] The investor id
     # @param subscription_id [Integer] The subscription id
     # @param [Hash] opts the optional parameters
+    # @return [V1EntitiesDealsInvestorsPaymentAchBankAccountSetupIntent]
+    def ach_bank_account_setup_intent(id, investor_id, subscription_id, opts = {})
+      data, _status_code, _headers = ach_bank_account_setup_intent_with_http_info(id, investor_id, subscription_id, opts)
+      data
+    end
+
+    # Prepares an investor for payment
+    # Prepare investor for payment
+    # @param id [String] The deal id
+    # @param investor_id [Integer] The investor id
+    # @param subscription_id [Integer] The subscription id
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(V1EntitiesDealsInvestorsPaymentAchBankAccountSetupIntent, Integer, Hash)>] V1EntitiesDealsInvestorsPaymentAchBankAccountSetupIntent data, response status code and response headers
+    def ach_bank_account_setup_intent_with_http_info(id, investor_id, subscription_id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: DealApi.ach_bank_account_setup_intent ...'
+      end
+      # verify the required parameter 'id' is set
+      if @api_client.config.client_side_validation && id.nil?
+        fail ArgumentError, "Missing the required parameter 'id' when calling DealApi.ach_bank_account_setup_intent"
+      end
+      # verify the required parameter 'investor_id' is set
+      if @api_client.config.client_side_validation && investor_id.nil?
+        fail ArgumentError, "Missing the required parameter 'investor_id' when calling DealApi.ach_bank_account_setup_intent"
+      end
+      # verify the required parameter 'subscription_id' is set
+      if @api_client.config.client_side_validation && subscription_id.nil?
+        fail ArgumentError, "Missing the required parameter 'subscription_id' when calling DealApi.ach_bank_account_setup_intent"
+      end
+      # resource path
+      local_var_path = '/deals/{id}/investor/{investor_id}/subscription/{subscription_id}/payments/ach/bank_account_setup_intent'.sub('{' + 'id' + '}', CGI.escape(id.to_s)).sub('{' + 'investor_id' + '}', CGI.escape(investor_id.to_s)).sub('{' + 'subscription_id' + '}', CGI.escape(subscription_id.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'V1EntitiesDealsInvestorsPaymentAchBankAccountSetupIntent'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"DealApi.ach_bank_account_setup_intent",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: DealApi#ach_bank_account_setup_intent\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Prepares an investor for payment
+    # Prepare investor for payment
+    # @param id [String] The deal id
+    # @param investor_id [Integer] The investor id
+    # @param subscription_id [Integer] The subscription id
+    # @param [Hash] opts the optional parameters
     # @return [V1EntitiesDealsInvestorsPaymentAcssBankAccountSetupIntent]
-    def bank_account_setup_intent(id, investor_id, subscription_id, opts = {})
-      data, _status_code, _headers = bank_account_setup_intent_with_http_info(id, investor_id, subscription_id, opts)
+    def acss_bank_account_setup_intent(id, investor_id, subscription_id, opts = {})
+      data, _status_code, _headers = acss_bank_account_setup_intent_with_http_info(id, investor_id, subscription_id, opts)
       data
     end
 
@@ -38,21 +113,21 @@ module DealMakerAPI
     # @param subscription_id [Integer] The subscription id
     # @param [Hash] opts the optional parameters
     # @return [Array<(V1EntitiesDealsInvestorsPaymentAcssBankAccountSetupIntent, Integer, Hash)>] V1EntitiesDealsInvestorsPaymentAcssBankAccountSetupIntent data, response status code and response headers
-    def bank_account_setup_intent_with_http_info(id, investor_id, subscription_id, opts = {})
+    def acss_bank_account_setup_intent_with_http_info(id, investor_id, subscription_id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: DealApi.bank_account_setup_intent ...'
+        @api_client.config.logger.debug 'Calling API: DealApi.acss_bank_account_setup_intent ...'
       end
       # verify the required parameter 'id' is set
       if @api_client.config.client_side_validation && id.nil?
-        fail ArgumentError, "Missing the required parameter 'id' when calling DealApi.bank_account_setup_intent"
+        fail ArgumentError, "Missing the required parameter 'id' when calling DealApi.acss_bank_account_setup_intent"
       end
       # verify the required parameter 'investor_id' is set
       if @api_client.config.client_side_validation && investor_id.nil?
-        fail ArgumentError, "Missing the required parameter 'investor_id' when calling DealApi.bank_account_setup_intent"
+        fail ArgumentError, "Missing the required parameter 'investor_id' when calling DealApi.acss_bank_account_setup_intent"
       end
       # verify the required parameter 'subscription_id' is set
       if @api_client.config.client_side_validation && subscription_id.nil?
-        fail ArgumentError, "Missing the required parameter 'subscription_id' when calling DealApi.bank_account_setup_intent"
+        fail ArgumentError, "Missing the required parameter 'subscription_id' when calling DealApi.acss_bank_account_setup_intent"
       end
       # resource path
       local_var_path = '/deals/{id}/investor/{investor_id}/subscription/{subscription_id}/payments/acss/bank_account_setup_intent'.sub('{' + 'id' + '}', CGI.escape(id.to_s)).sub('{' + 'investor_id' + '}', CGI.escape(investor_id.to_s)).sub('{' + 'subscription_id' + '}', CGI.escape(subscription_id.to_s))
@@ -78,7 +153,7 @@ module DealMakerAPI
       auth_names = opts[:debug_auth_names] || []
 
       new_options = opts.merge(
-        :operation => :"DealApi.bank_account_setup_intent",
+        :operation => :"DealApi.acss_bank_account_setup_intent",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -89,7 +164,7 @@ module DealMakerAPI
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: DealApi#bank_account_setup_intent\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: DealApi#acss_bank_account_setup_intent\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

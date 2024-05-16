@@ -60,6 +60,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property currentPassword (base name: "current_password")', function() {
+      // uncomment below and update the code to test the property currentPassword
+      //var instance = new Api.UpdateUserPasswordRequest();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

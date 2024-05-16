@@ -1173,6 +1173,238 @@
         "operationId": "getUsersInvestments"
       }
     },
+    "/users/{id}/verify_factor": {
+      "put": {
+        "summary": "Creates an API endpoint to verify an existing TOTP factor",
+        "description": "Create an API endpoint to verify an existing TOTP factor",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "formData",
+            "name": "code",
+            "description": "The verification code.",
+            "type": "string",
+            "required": true
+          },
+          {
+            "in": "path",
+            "name": "id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "security": [
+          {
+            "oauth": [
+              "internal"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Create an API endpoint to verify an existing TOTP factor",
+            "schema": {
+              "$ref": "#/definitions/V1_Entities_Users_TwoFactorChannel"
+            }
+          },
+          "404": {
+            "description": "Not found"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        },
+        "tags": [
+          "user"
+        ],
+        "operationId": "verifyFactor",
+        "x-codeSamples": [
+          {
+            "lang": "javascript",
+            "source": ""
+          },
+          {
+            "lang": "ruby",
+            "source": ""
+          }
+        ]
+      }
+    },
+    "/users/{id}/create_factor": {
+      "post": {
+        "summary": "Creates an API endpoint for creating a new TOTP factor",
+        "description": "Create an API endpoint for creating a new TOTP factor",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "security": [
+          {
+            "oauth": [
+              "internal"
+            ]
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Create an API endpoint for creating a new TOTP factor",
+            "schema": {
+              "$ref": "#/definitions/V1_Entities_Users_Factor"
+            }
+          },
+          "404": {
+            "description": "Not found"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        },
+        "tags": [
+          "user"
+        ],
+        "operationId": "createFactor",
+        "x-codeSamples": [
+          {
+            "lang": "javascript",
+            "source": ""
+          },
+          {
+            "lang": "ruby",
+            "source": ""
+          }
+        ]
+      }
+    },
+    "/users/{id}/two_factor_channels": {
+      "get": {
+        "summary": "Creates an API endpoint to return a list of existing TOTP factor",
+        "description": "Create an API endpoint to return a list of existing TOTP factor",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "security": [
+          {
+            "oauth": [
+              "internal"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Create an API endpoint to return a list of existing TOTP factor",
+            "schema": {
+              "$ref": "#/definitions/V1_Entities_Users_TwoFactorChannels"
+            }
+          },
+          "404": {
+            "description": "Not found"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        },
+        "tags": [
+          "user"
+        ],
+        "operationId": "getTwoFactorChannels",
+        "x-codeSamples": [
+          {
+            "lang": "javascript",
+            "source": ""
+          },
+          {
+            "lang": "ruby",
+            "source": ""
+          }
+        ]
+      }
+    },
+    "/users/{id}/setup_sms_verification": {
+      "post": {
+        "summary": "Start a setup for a SMS Verification by creating a two factor channel of sms type",
+        "description": "Start a setup for a SMS Verification by creating a two factor channel of sms type",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "formData",
+            "name": "phone_number",
+            "description": "The phone number of the given user",
+            "type": "string",
+            "required": true
+          },
+          {
+            "in": "path",
+            "name": "id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "security": [
+          {
+            "oauth": [
+              "internal"
+            ]
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Start a setup for a SMS Verification by creating a two factor channel of sms type"
+          },
+          "404": {
+            "description": "Not found"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        },
+        "tags": [
+          "user"
+        ],
+        "operationId": "setupSmsVerification",
+        "x-codeSamples": [
+          {
+            "lang": "javascript",
+            "source": ""
+          },
+          {
+            "lang": "ruby",
+            "source": ""
+          }
+        ]
+      }
+    },
     "/users/{id}/update_password": {
       "put": {
         "summary": "Update user password",
@@ -1187,9 +1419,16 @@
           {
             "in": "formData",
             "name": "password",
-            "description": "The user password.",
+            "description": "The new password for the user.",
             "type": "string",
             "required": true
+          },
+          {
+            "in": "formData",
+            "name": "current_password",
+            "description": "The current password for the user.",
+            "type": "string",
+            "required": false
           },
           {
             "in": "path",
@@ -3049,6 +3288,78 @@
         "operationId": "getDealsIdInvestorsPaymentsExpressWireInstructions"
       }
     },
+    "/deals/{id}/investor/{investor_id}/subscription/{subscription_id}/payments/ach/bank_account_setup_intent": {
+      "get": {
+        "summary": "Prepares an investor for payment",
+        "description": "Prepare investor for payment",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "description": "The deal id",
+            "type": "string",
+            "required": true
+          },
+          {
+            "in": "path",
+            "name": "investor_id",
+            "description": "The investor id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          },
+          {
+            "in": "path",
+            "name": "subscription_id",
+            "description": "The subscription id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "security": [
+          {
+            "oauth": [
+              "internal"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Prepare investor for payment",
+            "schema": {
+              "$ref": "#/definitions/V1_Entities_Deals_Investors_Payment_Ach_BankAccountSetupIntent"
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not found"
+          }
+        },
+        "tags": [
+          "deal"
+        ],
+        "operationId": "AchBankAccountSetupIntent",
+        "x-codeSamples": [
+          {
+            "lang": "javascript",
+            "source": ""
+          },
+          {
+            "lang": "ruby",
+            "source": ""
+          }
+        ]
+      }
+    },
     "/deals/{id}/investor/{investor_id}/subscription/{subscription_id}/payments/acss/bank_account_setup_intent": {
       "get": {
         "summary": "Prepares an investor for payment",
@@ -3108,7 +3419,7 @@
         "tags": [
           "deal"
         ],
-        "operationId": "BankAccountSetupIntent",
+        "operationId": "AcssBankAccountSetupIntent",
         "x-codeSamples": [
           {
             "lang": "javascript",
@@ -3571,6 +3882,62 @@
 
         ],
         "operationId": "getDealsPaymentOnboardingQuestionnaireInitialQuestions"
+      }
+    },
+    "/deals/{id}/progress_page/{kind}": {
+      "get": {
+        "summary": "Get deal progress for a specific kind",
+        "description": "Get deal progress",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "description": "The deal id.",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          },
+          {
+            "in": "path",
+            "name": "kind",
+            "description": "Kind of progress.",
+            "type": "string",
+            "enum": [
+              "investment_amount",
+              "number_of_securities",
+              "number_of_investments"
+            ],
+            "required": true
+          }
+        ],
+        "security": [
+          {
+            "oauth": [
+              "internal"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get deal progress",
+            "schema": {
+              "$ref": "#/definitions/V1_Entities_Deals_Progress"
+            }
+          },
+          "404": {
+            "description": "Not found"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "tags": [
+
+        ],
+        "operationId": "getDealsIdProgressPageKind"
       }
     },
     "/deals/{id}/summary": {
@@ -4848,6 +5215,81 @@
           "company"
         ],
         "operationId": "createBulkUploadDetail",
+        "x-codeSamples": [
+          {
+            "lang": "javascript",
+            "source": ""
+          },
+          {
+            "lang": "ruby",
+            "source": ""
+          }
+        ]
+      }
+    },
+    "/companies/{id}/documents/test_upload_email": {
+      "post": {
+        "summary": "Send document upload test email to given user",
+        "description": "Send document upload test email to given user",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "formData",
+            "name": "user_id",
+            "description": "The user that will receive the email.",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "send_confidential_email",
+            "description": "The send_confidential_email flag",
+            "type": "boolean",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "json_email",
+            "description": "The json content email",
+            "type": "string",
+            "required": true
+          },
+          {
+            "in": "path",
+            "name": "id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "security": [
+          {
+            "oauth": [
+              "internal"
+            ]
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Send document upload test email to given user"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Forbidden"
+          }
+        },
+        "tags": [
+          "company"
+        ],
+        "operationId": "testDocumentUploadEmail",
         "x-codeSamples": [
           {
             "lang": "javascript",
@@ -8636,6 +9078,82 @@
       },
       "description": "V1_Entities_PresignedUrlResult model"
     },
+    "V1_Entities_Users_TwoFactorChannel": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32",
+          "description": "The id for the two factor channel."
+        },
+        "userId": {
+          "type": "integer",
+          "format": "int32",
+          "description": "The user id for the two factor channel."
+        },
+        "channel": {
+          "type": "string",
+          "description": "The channel for the two factor channel."
+        },
+        "verified": {
+          "type": "boolean",
+          "description": "The verification status for the two factor channel."
+        },
+        "identity": {
+          "type": "string",
+          "description": "The identity for the two factor channel."
+        },
+        "factorSid": {
+          "type": "string",
+          "description": "The sid for the two factor channel."
+        },
+        "updatedAt": {
+          "type": "string",
+          "description": "The time since the two factor channel was last updated/verified."
+        }
+      },
+      "description": "V1_Entities_Users_TwoFactorChannel model"
+    },
+    "V1_Entities_Users_Factor": {
+      "type": "object",
+      "properties": {
+        "sid": {
+          "type": "string",
+          "description": "The sid for the factor."
+        },
+        "identity": {
+          "type": "string",
+          "description": "The identity of the factor."
+        },
+        "binding": {
+          "$ref": "#/definitions/V1_Entities_Users_Binding",
+          "description": "The binding of the factor."
+        }
+      },
+      "description": "V1_Entities_Users_Factor model"
+    },
+    "V1_Entities_Users_Binding": {
+      "type": "object",
+      "properties": {
+        "secret": {
+          "type": "string",
+          "description": "The secret."
+        },
+        "uri": {
+          "type": "string",
+          "description": "The URI."
+        }
+      }
+    },
+    "V1_Entities_Users_TwoFactorChannels": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "$ref": "#/definitions/V1_Entities_Users_TwoFactorChannel"
+        }
+      },
+      "description": "V1_Entities_Users_TwoFactorChannels model"
+    },
     "V1_Entities_User": {
       "type": "object",
       "properties": {
@@ -9087,6 +9605,20 @@
       },
       "description": "V1_Entities_ExpressWireInstructions model"
     },
+    "V1_Entities_Deals_Investors_Payment_Ach_BankAccountSetupIntent": {
+      "type": "object",
+      "properties": {
+        "clientSecret": {
+          "type": "string",
+          "description": "The client secret for the payment"
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the investor"
+        }
+      },
+      "description": "V1_Entities_Deals_Investors_Payment_Ach_BankAccountSetupIntent model"
+    },
     "V1_Entities_Deals_Investors_Payment_Acss_BankAccountSetupIntent": {
       "type": "object",
       "properties": {
@@ -9152,6 +9684,34 @@
         }
       },
       "description": "V1_Entities_Payments_SelfServeOnboarding_DigitalPaymentsConnection_Data model"
+    },
+    "V1_Entities_Deals_Progress": {
+      "type": "object",
+      "properties": {
+        "investor_funnel": {
+          "$ref": "#/definitions/V1_Entities_Deals_ProgressColumn",
+          "description": "The investor funnel."
+        },
+        "incoming_payments": {
+          "$ref": "#/definitions/V1_Entities_Deals_ProgressColumn",
+          "description": "The incoming payments."
+        }
+      },
+      "description": "V1_Entities_Deals_Progress model"
+    },
+    "V1_Entities_Deals_ProgressColumn": {
+      "type": "object",
+      "properties": {
+        "label": {
+          "type": "string",
+          "description": "The label of the column."
+        },
+        "value": {
+          "type": "integer",
+          "format": "int32",
+          "description": "The value for the column."
+        }
+      }
     },
     "V1_Entities_DealSetup": {
       "type": "object",

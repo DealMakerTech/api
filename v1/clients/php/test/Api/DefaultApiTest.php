@@ -120,6 +120,18 @@ class DefaultApiTest extends TestCase
     }
 
     /**
+     * Test case for getDealsIdProgressPageKind
+     *
+     * Get deal progress for a specific kind.
+     *
+     */
+    public function testGetDealsIdProgressPageKind()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for getDealsIdSummary
      *
      * Get Deal Overview.

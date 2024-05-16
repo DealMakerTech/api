@@ -16,13 +16,13 @@ import ApiClient from '../ApiClient';
 /**
  * The UpdateUserPasswordRequest model module.
  * @module model/UpdateUserPasswordRequest
- * @version 0.102.1
+ * @version 0.103.5
  */
 class UpdateUserPasswordRequest {
     /**
      * Constructs a new <code>UpdateUserPasswordRequest</code>.
      * @alias module:model/UpdateUserPasswordRequest
-     * @param password {String} The user password.
+     * @param password {String} The new password for the user.
      */
     constructor(password) { 
         
@@ -52,6 +52,9 @@ class UpdateUserPasswordRequest {
             if (data.hasOwnProperty('password')) {
                 obj['password'] = ApiClient.convertToType(data['password'], 'String');
             }
+            if (data.hasOwnProperty('current_password')) {
+                obj['current_password'] = ApiClient.convertToType(data['current_password'], 'String');
+            }
         }
         return obj;
     }
@@ -72,6 +75,10 @@ class UpdateUserPasswordRequest {
         if (data['password'] && !(typeof data['password'] === 'string' || data['password'] instanceof String)) {
             throw new Error("Expected the field `password` to be a primitive type in the JSON string but got " + data['password']);
         }
+        // ensure the json data is a string
+        if (data['current_password'] && !(typeof data['current_password'] === 'string' || data['current_password'] instanceof String)) {
+            throw new Error("Expected the field `current_password` to be a primitive type in the JSON string but got " + data['current_password']);
+        }
 
         return true;
     }
@@ -82,10 +89,16 @@ class UpdateUserPasswordRequest {
 UpdateUserPasswordRequest.RequiredProperties = ["password"];
 
 /**
- * The user password.
+ * The new password for the user.
  * @member {String} password
  */
 UpdateUserPasswordRequest.prototype['password'] = undefined;
+
+/**
+ * The current password for the user.
+ * @member {String} current_password
+ */
+UpdateUserPasswordRequest.prototype['current_password'] = undefined;
 
 
 

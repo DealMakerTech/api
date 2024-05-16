@@ -32,6 +32,30 @@ describe 'UserApi' do
     end
   end
 
+  # unit tests for create_factor
+  # Creates an API endpoint for creating a new TOTP factor
+  # Create an API endpoint for creating a new TOTP factor
+  # @param id 
+  # @param [Hash] opts the optional parameters
+  # @return [V1EntitiesUsersFactor]
+  describe 'create_factor test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for get_two_factor_channels
+  # Creates an API endpoint to return a list of existing TOTP factor
+  # Create an API endpoint to return a list of existing TOTP factor
+  # @param id 
+  # @param [Hash] opts the optional parameters
+  # @return [V1EntitiesUsersTwoFactorChannels]
+  describe 'get_two_factor_channels test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for get_user
   # Get user by User ID
   # Get a single user using the User ID
@@ -39,6 +63,19 @@ describe 'UserApi' do
   # @param [Hash] opts the optional parameters
   # @return [V1EntitiesUser]
   describe 'get_user test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for setup_sms_verification
+  # Start a setup for a SMS Verification by creating a two factor channel of sms type
+  # Start a setup for a SMS Verification by creating a two factor channel of sms type
+  # @param id 
+  # @param setup_sms_verification_request 
+  # @param [Hash] opts the optional parameters
+  # @return [nil]
+  describe 'setup_sms_verification test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end
@@ -52,6 +89,19 @@ describe 'UserApi' do
   # @param [Hash] opts the optional parameters
   # @return [V1EntitiesUser]
   describe 'update_user_password test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for verify_factor
+  # Creates an API endpoint to verify an existing TOTP factor
+  # Create an API endpoint to verify an existing TOTP factor
+  # @param id 
+  # @param verify_factor_request 
+  # @param [Hash] opts the optional parameters
+  # @return [V1EntitiesUsersTwoFactorChannel]
+  describe 'verify_factor test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end

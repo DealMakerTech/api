@@ -51,6 +51,8 @@ import PutWebhooksIdRequest from './model/PutWebhooksIdRequest';
 import RequestNewDocumentRequest from './model/RequestNewDocumentRequest';
 import RunBackgroundSearchRequest from './model/RunBackgroundSearchRequest';
 import SendPortalInviteRequest from './model/SendPortalInviteRequest';
+import SetupSmsVerificationRequest from './model/SetupSmsVerificationRequest';
+import TestDocumentUploadEmailRequest from './model/TestDocumentUploadEmailRequest';
 import UpdateUserPasswordRequest from './model/UpdateUserPasswordRequest';
 import V1EntitiesAddress from './model/V1EntitiesAddress';
 import V1EntitiesAddresses from './model/V1EntitiesAddresses';
@@ -76,8 +78,11 @@ import V1EntitiesDealSetupUser from './model/V1EntitiesDealSetupUser';
 import V1EntitiesDeals from './model/V1EntitiesDeals';
 import V1EntitiesDealsIncentivePlan from './model/V1EntitiesDealsIncentivePlan';
 import V1EntitiesDealsIncentivePlansIncentiveTier from './model/V1EntitiesDealsIncentivePlansIncentiveTier';
+import V1EntitiesDealsInvestorsPaymentAchBankAccountSetupIntent from './model/V1EntitiesDealsInvestorsPaymentAchBankAccountSetupIntent';
 import V1EntitiesDealsInvestorsPaymentAcssBankAccountSetupIntent from './model/V1EntitiesDealsInvestorsPaymentAcssBankAccountSetupIntent';
 import V1EntitiesDealsPriceDetails from './model/V1EntitiesDealsPriceDetails';
+import V1EntitiesDealsProgress from './model/V1EntitiesDealsProgress';
+import V1EntitiesDealsProgressColumn from './model/V1EntitiesDealsProgressColumn';
 import V1EntitiesDividend from './model/V1EntitiesDividend';
 import V1EntitiesDividends from './model/V1EntitiesDividends';
 import V1EntitiesEmailEvent from './model/V1EntitiesEmailEvent';
@@ -126,11 +131,16 @@ import V1EntitiesShareholdersTags from './model/V1EntitiesShareholdersTags';
 import V1EntitiesState from './model/V1EntitiesState';
 import V1EntitiesSubscriptionAgreement from './model/V1EntitiesSubscriptionAgreement';
 import V1EntitiesUser from './model/V1EntitiesUser';
+import V1EntitiesUsersBinding from './model/V1EntitiesUsersBinding';
+import V1EntitiesUsersFactor from './model/V1EntitiesUsersFactor';
+import V1EntitiesUsersTwoFactorChannel from './model/V1EntitiesUsersTwoFactorChannel';
+import V1EntitiesUsersTwoFactorChannels from './model/V1EntitiesUsersTwoFactorChannels';
 import V1EntitiesWebhooksDeal from './model/V1EntitiesWebhooksDeal';
 import V1EntitiesWebhooksSecurityToken from './model/V1EntitiesWebhooksSecurityToken';
 import V1EntitiesWebhooksSubscription from './model/V1EntitiesWebhooksSubscription';
 import V1EntitiesWebhooksSubscriptionDeal from './model/V1EntitiesWebhooksSubscriptionDeal';
 import V1EntitiesWebhooksSubscriptionDeals from './model/V1EntitiesWebhooksSubscriptionDeals';
+import VerifyFactorRequest from './model/VerifyFactorRequest';
 import CompanyApi from './api/CompanyApi';
 import CountryApi from './api/CountryApi';
 import CustomEmailsApi from './api/CustomEmailsApi';
@@ -175,7 +185,7 @@ import UsersApi from './api/UsersApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.102.1
+* @version 0.103.5
 */
 export {
     /**
@@ -413,6 +423,18 @@ export {
     SendPortalInviteRequest,
 
     /**
+     * The SetupSmsVerificationRequest model constructor.
+     * @property {module:model/SetupSmsVerificationRequest}
+     */
+    SetupSmsVerificationRequest,
+
+    /**
+     * The TestDocumentUploadEmailRequest model constructor.
+     * @property {module:model/TestDocumentUploadEmailRequest}
+     */
+    TestDocumentUploadEmailRequest,
+
+    /**
      * The UpdateUserPasswordRequest model constructor.
      * @property {module:model/UpdateUserPasswordRequest}
      */
@@ -563,6 +585,12 @@ export {
     V1EntitiesDealsIncentivePlansIncentiveTier,
 
     /**
+     * The V1EntitiesDealsInvestorsPaymentAchBankAccountSetupIntent model constructor.
+     * @property {module:model/V1EntitiesDealsInvestorsPaymentAchBankAccountSetupIntent}
+     */
+    V1EntitiesDealsInvestorsPaymentAchBankAccountSetupIntent,
+
+    /**
      * The V1EntitiesDealsInvestorsPaymentAcssBankAccountSetupIntent model constructor.
      * @property {module:model/V1EntitiesDealsInvestorsPaymentAcssBankAccountSetupIntent}
      */
@@ -573,6 +601,18 @@ export {
      * @property {module:model/V1EntitiesDealsPriceDetails}
      */
     V1EntitiesDealsPriceDetails,
+
+    /**
+     * The V1EntitiesDealsProgress model constructor.
+     * @property {module:model/V1EntitiesDealsProgress}
+     */
+    V1EntitiesDealsProgress,
+
+    /**
+     * The V1EntitiesDealsProgressColumn model constructor.
+     * @property {module:model/V1EntitiesDealsProgressColumn}
+     */
+    V1EntitiesDealsProgressColumn,
 
     /**
      * The V1EntitiesDividend model constructor.
@@ -863,6 +903,30 @@ export {
     V1EntitiesUser,
 
     /**
+     * The V1EntitiesUsersBinding model constructor.
+     * @property {module:model/V1EntitiesUsersBinding}
+     */
+    V1EntitiesUsersBinding,
+
+    /**
+     * The V1EntitiesUsersFactor model constructor.
+     * @property {module:model/V1EntitiesUsersFactor}
+     */
+    V1EntitiesUsersFactor,
+
+    /**
+     * The V1EntitiesUsersTwoFactorChannel model constructor.
+     * @property {module:model/V1EntitiesUsersTwoFactorChannel}
+     */
+    V1EntitiesUsersTwoFactorChannel,
+
+    /**
+     * The V1EntitiesUsersTwoFactorChannels model constructor.
+     * @property {module:model/V1EntitiesUsersTwoFactorChannels}
+     */
+    V1EntitiesUsersTwoFactorChannels,
+
+    /**
      * The V1EntitiesWebhooksDeal model constructor.
      * @property {module:model/V1EntitiesWebhooksDeal}
      */
@@ -891,6 +955,12 @@ export {
      * @property {module:model/V1EntitiesWebhooksSubscriptionDeals}
      */
     V1EntitiesWebhooksSubscriptionDeals,
+
+    /**
+     * The VerifyFactorRequest model constructor.
+     * @property {module:model/VerifyFactorRequest}
+     */
+    VerifyFactorRequest,
 
     /**
     * The CompanyApi service constructor.

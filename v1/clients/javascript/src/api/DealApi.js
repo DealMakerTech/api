@@ -17,13 +17,14 @@ import CreateDealSetupRequest from '../model/CreateDealSetupRequest';
 import V1EntitiesDeal from '../model/V1EntitiesDeal';
 import V1EntitiesDealSetup from '../model/V1EntitiesDealSetup';
 import V1EntitiesDeals from '../model/V1EntitiesDeals';
+import V1EntitiesDealsInvestorsPaymentAchBankAccountSetupIntent from '../model/V1EntitiesDealsInvestorsPaymentAchBankAccountSetupIntent';
 import V1EntitiesDealsInvestorsPaymentAcssBankAccountSetupIntent from '../model/V1EntitiesDealsInvestorsPaymentAcssBankAccountSetupIntent';
 import V1EntitiesDealsPriceDetails from '../model/V1EntitiesDealsPriceDetails';
 
 /**
 * Deal service.
 * @module api/DealApi
-* @version 0.102.1
+* @version 0.103.5
 */
 export default class DealApi {
 
@@ -40,8 +41,63 @@ export default class DealApi {
 
 
     /**
-     * Callback function to receive the result of the bankAccountSetupIntent operation.
-     * @callback module:api/DealApi~bankAccountSetupIntentCallback
+     * Callback function to receive the result of the achBankAccountSetupIntent operation.
+     * @callback module:api/DealApi~achBankAccountSetupIntentCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/V1EntitiesDealsInvestorsPaymentAchBankAccountSetupIntent} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Prepares an investor for payment
+     * Prepare investor for payment
+     * @param {String} id The deal id
+     * @param {Number} investorId The investor id
+     * @param {Number} subscriptionId The subscription id
+     * @param {module:api/DealApi~achBankAccountSetupIntentCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/V1EntitiesDealsInvestorsPaymentAchBankAccountSetupIntent}
+     */
+    achBankAccountSetupIntent(id, investorId, subscriptionId, callback) {
+      let postBody = null;
+      // verify the required parameter 'id' is set
+      if (id === undefined || id === null) {
+        throw new Error("Missing the required parameter 'id' when calling achBankAccountSetupIntent");
+      }
+      // verify the required parameter 'investorId' is set
+      if (investorId === undefined || investorId === null) {
+        throw new Error("Missing the required parameter 'investorId' when calling achBankAccountSetupIntent");
+      }
+      // verify the required parameter 'subscriptionId' is set
+      if (subscriptionId === undefined || subscriptionId === null) {
+        throw new Error("Missing the required parameter 'subscriptionId' when calling achBankAccountSetupIntent");
+      }
+
+      let pathParams = {
+        'id': id,
+        'investor_id': investorId,
+        'subscription_id': subscriptionId
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = V1EntitiesDealsInvestorsPaymentAchBankAccountSetupIntent;
+      return this.apiClient.callApi(
+        '/deals/{id}/investor/{investor_id}/subscription/{subscription_id}/payments/ach/bank_account_setup_intent', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the acssBankAccountSetupIntent operation.
+     * @callback module:api/DealApi~acssBankAccountSetupIntentCallback
      * @param {String} error Error message, if any.
      * @param {module:model/V1EntitiesDealsInvestorsPaymentAcssBankAccountSetupIntent} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
@@ -53,22 +109,22 @@ export default class DealApi {
      * @param {String} id The deal id
      * @param {Number} investorId The investor id
      * @param {Number} subscriptionId The subscription id
-     * @param {module:api/DealApi~bankAccountSetupIntentCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/DealApi~acssBankAccountSetupIntentCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/V1EntitiesDealsInvestorsPaymentAcssBankAccountSetupIntent}
      */
-    bankAccountSetupIntent(id, investorId, subscriptionId, callback) {
+    acssBankAccountSetupIntent(id, investorId, subscriptionId, callback) {
       let postBody = null;
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
-        throw new Error("Missing the required parameter 'id' when calling bankAccountSetupIntent");
+        throw new Error("Missing the required parameter 'id' when calling acssBankAccountSetupIntent");
       }
       // verify the required parameter 'investorId' is set
       if (investorId === undefined || investorId === null) {
-        throw new Error("Missing the required parameter 'investorId' when calling bankAccountSetupIntent");
+        throw new Error("Missing the required parameter 'investorId' when calling acssBankAccountSetupIntent");
       }
       // verify the required parameter 'subscriptionId' is set
       if (subscriptionId === undefined || subscriptionId === null) {
-        throw new Error("Missing the required parameter 'subscriptionId' when calling bankAccountSetupIntent");
+        throw new Error("Missing the required parameter 'subscriptionId' when calling acssBankAccountSetupIntent");
       }
 
       let pathParams = {

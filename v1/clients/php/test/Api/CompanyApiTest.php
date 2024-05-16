@@ -334,4 +334,16 @@ class CompanyApiTest extends TestCase
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test case for testDocumentUploadEmail
+     *
+     * Send document upload test email to given user.
+     *
+     */
+    public function testTestDocumentUploadEmail()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
 }

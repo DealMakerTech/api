@@ -8,6 +8,7 @@ All URIs are relative to http://api.dealmaker.tech, except if the operation defi
 | [**getDealsDealIdPaymentOnboardingQuestionnairePayoutAccountDetailsData()**](DefaultApi.md#getDealsDealIdPaymentOnboardingQuestionnairePayoutAccountDetailsData) | **GET** /deals/{deal_id}/payment_onboarding/questionnaire/payout_account_details/data | Get payout account data |
 | [**getDealsIdInvestorsInvestorIdPaymentsExpressWireInstructions()**](DefaultApi.md#getDealsIdInvestorsInvestorIdPaymentsExpressWireInstructions) | **GET** /deals/{id}/investors/{investor_id}/payments/express_wire/instructions | Displays the express wire instructions for an investor on a deal |
 | [**getDealsIdInvestorsPaymentsExpressWireInstructions()**](DefaultApi.md#getDealsIdInvestorsPaymentsExpressWireInstructions) | **GET** /deals/{id}/investors/payments/express_wire/instructions | Displays the express wire instructions for all the investors on a deal |
+| [**getDealsIdProgressPageKind()**](DefaultApi.md#getDealsIdProgressPageKind) | **GET** /deals/{id}/progress_page/{kind} | Get deal progress for a specific kind |
 | [**getDealsIdSummary()**](DefaultApi.md#getDealsIdSummary) | **GET** /deals/{id}/summary | Get Deal Overview |
 | [**getDealsPaymentOnboardingQuestionnaireInitialQuestions()**](DefaultApi.md#getDealsPaymentOnboardingQuestionnaireInitialQuestions) | **GET** /deals/payment_onboarding/questionnaire/initial_questions | Get initial questions |
 | [**getWebhooks()**](DefaultApi.md#getWebhooks) | **GET** /webhooks | Returns a list of webhook subscription which is associated to the user |
@@ -237,6 +238,65 @@ try {
 ### Return type
 
 [**\DealMaker\Model\V1EntitiesExpressWireInstructions**](../Model/V1EntitiesExpressWireInstructions.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getDealsIdProgressPageKind()`
+
+```php
+getDealsIdProgressPageKind($id, $kind): \DealMaker\Model\V1EntitiesDealsProgress
+```
+
+Get deal progress for a specific kind
+
+Get deal progress
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new DealMaker\Api\DefaultApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = 56; // int | The deal id.
+$kind = 'kind_example'; // string | Kind of progress.
+
+try {
+    $result = $apiInstance->getDealsIdProgressPageKind($id, $kind);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling DefaultApi->getDealsIdProgressPageKind: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **int**| The deal id. | |
+| **kind** | **string**| Kind of progress. | |
+
+### Return type
+
+[**\DealMaker\Model\V1EntitiesDealsProgress**](../Model/V1EntitiesDealsProgress.md)
 
 ### Authorization
 

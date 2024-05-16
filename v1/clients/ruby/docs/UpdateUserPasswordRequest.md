@@ -4,7 +4,8 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **password** | **String** | The user password. |  |
+| **password** | **String** | The new password for the user. |  |
+| **current_password** | **String** | The current password for the user. | [optional] |
 
 ## Example
 
@@ -12,7 +13,8 @@
 require 'DealMakerAPI'
 
 instance = DealMakerAPI::UpdateUserPasswordRequest.new(
-  password: null
+  password: null,
+  current_password: null
 )
 ```
 

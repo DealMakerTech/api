@@ -20,6 +20,7 @@ import CreateEmailTemplateRequest from '../model/CreateEmailTemplateRequest';
 import CreateMembersBulkUploadRequest from '../model/CreateMembersBulkUploadRequest';
 import CreateShareholderActionRequest from '../model/CreateShareholderActionRequest';
 import SendPortalInviteRequest from '../model/SendPortalInviteRequest';
+import TestDocumentUploadEmailRequest from '../model/TestDocumentUploadEmailRequest';
 import V1EntitiesBulkUpload from '../model/V1EntitiesBulkUpload';
 import V1EntitiesBulkUploadDetail from '../model/V1EntitiesBulkUploadDetail';
 import V1EntitiesBulkUploadDetails from '../model/V1EntitiesBulkUploadDetails';
@@ -36,7 +37,7 @@ import V1EntitiesShareholderLedger from '../model/V1EntitiesShareholderLedger';
 /**
 * Company service.
 * @module api/CompanyApi
-* @version 0.102.1
+* @version 0.103.5
 */
 export default class CompanyApi {
 
@@ -1100,6 +1101,53 @@ export default class CompanyApi {
       let returnType = null;
       return this.apiClient.callApi(
         '/companies/{id}/shareholders/{shareholder_id}/send_portal_invite', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the testDocumentUploadEmail operation.
+     * @callback module:api/CompanyApi~testDocumentUploadEmailCallback
+     * @param {String} error Error message, if any.
+     * @param data This operation does not return a value.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Send document upload test email to given user
+     * Send document upload test email to given user
+     * @param {Number} id 
+     * @param {module:model/TestDocumentUploadEmailRequest} testDocumentUploadEmailRequest 
+     * @param {module:api/CompanyApi~testDocumentUploadEmailCallback} callback The callback function, accepting three arguments: error, data, response
+     */
+    testDocumentUploadEmail(id, testDocumentUploadEmailRequest, callback) {
+      let postBody = testDocumentUploadEmailRequest;
+      // verify the required parameter 'id' is set
+      if (id === undefined || id === null) {
+        throw new Error("Missing the required parameter 'id' when calling testDocumentUploadEmail");
+      }
+      // verify the required parameter 'testDocumentUploadEmailRequest' is set
+      if (testDocumentUploadEmailRequest === undefined || testDocumentUploadEmailRequest === null) {
+        throw new Error("Missing the required parameter 'testDocumentUploadEmailRequest' when calling testDocumentUploadEmail");
+      }
+
+      let pathParams = {
+        'id': id
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = ['application/json'];
+      let accepts = [];
+      let returnType = null;
+      return this.apiClient.callApi(
+        '/companies/{id}/documents/test_upload_email', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

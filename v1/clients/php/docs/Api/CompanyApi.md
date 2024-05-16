@@ -26,6 +26,7 @@ All URIs are relative to http://api.dealmaker.tech, except if the operation defi
 | [**getShareholderLedger()**](CompanyApi.md#getShareholderLedger) | **GET** /companies/{id}/shareholder_ledger | Get shareholder ledger by company |
 | [**getUserAccessibleCompanies()**](CompanyApi.md#getUserAccessibleCompanies) | **GET** /users/accessible_companies | Get list of all Companies accessible by the user |
 | [**sendPortalInvite()**](CompanyApi.md#sendPortalInvite) | **POST** /companies/{id}/shareholders/{shareholder_id}/send_portal_invite | Send portal invite to shareholder |
+| [**testDocumentUploadEmail()**](CompanyApi.md#testDocumentUploadEmail) | **POST** /companies/{id}/documents/test_upload_email | Send document upload test email to given user |
 
 
 ## `createBulkUpload()`
@@ -1318,6 +1319,64 @@ try {
 | **id** | **int**|  | |
 | **shareholder_id** | **int**|  | |
 | **send_portal_invite_request** | [**\DealMaker\Model\SendPortalInviteRequest**](../Model/SendPortalInviteRequest.md)|  | [optional] |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `testDocumentUploadEmail()`
+
+```php
+testDocumentUploadEmail($id, $test_document_upload_email_request)
+```
+
+Send document upload test email to given user
+
+Send document upload test email to given user
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new DealMaker\Api\CompanyApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = 56; // int
+$test_document_upload_email_request = new \DealMaker\Model\TestDocumentUploadEmailRequest(); // \DealMaker\Model\TestDocumentUploadEmailRequest
+
+try {
+    $apiInstance->testDocumentUploadEmail($id, $test_document_upload_email_request);
+} catch (Exception $e) {
+    echo 'Exception when calling CompanyApi->testDocumentUploadEmail: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **int**|  | |
+| **test_document_upload_email_request** | [**\DealMaker\Model\TestDocumentUploadEmailRequest**](../Model/TestDocumentUploadEmailRequest.md)|  | |
 
 ### Return type
 

@@ -19,6 +19,132 @@ module DealMakerAPI
     def initialize(api_client = ApiClient.default)
       @api_client = api_client
     end
+    # Creates an API endpoint for creating a new TOTP factor
+    # Create an API endpoint for creating a new TOTP factor
+    # @param id [Integer] 
+    # @param [Hash] opts the optional parameters
+    # @return [V1EntitiesUsersFactor]
+    def create_factor(id, opts = {})
+      data, _status_code, _headers = create_factor_with_http_info(id, opts)
+      data
+    end
+
+    # Creates an API endpoint for creating a new TOTP factor
+    # Create an API endpoint for creating a new TOTP factor
+    # @param id [Integer] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(V1EntitiesUsersFactor, Integer, Hash)>] V1EntitiesUsersFactor data, response status code and response headers
+    def create_factor_with_http_info(id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: UserApi.create_factor ...'
+      end
+      # verify the required parameter 'id' is set
+      if @api_client.config.client_side_validation && id.nil?
+        fail ArgumentError, "Missing the required parameter 'id' when calling UserApi.create_factor"
+      end
+      # resource path
+      local_var_path = '/users/{id}/create_factor'.sub('{' + 'id' + '}', CGI.escape(id.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'V1EntitiesUsersFactor'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"UserApi.create_factor",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: UserApi#create_factor\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Creates an API endpoint to return a list of existing TOTP factor
+    # Create an API endpoint to return a list of existing TOTP factor
+    # @param id [Integer] 
+    # @param [Hash] opts the optional parameters
+    # @return [V1EntitiesUsersTwoFactorChannels]
+    def get_two_factor_channels(id, opts = {})
+      data, _status_code, _headers = get_two_factor_channels_with_http_info(id, opts)
+      data
+    end
+
+    # Creates an API endpoint to return a list of existing TOTP factor
+    # Create an API endpoint to return a list of existing TOTP factor
+    # @param id [Integer] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(V1EntitiesUsersTwoFactorChannels, Integer, Hash)>] V1EntitiesUsersTwoFactorChannels data, response status code and response headers
+    def get_two_factor_channels_with_http_info(id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: UserApi.get_two_factor_channels ...'
+      end
+      # verify the required parameter 'id' is set
+      if @api_client.config.client_side_validation && id.nil?
+        fail ArgumentError, "Missing the required parameter 'id' when calling UserApi.get_two_factor_channels"
+      end
+      # resource path
+      local_var_path = '/users/{id}/two_factor_channels'.sub('{' + 'id' + '}', CGI.escape(id.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'V1EntitiesUsersTwoFactorChannels'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"UserApi.get_two_factor_channels",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: UserApi#get_two_factor_channels\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get user by User ID
     # Get a single user using the User ID
     # @param id [Integer] 
@@ -78,6 +204,78 @@ module DealMakerAPI
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: UserApi#get_user\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Start a setup for a SMS Verification by creating a two factor channel of sms type
+    # Start a setup for a SMS Verification by creating a two factor channel of sms type
+    # @param id [Integer] 
+    # @param setup_sms_verification_request [SetupSmsVerificationRequest] 
+    # @param [Hash] opts the optional parameters
+    # @return [nil]
+    def setup_sms_verification(id, setup_sms_verification_request, opts = {})
+      setup_sms_verification_with_http_info(id, setup_sms_verification_request, opts)
+      nil
+    end
+
+    # Start a setup for a SMS Verification by creating a two factor channel of sms type
+    # Start a setup for a SMS Verification by creating a two factor channel of sms type
+    # @param id [Integer] 
+    # @param setup_sms_verification_request [SetupSmsVerificationRequest] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def setup_sms_verification_with_http_info(id, setup_sms_verification_request, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: UserApi.setup_sms_verification ...'
+      end
+      # verify the required parameter 'id' is set
+      if @api_client.config.client_side_validation && id.nil?
+        fail ArgumentError, "Missing the required parameter 'id' when calling UserApi.setup_sms_verification"
+      end
+      # verify the required parameter 'setup_sms_verification_request' is set
+      if @api_client.config.client_side_validation && setup_sms_verification_request.nil?
+        fail ArgumentError, "Missing the required parameter 'setup_sms_verification_request' when calling UserApi.setup_sms_verification"
+      end
+      # resource path
+      local_var_path = '/users/{id}/setup_sms_verification'.sub('{' + 'id' + '}', CGI.escape(id.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(setup_sms_verification_request)
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"UserApi.setup_sms_verification",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: UserApi#setup_sms_verification\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -152,6 +350,80 @@ module DealMakerAPI
       data, status_code, headers = @api_client.call_api(:PUT, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: UserApi#update_user_password\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Creates an API endpoint to verify an existing TOTP factor
+    # Create an API endpoint to verify an existing TOTP factor
+    # @param id [Integer] 
+    # @param verify_factor_request [VerifyFactorRequest] 
+    # @param [Hash] opts the optional parameters
+    # @return [V1EntitiesUsersTwoFactorChannel]
+    def verify_factor(id, verify_factor_request, opts = {})
+      data, _status_code, _headers = verify_factor_with_http_info(id, verify_factor_request, opts)
+      data
+    end
+
+    # Creates an API endpoint to verify an existing TOTP factor
+    # Create an API endpoint to verify an existing TOTP factor
+    # @param id [Integer] 
+    # @param verify_factor_request [VerifyFactorRequest] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(V1EntitiesUsersTwoFactorChannel, Integer, Hash)>] V1EntitiesUsersTwoFactorChannel data, response status code and response headers
+    def verify_factor_with_http_info(id, verify_factor_request, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: UserApi.verify_factor ...'
+      end
+      # verify the required parameter 'id' is set
+      if @api_client.config.client_side_validation && id.nil?
+        fail ArgumentError, "Missing the required parameter 'id' when calling UserApi.verify_factor"
+      end
+      # verify the required parameter 'verify_factor_request' is set
+      if @api_client.config.client_side_validation && verify_factor_request.nil?
+        fail ArgumentError, "Missing the required parameter 'verify_factor_request' when calling UserApi.verify_factor"
+      end
+      # resource path
+      local_var_path = '/users/{id}/verify_factor'.sub('{' + 'id' + '}', CGI.escape(id.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(verify_factor_request)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'V1EntitiesUsersTwoFactorChannel'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"UserApi.verify_factor",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: UserApi#verify_factor\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

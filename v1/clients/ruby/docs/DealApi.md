@@ -4,16 +4,17 @@ All URIs are relative to *http://api.dealmaker.tech*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**bank_account_setup_intent**](DealApi.md#bank_account_setup_intent) | **GET** /deals/{id}/investor/{investor_id}/subscription/{subscription_id}/payments/acss/bank_account_setup_intent | Prepares an investor for payment |
+| [**ach_bank_account_setup_intent**](DealApi.md#ach_bank_account_setup_intent) | **GET** /deals/{id}/investor/{investor_id}/subscription/{subscription_id}/payments/ach/bank_account_setup_intent | Prepares an investor for payment |
+| [**acss_bank_account_setup_intent**](DealApi.md#acss_bank_account_setup_intent) | **GET** /deals/{id}/investor/{investor_id}/subscription/{subscription_id}/payments/acss/bank_account_setup_intent | Prepares an investor for payment |
 | [**create_deal_setup**](DealApi.md#create_deal_setup) | **POST** /deal_setups | Create deal setup |
 | [**get_deal**](DealApi.md#get_deal) | **GET** /deals/{id} | Get deal by Deal ID |
 | [**get_deal_incentive_plan**](DealApi.md#get_deal_incentive_plan) | **GET** /deals/{id}/incentive_plan | Get incentive plan by deal id |
 | [**list_deals**](DealApi.md#list_deals) | **GET** /deals | List available deals |
 
 
-## bank_account_setup_intent
+## ach_bank_account_setup_intent
 
-> <V1EntitiesDealsInvestorsPaymentAcssBankAccountSetupIntent> bank_account_setup_intent(id, investor_id, subscription_id)
+> <V1EntitiesDealsInvestorsPaymentAchBankAccountSetupIntent> ach_bank_account_setup_intent(id, investor_id, subscription_id)
 
 Prepares an investor for payment
 
@@ -34,28 +35,98 @@ subscription_id = 56 # Integer | The subscription id
 
 begin
   # Prepares an investor for payment
-  result = api_instance.bank_account_setup_intent(id, investor_id, subscription_id)
+  result = api_instance.ach_bank_account_setup_intent(id, investor_id, subscription_id)
   p result
 rescue DealMakerAPI::ApiError => e
-  puts "Error when calling DealApi->bank_account_setup_intent: #{e}"
+  puts "Error when calling DealApi->ach_bank_account_setup_intent: #{e}"
 end
 ```
 
-#### Using the bank_account_setup_intent_with_http_info variant
+#### Using the ach_bank_account_setup_intent_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<V1EntitiesDealsInvestorsPaymentAcssBankAccountSetupIntent>, Integer, Hash)> bank_account_setup_intent_with_http_info(id, investor_id, subscription_id)
+> <Array(<V1EntitiesDealsInvestorsPaymentAchBankAccountSetupIntent>, Integer, Hash)> ach_bank_account_setup_intent_with_http_info(id, investor_id, subscription_id)
 
 ```ruby
 begin
   # Prepares an investor for payment
-  data, status_code, headers = api_instance.bank_account_setup_intent_with_http_info(id, investor_id, subscription_id)
+  data, status_code, headers = api_instance.ach_bank_account_setup_intent_with_http_info(id, investor_id, subscription_id)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <V1EntitiesDealsInvestorsPaymentAchBankAccountSetupIntent>
+rescue DealMakerAPI::ApiError => e
+  puts "Error when calling DealApi->ach_bank_account_setup_intent_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **id** | **String** | The deal id |  |
+| **investor_id** | **Integer** | The investor id |  |
+| **subscription_id** | **Integer** | The subscription id |  |
+
+### Return type
+
+[**V1EntitiesDealsInvestorsPaymentAchBankAccountSetupIntent**](V1EntitiesDealsInvestorsPaymentAchBankAccountSetupIntent.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## acss_bank_account_setup_intent
+
+> <V1EntitiesDealsInvestorsPaymentAcssBankAccountSetupIntent> acss_bank_account_setup_intent(id, investor_id, subscription_id)
+
+Prepares an investor for payment
+
+Prepare investor for payment
+
+### Examples
+
+```ruby
+require 'time'
+require 'DealMakerAPI'
+# setup authorization
+DealMakerAPI.configure do |config|end
+
+api_instance = DealMakerAPI::DealApi.new
+id = 'id_example' # String | The deal id
+investor_id = 56 # Integer | The investor id
+subscription_id = 56 # Integer | The subscription id
+
+begin
+  # Prepares an investor for payment
+  result = api_instance.acss_bank_account_setup_intent(id, investor_id, subscription_id)
+  p result
+rescue DealMakerAPI::ApiError => e
+  puts "Error when calling DealApi->acss_bank_account_setup_intent: #{e}"
+end
+```
+
+#### Using the acss_bank_account_setup_intent_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<V1EntitiesDealsInvestorsPaymentAcssBankAccountSetupIntent>, Integer, Hash)> acss_bank_account_setup_intent_with_http_info(id, investor_id, subscription_id)
+
+```ruby
+begin
+  # Prepares an investor for payment
+  data, status_code, headers = api_instance.acss_bank_account_setup_intent_with_http_info(id, investor_id, subscription_id)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <V1EntitiesDealsInvestorsPaymentAcssBankAccountSetupIntent>
 rescue DealMakerAPI::ApiError => e
-  puts "Error when calling DealApi->bank_account_setup_intent_with_http_info: #{e}"
+  puts "Error when calling DealApi->acss_bank_account_setup_intent_with_http_info: #{e}"
 end
 ```
 

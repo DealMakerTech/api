@@ -26,6 +26,7 @@ All URIs are relative to *http://api.dealmaker.tech*
 | [**get_shareholder_ledger**](CompanyApi.md#get_shareholder_ledger) | **GET** /companies/{id}/shareholder_ledger | Get shareholder ledger by company |
 | [**get_user_accessible_companies**](CompanyApi.md#get_user_accessible_companies) | **GET** /users/accessible_companies | Get list of all Companies accessible by the user |
 | [**send_portal_invite**](CompanyApi.md#send_portal_invite) | **POST** /companies/{id}/shareholders/{shareholder_id}/send_portal_invite | Send portal invite to shareholder |
+| [**test_document_upload_email**](CompanyApi.md#test_document_upload_email) | **POST** /companies/{id}/documents/test_upload_email | Send document upload test email to given user |
 
 
 ## create_bulk_upload
@@ -1531,6 +1532,73 @@ end
 | **id** | **Integer** |  |  |
 | **shareholder_id** | **Integer** |  |  |
 | **send_portal_invite_request** | [**SendPortalInviteRequest**](SendPortalInviteRequest.md) |  | [optional] |
+
+### Return type
+
+nil (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: Not defined
+
+
+## test_document_upload_email
+
+> test_document_upload_email(id, test_document_upload_email_request)
+
+Send document upload test email to given user
+
+Send document upload test email to given user
+
+### Examples
+
+```ruby
+require 'time'
+require 'DealMakerAPI'
+# setup authorization
+DealMakerAPI.configure do |config|end
+
+api_instance = DealMakerAPI::CompanyApi.new
+id = 56 # Integer | 
+test_document_upload_email_request = DealMakerAPI::TestDocumentUploadEmailRequest.new({user_id: 37, send_confidential_email: false, json_email: 'json_email_example'}) # TestDocumentUploadEmailRequest | 
+
+begin
+  # Send document upload test email to given user
+  api_instance.test_document_upload_email(id, test_document_upload_email_request)
+rescue DealMakerAPI::ApiError => e
+  puts "Error when calling CompanyApi->test_document_upload_email: #{e}"
+end
+```
+
+#### Using the test_document_upload_email_with_http_info variant
+
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
+
+> <Array(nil, Integer, Hash)> test_document_upload_email_with_http_info(id, test_document_upload_email_request)
+
+```ruby
+begin
+  # Send document upload test email to given user
+  data, status_code, headers = api_instance.test_document_upload_email_with_http_info(id, test_document_upload_email_request)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => nil
+rescue DealMakerAPI::ApiError => e
+  puts "Error when calling CompanyApi->test_document_upload_email_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **id** | **Integer** |  |  |
+| **test_document_upload_email_request** | [**TestDocumentUploadEmailRequest**](TestDocumentUploadEmailRequest.md) |  |  |
 
 ### Return type
 

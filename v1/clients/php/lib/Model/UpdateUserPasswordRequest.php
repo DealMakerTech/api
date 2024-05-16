@@ -57,7 +57,8 @@ class UpdateUserPasswordRequest implements ModelInterface, ArrayAccess, \JsonSer
       * @var string[]
       */
     protected static $openAPITypes = [
-        'password' => 'string'
+        'password' => 'string',
+        'current_password' => 'string'
     ];
 
     /**
@@ -68,7 +69,8 @@ class UpdateUserPasswordRequest implements ModelInterface, ArrayAccess, \JsonSer
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'password' => null
+        'password' => null,
+        'current_password' => null
     ];
 
     /**
@@ -77,7 +79,8 @@ class UpdateUserPasswordRequest implements ModelInterface, ArrayAccess, \JsonSer
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'password' => false
+        'password' => false,
+        'current_password' => false
     ];
 
     /**
@@ -166,7 +169,8 @@ class UpdateUserPasswordRequest implements ModelInterface, ArrayAccess, \JsonSer
      * @var string[]
      */
     protected static $attributeMap = [
-        'password' => 'password'
+        'password' => 'password',
+        'current_password' => 'current_password'
     ];
 
     /**
@@ -175,7 +179,8 @@ class UpdateUserPasswordRequest implements ModelInterface, ArrayAccess, \JsonSer
      * @var string[]
      */
     protected static $setters = [
-        'password' => 'setPassword'
+        'password' => 'setPassword',
+        'current_password' => 'setCurrentPassword'
     ];
 
     /**
@@ -184,7 +189,8 @@ class UpdateUserPasswordRequest implements ModelInterface, ArrayAccess, \JsonSer
      * @var string[]
      */
     protected static $getters = [
-        'password' => 'getPassword'
+        'password' => 'getPassword',
+        'current_password' => 'getCurrentPassword'
     ];
 
     /**
@@ -245,6 +251,7 @@ class UpdateUserPasswordRequest implements ModelInterface, ArrayAccess, \JsonSer
     public function __construct(array $data = null)
     {
         $this->setIfExists('password', $data ?? [], null);
+        $this->setIfExists('current_password', $data ?? [], null);
     }
 
     /**
@@ -305,7 +312,7 @@ class UpdateUserPasswordRequest implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets password
      *
-     * @param string $password The user password.
+     * @param string $password The new password for the user.
      *
      * @return self
      */
@@ -315,6 +322,33 @@ class UpdateUserPasswordRequest implements ModelInterface, ArrayAccess, \JsonSer
             throw new \InvalidArgumentException('non-nullable password cannot be null');
         }
         $this->container['password'] = $password;
+
+        return $this;
+    }
+
+    /**
+     * Gets current_password
+     *
+     * @return string|null
+     */
+    public function getCurrentPassword()
+    {
+        return $this->container['current_password'];
+    }
+
+    /**
+     * Sets current_password
+     *
+     * @param string|null $current_password The current password for the user.
+     *
+     * @return self
+     */
+    public function setCurrentPassword($current_password)
+    {
+        if (is_null($current_password)) {
+            throw new \InvalidArgumentException('non-nullable current_password cannot be null');
+        }
+        $this->container['current_password'] = $current_password;
 
         return $this;
     }

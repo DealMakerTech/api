@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**getDealsDealIdPaymentOnboardingQuestionnairePayoutAccountDetailsData**](DefaultApi.md#getDealsDealIdPaymentOnboardingQuestionnairePayoutAccountDetailsData) | **GET** /deals/{deal_id}/payment_onboarding/questionnaire/payout_account_details/data | Get payout account data
 [**getDealsIdInvestorsInvestorIdPaymentsExpressWireInstructions**](DefaultApi.md#getDealsIdInvestorsInvestorIdPaymentsExpressWireInstructions) | **GET** /deals/{id}/investors/{investor_id}/payments/express_wire/instructions | Displays the express wire instructions for an investor on a deal
 [**getDealsIdInvestorsPaymentsExpressWireInstructions**](DefaultApi.md#getDealsIdInvestorsPaymentsExpressWireInstructions) | **GET** /deals/{id}/investors/payments/express_wire/instructions | Displays the express wire instructions for all the investors on a deal
+[**getDealsIdProgressPageKind**](DefaultApi.md#getDealsIdProgressPageKind) | **GET** /deals/{id}/progress_page/{kind} | Get deal progress for a specific kind
 [**getDealsIdSummary**](DefaultApi.md#getDealsIdSummary) | **GET** /deals/{id}/summary | Get Deal Overview
 [**getDealsPaymentOnboardingQuestionnaireInitialQuestions**](DefaultApi.md#getDealsPaymentOnboardingQuestionnaireInitialQuestions) | **GET** /deals/payment_onboarding/questionnaire/initial_questions | Get initial questions
 [**getWebhooks**](DefaultApi.md#getWebhooks) | **GET** /webhooks | Returns a list of webhook subscription which is associated to the user
@@ -197,6 +198,54 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**V1EntitiesExpressWireInstructions**](V1EntitiesExpressWireInstructions.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## getDealsIdProgressPageKind
+
+> V1EntitiesDealsProgress getDealsIdProgressPageKind(id, kind)
+
+Get deal progress for a specific kind
+
+Get deal progress
+
+### Example
+
+```javascript
+import Api from 'api';
+let defaultClient = Api.ApiClient.instance;
+
+let apiInstance = new Api.DefaultApi();
+let id = 56; // Number | The deal id.
+let kind = "kind_example"; // String | Kind of progress.
+apiInstance.getDealsIdProgressPageKind(id, kind, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Number**| The deal id. | 
+ **kind** | **String**| Kind of progress. | 
+
+### Return type
+
+[**V1EntitiesDealsProgress**](V1EntitiesDealsProgress.md)
 
 ### Authorization
 

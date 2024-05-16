@@ -26,6 +26,7 @@ Method | HTTP request | Description
 [**getShareholderLedger**](CompanyApi.md#getShareholderLedger) | **GET** /companies/{id}/shareholder_ledger | Get shareholder ledger by company
 [**getUserAccessibleCompanies**](CompanyApi.md#getUserAccessibleCompanies) | **GET** /users/accessible_companies | Get list of all Companies accessible by the user
 [**sendPortalInvite**](CompanyApi.md#sendPortalInvite) | **POST** /companies/{id}/shareholders/{shareholder_id}/send_portal_invite | Send portal invite to shareholder
+[**testDocumentUploadEmail**](CompanyApi.md#testDocumentUploadEmail) | **POST** /companies/{id}/documents/test_upload_email | Send document upload test email to given user
 
 
 
@@ -1094,6 +1095,54 @@ Name | Type | Description  | Notes
  **id** | **Number**|  | 
  **shareholderId** | **Number**|  | 
  **sendPortalInviteRequest** | [**SendPortalInviteRequest**](SendPortalInviteRequest.md)|  | [optional] 
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: Not defined
+
+
+## testDocumentUploadEmail
+
+> testDocumentUploadEmail(id, testDocumentUploadEmailRequest)
+
+Send document upload test email to given user
+
+Send document upload test email to given user
+
+### Example
+
+```javascript
+import Api from 'api';
+let defaultClient = Api.ApiClient.instance;
+
+let apiInstance = new Api.CompanyApi();
+let id = 56; // Number | 
+let testDocumentUploadEmailRequest = new Api.TestDocumentUploadEmailRequest(); // TestDocumentUploadEmailRequest | 
+apiInstance.testDocumentUploadEmail(id, testDocumentUploadEmailRequest, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully.');
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Number**|  | 
+ **testDocumentUploadEmailRequest** | [**TestDocumentUploadEmailRequest**](TestDocumentUploadEmailRequest.md)|  | 
 
 ### Return type
 

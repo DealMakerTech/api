@@ -15,6 +15,7 @@
 import ApiClient from "../ApiClient";
 import PostWebhooksRequest from '../model/PostWebhooksRequest';
 import PutWebhooksIdRequest from '../model/PutWebhooksIdRequest';
+import V1EntitiesDealsProgress from '../model/V1EntitiesDealsProgress';
 import V1EntitiesExpressWireInstruction from '../model/V1EntitiesExpressWireInstruction';
 import V1EntitiesExpressWireInstructions from '../model/V1EntitiesExpressWireInstructions';
 import V1EntitiesPaymentsSelfServeOnboardingDigitalPaymentsConnectionData from '../model/V1EntitiesPaymentsSelfServeOnboardingDigitalPaymentsConnectionData';
@@ -28,7 +29,7 @@ import V1EntitiesWebhooksSubscription from '../model/V1EntitiesWebhooksSubscript
 /**
 * Default service.
 * @module api/DefaultApi
-* @version 0.102.1
+* @version 0.103.5
 */
 export default class DefaultApi {
 
@@ -217,6 +218,55 @@ export default class DefaultApi {
       let returnType = V1EntitiesExpressWireInstructions;
       return this.apiClient.callApi(
         '/deals/{id}/investors/payments/express_wire/instructions', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the getDealsIdProgressPageKind operation.
+     * @callback module:api/DefaultApi~getDealsIdProgressPageKindCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/V1EntitiesDealsProgress} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Get deal progress for a specific kind
+     * Get deal progress
+     * @param {Number} id The deal id.
+     * @param {module:model/String} kind Kind of progress.
+     * @param {module:api/DefaultApi~getDealsIdProgressPageKindCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/V1EntitiesDealsProgress}
+     */
+    getDealsIdProgressPageKind(id, kind, callback) {
+      let postBody = null;
+      // verify the required parameter 'id' is set
+      if (id === undefined || id === null) {
+        throw new Error("Missing the required parameter 'id' when calling getDealsIdProgressPageKind");
+      }
+      // verify the required parameter 'kind' is set
+      if (kind === undefined || kind === null) {
+        throw new Error("Missing the required parameter 'kind' when calling getDealsIdProgressPageKind");
+      }
+
+      let pathParams = {
+        'id': id,
+        'kind': kind
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = V1EntitiesDealsProgress;
+      return this.apiClient.callApi(
+        '/deals/{id}/progress_page/{kind}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

@@ -48,10 +48,20 @@
   }
 
   describe('DealApi', function() {
-    describe('bankAccountSetupIntent', function() {
-      it('should call bankAccountSetupIntent successfully', function(done) {
-        //uncomment below and update the code to test bankAccountSetupIntent
-        //instance.bankAccountSetupIntent(function(error) {
+    describe('achBankAccountSetupIntent', function() {
+      it('should call achBankAccountSetupIntent successfully', function(done) {
+        //uncomment below and update the code to test achBankAccountSetupIntent
+        //instance.achBankAccountSetupIntent(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('acssBankAccountSetupIntent', function() {
+      it('should call acssBankAccountSetupIntent successfully', function(done) {
+        //uncomment below and update the code to test acssBankAccountSetupIntent
+        //instance.acssBankAccountSetupIntent(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});

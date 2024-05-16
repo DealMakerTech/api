@@ -13,13 +13,18 @@
 
 
 import ApiClient from "../ApiClient";
+import SetupSmsVerificationRequest from '../model/SetupSmsVerificationRequest';
 import UpdateUserPasswordRequest from '../model/UpdateUserPasswordRequest';
 import V1EntitiesUser from '../model/V1EntitiesUser';
+import V1EntitiesUsersFactor from '../model/V1EntitiesUsersFactor';
+import V1EntitiesUsersTwoFactorChannel from '../model/V1EntitiesUsersTwoFactorChannel';
+import V1EntitiesUsersTwoFactorChannels from '../model/V1EntitiesUsersTwoFactorChannels';
+import VerifyFactorRequest from '../model/VerifyFactorRequest';
 
 /**
 * User service.
 * @module api/UserApi
-* @version 0.102.1
+* @version 0.103.5
 */
 export default class UserApi {
 
@@ -34,6 +39,92 @@ export default class UserApi {
         this.apiClient = apiClient || ApiClient.instance;
     }
 
+
+    /**
+     * Callback function to receive the result of the createFactor operation.
+     * @callback module:api/UserApi~createFactorCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/V1EntitiesUsersFactor} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Creates an API endpoint for creating a new TOTP factor
+     * Create an API endpoint for creating a new TOTP factor
+     * @param {Number} id 
+     * @param {module:api/UserApi~createFactorCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/V1EntitiesUsersFactor}
+     */
+    createFactor(id, callback) {
+      let postBody = null;
+      // verify the required parameter 'id' is set
+      if (id === undefined || id === null) {
+        throw new Error("Missing the required parameter 'id' when calling createFactor");
+      }
+
+      let pathParams = {
+        'id': id
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = V1EntitiesUsersFactor;
+      return this.apiClient.callApi(
+        '/users/{id}/create_factor', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the getTwoFactorChannels operation.
+     * @callback module:api/UserApi~getTwoFactorChannelsCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/V1EntitiesUsersTwoFactorChannels} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Creates an API endpoint to return a list of existing TOTP factor
+     * Create an API endpoint to return a list of existing TOTP factor
+     * @param {Number} id 
+     * @param {module:api/UserApi~getTwoFactorChannelsCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/V1EntitiesUsersTwoFactorChannels}
+     */
+    getTwoFactorChannels(id, callback) {
+      let postBody = null;
+      // verify the required parameter 'id' is set
+      if (id === undefined || id === null) {
+        throw new Error("Missing the required parameter 'id' when calling getTwoFactorChannels");
+      }
+
+      let pathParams = {
+        'id': id
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = V1EntitiesUsersTwoFactorChannels;
+      return this.apiClient.callApi(
+        '/users/{id}/two_factor_channels', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
 
     /**
      * Callback function to receive the result of the getUser operation.
@@ -73,6 +164,53 @@ export default class UserApi {
       let returnType = V1EntitiesUser;
       return this.apiClient.callApi(
         '/users/{id}', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the setupSmsVerification operation.
+     * @callback module:api/UserApi~setupSmsVerificationCallback
+     * @param {String} error Error message, if any.
+     * @param data This operation does not return a value.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Start a setup for a SMS Verification by creating a two factor channel of sms type
+     * Start a setup for a SMS Verification by creating a two factor channel of sms type
+     * @param {Number} id 
+     * @param {module:model/SetupSmsVerificationRequest} setupSmsVerificationRequest 
+     * @param {module:api/UserApi~setupSmsVerificationCallback} callback The callback function, accepting three arguments: error, data, response
+     */
+    setupSmsVerification(id, setupSmsVerificationRequest, callback) {
+      let postBody = setupSmsVerificationRequest;
+      // verify the required parameter 'id' is set
+      if (id === undefined || id === null) {
+        throw new Error("Missing the required parameter 'id' when calling setupSmsVerification");
+      }
+      // verify the required parameter 'setupSmsVerificationRequest' is set
+      if (setupSmsVerificationRequest === undefined || setupSmsVerificationRequest === null) {
+        throw new Error("Missing the required parameter 'setupSmsVerificationRequest' when calling setupSmsVerification");
+      }
+
+      let pathParams = {
+        'id': id
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = ['application/json'];
+      let accepts = [];
+      let returnType = null;
+      return this.apiClient.callApi(
+        '/users/{id}/setup_sms_verification', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -121,6 +259,54 @@ export default class UserApi {
       let returnType = V1EntitiesUser;
       return this.apiClient.callApi(
         '/users/{id}/update_password', 'PUT',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the verifyFactor operation.
+     * @callback module:api/UserApi~verifyFactorCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/V1EntitiesUsersTwoFactorChannel} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Creates an API endpoint to verify an existing TOTP factor
+     * Create an API endpoint to verify an existing TOTP factor
+     * @param {Number} id 
+     * @param {module:model/VerifyFactorRequest} verifyFactorRequest 
+     * @param {module:api/UserApi~verifyFactorCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/V1EntitiesUsersTwoFactorChannel}
+     */
+    verifyFactor(id, verifyFactorRequest, callback) {
+      let postBody = verifyFactorRequest;
+      // verify the required parameter 'id' is set
+      if (id === undefined || id === null) {
+        throw new Error("Missing the required parameter 'id' when calling verifyFactor");
+      }
+      // verify the required parameter 'verifyFactorRequest' is set
+      if (verifyFactorRequest === undefined || verifyFactorRequest === null) {
+        throw new Error("Missing the required parameter 'verifyFactorRequest' when calling verifyFactor");
+      }
+
+      let pathParams = {
+        'id': id
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = V1EntitiesUsersTwoFactorChannel;
+      return this.apiClient.callApi(
+        '/users/{id}/verify_factor', 'PUT',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

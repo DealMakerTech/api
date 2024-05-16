@@ -15,13 +15,17 @@ require 'time'
 
 module DealMakerAPI
   class UpdateUserPasswordRequest
-    # The user password.
+    # The new password for the user.
     attr_accessor :password
+
+    # The current password for the user.
+    attr_accessor :current_password
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'password' => :'password'
+        :'password' => :'password',
+        :'current_password' => :'current_password'
       }
     end
 
@@ -33,7 +37,8 @@ module DealMakerAPI
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'password' => :'String'
+        :'password' => :'String',
+        :'current_password' => :'String'
       }
     end
 
@@ -63,6 +68,10 @@ module DealMakerAPI
       else
         self.password = nil
       end
+
+      if attributes.key?(:'current_password')
+        self.current_password = attributes[:'current_password']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -90,7 +99,8 @@ module DealMakerAPI
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          password == o.password
+          password == o.password &&
+          current_password == o.current_password
     end
 
     # @see the `==` method
@@ -102,7 +112,7 @@ module DealMakerAPI
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [password].hash
+      [password, current_password].hash
     end
 
     # Builds the object from hash

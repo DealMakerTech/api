@@ -4,7 +4,8 @@ All URIs are relative to *http://api.dealmaker.tech*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**bankAccountSetupIntent**](DealApi.md#bankAccountSetupIntent) | **GET** /deals/{id}/investor/{investor_id}/subscription/{subscription_id}/payments/acss/bank_account_setup_intent | Prepares an investor for payment
+[**achBankAccountSetupIntent**](DealApi.md#achBankAccountSetupIntent) | **GET** /deals/{id}/investor/{investor_id}/subscription/{subscription_id}/payments/ach/bank_account_setup_intent | Prepares an investor for payment
+[**acssBankAccountSetupIntent**](DealApi.md#acssBankAccountSetupIntent) | **GET** /deals/{id}/investor/{investor_id}/subscription/{subscription_id}/payments/acss/bank_account_setup_intent | Prepares an investor for payment
 [**createDealSetup**](DealApi.md#createDealSetup) | **POST** /deal_setups | Create deal setup
 [**getDeal**](DealApi.md#getDeal) | **GET** /deals/{id} | Get deal by Deal ID
 [**getDealIncentivePlan**](DealApi.md#getDealIncentivePlan) | **GET** /deals/{id}/incentive_plan | Get incentive plan by deal id
@@ -12,9 +13,9 @@ Method | HTTP request | Description
 
 
 
-## bankAccountSetupIntent
+## achBankAccountSetupIntent
 
-> V1EntitiesDealsInvestorsPaymentAcssBankAccountSetupIntent bankAccountSetupIntent(id, investorId, subscriptionId)
+> V1EntitiesDealsInvestorsPaymentAchBankAccountSetupIntent achBankAccountSetupIntent(id, investorId, subscriptionId)
 
 Prepares an investor for payment
 
@@ -30,7 +31,57 @@ let apiInstance = new Api.DealApi();
 let id = "id_example"; // String | The deal id
 let investorId = 56; // Number | The investor id
 let subscriptionId = 56; // Number | The subscription id
-apiInstance.bankAccountSetupIntent(id, investorId, subscriptionId, (error, data, response) => {
+apiInstance.achBankAccountSetupIntent(id, investorId, subscriptionId, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **String**| The deal id | 
+ **investorId** | **Number**| The investor id | 
+ **subscriptionId** | **Number**| The subscription id | 
+
+### Return type
+
+[**V1EntitiesDealsInvestorsPaymentAchBankAccountSetupIntent**](V1EntitiesDealsInvestorsPaymentAchBankAccountSetupIntent.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## acssBankAccountSetupIntent
+
+> V1EntitiesDealsInvestorsPaymentAcssBankAccountSetupIntent acssBankAccountSetupIntent(id, investorId, subscriptionId)
+
+Prepares an investor for payment
+
+Prepare investor for payment
+
+### Example
+
+```javascript
+import Api from 'api';
+let defaultClient = Api.ApiClient.instance;
+
+let apiInstance = new Api.DealApi();
+let id = "id_example"; // String | The deal id
+let investorId = 56; // Number | The investor id
+let subscriptionId = 56; // Number | The subscription id
+apiInstance.acssBankAccountSetupIntent(id, investorId, subscriptionId, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {

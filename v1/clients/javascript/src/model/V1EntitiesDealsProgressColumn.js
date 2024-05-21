@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The V1EntitiesDealsProgressColumn model module.
  * @module model/V1EntitiesDealsProgressColumn
- * @version 0.103.5
+ * @version 0.103.6
  */
 class V1EntitiesDealsProgressColumn {
     /**
@@ -53,6 +53,9 @@ class V1EntitiesDealsProgressColumn {
             if (data.hasOwnProperty('value')) {
                 obj['value'] = ApiClient.convertToType(data['value'], 'Number');
             }
+            if (data.hasOwnProperty('description')) {
+                obj['description'] = ApiClient.convertToType(data['description'], 'Number');
+            }
         }
         return obj;
     }
@@ -87,6 +90,12 @@ V1EntitiesDealsProgressColumn.prototype['label'] = undefined;
  * @member {Number} value
  */
 V1EntitiesDealsProgressColumn.prototype['value'] = undefined;
+
+/**
+ * The description of the column.
+ * @member {Number} description
+ */
+V1EntitiesDealsProgressColumn.prototype['description'] = undefined;
 
 
 

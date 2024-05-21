@@ -20,11 +20,12 @@ import V1EntitiesUsersFactor from '../model/V1EntitiesUsersFactor';
 import V1EntitiesUsersTwoFactorChannel from '../model/V1EntitiesUsersTwoFactorChannel';
 import V1EntitiesUsersTwoFactorChannels from '../model/V1EntitiesUsersTwoFactorChannels';
 import VerifyFactorRequest from '../model/VerifyFactorRequest';
+import VerifySmsVerificationRequest from '../model/VerifySmsVerificationRequest';
 
 /**
 * User service.
 * @module api/UserApi
-* @version 0.103.5
+* @version 0.103.6
 */
 export default class UserApi {
 
@@ -307,6 +308,54 @@ export default class UserApi {
       let returnType = V1EntitiesUsersTwoFactorChannel;
       return this.apiClient.callApi(
         '/users/{id}/verify_factor', 'PUT',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the verifySmsVerification operation.
+     * @callback module:api/UserApi~verifySmsVerificationCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/V1EntitiesUsersTwoFactorChannel} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Verify a SMS Verification by creating a two factor channel of sms type
+     * Verify a SMS Verification by creating a two factor channel of sms type
+     * @param {Number} id 
+     * @param {module:model/VerifySmsVerificationRequest} verifySmsVerificationRequest 
+     * @param {module:api/UserApi~verifySmsVerificationCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/V1EntitiesUsersTwoFactorChannel}
+     */
+    verifySmsVerification(id, verifySmsVerificationRequest, callback) {
+      let postBody = verifySmsVerificationRequest;
+      // verify the required parameter 'id' is set
+      if (id === undefined || id === null) {
+        throw new Error("Missing the required parameter 'id' when calling verifySmsVerification");
+      }
+      // verify the required parameter 'verifySmsVerificationRequest' is set
+      if (verifySmsVerificationRequest === undefined || verifySmsVerificationRequest === null) {
+        throw new Error("Missing the required parameter 'verifySmsVerificationRequest' when calling verifySmsVerification");
+      }
+
+      let pathParams = {
+        'id': id
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = V1EntitiesUsersTwoFactorChannel;
+      return this.apiClient.callApi(
+        '/users/{id}/verify_sms_verification', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

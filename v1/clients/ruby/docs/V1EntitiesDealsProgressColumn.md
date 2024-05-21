@@ -6,6 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **label** | **String** | The label of the column. | [optional] |
 | **value** | **Integer** | The value for the column. | [optional] |
+| **description** | **Integer** | The description of the column. | [optional] |
 
 ## Example
 
@@ -14,7 +15,8 @@ require 'DealMakerAPI'
 
 instance = DealMakerAPI::V1EntitiesDealsProgressColumn.new(
   label: null,
-  value: null
+  value: null,
+  description: null
 )
 ```
 

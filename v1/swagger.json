@@ -77,6 +77,10 @@
       "description": "Operations about incentive_plans"
     },
     {
+      "name": "payments",
+      "description": "Operations about payments"
+    },
+    {
       "name": "shareholder",
       "description": "Operations about shareholders"
     },
@@ -1345,66 +1349,6 @@
         ]
       }
     },
-    "/users/{id}/setup_sms_verification": {
-      "post": {
-        "summary": "Start a setup for a SMS Verification by creating a two factor channel of sms type",
-        "description": "Start a setup for a SMS Verification by creating a two factor channel of sms type",
-        "produces": [
-          "application/json"
-        ],
-        "consumes": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "in": "formData",
-            "name": "phone_number",
-            "description": "The phone number of the given user",
-            "type": "string",
-            "required": true
-          },
-          {
-            "in": "path",
-            "name": "id",
-            "type": "integer",
-            "format": "int32",
-            "required": true
-          }
-        ],
-        "security": [
-          {
-            "oauth": [
-              "internal"
-            ]
-          }
-        ],
-        "responses": {
-          "204": {
-            "description": "Start a setup for a SMS Verification by creating a two factor channel of sms type"
-          },
-          "404": {
-            "description": "Not found"
-          },
-          "400": {
-            "description": "Bad Request"
-          }
-        },
-        "tags": [
-          "user"
-        ],
-        "operationId": "setupSmsVerification",
-        "x-codeSamples": [
-          {
-            "lang": "javascript",
-            "source": ""
-          },
-          {
-            "lang": "ruby",
-            "source": ""
-          }
-        ]
-      }
-    },
     "/users/{id}/update_password": {
       "put": {
         "summary": "Update user password",
@@ -1592,6 +1536,136 @@
           "company"
         ],
         "operationId": "getUserAccessibleCompanies",
+        "x-codeSamples": [
+          {
+            "lang": "javascript",
+            "source": ""
+          },
+          {
+            "lang": "ruby",
+            "source": ""
+          }
+        ]
+      }
+    },
+    "/users/{id}/setup_sms_verification": {
+      "post": {
+        "summary": "Start a setup for a SMS Verification by creating a two factor channel of sms type",
+        "description": "Start a setup for a SMS Verification by creating a two factor channel of sms type",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "formData",
+            "name": "phone_number",
+            "description": "The phone number of the given user",
+            "type": "string",
+            "required": true
+          },
+          {
+            "in": "path",
+            "name": "id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "security": [
+          {
+            "oauth": [
+              "internal"
+            ]
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Start a setup for a SMS Verification by creating a two factor channel of sms type"
+          },
+          "404": {
+            "description": "Not found"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        },
+        "tags": [
+          "user"
+        ],
+        "operationId": "setupSmsVerification",
+        "x-codeSamples": [
+          {
+            "lang": "javascript",
+            "source": ""
+          },
+          {
+            "lang": "ruby",
+            "source": ""
+          }
+        ]
+      }
+    },
+    "/users/{id}/verify_sms_verification": {
+      "post": {
+        "summary": "Verify a SMS Verification by creating a two factor channel of sms type",
+        "description": "Verify a SMS Verification by creating a two factor channel of sms type",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "formData",
+            "name": "phone_number",
+            "description": "The phone number of the given user",
+            "type": "string",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "code",
+            "description": "The verification code",
+            "type": "string",
+            "required": true
+          },
+          {
+            "in": "path",
+            "name": "id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "security": [
+          {
+            "oauth": [
+              "internal"
+            ]
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Verify a SMS Verification by creating a two factor channel of sms type",
+            "schema": {
+              "$ref": "#/definitions/V1_Entities_Users_TwoFactorChannel"
+            }
+          },
+          "404": {
+            "description": "Not found"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        },
+        "tags": [
+          "user"
+        ],
+        "operationId": "verifySmsVerification",
         "x-codeSamples": [
           {
             "lang": "javascript",
@@ -3288,6 +3362,65 @@
         "operationId": "getDealsIdInvestorsPaymentsExpressWireInstructions"
       }
     },
+    "/deals/{id}/investors/{investor_id}/payments/ira": {
+      "post": {
+        "summary": "Creates a payment intent for express wire and mail its instructions.",
+        "description": "Creates a payment intent for express wire",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "description": "The deal id.",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          },
+          {
+            "in": "path",
+            "name": "investor_id",
+            "description": "The investor id.",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "security": [
+          {
+            "oauth": [
+              "internal"
+            ]
+          }
+        ],
+        "responses": {
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not found"
+          }
+        },
+        "tags": [
+          "payments"
+        ],
+        "operationId": "postDealInvestorPaymentsIra",
+        "x-codeSamples": [
+          {
+            "lang": "javascript",
+            "source": ""
+          },
+          {
+            "lang": "ruby",
+            "source": ""
+          }
+        ]
+      }
+    },
     "/deals/{id}/investor/{investor_id}/subscription/{subscription_id}/payments/ach/bank_account_setup_intent": {
       "get": {
         "summary": "Prepares an investor for payment",
@@ -3882,6 +4015,50 @@
 
         ],
         "operationId": "getDealsPaymentOnboardingQuestionnaireInitialQuestions"
+      }
+    },
+    "/deals/{id}/progress_page/summary": {
+      "get": {
+        "summary": "Get the deal progress summary",
+        "description": "Get the deal progress summary",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "description": "The deal id.",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "security": [
+          {
+            "oauth": [
+              "internal"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get the deal progress summary",
+            "schema": {
+              "$ref": "#/definitions/V1_Entities_Deals_ProgressPage_Summary"
+            }
+          },
+          "404": {
+            "description": "Not found"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "tags": [
+
+        ],
+        "operationId": "getDealsIdProgressPageSummary"
       }
     },
     "/deals/{id}/progress_page/{kind}": {
@@ -6639,6 +6816,10 @@
           "type": "string",
           "description": "The attachment url."
         },
+        "status": {
+          "type": "string",
+          "description": "The attachment status."
+        },
         "file_name": {
           "type": "string",
           "description": "The attachment file name."
@@ -9086,10 +9267,22 @@
           "format": "int32",
           "description": "The id for the two factor channel."
         },
+        "factorSid": {
+          "type": "string",
+          "description": "The unique string for the resource"
+        },
         "userId": {
           "type": "integer",
           "format": "int32",
           "description": "The user id for the two factor channel."
+        },
+        "identity": {
+          "type": "string",
+          "description": "The identity for the two factor channel."
+        },
+        "phoneNumber": {
+          "type": "string",
+          "description": "The phone number of the user."
         },
         "channel": {
           "type": "string",
@@ -9098,14 +9291,6 @@
         "verified": {
           "type": "boolean",
           "description": "The verification status for the two factor channel."
-        },
-        "identity": {
-          "type": "string",
-          "description": "The identity for the two factor channel."
-        },
-        "factorSid": {
-          "type": "string",
-          "description": "The sid for the two factor channel."
         },
         "updatedAt": {
           "type": "string",
@@ -9685,6 +9870,52 @@
       },
       "description": "V1_Entities_Payments_SelfServeOnboarding_DigitalPaymentsConnection_Data model"
     },
+    "V1_Entities_Deals_ProgressPage_Summary": {
+      "type": "object",
+      "properties": {
+        "investment_proceeds": {
+          "type": "number",
+          "format": "float",
+          "description": "Investment Proceeds"
+        },
+        "fees_and_adjustments": {
+          "type": "number",
+          "format": "float",
+          "description": "Fees and Adjustments"
+        },
+        "total_proceeds": {
+          "type": "number",
+          "format": "float",
+          "description": "Total Proceeds"
+        },
+        "processing_fees": {
+          "type": "number",
+          "format": "float",
+          "description": "Processing Fees"
+        },
+        "invoice_deductions": {
+          "type": "number",
+          "format": "float",
+          "description": "Invoice Deductions"
+        },
+        "holdback": {
+          "type": "number",
+          "format": "float",
+          "description": "Holdback"
+        },
+        "paid_out": {
+          "type": "number",
+          "format": "float",
+          "description": "Paid Out"
+        },
+        "available_for_payout": {
+          "type": "number",
+          "format": "float",
+          "description": "Available for Payout"
+        }
+      },
+      "description": "V1_Entities_Deals_ProgressPage_Summary model"
+    },
     "V1_Entities_Deals_Progress": {
       "type": "object",
       "properties": {
@@ -9710,6 +9941,11 @@
           "type": "integer",
           "format": "int32",
           "description": "The value for the column."
+        },
+        "description": {
+          "type": "integer",
+          "format": "int32",
+          "description": "The description of the column."
         }
       }
     },

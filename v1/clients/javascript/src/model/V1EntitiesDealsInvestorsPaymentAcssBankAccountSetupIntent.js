@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The V1EntitiesDealsInvestorsPaymentAcssBankAccountSetupIntent model module.
  * @module model/V1EntitiesDealsInvestorsPaymentAcssBankAccountSetupIntent
- * @version 0.103.5
+ * @version 0.103.6
  */
 class V1EntitiesDealsInvestorsPaymentAcssBankAccountSetupIntent {
     /**

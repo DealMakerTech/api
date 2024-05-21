@@ -6,5 +6,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **label** | **String** | The label of the column. | [optional] 
 **value** | **Number** | The value for the column. | [optional] 
+**description** | **Number** | The description of the column. | [optional] 
 
 

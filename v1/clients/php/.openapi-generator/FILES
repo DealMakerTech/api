@@ -13,6 +13,7 @@ docs/Api/DefaultApi.md
 docs/Api/IncentivePlanApi.md
 docs/Api/InvestorApi.md
 docs/Api/InvestorProfileApi.md
+docs/Api/PaymentsApi.md
 docs/Api/ShareholderApi.md
 docs/Api/UploadApi.md
 docs/Api/UserApi.md
@@ -87,6 +88,7 @@ docs/Model/V1EntitiesDealsInvestorsPaymentAcssBankAccountSetupIntent.md
 docs/Model/V1EntitiesDealsPriceDetails.md
 docs/Model/V1EntitiesDealsProgress.md
 docs/Model/V1EntitiesDealsProgressColumn.md
+docs/Model/V1EntitiesDealsProgressPageSummary.md
 docs/Model/V1EntitiesDividend.md
 docs/Model/V1EntitiesDividends.md
 docs/Model/V1EntitiesEmailEvent.md
@@ -145,6 +147,7 @@ docs/Model/V1EntitiesWebhooksSubscription.md
 docs/Model/V1EntitiesWebhooksSubscriptionDeal.md
 docs/Model/V1EntitiesWebhooksSubscriptionDeals.md
 docs/Model/VerifyFactorRequest.md
+docs/Model/VerifySmsVerificationRequest.md
 git_push.sh
 lib/Api/CompanyApi.php
 lib/Api/CountryApi.php
@@ -155,6 +158,7 @@ lib/Api/DefaultApi.php
 lib/Api/IncentivePlanApi.php
 lib/Api/InvestorApi.php
 lib/Api/InvestorProfileApi.php
+lib/Api/PaymentsApi.php
 lib/Api/ShareholderApi.php
 lib/Api/UploadApi.php
 lib/Api/UserApi.php
@@ -233,6 +237,7 @@ lib/Model/V1EntitiesDealsInvestorsPaymentAcssBankAccountSetupIntent.php
 lib/Model/V1EntitiesDealsPriceDetails.php
 lib/Model/V1EntitiesDealsProgress.php
 lib/Model/V1EntitiesDealsProgressColumn.php
+lib/Model/V1EntitiesDealsProgressPageSummary.php
 lib/Model/V1EntitiesDividend.php
 lib/Model/V1EntitiesDividends.php
 lib/Model/V1EntitiesEmailEvent.php
@@ -291,6 +296,7 @@ lib/Model/V1EntitiesWebhooksSubscription.php
 lib/Model/V1EntitiesWebhooksSubscriptionDeal.php
 lib/Model/V1EntitiesWebhooksSubscriptionDeals.php
 lib/Model/VerifyFactorRequest.php
+lib/Model/VerifySmsVerificationRequest.php
 lib/ObjectSerializer.php
 phpunit.xml.dist
 test/Api/CompanyApiTest.php
@@ -302,6 +308,7 @@ test/Api/DefaultApiTest.php
 test/Api/IncentivePlanApiTest.php
 test/Api/InvestorApiTest.php
 test/Api/InvestorProfileApiTest.php
+test/Api/PaymentsApiTest.php
 test/Api/ShareholderApiTest.php
 test/Api/UploadApiTest.php
 test/Api/UserApiTest.php
@@ -374,6 +381,7 @@ test/Model/V1EntitiesDealsInvestorsPaymentAchBankAccountSetupIntentTest.php
 test/Model/V1EntitiesDealsInvestorsPaymentAcssBankAccountSetupIntentTest.php
 test/Model/V1EntitiesDealsPriceDetailsTest.php
 test/Model/V1EntitiesDealsProgressColumnTest.php
+test/Model/V1EntitiesDealsProgressPageSummaryTest.php
 test/Model/V1EntitiesDealsProgressTest.php
 test/Model/V1EntitiesDealsTest.php
 test/Model/V1EntitiesDividendTest.php
@@ -434,3 +442,4 @@ test/Model/V1EntitiesWebhooksSubscriptionDealTest.php
 test/Model/V1EntitiesWebhooksSubscriptionDealsTest.php
 test/Model/V1EntitiesWebhooksSubscriptionTest.php
 test/Model/VerifyFactorRequestTest.php
+test/Model/VerifySmsVerificationRequestTest.php

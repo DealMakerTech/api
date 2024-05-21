@@ -66,6 +66,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property status (base name: "status")', function() {
+      // uncomment below and update the code to test the property status
+      //var instance = new Api.V1EntitiesAttachment();
+      //expect(instance).to.be();
+    });
+
     it('should have the property fileName (base name: "file_name")', function() {
       // uncomment below and update the code to test the property fileName
       //var instance = new Api.V1EntitiesAttachment();

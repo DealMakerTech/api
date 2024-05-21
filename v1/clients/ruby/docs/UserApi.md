@@ -10,6 +10,7 @@ All URIs are relative to *http://api.dealmaker.tech*
 | [**setup_sms_verification**](UserApi.md#setup_sms_verification) | **POST** /users/{id}/setup_sms_verification | Start a setup for a SMS Verification by creating a two factor channel of sms type |
 | [**update_user_password**](UserApi.md#update_user_password) | **PUT** /users/{id}/update_password | Update user password |
 | [**verify_factor**](UserApi.md#verify_factor) | **PUT** /users/{id}/verify_factor | Creates an API endpoint to verify an existing TOTP factor |
+| [**verify_sms_verification**](UserApi.md#verify_sms_verification) | **POST** /users/{id}/verify_sms_verification | Verify a SMS Verification by creating a two factor channel of sms type |
 
 
 ## create_factor
@@ -398,6 +399,74 @@ end
 | ---- | ---- | ----------- | ----- |
 | **id** | **Integer** |  |  |
 | **verify_factor_request** | [**VerifyFactorRequest**](VerifyFactorRequest.md) |  |  |
+
+### Return type
+
+[**V1EntitiesUsersTwoFactorChannel**](V1EntitiesUsersTwoFactorChannel.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## verify_sms_verification
+
+> <V1EntitiesUsersTwoFactorChannel> verify_sms_verification(id, verify_sms_verification_request)
+
+Verify a SMS Verification by creating a two factor channel of sms type
+
+Verify a SMS Verification by creating a two factor channel of sms type
+
+### Examples
+
+```ruby
+require 'time'
+require 'DealMakerAPI'
+# setup authorization
+DealMakerAPI.configure do |config|end
+
+api_instance = DealMakerAPI::UserApi.new
+id = 56 # Integer | 
+verify_sms_verification_request = DealMakerAPI::VerifySmsVerificationRequest.new({phone_number: 'phone_number_example', code: 'code_example'}) # VerifySmsVerificationRequest | 
+
+begin
+  # Verify a SMS Verification by creating a two factor channel of sms type
+  result = api_instance.verify_sms_verification(id, verify_sms_verification_request)
+  p result
+rescue DealMakerAPI::ApiError => e
+  puts "Error when calling UserApi->verify_sms_verification: #{e}"
+end
+```
+
+#### Using the verify_sms_verification_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<V1EntitiesUsersTwoFactorChannel>, Integer, Hash)> verify_sms_verification_with_http_info(id, verify_sms_verification_request)
+
+```ruby
+begin
+  # Verify a SMS Verification by creating a two factor channel of sms type
+  data, status_code, headers = api_instance.verify_sms_verification_with_http_info(id, verify_sms_verification_request)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <V1EntitiesUsersTwoFactorChannel>
+rescue DealMakerAPI::ApiError => e
+  puts "Error when calling UserApi->verify_sms_verification_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **id** | **Integer** |  |  |
+| **verify_sms_verification_request** | [**VerifySmsVerificationRequest**](VerifySmsVerificationRequest.md) |  |  |
 
 ### Return type
 

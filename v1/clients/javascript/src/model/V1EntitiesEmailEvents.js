@@ -17,7 +17,7 @@ import V1EntitiesEmailEvent from './V1EntitiesEmailEvent';
 /**
  * The V1EntitiesEmailEvents model module.
  * @module model/V1EntitiesEmailEvents
- * @version 0.103.5
+ * @version 0.103.6
  */
 class V1EntitiesEmailEvents {
     /**

@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The V1EntitiesUsersTwoFactorChannel model module.
  * @module model/V1EntitiesUsersTwoFactorChannel
- * @version 0.103.5
+ * @version 0.103.6
  */
 class V1EntitiesUsersTwoFactorChannel {
     /**
@@ -51,20 +51,23 @@ class V1EntitiesUsersTwoFactorChannel {
             if (data.hasOwnProperty('id')) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'Number');
             }
+            if (data.hasOwnProperty('factorSid')) {
+                obj['factorSid'] = ApiClient.convertToType(data['factorSid'], 'String');
+            }
             if (data.hasOwnProperty('userId')) {
                 obj['userId'] = ApiClient.convertToType(data['userId'], 'Number');
+            }
+            if (data.hasOwnProperty('identity')) {
+                obj['identity'] = ApiClient.convertToType(data['identity'], 'String');
+            }
+            if (data.hasOwnProperty('phoneNumber')) {
+                obj['phoneNumber'] = ApiClient.convertToType(data['phoneNumber'], 'String');
             }
             if (data.hasOwnProperty('channel')) {
                 obj['channel'] = ApiClient.convertToType(data['channel'], 'String');
             }
             if (data.hasOwnProperty('verified')) {
                 obj['verified'] = ApiClient.convertToType(data['verified'], 'Boolean');
-            }
-            if (data.hasOwnProperty('identity')) {
-                obj['identity'] = ApiClient.convertToType(data['identity'], 'String');
-            }
-            if (data.hasOwnProperty('factorSid')) {
-                obj['factorSid'] = ApiClient.convertToType(data['factorSid'], 'String');
             }
             if (data.hasOwnProperty('updatedAt')) {
                 obj['updatedAt'] = ApiClient.convertToType(data['updatedAt'], 'String');
@@ -80,16 +83,20 @@ class V1EntitiesUsersTwoFactorChannel {
      */
     static validateJSON(data) {
         // ensure the json data is a string
-        if (data['channel'] && !(typeof data['channel'] === 'string' || data['channel'] instanceof String)) {
-            throw new Error("Expected the field `channel` to be a primitive type in the JSON string but got " + data['channel']);
+        if (data['factorSid'] && !(typeof data['factorSid'] === 'string' || data['factorSid'] instanceof String)) {
+            throw new Error("Expected the field `factorSid` to be a primitive type in the JSON string but got " + data['factorSid']);
         }
         // ensure the json data is a string
         if (data['identity'] && !(typeof data['identity'] === 'string' || data['identity'] instanceof String)) {
             throw new Error("Expected the field `identity` to be a primitive type in the JSON string but got " + data['identity']);
         }
         // ensure the json data is a string
-        if (data['factorSid'] && !(typeof data['factorSid'] === 'string' || data['factorSid'] instanceof String)) {
-            throw new Error("Expected the field `factorSid` to be a primitive type in the JSON string but got " + data['factorSid']);
+        if (data['phoneNumber'] && !(typeof data['phoneNumber'] === 'string' || data['phoneNumber'] instanceof String)) {
+            throw new Error("Expected the field `phoneNumber` to be a primitive type in the JSON string but got " + data['phoneNumber']);
+        }
+        // ensure the json data is a string
+        if (data['channel'] && !(typeof data['channel'] === 'string' || data['channel'] instanceof String)) {
+            throw new Error("Expected the field `channel` to be a primitive type in the JSON string but got " + data['channel']);
         }
         // ensure the json data is a string
         if (data['updatedAt'] && !(typeof data['updatedAt'] === 'string' || data['updatedAt'] instanceof String)) {
@@ -111,10 +118,28 @@ class V1EntitiesUsersTwoFactorChannel {
 V1EntitiesUsersTwoFactorChannel.prototype['id'] = undefined;
 
 /**
+ * The unique string for the resource
+ * @member {String} factorSid
+ */
+V1EntitiesUsersTwoFactorChannel.prototype['factorSid'] = undefined;
+
+/**
  * The user id for the two factor channel.
  * @member {Number} userId
  */
 V1EntitiesUsersTwoFactorChannel.prototype['userId'] = undefined;
+
+/**
+ * The identity for the two factor channel.
+ * @member {String} identity
+ */
+V1EntitiesUsersTwoFactorChannel.prototype['identity'] = undefined;
+
+/**
+ * The phone number of the user.
+ * @member {String} phoneNumber
+ */
+V1EntitiesUsersTwoFactorChannel.prototype['phoneNumber'] = undefined;
 
 /**
  * The channel for the two factor channel.
@@ -127,18 +152,6 @@ V1EntitiesUsersTwoFactorChannel.prototype['channel'] = undefined;
  * @member {Boolean} verified
  */
 V1EntitiesUsersTwoFactorChannel.prototype['verified'] = undefined;
-
-/**
- * The identity for the two factor channel.
- * @member {String} identity
- */
-V1EntitiesUsersTwoFactorChannel.prototype['identity'] = undefined;
-
-/**
- * The sid for the two factor channel.
- * @member {String} factorSid
- */
-V1EntitiesUsersTwoFactorChannel.prototype['factorSid'] = undefined;
 
 /**
  * The time since the two factor channel was last updated/verified.

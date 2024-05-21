@@ -34,6 +34,7 @@ docs/PatchInvestorProfilesManaged.md
 docs/PatchInvestorProfilesTrusts.md
 docs/PatchInvestorProfilesTrustsTrusteesInner.md
 docs/PatchInvestorRequest.md
+docs/PaymentsApi.md
 docs/PostDealIncentivePlanRequest.md
 docs/PostDealsIdInvestors.md
 docs/PostInvestorProfilesCorporations.md
@@ -86,6 +87,7 @@ docs/V1EntitiesDealsInvestorsPaymentAcssBankAccountSetupIntent.md
 docs/V1EntitiesDealsPriceDetails.md
 docs/V1EntitiesDealsProgress.md
 docs/V1EntitiesDealsProgressColumn.md
+docs/V1EntitiesDealsProgressPageSummary.md
 docs/V1EntitiesDividend.md
 docs/V1EntitiesDividends.md
 docs/V1EntitiesEmailEvent.md
@@ -144,6 +146,7 @@ docs/V1EntitiesWebhooksSubscription.md
 docs/V1EntitiesWebhooksSubscriptionDeal.md
 docs/V1EntitiesWebhooksSubscriptionDeals.md
 docs/VerifyFactorRequest.md
+docs/VerifySmsVerificationRequest.md
 git_push.sh
 mocha.opts
 package.json
@@ -157,6 +160,7 @@ src/api/DefaultApi.js
 src/api/IncentivePlanApi.js
 src/api/InvestorApi.js
 src/api/InvestorProfileApi.js
+src/api/PaymentsApi.js
 src/api/ShareholderApi.js
 src/api/UploadApi.js
 src/api/UserApi.js
@@ -232,6 +236,7 @@ src/model/V1EntitiesDealsInvestorsPaymentAcssBankAccountSetupIntent.js
 src/model/V1EntitiesDealsPriceDetails.js
 src/model/V1EntitiesDealsProgress.js
 src/model/V1EntitiesDealsProgressColumn.js
+src/model/V1EntitiesDealsProgressPageSummary.js
 src/model/V1EntitiesDividend.js
 src/model/V1EntitiesDividends.js
 src/model/V1EntitiesEmailEvent.js
@@ -290,6 +295,7 @@ src/model/V1EntitiesWebhooksSubscription.js
 src/model/V1EntitiesWebhooksSubscriptionDeal.js
 src/model/V1EntitiesWebhooksSubscriptionDeals.js
 src/model/VerifyFactorRequest.js
+src/model/VerifySmsVerificationRequest.js
 test/api/CompanyApi.spec.js
 test/api/CountryApi.spec.js
 test/api/CustomEmailsApi.spec.js
@@ -299,6 +305,7 @@ test/api/DefaultApi.spec.js
 test/api/IncentivePlanApi.spec.js
 test/api/InvestorApi.spec.js
 test/api/InvestorProfileApi.spec.js
+test/api/PaymentsApi.spec.js
 test/api/ShareholderApi.spec.js
 test/api/UploadApi.spec.js
 test/api/UserApi.spec.js
@@ -373,6 +380,7 @@ test/model/V1EntitiesDealsInvestorsPaymentAcssBankAccountSetupIntent.spec.js
 test/model/V1EntitiesDealsPriceDetails.spec.js
 test/model/V1EntitiesDealsProgress.spec.js
 test/model/V1EntitiesDealsProgressColumn.spec.js
+test/model/V1EntitiesDealsProgressPageSummary.spec.js
 test/model/V1EntitiesDividend.spec.js
 test/model/V1EntitiesDividends.spec.js
 test/model/V1EntitiesEmailEvent.spec.js
@@ -431,3 +439,4 @@ test/model/V1EntitiesWebhooksSubscription.spec.js
 test/model/V1EntitiesWebhooksSubscriptionDeal.spec.js
 test/model/V1EntitiesWebhooksSubscriptionDeals.spec.js
 test/model/VerifyFactorRequest.spec.js
+test/model/VerifySmsVerificationRequest.spec.js

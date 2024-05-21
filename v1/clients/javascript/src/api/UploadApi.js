@@ -19,7 +19,7 @@ import V1EntitiesPresignedUrlResult from '../model/V1EntitiesPresignedUrlResult'
 /**
 * Upload service.
 * @module api/UploadApi
-* @version 0.103.5
+* @version 0.103.6
 */
 export default class UploadApi {
 

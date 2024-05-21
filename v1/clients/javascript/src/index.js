@@ -83,6 +83,7 @@ import V1EntitiesDealsInvestorsPaymentAcssBankAccountSetupIntent from './model/V
 import V1EntitiesDealsPriceDetails from './model/V1EntitiesDealsPriceDetails';
 import V1EntitiesDealsProgress from './model/V1EntitiesDealsProgress';
 import V1EntitiesDealsProgressColumn from './model/V1EntitiesDealsProgressColumn';
+import V1EntitiesDealsProgressPageSummary from './model/V1EntitiesDealsProgressPageSummary';
 import V1EntitiesDividend from './model/V1EntitiesDividend';
 import V1EntitiesDividends from './model/V1EntitiesDividends';
 import V1EntitiesEmailEvent from './model/V1EntitiesEmailEvent';
@@ -141,6 +142,7 @@ import V1EntitiesWebhooksSubscription from './model/V1EntitiesWebhooksSubscripti
 import V1EntitiesWebhooksSubscriptionDeal from './model/V1EntitiesWebhooksSubscriptionDeal';
 import V1EntitiesWebhooksSubscriptionDeals from './model/V1EntitiesWebhooksSubscriptionDeals';
 import VerifyFactorRequest from './model/VerifyFactorRequest';
+import VerifySmsVerificationRequest from './model/VerifySmsVerificationRequest';
 import CompanyApi from './api/CompanyApi';
 import CountryApi from './api/CountryApi';
 import CustomEmailsApi from './api/CustomEmailsApi';
@@ -150,6 +152,7 @@ import DefaultApi from './api/DefaultApi';
 import IncentivePlanApi from './api/IncentivePlanApi';
 import InvestorApi from './api/InvestorApi';
 import InvestorProfileApi from './api/InvestorProfileApi';
+import PaymentsApi from './api/PaymentsApi';
 import ShareholderApi from './api/ShareholderApi';
 import UploadApi from './api/UploadApi';
 import UserApi from './api/UserApi';
@@ -185,7 +188,7 @@ import UsersApi from './api/UsersApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.103.5
+* @version 0.103.6
 */
 export {
     /**
@@ -615,6 +618,12 @@ export {
     V1EntitiesDealsProgressColumn,
 
     /**
+     * The V1EntitiesDealsProgressPageSummary model constructor.
+     * @property {module:model/V1EntitiesDealsProgressPageSummary}
+     */
+    V1EntitiesDealsProgressPageSummary,
+
+    /**
      * The V1EntitiesDividend model constructor.
      * @property {module:model/V1EntitiesDividend}
      */
@@ -963,6 +972,12 @@ export {
     VerifyFactorRequest,
 
     /**
+     * The VerifySmsVerificationRequest model constructor.
+     * @property {module:model/VerifySmsVerificationRequest}
+     */
+    VerifySmsVerificationRequest,
+
+    /**
     * The CompanyApi service constructor.
     * @property {module:api/CompanyApi}
     */
@@ -1015,6 +1030,12 @@ export {
     * @property {module:api/InvestorProfileApi}
     */
     InvestorProfileApi,
+
+    /**
+    * The PaymentsApi service constructor.
+    * @property {module:api/PaymentsApi}
+    */
+    PaymentsApi,
 
     /**
     * The ShareholderApi service constructor.

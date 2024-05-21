@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The V1EntitiesAttachment model module.
  * @module model/V1EntitiesAttachment
- * @version 0.103.5
+ * @version 0.103.6
  */
 class V1EntitiesAttachment {
     /**
@@ -53,6 +53,9 @@ class V1EntitiesAttachment {
             if (data.hasOwnProperty('url')) {
                 obj['url'] = ApiClient.convertToType(data['url'], 'String');
             }
+            if (data.hasOwnProperty('status')) {
+                obj['status'] = ApiClient.convertToType(data['status'], 'String');
+            }
             if (data.hasOwnProperty('file_name')) {
                 obj['file_name'] = ApiClient.convertToType(data['file_name'], 'String');
             }
@@ -81,6 +84,10 @@ class V1EntitiesAttachment {
         // ensure the json data is a string
         if (data['url'] && !(typeof data['url'] === 'string' || data['url'] instanceof String)) {
             throw new Error("Expected the field `url` to be a primitive type in the JSON string but got " + data['url']);
+        }
+        // ensure the json data is a string
+        if (data['status'] && !(typeof data['status'] === 'string' || data['status'] instanceof String)) {
+            throw new Error("Expected the field `status` to be a primitive type in the JSON string but got " + data['status']);
         }
         // ensure the json data is a string
         if (data['file_name'] && !(typeof data['file_name'] === 'string' || data['file_name'] instanceof String)) {
@@ -114,6 +121,12 @@ V1EntitiesAttachment.prototype['id'] = undefined;
  * @member {String} url
  */
 V1EntitiesAttachment.prototype['url'] = undefined;
+
+/**
+ * The attachment status.
+ * @member {String} status
+ */
+V1EntitiesAttachment.prototype['status'] = undefined;
 
 /**
  * The attachment file name.

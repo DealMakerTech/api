@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** | The attachment id. | [optional]
 **url** | **string** | The attachment url. | [optional]
+**status** | **string** | The attachment status. | [optional]
 **file_name** | **string** | The attachment file name. | [optional]
 **original_file_name** | **string** | The attachment original file name. | [optional]
 **file_size** | **int** | The size of the file in bytes. | [optional]

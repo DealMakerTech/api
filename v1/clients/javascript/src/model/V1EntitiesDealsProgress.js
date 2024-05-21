@@ -17,7 +17,7 @@ import V1EntitiesDealsProgressColumn from './V1EntitiesDealsProgressColumn';
 /**
  * The V1EntitiesDealsProgress model module.
  * @module model/V1EntitiesDealsProgress
- * @version 0.103.5
+ * @version 0.103.6
  */
 class V1EntitiesDealsProgress {
     /**

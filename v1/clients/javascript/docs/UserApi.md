@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**setupSmsVerification**](UserApi.md#setupSmsVerification) | **POST** /users/{id}/setup_sms_verification | Start a setup for a SMS Verification by creating a two factor channel of sms type
 [**updateUserPassword**](UserApi.md#updateUserPassword) | **PUT** /users/{id}/update_password | Update user password
 [**verifyFactor**](UserApi.md#verifyFactor) | **PUT** /users/{id}/verify_factor | Creates an API endpoint to verify an existing TOTP factor
+[**verifySmsVerification**](UserApi.md#verifySmsVerification) | **POST** /users/{id}/verify_sms_verification | Verify a SMS Verification by creating a two factor channel of sms type
 
 
 
@@ -280,6 +281,54 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Number**|  | 
  **verifyFactorRequest** | [**VerifyFactorRequest**](VerifyFactorRequest.md)|  | 
+
+### Return type
+
+[**V1EntitiesUsersTwoFactorChannel**](V1EntitiesUsersTwoFactorChannel.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## verifySmsVerification
+
+> V1EntitiesUsersTwoFactorChannel verifySmsVerification(id, verifySmsVerificationRequest)
+
+Verify a SMS Verification by creating a two factor channel of sms type
+
+Verify a SMS Verification by creating a two factor channel of sms type
+
+### Example
+
+```javascript
+import Api from 'api';
+let defaultClient = Api.ApiClient.instance;
+
+let apiInstance = new Api.UserApi();
+let id = 56; // Number | 
+let verifySmsVerificationRequest = new Api.VerifySmsVerificationRequest(); // VerifySmsVerificationRequest | 
+apiInstance.verifySmsVerification(id, verifySmsVerificationRequest, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Number**|  | 
+ **verifySmsVerificationRequest** | [**VerifySmsVerificationRequest**](VerifySmsVerificationRequest.md)|  | 
 
 ### Return type
 

@@ -60,8 +60,26 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property factorSid (base name: "factorSid")', function() {
+      // uncomment below and update the code to test the property factorSid
+      //var instance = new Api.V1EntitiesUsersTwoFactorChannel();
+      //expect(instance).to.be();
+    });
+
     it('should have the property userId (base name: "userId")', function() {
       // uncomment below and update the code to test the property userId
+      //var instance = new Api.V1EntitiesUsersTwoFactorChannel();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property identity (base name: "identity")', function() {
+      // uncomment below and update the code to test the property identity
+      //var instance = new Api.V1EntitiesUsersTwoFactorChannel();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property phoneNumber (base name: "phoneNumber")', function() {
+      // uncomment below and update the code to test the property phoneNumber
       //var instance = new Api.V1EntitiesUsersTwoFactorChannel();
       //expect(instance).to.be();
     });
@@ -74,18 +92,6 @@
 
     it('should have the property verified (base name: "verified")', function() {
       // uncomment below and update the code to test the property verified
-      //var instance = new Api.V1EntitiesUsersTwoFactorChannel();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property identity (base name: "identity")', function() {
-      // uncomment below and update the code to test the property identity
-      //var instance = new Api.V1EntitiesUsersTwoFactorChannel();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property factorSid (base name: "factorSid")', function() {
-      // uncomment below and update the code to test the property factorSid
       //var instance = new Api.V1EntitiesUsersTwoFactorChannel();
       //expect(instance).to.be();
     });

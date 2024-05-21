@@ -16,6 +16,7 @@ import ApiClient from "../ApiClient";
 import PostWebhooksRequest from '../model/PostWebhooksRequest';
 import PutWebhooksIdRequest from '../model/PutWebhooksIdRequest';
 import V1EntitiesDealsProgress from '../model/V1EntitiesDealsProgress';
+import V1EntitiesDealsProgressPageSummary from '../model/V1EntitiesDealsProgressPageSummary';
 import V1EntitiesExpressWireInstruction from '../model/V1EntitiesExpressWireInstruction';
 import V1EntitiesExpressWireInstructions from '../model/V1EntitiesExpressWireInstructions';
 import V1EntitiesPaymentsSelfServeOnboardingDigitalPaymentsConnectionData from '../model/V1EntitiesPaymentsSelfServeOnboardingDigitalPaymentsConnectionData';
@@ -29,7 +30,7 @@ import V1EntitiesWebhooksSubscription from '../model/V1EntitiesWebhooksSubscript
 /**
 * Default service.
 * @module api/DefaultApi
-* @version 0.103.5
+* @version 0.103.6
 */
 export default class DefaultApi {
 
@@ -267,6 +268,49 @@ export default class DefaultApi {
       let returnType = V1EntitiesDealsProgress;
       return this.apiClient.callApi(
         '/deals/{id}/progress_page/{kind}', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the getDealsIdProgressPageSummary operation.
+     * @callback module:api/DefaultApi~getDealsIdProgressPageSummaryCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/V1EntitiesDealsProgressPageSummary} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Get the deal progress summary
+     * Get the deal progress summary
+     * @param {Number} id The deal id.
+     * @param {module:api/DefaultApi~getDealsIdProgressPageSummaryCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/V1EntitiesDealsProgressPageSummary}
+     */
+    getDealsIdProgressPageSummary(id, callback) {
+      let postBody = null;
+      // verify the required parameter 'id' is set
+      if (id === undefined || id === null) {
+        throw new Error("Missing the required parameter 'id' when calling getDealsIdProgressPageSummary");
+      }
+
+      let pathParams = {
+        'id': id
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = V1EntitiesDealsProgressPageSummary;
+      return this.apiClient.callApi(
+        '/deals/{id}/progress_page/summary', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

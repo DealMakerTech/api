@@ -108,6 +108,16 @@
         done();
       });
     });
+    describe('verifySmsVerification', function() {
+      it('should call verifySmsVerification successfully', function(done) {
+        //uncomment below and update the code to test verifySmsVerification
+        //instance.verifySmsVerification(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
   });
 
 }));

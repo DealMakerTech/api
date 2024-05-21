@@ -39,6 +39,7 @@ docs/PatchInvestorProfilesManaged.md
 docs/PatchInvestorProfilesTrusts.md
 docs/PatchInvestorProfilesTrustsTrusteesInner.md
 docs/PatchInvestorRequest.md
+docs/PaymentsApi.md
 docs/PostDealIncentivePlanRequest.md
 docs/PostDealsIdInvestors.md
 docs/PostInvestorProfilesCorporations.md
@@ -91,6 +92,7 @@ docs/V1EntitiesDealsInvestorsPaymentAcssBankAccountSetupIntent.md
 docs/V1EntitiesDealsPriceDetails.md
 docs/V1EntitiesDealsProgress.md
 docs/V1EntitiesDealsProgressColumn.md
+docs/V1EntitiesDealsProgressPageSummary.md
 docs/V1EntitiesDividend.md
 docs/V1EntitiesDividends.md
 docs/V1EntitiesEmailEvent.md
@@ -149,6 +151,7 @@ docs/V1EntitiesWebhooksSubscription.md
 docs/V1EntitiesWebhooksSubscriptionDeal.md
 docs/V1EntitiesWebhooksSubscriptionDeals.md
 docs/VerifyFactorRequest.md
+docs/VerifySmsVerificationRequest.md
 git_push.sh
 lib/DealMakerAPI.rb
 lib/DealMakerAPI/api/company_api.rb
@@ -160,6 +163,7 @@ lib/DealMakerAPI/api/default_api.rb
 lib/DealMakerAPI/api/incentive_plan_api.rb
 lib/DealMakerAPI/api/investor_api.rb
 lib/DealMakerAPI/api/investor_profile_api.rb
+lib/DealMakerAPI/api/payments_api.rb
 lib/DealMakerAPI/api/shareholder_api.rb
 lib/DealMakerAPI/api/upload_api.rb
 lib/DealMakerAPI/api/user_api.rb
@@ -237,6 +241,7 @@ lib/DealMakerAPI/models/v1_entities_deals_investors_payment_acss_bank_account_se
 lib/DealMakerAPI/models/v1_entities_deals_price_details.rb
 lib/DealMakerAPI/models/v1_entities_deals_progress.rb
 lib/DealMakerAPI/models/v1_entities_deals_progress_column.rb
+lib/DealMakerAPI/models/v1_entities_deals_progress_page_summary.rb
 lib/DealMakerAPI/models/v1_entities_dividend.rb
 lib/DealMakerAPI/models/v1_entities_dividends.rb
 lib/DealMakerAPI/models/v1_entities_email_event.rb
@@ -295,6 +300,7 @@ lib/DealMakerAPI/models/v1_entities_webhooks_subscription.rb
 lib/DealMakerAPI/models/v1_entities_webhooks_subscription_deal.rb
 lib/DealMakerAPI/models/v1_entities_webhooks_subscription_deals.rb
 lib/DealMakerAPI/models/verify_factor_request.rb
+lib/DealMakerAPI/models/verify_sms_verification_request.rb
 lib/DealMakerAPI/version.rb
 spec/api/company_api_spec.rb
 spec/api/country_api_spec.rb
@@ -305,6 +311,7 @@ spec/api/default_api_spec.rb
 spec/api/incentive_plan_api_spec.rb
 spec/api/investor_api_spec.rb
 spec/api/investor_profile_api_spec.rb
+spec/api/payments_api_spec.rb
 spec/api/shareholder_api_spec.rb
 spec/api/upload_api_spec.rb
 spec/api/user_api_spec.rb
@@ -377,6 +384,7 @@ spec/models/v1_entities_deals_investors_payment_ach_bank_account_setup_intent_sp
 spec/models/v1_entities_deals_investors_payment_acss_bank_account_setup_intent_spec.rb
 spec/models/v1_entities_deals_price_details_spec.rb
 spec/models/v1_entities_deals_progress_column_spec.rb
+spec/models/v1_entities_deals_progress_page_summary_spec.rb
 spec/models/v1_entities_deals_progress_spec.rb
 spec/models/v1_entities_deals_spec.rb
 spec/models/v1_entities_dividend_spec.rb
@@ -437,4 +445,5 @@ spec/models/v1_entities_webhooks_subscription_deal_spec.rb
 spec/models/v1_entities_webhooks_subscription_deals_spec.rb
 spec/models/v1_entities_webhooks_subscription_spec.rb
 spec/models/verify_factor_request_spec.rb
+spec/models/verify_sms_verification_request_spec.rb
 spec/spec_helper.rb

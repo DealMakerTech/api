@@ -9,6 +9,7 @@ All URIs are relative to http://api.dealmaker.tech, except if the operation defi
 | [**getDealsIdInvestorsInvestorIdPaymentsExpressWireInstructions()**](DefaultApi.md#getDealsIdInvestorsInvestorIdPaymentsExpressWireInstructions) | **GET** /deals/{id}/investors/{investor_id}/payments/express_wire/instructions | Displays the express wire instructions for an investor on a deal |
 | [**getDealsIdInvestorsPaymentsExpressWireInstructions()**](DefaultApi.md#getDealsIdInvestorsPaymentsExpressWireInstructions) | **GET** /deals/{id}/investors/payments/express_wire/instructions | Displays the express wire instructions for all the investors on a deal |
 | [**getDealsIdProgressPageKind()**](DefaultApi.md#getDealsIdProgressPageKind) | **GET** /deals/{id}/progress_page/{kind} | Get deal progress for a specific kind |
+| [**getDealsIdProgressPageSummary()**](DefaultApi.md#getDealsIdProgressPageSummary) | **GET** /deals/{id}/progress_page/summary | Get the deal progress summary |
 | [**getDealsIdSummary()**](DefaultApi.md#getDealsIdSummary) | **GET** /deals/{id}/summary | Get Deal Overview |
 | [**getDealsPaymentOnboardingQuestionnaireInitialQuestions()**](DefaultApi.md#getDealsPaymentOnboardingQuestionnaireInitialQuestions) | **GET** /deals/payment_onboarding/questionnaire/initial_questions | Get initial questions |
 | [**getWebhooks()**](DefaultApi.md#getWebhooks) | **GET** /webhooks | Returns a list of webhook subscription which is associated to the user |
@@ -297,6 +298,63 @@ try {
 ### Return type
 
 [**\DealMaker\Model\V1EntitiesDealsProgress**](../Model/V1EntitiesDealsProgress.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getDealsIdProgressPageSummary()`
+
+```php
+getDealsIdProgressPageSummary($id): \DealMaker\Model\V1EntitiesDealsProgressPageSummary
+```
+
+Get the deal progress summary
+
+Get the deal progress summary
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new DealMaker\Api\DefaultApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = 56; // int | The deal id.
+
+try {
+    $result = $apiInstance->getDealsIdProgressPageSummary($id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling DefaultApi->getDealsIdProgressPageSummary: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **int**| The deal id. | |
+
+### Return type
+
+[**\DealMaker\Model\V1EntitiesDealsProgressPageSummary**](../Model/V1EntitiesDealsProgressPageSummary.md)
 
 ### Authorization
 

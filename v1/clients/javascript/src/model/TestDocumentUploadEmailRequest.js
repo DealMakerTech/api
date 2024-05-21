@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The TestDocumentUploadEmailRequest model module.
  * @module model/TestDocumentUploadEmailRequest
- * @version 0.103.5
+ * @version 0.103.6
  */
 class TestDocumentUploadEmailRequest {
     /**

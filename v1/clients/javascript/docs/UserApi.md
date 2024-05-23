@@ -5,6 +5,8 @@ All URIs are relative to *http://api.dealmaker.tech*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**createFactor**](UserApi.md#createFactor) | **POST** /users/{id}/create_factor | Creates an API endpoint for creating a new TOTP factor
+[**deleteChannel**](UserApi.md#deleteChannel) | **DELETE** /users/{id}/two_factor_channels/delete/{channel} | Creates an API endpoint to delete a specific two factor channel\&quot;
+[**disableMfa**](UserApi.md#disableMfa) | **DELETE** /users/{id}/disable_mfa | Disable all the multi-factor authentication integrations for a user
 [**getTwoFactorChannels**](UserApi.md#getTwoFactorChannels) | **GET** /users/{id}/two_factor_channels | Creates an API endpoint to return a list of existing TOTP factor
 [**getUser**](UserApi.md#getUser) | **GET** /users/{id} | Get user by User ID
 [**setupSmsVerification**](UserApi.md#setupSmsVerification) | **POST** /users/{id}/setup_sms_verification | Start a setup for a SMS Verification by creating a two factor channel of sms type
@@ -58,6 +60,100 @@ No authorization required
 
 - **Content-Type**: Not defined
 - **Accept**: application/json
+
+
+## deleteChannel
+
+> V1EntitiesDeleteResult deleteChannel(id, channel)
+
+Creates an API endpoint to delete a specific two factor channel\&quot;
+
+Create an API endpoint to delete a specific two factor channel
+
+### Example
+
+```javascript
+import Api from 'api';
+let defaultClient = Api.ApiClient.instance;
+
+let apiInstance = new Api.UserApi();
+let id = 56; // Number | 
+let channel = 56; // Number | 
+apiInstance.deleteChannel(id, channel, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Number**|  | 
+ **channel** | **Number**|  | 
+
+### Return type
+
+[**V1EntitiesDeleteResult**](V1EntitiesDeleteResult.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## disableMfa
+
+> disableMfa(id)
+
+Disable all the multi-factor authentication integrations for a user
+
+Disable all the multi-factor authentication integrations for a user
+
+### Example
+
+```javascript
+import Api from 'api';
+let defaultClient = Api.ApiClient.instance;
+
+let apiInstance = new Api.UserApi();
+let id = 56; // Number | 
+apiInstance.disableMfa(id, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully.');
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Number**|  | 
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
 
 
 ## getTwoFactorChannels

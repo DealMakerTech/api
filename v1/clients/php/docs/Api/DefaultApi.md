@@ -8,7 +8,7 @@ All URIs are relative to http://api.dealmaker.tech, except if the operation defi
 | [**getDealsDealIdPaymentOnboardingQuestionnairePayoutAccountDetailsData()**](DefaultApi.md#getDealsDealIdPaymentOnboardingQuestionnairePayoutAccountDetailsData) | **GET** /deals/{deal_id}/payment_onboarding/questionnaire/payout_account_details/data | Get payout account data |
 | [**getDealsIdInvestorsInvestorIdPaymentsExpressWireInstructions()**](DefaultApi.md#getDealsIdInvestorsInvestorIdPaymentsExpressWireInstructions) | **GET** /deals/{id}/investors/{investor_id}/payments/express_wire/instructions | Displays the express wire instructions for an investor on a deal |
 | [**getDealsIdInvestorsPaymentsExpressWireInstructions()**](DefaultApi.md#getDealsIdInvestorsPaymentsExpressWireInstructions) | **GET** /deals/{id}/investors/payments/express_wire/instructions | Displays the express wire instructions for all the investors on a deal |
-| [**getDealsIdProgressPageKind()**](DefaultApi.md#getDealsIdProgressPageKind) | **GET** /deals/{id}/progress_page/{kind} | Get deal progress for a specific kind |
+| [**getDealsIdProgressPage()**](DefaultApi.md#getDealsIdProgressPage) | **GET** /deals/{id}/progress_page | Get deal progress |
 | [**getDealsIdProgressPageSummary()**](DefaultApi.md#getDealsIdProgressPageSummary) | **GET** /deals/{id}/progress_page/summary | Get the deal progress summary |
 | [**getDealsIdSummary()**](DefaultApi.md#getDealsIdSummary) | **GET** /deals/{id}/summary | Get Deal Overview |
 | [**getDealsPaymentOnboardingQuestionnaireInitialQuestions()**](DefaultApi.md#getDealsPaymentOnboardingQuestionnaireInitialQuestions) | **GET** /deals/payment_onboarding/questionnaire/initial_questions | Get initial questions |
@@ -253,13 +253,13 @@ No authorization required
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `getDealsIdProgressPageKind()`
+## `getDealsIdProgressPage()`
 
 ```php
-getDealsIdProgressPageKind($id, $kind): \DealMaker\Model\V1EntitiesDealsProgress
+getDealsIdProgressPage($id): \DealMaker\Model\V1EntitiesDealsProgress
 ```
 
-Get deal progress for a specific kind
+Get deal progress
 
 Get deal progress
 
@@ -278,13 +278,12 @@ $apiInstance = new DealMaker\Api\DefaultApi(
     $config
 );
 $id = 56; // int | The deal id.
-$kind = 'kind_example'; // string | Kind of progress.
 
 try {
-    $result = $apiInstance->getDealsIdProgressPageKind($id, $kind);
+    $result = $apiInstance->getDealsIdProgressPage($id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling DefaultApi->getDealsIdProgressPageKind: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DefaultApi->getDealsIdProgressPage: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -293,7 +292,6 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **int**| The deal id. | |
-| **kind** | **string**| Kind of progress. | |
 
 ### Return type
 

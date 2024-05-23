@@ -58,6 +58,26 @@
         done();
       });
     });
+    describe('deleteChannel', function() {
+      it('should call deleteChannel successfully', function(done) {
+        //uncomment below and update the code to test deleteChannel
+        //instance.deleteChannel(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('disableMfa', function() {
+      it('should call disableMfa successfully', function(done) {
+        //uncomment below and update the code to test disableMfa
+        //instance.disableMfa(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('getTwoFactorChannels', function() {
       it('should call getTwoFactorChannels successfully', function(done) {
         //uncomment below and update the code to test getTwoFactorChannels

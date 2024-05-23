@@ -83,7 +83,9 @@ import V1EntitiesDealsInvestorsPaymentAcssBankAccountSetupIntent from './model/V
 import V1EntitiesDealsPriceDetails from './model/V1EntitiesDealsPriceDetails';
 import V1EntitiesDealsProgress from './model/V1EntitiesDealsProgress';
 import V1EntitiesDealsProgressColumn from './model/V1EntitiesDealsProgressColumn';
+import V1EntitiesDealsProgressKinds from './model/V1EntitiesDealsProgressKinds';
 import V1EntitiesDealsProgressPageSummary from './model/V1EntitiesDealsProgressPageSummary';
+import V1EntitiesDeleteResult from './model/V1EntitiesDeleteResult';
 import V1EntitiesDividend from './model/V1EntitiesDividend';
 import V1EntitiesDividends from './model/V1EntitiesDividends';
 import V1EntitiesEmailEvent from './model/V1EntitiesEmailEvent';
@@ -188,7 +190,7 @@ import UsersApi from './api/UsersApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.103.6
+* @version 0.104.0
 */
 export {
     /**
@@ -618,10 +620,22 @@ export {
     V1EntitiesDealsProgressColumn,
 
     /**
+     * The V1EntitiesDealsProgressKinds model constructor.
+     * @property {module:model/V1EntitiesDealsProgressKinds}
+     */
+    V1EntitiesDealsProgressKinds,
+
+    /**
      * The V1EntitiesDealsProgressPageSummary model constructor.
      * @property {module:model/V1EntitiesDealsProgressPageSummary}
      */
     V1EntitiesDealsProgressPageSummary,
+
+    /**
+     * The V1EntitiesDeleteResult model constructor.
+     * @property {module:model/V1EntitiesDeleteResult}
+     */
+    V1EntitiesDeleteResult,
 
     /**
      * The V1EntitiesDividend model constructor.

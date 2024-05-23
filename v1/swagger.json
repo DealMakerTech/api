@@ -1296,6 +1296,66 @@
         ]
       }
     },
+    "/users/{id}/two_factor_channels/delete/{channel}": {
+      "delete": {
+        "summary": "Creates an API endpoint to delete a specific two factor channel\"",
+        "description": "Create an API endpoint to delete a specific two factor channel",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          },
+          {
+            "in": "path",
+            "name": "channel",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "security": [
+          {
+            "oauth": [
+              "internal"
+            ]
+          }
+        ],
+        "responses": {
+          "404": {
+            "description": "Not found"
+          },
+          "204": {
+            "description": "Create an API endpoint to delete a specific two factor channel",
+            "schema": {
+              "$ref": "#/definitions/V1_Entities_DeleteResult"
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        },
+        "tags": [
+          "user"
+        ],
+        "operationId": "deleteChannel",
+        "x-codeSamples": [
+          {
+            "lang": "javascript",
+            "source": ""
+          },
+          {
+            "lang": "ruby",
+            "source": ""
+          }
+        ]
+      }
+    },
     "/users/{id}/two_factor_channels": {
       "get": {
         "summary": "Creates an API endpoint to return a list of existing TOTP factor",
@@ -1337,6 +1397,56 @@
           "user"
         ],
         "operationId": "getTwoFactorChannels",
+        "x-codeSamples": [
+          {
+            "lang": "javascript",
+            "source": ""
+          },
+          {
+            "lang": "ruby",
+            "source": ""
+          }
+        ]
+      }
+    },
+    "/users/{id}/disable_mfa": {
+      "delete": {
+        "summary": "Disable all the multi-factor authentication integrations for a user",
+        "description": "Disable all the multi-factor authentication integrations for a user",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "security": [
+          {
+            "oauth": [
+              "internal"
+            ]
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Disable all the multi-factor authentication integrations for a user"
+          },
+          "404": {
+            "description": "Not found"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        },
+        "tags": [
+          "user"
+        ],
+        "operationId": "disableMfa",
         "x-codeSamples": [
           {
             "lang": "javascript",
@@ -4017,6 +4127,50 @@
         "operationId": "getDealsPaymentOnboardingQuestionnaireInitialQuestions"
       }
     },
+    "/deals/{id}/progress_page": {
+      "get": {
+        "summary": "Get deal progress",
+        "description": "Get deal progress",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "description": "The deal id.",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "security": [
+          {
+            "oauth": [
+              "internal"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get deal progress",
+            "schema": {
+              "$ref": "#/definitions/V1_Entities_Deals_Progress"
+            }
+          },
+          "404": {
+            "description": "Not found"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "tags": [
+
+        ],
+        "operationId": "getDealsIdProgressPage"
+      }
+    },
     "/deals/{id}/progress_page/summary": {
       "get": {
         "summary": "Get the deal progress summary",
@@ -4059,62 +4213,6 @@
 
         ],
         "operationId": "getDealsIdProgressPageSummary"
-      }
-    },
-    "/deals/{id}/progress_page/{kind}": {
-      "get": {
-        "summary": "Get deal progress for a specific kind",
-        "description": "Get deal progress",
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "id",
-            "description": "The deal id.",
-            "type": "integer",
-            "format": "int32",
-            "required": true
-          },
-          {
-            "in": "path",
-            "name": "kind",
-            "description": "Kind of progress.",
-            "type": "string",
-            "enum": [
-              "investment_amount",
-              "number_of_securities",
-              "number_of_investments"
-            ],
-            "required": true
-          }
-        ],
-        "security": [
-          {
-            "oauth": [
-              "internal"
-            ]
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Get deal progress",
-            "schema": {
-              "$ref": "#/definitions/V1_Entities_Deals_Progress"
-            }
-          },
-          "404": {
-            "description": "Not found"
-          },
-          "403": {
-            "description": "Forbidden"
-          }
-        },
-        "tags": [
-
-        ],
-        "operationId": "getDealsIdProgressPageKind"
       }
     },
     "/deals/{id}/summary": {
@@ -9282,7 +9380,7 @@
         },
         "phoneNumber": {
           "type": "string",
-          "description": "The phone number of the user."
+          "description": "The phone number for the two factor channel."
         },
         "channel": {
           "type": "string",
@@ -9329,6 +9427,20 @@
           "description": "The URI."
         }
       }
+    },
+    "V1_Entities_DeleteResult": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean",
+          "description": "The status of the request."
+        },
+        "message": {
+          "type": "string",
+          "description": "The message of the request."
+        }
+      },
+      "description": "V1_Entities_DeleteResult model"
     },
     "V1_Entities_Users_TwoFactorChannels": {
       "type": "object",
@@ -9870,6 +9982,56 @@
       },
       "description": "V1_Entities_Payments_SelfServeOnboarding_DigitalPaymentsConnection_Data model"
     },
+    "V1_Entities_Deals_Progress": {
+      "type": "object",
+      "properties": {
+        "investorFunnel": {
+          "$ref": "#/definitions/V1_Entities_Deals_ProgressKinds",
+          "description": "The investor funnel."
+        },
+        "incomingPayments": {
+          "$ref": "#/definitions/V1_Entities_Deals_ProgressKinds",
+          "description": "The incoming payments."
+        }
+      },
+      "description": "V1_Entities_Deals_Progress model"
+    },
+    "V1_Entities_Deals_ProgressKinds": {
+      "type": "object",
+      "properties": {
+        "investmentAmount": {
+          "$ref": "#/definitions/V1_Entities_Deals_ProgressColumn",
+          "description": "Amount of investment."
+        },
+        "numberOfInvestments": {
+          "$ref": "#/definitions/V1_Entities_Deals_ProgressColumn",
+          "description": "Number of investments."
+        },
+        "numberOfSecurities": {
+          "$ref": "#/definitions/V1_Entities_Deals_ProgressColumn",
+          "description": "Number of securities."
+        }
+      }
+    },
+    "V1_Entities_Deals_ProgressColumn": {
+      "type": "object",
+      "properties": {
+        "label": {
+          "type": "string",
+          "description": "The label of the column."
+        },
+        "value": {
+          "type": "integer",
+          "format": "int32",
+          "description": "The value for the column."
+        },
+        "description": {
+          "type": "integer",
+          "format": "int32",
+          "description": "The description of the column."
+        }
+      }
+    },
     "V1_Entities_Deals_ProgressPage_Summary": {
       "type": "object",
       "properties": {
@@ -9915,39 +10077,6 @@
         }
       },
       "description": "V1_Entities_Deals_ProgressPage_Summary model"
-    },
-    "V1_Entities_Deals_Progress": {
-      "type": "object",
-      "properties": {
-        "investor_funnel": {
-          "$ref": "#/definitions/V1_Entities_Deals_ProgressColumn",
-          "description": "The investor funnel."
-        },
-        "incoming_payments": {
-          "$ref": "#/definitions/V1_Entities_Deals_ProgressColumn",
-          "description": "The incoming payments."
-        }
-      },
-      "description": "V1_Entities_Deals_Progress model"
-    },
-    "V1_Entities_Deals_ProgressColumn": {
-      "type": "object",
-      "properties": {
-        "label": {
-          "type": "string",
-          "description": "The label of the column."
-        },
-        "value": {
-          "type": "integer",
-          "format": "int32",
-          "description": "The value for the column."
-        },
-        "description": {
-          "type": "integer",
-          "format": "int32",
-          "description": "The description of the column."
-        }
-      }
     },
     "V1_Entities_DealSetup": {
       "type": "object",

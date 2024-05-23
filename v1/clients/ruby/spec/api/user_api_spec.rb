@@ -44,6 +44,31 @@ describe 'UserApi' do
     end
   end
 
+  # unit tests for delete_channel
+  # Creates an API endpoint to delete a specific two factor channel\&quot;
+  # Create an API endpoint to delete a specific two factor channel
+  # @param id 
+  # @param channel 
+  # @param [Hash] opts the optional parameters
+  # @return [V1EntitiesDeleteResult]
+  describe 'delete_channel test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for disable_mfa
+  # Disable all the multi-factor authentication integrations for a user
+  # Disable all the multi-factor authentication integrations for a user
+  # @param id 
+  # @param [Hash] opts the optional parameters
+  # @return [nil]
+  describe 'disable_mfa test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for get_two_factor_channels
   # Creates an API endpoint to return a list of existing TOTP factor
   # Create an API endpoint to return a list of existing TOTP factor

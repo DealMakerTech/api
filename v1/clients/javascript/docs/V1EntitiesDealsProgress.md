@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**investorFunnel** | [**V1EntitiesDealsProgressColumn**](V1EntitiesDealsProgressColumn.md) |  | [optional] 
-**incomingPayments** | [**V1EntitiesDealsProgressColumn**](V1EntitiesDealsProgressColumn.md) |  | [optional] 
+**investorFunnel** | [**V1EntitiesDealsProgressKinds**](V1EntitiesDealsProgressKinds.md) |  | [optional] 
+**incomingPayments** | [**V1EntitiesDealsProgressKinds**](V1EntitiesDealsProgressKinds.md) |  | [optional] 
 
 

@@ -92,7 +92,9 @@ docs/V1EntitiesDealsInvestorsPaymentAcssBankAccountSetupIntent.md
 docs/V1EntitiesDealsPriceDetails.md
 docs/V1EntitiesDealsProgress.md
 docs/V1EntitiesDealsProgressColumn.md
+docs/V1EntitiesDealsProgressKinds.md
 docs/V1EntitiesDealsProgressPageSummary.md
+docs/V1EntitiesDeleteResult.md
 docs/V1EntitiesDividend.md
 docs/V1EntitiesDividends.md
 docs/V1EntitiesEmailEvent.md
@@ -241,7 +243,9 @@ lib/DealMakerAPI/models/v1_entities_deals_investors_payment_acss_bank_account_se
 lib/DealMakerAPI/models/v1_entities_deals_price_details.rb
 lib/DealMakerAPI/models/v1_entities_deals_progress.rb
 lib/DealMakerAPI/models/v1_entities_deals_progress_column.rb
+lib/DealMakerAPI/models/v1_entities_deals_progress_kinds.rb
 lib/DealMakerAPI/models/v1_entities_deals_progress_page_summary.rb
+lib/DealMakerAPI/models/v1_entities_delete_result.rb
 lib/DealMakerAPI/models/v1_entities_dividend.rb
 lib/DealMakerAPI/models/v1_entities_dividends.rb
 lib/DealMakerAPI/models/v1_entities_email_event.rb
@@ -384,9 +388,11 @@ spec/models/v1_entities_deals_investors_payment_ach_bank_account_setup_intent_sp
 spec/models/v1_entities_deals_investors_payment_acss_bank_account_setup_intent_spec.rb
 spec/models/v1_entities_deals_price_details_spec.rb
 spec/models/v1_entities_deals_progress_column_spec.rb
+spec/models/v1_entities_deals_progress_kinds_spec.rb
 spec/models/v1_entities_deals_progress_page_summary_spec.rb
 spec/models/v1_entities_deals_progress_spec.rb
 spec/models/v1_entities_deals_spec.rb
+spec/models/v1_entities_delete_result_spec.rb
 spec/models/v1_entities_dividend_spec.rb
 spec/models/v1_entities_dividends_spec.rb
 spec/models/v1_entities_email_event_spec.rb

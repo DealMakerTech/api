@@ -58,8 +58,8 @@ class V1EntitiesDealsProgress implements ModelInterface, ArrayAccess, \JsonSeria
       * @var string[]
       */
     protected static $openAPITypes = [
-        'investor_funnel' => '\DealMaker\Model\V1EntitiesDealsProgressColumn',
-        'incoming_payments' => '\DealMaker\Model\V1EntitiesDealsProgressColumn'
+        'investor_funnel' => '\DealMaker\Model\V1EntitiesDealsProgressKinds',
+        'incoming_payments' => '\DealMaker\Model\V1EntitiesDealsProgressKinds'
     ];
 
     /**
@@ -170,8 +170,8 @@ class V1EntitiesDealsProgress implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $attributeMap = [
-        'investor_funnel' => 'investor_funnel',
-        'incoming_payments' => 'incoming_payments'
+        'investor_funnel' => 'investorFunnel',
+        'incoming_payments' => 'incomingPayments'
     ];
 
     /**
@@ -300,7 +300,7 @@ class V1EntitiesDealsProgress implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Gets investor_funnel
      *
-     * @return \DealMaker\Model\V1EntitiesDealsProgressColumn|null
+     * @return \DealMaker\Model\V1EntitiesDealsProgressKinds|null
      */
     public function getInvestorFunnel()
     {
@@ -310,7 +310,7 @@ class V1EntitiesDealsProgress implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets investor_funnel
      *
-     * @param \DealMaker\Model\V1EntitiesDealsProgressColumn|null $investor_funnel investor_funnel
+     * @param \DealMaker\Model\V1EntitiesDealsProgressKinds|null $investor_funnel investor_funnel
      *
      * @return self
      */
@@ -327,7 +327,7 @@ class V1EntitiesDealsProgress implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Gets incoming_payments
      *
-     * @return \DealMaker\Model\V1EntitiesDealsProgressColumn|null
+     * @return \DealMaker\Model\V1EntitiesDealsProgressKinds|null
      */
     public function getIncomingPayments()
     {
@@ -337,7 +337,7 @@ class V1EntitiesDealsProgress implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets incoming_payments
      *
-     * @param \DealMaker\Model\V1EntitiesDealsProgressColumn|null $incoming_payments incoming_payments
+     * @param \DealMaker\Model\V1EntitiesDealsProgressKinds|null $incoming_payments incoming_payments
      *
      * @return self
      */

@@ -4,8 +4,8 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **investor_funnel** | [**V1EntitiesDealsProgressColumn**](V1EntitiesDealsProgressColumn.md) |  | [optional] |
-| **incoming_payments** | [**V1EntitiesDealsProgressColumn**](V1EntitiesDealsProgressColumn.md) |  | [optional] |
+| **investor_funnel** | [**V1EntitiesDealsProgressKinds**](V1EntitiesDealsProgressKinds.md) |  | [optional] |
+| **incoming_payments** | [**V1EntitiesDealsProgressKinds**](V1EntitiesDealsProgressKinds.md) |  | [optional] |
 
 ## Example
 

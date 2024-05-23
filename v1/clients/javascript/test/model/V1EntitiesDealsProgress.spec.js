@@ -54,13 +54,13 @@
       //expect(instance).to.be.a(Api.V1EntitiesDealsProgress);
     });
 
-    it('should have the property investorFunnel (base name: "investor_funnel")', function() {
+    it('should have the property investorFunnel (base name: "investorFunnel")', function() {
       // uncomment below and update the code to test the property investorFunnel
       //var instance = new Api.V1EntitiesDealsProgress();
       //expect(instance).to.be();
     });
 
-    it('should have the property incomingPayments (base name: "incoming_payments")', function() {
+    it('should have the property incomingPayments (base name: "incomingPayments")', function() {
       // uncomment below and update the code to test the property incomingPayments
       //var instance = new Api.V1EntitiesDealsProgress();
       //expect(instance).to.be();

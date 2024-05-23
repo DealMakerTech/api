@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The V1EntitiesEmailEvent model module.
  * @module model/V1EntitiesEmailEvent
- * @version 0.103.6
+ * @version 0.104.0
  */
 class V1EntitiesEmailEvent {
     /**

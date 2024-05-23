@@ -30,7 +30,7 @@ import V1EntitiesWebhooksSubscription from '../model/V1EntitiesWebhooksSubscript
 /**
 * Default service.
 * @module api/DefaultApi
-* @version 0.103.6
+* @version 0.104.0
 */
 export default class DefaultApi {
 
@@ -225,35 +225,29 @@ export default class DefaultApi {
     }
 
     /**
-     * Callback function to receive the result of the getDealsIdProgressPageKind operation.
-     * @callback module:api/DefaultApi~getDealsIdProgressPageKindCallback
+     * Callback function to receive the result of the getDealsIdProgressPage operation.
+     * @callback module:api/DefaultApi~getDealsIdProgressPageCallback
      * @param {String} error Error message, if any.
      * @param {module:model/V1EntitiesDealsProgress} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
     /**
-     * Get deal progress for a specific kind
+     * Get deal progress
      * Get deal progress
      * @param {Number} id The deal id.
-     * @param {module:model/String} kind Kind of progress.
-     * @param {module:api/DefaultApi~getDealsIdProgressPageKindCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/DefaultApi~getDealsIdProgressPageCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/V1EntitiesDealsProgress}
      */
-    getDealsIdProgressPageKind(id, kind, callback) {
+    getDealsIdProgressPage(id, callback) {
       let postBody = null;
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
-        throw new Error("Missing the required parameter 'id' when calling getDealsIdProgressPageKind");
-      }
-      // verify the required parameter 'kind' is set
-      if (kind === undefined || kind === null) {
-        throw new Error("Missing the required parameter 'kind' when calling getDealsIdProgressPageKind");
+        throw new Error("Missing the required parameter 'id' when calling getDealsIdProgressPage");
       }
 
       let pathParams = {
-        'id': id,
-        'kind': kind
+        'id': id
       };
       let queryParams = {
       };
@@ -267,7 +261,7 @@ export default class DefaultApi {
       let accepts = ['application/json'];
       let returnType = V1EntitiesDealsProgress;
       return this.apiClient.callApi(
-        '/deals/{id}/progress_page/{kind}', 'GET',
+        '/deals/{id}/progress_page', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **factor_sid** | **string** | The unique string for the resource | [optional]
 **user_id** | **int** | The user id for the two factor channel. | [optional]
 **identity** | **string** | The identity for the two factor channel. | [optional]
-**phone_number** | **string** | The phone number of the user. | [optional]
+**phone_number** | **string** | The phone number for the two factor channel. | [optional]
 **channel** | **string** | The channel for the two factor channel. | [optional]
 **verified** | **bool** | The verification status for the two factor channel. | [optional]
 **updated_at** | **string** | The time since the two factor channel was last updated/verified. | [optional]

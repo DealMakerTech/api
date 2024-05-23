@@ -87,7 +87,9 @@ docs/V1EntitiesDealsInvestorsPaymentAcssBankAccountSetupIntent.md
 docs/V1EntitiesDealsPriceDetails.md
 docs/V1EntitiesDealsProgress.md
 docs/V1EntitiesDealsProgressColumn.md
+docs/V1EntitiesDealsProgressKinds.md
 docs/V1EntitiesDealsProgressPageSummary.md
+docs/V1EntitiesDeleteResult.md
 docs/V1EntitiesDividend.md
 docs/V1EntitiesDividends.md
 docs/V1EntitiesEmailEvent.md
@@ -236,7 +238,9 @@ src/model/V1EntitiesDealsInvestorsPaymentAcssBankAccountSetupIntent.js
 src/model/V1EntitiesDealsPriceDetails.js
 src/model/V1EntitiesDealsProgress.js
 src/model/V1EntitiesDealsProgressColumn.js
+src/model/V1EntitiesDealsProgressKinds.js
 src/model/V1EntitiesDealsProgressPageSummary.js
+src/model/V1EntitiesDeleteResult.js
 src/model/V1EntitiesDividend.js
 src/model/V1EntitiesDividends.js
 src/model/V1EntitiesEmailEvent.js
@@ -380,7 +384,9 @@ test/model/V1EntitiesDealsInvestorsPaymentAcssBankAccountSetupIntent.spec.js
 test/model/V1EntitiesDealsPriceDetails.spec.js
 test/model/V1EntitiesDealsProgress.spec.js
 test/model/V1EntitiesDealsProgressColumn.spec.js
+test/model/V1EntitiesDealsProgressKinds.spec.js
 test/model/V1EntitiesDealsProgressPageSummary.spec.js
+test/model/V1EntitiesDeleteResult.spec.js
 test/model/V1EntitiesDividend.spec.js
 test/model/V1EntitiesDividends.spec.js
 test/model/V1EntitiesEmailEvent.spec.js

@@ -82,6 +82,136 @@ module DealMakerAPI
       return data, status_code, headers
     end
 
+    # Creates an API endpoint to delete a specific two factor channel\"
+    # Create an API endpoint to delete a specific two factor channel
+    # @param id [Integer] 
+    # @param channel [Integer] 
+    # @param [Hash] opts the optional parameters
+    # @return [V1EntitiesDeleteResult]
+    def delete_channel(id, channel, opts = {})
+      data, _status_code, _headers = delete_channel_with_http_info(id, channel, opts)
+      data
+    end
+
+    # Creates an API endpoint to delete a specific two factor channel\&quot;
+    # Create an API endpoint to delete a specific two factor channel
+    # @param id [Integer] 
+    # @param channel [Integer] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(V1EntitiesDeleteResult, Integer, Hash)>] V1EntitiesDeleteResult data, response status code and response headers
+    def delete_channel_with_http_info(id, channel, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: UserApi.delete_channel ...'
+      end
+      # verify the required parameter 'id' is set
+      if @api_client.config.client_side_validation && id.nil?
+        fail ArgumentError, "Missing the required parameter 'id' when calling UserApi.delete_channel"
+      end
+      # verify the required parameter 'channel' is set
+      if @api_client.config.client_side_validation && channel.nil?
+        fail ArgumentError, "Missing the required parameter 'channel' when calling UserApi.delete_channel"
+      end
+      # resource path
+      local_var_path = '/users/{id}/two_factor_channels/delete/{channel}'.sub('{' + 'id' + '}', CGI.escape(id.to_s)).sub('{' + 'channel' + '}', CGI.escape(channel.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'V1EntitiesDeleteResult'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"UserApi.delete_channel",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: UserApi#delete_channel\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Disable all the multi-factor authentication integrations for a user
+    # Disable all the multi-factor authentication integrations for a user
+    # @param id [Integer] 
+    # @param [Hash] opts the optional parameters
+    # @return [nil]
+    def disable_mfa(id, opts = {})
+      disable_mfa_with_http_info(id, opts)
+      nil
+    end
+
+    # Disable all the multi-factor authentication integrations for a user
+    # Disable all the multi-factor authentication integrations for a user
+    # @param id [Integer] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def disable_mfa_with_http_info(id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: UserApi.disable_mfa ...'
+      end
+      # verify the required parameter 'id' is set
+      if @api_client.config.client_side_validation && id.nil?
+        fail ArgumentError, "Missing the required parameter 'id' when calling UserApi.disable_mfa"
+      end
+      # resource path
+      local_var_path = '/users/{id}/disable_mfa'.sub('{' + 'id' + '}', CGI.escape(id.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"UserApi.disable_mfa",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: UserApi#disable_mfa\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Creates an API endpoint to return a list of existing TOTP factor
     # Create an API endpoint to return a list of existing TOTP factor
     # @param id [Integer] 

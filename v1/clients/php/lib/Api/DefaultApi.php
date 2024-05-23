@@ -83,7 +83,7 @@ class DefaultApi
         'getDealsIdInvestorsPaymentsExpressWireInstructions' => [
             'application/json',
         ],
-        'getDealsIdProgressPageKind' => [
+        'getDealsIdProgressPage' => [
             'application/json',
         ],
         'getDealsIdProgressPageSummary' => [
@@ -1419,40 +1419,38 @@ class DefaultApi
     }
 
     /**
-     * Operation getDealsIdProgressPageKind
+     * Operation getDealsIdProgressPage
      *
-     * Get deal progress for a specific kind
+     * Get deal progress
      *
      * @param  int $id The deal id. (required)
-     * @param  string $kind Kind of progress. (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDealsIdProgressPageKind'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDealsIdProgressPage'] to see the possible values for this operation
      *
      * @throws \DealMaker\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \DealMaker\Model\V1EntitiesDealsProgress
      */
-    public function getDealsIdProgressPageKind($id, $kind, string $contentType = self::contentTypes['getDealsIdProgressPageKind'][0])
+    public function getDealsIdProgressPage($id, string $contentType = self::contentTypes['getDealsIdProgressPage'][0])
     {
-        list($response) = $this->getDealsIdProgressPageKindWithHttpInfo($id, $kind, $contentType);
+        list($response) = $this->getDealsIdProgressPageWithHttpInfo($id, $contentType);
         return $response;
     }
 
     /**
-     * Operation getDealsIdProgressPageKindWithHttpInfo
+     * Operation getDealsIdProgressPageWithHttpInfo
      *
-     * Get deal progress for a specific kind
+     * Get deal progress
      *
      * @param  int $id The deal id. (required)
-     * @param  string $kind Kind of progress. (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDealsIdProgressPageKind'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDealsIdProgressPage'] to see the possible values for this operation
      *
      * @throws \DealMaker\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \DealMaker\Model\V1EntitiesDealsProgress, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getDealsIdProgressPageKindWithHttpInfo($id, $kind, string $contentType = self::contentTypes['getDealsIdProgressPageKind'][0])
+    public function getDealsIdProgressPageWithHttpInfo($id, string $contentType = self::contentTypes['getDealsIdProgressPage'][0])
     {
-        $request = $this->getDealsIdProgressPageKindRequest($id, $kind, $contentType);
+        $request = $this->getDealsIdProgressPageRequest($id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1563,20 +1561,19 @@ class DefaultApi
     }
 
     /**
-     * Operation getDealsIdProgressPageKindAsync
+     * Operation getDealsIdProgressPageAsync
      *
-     * Get deal progress for a specific kind
+     * Get deal progress
      *
      * @param  int $id The deal id. (required)
-     * @param  string $kind Kind of progress. (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDealsIdProgressPageKind'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDealsIdProgressPage'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getDealsIdProgressPageKindAsync($id, $kind, string $contentType = self::contentTypes['getDealsIdProgressPageKind'][0])
+    public function getDealsIdProgressPageAsync($id, string $contentType = self::contentTypes['getDealsIdProgressPage'][0])
     {
-        return $this->getDealsIdProgressPageKindAsyncWithHttpInfo($id, $kind, $contentType)
+        return $this->getDealsIdProgressPageAsyncWithHttpInfo($id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1585,21 +1582,20 @@ class DefaultApi
     }
 
     /**
-     * Operation getDealsIdProgressPageKindAsyncWithHttpInfo
+     * Operation getDealsIdProgressPageAsyncWithHttpInfo
      *
-     * Get deal progress for a specific kind
+     * Get deal progress
      *
      * @param  int $id The deal id. (required)
-     * @param  string $kind Kind of progress. (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDealsIdProgressPageKind'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDealsIdProgressPage'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getDealsIdProgressPageKindAsyncWithHttpInfo($id, $kind, string $contentType = self::contentTypes['getDealsIdProgressPageKind'][0])
+    public function getDealsIdProgressPageAsyncWithHttpInfo($id, string $contentType = self::contentTypes['getDealsIdProgressPage'][0])
     {
         $returnType = '\DealMaker\Model\V1EntitiesDealsProgress';
-        $request = $this->getDealsIdProgressPageKindRequest($id, $kind, $contentType);
+        $request = $this->getDealsIdProgressPageRequest($id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1638,34 +1634,26 @@ class DefaultApi
     }
 
     /**
-     * Create request for operation 'getDealsIdProgressPageKind'
+     * Create request for operation 'getDealsIdProgressPage'
      *
      * @param  int $id The deal id. (required)
-     * @param  string $kind Kind of progress. (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDealsIdProgressPageKind'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDealsIdProgressPage'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getDealsIdProgressPageKindRequest($id, $kind, string $contentType = self::contentTypes['getDealsIdProgressPageKind'][0])
+    public function getDealsIdProgressPageRequest($id, string $contentType = self::contentTypes['getDealsIdProgressPage'][0])
     {
 
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $id when calling getDealsIdProgressPageKind'
-            );
-        }
-
-        // verify the required parameter 'kind' is set
-        if ($kind === null || (is_array($kind) && count($kind) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $kind when calling getDealsIdProgressPageKind'
+                'Missing the required parameter $id when calling getDealsIdProgressPage'
             );
         }
 
 
-        $resourcePath = '/deals/{id}/progress_page/{kind}';
+        $resourcePath = '/deals/{id}/progress_page';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1679,14 +1667,6 @@ class DefaultApi
             $resourcePath = str_replace(
                 '{' . 'id' . '}',
                 ObjectSerializer::toPathValue($id),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($kind !== null) {
-            $resourcePath = str_replace(
-                '{' . 'kind' . '}',
-                ObjectSerializer::toPathValue($kind),
                 $resourcePath
             );
         }

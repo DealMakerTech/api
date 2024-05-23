@@ -88,7 +88,9 @@ docs/Model/V1EntitiesDealsInvestorsPaymentAcssBankAccountSetupIntent.md
 docs/Model/V1EntitiesDealsPriceDetails.md
 docs/Model/V1EntitiesDealsProgress.md
 docs/Model/V1EntitiesDealsProgressColumn.md
+docs/Model/V1EntitiesDealsProgressKinds.md
 docs/Model/V1EntitiesDealsProgressPageSummary.md
+docs/Model/V1EntitiesDeleteResult.md
 docs/Model/V1EntitiesDividend.md
 docs/Model/V1EntitiesDividends.md
 docs/Model/V1EntitiesEmailEvent.md
@@ -237,7 +239,9 @@ lib/Model/V1EntitiesDealsInvestorsPaymentAcssBankAccountSetupIntent.php
 lib/Model/V1EntitiesDealsPriceDetails.php
 lib/Model/V1EntitiesDealsProgress.php
 lib/Model/V1EntitiesDealsProgressColumn.php
+lib/Model/V1EntitiesDealsProgressKinds.php
 lib/Model/V1EntitiesDealsProgressPageSummary.php
+lib/Model/V1EntitiesDeleteResult.php
 lib/Model/V1EntitiesDividend.php
 lib/Model/V1EntitiesDividends.php
 lib/Model/V1EntitiesEmailEvent.php
@@ -381,9 +385,11 @@ test/Model/V1EntitiesDealsInvestorsPaymentAchBankAccountSetupIntentTest.php
 test/Model/V1EntitiesDealsInvestorsPaymentAcssBankAccountSetupIntentTest.php
 test/Model/V1EntitiesDealsPriceDetailsTest.php
 test/Model/V1EntitiesDealsProgressColumnTest.php
+test/Model/V1EntitiesDealsProgressKindsTest.php
 test/Model/V1EntitiesDealsProgressPageSummaryTest.php
 test/Model/V1EntitiesDealsProgressTest.php
 test/Model/V1EntitiesDealsTest.php
+test/Model/V1EntitiesDeleteResultTest.php
 test/Model/V1EntitiesDividendTest.php
 test/Model/V1EntitiesDividendsTest.php
 test/Model/V1EntitiesEmailEventTest.php

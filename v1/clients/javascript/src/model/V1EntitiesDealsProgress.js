@@ -12,12 +12,12 @@
  */
 
 import ApiClient from '../ApiClient';
-import V1EntitiesDealsProgressColumn from './V1EntitiesDealsProgressColumn';
+import V1EntitiesDealsProgressKinds from './V1EntitiesDealsProgressKinds';
 
 /**
  * The V1EntitiesDealsProgress model module.
  * @module model/V1EntitiesDealsProgress
- * @version 0.103.6
+ * @version 0.104.0
  */
 class V1EntitiesDealsProgress {
     /**
@@ -49,11 +49,11 @@ class V1EntitiesDealsProgress {
         if (data) {
             obj = obj || new V1EntitiesDealsProgress();
 
-            if (data.hasOwnProperty('investor_funnel')) {
-                obj['investor_funnel'] = V1EntitiesDealsProgressColumn.constructFromObject(data['investor_funnel']);
+            if (data.hasOwnProperty('investorFunnel')) {
+                obj['investorFunnel'] = V1EntitiesDealsProgressKinds.constructFromObject(data['investorFunnel']);
             }
-            if (data.hasOwnProperty('incoming_payments')) {
-                obj['incoming_payments'] = V1EntitiesDealsProgressColumn.constructFromObject(data['incoming_payments']);
+            if (data.hasOwnProperty('incomingPayments')) {
+                obj['incomingPayments'] = V1EntitiesDealsProgressKinds.constructFromObject(data['incomingPayments']);
             }
         }
         return obj;
@@ -65,13 +65,13 @@ class V1EntitiesDealsProgress {
      * @return {boolean} to indicate whether the JSON data is valid with respect to <code>V1EntitiesDealsProgress</code>.
      */
     static validateJSON(data) {
-        // validate the optional field `investor_funnel`
-        if (data['investor_funnel']) { // data not null
-          V1EntitiesDealsProgressColumn.validateJSON(data['investor_funnel']);
+        // validate the optional field `investorFunnel`
+        if (data['investorFunnel']) { // data not null
+          V1EntitiesDealsProgressKinds.validateJSON(data['investorFunnel']);
         }
-        // validate the optional field `incoming_payments`
-        if (data['incoming_payments']) { // data not null
-          V1EntitiesDealsProgressColumn.validateJSON(data['incoming_payments']);
+        // validate the optional field `incomingPayments`
+        if (data['incomingPayments']) { // data not null
+          V1EntitiesDealsProgressKinds.validateJSON(data['incomingPayments']);
         }
 
         return true;
@@ -83,14 +83,14 @@ class V1EntitiesDealsProgress {
 
 
 /**
- * @member {module:model/V1EntitiesDealsProgressColumn} investor_funnel
+ * @member {module:model/V1EntitiesDealsProgressKinds} investorFunnel
  */
-V1EntitiesDealsProgress.prototype['investor_funnel'] = undefined;
+V1EntitiesDealsProgress.prototype['investorFunnel'] = undefined;
 
 /**
- * @member {module:model/V1EntitiesDealsProgressColumn} incoming_payments
+ * @member {module:model/V1EntitiesDealsProgressKinds} incomingPayments
  */
-V1EntitiesDealsProgress.prototype['incoming_payments'] = undefined;
+V1EntitiesDealsProgress.prototype['incomingPayments'] = undefined;
 
 
 

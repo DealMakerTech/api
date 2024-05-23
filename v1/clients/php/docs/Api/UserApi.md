@@ -5,6 +5,8 @@ All URIs are relative to http://api.dealmaker.tech, except if the operation defi
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
 | [**createFactor()**](UserApi.md#createFactor) | **POST** /users/{id}/create_factor | Creates an API endpoint for creating a new TOTP factor |
+| [**deleteChannel()**](UserApi.md#deleteChannel) | **DELETE** /users/{id}/two_factor_channels/delete/{channel} | Creates an API endpoint to delete a specific two factor channel\&quot; |
+| [**disableMfa()**](UserApi.md#disableMfa) | **DELETE** /users/{id}/disable_mfa | Disable all the multi-factor authentication integrations for a user |
 | [**getTwoFactorChannels()**](UserApi.md#getTwoFactorChannels) | **GET** /users/{id}/two_factor_channels | Creates an API endpoint to return a list of existing TOTP factor |
 | [**getUser()**](UserApi.md#getUser) | **GET** /users/{id} | Get user by User ID |
 | [**setupSmsVerification()**](UserApi.md#setupSmsVerification) | **POST** /users/{id}/setup_sms_verification | Start a setup for a SMS Verification by creating a two factor channel of sms type |
@@ -65,6 +67,121 @@ No authorization required
 
 - **Content-Type**: Not defined
 - **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `deleteChannel()`
+
+```php
+deleteChannel($id, $channel): \DealMaker\Model\V1EntitiesDeleteResult
+```
+
+Creates an API endpoint to delete a specific two factor channel\"
+
+Create an API endpoint to delete a specific two factor channel
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new DealMaker\Api\UserApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = 56; // int
+$channel = 56; // int
+
+try {
+    $result = $apiInstance->deleteChannel($id, $channel);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling UserApi->deleteChannel: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **int**|  | |
+| **channel** | **int**|  | |
+
+### Return type
+
+[**\DealMaker\Model\V1EntitiesDeleteResult**](../Model/V1EntitiesDeleteResult.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `disableMfa()`
+
+```php
+disableMfa($id)
+```
+
+Disable all the multi-factor authentication integrations for a user
+
+Disable all the multi-factor authentication integrations for a user
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new DealMaker\Api\UserApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = 56; // int
+
+try {
+    $apiInstance->disableMfa($id);
+} catch (Exception $e) {
+    echo 'Exception when calling UserApi->disableMfa: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **int**|  | |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)

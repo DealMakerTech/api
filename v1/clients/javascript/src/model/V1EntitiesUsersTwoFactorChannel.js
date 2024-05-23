@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The V1EntitiesUsersTwoFactorChannel model module.
  * @module model/V1EntitiesUsersTwoFactorChannel
- * @version 0.103.6
+ * @version 0.104.0
  */
 class V1EntitiesUsersTwoFactorChannel {
     /**
@@ -136,7 +136,7 @@ V1EntitiesUsersTwoFactorChannel.prototype['userId'] = undefined;
 V1EntitiesUsersTwoFactorChannel.prototype['identity'] = undefined;
 
 /**
- * The phone number of the user.
+ * The phone number for the two factor channel.
  * @member {String} phoneNumber
  */
 V1EntitiesUsersTwoFactorChannel.prototype['phoneNumber'] = undefined;

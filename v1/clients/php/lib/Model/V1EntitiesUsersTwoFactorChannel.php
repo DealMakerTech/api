@@ -460,7 +460,7 @@ class V1EntitiesUsersTwoFactorChannel implements ModelInterface, ArrayAccess, \J
     /**
      * Sets phone_number
      *
-     * @param string|null $phone_number The phone number of the user.
+     * @param string|null $phone_number The phone number for the two factor channel.
      *
      * @return self
      */

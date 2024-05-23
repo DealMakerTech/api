@@ -277,42 +277,31 @@ module DealMakerAPI
       return data, status_code, headers
     end
 
-    # Get deal progress for a specific kind
+    # Get deal progress
     # Get deal progress
     # @param id [Integer] The deal id.
-    # @param kind [String] Kind of progress.
     # @param [Hash] opts the optional parameters
     # @return [V1EntitiesDealsProgress]
-    def get_deals_id_progress_page_kind(id, kind, opts = {})
-      data, _status_code, _headers = get_deals_id_progress_page_kind_with_http_info(id, kind, opts)
+    def get_deals_id_progress_page(id, opts = {})
+      data, _status_code, _headers = get_deals_id_progress_page_with_http_info(id, opts)
       data
     end
 
-    # Get deal progress for a specific kind
+    # Get deal progress
     # Get deal progress
     # @param id [Integer] The deal id.
-    # @param kind [String] Kind of progress.
     # @param [Hash] opts the optional parameters
     # @return [Array<(V1EntitiesDealsProgress, Integer, Hash)>] V1EntitiesDealsProgress data, response status code and response headers
-    def get_deals_id_progress_page_kind_with_http_info(id, kind, opts = {})
+    def get_deals_id_progress_page_with_http_info(id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: DefaultApi.get_deals_id_progress_page_kind ...'
+        @api_client.config.logger.debug 'Calling API: DefaultApi.get_deals_id_progress_page ...'
       end
       # verify the required parameter 'id' is set
       if @api_client.config.client_side_validation && id.nil?
-        fail ArgumentError, "Missing the required parameter 'id' when calling DefaultApi.get_deals_id_progress_page_kind"
-      end
-      # verify the required parameter 'kind' is set
-      if @api_client.config.client_side_validation && kind.nil?
-        fail ArgumentError, "Missing the required parameter 'kind' when calling DefaultApi.get_deals_id_progress_page_kind"
-      end
-      # verify enum value
-      allowable_values = ["investment_amount", "number_of_securities", "number_of_investments"]
-      if @api_client.config.client_side_validation && !allowable_values.include?(kind)
-        fail ArgumentError, "invalid value for \"kind\", must be one of #{allowable_values}"
+        fail ArgumentError, "Missing the required parameter 'id' when calling DefaultApi.get_deals_id_progress_page"
       end
       # resource path
-      local_var_path = '/deals/{id}/progress_page/{kind}'.sub('{' + 'id' + '}', CGI.escape(id.to_s)).sub('{' + 'kind' + '}', CGI.escape(kind.to_s))
+      local_var_path = '/deals/{id}/progress_page'.sub('{' + 'id' + '}', CGI.escape(id.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -335,7 +324,7 @@ module DealMakerAPI
       auth_names = opts[:debug_auth_names] || []
 
       new_options = opts.merge(
-        :operation => :"DefaultApi.get_deals_id_progress_page_kind",
+        :operation => :"DefaultApi.get_deals_id_progress_page",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -346,7 +335,7 @@ module DealMakerAPI
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: DefaultApi#get_deals_id_progress_page_kind\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: DefaultApi#get_deals_id_progress_page\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

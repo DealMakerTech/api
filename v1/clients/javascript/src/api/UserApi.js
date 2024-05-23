@@ -15,6 +15,7 @@
 import ApiClient from "../ApiClient";
 import SetupSmsVerificationRequest from '../model/SetupSmsVerificationRequest';
 import UpdateUserPasswordRequest from '../model/UpdateUserPasswordRequest';
+import V1EntitiesDeleteResult from '../model/V1EntitiesDeleteResult';
 import V1EntitiesUser from '../model/V1EntitiesUser';
 import V1EntitiesUsersFactor from '../model/V1EntitiesUsersFactor';
 import V1EntitiesUsersTwoFactorChannel from '../model/V1EntitiesUsersTwoFactorChannel';
@@ -25,7 +26,7 @@ import VerifySmsVerificationRequest from '../model/VerifySmsVerificationRequest'
 /**
 * User service.
 * @module api/UserApi
-* @version 0.103.6
+* @version 0.104.0
 */
 export default class UserApi {
 
@@ -79,6 +80,97 @@ export default class UserApi {
       let returnType = V1EntitiesUsersFactor;
       return this.apiClient.callApi(
         '/users/{id}/create_factor', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the deleteChannel operation.
+     * @callback module:api/UserApi~deleteChannelCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/V1EntitiesDeleteResult} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Creates an API endpoint to delete a specific two factor channel\"
+     * Create an API endpoint to delete a specific two factor channel
+     * @param {Number} id 
+     * @param {Number} channel 
+     * @param {module:api/UserApi~deleteChannelCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/V1EntitiesDeleteResult}
+     */
+    deleteChannel(id, channel, callback) {
+      let postBody = null;
+      // verify the required parameter 'id' is set
+      if (id === undefined || id === null) {
+        throw new Error("Missing the required parameter 'id' when calling deleteChannel");
+      }
+      // verify the required parameter 'channel' is set
+      if (channel === undefined || channel === null) {
+        throw new Error("Missing the required parameter 'channel' when calling deleteChannel");
+      }
+
+      let pathParams = {
+        'id': id,
+        'channel': channel
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = V1EntitiesDeleteResult;
+      return this.apiClient.callApi(
+        '/users/{id}/two_factor_channels/delete/{channel}', 'DELETE',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the disableMfa operation.
+     * @callback module:api/UserApi~disableMfaCallback
+     * @param {String} error Error message, if any.
+     * @param data This operation does not return a value.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Disable all the multi-factor authentication integrations for a user
+     * Disable all the multi-factor authentication integrations for a user
+     * @param {Number} id 
+     * @param {module:api/UserApi~disableMfaCallback} callback The callback function, accepting three arguments: error, data, response
+     */
+    disableMfa(id, callback) {
+      let postBody = null;
+      // verify the required parameter 'id' is set
+      if (id === undefined || id === null) {
+        throw new Error("Missing the required parameter 'id' when calling disableMfa");
+      }
+
+      let pathParams = {
+        'id': id
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = [];
+      let returnType = null;
+      return this.apiClient.callApi(
+        '/users/{id}/disable_mfa', 'DELETE',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

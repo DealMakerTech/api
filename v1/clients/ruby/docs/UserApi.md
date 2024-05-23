@@ -5,6 +5,8 @@ All URIs are relative to *http://api.dealmaker.tech*
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
 | [**create_factor**](UserApi.md#create_factor) | **POST** /users/{id}/create_factor | Creates an API endpoint for creating a new TOTP factor |
+| [**delete_channel**](UserApi.md#delete_channel) | **DELETE** /users/{id}/two_factor_channels/delete/{channel} | Creates an API endpoint to delete a specific two factor channel\&quot; |
+| [**disable_mfa**](UserApi.md#disable_mfa) | **DELETE** /users/{id}/disable_mfa | Disable all the multi-factor authentication integrations for a user |
 | [**get_two_factor_channels**](UserApi.md#get_two_factor_channels) | **GET** /users/{id}/two_factor_channels | Creates an API endpoint to return a list of existing TOTP factor |
 | [**get_user**](UserApi.md#get_user) | **GET** /users/{id} | Get user by User ID |
 | [**setup_sms_verification**](UserApi.md#setup_sms_verification) | **POST** /users/{id}/setup_sms_verification | Start a setup for a SMS Verification by creating a two factor channel of sms type |
@@ -77,6 +79,139 @@ No authorization required
 
 - **Content-Type**: Not defined
 - **Accept**: application/json
+
+
+## delete_channel
+
+> <V1EntitiesDeleteResult> delete_channel(id, channel)
+
+Creates an API endpoint to delete a specific two factor channel\"
+
+Create an API endpoint to delete a specific two factor channel
+
+### Examples
+
+```ruby
+require 'time'
+require 'DealMakerAPI'
+# setup authorization
+DealMakerAPI.configure do |config|end
+
+api_instance = DealMakerAPI::UserApi.new
+id = 56 # Integer | 
+channel = 56 # Integer | 
+
+begin
+  # Creates an API endpoint to delete a specific two factor channel\"
+  result = api_instance.delete_channel(id, channel)
+  p result
+rescue DealMakerAPI::ApiError => e
+  puts "Error when calling UserApi->delete_channel: #{e}"
+end
+```
+
+#### Using the delete_channel_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<V1EntitiesDeleteResult>, Integer, Hash)> delete_channel_with_http_info(id, channel)
+
+```ruby
+begin
+  # Creates an API endpoint to delete a specific two factor channel\"
+  data, status_code, headers = api_instance.delete_channel_with_http_info(id, channel)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <V1EntitiesDeleteResult>
+rescue DealMakerAPI::ApiError => e
+  puts "Error when calling UserApi->delete_channel_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **id** | **Integer** |  |  |
+| **channel** | **Integer** |  |  |
+
+### Return type
+
+[**V1EntitiesDeleteResult**](V1EntitiesDeleteResult.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## disable_mfa
+
+> disable_mfa(id)
+
+Disable all the multi-factor authentication integrations for a user
+
+Disable all the multi-factor authentication integrations for a user
+
+### Examples
+
+```ruby
+require 'time'
+require 'DealMakerAPI'
+# setup authorization
+DealMakerAPI.configure do |config|end
+
+api_instance = DealMakerAPI::UserApi.new
+id = 56 # Integer | 
+
+begin
+  # Disable all the multi-factor authentication integrations for a user
+  api_instance.disable_mfa(id)
+rescue DealMakerAPI::ApiError => e
+  puts "Error when calling UserApi->disable_mfa: #{e}"
+end
+```
+
+#### Using the disable_mfa_with_http_info variant
+
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
+
+> <Array(nil, Integer, Hash)> disable_mfa_with_http_info(id)
+
+```ruby
+begin
+  # Disable all the multi-factor authentication integrations for a user
+  data, status_code, headers = api_instance.disable_mfa_with_http_info(id)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => nil
+rescue DealMakerAPI::ApiError => e
+  puts "Error when calling UserApi->disable_mfa_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **id** | **Integer** |  |  |
+
+### Return type
+
+nil (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
 
 
 ## get_two_factor_channels

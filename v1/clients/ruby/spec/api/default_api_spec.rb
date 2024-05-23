@@ -81,14 +81,13 @@ describe 'DefaultApi' do
     end
   end
 
-  # unit tests for get_deals_id_progress_page_kind
-  # Get deal progress for a specific kind
+  # unit tests for get_deals_id_progress_page
+  # Get deal progress
   # Get deal progress
   # @param id The deal id.
-  # @param kind Kind of progress.
   # @param [Hash] opts the optional parameters
   # @return [V1EntitiesDealsProgress]
-  describe 'get_deals_id_progress_page_kind test' do
+  describe 'get_deals_id_progress_page test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end

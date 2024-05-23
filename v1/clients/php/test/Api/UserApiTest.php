@@ -84,6 +84,30 @@ class UserApiTest extends TestCase
     }
 
     /**
+     * Test case for deleteChannel
+     *
+     * Creates an API endpoint to delete a specific two factor channel\".
+     *
+     */
+    public function testDeleteChannel()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for disableMfa
+     *
+     * Disable all the multi-factor authentication integrations for a user.
+     *
+     */
+    public function testDisableMfa()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for getTwoFactorChannels
      *
      * Creates an API endpoint to return a list of existing TOTP factor.

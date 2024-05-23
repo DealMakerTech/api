@@ -88,10 +88,10 @@
         done();
       });
     });
-    describe('getDealsIdProgressPageKind', function() {
-      it('should call getDealsIdProgressPageKind successfully', function(done) {
-        //uncomment below and update the code to test getDealsIdProgressPageKind
-        //instance.getDealsIdProgressPageKind(function(error) {
+    describe('getDealsIdProgressPage', function() {
+      it('should call getDealsIdProgressPage successfully', function(done) {
+        //uncomment below and update the code to test getDealsIdProgressPage
+        //instance.getDealsIdProgressPage(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});

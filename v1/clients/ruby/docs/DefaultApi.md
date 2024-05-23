@@ -8,7 +8,7 @@ All URIs are relative to *http://api.dealmaker.tech*
 | [**get_deals_deal_id_payment_onboarding_questionnaire_payout_account_details_data**](DefaultApi.md#get_deals_deal_id_payment_onboarding_questionnaire_payout_account_details_data) | **GET** /deals/{deal_id}/payment_onboarding/questionnaire/payout_account_details/data | Get payout account data |
 | [**get_deals_id_investors_investor_id_payments_express_wire_instructions**](DefaultApi.md#get_deals_id_investors_investor_id_payments_express_wire_instructions) | **GET** /deals/{id}/investors/{investor_id}/payments/express_wire/instructions | Displays the express wire instructions for an investor on a deal |
 | [**get_deals_id_investors_payments_express_wire_instructions**](DefaultApi.md#get_deals_id_investors_payments_express_wire_instructions) | **GET** /deals/{id}/investors/payments/express_wire/instructions | Displays the express wire instructions for all the investors on a deal |
-| [**get_deals_id_progress_page_kind**](DefaultApi.md#get_deals_id_progress_page_kind) | **GET** /deals/{id}/progress_page/{kind} | Get deal progress for a specific kind |
+| [**get_deals_id_progress_page**](DefaultApi.md#get_deals_id_progress_page) | **GET** /deals/{id}/progress_page | Get deal progress |
 | [**get_deals_id_progress_page_summary**](DefaultApi.md#get_deals_id_progress_page_summary) | **GET** /deals/{id}/progress_page/summary | Get the deal progress summary |
 | [**get_deals_id_summary**](DefaultApi.md#get_deals_id_summary) | **GET** /deals/{id}/summary | Get Deal Overview |
 | [**get_deals_payment_onboarding_questionnaire_initial_questions**](DefaultApi.md#get_deals_payment_onboarding_questionnaire_initial_questions) | **GET** /deals/payment_onboarding/questionnaire/initial_questions | Get initial questions |
@@ -289,11 +289,11 @@ No authorization required
 - **Accept**: application/json
 
 
-## get_deals_id_progress_page_kind
+## get_deals_id_progress_page
 
-> <V1EntitiesDealsProgress> get_deals_id_progress_page_kind(id, kind)
+> <V1EntitiesDealsProgress> get_deals_id_progress_page(id)
 
-Get deal progress for a specific kind
+Get deal progress
 
 Get deal progress
 
@@ -307,32 +307,31 @@ DealMakerAPI.configure do |config|end
 
 api_instance = DealMakerAPI::DefaultApi.new
 id = 56 # Integer | The deal id.
-kind = 'investment_amount' # String | Kind of progress.
 
 begin
-  # Get deal progress for a specific kind
-  result = api_instance.get_deals_id_progress_page_kind(id, kind)
+  # Get deal progress
+  result = api_instance.get_deals_id_progress_page(id)
   p result
 rescue DealMakerAPI::ApiError => e
-  puts "Error when calling DefaultApi->get_deals_id_progress_page_kind: #{e}"
+  puts "Error when calling DefaultApi->get_deals_id_progress_page: #{e}"
 end
 ```
 
-#### Using the get_deals_id_progress_page_kind_with_http_info variant
+#### Using the get_deals_id_progress_page_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<V1EntitiesDealsProgress>, Integer, Hash)> get_deals_id_progress_page_kind_with_http_info(id, kind)
+> <Array(<V1EntitiesDealsProgress>, Integer, Hash)> get_deals_id_progress_page_with_http_info(id)
 
 ```ruby
 begin
-  # Get deal progress for a specific kind
-  data, status_code, headers = api_instance.get_deals_id_progress_page_kind_with_http_info(id, kind)
+  # Get deal progress
+  data, status_code, headers = api_instance.get_deals_id_progress_page_with_http_info(id)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <V1EntitiesDealsProgress>
 rescue DealMakerAPI::ApiError => e
-  puts "Error when calling DefaultApi->get_deals_id_progress_page_kind_with_http_info: #{e}"
+  puts "Error when calling DefaultApi->get_deals_id_progress_page_with_http_info: #{e}"
 end
 ```
 
@@ -341,7 +340,6 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **id** | **Integer** | The deal id. |  |
-| **kind** | **String** | Kind of progress. |  |
 
 ### Return type
 

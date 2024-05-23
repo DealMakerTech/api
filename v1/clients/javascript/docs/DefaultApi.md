@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**getDealsDealIdPaymentOnboardingQuestionnairePayoutAccountDetailsData**](DefaultApi.md#getDealsDealIdPaymentOnboardingQuestionnairePayoutAccountDetailsData) | **GET** /deals/{deal_id}/payment_onboarding/questionnaire/payout_account_details/data | Get payout account data
 [**getDealsIdInvestorsInvestorIdPaymentsExpressWireInstructions**](DefaultApi.md#getDealsIdInvestorsInvestorIdPaymentsExpressWireInstructions) | **GET** /deals/{id}/investors/{investor_id}/payments/express_wire/instructions | Displays the express wire instructions for an investor on a deal
 [**getDealsIdInvestorsPaymentsExpressWireInstructions**](DefaultApi.md#getDealsIdInvestorsPaymentsExpressWireInstructions) | **GET** /deals/{id}/investors/payments/express_wire/instructions | Displays the express wire instructions for all the investors on a deal
-[**getDealsIdProgressPageKind**](DefaultApi.md#getDealsIdProgressPageKind) | **GET** /deals/{id}/progress_page/{kind} | Get deal progress for a specific kind
+[**getDealsIdProgressPage**](DefaultApi.md#getDealsIdProgressPage) | **GET** /deals/{id}/progress_page | Get deal progress
 [**getDealsIdProgressPageSummary**](DefaultApi.md#getDealsIdProgressPageSummary) | **GET** /deals/{id}/progress_page/summary | Get the deal progress summary
 [**getDealsIdSummary**](DefaultApi.md#getDealsIdSummary) | **GET** /deals/{id}/summary | Get Deal Overview
 [**getDealsPaymentOnboardingQuestionnaireInitialQuestions**](DefaultApi.md#getDealsPaymentOnboardingQuestionnaireInitialQuestions) | **GET** /deals/payment_onboarding/questionnaire/initial_questions | Get initial questions
@@ -210,11 +210,11 @@ No authorization required
 - **Accept**: application/json
 
 
-## getDealsIdProgressPageKind
+## getDealsIdProgressPage
 
-> V1EntitiesDealsProgress getDealsIdProgressPageKind(id, kind)
+> V1EntitiesDealsProgress getDealsIdProgressPage(id)
 
-Get deal progress for a specific kind
+Get deal progress
 
 Get deal progress
 
@@ -226,8 +226,7 @@ let defaultClient = Api.ApiClient.instance;
 
 let apiInstance = new Api.DefaultApi();
 let id = 56; // Number | The deal id.
-let kind = "kind_example"; // String | Kind of progress.
-apiInstance.getDealsIdProgressPageKind(id, kind, (error, data, response) => {
+apiInstance.getDealsIdProgressPage(id, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -242,7 +241,6 @@ apiInstance.getDealsIdProgressPageKind(id, kind, (error, data, response) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Number**| The deal id. | 
- **kind** | **String**| Kind of progress. | 
 
 ### Return type
 

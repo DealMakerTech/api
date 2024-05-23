@@ -28,7 +28,7 @@ module DealMakerAPI
     # The identity for the two factor channel.
     attr_accessor :identity
 
-    # The phone number of the user.
+    # The phone number for the two factor channel.
     attr_accessor :phone_number
 
     # The channel for the two factor channel.

@@ -23,8 +23,8 @@ module DealMakerAPI
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'investor_funnel' => :'investor_funnel',
-        :'incoming_payments' => :'incoming_payments'
+        :'investor_funnel' => :'investorFunnel',
+        :'incoming_payments' => :'incomingPayments'
       }
     end
 
@@ -36,8 +36,8 @@ module DealMakerAPI
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'investor_funnel' => :'V1EntitiesDealsProgressColumn',
-        :'incoming_payments' => :'V1EntitiesDealsProgressColumn'
+        :'investor_funnel' => :'V1EntitiesDealsProgressKinds',
+        :'incoming_payments' => :'V1EntitiesDealsProgressKinds'
       }
     end
 

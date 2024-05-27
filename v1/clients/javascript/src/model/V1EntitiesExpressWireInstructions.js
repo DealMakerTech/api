@@ -17,7 +17,7 @@ import V1EntitiesExpressWireInstruction from './V1EntitiesExpressWireInstruction
 /**
  * The V1EntitiesExpressWireInstructions model module.
  * @module model/V1EntitiesExpressWireInstructions
- * @version 0.104.0
+ * @version 0.104.1
  */
 class V1EntitiesExpressWireInstructions {
     /**

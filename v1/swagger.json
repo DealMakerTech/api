@@ -4147,7 +4147,7 @@
         "security": [
           {
             "oauth": [
-              "internal"
+              "deals.read"
             ]
           }
         ],
@@ -4191,7 +4191,7 @@
         "security": [
           {
             "oauth": [
-              "internal"
+              "deals.read"
             ]
           }
         ],

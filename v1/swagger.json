@@ -1177,6 +1177,115 @@
         "operationId": "getUsersInvestments"
       }
     },
+    "/users/verification/send_code": {
+      "post": {
+        "summary": "Sends the verification code to the user",
+        "description": "Send the verification code to the user",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "formData",
+            "name": "login_token",
+            "description": "The token containing the user information.",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "security": [
+          {
+            "oauth": [
+              "internal"
+            ]
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Send the verification code to the user",
+            "schema": {
+              "$ref": "#/definitions/V1_Entities_DeleteResult"
+            }
+          },
+          "404": {
+            "description": "Not found"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        },
+        "tags": [
+          "user"
+        ],
+        "operationId": "sendVerificationCode",
+        "x-codeSamples": [
+          {
+            "lang": "javascript",
+            "source": ""
+          },
+          {
+            "lang": "ruby",
+            "source": ""
+          }
+        ]
+      }
+    },
+    "/users/verification/resources": {
+      "get": {
+        "summary": "Gets the verification process resources",
+        "description": "Get verification process resources",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "login_token",
+            "description": "The token containing the user information.",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "security": [
+          {
+            "oauth": [
+              "internal"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get verification process resources",
+            "schema": {
+              "$ref": "#/definitions/V1_Entities_Users_VerificationResources"
+            }
+          },
+          "404": {
+            "description": "Not found"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        },
+        "tags": [
+          "user"
+        ],
+        "operationId": "getVerificationResources",
+        "x-codeSamples": [
+          {
+            "lang": "javascript",
+            "source": ""
+          },
+          {
+            "lang": "ruby",
+            "source": ""
+          }
+        ]
+      }
+    },
     "/users/{id}/verify_factor": {
       "put": {
         "summary": "Creates an API endpoint to verify an existing TOTP factor",
@@ -9357,6 +9466,38 @@
       },
       "description": "V1_Entities_PresignedUrlResult model"
     },
+    "V1_Entities_DeleteResult": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean",
+          "description": "The status of the request."
+        },
+        "message": {
+          "type": "string",
+          "description": "The message of the request."
+        }
+      },
+      "description": "V1_Entities_DeleteResult model"
+    },
+    "V1_Entities_Users_VerificationResources": {
+      "type": "object",
+      "properties": {
+        "totpEnabled": {
+          "type": "boolean",
+          "description": "Check if on the authenticator app is set for the user."
+        },
+        "smsEnabled": {
+          "type": "boolean",
+          "description": "Check if on the sms verification is set for the user."
+        },
+        "phone": {
+          "type": "string",
+          "description": "The last 4 digits of the users phone number."
+        }
+      },
+      "description": "V1_Entities_Users_VerificationResources model"
+    },
     "V1_Entities_Users_TwoFactorChannel": {
       "type": "object",
       "properties": {
@@ -9427,20 +9568,6 @@
           "description": "The URI."
         }
       }
-    },
-    "V1_Entities_DeleteResult": {
-      "type": "object",
-      "properties": {
-        "success": {
-          "type": "boolean",
-          "description": "The status of the request."
-        },
-        "message": {
-          "type": "string",
-          "description": "The message of the request."
-        }
-      },
-      "description": "V1_Entities_DeleteResult model"
     },
     "V1_Entities_Users_TwoFactorChannels": {
       "type": "object",
@@ -10036,47 +10163,61 @@
       "type": "object",
       "properties": {
         "investment_proceeds": {
-          "type": "number",
-          "format": "float",
-          "description": "Investment Proceeds"
+          "$ref": "#/definitions/V1_Entities_Deals_ProgressPage_SummaryItem"
         },
         "fees_and_adjustments": {
-          "type": "number",
-          "format": "float",
-          "description": "Fees and Adjustments"
+          "$ref": "#/definitions/V1_Entities_Deals_ProgressPage_SummaryItem"
         },
         "total_proceeds": {
-          "type": "number",
-          "format": "float",
-          "description": "Total Proceeds"
+          "$ref": "#/definitions/V1_Entities_Deals_ProgressPage_SummaryItem"
         },
         "processing_fees": {
-          "type": "number",
-          "format": "float",
-          "description": "Processing Fees"
+          "$ref": "#/definitions/V1_Entities_Deals_ProgressPage_SummaryItem"
         },
         "invoice_deductions": {
-          "type": "number",
-          "format": "float",
-          "description": "Invoice Deductions"
+          "$ref": "#/definitions/V1_Entities_Deals_ProgressPage_SummaryItem"
         },
         "holdback": {
-          "type": "number",
-          "format": "float",
-          "description": "Holdback"
+          "$ref": "#/definitions/V1_Entities_Deals_ProgressPage_SummaryItem"
         },
         "paid_out": {
-          "type": "number",
-          "format": "float",
-          "description": "Paid Out"
+          "$ref": "#/definitions/V1_Entities_Deals_ProgressPage_SummaryItem"
         },
         "available_for_payout": {
-          "type": "number",
-          "format": "float",
-          "description": "Available for Payout"
+          "$ref": "#/definitions/V1_Entities_Deals_ProgressPage_SummaryItem"
         }
       },
       "description": "V1_Entities_Deals_ProgressPage_Summary model"
+    },
+    "V1_Entities_Deals_ProgressPage_SummaryItem": {
+      "type": "object",
+      "properties": {
+        "label": {
+          "type": "string",
+          "description": "Label"
+        },
+        "highlighted": {
+          "type": "boolean",
+          "description": "Highlighted"
+        },
+        "negative": {
+          "type": "boolean",
+          "description": "Negative"
+        },
+        "value": {
+          "type": "number",
+          "format": "float",
+          "description": "Value"
+        },
+        "link": {
+          "type": "string",
+          "description": "Link"
+        },
+        "description": {
+          "type": "string",
+          "description": "Description"
+        }
+      }
     },
     "V1_Entities_DealSetup": {
       "type": "object",

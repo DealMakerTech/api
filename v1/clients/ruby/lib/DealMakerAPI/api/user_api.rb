@@ -338,6 +338,138 @@ module DealMakerAPI
       return data, status_code, headers
     end
 
+    # Gets the verification process resources
+    # Get verification process resources
+    # @param login_token [String] The token containing the user information.
+    # @param [Hash] opts the optional parameters
+    # @return [V1EntitiesUsersVerificationResources]
+    def get_verification_resources(login_token, opts = {})
+      data, _status_code, _headers = get_verification_resources_with_http_info(login_token, opts)
+      data
+    end
+
+    # Gets the verification process resources
+    # Get verification process resources
+    # @param login_token [String] The token containing the user information.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(V1EntitiesUsersVerificationResources, Integer, Hash)>] V1EntitiesUsersVerificationResources data, response status code and response headers
+    def get_verification_resources_with_http_info(login_token, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: UserApi.get_verification_resources ...'
+      end
+      # verify the required parameter 'login_token' is set
+      if @api_client.config.client_side_validation && login_token.nil?
+        fail ArgumentError, "Missing the required parameter 'login_token' when calling UserApi.get_verification_resources"
+      end
+      # resource path
+      local_var_path = '/users/verification/resources'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'login_token'] = login_token
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'V1EntitiesUsersVerificationResources'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"UserApi.get_verification_resources",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: UserApi#get_verification_resources\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Sends the verification code to the user
+    # Send the verification code to the user
+    # @param send_verification_code_request [SendVerificationCodeRequest] 
+    # @param [Hash] opts the optional parameters
+    # @return [V1EntitiesDeleteResult]
+    def send_verification_code(send_verification_code_request, opts = {})
+      data, _status_code, _headers = send_verification_code_with_http_info(send_verification_code_request, opts)
+      data
+    end
+
+    # Sends the verification code to the user
+    # Send the verification code to the user
+    # @param send_verification_code_request [SendVerificationCodeRequest] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(V1EntitiesDeleteResult, Integer, Hash)>] V1EntitiesDeleteResult data, response status code and response headers
+    def send_verification_code_with_http_info(send_verification_code_request, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: UserApi.send_verification_code ...'
+      end
+      # verify the required parameter 'send_verification_code_request' is set
+      if @api_client.config.client_side_validation && send_verification_code_request.nil?
+        fail ArgumentError, "Missing the required parameter 'send_verification_code_request' when calling UserApi.send_verification_code"
+      end
+      # resource path
+      local_var_path = '/users/verification/send_code'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(send_verification_code_request)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'V1EntitiesDeleteResult'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"UserApi.send_verification_code",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: UserApi#send_verification_code\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Start a setup for a SMS Verification by creating a two factor channel of sms type
     # Start a setup for a SMS Verification by creating a two factor channel of sms type
     # @param id [Integer] 

@@ -51,6 +51,7 @@ docs/PutWebhooksIdRequest.md
 docs/RequestNewDocumentRequest.md
 docs/RunBackgroundSearchRequest.md
 docs/SendPortalInviteRequest.md
+docs/SendVerificationCodeRequest.md
 docs/SetupSmsVerificationRequest.md
 docs/ShareholderApi.md
 docs/TestDocumentUploadEmailRequest.md
@@ -89,6 +90,7 @@ docs/V1EntitiesDealsProgress.md
 docs/V1EntitiesDealsProgressColumn.md
 docs/V1EntitiesDealsProgressKinds.md
 docs/V1EntitiesDealsProgressPageSummary.md
+docs/V1EntitiesDealsProgressPageSummaryItem.md
 docs/V1EntitiesDeleteResult.md
 docs/V1EntitiesDividend.md
 docs/V1EntitiesDividends.md
@@ -142,6 +144,7 @@ docs/V1EntitiesUsersBinding.md
 docs/V1EntitiesUsersFactor.md
 docs/V1EntitiesUsersTwoFactorChannel.md
 docs/V1EntitiesUsersTwoFactorChannels.md
+docs/V1EntitiesUsersVerificationResources.md
 docs/V1EntitiesWebhooksDeal.md
 docs/V1EntitiesWebhooksSecurityToken.md
 docs/V1EntitiesWebhooksSubscription.md
@@ -206,6 +209,7 @@ src/model/PutWebhooksIdRequest.js
 src/model/RequestNewDocumentRequest.js
 src/model/RunBackgroundSearchRequest.js
 src/model/SendPortalInviteRequest.js
+src/model/SendVerificationCodeRequest.js
 src/model/SetupSmsVerificationRequest.js
 src/model/TestDocumentUploadEmailRequest.js
 src/model/UpdateUserPasswordRequest.js
@@ -240,6 +244,7 @@ src/model/V1EntitiesDealsProgress.js
 src/model/V1EntitiesDealsProgressColumn.js
 src/model/V1EntitiesDealsProgressKinds.js
 src/model/V1EntitiesDealsProgressPageSummary.js
+src/model/V1EntitiesDealsProgressPageSummaryItem.js
 src/model/V1EntitiesDeleteResult.js
 src/model/V1EntitiesDividend.js
 src/model/V1EntitiesDividends.js
@@ -293,6 +298,7 @@ src/model/V1EntitiesUsersBinding.js
 src/model/V1EntitiesUsersFactor.js
 src/model/V1EntitiesUsersTwoFactorChannel.js
 src/model/V1EntitiesUsersTwoFactorChannels.js
+src/model/V1EntitiesUsersVerificationResources.js
 src/model/V1EntitiesWebhooksDeal.js
 src/model/V1EntitiesWebhooksSecurityToken.js
 src/model/V1EntitiesWebhooksSubscription.js
@@ -352,6 +358,7 @@ test/model/PutWebhooksIdRequest.spec.js
 test/model/RequestNewDocumentRequest.spec.js
 test/model/RunBackgroundSearchRequest.spec.js
 test/model/SendPortalInviteRequest.spec.js
+test/model/SendVerificationCodeRequest.spec.js
 test/model/SetupSmsVerificationRequest.spec.js
 test/model/TestDocumentUploadEmailRequest.spec.js
 test/model/UpdateUserPasswordRequest.spec.js
@@ -386,6 +393,7 @@ test/model/V1EntitiesDealsProgress.spec.js
 test/model/V1EntitiesDealsProgressColumn.spec.js
 test/model/V1EntitiesDealsProgressKinds.spec.js
 test/model/V1EntitiesDealsProgressPageSummary.spec.js
+test/model/V1EntitiesDealsProgressPageSummaryItem.spec.js
 test/model/V1EntitiesDeleteResult.spec.js
 test/model/V1EntitiesDividend.spec.js
 test/model/V1EntitiesDividends.spec.js
@@ -439,6 +447,7 @@ test/model/V1EntitiesUsersBinding.spec.js
 test/model/V1EntitiesUsersFactor.spec.js
 test/model/V1EntitiesUsersTwoFactorChannel.spec.js
 test/model/V1EntitiesUsersTwoFactorChannels.spec.js
+test/model/V1EntitiesUsersVerificationResources.spec.js
 test/model/V1EntitiesWebhooksDeal.spec.js
 test/model/V1EntitiesWebhooksSecurityToken.spec.js
 test/model/V1EntitiesWebhooksSubscription.spec.js

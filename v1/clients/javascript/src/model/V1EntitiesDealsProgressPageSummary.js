@@ -12,11 +12,12 @@
  */
 
 import ApiClient from '../ApiClient';
+import V1EntitiesDealsProgressPageSummaryItem from './V1EntitiesDealsProgressPageSummaryItem';
 
 /**
  * The V1EntitiesDealsProgressPageSummary model module.
  * @module model/V1EntitiesDealsProgressPageSummary
- * @version 0.104.1
+ * @version 0.104.2
  */
 class V1EntitiesDealsProgressPageSummary {
     /**
@@ -49,28 +50,28 @@ class V1EntitiesDealsProgressPageSummary {
             obj = obj || new V1EntitiesDealsProgressPageSummary();
 
             if (data.hasOwnProperty('investment_proceeds')) {
-                obj['investment_proceeds'] = ApiClient.convertToType(data['investment_proceeds'], 'Number');
+                obj['investment_proceeds'] = V1EntitiesDealsProgressPageSummaryItem.constructFromObject(data['investment_proceeds']);
             }
             if (data.hasOwnProperty('fees_and_adjustments')) {
-                obj['fees_and_adjustments'] = ApiClient.convertToType(data['fees_and_adjustments'], 'Number');
+                obj['fees_and_adjustments'] = V1EntitiesDealsProgressPageSummaryItem.constructFromObject(data['fees_and_adjustments']);
             }
             if (data.hasOwnProperty('total_proceeds')) {
-                obj['total_proceeds'] = ApiClient.convertToType(data['total_proceeds'], 'Number');
+                obj['total_proceeds'] = V1EntitiesDealsProgressPageSummaryItem.constructFromObject(data['total_proceeds']);
             }
             if (data.hasOwnProperty('processing_fees')) {
-                obj['processing_fees'] = ApiClient.convertToType(data['processing_fees'], 'Number');
+                obj['processing_fees'] = V1EntitiesDealsProgressPageSummaryItem.constructFromObject(data['processing_fees']);
             }
             if (data.hasOwnProperty('invoice_deductions')) {
-                obj['invoice_deductions'] = ApiClient.convertToType(data['invoice_deductions'], 'Number');
+                obj['invoice_deductions'] = V1EntitiesDealsProgressPageSummaryItem.constructFromObject(data['invoice_deductions']);
             }
             if (data.hasOwnProperty('holdback')) {
-                obj['holdback'] = ApiClient.convertToType(data['holdback'], 'Number');
+                obj['holdback'] = V1EntitiesDealsProgressPageSummaryItem.constructFromObject(data['holdback']);
             }
             if (data.hasOwnProperty('paid_out')) {
-                obj['paid_out'] = ApiClient.convertToType(data['paid_out'], 'Number');
+                obj['paid_out'] = V1EntitiesDealsProgressPageSummaryItem.constructFromObject(data['paid_out']);
             }
             if (data.hasOwnProperty('available_for_payout')) {
-                obj['available_for_payout'] = ApiClient.convertToType(data['available_for_payout'], 'Number');
+                obj['available_for_payout'] = V1EntitiesDealsProgressPageSummaryItem.constructFromObject(data['available_for_payout']);
             }
         }
         return obj;
@@ -82,6 +83,38 @@ class V1EntitiesDealsProgressPageSummary {
      * @return {boolean} to indicate whether the JSON data is valid with respect to <code>V1EntitiesDealsProgressPageSummary</code>.
      */
     static validateJSON(data) {
+        // validate the optional field `investment_proceeds`
+        if (data['investment_proceeds']) { // data not null
+          V1EntitiesDealsProgressPageSummaryItem.validateJSON(data['investment_proceeds']);
+        }
+        // validate the optional field `fees_and_adjustments`
+        if (data['fees_and_adjustments']) { // data not null
+          V1EntitiesDealsProgressPageSummaryItem.validateJSON(data['fees_and_adjustments']);
+        }
+        // validate the optional field `total_proceeds`
+        if (data['total_proceeds']) { // data not null
+          V1EntitiesDealsProgressPageSummaryItem.validateJSON(data['total_proceeds']);
+        }
+        // validate the optional field `processing_fees`
+        if (data['processing_fees']) { // data not null
+          V1EntitiesDealsProgressPageSummaryItem.validateJSON(data['processing_fees']);
+        }
+        // validate the optional field `invoice_deductions`
+        if (data['invoice_deductions']) { // data not null
+          V1EntitiesDealsProgressPageSummaryItem.validateJSON(data['invoice_deductions']);
+        }
+        // validate the optional field `holdback`
+        if (data['holdback']) { // data not null
+          V1EntitiesDealsProgressPageSummaryItem.validateJSON(data['holdback']);
+        }
+        // validate the optional field `paid_out`
+        if (data['paid_out']) { // data not null
+          V1EntitiesDealsProgressPageSummaryItem.validateJSON(data['paid_out']);
+        }
+        // validate the optional field `available_for_payout`
+        if (data['available_for_payout']) { // data not null
+          V1EntitiesDealsProgressPageSummaryItem.validateJSON(data['available_for_payout']);
+        }
 
         return true;
     }
@@ -92,50 +125,42 @@ class V1EntitiesDealsProgressPageSummary {
 
 
 /**
- * Investment Proceeds
- * @member {Number} investment_proceeds
+ * @member {module:model/V1EntitiesDealsProgressPageSummaryItem} investment_proceeds
  */
 V1EntitiesDealsProgressPageSummary.prototype['investment_proceeds'] = undefined;
 
 /**
- * Fees and Adjustments
- * @member {Number} fees_and_adjustments
+ * @member {module:model/V1EntitiesDealsProgressPageSummaryItem} fees_and_adjustments
  */
 V1EntitiesDealsProgressPageSummary.prototype['fees_and_adjustments'] = undefined;
 
 /**
- * Total Proceeds
- * @member {Number} total_proceeds
+ * @member {module:model/V1EntitiesDealsProgressPageSummaryItem} total_proceeds
  */
 V1EntitiesDealsProgressPageSummary.prototype['total_proceeds'] = undefined;
 
 /**
- * Processing Fees
- * @member {Number} processing_fees
+ * @member {module:model/V1EntitiesDealsProgressPageSummaryItem} processing_fees
  */
 V1EntitiesDealsProgressPageSummary.prototype['processing_fees'] = undefined;
 
 /**
- * Invoice Deductions
- * @member {Number} invoice_deductions
+ * @member {module:model/V1EntitiesDealsProgressPageSummaryItem} invoice_deductions
  */
 V1EntitiesDealsProgressPageSummary.prototype['invoice_deductions'] = undefined;
 
 /**
- * Holdback
- * @member {Number} holdback
+ * @member {module:model/V1EntitiesDealsProgressPageSummaryItem} holdback
  */
 V1EntitiesDealsProgressPageSummary.prototype['holdback'] = undefined;
 
 /**
- * Paid Out
- * @member {Number} paid_out
+ * @member {module:model/V1EntitiesDealsProgressPageSummaryItem} paid_out
  */
 V1EntitiesDealsProgressPageSummary.prototype['paid_out'] = undefined;
 
 /**
- * Available for Payout
- * @member {Number} available_for_payout
+ * @member {module:model/V1EntitiesDealsProgressPageSummaryItem} available_for_payout
  */
 V1EntitiesDealsProgressPageSummary.prototype['available_for_payout'] = undefined;
 

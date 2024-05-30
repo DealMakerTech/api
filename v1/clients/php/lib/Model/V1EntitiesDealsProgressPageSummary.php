@@ -58,14 +58,14 @@ class V1EntitiesDealsProgressPageSummary implements ModelInterface, ArrayAccess,
       * @var string[]
       */
     protected static $openAPITypes = [
-        'investment_proceeds' => 'float',
-        'fees_and_adjustments' => 'float',
-        'total_proceeds' => 'float',
-        'processing_fees' => 'float',
-        'invoice_deductions' => 'float',
-        'holdback' => 'float',
-        'paid_out' => 'float',
-        'available_for_payout' => 'float'
+        'investment_proceeds' => '\DealMaker\Model\V1EntitiesDealsProgressPageSummaryItem',
+        'fees_and_adjustments' => '\DealMaker\Model\V1EntitiesDealsProgressPageSummaryItem',
+        'total_proceeds' => '\DealMaker\Model\V1EntitiesDealsProgressPageSummaryItem',
+        'processing_fees' => '\DealMaker\Model\V1EntitiesDealsProgressPageSummaryItem',
+        'invoice_deductions' => '\DealMaker\Model\V1EntitiesDealsProgressPageSummaryItem',
+        'holdback' => '\DealMaker\Model\V1EntitiesDealsProgressPageSummaryItem',
+        'paid_out' => '\DealMaker\Model\V1EntitiesDealsProgressPageSummaryItem',
+        'available_for_payout' => '\DealMaker\Model\V1EntitiesDealsProgressPageSummaryItem'
     ];
 
     /**
@@ -76,14 +76,14 @@ class V1EntitiesDealsProgressPageSummary implements ModelInterface, ArrayAccess,
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'investment_proceeds' => 'float',
-        'fees_and_adjustments' => 'float',
-        'total_proceeds' => 'float',
-        'processing_fees' => 'float',
-        'invoice_deductions' => 'float',
-        'holdback' => 'float',
-        'paid_out' => 'float',
-        'available_for_payout' => 'float'
+        'investment_proceeds' => null,
+        'fees_and_adjustments' => null,
+        'total_proceeds' => null,
+        'processing_fees' => null,
+        'invoice_deductions' => null,
+        'holdback' => null,
+        'paid_out' => null,
+        'available_for_payout' => null
     ];
 
     /**
@@ -342,7 +342,7 @@ class V1EntitiesDealsProgressPageSummary implements ModelInterface, ArrayAccess,
     /**
      * Gets investment_proceeds
      *
-     * @return float|null
+     * @return \DealMaker\Model\V1EntitiesDealsProgressPageSummaryItem|null
      */
     public function getInvestmentProceeds()
     {
@@ -352,7 +352,7 @@ class V1EntitiesDealsProgressPageSummary implements ModelInterface, ArrayAccess,
     /**
      * Sets investment_proceeds
      *
-     * @param float|null $investment_proceeds Investment Proceeds
+     * @param \DealMaker\Model\V1EntitiesDealsProgressPageSummaryItem|null $investment_proceeds investment_proceeds
      *
      * @return self
      */
@@ -369,7 +369,7 @@ class V1EntitiesDealsProgressPageSummary implements ModelInterface, ArrayAccess,
     /**
      * Gets fees_and_adjustments
      *
-     * @return float|null
+     * @return \DealMaker\Model\V1EntitiesDealsProgressPageSummaryItem|null
      */
     public function getFeesAndAdjustments()
     {
@@ -379,7 +379,7 @@ class V1EntitiesDealsProgressPageSummary implements ModelInterface, ArrayAccess,
     /**
      * Sets fees_and_adjustments
      *
-     * @param float|null $fees_and_adjustments Fees and Adjustments
+     * @param \DealMaker\Model\V1EntitiesDealsProgressPageSummaryItem|null $fees_and_adjustments fees_and_adjustments
      *
      * @return self
      */
@@ -396,7 +396,7 @@ class V1EntitiesDealsProgressPageSummary implements ModelInterface, ArrayAccess,
     /**
      * Gets total_proceeds
      *
-     * @return float|null
+     * @return \DealMaker\Model\V1EntitiesDealsProgressPageSummaryItem|null
      */
     public function getTotalProceeds()
     {
@@ -406,7 +406,7 @@ class V1EntitiesDealsProgressPageSummary implements ModelInterface, ArrayAccess,
     /**
      * Sets total_proceeds
      *
-     * @param float|null $total_proceeds Total Proceeds
+     * @param \DealMaker\Model\V1EntitiesDealsProgressPageSummaryItem|null $total_proceeds total_proceeds
      *
      * @return self
      */
@@ -423,7 +423,7 @@ class V1EntitiesDealsProgressPageSummary implements ModelInterface, ArrayAccess,
     /**
      * Gets processing_fees
      *
-     * @return float|null
+     * @return \DealMaker\Model\V1EntitiesDealsProgressPageSummaryItem|null
      */
     public function getProcessingFees()
     {
@@ -433,7 +433,7 @@ class V1EntitiesDealsProgressPageSummary implements ModelInterface, ArrayAccess,
     /**
      * Sets processing_fees
      *
-     * @param float|null $processing_fees Processing Fees
+     * @param \DealMaker\Model\V1EntitiesDealsProgressPageSummaryItem|null $processing_fees processing_fees
      *
      * @return self
      */
@@ -450,7 +450,7 @@ class V1EntitiesDealsProgressPageSummary implements ModelInterface, ArrayAccess,
     /**
      * Gets invoice_deductions
      *
-     * @return float|null
+     * @return \DealMaker\Model\V1EntitiesDealsProgressPageSummaryItem|null
      */
     public function getInvoiceDeductions()
     {
@@ -460,7 +460,7 @@ class V1EntitiesDealsProgressPageSummary implements ModelInterface, ArrayAccess,
     /**
      * Sets invoice_deductions
      *
-     * @param float|null $invoice_deductions Invoice Deductions
+     * @param \DealMaker\Model\V1EntitiesDealsProgressPageSummaryItem|null $invoice_deductions invoice_deductions
      *
      * @return self
      */
@@ -477,7 +477,7 @@ class V1EntitiesDealsProgressPageSummary implements ModelInterface, ArrayAccess,
     /**
      * Gets holdback
      *
-     * @return float|null
+     * @return \DealMaker\Model\V1EntitiesDealsProgressPageSummaryItem|null
      */
     public function getHoldback()
     {
@@ -487,7 +487,7 @@ class V1EntitiesDealsProgressPageSummary implements ModelInterface, ArrayAccess,
     /**
      * Sets holdback
      *
-     * @param float|null $holdback Holdback
+     * @param \DealMaker\Model\V1EntitiesDealsProgressPageSummaryItem|null $holdback holdback
      *
      * @return self
      */
@@ -504,7 +504,7 @@ class V1EntitiesDealsProgressPageSummary implements ModelInterface, ArrayAccess,
     /**
      * Gets paid_out
      *
-     * @return float|null
+     * @return \DealMaker\Model\V1EntitiesDealsProgressPageSummaryItem|null
      */
     public function getPaidOut()
     {
@@ -514,7 +514,7 @@ class V1EntitiesDealsProgressPageSummary implements ModelInterface, ArrayAccess,
     /**
      * Sets paid_out
      *
-     * @param float|null $paid_out Paid Out
+     * @param \DealMaker\Model\V1EntitiesDealsProgressPageSummaryItem|null $paid_out paid_out
      *
      * @return self
      */
@@ -531,7 +531,7 @@ class V1EntitiesDealsProgressPageSummary implements ModelInterface, ArrayAccess,
     /**
      * Gets available_for_payout
      *
-     * @return float|null
+     * @return \DealMaker\Model\V1EntitiesDealsProgressPageSummaryItem|null
      */
     public function getAvailableForPayout()
     {
@@ -541,7 +541,7 @@ class V1EntitiesDealsProgressPageSummary implements ModelInterface, ArrayAccess,
     /**
      * Sets available_for_payout
      *
-     * @param float|null $available_for_payout Available for Payout
+     * @param \DealMaker\Model\V1EntitiesDealsProgressPageSummaryItem|null $available_for_payout available_for_payout
      *
      * @return self
      */

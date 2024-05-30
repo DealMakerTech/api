@@ -16,28 +16,20 @@ require 'time'
 module DealMakerAPI
   # V1_Entities_Deals_ProgressPage_Summary model
   class V1EntitiesDealsProgressPageSummary
-    # Investment Proceeds
     attr_accessor :investment_proceeds
 
-    # Fees and Adjustments
     attr_accessor :fees_and_adjustments
 
-    # Total Proceeds
     attr_accessor :total_proceeds
 
-    # Processing Fees
     attr_accessor :processing_fees
 
-    # Invoice Deductions
     attr_accessor :invoice_deductions
 
-    # Holdback
     attr_accessor :holdback
 
-    # Paid Out
     attr_accessor :paid_out
 
-    # Available for Payout
     attr_accessor :available_for_payout
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -62,14 +54,14 @@ module DealMakerAPI
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'investment_proceeds' => :'Float',
-        :'fees_and_adjustments' => :'Float',
-        :'total_proceeds' => :'Float',
-        :'processing_fees' => :'Float',
-        :'invoice_deductions' => :'Float',
-        :'holdback' => :'Float',
-        :'paid_out' => :'Float',
-        :'available_for_payout' => :'Float'
+        :'investment_proceeds' => :'V1EntitiesDealsProgressPageSummaryItem',
+        :'fees_and_adjustments' => :'V1EntitiesDealsProgressPageSummaryItem',
+        :'total_proceeds' => :'V1EntitiesDealsProgressPageSummaryItem',
+        :'processing_fees' => :'V1EntitiesDealsProgressPageSummaryItem',
+        :'invoice_deductions' => :'V1EntitiesDealsProgressPageSummaryItem',
+        :'holdback' => :'V1EntitiesDealsProgressPageSummaryItem',
+        :'paid_out' => :'V1EntitiesDealsProgressPageSummaryItem',
+        :'available_for_payout' => :'V1EntitiesDealsProgressPageSummaryItem'
       }
     end
 

@@ -132,6 +132,30 @@ class UserApiTest extends TestCase
     }
 
     /**
+     * Test case for getVerificationResources
+     *
+     * Gets the verification process resources.
+     *
+     */
+    public function testGetVerificationResources()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for sendVerificationCode
+     *
+     * Sends the verification code to the user.
+     *
+     */
+    public function testSendVerificationCode()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for setupSmsVerification
      *
      * Start a setup for a SMS Verification by creating a two factor channel of sms type.

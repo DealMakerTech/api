@@ -56,6 +56,7 @@ docs/Model/PutWebhooksIdRequest.md
 docs/Model/RequestNewDocumentRequest.md
 docs/Model/RunBackgroundSearchRequest.md
 docs/Model/SendPortalInviteRequest.md
+docs/Model/SendVerificationCodeRequest.md
 docs/Model/SetupSmsVerificationRequest.md
 docs/Model/TestDocumentUploadEmailRequest.md
 docs/Model/UpdateUserPasswordRequest.md
@@ -90,6 +91,7 @@ docs/Model/V1EntitiesDealsProgress.md
 docs/Model/V1EntitiesDealsProgressColumn.md
 docs/Model/V1EntitiesDealsProgressKinds.md
 docs/Model/V1EntitiesDealsProgressPageSummary.md
+docs/Model/V1EntitiesDealsProgressPageSummaryItem.md
 docs/Model/V1EntitiesDeleteResult.md
 docs/Model/V1EntitiesDividend.md
 docs/Model/V1EntitiesDividends.md
@@ -143,6 +145,7 @@ docs/Model/V1EntitiesUsersBinding.md
 docs/Model/V1EntitiesUsersFactor.md
 docs/Model/V1EntitiesUsersTwoFactorChannel.md
 docs/Model/V1EntitiesUsersTwoFactorChannels.md
+docs/Model/V1EntitiesUsersVerificationResources.md
 docs/Model/V1EntitiesWebhooksDeal.md
 docs/Model/V1EntitiesWebhooksSecurityToken.md
 docs/Model/V1EntitiesWebhooksSubscription.md
@@ -207,6 +210,7 @@ lib/Model/PutWebhooksIdRequest.php
 lib/Model/RequestNewDocumentRequest.php
 lib/Model/RunBackgroundSearchRequest.php
 lib/Model/SendPortalInviteRequest.php
+lib/Model/SendVerificationCodeRequest.php
 lib/Model/SetupSmsVerificationRequest.php
 lib/Model/TestDocumentUploadEmailRequest.php
 lib/Model/UpdateUserPasswordRequest.php
@@ -241,6 +245,7 @@ lib/Model/V1EntitiesDealsProgress.php
 lib/Model/V1EntitiesDealsProgressColumn.php
 lib/Model/V1EntitiesDealsProgressKinds.php
 lib/Model/V1EntitiesDealsProgressPageSummary.php
+lib/Model/V1EntitiesDealsProgressPageSummaryItem.php
 lib/Model/V1EntitiesDeleteResult.php
 lib/Model/V1EntitiesDividend.php
 lib/Model/V1EntitiesDividends.php
@@ -294,6 +299,7 @@ lib/Model/V1EntitiesUsersBinding.php
 lib/Model/V1EntitiesUsersFactor.php
 lib/Model/V1EntitiesUsersTwoFactorChannel.php
 lib/Model/V1EntitiesUsersTwoFactorChannels.php
+lib/Model/V1EntitiesUsersVerificationResources.php
 lib/Model/V1EntitiesWebhooksDeal.php
 lib/Model/V1EntitiesWebhooksSecurityToken.php
 lib/Model/V1EntitiesWebhooksSubscription.php
@@ -355,6 +361,7 @@ test/Model/PutWebhooksIdRequestTest.php
 test/Model/RequestNewDocumentRequestTest.php
 test/Model/RunBackgroundSearchRequestTest.php
 test/Model/SendPortalInviteRequestTest.php
+test/Model/SendVerificationCodeRequestTest.php
 test/Model/SetupSmsVerificationRequestTest.php
 test/Model/TestDocumentUploadEmailRequestTest.php
 test/Model/UpdateUserPasswordRequestTest.php
@@ -386,6 +393,7 @@ test/Model/V1EntitiesDealsInvestorsPaymentAcssBankAccountSetupIntentTest.php
 test/Model/V1EntitiesDealsPriceDetailsTest.php
 test/Model/V1EntitiesDealsProgressColumnTest.php
 test/Model/V1EntitiesDealsProgressKindsTest.php
+test/Model/V1EntitiesDealsProgressPageSummaryItemTest.php
 test/Model/V1EntitiesDealsProgressPageSummaryTest.php
 test/Model/V1EntitiesDealsProgressTest.php
 test/Model/V1EntitiesDealsTest.php
@@ -442,6 +450,7 @@ test/Model/V1EntitiesUsersBindingTest.php
 test/Model/V1EntitiesUsersFactorTest.php
 test/Model/V1EntitiesUsersTwoFactorChannelTest.php
 test/Model/V1EntitiesUsersTwoFactorChannelsTest.php
+test/Model/V1EntitiesUsersVerificationResourcesTest.php
 test/Model/V1EntitiesWebhooksDealTest.php
 test/Model/V1EntitiesWebhooksSecurityTokenTest.php
 test/Model/V1EntitiesWebhooksSubscriptionDealTest.php

@@ -9,6 +9,8 @@ Method | HTTP request | Description
 [**disableMfa**](UserApi.md#disableMfa) | **DELETE** /users/{id}/disable_mfa | Disable all the multi-factor authentication integrations for a user
 [**getTwoFactorChannels**](UserApi.md#getTwoFactorChannels) | **GET** /users/{id}/two_factor_channels | Creates an API endpoint to return a list of existing TOTP factor
 [**getUser**](UserApi.md#getUser) | **GET** /users/{id} | Get user by User ID
+[**getVerificationResources**](UserApi.md#getVerificationResources) | **GET** /users/verification/resources | Gets the verification process resources
+[**sendVerificationCode**](UserApi.md#sendVerificationCode) | **POST** /users/verification/send_code | Sends the verification code to the user
 [**setupSmsVerification**](UserApi.md#setupSmsVerification) | **POST** /users/{id}/setup_sms_verification | Start a setup for a SMS Verification by creating a two factor channel of sms type
 [**updateUserPassword**](UserApi.md#updateUserPassword) | **PUT** /users/{id}/update_password | Update user password
 [**verifyFactor**](UserApi.md#verifyFactor) | **PUT** /users/{id}/verify_factor | Creates an API endpoint to verify an existing TOTP factor
@@ -245,6 +247,98 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## getVerificationResources
+
+> V1EntitiesUsersVerificationResources getVerificationResources(loginToken)
+
+Gets the verification process resources
+
+Get verification process resources
+
+### Example
+
+```javascript
+import Api from 'api';
+let defaultClient = Api.ApiClient.instance;
+
+let apiInstance = new Api.UserApi();
+let loginToken = "loginToken_example"; // String | The token containing the user information.
+apiInstance.getVerificationResources(loginToken, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **loginToken** | **String**| The token containing the user information. | 
+
+### Return type
+
+[**V1EntitiesUsersVerificationResources**](V1EntitiesUsersVerificationResources.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## sendVerificationCode
+
+> V1EntitiesDeleteResult sendVerificationCode(sendVerificationCodeRequest)
+
+Sends the verification code to the user
+
+Send the verification code to the user
+
+### Example
+
+```javascript
+import Api from 'api';
+let defaultClient = Api.ApiClient.instance;
+
+let apiInstance = new Api.UserApi();
+let sendVerificationCodeRequest = new Api.SendVerificationCodeRequest(); // SendVerificationCodeRequest | 
+apiInstance.sendVerificationCode(sendVerificationCodeRequest, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **sendVerificationCodeRequest** | [**SendVerificationCodeRequest**](SendVerificationCodeRequest.md)|  | 
+
+### Return type
+
+[**V1EntitiesDeleteResult**](V1EntitiesDeleteResult.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 

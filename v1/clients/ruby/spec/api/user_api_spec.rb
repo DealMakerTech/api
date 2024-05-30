@@ -93,6 +93,30 @@ describe 'UserApi' do
     end
   end
 
+  # unit tests for get_verification_resources
+  # Gets the verification process resources
+  # Get verification process resources
+  # @param login_token The token containing the user information.
+  # @param [Hash] opts the optional parameters
+  # @return [V1EntitiesUsersVerificationResources]
+  describe 'get_verification_resources test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for send_verification_code
+  # Sends the verification code to the user
+  # Send the verification code to the user
+  # @param send_verification_code_request 
+  # @param [Hash] opts the optional parameters
+  # @return [V1EntitiesDeleteResult]
+  describe 'send_verification_code test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for setup_sms_verification
   # Start a setup for a SMS Verification by creating a two factor channel of sms type
   # Start a setup for a SMS Verification by creating a two factor channel of sms type

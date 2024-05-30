@@ -13,6 +13,7 @@
 
 
 import ApiClient from "../ApiClient";
+import SendVerificationCodeRequest from '../model/SendVerificationCodeRequest';
 import SetupSmsVerificationRequest from '../model/SetupSmsVerificationRequest';
 import UpdateUserPasswordRequest from '../model/UpdateUserPasswordRequest';
 import V1EntitiesDeleteResult from '../model/V1EntitiesDeleteResult';
@@ -20,13 +21,14 @@ import V1EntitiesUser from '../model/V1EntitiesUser';
 import V1EntitiesUsersFactor from '../model/V1EntitiesUsersFactor';
 import V1EntitiesUsersTwoFactorChannel from '../model/V1EntitiesUsersTwoFactorChannel';
 import V1EntitiesUsersTwoFactorChannels from '../model/V1EntitiesUsersTwoFactorChannels';
+import V1EntitiesUsersVerificationResources from '../model/V1EntitiesUsersVerificationResources';
 import VerifyFactorRequest from '../model/VerifyFactorRequest';
 import VerifySmsVerificationRequest from '../model/VerifySmsVerificationRequest';
 
 /**
 * User service.
 * @module api/UserApi
-* @version 0.104.1
+* @version 0.104.2
 */
 export default class UserApi {
 
@@ -257,6 +259,91 @@ export default class UserApi {
       let returnType = V1EntitiesUser;
       return this.apiClient.callApi(
         '/users/{id}', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the getVerificationResources operation.
+     * @callback module:api/UserApi~getVerificationResourcesCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/V1EntitiesUsersVerificationResources} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Gets the verification process resources
+     * Get verification process resources
+     * @param {String} loginToken The token containing the user information.
+     * @param {module:api/UserApi~getVerificationResourcesCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/V1EntitiesUsersVerificationResources}
+     */
+    getVerificationResources(loginToken, callback) {
+      let postBody = null;
+      // verify the required parameter 'loginToken' is set
+      if (loginToken === undefined || loginToken === null) {
+        throw new Error("Missing the required parameter 'loginToken' when calling getVerificationResources");
+      }
+
+      let pathParams = {
+      };
+      let queryParams = {
+        'login_token': loginToken
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = V1EntitiesUsersVerificationResources;
+      return this.apiClient.callApi(
+        '/users/verification/resources', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the sendVerificationCode operation.
+     * @callback module:api/UserApi~sendVerificationCodeCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/V1EntitiesDeleteResult} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Sends the verification code to the user
+     * Send the verification code to the user
+     * @param {module:model/SendVerificationCodeRequest} sendVerificationCodeRequest 
+     * @param {module:api/UserApi~sendVerificationCodeCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/V1EntitiesDeleteResult}
+     */
+    sendVerificationCode(sendVerificationCodeRequest, callback) {
+      let postBody = sendVerificationCodeRequest;
+      // verify the required parameter 'sendVerificationCodeRequest' is set
+      if (sendVerificationCodeRequest === undefined || sendVerificationCodeRequest === null) {
+        throw new Error("Missing the required parameter 'sendVerificationCodeRequest' when calling sendVerificationCode");
+      }
+
+      let pathParams = {
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = V1EntitiesDeleteResult;
+      return this.apiClient.callApi(
+        '/users/verification/send_code', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

@@ -51,6 +51,7 @@ import PutWebhooksIdRequest from './model/PutWebhooksIdRequest';
 import RequestNewDocumentRequest from './model/RequestNewDocumentRequest';
 import RunBackgroundSearchRequest from './model/RunBackgroundSearchRequest';
 import SendPortalInviteRequest from './model/SendPortalInviteRequest';
+import SendVerificationCodeRequest from './model/SendVerificationCodeRequest';
 import SetupSmsVerificationRequest from './model/SetupSmsVerificationRequest';
 import TestDocumentUploadEmailRequest from './model/TestDocumentUploadEmailRequest';
 import UpdateUserPasswordRequest from './model/UpdateUserPasswordRequest';
@@ -85,6 +86,7 @@ import V1EntitiesDealsProgress from './model/V1EntitiesDealsProgress';
 import V1EntitiesDealsProgressColumn from './model/V1EntitiesDealsProgressColumn';
 import V1EntitiesDealsProgressKinds from './model/V1EntitiesDealsProgressKinds';
 import V1EntitiesDealsProgressPageSummary from './model/V1EntitiesDealsProgressPageSummary';
+import V1EntitiesDealsProgressPageSummaryItem from './model/V1EntitiesDealsProgressPageSummaryItem';
 import V1EntitiesDeleteResult from './model/V1EntitiesDeleteResult';
 import V1EntitiesDividend from './model/V1EntitiesDividend';
 import V1EntitiesDividends from './model/V1EntitiesDividends';
@@ -138,6 +140,7 @@ import V1EntitiesUsersBinding from './model/V1EntitiesUsersBinding';
 import V1EntitiesUsersFactor from './model/V1EntitiesUsersFactor';
 import V1EntitiesUsersTwoFactorChannel from './model/V1EntitiesUsersTwoFactorChannel';
 import V1EntitiesUsersTwoFactorChannels from './model/V1EntitiesUsersTwoFactorChannels';
+import V1EntitiesUsersVerificationResources from './model/V1EntitiesUsersVerificationResources';
 import V1EntitiesWebhooksDeal from './model/V1EntitiesWebhooksDeal';
 import V1EntitiesWebhooksSecurityToken from './model/V1EntitiesWebhooksSecurityToken';
 import V1EntitiesWebhooksSubscription from './model/V1EntitiesWebhooksSubscription';
@@ -190,7 +193,7 @@ import UsersApi from './api/UsersApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.104.1
+* @version 0.104.2
 */
 export {
     /**
@@ -428,6 +431,12 @@ export {
     SendPortalInviteRequest,
 
     /**
+     * The SendVerificationCodeRequest model constructor.
+     * @property {module:model/SendVerificationCodeRequest}
+     */
+    SendVerificationCodeRequest,
+
+    /**
      * The SetupSmsVerificationRequest model constructor.
      * @property {module:model/SetupSmsVerificationRequest}
      */
@@ -630,6 +639,12 @@ export {
      * @property {module:model/V1EntitiesDealsProgressPageSummary}
      */
     V1EntitiesDealsProgressPageSummary,
+
+    /**
+     * The V1EntitiesDealsProgressPageSummaryItem model constructor.
+     * @property {module:model/V1EntitiesDealsProgressPageSummaryItem}
+     */
+    V1EntitiesDealsProgressPageSummaryItem,
 
     /**
      * The V1EntitiesDeleteResult model constructor.
@@ -948,6 +963,12 @@ export {
      * @property {module:model/V1EntitiesUsersTwoFactorChannels}
      */
     V1EntitiesUsersTwoFactorChannels,
+
+    /**
+     * The V1EntitiesUsersVerificationResources model constructor.
+     * @property {module:model/V1EntitiesUsersVerificationResources}
+     */
+    V1EntitiesUsersVerificationResources,
 
     /**
      * The V1EntitiesWebhooksDeal model constructor.

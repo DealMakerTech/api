@@ -98,6 +98,26 @@
         done();
       });
     });
+    describe('getVerificationResources', function() {
+      it('should call getVerificationResources successfully', function(done) {
+        //uncomment below and update the code to test getVerificationResources
+        //instance.getVerificationResources(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('sendVerificationCode', function() {
+      it('should call sendVerificationCode successfully', function(done) {
+        //uncomment below and update the code to test sendVerificationCode
+        //instance.sendVerificationCode(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('setupSmsVerification', function() {
       it('should call setupSmsVerification successfully', function(done) {
         //uncomment below and update the code to test setupSmsVerification

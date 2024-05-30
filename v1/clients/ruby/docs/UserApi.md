@@ -9,6 +9,8 @@ All URIs are relative to *http://api.dealmaker.tech*
 | [**disable_mfa**](UserApi.md#disable_mfa) | **DELETE** /users/{id}/disable_mfa | Disable all the multi-factor authentication integrations for a user |
 | [**get_two_factor_channels**](UserApi.md#get_two_factor_channels) | **GET** /users/{id}/two_factor_channels | Creates an API endpoint to return a list of existing TOTP factor |
 | [**get_user**](UserApi.md#get_user) | **GET** /users/{id} | Get user by User ID |
+| [**get_verification_resources**](UserApi.md#get_verification_resources) | **GET** /users/verification/resources | Gets the verification process resources |
+| [**send_verification_code**](UserApi.md#send_verification_code) | **POST** /users/verification/send_code | Sends the verification code to the user |
 | [**setup_sms_verification**](UserApi.md#setup_sms_verification) | **POST** /users/{id}/setup_sms_verification | Start a setup for a SMS Verification by creating a two factor channel of sms type |
 | [**update_user_password**](UserApi.md#update_user_password) | **PUT** /users/{id}/update_password | Update user password |
 | [**verify_factor**](UserApi.md#verify_factor) | **PUT** /users/{id}/verify_factor | Creates an API endpoint to verify an existing TOTP factor |
@@ -343,6 +345,138 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## get_verification_resources
+
+> <V1EntitiesUsersVerificationResources> get_verification_resources(login_token)
+
+Gets the verification process resources
+
+Get verification process resources
+
+### Examples
+
+```ruby
+require 'time'
+require 'DealMakerAPI'
+# setup authorization
+DealMakerAPI.configure do |config|end
+
+api_instance = DealMakerAPI::UserApi.new
+login_token = 'login_token_example' # String | The token containing the user information.
+
+begin
+  # Gets the verification process resources
+  result = api_instance.get_verification_resources(login_token)
+  p result
+rescue DealMakerAPI::ApiError => e
+  puts "Error when calling UserApi->get_verification_resources: #{e}"
+end
+```
+
+#### Using the get_verification_resources_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<V1EntitiesUsersVerificationResources>, Integer, Hash)> get_verification_resources_with_http_info(login_token)
+
+```ruby
+begin
+  # Gets the verification process resources
+  data, status_code, headers = api_instance.get_verification_resources_with_http_info(login_token)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <V1EntitiesUsersVerificationResources>
+rescue DealMakerAPI::ApiError => e
+  puts "Error when calling UserApi->get_verification_resources_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **login_token** | **String** | The token containing the user information. |  |
+
+### Return type
+
+[**V1EntitiesUsersVerificationResources**](V1EntitiesUsersVerificationResources.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## send_verification_code
+
+> <V1EntitiesDeleteResult> send_verification_code(send_verification_code_request)
+
+Sends the verification code to the user
+
+Send the verification code to the user
+
+### Examples
+
+```ruby
+require 'time'
+require 'DealMakerAPI'
+# setup authorization
+DealMakerAPI.configure do |config|end
+
+api_instance = DealMakerAPI::UserApi.new
+send_verification_code_request = DealMakerAPI::SendVerificationCodeRequest.new({login_token: 'login_token_example'}) # SendVerificationCodeRequest | 
+
+begin
+  # Sends the verification code to the user
+  result = api_instance.send_verification_code(send_verification_code_request)
+  p result
+rescue DealMakerAPI::ApiError => e
+  puts "Error when calling UserApi->send_verification_code: #{e}"
+end
+```
+
+#### Using the send_verification_code_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<V1EntitiesDeleteResult>, Integer, Hash)> send_verification_code_with_http_info(send_verification_code_request)
+
+```ruby
+begin
+  # Sends the verification code to the user
+  data, status_code, headers = api_instance.send_verification_code_with_http_info(send_verification_code_request)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <V1EntitiesDeleteResult>
+rescue DealMakerAPI::ApiError => e
+  puts "Error when calling UserApi->send_verification_code_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **send_verification_code_request** | [**SendVerificationCodeRequest**](SendVerificationCodeRequest.md) |  |  |
+
+### Return type
+
+[**V1EntitiesDeleteResult**](V1EntitiesDeleteResult.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 

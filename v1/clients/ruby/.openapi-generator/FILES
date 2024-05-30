@@ -56,6 +56,7 @@ docs/PutWebhooksIdRequest.md
 docs/RequestNewDocumentRequest.md
 docs/RunBackgroundSearchRequest.md
 docs/SendPortalInviteRequest.md
+docs/SendVerificationCodeRequest.md
 docs/SetupSmsVerificationRequest.md
 docs/ShareholderApi.md
 docs/TestDocumentUploadEmailRequest.md
@@ -94,6 +95,7 @@ docs/V1EntitiesDealsProgress.md
 docs/V1EntitiesDealsProgressColumn.md
 docs/V1EntitiesDealsProgressKinds.md
 docs/V1EntitiesDealsProgressPageSummary.md
+docs/V1EntitiesDealsProgressPageSummaryItem.md
 docs/V1EntitiesDeleteResult.md
 docs/V1EntitiesDividend.md
 docs/V1EntitiesDividends.md
@@ -147,6 +149,7 @@ docs/V1EntitiesUsersBinding.md
 docs/V1EntitiesUsersFactor.md
 docs/V1EntitiesUsersTwoFactorChannel.md
 docs/V1EntitiesUsersTwoFactorChannels.md
+docs/V1EntitiesUsersVerificationResources.md
 docs/V1EntitiesWebhooksDeal.md
 docs/V1EntitiesWebhooksSecurityToken.md
 docs/V1EntitiesWebhooksSubscription.md
@@ -211,6 +214,7 @@ lib/DealMakerAPI/models/put_webhooks_id_request.rb
 lib/DealMakerAPI/models/request_new_document_request.rb
 lib/DealMakerAPI/models/run_background_search_request.rb
 lib/DealMakerAPI/models/send_portal_invite_request.rb
+lib/DealMakerAPI/models/send_verification_code_request.rb
 lib/DealMakerAPI/models/setup_sms_verification_request.rb
 lib/DealMakerAPI/models/test_document_upload_email_request.rb
 lib/DealMakerAPI/models/update_user_password_request.rb
@@ -245,6 +249,7 @@ lib/DealMakerAPI/models/v1_entities_deals_progress.rb
 lib/DealMakerAPI/models/v1_entities_deals_progress_column.rb
 lib/DealMakerAPI/models/v1_entities_deals_progress_kinds.rb
 lib/DealMakerAPI/models/v1_entities_deals_progress_page_summary.rb
+lib/DealMakerAPI/models/v1_entities_deals_progress_page_summary_item.rb
 lib/DealMakerAPI/models/v1_entities_delete_result.rb
 lib/DealMakerAPI/models/v1_entities_dividend.rb
 lib/DealMakerAPI/models/v1_entities_dividends.rb
@@ -298,6 +303,7 @@ lib/DealMakerAPI/models/v1_entities_users_binding.rb
 lib/DealMakerAPI/models/v1_entities_users_factor.rb
 lib/DealMakerAPI/models/v1_entities_users_two_factor_channel.rb
 lib/DealMakerAPI/models/v1_entities_users_two_factor_channels.rb
+lib/DealMakerAPI/models/v1_entities_users_verification_resources.rb
 lib/DealMakerAPI/models/v1_entities_webhooks_deal.rb
 lib/DealMakerAPI/models/v1_entities_webhooks_security_token.rb
 lib/DealMakerAPI/models/v1_entities_webhooks_subscription.rb
@@ -358,6 +364,7 @@ spec/models/put_webhooks_id_request_spec.rb
 spec/models/request_new_document_request_spec.rb
 spec/models/run_background_search_request_spec.rb
 spec/models/send_portal_invite_request_spec.rb
+spec/models/send_verification_code_request_spec.rb
 spec/models/setup_sms_verification_request_spec.rb
 spec/models/test_document_upload_email_request_spec.rb
 spec/models/update_user_password_request_spec.rb
@@ -389,6 +396,7 @@ spec/models/v1_entities_deals_investors_payment_acss_bank_account_setup_intent_s
 spec/models/v1_entities_deals_price_details_spec.rb
 spec/models/v1_entities_deals_progress_column_spec.rb
 spec/models/v1_entities_deals_progress_kinds_spec.rb
+spec/models/v1_entities_deals_progress_page_summary_item_spec.rb
 spec/models/v1_entities_deals_progress_page_summary_spec.rb
 spec/models/v1_entities_deals_progress_spec.rb
 spec/models/v1_entities_deals_spec.rb
@@ -445,6 +453,7 @@ spec/models/v1_entities_users_binding_spec.rb
 spec/models/v1_entities_users_factor_spec.rb
 spec/models/v1_entities_users_two_factor_channel_spec.rb
 spec/models/v1_entities_users_two_factor_channels_spec.rb
+spec/models/v1_entities_users_verification_resources_spec.rb
 spec/models/v1_entities_webhooks_deal_spec.rb
 spec/models/v1_entities_webhooks_security_token_spec.rb
 spec/models/v1_entities_webhooks_subscription_deal_spec.rb

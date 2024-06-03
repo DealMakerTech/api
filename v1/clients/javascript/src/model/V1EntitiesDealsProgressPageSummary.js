@@ -17,7 +17,7 @@ import V1EntitiesDealsProgressPageSummaryItem from './V1EntitiesDealsProgressPag
 /**
  * The V1EntitiesDealsProgressPageSummary model module.
  * @module model/V1EntitiesDealsProgressPageSummary
- * @version 0.104.2
+ * @version 0.104.3
  */
 class V1EntitiesDealsProgressPageSummary {
     /**
@@ -64,6 +64,15 @@ class V1EntitiesDealsProgressPageSummary {
             if (data.hasOwnProperty('invoice_deductions')) {
                 obj['invoice_deductions'] = V1EntitiesDealsProgressPageSummaryItem.constructFromObject(data['invoice_deductions']);
             }
+            if (data.hasOwnProperty('accounts_receivable')) {
+                obj['accounts_receivable'] = V1EntitiesDealsProgressPageSummaryItem.constructFromObject(data['accounts_receivable']);
+            }
+            if (data.hasOwnProperty('upcoming_adspend')) {
+                obj['upcoming_adspend'] = V1EntitiesDealsProgressPageSummaryItem.constructFromObject(data['upcoming_adspend']);
+            }
+            if (data.hasOwnProperty('other_reserves')) {
+                obj['other_reserves'] = V1EntitiesDealsProgressPageSummaryItem.constructFromObject(data['other_reserves']);
+            }
             if (data.hasOwnProperty('holdback')) {
                 obj['holdback'] = V1EntitiesDealsProgressPageSummaryItem.constructFromObject(data['holdback']);
             }
@@ -102,6 +111,18 @@ class V1EntitiesDealsProgressPageSummary {
         // validate the optional field `invoice_deductions`
         if (data['invoice_deductions']) { // data not null
           V1EntitiesDealsProgressPageSummaryItem.validateJSON(data['invoice_deductions']);
+        }
+        // validate the optional field `accounts_receivable`
+        if (data['accounts_receivable']) { // data not null
+          V1EntitiesDealsProgressPageSummaryItem.validateJSON(data['accounts_receivable']);
+        }
+        // validate the optional field `upcoming_adspend`
+        if (data['upcoming_adspend']) { // data not null
+          V1EntitiesDealsProgressPageSummaryItem.validateJSON(data['upcoming_adspend']);
+        }
+        // validate the optional field `other_reserves`
+        if (data['other_reserves']) { // data not null
+          V1EntitiesDealsProgressPageSummaryItem.validateJSON(data['other_reserves']);
         }
         // validate the optional field `holdback`
         if (data['holdback']) { // data not null
@@ -148,6 +169,21 @@ V1EntitiesDealsProgressPageSummary.prototype['processing_fees'] = undefined;
  * @member {module:model/V1EntitiesDealsProgressPageSummaryItem} invoice_deductions
  */
 V1EntitiesDealsProgressPageSummary.prototype['invoice_deductions'] = undefined;
+
+/**
+ * @member {module:model/V1EntitiesDealsProgressPageSummaryItem} accounts_receivable
+ */
+V1EntitiesDealsProgressPageSummary.prototype['accounts_receivable'] = undefined;
+
+/**
+ * @member {module:model/V1EntitiesDealsProgressPageSummaryItem} upcoming_adspend
+ */
+V1EntitiesDealsProgressPageSummary.prototype['upcoming_adspend'] = undefined;
+
+/**
+ * @member {module:model/V1EntitiesDealsProgressPageSummaryItem} other_reserves
+ */
+V1EntitiesDealsProgressPageSummary.prototype['other_reserves'] = undefined;
 
 /**
  * @member {module:model/V1EntitiesDealsProgressPageSummaryItem} holdback

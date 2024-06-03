@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The PostInvestorProfilesCorporationsBeneficialOwnersInner model module.
  * @module model/PostInvestorProfilesCorporationsBeneficialOwnersInner
- * @version 0.104.2
+ * @version 0.104.3
  */
 class PostInvestorProfilesCorporationsBeneficialOwnersInner {
     /**

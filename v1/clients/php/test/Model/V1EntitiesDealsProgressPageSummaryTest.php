@@ -125,6 +125,33 @@ class V1EntitiesDealsProgressPageSummaryTest extends TestCase
     }
 
     /**
+     * Test attribute "accounts_receivable"
+     */
+    public function testPropertyAccountsReceivable()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "upcoming_adspend"
+     */
+    public function testPropertyUpcomingAdspend()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "other_reserves"
+     */
+    public function testPropertyOtherReserves()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "holdback"
      */
     public function testPropertyHoldback()

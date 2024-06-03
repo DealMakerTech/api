@@ -63,6 +63,9 @@ class V1EntitiesDealsProgressPageSummary implements ModelInterface, ArrayAccess,
         'total_proceeds' => '\DealMaker\Model\V1EntitiesDealsProgressPageSummaryItem',
         'processing_fees' => '\DealMaker\Model\V1EntitiesDealsProgressPageSummaryItem',
         'invoice_deductions' => '\DealMaker\Model\V1EntitiesDealsProgressPageSummaryItem',
+        'accounts_receivable' => '\DealMaker\Model\V1EntitiesDealsProgressPageSummaryItem',
+        'upcoming_adspend' => '\DealMaker\Model\V1EntitiesDealsProgressPageSummaryItem',
+        'other_reserves' => '\DealMaker\Model\V1EntitiesDealsProgressPageSummaryItem',
         'holdback' => '\DealMaker\Model\V1EntitiesDealsProgressPageSummaryItem',
         'paid_out' => '\DealMaker\Model\V1EntitiesDealsProgressPageSummaryItem',
         'available_for_payout' => '\DealMaker\Model\V1EntitiesDealsProgressPageSummaryItem'
@@ -81,6 +84,9 @@ class V1EntitiesDealsProgressPageSummary implements ModelInterface, ArrayAccess,
         'total_proceeds' => null,
         'processing_fees' => null,
         'invoice_deductions' => null,
+        'accounts_receivable' => null,
+        'upcoming_adspend' => null,
+        'other_reserves' => null,
         'holdback' => null,
         'paid_out' => null,
         'available_for_payout' => null
@@ -97,6 +103,9 @@ class V1EntitiesDealsProgressPageSummary implements ModelInterface, ArrayAccess,
         'total_proceeds' => false,
         'processing_fees' => false,
         'invoice_deductions' => false,
+        'accounts_receivable' => false,
+        'upcoming_adspend' => false,
+        'other_reserves' => false,
         'holdback' => false,
         'paid_out' => false,
         'available_for_payout' => false
@@ -193,6 +202,9 @@ class V1EntitiesDealsProgressPageSummary implements ModelInterface, ArrayAccess,
         'total_proceeds' => 'total_proceeds',
         'processing_fees' => 'processing_fees',
         'invoice_deductions' => 'invoice_deductions',
+        'accounts_receivable' => 'accounts_receivable',
+        'upcoming_adspend' => 'upcoming_adspend',
+        'other_reserves' => 'other_reserves',
         'holdback' => 'holdback',
         'paid_out' => 'paid_out',
         'available_for_payout' => 'available_for_payout'
@@ -209,6 +221,9 @@ class V1EntitiesDealsProgressPageSummary implements ModelInterface, ArrayAccess,
         'total_proceeds' => 'setTotalProceeds',
         'processing_fees' => 'setProcessingFees',
         'invoice_deductions' => 'setInvoiceDeductions',
+        'accounts_receivable' => 'setAccountsReceivable',
+        'upcoming_adspend' => 'setUpcomingAdspend',
+        'other_reserves' => 'setOtherReserves',
         'holdback' => 'setHoldback',
         'paid_out' => 'setPaidOut',
         'available_for_payout' => 'setAvailableForPayout'
@@ -225,6 +240,9 @@ class V1EntitiesDealsProgressPageSummary implements ModelInterface, ArrayAccess,
         'total_proceeds' => 'getTotalProceeds',
         'processing_fees' => 'getProcessingFees',
         'invoice_deductions' => 'getInvoiceDeductions',
+        'accounts_receivable' => 'getAccountsReceivable',
+        'upcoming_adspend' => 'getUpcomingAdspend',
+        'other_reserves' => 'getOtherReserves',
         'holdback' => 'getHoldback',
         'paid_out' => 'getPaidOut',
         'available_for_payout' => 'getAvailableForPayout'
@@ -292,6 +310,9 @@ class V1EntitiesDealsProgressPageSummary implements ModelInterface, ArrayAccess,
         $this->setIfExists('total_proceeds', $data ?? [], null);
         $this->setIfExists('processing_fees', $data ?? [], null);
         $this->setIfExists('invoice_deductions', $data ?? [], null);
+        $this->setIfExists('accounts_receivable', $data ?? [], null);
+        $this->setIfExists('upcoming_adspend', $data ?? [], null);
+        $this->setIfExists('other_reserves', $data ?? [], null);
         $this->setIfExists('holdback', $data ?? [], null);
         $this->setIfExists('paid_out', $data ?? [], null);
         $this->setIfExists('available_for_payout', $data ?? [], null);
@@ -470,6 +491,87 @@ class V1EntitiesDealsProgressPageSummary implements ModelInterface, ArrayAccess,
             throw new \InvalidArgumentException('non-nullable invoice_deductions cannot be null');
         }
         $this->container['invoice_deductions'] = $invoice_deductions;
+
+        return $this;
+    }
+
+    /**
+     * Gets accounts_receivable
+     *
+     * @return \DealMaker\Model\V1EntitiesDealsProgressPageSummaryItem|null
+     */
+    public function getAccountsReceivable()
+    {
+        return $this->container['accounts_receivable'];
+    }
+
+    /**
+     * Sets accounts_receivable
+     *
+     * @param \DealMaker\Model\V1EntitiesDealsProgressPageSummaryItem|null $accounts_receivable accounts_receivable
+     *
+     * @return self
+     */
+    public function setAccountsReceivable($accounts_receivable)
+    {
+        if (is_null($accounts_receivable)) {
+            throw new \InvalidArgumentException('non-nullable accounts_receivable cannot be null');
+        }
+        $this->container['accounts_receivable'] = $accounts_receivable;
+
+        return $this;
+    }
+
+    /**
+     * Gets upcoming_adspend
+     *
+     * @return \DealMaker\Model\V1EntitiesDealsProgressPageSummaryItem|null
+     */
+    public function getUpcomingAdspend()
+    {
+        return $this->container['upcoming_adspend'];
+    }
+
+    /**
+     * Sets upcoming_adspend
+     *
+     * @param \DealMaker\Model\V1EntitiesDealsProgressPageSummaryItem|null $upcoming_adspend upcoming_adspend
+     *
+     * @return self
+     */
+    public function setUpcomingAdspend($upcoming_adspend)
+    {
+        if (is_null($upcoming_adspend)) {
+            throw new \InvalidArgumentException('non-nullable upcoming_adspend cannot be null');
+        }
+        $this->container['upcoming_adspend'] = $upcoming_adspend;
+
+        return $this;
+    }
+
+    /**
+     * Gets other_reserves
+     *
+     * @return \DealMaker\Model\V1EntitiesDealsProgressPageSummaryItem|null
+     */
+    public function getOtherReserves()
+    {
+        return $this->container['other_reserves'];
+    }
+
+    /**
+     * Sets other_reserves
+     *
+     * @param \DealMaker\Model\V1EntitiesDealsProgressPageSummaryItem|null $other_reserves other_reserves
+     *
+     * @return self
+     */
+    public function setOtherReserves($other_reserves)
+    {
+        if (is_null($other_reserves)) {
+            throw new \InvalidArgumentException('non-nullable other_reserves cannot be null');
+        }
+        $this->container['other_reserves'] = $other_reserves;
 
         return $this;
     }

@@ -9,6 +9,9 @@
 | **total_proceeds** | [**V1EntitiesDealsProgressPageSummaryItem**](V1EntitiesDealsProgressPageSummaryItem.md) |  | [optional] |
 | **processing_fees** | [**V1EntitiesDealsProgressPageSummaryItem**](V1EntitiesDealsProgressPageSummaryItem.md) |  | [optional] |
 | **invoice_deductions** | [**V1EntitiesDealsProgressPageSummaryItem**](V1EntitiesDealsProgressPageSummaryItem.md) |  | [optional] |
+| **accounts_receivable** | [**V1EntitiesDealsProgressPageSummaryItem**](V1EntitiesDealsProgressPageSummaryItem.md) |  | [optional] |
+| **upcoming_adspend** | [**V1EntitiesDealsProgressPageSummaryItem**](V1EntitiesDealsProgressPageSummaryItem.md) |  | [optional] |
+| **other_reserves** | [**V1EntitiesDealsProgressPageSummaryItem**](V1EntitiesDealsProgressPageSummaryItem.md) |  | [optional] |
 | **holdback** | [**V1EntitiesDealsProgressPageSummaryItem**](V1EntitiesDealsProgressPageSummaryItem.md) |  | [optional] |
 | **paid_out** | [**V1EntitiesDealsProgressPageSummaryItem**](V1EntitiesDealsProgressPageSummaryItem.md) |  | [optional] |
 | **available_for_payout** | [**V1EntitiesDealsProgressPageSummaryItem**](V1EntitiesDealsProgressPageSummaryItem.md) |  | [optional] |
@@ -24,6 +27,9 @@ instance = DealMakerAPI::V1EntitiesDealsProgressPageSummary.new(
   total_proceeds: null,
   processing_fees: null,
   invoice_deductions: null,
+  accounts_receivable: null,
+  upcoming_adspend: null,
+  other_reserves: null,
   holdback: null,
   paid_out: null,
   available_for_payout: null

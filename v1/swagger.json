@@ -10177,6 +10177,15 @@
         "invoice_deductions": {
           "$ref": "#/definitions/V1_Entities_Deals_ProgressPage_SummaryItem"
         },
+        "accounts_receivable": {
+          "$ref": "#/definitions/V1_Entities_Deals_ProgressPage_SummaryItem"
+        },
+        "upcoming_adspend": {
+          "$ref": "#/definitions/V1_Entities_Deals_ProgressPage_SummaryItem"
+        },
+        "other_reserves": {
+          "$ref": "#/definitions/V1_Entities_Deals_ProgressPage_SummaryItem"
+        },
         "holdback": {
           "$ref": "#/definitions/V1_Entities_Deals_ProgressPage_SummaryItem"
         },

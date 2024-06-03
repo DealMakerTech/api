@@ -26,6 +26,12 @@ module DealMakerAPI
 
     attr_accessor :invoice_deductions
 
+    attr_accessor :accounts_receivable
+
+    attr_accessor :upcoming_adspend
+
+    attr_accessor :other_reserves
+
     attr_accessor :holdback
 
     attr_accessor :paid_out
@@ -40,6 +46,9 @@ module DealMakerAPI
         :'total_proceeds' => :'total_proceeds',
         :'processing_fees' => :'processing_fees',
         :'invoice_deductions' => :'invoice_deductions',
+        :'accounts_receivable' => :'accounts_receivable',
+        :'upcoming_adspend' => :'upcoming_adspend',
+        :'other_reserves' => :'other_reserves',
         :'holdback' => :'holdback',
         :'paid_out' => :'paid_out',
         :'available_for_payout' => :'available_for_payout'
@@ -59,6 +68,9 @@ module DealMakerAPI
         :'total_proceeds' => :'V1EntitiesDealsProgressPageSummaryItem',
         :'processing_fees' => :'V1EntitiesDealsProgressPageSummaryItem',
         :'invoice_deductions' => :'V1EntitiesDealsProgressPageSummaryItem',
+        :'accounts_receivable' => :'V1EntitiesDealsProgressPageSummaryItem',
+        :'upcoming_adspend' => :'V1EntitiesDealsProgressPageSummaryItem',
+        :'other_reserves' => :'V1EntitiesDealsProgressPageSummaryItem',
         :'holdback' => :'V1EntitiesDealsProgressPageSummaryItem',
         :'paid_out' => :'V1EntitiesDealsProgressPageSummaryItem',
         :'available_for_payout' => :'V1EntitiesDealsProgressPageSummaryItem'
@@ -106,6 +118,18 @@ module DealMakerAPI
         self.invoice_deductions = attributes[:'invoice_deductions']
       end
 
+      if attributes.key?(:'accounts_receivable')
+        self.accounts_receivable = attributes[:'accounts_receivable']
+      end
+
+      if attributes.key?(:'upcoming_adspend')
+        self.upcoming_adspend = attributes[:'upcoming_adspend']
+      end
+
+      if attributes.key?(:'other_reserves')
+        self.other_reserves = attributes[:'other_reserves']
+      end
+
       if attributes.key?(:'holdback')
         self.holdback = attributes[:'holdback']
       end
@@ -144,6 +168,9 @@ module DealMakerAPI
           total_proceeds == o.total_proceeds &&
           processing_fees == o.processing_fees &&
           invoice_deductions == o.invoice_deductions &&
+          accounts_receivable == o.accounts_receivable &&
+          upcoming_adspend == o.upcoming_adspend &&
+          other_reserves == o.other_reserves &&
           holdback == o.holdback &&
           paid_out == o.paid_out &&
           available_for_payout == o.available_for_payout
@@ -158,7 +185,7 @@ module DealMakerAPI
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [investment_proceeds, fees_and_adjustments, total_proceeds, processing_fees, invoice_deductions, holdback, paid_out, available_for_payout].hash
+      [investment_proceeds, fees_and_adjustments, total_proceeds, processing_fees, invoice_deductions, accounts_receivable, upcoming_adspend, other_reserves, holdback, paid_out, available_for_payout].hash
     end
 
     # Builds the object from hash

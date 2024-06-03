@@ -84,6 +84,24 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property accountsReceivable (base name: "accounts_receivable")', function() {
+      // uncomment below and update the code to test the property accountsReceivable
+      //var instance = new Api.V1EntitiesDealsProgressPageSummary();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property upcomingAdspend (base name: "upcoming_adspend")', function() {
+      // uncomment below and update the code to test the property upcomingAdspend
+      //var instance = new Api.V1EntitiesDealsProgressPageSummary();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property otherReserves (base name: "other_reserves")', function() {
+      // uncomment below and update the code to test the property otherReserves
+      //var instance = new Api.V1EntitiesDealsProgressPageSummary();
+      //expect(instance).to.be();
+    });
+
     it('should have the property holdback (base name: "holdback")', function() {
       // uncomment below and update the code to test the property holdback
       //var instance = new Api.V1EntitiesDealsProgressPageSummary();

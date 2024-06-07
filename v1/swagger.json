@@ -147,6 +147,11 @@
       "name": "upload",
       "description": "Presigned url for interacting with a defined S3 buckets",
       "x-displayName": "Upload"
+    },
+    {
+      "name": "campaign",
+      "description": "Company TTW campaign",
+      "x-displayName": "TTW Campaign"
     }
   ],
   "paths": {
@@ -1926,6 +1931,49 @@
           "country"
         ],
         "operationId": "getCountryStates"
+      }
+    },
+    "/investors/{investor_id}/transactions/request_refund/process": {
+      "post": {
+        "summary": "Request refund for investor transactions",
+        "description": "Request refund for investor transactions",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "investor_id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "security": [
+          {
+            "oauth": [
+              "internal"
+            ]
+          }
+        ],
+        "responses": {
+          "404": {
+            "description": "Not found"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "422": {
+            "description": "Bad Request"
+          }
+        },
+        "tags": [
+
+        ],
+        "operationId": "postInvestorsInvestorIdTransactionsRequestRefundProcess"
       }
     },
     "/deals/{id}/email_campaign/{email_campaign_id}/send_email": {

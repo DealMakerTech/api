@@ -949,6 +949,67 @@ module DealMakerAPI
       return data, status_code, headers
     end
 
+    # Request refund for investor transactions
+    # Request refund for investor transactions
+    # @param investor_id [Integer] 
+    # @param [Hash] opts the optional parameters
+    # @return [nil]
+    def post_investors_investor_id_transactions_request_refund_process(investor_id, opts = {})
+      post_investors_investor_id_transactions_request_refund_process_with_http_info(investor_id, opts)
+      nil
+    end
+
+    # Request refund for investor transactions
+    # Request refund for investor transactions
+    # @param investor_id [Integer] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def post_investors_investor_id_transactions_request_refund_process_with_http_info(investor_id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: DefaultApi.post_investors_investor_id_transactions_request_refund_process ...'
+      end
+      # verify the required parameter 'investor_id' is set
+      if @api_client.config.client_side_validation && investor_id.nil?
+        fail ArgumentError, "Missing the required parameter 'investor_id' when calling DefaultApi.post_investors_investor_id_transactions_request_refund_process"
+      end
+      # resource path
+      local_var_path = '/investors/{investor_id}/transactions/request_refund/process'.sub('{' + 'investor_id' + '}', CGI.escape(investor_id.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"DefaultApi.post_investors_investor_id_transactions_request_refund_process",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: DefaultApi#post_investors_investor_id_transactions_request_refund_process\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Creates a webhook subscription which is associated to the user
     # Creates new webhook subscription
     # @param post_webhooks_request [PostWebhooksRequest] 

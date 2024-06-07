@@ -198,6 +198,16 @@
         done();
       });
     });
+    describe('postInvestorsInvestorIdTransactionsRequestRefundProcess', function() {
+      it('should call postInvestorsInvestorIdTransactionsRequestRefundProcess successfully', function(done) {
+        //uncomment below and update the code to test postInvestorsInvestorIdTransactionsRequestRefundProcess
+        //instance.postInvestorsInvestorIdTransactionsRequestRefundProcess(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('postWebhooks', function() {
       it('should call postWebhooks successfully', function(done) {
         //uncomment below and update the code to test postWebhooks

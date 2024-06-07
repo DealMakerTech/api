@@ -30,7 +30,7 @@ import V1EntitiesWebhooksSubscription from '../model/V1EntitiesWebhooksSubscript
 /**
 * Default service.
 * @module api/DefaultApi
-* @version 0.104.3
+* @version 0.105.1
 */
 export default class DefaultApi {
 
@@ -673,6 +673,48 @@ export default class DefaultApi {
       let returnType = V1EntitiesPaymentsSelfServeOnboardingQualificationQuestionnaireResult;
       return this.apiClient.callApi(
         '/deals/{deal_id}/payment_onboarding/questionnaire/qualification_questionnaire/submit', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the postInvestorsInvestorIdTransactionsRequestRefundProcess operation.
+     * @callback module:api/DefaultApi~postInvestorsInvestorIdTransactionsRequestRefundProcessCallback
+     * @param {String} error Error message, if any.
+     * @param data This operation does not return a value.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Request refund for investor transactions
+     * Request refund for investor transactions
+     * @param {Number} investorId 
+     * @param {module:api/DefaultApi~postInvestorsInvestorIdTransactionsRequestRefundProcessCallback} callback The callback function, accepting three arguments: error, data, response
+     */
+    postInvestorsInvestorIdTransactionsRequestRefundProcess(investorId, callback) {
+      let postBody = null;
+      // verify the required parameter 'investorId' is set
+      if (investorId === undefined || investorId === null) {
+        throw new Error("Missing the required parameter 'investorId' when calling postInvestorsInvestorIdTransactionsRequestRefundProcess");
+      }
+
+      let pathParams = {
+        'investor_id': investorId
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = [];
+      let returnType = null;
+      return this.apiClient.callApi(
+        '/investors/{investor_id}/transactions/request_refund/process', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

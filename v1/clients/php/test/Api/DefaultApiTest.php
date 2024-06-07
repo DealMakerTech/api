@@ -252,6 +252,18 @@ class DefaultApiTest extends TestCase
     }
 
     /**
+     * Test case for postInvestorsInvestorIdTransactionsRequestRefundProcess
+     *
+     * Request refund for investor transactions.
+     *
+     */
+    public function testPostInvestorsInvestorIdTransactionsRequestRefundProcess()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for postWebhooks
      *
      * Creates a webhook subscription which is associated to the user.

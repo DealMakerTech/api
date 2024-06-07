@@ -19,6 +19,7 @@ All URIs are relative to *http://api.dealmaker.tech*
 | [**post_deals_deal_id_payment_onboarding_questionnaire_payout_account_details_submit**](DefaultApi.md#post_deals_deal_id_payment_onboarding_questionnaire_payout_account_details_submit) | **POST** /deals/{deal_id}/payment_onboarding/questionnaire/payout_account_details/submit | Submit a payout account details form |
 | [**post_deals_deal_id_payment_onboarding_questionnaire_qualification_questionnaire_response_submit**](DefaultApi.md#post_deals_deal_id_payment_onboarding_questionnaire_qualification_questionnaire_response_submit) | **POST** /deals/{deal_id}/payment_onboarding/questionnaire/qualification_questionnaire/response/submit | Submit a qualification questionnaire response |
 | [**post_deals_deal_id_payment_onboarding_questionnaire_qualification_questionnaire_submit**](DefaultApi.md#post_deals_deal_id_payment_onboarding_questionnaire_qualification_questionnaire_submit) | **POST** /deals/{deal_id}/payment_onboarding/questionnaire/qualification_questionnaire/submit | Submit a qualification questionnaire form |
+| [**post_investors_investor_id_transactions_request_refund_process**](DefaultApi.md#post_investors_investor_id_transactions_request_refund_process) | **POST** /investors/{investor_id}/transactions/request_refund/process | Request refund for investor transactions |
 | [**post_webhooks**](DefaultApi.md#post_webhooks) | **POST** /webhooks | Creates a webhook subscription which is associated to the user |
 | [**put_webhooks_id**](DefaultApi.md#put_webhooks_id) | **PUT** /webhooks/{id} | Updates webhook subscription and webhooks subcription deals |
 
@@ -1005,6 +1006,71 @@ No authorization required
 
 - **Content-Type**: Not defined
 - **Accept**: application/json
+
+
+## post_investors_investor_id_transactions_request_refund_process
+
+> post_investors_investor_id_transactions_request_refund_process(investor_id)
+
+Request refund for investor transactions
+
+Request refund for investor transactions
+
+### Examples
+
+```ruby
+require 'time'
+require 'DealMakerAPI'
+# setup authorization
+DealMakerAPI.configure do |config|end
+
+api_instance = DealMakerAPI::DefaultApi.new
+investor_id = 56 # Integer | 
+
+begin
+  # Request refund for investor transactions
+  api_instance.post_investors_investor_id_transactions_request_refund_process(investor_id)
+rescue DealMakerAPI::ApiError => e
+  puts "Error when calling DefaultApi->post_investors_investor_id_transactions_request_refund_process: #{e}"
+end
+```
+
+#### Using the post_investors_investor_id_transactions_request_refund_process_with_http_info variant
+
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
+
+> <Array(nil, Integer, Hash)> post_investors_investor_id_transactions_request_refund_process_with_http_info(investor_id)
+
+```ruby
+begin
+  # Request refund for investor transactions
+  data, status_code, headers = api_instance.post_investors_investor_id_transactions_request_refund_process_with_http_info(investor_id)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => nil
+rescue DealMakerAPI::ApiError => e
+  puts "Error when calling DefaultApi->post_investors_investor_id_transactions_request_refund_process_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **investor_id** | **Integer** |  |  |
+
+### Return type
+
+nil (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
 
 
 ## post_webhooks

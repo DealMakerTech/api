@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The SendVerificationCodeRequest model module.
  * @module model/SendVerificationCodeRequest
- * @version 0.105.1
+ * @version 0.105.2
  */
 class SendVerificationCodeRequest {
     /**

@@ -62,7 +62,8 @@ class V1EntitiesDealsProgressPageSummaryItem implements ModelInterface, ArrayAcc
         'negative' => 'bool',
         'value' => 'float',
         'link' => 'string',
-        'description' => 'string'
+        'description' => 'string',
+        'link_label' => 'string'
     ];
 
     /**
@@ -78,7 +79,8 @@ class V1EntitiesDealsProgressPageSummaryItem implements ModelInterface, ArrayAcc
         'negative' => null,
         'value' => 'float',
         'link' => null,
-        'description' => null
+        'description' => null,
+        'link_label' => null
     ];
 
     /**
@@ -92,7 +94,8 @@ class V1EntitiesDealsProgressPageSummaryItem implements ModelInterface, ArrayAcc
         'negative' => false,
         'value' => false,
         'link' => false,
-        'description' => false
+        'description' => false,
+        'link_label' => false
     ];
 
     /**
@@ -186,7 +189,8 @@ class V1EntitiesDealsProgressPageSummaryItem implements ModelInterface, ArrayAcc
         'negative' => 'negative',
         'value' => 'value',
         'link' => 'link',
-        'description' => 'description'
+        'description' => 'description',
+        'link_label' => 'link_label'
     ];
 
     /**
@@ -200,7 +204,8 @@ class V1EntitiesDealsProgressPageSummaryItem implements ModelInterface, ArrayAcc
         'negative' => 'setNegative',
         'value' => 'setValue',
         'link' => 'setLink',
-        'description' => 'setDescription'
+        'description' => 'setDescription',
+        'link_label' => 'setLinkLabel'
     ];
 
     /**
@@ -214,7 +219,8 @@ class V1EntitiesDealsProgressPageSummaryItem implements ModelInterface, ArrayAcc
         'negative' => 'getNegative',
         'value' => 'getValue',
         'link' => 'getLink',
-        'description' => 'getDescription'
+        'description' => 'getDescription',
+        'link_label' => 'getLinkLabel'
     ];
 
     /**
@@ -280,6 +286,7 @@ class V1EntitiesDealsProgressPageSummaryItem implements ModelInterface, ArrayAcc
         $this->setIfExists('value', $data ?? [], null);
         $this->setIfExists('link', $data ?? [], null);
         $this->setIfExists('description', $data ?? [], null);
+        $this->setIfExists('link_label', $data ?? [], null);
     }
 
     /**
@@ -482,6 +489,33 @@ class V1EntitiesDealsProgressPageSummaryItem implements ModelInterface, ArrayAcc
             throw new \InvalidArgumentException('non-nullable description cannot be null');
         }
         $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets link_label
+     *
+     * @return string|null
+     */
+    public function getLinkLabel()
+    {
+        return $this->container['link_label'];
+    }
+
+    /**
+     * Sets link_label
+     *
+     * @param string|null $link_label Link Label
+     *
+     * @return self
+     */
+    public function setLinkLabel($link_label)
+    {
+        if (is_null($link_label)) {
+            throw new \InvalidArgumentException('non-nullable link_label cannot be null');
+        }
+        $this->container['link_label'] = $link_label;
 
         return $this;
     }

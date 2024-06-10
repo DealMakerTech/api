@@ -10,6 +10,7 @@
 | **value** | **Float** | Value | [optional] |
 | **link** | **String** | Link | [optional] |
 | **description** | **String** | Description | [optional] |
+| **link_label** | **String** | Link Label | [optional] |
 
 ## Example
 
@@ -22,7 +23,8 @@ instance = DealMakerAPI::V1EntitiesDealsProgressPageSummaryItem.new(
   negative: null,
   value: null,
   link: null,
-  description: null
+  description: null,
+  link_label: null
 )
 ```
 

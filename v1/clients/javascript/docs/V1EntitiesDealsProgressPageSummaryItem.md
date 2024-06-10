@@ -10,5 +10,6 @@ Name | Type | Description | Notes
 **value** | **Number** | Value | [optional] 
 **link** | **String** | Link | [optional] 
 **description** | **String** | Description | [optional] 
+**linkLabel** | **String** | Link Label | [optional] 
 
 

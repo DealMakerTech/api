@@ -33,6 +33,9 @@ module DealMakerAPI
     # Description
     attr_accessor :description
 
+    # Link Label
+    attr_accessor :link_label
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -41,7 +44,8 @@ module DealMakerAPI
         :'negative' => :'negative',
         :'value' => :'value',
         :'link' => :'link',
-        :'description' => :'description'
+        :'description' => :'description',
+        :'link_label' => :'link_label'
       }
     end
 
@@ -58,7 +62,8 @@ module DealMakerAPI
         :'negative' => :'Boolean',
         :'value' => :'Float',
         :'link' => :'String',
-        :'description' => :'String'
+        :'description' => :'String',
+        :'link_label' => :'String'
       }
     end
 
@@ -106,6 +111,10 @@ module DealMakerAPI
       if attributes.key?(:'description')
         self.description = attributes[:'description']
       end
+
+      if attributes.key?(:'link_label')
+        self.link_label = attributes[:'link_label']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -133,7 +142,8 @@ module DealMakerAPI
           negative == o.negative &&
           value == o.value &&
           link == o.link &&
-          description == o.description
+          description == o.description &&
+          link_label == o.link_label
     end
 
     # @see the `==` method
@@ -145,7 +155,7 @@ module DealMakerAPI
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [label, highlighted, negative, value, link, description].hash
+      [label, highlighted, negative, value, link, description, link_label].hash
     end
 
     # Builds the object from hash

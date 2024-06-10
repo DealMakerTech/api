@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The V1EntitiesDealsProgressPageSummaryItem model module.
  * @module model/V1EntitiesDealsProgressPageSummaryItem
- * @version 0.105.1
+ * @version 0.105.2
  */
 class V1EntitiesDealsProgressPageSummaryItem {
     /**
@@ -65,6 +65,9 @@ class V1EntitiesDealsProgressPageSummaryItem {
             if (data.hasOwnProperty('description')) {
                 obj['description'] = ApiClient.convertToType(data['description'], 'String');
             }
+            if (data.hasOwnProperty('link_label')) {
+                obj['link_label'] = ApiClient.convertToType(data['link_label'], 'String');
+            }
         }
         return obj;
     }
@@ -86,6 +89,10 @@ class V1EntitiesDealsProgressPageSummaryItem {
         // ensure the json data is a string
         if (data['description'] && !(typeof data['description'] === 'string' || data['description'] instanceof String)) {
             throw new Error("Expected the field `description` to be a primitive type in the JSON string but got " + data['description']);
+        }
+        // ensure the json data is a string
+        if (data['link_label'] && !(typeof data['link_label'] === 'string' || data['link_label'] instanceof String)) {
+            throw new Error("Expected the field `link_label` to be a primitive type in the JSON string but got " + data['link_label']);
         }
 
         return true;
@@ -131,6 +138,12 @@ V1EntitiesDealsProgressPageSummaryItem.prototype['link'] = undefined;
  * @member {String} description
  */
 V1EntitiesDealsProgressPageSummaryItem.prototype['description'] = undefined;
+
+/**
+ * Link Label
+ * @member {String} link_label
+ */
+V1EntitiesDealsProgressPageSummaryItem.prototype['link_label'] = undefined;
 
 
 

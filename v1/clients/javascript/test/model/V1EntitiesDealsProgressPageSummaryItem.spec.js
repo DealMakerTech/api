@@ -90,6 +90,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property linkLabel (base name: "link_label")', function() {
+      // uncomment below and update the code to test the property linkLabel
+      //var instance = new Api.V1EntitiesDealsProgressPageSummaryItem();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

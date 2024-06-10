@@ -132,4 +132,13 @@ class V1EntitiesDealsProgressPageSummaryItemTest extends TestCase
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test attribute "link_label"
+     */
+    public function testPropertyLinkLabel()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
 }

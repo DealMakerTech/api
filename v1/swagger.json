@@ -10273,6 +10273,10 @@
         "description": {
           "type": "string",
           "description": "Description"
+        },
+        "link_label": {
+          "type": "string",
+          "description": "Link Label"
         }
       }
     },

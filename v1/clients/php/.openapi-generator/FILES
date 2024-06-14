@@ -4,6 +4,7 @@
 .travis.yml
 README.md
 composer.json
+docs/Api/CampaignApi.md
 docs/Api/CompanyApi.md
 docs/Api/CountryApi.md
 docs/Api/CustomEmailsApi.md
@@ -140,6 +141,7 @@ docs/Model/V1EntitiesShareholders.md
 docs/Model/V1EntitiesShareholdersTags.md
 docs/Model/V1EntitiesState.md
 docs/Model/V1EntitiesSubscriptionAgreement.md
+docs/Model/V1EntitiesTtwCampaignResponse.md
 docs/Model/V1EntitiesUser.md
 docs/Model/V1EntitiesUsersBinding.md
 docs/Model/V1EntitiesUsersFactor.md
@@ -154,6 +156,7 @@ docs/Model/V1EntitiesWebhooksSubscriptionDeals.md
 docs/Model/VerifyFactorRequest.md
 docs/Model/VerifySmsVerificationRequest.md
 git_push.sh
+lib/Api/CampaignApi.php
 lib/Api/CompanyApi.php
 lib/Api/CountryApi.php
 lib/Api/CustomEmailsApi.php
@@ -294,6 +297,7 @@ lib/Model/V1EntitiesShareholders.php
 lib/Model/V1EntitiesShareholdersTags.php
 lib/Model/V1EntitiesState.php
 lib/Model/V1EntitiesSubscriptionAgreement.php
+lib/Model/V1EntitiesTtwCampaignResponse.php
 lib/Model/V1EntitiesUser.php
 lib/Model/V1EntitiesUsersBinding.php
 lib/Model/V1EntitiesUsersFactor.php
@@ -309,6 +313,7 @@ lib/Model/VerifyFactorRequest.php
 lib/Model/VerifySmsVerificationRequest.php
 lib/ObjectSerializer.php
 phpunit.xml.dist
+test/Api/CampaignApiTest.php
 test/Api/CompanyApiTest.php
 test/Api/CountryApiTest.php
 test/Api/CustomEmailsApiTest.php
@@ -445,6 +450,7 @@ test/Model/V1EntitiesShareholdersTagsTest.php
 test/Model/V1EntitiesShareholdersTest.php
 test/Model/V1EntitiesStateTest.php
 test/Model/V1EntitiesSubscriptionAgreementTest.php
+test/Model/V1EntitiesTtwCampaignResponseTest.php
 test/Model/V1EntitiesUserTest.php
 test/Model/V1EntitiesUsersBindingTest.php
 test/Model/V1EntitiesUsersFactorTest.php

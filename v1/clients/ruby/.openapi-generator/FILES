@@ -11,6 +11,7 @@ Rakefile
 docs/Add506cDocumentRequest.md
 docs/AddDocumentRequest.md
 docs/BulkUploadInvestorsRequest.md
+docs/CampaignApi.md
 docs/CompanyApi.md
 docs/CountryApi.md
 docs/CreateBulkUploadDetailRequest.md
@@ -144,6 +145,7 @@ docs/V1EntitiesShareholders.md
 docs/V1EntitiesShareholdersTags.md
 docs/V1EntitiesState.md
 docs/V1EntitiesSubscriptionAgreement.md
+docs/V1EntitiesTtwCampaignResponse.md
 docs/V1EntitiesUser.md
 docs/V1EntitiesUsersBinding.md
 docs/V1EntitiesUsersFactor.md
@@ -159,6 +161,7 @@ docs/VerifyFactorRequest.md
 docs/VerifySmsVerificationRequest.md
 git_push.sh
 lib/DealMakerAPI.rb
+lib/DealMakerAPI/api/campaign_api.rb
 lib/DealMakerAPI/api/company_api.rb
 lib/DealMakerAPI/api/country_api.rb
 lib/DealMakerAPI/api/custom_emails_api.rb
@@ -298,6 +301,7 @@ lib/DealMakerAPI/models/v1_entities_shareholders.rb
 lib/DealMakerAPI/models/v1_entities_shareholders_tags.rb
 lib/DealMakerAPI/models/v1_entities_state.rb
 lib/DealMakerAPI/models/v1_entities_subscription_agreement.rb
+lib/DealMakerAPI/models/v1_entities_ttw_campaign_response.rb
 lib/DealMakerAPI/models/v1_entities_user.rb
 lib/DealMakerAPI/models/v1_entities_users_binding.rb
 lib/DealMakerAPI/models/v1_entities_users_factor.rb
@@ -312,6 +316,7 @@ lib/DealMakerAPI/models/v1_entities_webhooks_subscription_deals.rb
 lib/DealMakerAPI/models/verify_factor_request.rb
 lib/DealMakerAPI/models/verify_sms_verification_request.rb
 lib/DealMakerAPI/version.rb
+spec/api/campaign_api_spec.rb
 spec/api/company_api_spec.rb
 spec/api/country_api_spec.rb
 spec/api/custom_emails_api_spec.rb
@@ -448,6 +453,7 @@ spec/models/v1_entities_shareholders_spec.rb
 spec/models/v1_entities_shareholders_tags_spec.rb
 spec/models/v1_entities_state_spec.rb
 spec/models/v1_entities_subscription_agreement_spec.rb
+spec/models/v1_entities_ttw_campaign_response_spec.rb
 spec/models/v1_entities_user_spec.rb
 spec/models/v1_entities_users_binding_spec.rb
 spec/models/v1_entities_users_factor_spec.rb

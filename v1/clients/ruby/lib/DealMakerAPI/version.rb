@@ -11,5 +11,5 @@ Generator version: 7.7.0-SNAPSHOT
 =end
 
 module DealMakerAPI
-  VERSION = '0.105.2'
+  VERSION = '0.105.3'
 end

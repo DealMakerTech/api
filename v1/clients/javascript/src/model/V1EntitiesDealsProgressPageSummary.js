@@ -17,7 +17,7 @@ import V1EntitiesDealsProgressPageSummaryItem from './V1EntitiesDealsProgressPag
 /**
  * The V1EntitiesDealsProgressPageSummary model module.
  * @module model/V1EntitiesDealsProgressPageSummary
- * @version 0.105.2
+ * @version 0.105.3
  */
 class V1EntitiesDealsProgressPageSummary {
     /**

@@ -135,6 +135,7 @@ import V1EntitiesShareholders from './model/V1EntitiesShareholders';
 import V1EntitiesShareholdersTags from './model/V1EntitiesShareholdersTags';
 import V1EntitiesState from './model/V1EntitiesState';
 import V1EntitiesSubscriptionAgreement from './model/V1EntitiesSubscriptionAgreement';
+import V1EntitiesTtwCampaignResponse from './model/V1EntitiesTtwCampaignResponse';
 import V1EntitiesUser from './model/V1EntitiesUser';
 import V1EntitiesUsersBinding from './model/V1EntitiesUsersBinding';
 import V1EntitiesUsersFactor from './model/V1EntitiesUsersFactor';
@@ -148,6 +149,7 @@ import V1EntitiesWebhooksSubscriptionDeal from './model/V1EntitiesWebhooksSubscr
 import V1EntitiesWebhooksSubscriptionDeals from './model/V1EntitiesWebhooksSubscriptionDeals';
 import VerifyFactorRequest from './model/VerifyFactorRequest';
 import VerifySmsVerificationRequest from './model/VerifySmsVerificationRequest';
+import CampaignApi from './api/CampaignApi';
 import CompanyApi from './api/CompanyApi';
 import CountryApi from './api/CountryApi';
 import CustomEmailsApi from './api/CustomEmailsApi';
@@ -193,7 +195,7 @@ import UsersApi from './api/UsersApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.105.2
+* @version 0.105.3
 */
 export {
     /**
@@ -935,6 +937,12 @@ export {
     V1EntitiesSubscriptionAgreement,
 
     /**
+     * The V1EntitiesTtwCampaignResponse model constructor.
+     * @property {module:model/V1EntitiesTtwCampaignResponse}
+     */
+    V1EntitiesTtwCampaignResponse,
+
+    /**
      * The V1EntitiesUser model constructor.
      * @property {module:model/V1EntitiesUser}
      */
@@ -1011,6 +1019,12 @@ export {
      * @property {module:model/VerifySmsVerificationRequest}
      */
     VerifySmsVerificationRequest,
+
+    /**
+    * The CampaignApi service constructor.
+    * @property {module:api/CampaignApi}
+    */
+    CampaignApi,
 
     /**
     * The CompanyApi service constructor.

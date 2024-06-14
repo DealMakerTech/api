@@ -6,6 +6,7 @@ README.md
 docs/Add506cDocumentRequest.md
 docs/AddDocumentRequest.md
 docs/BulkUploadInvestorsRequest.md
+docs/CampaignApi.md
 docs/CompanyApi.md
 docs/CountryApi.md
 docs/CreateBulkUploadDetailRequest.md
@@ -139,6 +140,7 @@ docs/V1EntitiesShareholders.md
 docs/V1EntitiesShareholdersTags.md
 docs/V1EntitiesState.md
 docs/V1EntitiesSubscriptionAgreement.md
+docs/V1EntitiesTtwCampaignResponse.md
 docs/V1EntitiesUser.md
 docs/V1EntitiesUsersBinding.md
 docs/V1EntitiesUsersFactor.md
@@ -156,6 +158,7 @@ git_push.sh
 mocha.opts
 package.json
 src/ApiClient.js
+src/api/CampaignApi.js
 src/api/CompanyApi.js
 src/api/CountryApi.js
 src/api/CustomEmailsApi.js
@@ -293,6 +296,7 @@ src/model/V1EntitiesShareholders.js
 src/model/V1EntitiesShareholdersTags.js
 src/model/V1EntitiesState.js
 src/model/V1EntitiesSubscriptionAgreement.js
+src/model/V1EntitiesTtwCampaignResponse.js
 src/model/V1EntitiesUser.js
 src/model/V1EntitiesUsersBinding.js
 src/model/V1EntitiesUsersFactor.js
@@ -306,6 +310,7 @@ src/model/V1EntitiesWebhooksSubscriptionDeal.js
 src/model/V1EntitiesWebhooksSubscriptionDeals.js
 src/model/VerifyFactorRequest.js
 src/model/VerifySmsVerificationRequest.js
+test/api/CampaignApi.spec.js
 test/api/CompanyApi.spec.js
 test/api/CountryApi.spec.js
 test/api/CustomEmailsApi.spec.js
@@ -442,6 +447,7 @@ test/model/V1EntitiesShareholders.spec.js
 test/model/V1EntitiesShareholdersTags.spec.js
 test/model/V1EntitiesState.spec.js
 test/model/V1EntitiesSubscriptionAgreement.spec.js
+test/model/V1EntitiesTtwCampaignResponse.spec.js
 test/model/V1EntitiesUser.spec.js
 test/model/V1EntitiesUsersBinding.spec.js
 test/model/V1EntitiesUsersFactor.spec.js

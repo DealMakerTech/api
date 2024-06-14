@@ -6654,6 +6654,59 @@
         ],
         "operationId": "postWebhooks"
       }
+    },
+    "/ttw/campaigns/{id}": {
+      "get": {
+        "summary": "Gets a TTW campaign for a given company",
+        "description": "Gets a TTW campaign for a given company",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "security": [
+          {
+            "oauth": [
+              "internal"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Gets a TTW campaign for a given company",
+            "schema": {
+              "$ref": "#/definitions/V1_Entities_Ttw_Campaign_Response"
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "tags": [
+          "campaign"
+        ],
+        "operationId": "getTtwCampaign",
+        "x-codeSamples": [
+          {
+            "lang": "javascript",
+            "source": ""
+          },
+          {
+            "lang": "ruby",
+            "source": ""
+          }
+        ]
+      }
     }
   },
   "definitions": {
@@ -10814,6 +10867,49 @@
           "description": "Name of the company that owns the linked deal."
         }
       }
+    },
+    "V1_Entities_Ttw_Campaign_Response": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32",
+          "description": "The campaign ID"
+        },
+        "name": {
+          "type": "string",
+          "description": "Campaign name"
+        },
+        "tags": {
+          "type": "json",
+          "description": "Campaign tags"
+        },
+        "redirect_link": {
+          "type": "string",
+          "description": "Redirect link for the campaign"
+        },
+        "introduction_email": {
+          "type": "boolean",
+          "description": "State of the introduction email"
+        },
+        "one_day_reminder_email": {
+          "type": "boolean",
+          "description": "State of the 1 day reminder email"
+        },
+        "two_day_reminder_email": {
+          "type": "boolean",
+          "description": "State of the 2 day reminder email"
+        },
+        "seven_day_reminder_email": {
+          "type": "boolean",
+          "description": "State of the 7 day reminder email"
+        },
+        "confirmation_email": {
+          "type": "boolean",
+          "description": "State of the confirmation email"
+        }
+      },
+      "description": "V1_Entities_Ttw_Campaign_Response model"
     }
   }
 }

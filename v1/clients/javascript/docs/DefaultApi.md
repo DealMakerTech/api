@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**getDealsDealIdPaymentOnboardingQuestionnairePayoutAccountDetailsData**](DefaultApi.md#getDealsDealIdPaymentOnboardingQuestionnairePayoutAccountDetailsData) | **GET** /deals/{deal_id}/payment_onboarding/questionnaire/payout_account_details/data | Get payout account data
 [**getDealsIdInvestorsInvestorIdPaymentsExpressWireInstructions**](DefaultApi.md#getDealsIdInvestorsInvestorIdPaymentsExpressWireInstructions) | **GET** /deals/{id}/investors/{investor_id}/payments/express_wire/instructions | Displays the express wire instructions for an investor on a deal
 [**getDealsIdInvestorsPaymentsExpressWireInstructions**](DefaultApi.md#getDealsIdInvestorsPaymentsExpressWireInstructions) | **GET** /deals/{id}/investors/payments/express_wire/instructions | Displays the express wire instructions for all the investors on a deal
+[**getDealsIdPlatformEmailsDomain**](DefaultApi.md#getDealsIdPlatformEmailsDomain) | **GET** /deals/{id}/platform_emails/domain | Get the email domain settings for the deal
 [**getDealsIdProgressPage**](DefaultApi.md#getDealsIdProgressPage) | **GET** /deals/{id}/progress_page | Get deal progress
 [**getDealsIdProgressPageSummary**](DefaultApi.md#getDealsIdProgressPageSummary) | **GET** /deals/{id}/progress_page/summary | Get the deal progress summary
 [**getDealsIdSummary**](DefaultApi.md#getDealsIdSummary) | **GET** /deals/{id}/summary | Get Deal Overview
@@ -200,6 +201,52 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**V1EntitiesExpressWireInstructions**](V1EntitiesExpressWireInstructions.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## getDealsIdPlatformEmailsDomain
+
+> V1EntitiesDealsPlatformEmailsDomainSettings getDealsIdPlatformEmailsDomain(id)
+
+Get the email domain settings for the deal
+
+Get the email domain settings for the deal
+
+### Example
+
+```javascript
+import Api from 'api';
+let defaultClient = Api.ApiClient.instance;
+
+let apiInstance = new Api.DefaultApi();
+let id = 56; // Number | The deal id.
+apiInstance.getDealsIdPlatformEmailsDomain(id, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Number**| The deal id. | 
+
+### Return type
+
+[**V1EntitiesDealsPlatformEmailsDomainSettings**](V1EntitiesDealsPlatformEmailsDomainSettings.md)
 
 ### Authorization
 

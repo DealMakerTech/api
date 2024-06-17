@@ -15,6 +15,7 @@ docs/CreateCompanyRequest.md
 docs/CreateDealSetupRequest.md
 docs/CreateEmailTemplateRequest.md
 docs/CreateMembersBulkUploadRequest.md
+docs/CreateReservationRequest.md
 docs/CreateShareholderActionRequest.md
 docs/CustomEmailsApi.md
 docs/DealApi.md
@@ -50,6 +51,7 @@ docs/PutDealsIdInvestors.md
 docs/PutDealsIdScriptTagEnvironmentRequest.md
 docs/PutWebhooksIdRequest.md
 docs/RequestNewDocumentRequest.md
+docs/ReservationApi.md
 docs/RunBackgroundSearchRequest.md
 docs/SendPortalInviteRequest.md
 docs/SendVerificationCodeRequest.md
@@ -86,6 +88,7 @@ docs/V1EntitiesDealsIncentivePlan.md
 docs/V1EntitiesDealsIncentivePlansIncentiveTier.md
 docs/V1EntitiesDealsInvestorsPaymentAchBankAccountSetupIntent.md
 docs/V1EntitiesDealsInvestorsPaymentAcssBankAccountSetupIntent.md
+docs/V1EntitiesDealsPlatformEmailsDomainSettings.md
 docs/V1EntitiesDealsPriceDetails.md
 docs/V1EntitiesDealsProgress.md
 docs/V1EntitiesDealsProgressColumn.md
@@ -141,6 +144,7 @@ docs/V1EntitiesShareholdersTags.md
 docs/V1EntitiesState.md
 docs/V1EntitiesSubscriptionAgreement.md
 docs/V1EntitiesTtwCampaignResponse.md
+docs/V1EntitiesTtwReservation.md
 docs/V1EntitiesUser.md
 docs/V1EntitiesUsersBinding.md
 docs/V1EntitiesUsersFactor.md
@@ -169,6 +173,7 @@ src/api/IncentivePlanApi.js
 src/api/InvestorApi.js
 src/api/InvestorProfileApi.js
 src/api/PaymentsApi.js
+src/api/ReservationApi.js
 src/api/ShareholderApi.js
 src/api/UploadApi.js
 src/api/UserApi.js
@@ -183,6 +188,7 @@ src/model/CreateCompanyRequest.js
 src/model/CreateDealSetupRequest.js
 src/model/CreateEmailTemplateRequest.js
 src/model/CreateMembersBulkUploadRequest.js
+src/model/CreateReservationRequest.js
 src/model/CreateShareholderActionRequest.js
 src/model/EditInvestorTagsRequest.js
 src/model/GenerateUrlRequest.js
@@ -242,6 +248,7 @@ src/model/V1EntitiesDealsIncentivePlan.js
 src/model/V1EntitiesDealsIncentivePlansIncentiveTier.js
 src/model/V1EntitiesDealsInvestorsPaymentAchBankAccountSetupIntent.js
 src/model/V1EntitiesDealsInvestorsPaymentAcssBankAccountSetupIntent.js
+src/model/V1EntitiesDealsPlatformEmailsDomainSettings.js
 src/model/V1EntitiesDealsPriceDetails.js
 src/model/V1EntitiesDealsProgress.js
 src/model/V1EntitiesDealsProgressColumn.js
@@ -297,6 +304,7 @@ src/model/V1EntitiesShareholdersTags.js
 src/model/V1EntitiesState.js
 src/model/V1EntitiesSubscriptionAgreement.js
 src/model/V1EntitiesTtwCampaignResponse.js
+src/model/V1EntitiesTtwReservation.js
 src/model/V1EntitiesUser.js
 src/model/V1EntitiesUsersBinding.js
 src/model/V1EntitiesUsersFactor.js
@@ -321,6 +329,7 @@ test/api/IncentivePlanApi.spec.js
 test/api/InvestorApi.spec.js
 test/api/InvestorProfileApi.spec.js
 test/api/PaymentsApi.spec.js
+test/api/ReservationApi.spec.js
 test/api/ShareholderApi.spec.js
 test/api/UploadApi.spec.js
 test/api/UserApi.spec.js
@@ -334,6 +343,7 @@ test/model/CreateCompanyRequest.spec.js
 test/model/CreateDealSetupRequest.spec.js
 test/model/CreateEmailTemplateRequest.spec.js
 test/model/CreateMembersBulkUploadRequest.spec.js
+test/model/CreateReservationRequest.spec.js
 test/model/CreateShareholderActionRequest.spec.js
 test/model/EditInvestorTagsRequest.spec.js
 test/model/GenerateUrlRequest.spec.js
@@ -393,6 +403,7 @@ test/model/V1EntitiesDealsIncentivePlan.spec.js
 test/model/V1EntitiesDealsIncentivePlansIncentiveTier.spec.js
 test/model/V1EntitiesDealsInvestorsPaymentAchBankAccountSetupIntent.spec.js
 test/model/V1EntitiesDealsInvestorsPaymentAcssBankAccountSetupIntent.spec.js
+test/model/V1EntitiesDealsPlatformEmailsDomainSettings.spec.js
 test/model/V1EntitiesDealsPriceDetails.spec.js
 test/model/V1EntitiesDealsProgress.spec.js
 test/model/V1EntitiesDealsProgressColumn.spec.js
@@ -448,6 +459,7 @@ test/model/V1EntitiesShareholdersTags.spec.js
 test/model/V1EntitiesState.spec.js
 test/model/V1EntitiesSubscriptionAgreement.spec.js
 test/model/V1EntitiesTtwCampaignResponse.spec.js
+test/model/V1EntitiesTtwReservation.spec.js
 test/model/V1EntitiesUser.spec.js
 test/model/V1EntitiesUsersBinding.spec.js
 test/model/V1EntitiesUsersFactor.spec.js

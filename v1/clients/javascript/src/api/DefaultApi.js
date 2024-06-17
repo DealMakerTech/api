@@ -15,6 +15,7 @@
 import ApiClient from "../ApiClient";
 import PostWebhooksRequest from '../model/PostWebhooksRequest';
 import PutWebhooksIdRequest from '../model/PutWebhooksIdRequest';
+import V1EntitiesDealsPlatformEmailsDomainSettings from '../model/V1EntitiesDealsPlatformEmailsDomainSettings';
 import V1EntitiesDealsProgress from '../model/V1EntitiesDealsProgress';
 import V1EntitiesDealsProgressPageSummary from '../model/V1EntitiesDealsProgressPageSummary';
 import V1EntitiesExpressWireInstruction from '../model/V1EntitiesExpressWireInstruction';
@@ -30,7 +31,7 @@ import V1EntitiesWebhooksSubscription from '../model/V1EntitiesWebhooksSubscript
 /**
 * Default service.
 * @module api/DefaultApi
-* @version 0.105.3
+* @version 0.105.4
 */
 export default class DefaultApi {
 
@@ -219,6 +220,49 @@ export default class DefaultApi {
       let returnType = V1EntitiesExpressWireInstructions;
       return this.apiClient.callApi(
         '/deals/{id}/investors/payments/express_wire/instructions', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the getDealsIdPlatformEmailsDomain operation.
+     * @callback module:api/DefaultApi~getDealsIdPlatformEmailsDomainCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/V1EntitiesDealsPlatformEmailsDomainSettings} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Get the email domain settings for the deal
+     * Get the email domain settings for the deal
+     * @param {Number} id The deal id.
+     * @param {module:api/DefaultApi~getDealsIdPlatformEmailsDomainCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/V1EntitiesDealsPlatformEmailsDomainSettings}
+     */
+    getDealsIdPlatformEmailsDomain(id, callback) {
+      let postBody = null;
+      // verify the required parameter 'id' is set
+      if (id === undefined || id === null) {
+        throw new Error("Missing the required parameter 'id' when calling getDealsIdPlatformEmailsDomain");
+      }
+
+      let pathParams = {
+        'id': id
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = V1EntitiesDealsPlatformEmailsDomainSettings;
+      return this.apiClient.callApi(
+        '/deals/{id}/platform_emails/domain', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

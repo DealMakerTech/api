@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The V1EntitiesUsersTwoFactorChannel model module.
  * @module model/V1EntitiesUsersTwoFactorChannel
- * @version 0.105.3
+ * @version 0.105.4
  */
 class V1EntitiesUsersTwoFactorChannel {
     /**

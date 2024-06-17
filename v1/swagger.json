@@ -89,6 +89,10 @@
       "description": "Operations about custom_emails"
     },
     {
+      "name": "reservation",
+      "description": "Operations about reservations"
+    },
+    {
       "name": "deal",
       "description": "The Deal is the portal which a Company uses for its raise. Each deal will have one Company, and will have multiple investors. An Investor represents a specific investment, meaning that a User could have multiple Investments. A Deal has many complex components. The Deal will have a subscription agreement, which is the document investors will sign. The Deal will have team members which have different roles and permissions in terms of how they interact with the Deal and with Investors on the Deal. The Deal will also have payment methods set up to allow Investors to pay for their investments. These features can be accessed within the DealMaker application. To set up a Deal and interact with these features, please view our help desk documentation: [How can I set up my own deal?](https://help.dealmaker.tech/new-deal). In the production environment, a Deal’s invoice must be recorded as paid before it can be set to `active`, however this requirement is waived in the staging environment.\n\nWith the Deal Endpoints you may interact with your deals. Each Deal has a unique ID, which is accessible from the URL of any page on that Deal.",
       "x-displayName": "Deal"
@@ -4372,6 +4376,50 @@
         "operationId": "getDealsIdProgressPageSummary"
       }
     },
+    "/deals/{id}/platform_emails/domain": {
+      "get": {
+        "summary": "Get the email domain settings for the deal",
+        "description": "Get the email domain settings for the deal",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "description": "The deal id.",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "security": [
+          {
+            "oauth": [
+              "deals.read"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get the email domain settings for the deal",
+            "schema": {
+              "$ref": "#/definitions/V1_Entities_Deals_PlatformEmails_DomainSettings"
+            }
+          },
+          "404": {
+            "description": "Not found"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "tags": [
+
+        ],
+        "operationId": "getDealsIdPlatformEmailsDomain"
+      }
+    },
     "/deals/{id}/summary": {
       "get": {
         "summary": "Get Deal Overview",
@@ -6653,6 +6701,81 @@
 
         ],
         "operationId": "postWebhooks"
+      }
+    },
+    "/ttw/reservations": {
+      "post": {
+        "summary": "Create a new reservation",
+        "description": "Create a new reservation",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "formData",
+            "name": "campaign_id",
+            "description": "The id of the campaign",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "email",
+            "description": "The email of the user association with the reservation",
+            "type": "string",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "name",
+            "description": "The name of the reservation",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "phone",
+            "description": "The phone of the user association with the reservation",
+            "type": "string",
+            "required": false
+          }
+        ],
+        "security": [
+          {
+            "oauth": [
+
+            ]
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Create a new reservation",
+            "schema": {
+              "$ref": "#/definitions/V1_Entities_Ttw_Reservation"
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        },
+        "tags": [
+          "reservation"
+        ],
+        "operationId": "createReservation",
+        "x-codeSamples": [
+          {
+            "lang": "javascript",
+            "source": ""
+          },
+          {
+            "lang": "ruby",
+            "source": ""
+          }
+        ]
       }
     },
     "/ttw/campaigns/{id}": {
@@ -10333,6 +10456,24 @@
         }
       }
     },
+    "V1_Entities_Deals_PlatformEmails_DomainSettings": {
+      "type": "object",
+      "properties": {
+        "sender_name": {
+          "type": "string",
+          "description": "The name of the sender."
+        },
+        "sender_email": {
+          "type": "string",
+          "description": "The email address of the sender."
+        },
+        "authenticated_domains": {
+          "type": "Array[String]",
+          "description": "The authenticated domains."
+        }
+      },
+      "description": "V1_Entities_Deals_PlatformEmails_DomainSettings model"
+    },
     "V1_Entities_DealSetup": {
       "type": "object",
       "properties": {
@@ -10867,6 +11008,17 @@
           "description": "Name of the company that owns the linked deal."
         }
       }
+    },
+    "V1_Entities_Ttw_Reservation": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32",
+          "description": "The ID of the reservation."
+        }
+      },
+      "description": "V1_Entities_Ttw_Reservation model"
     },
     "V1_Entities_Ttw_Campaign_Response": {
       "type": "object",

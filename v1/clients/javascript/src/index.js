@@ -22,6 +22,7 @@ import CreateCompanyRequest from './model/CreateCompanyRequest';
 import CreateDealSetupRequest from './model/CreateDealSetupRequest';
 import CreateEmailTemplateRequest from './model/CreateEmailTemplateRequest';
 import CreateMembersBulkUploadRequest from './model/CreateMembersBulkUploadRequest';
+import CreateReservationRequest from './model/CreateReservationRequest';
 import CreateShareholderActionRequest from './model/CreateShareholderActionRequest';
 import EditInvestorTagsRequest from './model/EditInvestorTagsRequest';
 import GenerateUrlRequest from './model/GenerateUrlRequest';
@@ -81,6 +82,7 @@ import V1EntitiesDealsIncentivePlan from './model/V1EntitiesDealsIncentivePlan';
 import V1EntitiesDealsIncentivePlansIncentiveTier from './model/V1EntitiesDealsIncentivePlansIncentiveTier';
 import V1EntitiesDealsInvestorsPaymentAchBankAccountSetupIntent from './model/V1EntitiesDealsInvestorsPaymentAchBankAccountSetupIntent';
 import V1EntitiesDealsInvestorsPaymentAcssBankAccountSetupIntent from './model/V1EntitiesDealsInvestorsPaymentAcssBankAccountSetupIntent';
+import V1EntitiesDealsPlatformEmailsDomainSettings from './model/V1EntitiesDealsPlatformEmailsDomainSettings';
 import V1EntitiesDealsPriceDetails from './model/V1EntitiesDealsPriceDetails';
 import V1EntitiesDealsProgress from './model/V1EntitiesDealsProgress';
 import V1EntitiesDealsProgressColumn from './model/V1EntitiesDealsProgressColumn';
@@ -136,6 +138,7 @@ import V1EntitiesShareholdersTags from './model/V1EntitiesShareholdersTags';
 import V1EntitiesState from './model/V1EntitiesState';
 import V1EntitiesSubscriptionAgreement from './model/V1EntitiesSubscriptionAgreement';
 import V1EntitiesTtwCampaignResponse from './model/V1EntitiesTtwCampaignResponse';
+import V1EntitiesTtwReservation from './model/V1EntitiesTtwReservation';
 import V1EntitiesUser from './model/V1EntitiesUser';
 import V1EntitiesUsersBinding from './model/V1EntitiesUsersBinding';
 import V1EntitiesUsersFactor from './model/V1EntitiesUsersFactor';
@@ -160,6 +163,7 @@ import IncentivePlanApi from './api/IncentivePlanApi';
 import InvestorApi from './api/InvestorApi';
 import InvestorProfileApi from './api/InvestorProfileApi';
 import PaymentsApi from './api/PaymentsApi';
+import ReservationApi from './api/ReservationApi';
 import ShareholderApi from './api/ShareholderApi';
 import UploadApi from './api/UploadApi';
 import UserApi from './api/UserApi';
@@ -195,7 +199,7 @@ import UsersApi from './api/UsersApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.105.3
+* @version 0.105.4
 */
 export {
     /**
@@ -257,6 +261,12 @@ export {
      * @property {module:model/CreateMembersBulkUploadRequest}
      */
     CreateMembersBulkUploadRequest,
+
+    /**
+     * The CreateReservationRequest model constructor.
+     * @property {module:model/CreateReservationRequest}
+     */
+    CreateReservationRequest,
 
     /**
      * The CreateShareholderActionRequest model constructor.
@@ -613,6 +623,12 @@ export {
     V1EntitiesDealsInvestorsPaymentAcssBankAccountSetupIntent,
 
     /**
+     * The V1EntitiesDealsPlatformEmailsDomainSettings model constructor.
+     * @property {module:model/V1EntitiesDealsPlatformEmailsDomainSettings}
+     */
+    V1EntitiesDealsPlatformEmailsDomainSettings,
+
+    /**
      * The V1EntitiesDealsPriceDetails model constructor.
      * @property {module:model/V1EntitiesDealsPriceDetails}
      */
@@ -943,6 +959,12 @@ export {
     V1EntitiesTtwCampaignResponse,
 
     /**
+     * The V1EntitiesTtwReservation model constructor.
+     * @property {module:model/V1EntitiesTtwReservation}
+     */
+    V1EntitiesTtwReservation,
+
+    /**
      * The V1EntitiesUser model constructor.
      * @property {module:model/V1EntitiesUser}
      */
@@ -1085,6 +1107,12 @@ export {
     * @property {module:api/PaymentsApi}
     */
     PaymentsApi,
+
+    /**
+    * The ReservationApi service constructor.
+    * @property {module:api/ReservationApi}
+    */
+    ReservationApi,
 
     /**
     * The ShareholderApi service constructor.

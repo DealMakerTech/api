@@ -81,6 +81,18 @@ describe 'DefaultApi' do
     end
   end
 
+  # unit tests for get_deals_id_platform_emails_domain
+  # Get the email domain settings for the deal
+  # Get the email domain settings for the deal
+  # @param id The deal id.
+  # @param [Hash] opts the optional parameters
+  # @return [V1EntitiesDealsPlatformEmailsDomainSettings]
+  describe 'get_deals_id_platform_emails_domain test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for get_deals_id_progress_page
   # Get deal progress
   # Get deal progress

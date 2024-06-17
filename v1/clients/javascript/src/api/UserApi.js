@@ -28,7 +28,7 @@ import VerifySmsVerificationRequest from '../model/VerifySmsVerificationRequest'
 /**
 * User service.
 * @module api/UserApi
-* @version 0.105.3
+* @version 0.105.4
 */
 export default class UserApi {
 

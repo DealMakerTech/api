@@ -120,6 +120,18 @@ class DefaultApiTest extends TestCase
     }
 
     /**
+     * Test case for getDealsIdPlatformEmailsDomain
+     *
+     * Get the email domain settings for the deal.
+     *
+     */
+    public function testGetDealsIdPlatformEmailsDomain()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for getDealsIdProgressPage
      *
      * Get deal progress.

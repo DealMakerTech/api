@@ -88,6 +88,16 @@
         done();
       });
     });
+    describe('getDealsIdPlatformEmailsDomain', function() {
+      it('should call getDealsIdPlatformEmailsDomain successfully', function(done) {
+        //uncomment below and update the code to test getDealsIdPlatformEmailsDomain
+        //instance.getDealsIdPlatformEmailsDomain(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('getDealsIdProgressPage', function() {
       it('should call getDealsIdProgressPage successfully', function(done) {
         //uncomment below and update the code to test getDealsIdProgressPage

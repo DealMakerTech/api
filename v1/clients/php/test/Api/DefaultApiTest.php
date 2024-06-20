@@ -228,6 +228,18 @@ class DefaultApiTest extends TestCase
     }
 
     /**
+     * Test case for patchDealsIdPlatformEmailsDomain
+     *
+     * Update the email domain settings for the deal.
+     *
+     */
+    public function testPatchDealsIdPlatformEmailsDomain()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for postDealsDealIdPaymentOnboardingQuestionnairePayoutAccountDetailsSubmit
      *
      * Submit a payout account details form.

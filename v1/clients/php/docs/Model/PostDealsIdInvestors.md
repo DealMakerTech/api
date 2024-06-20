@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **email** | **string** | The investor email address. |
+**email_confirmation** | **string** | The investor confirmation email address. | [optional]
 **investor_profile_id** | **int** | The Investor Profile id. | [optional]
 **tags** | **string[]** |  | [optional]
 **first_name** | **string** | The first name of the investor. | [optional]

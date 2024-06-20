@@ -28,6 +28,7 @@ docs/IncentivePlanApi.md
 docs/InvestorApi.md
 docs/InvestorProfileApi.md
 docs/PatchDealIncentivePlanRequest.md
+docs/PatchDealsIdPlatformEmailsDomainRequest.md
 docs/PatchInvestorProfilesCorporations.md
 docs/PatchInvestorProfilesCorporationsBeneficialOwnersInner.md
 docs/PatchInvestorProfilesIndividuals.md
@@ -194,6 +195,7 @@ src/model/EditInvestorTagsRequest.js
 src/model/GenerateUrlRequest.js
 src/model/GetAccessTokenRequest.js
 src/model/PatchDealIncentivePlanRequest.js
+src/model/PatchDealsIdPlatformEmailsDomainRequest.js
 src/model/PatchInvestorProfilesCorporations.js
 src/model/PatchInvestorProfilesCorporationsBeneficialOwnersInner.js
 src/model/PatchInvestorProfilesIndividuals.js
@@ -349,6 +351,7 @@ test/model/EditInvestorTagsRequest.spec.js
 test/model/GenerateUrlRequest.spec.js
 test/model/GetAccessTokenRequest.spec.js
 test/model/PatchDealIncentivePlanRequest.spec.js
+test/model/PatchDealsIdPlatformEmailsDomainRequest.spec.js
 test/model/PatchInvestorProfilesCorporations.spec.js
 test/model/PatchInvestorProfilesCorporationsBeneficialOwnersInner.spec.js
 test/model/PatchInvestorProfilesIndividuals.spec.js

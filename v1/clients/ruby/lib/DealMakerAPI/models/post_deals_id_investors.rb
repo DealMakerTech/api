@@ -19,6 +19,9 @@ module DealMakerAPI
     # The investor email address.
     attr_accessor :email
 
+    # The investor confirmation email address.
+    attr_accessor :email_confirmation
+
     # The Investor Profile id.
     attr_accessor :investor_profile_id
 
@@ -77,6 +80,7 @@ module DealMakerAPI
     def self.attribute_map
       {
         :'email' => :'email',
+        :'email_confirmation' => :'email_confirmation',
         :'investor_profile_id' => :'investor_profile_id',
         :'tags' => :'tags',
         :'first_name' => :'first_name',
@@ -100,6 +104,7 @@ module DealMakerAPI
     def self.openapi_types
       {
         :'email' => :'String',
+        :'email_confirmation' => :'String',
         :'investor_profile_id' => :'Integer',
         :'tags' => :'Array<String>',
         :'first_name' => :'String',
@@ -139,6 +144,10 @@ module DealMakerAPI
         self.email = attributes[:'email']
       else
         self.email = nil
+      end
+
+      if attributes.key?(:'email_confirmation')
+        self.email_confirmation = attributes[:'email_confirmation']
       end
 
       if attributes.key?(:'investor_profile_id')
@@ -242,6 +251,7 @@ module DealMakerAPI
       return true if self.equal?(o)
       self.class == o.class &&
           email == o.email &&
+          email_confirmation == o.email_confirmation &&
           investor_profile_id == o.investor_profile_id &&
           tags == o.tags &&
           first_name == o.first_name &&
@@ -264,7 +274,7 @@ module DealMakerAPI
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [email, investor_profile_id, tags, first_name, last_name, phone_number, message, warrant_expiry_date, warrant_certificate_number, allocated_amount, allocation_unit, state].hash
+      [email, email_confirmation, investor_profile_id, tags, first_name, last_name, phone_number, message, warrant_expiry_date, warrant_certificate_number, allocated_amount, allocation_unit, state].hash
     end
 
     # Builds the object from hash

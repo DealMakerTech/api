@@ -33,6 +33,7 @@ docs/IncentivePlanApi.md
 docs/InvestorApi.md
 docs/InvestorProfileApi.md
 docs/PatchDealIncentivePlanRequest.md
+docs/PatchDealsIdPlatformEmailsDomainRequest.md
 docs/PatchInvestorProfilesCorporations.md
 docs/PatchInvestorProfilesCorporationsBeneficialOwnersInner.md
 docs/PatchInvestorProfilesIndividuals.md
@@ -199,6 +200,7 @@ lib/DealMakerAPI/models/edit_investor_tags_request.rb
 lib/DealMakerAPI/models/generate_url_request.rb
 lib/DealMakerAPI/models/get_access_token_request.rb
 lib/DealMakerAPI/models/patch_deal_incentive_plan_request.rb
+lib/DealMakerAPI/models/patch_deals_id_platform_emails_domain_request.rb
 lib/DealMakerAPI/models/patch_investor_profiles_corporations.rb
 lib/DealMakerAPI/models/patch_investor_profiles_corporations_beneficial_owners_inner.rb
 lib/DealMakerAPI/models/patch_investor_profiles_individuals.rb
@@ -355,6 +357,7 @@ spec/models/edit_investor_tags_request_spec.rb
 spec/models/generate_url_request_spec.rb
 spec/models/get_access_token_request_spec.rb
 spec/models/patch_deal_incentive_plan_request_spec.rb
+spec/models/patch_deals_id_platform_emails_domain_request_spec.rb
 spec/models/patch_investor_profiles_corporations_beneficial_owners_inner_spec.rb
 spec/models/patch_investor_profiles_corporations_spec.rb
 spec/models/patch_investor_profiles_individuals_spec.rb

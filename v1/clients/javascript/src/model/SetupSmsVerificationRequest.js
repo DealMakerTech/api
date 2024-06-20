@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The SetupSmsVerificationRequest model module.
  * @module model/SetupSmsVerificationRequest
- * @version 0.105.4
+ * @version 0.106.0
  */
 class SetupSmsVerificationRequest {
     /**

@@ -35,6 +35,7 @@ docs/Model/EditInvestorTagsRequest.md
 docs/Model/GenerateUrlRequest.md
 docs/Model/GetAccessTokenRequest.md
 docs/Model/PatchDealIncentivePlanRequest.md
+docs/Model/PatchDealsIdPlatformEmailsDomainRequest.md
 docs/Model/PatchInvestorProfilesCorporations.md
 docs/Model/PatchInvestorProfilesCorporationsBeneficialOwnersInner.md
 docs/Model/PatchInvestorProfilesIndividuals.md
@@ -195,6 +196,7 @@ lib/Model/GenerateUrlRequest.php
 lib/Model/GetAccessTokenRequest.php
 lib/Model/ModelInterface.php
 lib/Model/PatchDealIncentivePlanRequest.php
+lib/Model/PatchDealsIdPlatformEmailsDomainRequest.php
 lib/Model/PatchInvestorProfilesCorporations.php
 lib/Model/PatchInvestorProfilesCorporationsBeneficialOwnersInner.php
 lib/Model/PatchInvestorProfilesIndividuals.php
@@ -352,6 +354,7 @@ test/Model/EditInvestorTagsRequestTest.php
 test/Model/GenerateUrlRequestTest.php
 test/Model/GetAccessTokenRequestTest.php
 test/Model/PatchDealIncentivePlanRequestTest.php
+test/Model/PatchDealsIdPlatformEmailsDomainRequestTest.php
 test/Model/PatchInvestorProfilesCorporationsBeneficialOwnersInnerTest.php
 test/Model/PatchInvestorProfilesCorporationsTest.php
 test/Model/PatchInvestorProfilesIndividualsTest.php

@@ -59,6 +59,7 @@ class PostDealsIdInvestors implements ModelInterface, ArrayAccess, \JsonSerializ
       */
     protected static $openAPITypes = [
         'email' => 'string',
+        'email_confirmation' => 'string',
         'investor_profile_id' => 'int',
         'tags' => 'string[]',
         'first_name' => 'string',
@@ -81,6 +82,7 @@ class PostDealsIdInvestors implements ModelInterface, ArrayAccess, \JsonSerializ
       */
     protected static $openAPIFormats = [
         'email' => null,
+        'email_confirmation' => null,
         'investor_profile_id' => 'int32',
         'tags' => null,
         'first_name' => null,
@@ -101,6 +103,7 @@ class PostDealsIdInvestors implements ModelInterface, ArrayAccess, \JsonSerializ
       */
     protected static array $openAPINullables = [
         'email' => false,
+        'email_confirmation' => false,
         'investor_profile_id' => false,
         'tags' => false,
         'first_name' => false,
@@ -201,6 +204,7 @@ class PostDealsIdInvestors implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     protected static $attributeMap = [
         'email' => 'email',
+        'email_confirmation' => 'email_confirmation',
         'investor_profile_id' => 'investor_profile_id',
         'tags' => 'tags',
         'first_name' => 'first_name',
@@ -221,6 +225,7 @@ class PostDealsIdInvestors implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     protected static $setters = [
         'email' => 'setEmail',
+        'email_confirmation' => 'setEmailConfirmation',
         'investor_profile_id' => 'setInvestorProfileId',
         'tags' => 'setTags',
         'first_name' => 'setFirstName',
@@ -241,6 +246,7 @@ class PostDealsIdInvestors implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     protected static $getters = [
         'email' => 'getEmail',
+        'email_confirmation' => 'getEmailConfirmation',
         'investor_profile_id' => 'getInvestorProfileId',
         'tags' => 'getTags',
         'first_name' => 'getFirstName',
@@ -342,6 +348,7 @@ class PostDealsIdInvestors implements ModelInterface, ArrayAccess, \JsonSerializ
     public function __construct(array $data = null)
     {
         $this->setIfExists('email', $data ?? [], null);
+        $this->setIfExists('email_confirmation', $data ?? [], null);
         $this->setIfExists('investor_profile_id', $data ?? [], null);
         $this->setIfExists('tags', $data ?? [], null);
         $this->setIfExists('first_name', $data ?? [], null);
@@ -441,6 +448,33 @@ class PostDealsIdInvestors implements ModelInterface, ArrayAccess, \JsonSerializ
             throw new \InvalidArgumentException('non-nullable email cannot be null');
         }
         $this->container['email'] = $email;
+
+        return $this;
+    }
+
+    /**
+     * Gets email_confirmation
+     *
+     * @return string|null
+     */
+    public function getEmailConfirmation()
+    {
+        return $this->container['email_confirmation'];
+    }
+
+    /**
+     * Sets email_confirmation
+     *
+     * @param string|null $email_confirmation The investor confirmation email address.
+     *
+     * @return self
+     */
+    public function setEmailConfirmation($email_confirmation)
+    {
+        if (is_null($email_confirmation)) {
+            throw new \InvalidArgumentException('non-nullable email_confirmation cannot be null');
+        }
+        $this->container['email_confirmation'] = $email_confirmation;
 
         return $this;
     }

@@ -17,6 +17,7 @@ Method | HTTP request | Description
 [**getWebhooksDealId**](DefaultApi.md#getWebhooksDealId) | **GET** /webhooks/deal/{id} | Finds a deal using the id
 [**getWebhooksDealsSearch**](DefaultApi.md#getWebhooksDealsSearch) | **GET** /webhooks/deals/search | Searches for deals for a given user
 [**getWebhooksSecurityToken**](DefaultApi.md#getWebhooksSecurityToken) | **GET** /webhooks/security_token | Creates a new security token for webhook subscription
+[**patchDealsIdPlatformEmailsDomain**](DefaultApi.md#patchDealsIdPlatformEmailsDomain) | **PATCH** /deals/{id}/platform_emails/domain | Update the email domain settings for the deal
 [**postDealsDealIdPaymentOnboardingQuestionnairePayoutAccountDetailsSubmit**](DefaultApi.md#postDealsDealIdPaymentOnboardingQuestionnairePayoutAccountDetailsSubmit) | **POST** /deals/{deal_id}/payment_onboarding/questionnaire/payout_account_details/submit | Submit a payout account details form
 [**postDealsDealIdPaymentOnboardingQuestionnaireQualificationQuestionnaireResponseSubmit**](DefaultApi.md#postDealsDealIdPaymentOnboardingQuestionnaireQualificationQuestionnaireResponseSubmit) | **POST** /deals/{deal_id}/payment_onboarding/questionnaire/qualification_questionnaire/response/submit | Submit a qualification questionnaire response
 [**postDealsDealIdPaymentOnboardingQuestionnaireQualificationQuestionnaireSubmit**](DefaultApi.md#postDealsDealIdPaymentOnboardingQuestionnaireQualificationQuestionnaireSubmit) | **POST** /deals/{deal_id}/payment_onboarding/questionnaire/qualification_questionnaire/submit | Submit a qualification questionnaire form
@@ -617,6 +618,54 @@ No authorization required
 
 - **Content-Type**: Not defined
 - **Accept**: application/json
+
+
+## patchDealsIdPlatformEmailsDomain
+
+> patchDealsIdPlatformEmailsDomain(id, patchDealsIdPlatformEmailsDomainRequest)
+
+Update the email domain settings for the deal
+
+Update the email domain settings for the deal
+
+### Example
+
+```javascript
+import Api from 'api';
+let defaultClient = Api.ApiClient.instance;
+
+let apiInstance = new Api.DefaultApi();
+let id = 56; // Number | The deal id.
+let patchDealsIdPlatformEmailsDomainRequest = new Api.PatchDealsIdPlatformEmailsDomainRequest(); // PatchDealsIdPlatformEmailsDomainRequest | 
+apiInstance.patchDealsIdPlatformEmailsDomain(id, patchDealsIdPlatformEmailsDomainRequest, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully.');
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Number**| The deal id. | 
+ **patchDealsIdPlatformEmailsDomainRequest** | [**PatchDealsIdPlatformEmailsDomainRequest**](PatchDealsIdPlatformEmailsDomainRequest.md)|  | 
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: Not defined
 
 
 ## postDealsDealIdPaymentOnboardingQuestionnairePayoutAccountDetailsSubmit

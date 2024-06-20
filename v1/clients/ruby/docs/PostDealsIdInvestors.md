@@ -5,6 +5,7 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **email** | **String** | The investor email address. |  |
+| **email_confirmation** | **String** | The investor confirmation email address. | [optional] |
 | **investor_profile_id** | **Integer** | The Investor Profile id. | [optional] |
 | **tags** | **Array&lt;String&gt;** |  | [optional] |
 | **first_name** | **String** | The first name of the investor. | [optional] |
@@ -24,6 +25,7 @@ require 'DealMakerAPI'
 
 instance = DealMakerAPI::PostDealsIdInvestors.new(
   email: null,
+  email_confirmation: null,
   investor_profile_id: null,
   tags: null,
   first_name: null,

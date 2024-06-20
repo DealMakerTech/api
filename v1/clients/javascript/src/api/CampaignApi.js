@@ -18,7 +18,7 @@ import V1EntitiesTtwCampaignResponse from '../model/V1EntitiesTtwCampaignRespons
 /**
 * Campaign service.
 * @module api/CampaignApi
-* @version 0.105.4
+* @version 0.106.0
 */
 export default class CampaignApi {
 

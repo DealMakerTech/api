@@ -89,6 +89,15 @@ class PostDealsIdInvestorsTest extends TestCase
     }
 
     /**
+     * Test attribute "email_confirmation"
+     */
+    public function testPropertyEmailConfirmation()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "investor_profile_id"
      */
     public function testPropertyInvestorProfileId()

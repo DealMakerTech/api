@@ -13,6 +13,7 @@
 
 
 import ApiClient from "../ApiClient";
+import PatchDealsIdPlatformEmailsDomainRequest from '../model/PatchDealsIdPlatformEmailsDomainRequest';
 import PostWebhooksRequest from '../model/PostWebhooksRequest';
 import PutWebhooksIdRequest from '../model/PutWebhooksIdRequest';
 import V1EntitiesDealsPlatformEmailsDomainSettings from '../model/V1EntitiesDealsPlatformEmailsDomainSettings';
@@ -31,7 +32,7 @@ import V1EntitiesWebhooksSubscription from '../model/V1EntitiesWebhooksSubscript
 /**
 * Default service.
 * @module api/DefaultApi
-* @version 0.105.4
+* @version 0.106.0
 */
 export default class DefaultApi {
 
@@ -589,6 +590,53 @@ export default class DefaultApi {
       let returnType = V1EntitiesWebhooksSecurityToken;
       return this.apiClient.callApi(
         '/webhooks/security_token', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the patchDealsIdPlatformEmailsDomain operation.
+     * @callback module:api/DefaultApi~patchDealsIdPlatformEmailsDomainCallback
+     * @param {String} error Error message, if any.
+     * @param data This operation does not return a value.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Update the email domain settings for the deal
+     * Update the email domain settings for the deal
+     * @param {Number} id The deal id.
+     * @param {module:model/PatchDealsIdPlatformEmailsDomainRequest} patchDealsIdPlatformEmailsDomainRequest 
+     * @param {module:api/DefaultApi~patchDealsIdPlatformEmailsDomainCallback} callback The callback function, accepting three arguments: error, data, response
+     */
+    patchDealsIdPlatformEmailsDomain(id, patchDealsIdPlatformEmailsDomainRequest, callback) {
+      let postBody = patchDealsIdPlatformEmailsDomainRequest;
+      // verify the required parameter 'id' is set
+      if (id === undefined || id === null) {
+        throw new Error("Missing the required parameter 'id' when calling patchDealsIdPlatformEmailsDomain");
+      }
+      // verify the required parameter 'patchDealsIdPlatformEmailsDomainRequest' is set
+      if (patchDealsIdPlatformEmailsDomainRequest === undefined || patchDealsIdPlatformEmailsDomainRequest === null) {
+        throw new Error("Missing the required parameter 'patchDealsIdPlatformEmailsDomainRequest' when calling patchDealsIdPlatformEmailsDomain");
+      }
+
+      let pathParams = {
+        'id': id
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = ['application/json'];
+      let accepts = [];
+      let returnType = null;
+      return this.apiClient.callApi(
+        '/deals/{id}/platform_emails/domain', 'PATCH',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

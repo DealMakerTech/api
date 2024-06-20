@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The PostDealsIdInvestors model module.
  * @module model/PostDealsIdInvestors
- * @version 0.105.4
+ * @version 0.106.0
  */
 class PostDealsIdInvestors {
     /**
@@ -52,6 +52,9 @@ class PostDealsIdInvestors {
 
             if (data.hasOwnProperty('email')) {
                 obj['email'] = ApiClient.convertToType(data['email'], 'String');
+            }
+            if (data.hasOwnProperty('email_confirmation')) {
+                obj['email_confirmation'] = ApiClient.convertToType(data['email_confirmation'], 'String');
             }
             if (data.hasOwnProperty('investor_profile_id')) {
                 obj['investor_profile_id'] = ApiClient.convertToType(data['investor_profile_id'], 'Number');
@@ -106,6 +109,10 @@ class PostDealsIdInvestors {
         if (data['email'] && !(typeof data['email'] === 'string' || data['email'] instanceof String)) {
             throw new Error("Expected the field `email` to be a primitive type in the JSON string but got " + data['email']);
         }
+        // ensure the json data is a string
+        if (data['email_confirmation'] && !(typeof data['email_confirmation'] === 'string' || data['email_confirmation'] instanceof String)) {
+            throw new Error("Expected the field `email_confirmation` to be a primitive type in the JSON string but got " + data['email_confirmation']);
+        }
         // ensure the json data is an array
         if (!Array.isArray(data['tags'])) {
             throw new Error("Expected the field `tags` to be an array in the JSON data but got " + data['tags']);
@@ -148,6 +155,12 @@ PostDealsIdInvestors.RequiredProperties = ["email"];
  * @member {String} email
  */
 PostDealsIdInvestors.prototype['email'] = undefined;
+
+/**
+ * The investor confirmation email address.
+ * @member {String} email_confirmation
+ */
+PostDealsIdInvestors.prototype['email_confirmation'] = undefined;
 
 /**
  * The Investor Profile id.

@@ -60,6 +60,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property emailConfirmation (base name: "email_confirmation")', function() {
+      // uncomment below and update the code to test the property emailConfirmation
+      //var instance = new Api.PostDealsIdInvestors();
+      //expect(instance).to.be();
+    });
+
     it('should have the property investorProfileId (base name: "investor_profile_id")', function() {
       // uncomment below and update the code to test the property investorProfileId
       //var instance = new Api.PostDealsIdInvestors();

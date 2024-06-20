@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The V1EntitiesGenericResponse model module.
  * @module model/V1EntitiesGenericResponse
- * @version 0.105.4
+ * @version 0.106.0
  */
 class V1EntitiesGenericResponse {
     /**

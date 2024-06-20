@@ -28,6 +28,7 @@ import EditInvestorTagsRequest from './model/EditInvestorTagsRequest';
 import GenerateUrlRequest from './model/GenerateUrlRequest';
 import GetAccessTokenRequest from './model/GetAccessTokenRequest';
 import PatchDealIncentivePlanRequest from './model/PatchDealIncentivePlanRequest';
+import PatchDealsIdPlatformEmailsDomainRequest from './model/PatchDealsIdPlatformEmailsDomainRequest';
 import PatchInvestorProfilesCorporations from './model/PatchInvestorProfilesCorporations';
 import PatchInvestorProfilesCorporationsBeneficialOwnersInner from './model/PatchInvestorProfilesCorporationsBeneficialOwnersInner';
 import PatchInvestorProfilesIndividuals from './model/PatchInvestorProfilesIndividuals';
@@ -199,7 +200,7 @@ import UsersApi from './api/UsersApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.105.4
+* @version 0.106.0
 */
 export {
     /**
@@ -297,6 +298,12 @@ export {
      * @property {module:model/PatchDealIncentivePlanRequest}
      */
     PatchDealIncentivePlanRequest,
+
+    /**
+     * The PatchDealsIdPlatformEmailsDomainRequest model constructor.
+     * @property {module:model/PatchDealsIdPlatformEmailsDomainRequest}
+     */
+    PatchDealsIdPlatformEmailsDomainRequest,
 
     /**
      * The PatchInvestorProfilesCorporations model constructor.

@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The SendPortalInviteRequest model module.
  * @module model/SendPortalInviteRequest
- * @version 0.105.4
+ * @version 0.106.0
  */
 class SendPortalInviteRequest {
     /**

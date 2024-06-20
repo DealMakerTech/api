@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **email** | **String** | The investor email address. | 
+**emailConfirmation** | **String** | The investor confirmation email address. | [optional] 
 **investorProfileId** | **Number** | The Investor Profile id. | [optional] 
 **tags** | **[String]** |  | [optional] 
 **firstName** | **String** | The first name of the investor. | [optional] 

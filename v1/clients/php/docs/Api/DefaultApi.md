@@ -17,6 +17,7 @@ All URIs are relative to http://api.dealmaker.tech, except if the operation defi
 | [**getWebhooksDealId()**](DefaultApi.md#getWebhooksDealId) | **GET** /webhooks/deal/{id} | Finds a deal using the id |
 | [**getWebhooksDealsSearch()**](DefaultApi.md#getWebhooksDealsSearch) | **GET** /webhooks/deals/search | Searches for deals for a given user |
 | [**getWebhooksSecurityToken()**](DefaultApi.md#getWebhooksSecurityToken) | **GET** /webhooks/security_token | Creates a new security token for webhook subscription |
+| [**patchDealsIdPlatformEmailsDomain()**](DefaultApi.md#patchDealsIdPlatformEmailsDomain) | **PATCH** /deals/{id}/platform_emails/domain | Update the email domain settings for the deal |
 | [**postDealsDealIdPaymentOnboardingQuestionnairePayoutAccountDetailsSubmit()**](DefaultApi.md#postDealsDealIdPaymentOnboardingQuestionnairePayoutAccountDetailsSubmit) | **POST** /deals/{deal_id}/payment_onboarding/questionnaire/payout_account_details/submit | Submit a payout account details form |
 | [**postDealsDealIdPaymentOnboardingQuestionnaireQualificationQuestionnaireResponseSubmit()**](DefaultApi.md#postDealsDealIdPaymentOnboardingQuestionnaireQualificationQuestionnaireResponseSubmit) | **POST** /deals/{deal_id}/payment_onboarding/questionnaire/qualification_questionnaire/response/submit | Submit a qualification questionnaire response |
 | [**postDealsDealIdPaymentOnboardingQuestionnaireQualificationQuestionnaireSubmit()**](DefaultApi.md#postDealsDealIdPaymentOnboardingQuestionnaireQualificationQuestionnaireSubmit) | **POST** /deals/{deal_id}/payment_onboarding/questionnaire/qualification_questionnaire/submit | Submit a qualification questionnaire form |
@@ -755,6 +756,64 @@ No authorization required
 
 - **Content-Type**: Not defined
 - **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `patchDealsIdPlatformEmailsDomain()`
+
+```php
+patchDealsIdPlatformEmailsDomain($id, $patch_deals_id_platform_emails_domain_request)
+```
+
+Update the email domain settings for the deal
+
+Update the email domain settings for the deal
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new DealMaker\Api\DefaultApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = 56; // int | The deal id.
+$patch_deals_id_platform_emails_domain_request = new \DealMaker\Model\PatchDealsIdPlatformEmailsDomainRequest(); // \DealMaker\Model\PatchDealsIdPlatformEmailsDomainRequest
+
+try {
+    $apiInstance->patchDealsIdPlatformEmailsDomain($id, $patch_deals_id_platform_emails_domain_request);
+} catch (Exception $e) {
+    echo 'Exception when calling DefaultApi->patchDealsIdPlatformEmailsDomain: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **int**| The deal id. | |
+| **patch_deals_id_platform_emails_domain_request** | [**\DealMaker\Model\PatchDealsIdPlatformEmailsDomainRequest**](../Model/PatchDealsIdPlatformEmailsDomainRequest.md)|  | |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)

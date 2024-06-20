@@ -17,7 +17,7 @@ import V1EntitiesUsersTwoFactorChannel from './V1EntitiesUsersTwoFactorChannel';
 /**
  * The V1EntitiesUsersTwoFactorChannels model module.
  * @module model/V1EntitiesUsersTwoFactorChannels
- * @version 0.105.4
+ * @version 0.106.0
  */
 class V1EntitiesUsersTwoFactorChannels {
     /**

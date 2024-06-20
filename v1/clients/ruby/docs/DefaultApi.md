@@ -17,6 +17,7 @@ All URIs are relative to *http://api.dealmaker.tech*
 | [**get_webhooks_deal_id**](DefaultApi.md#get_webhooks_deal_id) | **GET** /webhooks/deal/{id} | Finds a deal using the id |
 | [**get_webhooks_deals_search**](DefaultApi.md#get_webhooks_deals_search) | **GET** /webhooks/deals/search | Searches for deals for a given user |
 | [**get_webhooks_security_token**](DefaultApi.md#get_webhooks_security_token) | **GET** /webhooks/security_token | Creates a new security token for webhook subscription |
+| [**patch_deals_id_platform_emails_domain**](DefaultApi.md#patch_deals_id_platform_emails_domain) | **PATCH** /deals/{id}/platform_emails/domain | Update the email domain settings for the deal |
 | [**post_deals_deal_id_payment_onboarding_questionnaire_payout_account_details_submit**](DefaultApi.md#post_deals_deal_id_payment_onboarding_questionnaire_payout_account_details_submit) | **POST** /deals/{deal_id}/payment_onboarding/questionnaire/payout_account_details/submit | Submit a payout account details form |
 | [**post_deals_deal_id_payment_onboarding_questionnaire_qualification_questionnaire_response_submit**](DefaultApi.md#post_deals_deal_id_payment_onboarding_questionnaire_qualification_questionnaire_response_submit) | **POST** /deals/{deal_id}/payment_onboarding/questionnaire/qualification_questionnaire/response/submit | Submit a qualification questionnaire response |
 | [**post_deals_deal_id_payment_onboarding_questionnaire_qualification_questionnaire_submit**](DefaultApi.md#post_deals_deal_id_payment_onboarding_questionnaire_qualification_questionnaire_submit) | **POST** /deals/{deal_id}/payment_onboarding/questionnaire/qualification_questionnaire/submit | Submit a qualification questionnaire form |
@@ -876,6 +877,73 @@ No authorization required
 
 - **Content-Type**: Not defined
 - **Accept**: application/json
+
+
+## patch_deals_id_platform_emails_domain
+
+> patch_deals_id_platform_emails_domain(id, patch_deals_id_platform_emails_domain_request)
+
+Update the email domain settings for the deal
+
+Update the email domain settings for the deal
+
+### Examples
+
+```ruby
+require 'time'
+require 'DealMakerAPI'
+# setup authorization
+DealMakerAPI.configure do |config|end
+
+api_instance = DealMakerAPI::DefaultApi.new
+id = 56 # Integer | The deal id.
+patch_deals_id_platform_emails_domain_request = DealMakerAPI::PatchDealsIdPlatformEmailsDomainRequest.new({sender_name: 'sender_name_example', sender_email: 'sender_email_example'}) # PatchDealsIdPlatformEmailsDomainRequest | 
+
+begin
+  # Update the email domain settings for the deal
+  api_instance.patch_deals_id_platform_emails_domain(id, patch_deals_id_platform_emails_domain_request)
+rescue DealMakerAPI::ApiError => e
+  puts "Error when calling DefaultApi->patch_deals_id_platform_emails_domain: #{e}"
+end
+```
+
+#### Using the patch_deals_id_platform_emails_domain_with_http_info variant
+
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
+
+> <Array(nil, Integer, Hash)> patch_deals_id_platform_emails_domain_with_http_info(id, patch_deals_id_platform_emails_domain_request)
+
+```ruby
+begin
+  # Update the email domain settings for the deal
+  data, status_code, headers = api_instance.patch_deals_id_platform_emails_domain_with_http_info(id, patch_deals_id_platform_emails_domain_request)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => nil
+rescue DealMakerAPI::ApiError => e
+  puts "Error when calling DefaultApi->patch_deals_id_platform_emails_domain_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **id** | **Integer** | The deal id. |  |
+| **patch_deals_id_platform_emails_domain_request** | [**PatchDealsIdPlatformEmailsDomainRequest**](PatchDealsIdPlatformEmailsDomainRequest.md) |  |  |
+
+### Return type
+
+nil (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: Not defined
 
 
 ## post_deals_deal_id_payment_onboarding_questionnaire_payout_account_details_submit

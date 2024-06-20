@@ -89,10 +89,6 @@
       "description": "Operations about custom_emails"
     },
     {
-      "name": "reservation",
-      "description": "Operations about reservations"
-    },
-    {
       "name": "deal",
       "description": "The Deal is the portal which a Company uses for its raise. Each deal will have one Company, and will have multiple investors. An Investor represents a specific investment, meaning that a User could have multiple Investments. A Deal has many complex components. The Deal will have a subscription agreement, which is the document investors will sign. The Deal will have team members which have different roles and permissions in terms of how they interact with the Deal and with Investors on the Deal. The Deal will also have payment methods set up to allow Investors to pay for their investments. These features can be accessed within the DealMaker application. To set up a Deal and interact with these features, please view our help desk documentation: [How can I set up my own deal?](https://help.dealmaker.tech/new-deal). In the production environment, a Deal’s invoice must be recorded as paid before it can be set to `active`, however this requirement is waived in the staging environment.\n\nWith the Deal Endpoints you may interact with your deals. Each Deal has a unique ID, which is accessible from the URL of any page on that Deal.",
       "x-displayName": "Deal"
@@ -156,6 +152,11 @@
       "name": "campaign",
       "description": "Company TTW campaign",
       "x-displayName": "TTW Campaign"
+    },
+    {
+      "name": "reservation",
+      "description": "TTW reservation",
+      "x-displayName": "TTW reservation"
     }
   ],
   "paths": {
@@ -4377,6 +4378,62 @@
       }
     },
     "/deals/{id}/platform_emails/domain": {
+      "patch": {
+        "summary": "Update the email domain settings for the deal",
+        "description": "Update the email domain settings for the deal",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "description": "The deal id.",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "sender_name",
+            "description": "The sender name.",
+            "type": "string",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "sender_email",
+            "description": "The sender email. It must match an authenticated domain.",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "security": [
+          {
+            "oauth": [
+              "deals.write"
+            ]
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Update the email domain settings for the deal"
+          },
+          "404": {
+            "description": "Not found"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "tags": [
+
+        ],
+        "operationId": "patchDealsIdPlatformEmailsDomain"
+      },
       "get": {
         "summary": "Get the email domain settings for the deal",
         "description": "Get the email domain settings for the deal",
@@ -10037,6 +10094,10 @@
         "email": {
           "type": "string",
           "description": "The investor email address."
+        },
+        "email_confirmation": {
+          "type": "string",
+          "description": "The investor confirmation email address."
         },
         "investor_profile_id": {
           "type": "integer",

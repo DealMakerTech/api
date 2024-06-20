@@ -188,6 +188,19 @@ describe 'DefaultApi' do
     end
   end
 
+  # unit tests for patch_deals_id_platform_emails_domain
+  # Update the email domain settings for the deal
+  # Update the email domain settings for the deal
+  # @param id The deal id.
+  # @param patch_deals_id_platform_emails_domain_request 
+  # @param [Hash] opts the optional parameters
+  # @return [nil]
+  describe 'patch_deals_id_platform_emails_domain test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for post_deals_deal_id_payment_onboarding_questionnaire_payout_account_details_submit
   # Submit a payout account details form
   # Submit a payout account details form

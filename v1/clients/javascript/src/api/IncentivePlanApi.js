@@ -20,7 +20,7 @@ import V1EntitiesDealsPriceDetails from '../model/V1EntitiesDealsPriceDetails';
 /**
 * IncentivePlan service.
 * @module api/IncentivePlanApi
-* @version 0.106.0
+* @version 0.106.1
 */
 export default class IncentivePlanApi {
 

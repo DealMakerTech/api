@@ -4,7 +4,74 @@ All URIs are relative to *http://api.dealmaker.tech*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
+| [**get_users_id_contexts**](UsersApi.md#get_users_id_contexts) | **GET** /users/{id}/contexts | Get contexts for a user |
 | [**get_users_investments**](UsersApi.md#get_users_investments) | **GET** /users/investments | Gets the investments for a specific user. |
+
+
+## get_users_id_contexts
+
+> <V1EntitiesUsersContexts> get_users_id_contexts(id)
+
+Get contexts for a user
+
+Get contexts for a user
+
+### Examples
+
+```ruby
+require 'time'
+require 'DealMakerAPI'
+# setup authorization
+DealMakerAPI.configure do |config|end
+
+api_instance = DealMakerAPI::UsersApi.new
+id = 56 # Integer | 
+
+begin
+  # Get contexts for a user
+  result = api_instance.get_users_id_contexts(id)
+  p result
+rescue DealMakerAPI::ApiError => e
+  puts "Error when calling UsersApi->get_users_id_contexts: #{e}"
+end
+```
+
+#### Using the get_users_id_contexts_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<V1EntitiesUsersContexts>, Integer, Hash)> get_users_id_contexts_with_http_info(id)
+
+```ruby
+begin
+  # Get contexts for a user
+  data, status_code, headers = api_instance.get_users_id_contexts_with_http_info(id)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <V1EntitiesUsersContexts>
+rescue DealMakerAPI::ApiError => e
+  puts "Error when calling UsersApi->get_users_id_contexts_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **id** | **Integer** |  |  |
+
+### Return type
+
+[**V1EntitiesUsersContexts**](V1EntitiesUsersContexts.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
 ## get_users_investments

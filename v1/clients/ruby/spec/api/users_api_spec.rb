@@ -32,6 +32,18 @@ describe 'UsersApi' do
     end
   end
 
+  # unit tests for get_users_id_contexts
+  # Get contexts for a user
+  # Get contexts for a user
+  # @param id 
+  # @param [Hash] opts the optional parameters
+  # @return [V1EntitiesUsersContexts]
+  describe 'get_users_id_contexts test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for get_users_investments
   # Gets the investments for a specific user.
   # Get Investments

@@ -14,11 +14,12 @@
 
 import ApiClient from "../ApiClient";
 import V1EntitiesInvestors from '../model/V1EntitiesInvestors';
+import V1EntitiesUsersContexts from '../model/V1EntitiesUsersContexts';
 
 /**
 * Users service.
 * @module api/UsersApi
-* @version 0.106.0
+* @version 0.106.1
 */
 export default class UsersApi {
 
@@ -33,6 +34,49 @@ export default class UsersApi {
         this.apiClient = apiClient || ApiClient.instance;
     }
 
+
+    /**
+     * Callback function to receive the result of the getUsersIdContexts operation.
+     * @callback module:api/UsersApi~getUsersIdContextsCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/V1EntitiesUsersContexts} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Get contexts for a user
+     * Get contexts for a user
+     * @param {Number} id 
+     * @param {module:api/UsersApi~getUsersIdContextsCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/V1EntitiesUsersContexts}
+     */
+    getUsersIdContexts(id, callback) {
+      let postBody = null;
+      // verify the required parameter 'id' is set
+      if (id === undefined || id === null) {
+        throw new Error("Missing the required parameter 'id' when calling getUsersIdContexts");
+      }
+
+      let pathParams = {
+        'id': id
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = V1EntitiesUsersContexts;
+      return this.apiClient.callApi(
+        '/users/{id}/contexts', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
 
     /**
      * Callback function to receive the result of the getUsersInvestments operation.

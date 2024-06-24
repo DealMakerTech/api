@@ -72,6 +72,18 @@ class UsersApiTest extends TestCase
     }
 
     /**
+     * Test case for getUsersIdContexts
+     *
+     * Get contexts for a user.
+     *
+     */
+    public function testGetUsersIdContexts()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for getUsersInvestments
      *
      * Gets the investments for a specific user..

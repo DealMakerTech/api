@@ -142,6 +142,8 @@ import V1EntitiesTtwCampaignResponse from './model/V1EntitiesTtwCampaignResponse
 import V1EntitiesTtwReservation from './model/V1EntitiesTtwReservation';
 import V1EntitiesUser from './model/V1EntitiesUser';
 import V1EntitiesUsersBinding from './model/V1EntitiesUsersBinding';
+import V1EntitiesUsersContext from './model/V1EntitiesUsersContext';
+import V1EntitiesUsersContexts from './model/V1EntitiesUsersContexts';
 import V1EntitiesUsersFactor from './model/V1EntitiesUsersFactor';
 import V1EntitiesUsersTwoFactorChannel from './model/V1EntitiesUsersTwoFactorChannel';
 import V1EntitiesUsersTwoFactorChannels from './model/V1EntitiesUsersTwoFactorChannels';
@@ -200,7 +202,7 @@ import UsersApi from './api/UsersApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.106.0
+* @version 0.106.1
 */
 export {
     /**
@@ -982,6 +984,18 @@ export {
      * @property {module:model/V1EntitiesUsersBinding}
      */
     V1EntitiesUsersBinding,
+
+    /**
+     * The V1EntitiesUsersContext model constructor.
+     * @property {module:model/V1EntitiesUsersContext}
+     */
+    V1EntitiesUsersContext,
+
+    /**
+     * The V1EntitiesUsersContexts model constructor.
+     * @property {module:model/V1EntitiesUsersContexts}
+     */
+    V1EntitiesUsersContexts,
 
     /**
      * The V1EntitiesUsersFactor model constructor.

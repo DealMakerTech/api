@@ -149,6 +149,8 @@ docs/Model/V1EntitiesTtwCampaignResponse.md
 docs/Model/V1EntitiesTtwReservation.md
 docs/Model/V1EntitiesUser.md
 docs/Model/V1EntitiesUsersBinding.md
+docs/Model/V1EntitiesUsersContext.md
+docs/Model/V1EntitiesUsersContexts.md
 docs/Model/V1EntitiesUsersFactor.md
 docs/Model/V1EntitiesUsersTwoFactorChannel.md
 docs/Model/V1EntitiesUsersTwoFactorChannels.md
@@ -310,6 +312,8 @@ lib/Model/V1EntitiesTtwCampaignResponse.php
 lib/Model/V1EntitiesTtwReservation.php
 lib/Model/V1EntitiesUser.php
 lib/Model/V1EntitiesUsersBinding.php
+lib/Model/V1EntitiesUsersContext.php
+lib/Model/V1EntitiesUsersContexts.php
 lib/Model/V1EntitiesUsersFactor.php
 lib/Model/V1EntitiesUsersTwoFactorChannel.php
 lib/Model/V1EntitiesUsersTwoFactorChannels.php
@@ -468,6 +472,8 @@ test/Model/V1EntitiesTtwCampaignResponseTest.php
 test/Model/V1EntitiesTtwReservationTest.php
 test/Model/V1EntitiesUserTest.php
 test/Model/V1EntitiesUsersBindingTest.php
+test/Model/V1EntitiesUsersContextTest.php
+test/Model/V1EntitiesUsersContextsTest.php
 test/Model/V1EntitiesUsersFactorTest.php
 test/Model/V1EntitiesUsersTwoFactorChannelTest.php
 test/Model/V1EntitiesUsersTwoFactorChannelsTest.php

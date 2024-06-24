@@ -153,6 +153,8 @@ docs/V1EntitiesTtwCampaignResponse.md
 docs/V1EntitiesTtwReservation.md
 docs/V1EntitiesUser.md
 docs/V1EntitiesUsersBinding.md
+docs/V1EntitiesUsersContext.md
+docs/V1EntitiesUsersContexts.md
 docs/V1EntitiesUsersFactor.md
 docs/V1EntitiesUsersTwoFactorChannel.md
 docs/V1EntitiesUsersTwoFactorChannels.md
@@ -314,6 +316,8 @@ lib/DealMakerAPI/models/v1_entities_ttw_campaign_response.rb
 lib/DealMakerAPI/models/v1_entities_ttw_reservation.rb
 lib/DealMakerAPI/models/v1_entities_user.rb
 lib/DealMakerAPI/models/v1_entities_users_binding.rb
+lib/DealMakerAPI/models/v1_entities_users_context.rb
+lib/DealMakerAPI/models/v1_entities_users_contexts.rb
 lib/DealMakerAPI/models/v1_entities_users_factor.rb
 lib/DealMakerAPI/models/v1_entities_users_two_factor_channel.rb
 lib/DealMakerAPI/models/v1_entities_users_two_factor_channels.rb
@@ -471,6 +475,8 @@ spec/models/v1_entities_ttw_campaign_response_spec.rb
 spec/models/v1_entities_ttw_reservation_spec.rb
 spec/models/v1_entities_user_spec.rb
 spec/models/v1_entities_users_binding_spec.rb
+spec/models/v1_entities_users_context_spec.rb
+spec/models/v1_entities_users_contexts_spec.rb
 spec/models/v1_entities_users_factor_spec.rb
 spec/models/v1_entities_users_two_factor_channel_spec.rb
 spec/models/v1_entities_users_two_factor_channels_spec.rb

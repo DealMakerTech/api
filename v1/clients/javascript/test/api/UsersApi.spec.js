@@ -48,6 +48,16 @@
   }
 
   describe('UsersApi', function() {
+    describe('getUsersIdContexts', function() {
+      it('should call getUsersIdContexts successfully', function(done) {
+        //uncomment below and update the code to test getUsersIdContexts
+        //instance.getUsersIdContexts(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('getUsersInvestments', function() {
       it('should call getUsersInvestments successfully', function(done) {
         //uncomment below and update the code to test getUsersInvestments

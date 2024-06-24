@@ -4,8 +4,55 @@ All URIs are relative to *http://api.dealmaker.tech*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**getUsersIdContexts**](UsersApi.md#getUsersIdContexts) | **GET** /users/{id}/contexts | Get contexts for a user
 [**getUsersInvestments**](UsersApi.md#getUsersInvestments) | **GET** /users/investments | Gets the investments for a specific user.
 
+
+
+## getUsersIdContexts
+
+> V1EntitiesUsersContexts getUsersIdContexts(id)
+
+Get contexts for a user
+
+Get contexts for a user
+
+### Example
+
+```javascript
+import Api from 'api';
+let defaultClient = Api.ApiClient.instance;
+
+let apiInstance = new Api.UsersApi();
+let id = 56; // Number | 
+apiInstance.getUsersIdContexts(id, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Number**|  | 
+
+### Return type
+
+[**V1EntitiesUsersContexts**](V1EntitiesUsersContexts.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
 ## getUsersInvestments

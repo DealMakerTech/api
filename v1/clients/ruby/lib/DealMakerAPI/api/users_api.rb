@@ -19,6 +19,69 @@ module DealMakerAPI
     def initialize(api_client = ApiClient.default)
       @api_client = api_client
     end
+    # Get contexts for a user
+    # Get contexts for a user
+    # @param id [Integer] 
+    # @param [Hash] opts the optional parameters
+    # @return [V1EntitiesUsersContexts]
+    def get_users_id_contexts(id, opts = {})
+      data, _status_code, _headers = get_users_id_contexts_with_http_info(id, opts)
+      data
+    end
+
+    # Get contexts for a user
+    # Get contexts for a user
+    # @param id [Integer] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(V1EntitiesUsersContexts, Integer, Hash)>] V1EntitiesUsersContexts data, response status code and response headers
+    def get_users_id_contexts_with_http_info(id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: UsersApi.get_users_id_contexts ...'
+      end
+      # verify the required parameter 'id' is set
+      if @api_client.config.client_side_validation && id.nil?
+        fail ArgumentError, "Missing the required parameter 'id' when calling UsersApi.get_users_id_contexts"
+      end
+      # resource path
+      local_var_path = '/users/{id}/contexts'.sub('{' + 'id' + '}', CGI.escape(id.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'V1EntitiesUsersContexts'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"UsersApi.get_users_id_contexts",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: UsersApi#get_users_id_contexts\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Gets the investments for a specific user.
     # Get Investments
     # @param email [String] The email of the user.

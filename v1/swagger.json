@@ -1648,6 +1648,52 @@
         ]
       }
     },
+    "/users/{id}/contexts": {
+      "get": {
+        "summary": "Get contexts for a user",
+        "description": "Get contexts for a user",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "security": [
+          {
+            "oauth": [
+              "internal"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get contexts for a user",
+            "schema": {
+              "$ref": "#/definitions/V1_Entities_Users_Contexts"
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not found"
+          }
+        },
+        "tags": [
+          "users"
+        ],
+        "operationId": "getUsersIdContexts"
+      }
+    },
     "/users/{id}": {
       "get": {
         "summary": "Get user by User ID",
@@ -9876,6 +9922,38 @@
         }
       },
       "description": "V1_Entities_User model"
+    },
+    "V1_Entities_Users_Contexts": {
+      "type": "object",
+      "properties": {
+        "contexts": {
+          "$ref": "#/definitions/V1_Entities_Users_Context",
+          "description": "An array of contexts for the user."
+        }
+      },
+      "description": "V1_Entities_Users_Contexts model"
+    },
+    "V1_Entities_Users_Context": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Context ID."
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the context."
+        },
+        "logo": {
+          "type": "string",
+          "description": "The logo of the context."
+        },
+        "type": {
+          "type": "string",
+          "description": "The type of the context."
+        }
+      }
     },
     "V1_Entities_Countries": {
       "type": "object",

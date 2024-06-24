@@ -148,6 +148,8 @@ docs/V1EntitiesTtwCampaignResponse.md
 docs/V1EntitiesTtwReservation.md
 docs/V1EntitiesUser.md
 docs/V1EntitiesUsersBinding.md
+docs/V1EntitiesUsersContext.md
+docs/V1EntitiesUsersContexts.md
 docs/V1EntitiesUsersFactor.md
 docs/V1EntitiesUsersTwoFactorChannel.md
 docs/V1EntitiesUsersTwoFactorChannels.md
@@ -309,6 +311,8 @@ src/model/V1EntitiesTtwCampaignResponse.js
 src/model/V1EntitiesTtwReservation.js
 src/model/V1EntitiesUser.js
 src/model/V1EntitiesUsersBinding.js
+src/model/V1EntitiesUsersContext.js
+src/model/V1EntitiesUsersContexts.js
 src/model/V1EntitiesUsersFactor.js
 src/model/V1EntitiesUsersTwoFactorChannel.js
 src/model/V1EntitiesUsersTwoFactorChannels.js
@@ -465,6 +469,8 @@ test/model/V1EntitiesTtwCampaignResponse.spec.js
 test/model/V1EntitiesTtwReservation.spec.js
 test/model/V1EntitiesUser.spec.js
 test/model/V1EntitiesUsersBinding.spec.js
+test/model/V1EntitiesUsersContext.spec.js
+test/model/V1EntitiesUsersContexts.spec.js
 test/model/V1EntitiesUsersFactor.spec.js
 test/model/V1EntitiesUsersTwoFactorChannel.spec.js
 test/model/V1EntitiesUsersTwoFactorChannels.spec.js

@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The V1EntitiesDealsProgressColumn model module.
  * @module model/V1EntitiesDealsProgressColumn
- * @version 0.106.0
+ * @version 0.106.1
  */
 class V1EntitiesDealsProgressColumn {
     /**

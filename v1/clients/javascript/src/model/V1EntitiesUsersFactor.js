@@ -17,7 +17,7 @@ import V1EntitiesUsersBinding from './V1EntitiesUsersBinding';
 /**
  * The V1EntitiesUsersFactor model module.
  * @module model/V1EntitiesUsersFactor
- * @version 0.106.1
+ * @version 0.106.2
  */
 class V1EntitiesUsersFactor {
     /**

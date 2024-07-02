@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The PostInvestorProfilesTrustsTrusteesInner model module.
  * @module model/PostInvestorProfilesTrustsTrusteesInner
- * @version 0.106.1
+ * @version 0.106.2
  */
 class PostInvestorProfilesTrustsTrusteesInner {
     /**

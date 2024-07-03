@@ -42,6 +42,7 @@ docs/PatchInvestorProfilesManaged.md
 docs/PatchInvestorProfilesTrusts.md
 docs/PatchInvestorProfilesTrustsTrusteesInner.md
 docs/PatchInvestorRequest.md
+docs/PatchPlatformEmailRequest.md
 docs/PaymentsApi.md
 docs/PostDealIncentivePlanRequest.md
 docs/PostDealsIdInvestors.md
@@ -94,6 +95,8 @@ docs/V1EntitiesDealsIncentivePlan.md
 docs/V1EntitiesDealsIncentivePlansIncentiveTier.md
 docs/V1EntitiesDealsInvestorsPaymentAchBankAccountSetupIntent.md
 docs/V1EntitiesDealsInvestorsPaymentAcssBankAccountSetupIntent.md
+docs/V1EntitiesDealsPlatformEmail.md
+docs/V1EntitiesDealsPlatformEmails.md
 docs/V1EntitiesDealsPlatformEmailsDomainSettings.md
 docs/V1EntitiesDealsPriceDetails.md
 docs/V1EntitiesDealsProgress.md
@@ -149,8 +152,10 @@ docs/V1EntitiesShareholders.md
 docs/V1EntitiesShareholdersTags.md
 docs/V1EntitiesState.md
 docs/V1EntitiesSubscriptionAgreement.md
+docs/V1EntitiesTtwCampaignList.md
 docs/V1EntitiesTtwCampaignResponse.md
-docs/V1EntitiesTtwReservation.md
+docs/V1EntitiesTtwReservationCreate.md
+docs/V1EntitiesTtwReservationResponse.md
 docs/V1EntitiesUser.md
 docs/V1EntitiesUsersBinding.md
 docs/V1EntitiesUsersContext.md
@@ -211,6 +216,7 @@ lib/DealMakerAPI/models/patch_investor_profiles_managed.rb
 lib/DealMakerAPI/models/patch_investor_profiles_trusts.rb
 lib/DealMakerAPI/models/patch_investor_profiles_trusts_trustees_inner.rb
 lib/DealMakerAPI/models/patch_investor_request.rb
+lib/DealMakerAPI/models/patch_platform_email_request.rb
 lib/DealMakerAPI/models/post_deal_incentive_plan_request.rb
 lib/DealMakerAPI/models/post_deals_id_investors.rb
 lib/DealMakerAPI/models/post_investor_profiles_corporations.rb
@@ -257,6 +263,8 @@ lib/DealMakerAPI/models/v1_entities_deals_incentive_plan.rb
 lib/DealMakerAPI/models/v1_entities_deals_incentive_plans_incentive_tier.rb
 lib/DealMakerAPI/models/v1_entities_deals_investors_payment_ach_bank_account_setup_intent.rb
 lib/DealMakerAPI/models/v1_entities_deals_investors_payment_acss_bank_account_setup_intent.rb
+lib/DealMakerAPI/models/v1_entities_deals_platform_email.rb
+lib/DealMakerAPI/models/v1_entities_deals_platform_emails.rb
 lib/DealMakerAPI/models/v1_entities_deals_platform_emails_domain_settings.rb
 lib/DealMakerAPI/models/v1_entities_deals_price_details.rb
 lib/DealMakerAPI/models/v1_entities_deals_progress.rb
@@ -312,8 +320,10 @@ lib/DealMakerAPI/models/v1_entities_shareholders.rb
 lib/DealMakerAPI/models/v1_entities_shareholders_tags.rb
 lib/DealMakerAPI/models/v1_entities_state.rb
 lib/DealMakerAPI/models/v1_entities_subscription_agreement.rb
+lib/DealMakerAPI/models/v1_entities_ttw_campaign_list.rb
 lib/DealMakerAPI/models/v1_entities_ttw_campaign_response.rb
-lib/DealMakerAPI/models/v1_entities_ttw_reservation.rb
+lib/DealMakerAPI/models/v1_entities_ttw_reservation_create.rb
+lib/DealMakerAPI/models/v1_entities_ttw_reservation_response.rb
 lib/DealMakerAPI/models/v1_entities_user.rb
 lib/DealMakerAPI/models/v1_entities_users_binding.rb
 lib/DealMakerAPI/models/v1_entities_users_context.rb
@@ -370,6 +380,7 @@ spec/models/patch_investor_profiles_managed_spec.rb
 spec/models/patch_investor_profiles_trusts_spec.rb
 spec/models/patch_investor_profiles_trusts_trustees_inner_spec.rb
 spec/models/patch_investor_request_spec.rb
+spec/models/patch_platform_email_request_spec.rb
 spec/models/post_deal_incentive_plan_request_spec.rb
 spec/models/post_deals_id_investors_spec.rb
 spec/models/post_investor_profiles_corporations_beneficial_owners_inner_spec.rb
@@ -415,7 +426,9 @@ spec/models/v1_entities_deals_incentive_plan_spec.rb
 spec/models/v1_entities_deals_incentive_plans_incentive_tier_spec.rb
 spec/models/v1_entities_deals_investors_payment_ach_bank_account_setup_intent_spec.rb
 spec/models/v1_entities_deals_investors_payment_acss_bank_account_setup_intent_spec.rb
+spec/models/v1_entities_deals_platform_email_spec.rb
 spec/models/v1_entities_deals_platform_emails_domain_settings_spec.rb
+spec/models/v1_entities_deals_platform_emails_spec.rb
 spec/models/v1_entities_deals_price_details_spec.rb
 spec/models/v1_entities_deals_progress_column_spec.rb
 spec/models/v1_entities_deals_progress_kinds_spec.rb
@@ -471,8 +484,10 @@ spec/models/v1_entities_shareholders_spec.rb
 spec/models/v1_entities_shareholders_tags_spec.rb
 spec/models/v1_entities_state_spec.rb
 spec/models/v1_entities_subscription_agreement_spec.rb
+spec/models/v1_entities_ttw_campaign_list_spec.rb
 spec/models/v1_entities_ttw_campaign_response_spec.rb
-spec/models/v1_entities_ttw_reservation_spec.rb
+spec/models/v1_entities_ttw_reservation_create_spec.rb
+spec/models/v1_entities_ttw_reservation_response_spec.rb
 spec/models/v1_entities_user_spec.rb
 spec/models/v1_entities_users_binding_spec.rb
 spec/models/v1_entities_users_context_spec.rb

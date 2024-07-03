@@ -142,4 +142,28 @@ class DealApiTest extends TestCase
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test case for listPlatformEmails
+     *
+     * Get a list of platform emails for the deal.
+     *
+     */
+    public function testListPlatformEmails()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for patchPlatformEmail
+     *
+     * Patch platform email by kind and deal..
+     *
+     */
+    public function testPatchPlatformEmail()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
 }

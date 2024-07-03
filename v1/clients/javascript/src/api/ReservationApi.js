@@ -14,12 +14,13 @@
 
 import ApiClient from "../ApiClient";
 import CreateReservationRequest from '../model/CreateReservationRequest';
-import V1EntitiesTtwReservation from '../model/V1EntitiesTtwReservation';
+import V1EntitiesTtwReservationCreate from '../model/V1EntitiesTtwReservationCreate';
+import V1EntitiesTtwReservationResponse from '../model/V1EntitiesTtwReservationResponse';
 
 /**
 * Reservation service.
 * @module api/ReservationApi
-* @version 0.106.2
+* @version 0.106.3
 */
 export default class ReservationApi {
 
@@ -39,7 +40,7 @@ export default class ReservationApi {
      * Callback function to receive the result of the createReservation operation.
      * @callback module:api/ReservationApi~createReservationCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/V1EntitiesTtwReservation} data The data returned by the service call.
+     * @param {module:model/V1EntitiesTtwReservationCreate} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -48,7 +49,7 @@ export default class ReservationApi {
      * Create a new reservation
      * @param {module:model/CreateReservationRequest} createReservationRequest 
      * @param {module:api/ReservationApi~createReservationCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/V1EntitiesTtwReservation}
+     * data is of type: {@link module:model/V1EntitiesTtwReservationCreate}
      */
     createReservation(createReservationRequest, callback) {
       let postBody = createReservationRequest;
@@ -69,9 +70,52 @@ export default class ReservationApi {
       let authNames = [];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
-      let returnType = V1EntitiesTtwReservation;
+      let returnType = V1EntitiesTtwReservationCreate;
       return this.apiClient.callApi(
         '/ttw/reservations', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the getTtwReservation operation.
+     * @callback module:api/ReservationApi~getTtwReservationCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/V1EntitiesTtwReservationResponse} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Gets a TTW reservation
+     * Gets a TTW reservation
+     * @param {Number} id 
+     * @param {module:api/ReservationApi~getTtwReservationCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/V1EntitiesTtwReservationResponse}
+     */
+    getTtwReservation(id, callback) {
+      let postBody = null;
+      // verify the required parameter 'id' is set
+      if (id === undefined || id === null) {
+        throw new Error("Missing the required parameter 'id' when calling getTtwReservation");
+      }
+
+      let pathParams = {
+        'id': id
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = V1EntitiesTtwReservationResponse;
+      return this.apiClient.callApi(
+        '/ttw/reservations/{id}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

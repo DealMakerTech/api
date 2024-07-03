@@ -37,6 +37,7 @@ import PatchInvestorProfilesManaged from './model/PatchInvestorProfilesManaged';
 import PatchInvestorProfilesTrusts from './model/PatchInvestorProfilesTrusts';
 import PatchInvestorProfilesTrustsTrusteesInner from './model/PatchInvestorProfilesTrustsTrusteesInner';
 import PatchInvestorRequest from './model/PatchInvestorRequest';
+import PatchPlatformEmailRequest from './model/PatchPlatformEmailRequest';
 import PostDealIncentivePlanRequest from './model/PostDealIncentivePlanRequest';
 import PostDealsIdInvestors from './model/PostDealsIdInvestors';
 import PostInvestorProfilesCorporations from './model/PostInvestorProfilesCorporations';
@@ -83,6 +84,8 @@ import V1EntitiesDealsIncentivePlan from './model/V1EntitiesDealsIncentivePlan';
 import V1EntitiesDealsIncentivePlansIncentiveTier from './model/V1EntitiesDealsIncentivePlansIncentiveTier';
 import V1EntitiesDealsInvestorsPaymentAchBankAccountSetupIntent from './model/V1EntitiesDealsInvestorsPaymentAchBankAccountSetupIntent';
 import V1EntitiesDealsInvestorsPaymentAcssBankAccountSetupIntent from './model/V1EntitiesDealsInvestorsPaymentAcssBankAccountSetupIntent';
+import V1EntitiesDealsPlatformEmail from './model/V1EntitiesDealsPlatformEmail';
+import V1EntitiesDealsPlatformEmails from './model/V1EntitiesDealsPlatformEmails';
 import V1EntitiesDealsPlatformEmailsDomainSettings from './model/V1EntitiesDealsPlatformEmailsDomainSettings';
 import V1EntitiesDealsPriceDetails from './model/V1EntitiesDealsPriceDetails';
 import V1EntitiesDealsProgress from './model/V1EntitiesDealsProgress';
@@ -138,8 +141,10 @@ import V1EntitiesShareholders from './model/V1EntitiesShareholders';
 import V1EntitiesShareholdersTags from './model/V1EntitiesShareholdersTags';
 import V1EntitiesState from './model/V1EntitiesState';
 import V1EntitiesSubscriptionAgreement from './model/V1EntitiesSubscriptionAgreement';
+import V1EntitiesTtwCampaignList from './model/V1EntitiesTtwCampaignList';
 import V1EntitiesTtwCampaignResponse from './model/V1EntitiesTtwCampaignResponse';
-import V1EntitiesTtwReservation from './model/V1EntitiesTtwReservation';
+import V1EntitiesTtwReservationCreate from './model/V1EntitiesTtwReservationCreate';
+import V1EntitiesTtwReservationResponse from './model/V1EntitiesTtwReservationResponse';
 import V1EntitiesUser from './model/V1EntitiesUser';
 import V1EntitiesUsersBinding from './model/V1EntitiesUsersBinding';
 import V1EntitiesUsersContext from './model/V1EntitiesUsersContext';
@@ -202,7 +207,7 @@ import UsersApi from './api/UsersApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.106.2
+* @version 0.106.3
 */
 export {
     /**
@@ -354,6 +359,12 @@ export {
      * @property {module:model/PatchInvestorRequest}
      */
     PatchInvestorRequest,
+
+    /**
+     * The PatchPlatformEmailRequest model constructor.
+     * @property {module:model/PatchPlatformEmailRequest}
+     */
+    PatchPlatformEmailRequest,
 
     /**
      * The PostDealIncentivePlanRequest model constructor.
@@ -630,6 +641,18 @@ export {
      * @property {module:model/V1EntitiesDealsInvestorsPaymentAcssBankAccountSetupIntent}
      */
     V1EntitiesDealsInvestorsPaymentAcssBankAccountSetupIntent,
+
+    /**
+     * The V1EntitiesDealsPlatformEmail model constructor.
+     * @property {module:model/V1EntitiesDealsPlatformEmail}
+     */
+    V1EntitiesDealsPlatformEmail,
+
+    /**
+     * The V1EntitiesDealsPlatformEmails model constructor.
+     * @property {module:model/V1EntitiesDealsPlatformEmails}
+     */
+    V1EntitiesDealsPlatformEmails,
 
     /**
      * The V1EntitiesDealsPlatformEmailsDomainSettings model constructor.
@@ -962,16 +985,28 @@ export {
     V1EntitiesSubscriptionAgreement,
 
     /**
+     * The V1EntitiesTtwCampaignList model constructor.
+     * @property {module:model/V1EntitiesTtwCampaignList}
+     */
+    V1EntitiesTtwCampaignList,
+
+    /**
      * The V1EntitiesTtwCampaignResponse model constructor.
      * @property {module:model/V1EntitiesTtwCampaignResponse}
      */
     V1EntitiesTtwCampaignResponse,
 
     /**
-     * The V1EntitiesTtwReservation model constructor.
-     * @property {module:model/V1EntitiesTtwReservation}
+     * The V1EntitiesTtwReservationCreate model constructor.
+     * @property {module:model/V1EntitiesTtwReservationCreate}
      */
-    V1EntitiesTtwReservation,
+    V1EntitiesTtwReservationCreate,
+
+    /**
+     * The V1EntitiesTtwReservationResponse model constructor.
+     * @property {module:model/V1EntitiesTtwReservationResponse}
+     */
+    V1EntitiesTtwReservationResponse,
 
     /**
      * The V1EntitiesUser model constructor.

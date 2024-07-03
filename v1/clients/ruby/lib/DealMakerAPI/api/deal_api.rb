@@ -431,5 +431,148 @@ module DealMakerAPI
       end
       return data, status_code, headers
     end
+
+    # Get a list of platform emails for the deal
+    # Get a list of platform emails for the deal
+    # @param id [Integer] The deal id.
+    # @param [Hash] opts the optional parameters
+    # @return [V1EntitiesDealsPlatformEmails]
+    def list_platform_emails(id, opts = {})
+      data, _status_code, _headers = list_platform_emails_with_http_info(id, opts)
+      data
+    end
+
+    # Get a list of platform emails for the deal
+    # Get a list of platform emails for the deal
+    # @param id [Integer] The deal id.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(V1EntitiesDealsPlatformEmails, Integer, Hash)>] V1EntitiesDealsPlatformEmails data, response status code and response headers
+    def list_platform_emails_with_http_info(id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: DealApi.list_platform_emails ...'
+      end
+      # verify the required parameter 'id' is set
+      if @api_client.config.client_side_validation && id.nil?
+        fail ArgumentError, "Missing the required parameter 'id' when calling DealApi.list_platform_emails"
+      end
+      # resource path
+      local_var_path = '/deals/{id}/platform_emails'.sub('{' + 'id' + '}', CGI.escape(id.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'V1EntitiesDealsPlatformEmails'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"DealApi.list_platform_emails",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: DealApi#list_platform_emails\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Patch platform email by kind and deal.
+    # Patch platform email by kind and deal.
+    # @param id [Integer] 
+    # @param kind [Integer] 
+    # @param patch_platform_email_request [PatchPlatformEmailRequest] 
+    # @param [Hash] opts the optional parameters
+    # @return [V1EntitiesDealsPlatformEmail]
+    def patch_platform_email(id, kind, patch_platform_email_request, opts = {})
+      data, _status_code, _headers = patch_platform_email_with_http_info(id, kind, patch_platform_email_request, opts)
+      data
+    end
+
+    # Patch platform email by kind and deal.
+    # Patch platform email by kind and deal.
+    # @param id [Integer] 
+    # @param kind [Integer] 
+    # @param patch_platform_email_request [PatchPlatformEmailRequest] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(V1EntitiesDealsPlatformEmail, Integer, Hash)>] V1EntitiesDealsPlatformEmail data, response status code and response headers
+    def patch_platform_email_with_http_info(id, kind, patch_platform_email_request, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: DealApi.patch_platform_email ...'
+      end
+      # verify the required parameter 'id' is set
+      if @api_client.config.client_side_validation && id.nil?
+        fail ArgumentError, "Missing the required parameter 'id' when calling DealApi.patch_platform_email"
+      end
+      # verify the required parameter 'kind' is set
+      if @api_client.config.client_side_validation && kind.nil?
+        fail ArgumentError, "Missing the required parameter 'kind' when calling DealApi.patch_platform_email"
+      end
+      # verify the required parameter 'patch_platform_email_request' is set
+      if @api_client.config.client_side_validation && patch_platform_email_request.nil?
+        fail ArgumentError, "Missing the required parameter 'patch_platform_email_request' when calling DealApi.patch_platform_email"
+      end
+      # resource path
+      local_var_path = '/deals/{id}/platform_emails/{kind}/update'.sub('{' + 'id' + '}', CGI.escape(id.to_s)).sub('{' + 'kind' + '}', CGI.escape(kind.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(patch_platform_email_request)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'V1EntitiesDealsPlatformEmail'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"DealApi.patch_platform_email",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: DealApi#patch_platform_email\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
   end
 end

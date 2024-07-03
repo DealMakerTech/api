@@ -58,6 +58,16 @@
         done();
       });
     });
+    describe('getTtwReservation', function() {
+      it('should call getTtwReservation successfully', function(done) {
+        //uncomment below and update the code to test getTtwReservation
+        //instance.getTtwReservation(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
   });
 
 }));

@@ -10,6 +10,8 @@ Method | HTTP request | Description
 [**getDeal**](DealApi.md#getDeal) | **GET** /deals/{id} | Get deal by Deal ID
 [**getDealIncentivePlan**](DealApi.md#getDealIncentivePlan) | **GET** /deals/{id}/incentive_plan | Get incentive plan by deal id
 [**listDeals**](DealApi.md#listDeals) | **GET** /deals | List available deals
+[**listPlatformEmails**](DealApi.md#listPlatformEmails) | **GET** /deals/{id}/platform_emails | Get a list of platform emails for the deal
+[**patchPlatformEmail**](DealApi.md#patchPlatformEmail) | **PATCH** /deals/{id}/platform_emails/{kind}/update | Patch platform email by kind and deal.
 
 
 
@@ -303,5 +305,101 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## listPlatformEmails
+
+> V1EntitiesDealsPlatformEmails listPlatformEmails(id)
+
+Get a list of platform emails for the deal
+
+Get a list of platform emails for the deal
+
+### Example
+
+```javascript
+import Api from 'api';
+let defaultClient = Api.ApiClient.instance;
+
+let apiInstance = new Api.DealApi();
+let id = 56; // Number | The deal id.
+apiInstance.listPlatformEmails(id, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Number**| The deal id. | 
+
+### Return type
+
+[**V1EntitiesDealsPlatformEmails**](V1EntitiesDealsPlatformEmails.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## patchPlatformEmail
+
+> V1EntitiesDealsPlatformEmail patchPlatformEmail(id, kind, patchPlatformEmailRequest)
+
+Patch platform email by kind and deal.
+
+Patch platform email by kind and deal.
+
+### Example
+
+```javascript
+import Api from 'api';
+let defaultClient = Api.ApiClient.instance;
+
+let apiInstance = new Api.DealApi();
+let id = 56; // Number | 
+let kind = 56; // Number | 
+let patchPlatformEmailRequest = new Api.PatchPlatformEmailRequest(); // PatchPlatformEmailRequest | 
+apiInstance.patchPlatformEmail(id, kind, patchPlatformEmailRequest, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Number**|  | 
+ **kind** | **Number**|  | 
+ **patchPlatformEmailRequest** | [**PatchPlatformEmailRequest**](PatchPlatformEmailRequest.md)|  | 
+
+### Return type
+
+[**V1EntitiesDealsPlatformEmail**](V1EntitiesDealsPlatformEmail.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json
 

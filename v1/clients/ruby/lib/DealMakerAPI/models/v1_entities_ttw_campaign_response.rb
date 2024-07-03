@@ -22,6 +22,9 @@ module DealMakerAPI
     # Campaign name
     attr_accessor :name
 
+    # Campaign state
+    attr_accessor :state
+
     # Redirect link for the campaign
     attr_accessor :redirect_link
 
@@ -40,17 +43,22 @@ module DealMakerAPI
     # State of the confirmation email
     attr_accessor :confirmation_email
 
+    # Campaign launch date
+    attr_accessor :launch_date
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'id' => :'id',
         :'name' => :'name',
-        :'redirect_link' => :'redirect_link',
-        :'introduction_email' => :'introduction_email',
-        :'one_day_reminder_email' => :'one_day_reminder_email',
-        :'two_day_reminder_email' => :'two_day_reminder_email',
-        :'seven_day_reminder_email' => :'seven_day_reminder_email',
-        :'confirmation_email' => :'confirmation_email'
+        :'state' => :'state',
+        :'redirect_link' => :'redirectLink',
+        :'introduction_email' => :'introductionEmail',
+        :'one_day_reminder_email' => :'oneDayReminderEmail',
+        :'two_day_reminder_email' => :'twoDayReminderEmail',
+        :'seven_day_reminder_email' => :'sevenDayReminderEmail',
+        :'confirmation_email' => :'confirmationEmail',
+        :'launch_date' => :'launchDate'
       }
     end
 
@@ -64,12 +72,14 @@ module DealMakerAPI
       {
         :'id' => :'Integer',
         :'name' => :'String',
+        :'state' => :'String',
         :'redirect_link' => :'String',
         :'introduction_email' => :'Boolean',
         :'one_day_reminder_email' => :'Boolean',
         :'two_day_reminder_email' => :'Boolean',
         :'seven_day_reminder_email' => :'Boolean',
-        :'confirmation_email' => :'Boolean'
+        :'confirmation_email' => :'Boolean',
+        :'launch_date' => :'Date'
       }
     end
 
@@ -102,6 +112,10 @@ module DealMakerAPI
         self.name = attributes[:'name']
       end
 
+      if attributes.key?(:'state')
+        self.state = attributes[:'state']
+      end
+
       if attributes.key?(:'redirect_link')
         self.redirect_link = attributes[:'redirect_link']
       end
@@ -124,6 +138,10 @@ module DealMakerAPI
 
       if attributes.key?(:'confirmation_email')
         self.confirmation_email = attributes[:'confirmation_email']
+      end
+
+      if attributes.key?(:'launch_date')
+        self.launch_date = attributes[:'launch_date']
       end
     end
 
@@ -149,12 +167,14 @@ module DealMakerAPI
       self.class == o.class &&
           id == o.id &&
           name == o.name &&
+          state == o.state &&
           redirect_link == o.redirect_link &&
           introduction_email == o.introduction_email &&
           one_day_reminder_email == o.one_day_reminder_email &&
           two_day_reminder_email == o.two_day_reminder_email &&
           seven_day_reminder_email == o.seven_day_reminder_email &&
-          confirmation_email == o.confirmation_email
+          confirmation_email == o.confirmation_email &&
+          launch_date == o.launch_date
     end
 
     # @see the `==` method
@@ -166,7 +186,7 @@ module DealMakerAPI
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, name, redirect_link, introduction_email, one_day_reminder_email, two_day_reminder_email, seven_day_reminder_email, confirmation_email].hash
+      [id, name, state, redirect_link, introduction_email, one_day_reminder_email, two_day_reminder_email, seven_day_reminder_email, confirmation_email, launch_date].hash
     end
 
     # Builds the object from hash

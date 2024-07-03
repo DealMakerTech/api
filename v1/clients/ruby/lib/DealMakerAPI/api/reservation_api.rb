@@ -23,7 +23,7 @@ module DealMakerAPI
     # Create a new reservation
     # @param create_reservation_request [CreateReservationRequest] 
     # @param [Hash] opts the optional parameters
-    # @return [V1EntitiesTtwReservation]
+    # @return [V1EntitiesTtwReservationCreate]
     def create_reservation(create_reservation_request, opts = {})
       data, _status_code, _headers = create_reservation_with_http_info(create_reservation_request, opts)
       data
@@ -33,7 +33,7 @@ module DealMakerAPI
     # Create a new reservation
     # @param create_reservation_request [CreateReservationRequest] 
     # @param [Hash] opts the optional parameters
-    # @return [Array<(V1EntitiesTtwReservation, Integer, Hash)>] V1EntitiesTtwReservation data, response status code and response headers
+    # @return [Array<(V1EntitiesTtwReservationCreate, Integer, Hash)>] V1EntitiesTtwReservationCreate data, response status code and response headers
     def create_reservation_with_http_info(create_reservation_request, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ReservationApi.create_reservation ...'
@@ -65,7 +65,7 @@ module DealMakerAPI
       post_body = opts[:debug_body] || @api_client.object_to_http_body(create_reservation_request)
 
       # return_type
-      return_type = opts[:debug_return_type] || 'V1EntitiesTtwReservation'
+      return_type = opts[:debug_return_type] || 'V1EntitiesTtwReservationCreate'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || []
@@ -83,6 +83,69 @@ module DealMakerAPI
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ReservationApi#create_reservation\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Gets a TTW reservation
+    # Gets a TTW reservation
+    # @param id [Integer] 
+    # @param [Hash] opts the optional parameters
+    # @return [V1EntitiesTtwReservationResponse]
+    def get_ttw_reservation(id, opts = {})
+      data, _status_code, _headers = get_ttw_reservation_with_http_info(id, opts)
+      data
+    end
+
+    # Gets a TTW reservation
+    # Gets a TTW reservation
+    # @param id [Integer] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(V1EntitiesTtwReservationResponse, Integer, Hash)>] V1EntitiesTtwReservationResponse data, response status code and response headers
+    def get_ttw_reservation_with_http_info(id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ReservationApi.get_ttw_reservation ...'
+      end
+      # verify the required parameter 'id' is set
+      if @api_client.config.client_side_validation && id.nil?
+        fail ArgumentError, "Missing the required parameter 'id' when calling ReservationApi.get_ttw_reservation"
+      end
+      # resource path
+      local_var_path = '/ttw/reservations/{id}'.sub('{' + 'id' + '}', CGI.escape(id.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'V1EntitiesTtwReservationResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"ReservationApi.get_ttw_reservation",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ReservationApi#get_ttw_reservation\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

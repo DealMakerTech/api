@@ -44,6 +44,7 @@ docs/Model/PatchInvestorProfilesManaged.md
 docs/Model/PatchInvestorProfilesTrusts.md
 docs/Model/PatchInvestorProfilesTrustsTrusteesInner.md
 docs/Model/PatchInvestorRequest.md
+docs/Model/PatchPlatformEmailRequest.md
 docs/Model/PostDealIncentivePlanRequest.md
 docs/Model/PostDealsIdInvestors.md
 docs/Model/PostInvestorProfilesCorporations.md
@@ -90,6 +91,8 @@ docs/Model/V1EntitiesDealsIncentivePlan.md
 docs/Model/V1EntitiesDealsIncentivePlansIncentiveTier.md
 docs/Model/V1EntitiesDealsInvestorsPaymentAchBankAccountSetupIntent.md
 docs/Model/V1EntitiesDealsInvestorsPaymentAcssBankAccountSetupIntent.md
+docs/Model/V1EntitiesDealsPlatformEmail.md
+docs/Model/V1EntitiesDealsPlatformEmails.md
 docs/Model/V1EntitiesDealsPlatformEmailsDomainSettings.md
 docs/Model/V1EntitiesDealsPriceDetails.md
 docs/Model/V1EntitiesDealsProgress.md
@@ -145,8 +148,10 @@ docs/Model/V1EntitiesShareholders.md
 docs/Model/V1EntitiesShareholdersTags.md
 docs/Model/V1EntitiesState.md
 docs/Model/V1EntitiesSubscriptionAgreement.md
+docs/Model/V1EntitiesTtwCampaignList.md
 docs/Model/V1EntitiesTtwCampaignResponse.md
-docs/Model/V1EntitiesTtwReservation.md
+docs/Model/V1EntitiesTtwReservationCreate.md
+docs/Model/V1EntitiesTtwReservationResponse.md
 docs/Model/V1EntitiesUser.md
 docs/Model/V1EntitiesUsersBinding.md
 docs/Model/V1EntitiesUsersContext.md
@@ -207,6 +212,7 @@ lib/Model/PatchInvestorProfilesManaged.php
 lib/Model/PatchInvestorProfilesTrusts.php
 lib/Model/PatchInvestorProfilesTrustsTrusteesInner.php
 lib/Model/PatchInvestorRequest.php
+lib/Model/PatchPlatformEmailRequest.php
 lib/Model/PostDealIncentivePlanRequest.php
 lib/Model/PostDealsIdInvestors.php
 lib/Model/PostInvestorProfilesCorporations.php
@@ -253,6 +259,8 @@ lib/Model/V1EntitiesDealsIncentivePlan.php
 lib/Model/V1EntitiesDealsIncentivePlansIncentiveTier.php
 lib/Model/V1EntitiesDealsInvestorsPaymentAchBankAccountSetupIntent.php
 lib/Model/V1EntitiesDealsInvestorsPaymentAcssBankAccountSetupIntent.php
+lib/Model/V1EntitiesDealsPlatformEmail.php
+lib/Model/V1EntitiesDealsPlatformEmails.php
 lib/Model/V1EntitiesDealsPlatformEmailsDomainSettings.php
 lib/Model/V1EntitiesDealsPriceDetails.php
 lib/Model/V1EntitiesDealsProgress.php
@@ -308,8 +316,10 @@ lib/Model/V1EntitiesShareholders.php
 lib/Model/V1EntitiesShareholdersTags.php
 lib/Model/V1EntitiesState.php
 lib/Model/V1EntitiesSubscriptionAgreement.php
+lib/Model/V1EntitiesTtwCampaignList.php
 lib/Model/V1EntitiesTtwCampaignResponse.php
-lib/Model/V1EntitiesTtwReservation.php
+lib/Model/V1EntitiesTtwReservationCreate.php
+lib/Model/V1EntitiesTtwReservationResponse.php
 lib/Model/V1EntitiesUser.php
 lib/Model/V1EntitiesUsersBinding.php
 lib/Model/V1EntitiesUsersContext.php
@@ -367,6 +377,7 @@ test/Model/PatchInvestorProfilesManagedTest.php
 test/Model/PatchInvestorProfilesTrustsTest.php
 test/Model/PatchInvestorProfilesTrustsTrusteesInnerTest.php
 test/Model/PatchInvestorRequestTest.php
+test/Model/PatchPlatformEmailRequestTest.php
 test/Model/PostDealIncentivePlanRequestTest.php
 test/Model/PostDealsIdInvestorsTest.php
 test/Model/PostInvestorProfilesCorporationsBeneficialOwnersInnerTest.php
@@ -412,7 +423,9 @@ test/Model/V1EntitiesDealsIncentivePlanTest.php
 test/Model/V1EntitiesDealsIncentivePlansIncentiveTierTest.php
 test/Model/V1EntitiesDealsInvestorsPaymentAchBankAccountSetupIntentTest.php
 test/Model/V1EntitiesDealsInvestorsPaymentAcssBankAccountSetupIntentTest.php
+test/Model/V1EntitiesDealsPlatformEmailTest.php
 test/Model/V1EntitiesDealsPlatformEmailsDomainSettingsTest.php
+test/Model/V1EntitiesDealsPlatformEmailsTest.php
 test/Model/V1EntitiesDealsPriceDetailsTest.php
 test/Model/V1EntitiesDealsProgressColumnTest.php
 test/Model/V1EntitiesDealsProgressKindsTest.php
@@ -468,8 +481,10 @@ test/Model/V1EntitiesShareholdersTagsTest.php
 test/Model/V1EntitiesShareholdersTest.php
 test/Model/V1EntitiesStateTest.php
 test/Model/V1EntitiesSubscriptionAgreementTest.php
+test/Model/V1EntitiesTtwCampaignListTest.php
 test/Model/V1EntitiesTtwCampaignResponseTest.php
-test/Model/V1EntitiesTtwReservationTest.php
+test/Model/V1EntitiesTtwReservationCreateTest.php
+test/Model/V1EntitiesTtwReservationResponseTest.php
 test/Model/V1EntitiesUserTest.php
 test/Model/V1EntitiesUsersBindingTest.php
 test/Model/V1EntitiesUsersContextTest.php

@@ -14,17 +14,20 @@
 
 import ApiClient from "../ApiClient";
 import CreateDealSetupRequest from '../model/CreateDealSetupRequest';
+import PatchPlatformEmailRequest from '../model/PatchPlatformEmailRequest';
 import V1EntitiesDeal from '../model/V1EntitiesDeal';
 import V1EntitiesDealSetup from '../model/V1EntitiesDealSetup';
 import V1EntitiesDeals from '../model/V1EntitiesDeals';
 import V1EntitiesDealsInvestorsPaymentAchBankAccountSetupIntent from '../model/V1EntitiesDealsInvestorsPaymentAchBankAccountSetupIntent';
 import V1EntitiesDealsInvestorsPaymentAcssBankAccountSetupIntent from '../model/V1EntitiesDealsInvestorsPaymentAcssBankAccountSetupIntent';
+import V1EntitiesDealsPlatformEmail from '../model/V1EntitiesDealsPlatformEmail';
+import V1EntitiesDealsPlatformEmails from '../model/V1EntitiesDealsPlatformEmails';
 import V1EntitiesDealsPriceDetails from '../model/V1EntitiesDealsPriceDetails';
 
 /**
 * Deal service.
 * @module api/DealApi
-* @version 0.106.2
+* @version 0.106.3
 */
 export default class DealApi {
 
@@ -322,6 +325,103 @@ export default class DealApi {
       let returnType = V1EntitiesDeals;
       return this.apiClient.callApi(
         '/deals', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the listPlatformEmails operation.
+     * @callback module:api/DealApi~listPlatformEmailsCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/V1EntitiesDealsPlatformEmails} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Get a list of platform emails for the deal
+     * Get a list of platform emails for the deal
+     * @param {Number} id The deal id.
+     * @param {module:api/DealApi~listPlatformEmailsCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/V1EntitiesDealsPlatformEmails}
+     */
+    listPlatformEmails(id, callback) {
+      let postBody = null;
+      // verify the required parameter 'id' is set
+      if (id === undefined || id === null) {
+        throw new Error("Missing the required parameter 'id' when calling listPlatformEmails");
+      }
+
+      let pathParams = {
+        'id': id
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = V1EntitiesDealsPlatformEmails;
+      return this.apiClient.callApi(
+        '/deals/{id}/platform_emails', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the patchPlatformEmail operation.
+     * @callback module:api/DealApi~patchPlatformEmailCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/V1EntitiesDealsPlatformEmail} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Patch platform email by kind and deal.
+     * Patch platform email by kind and deal.
+     * @param {Number} id 
+     * @param {Number} kind 
+     * @param {module:model/PatchPlatformEmailRequest} patchPlatformEmailRequest 
+     * @param {module:api/DealApi~patchPlatformEmailCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/V1EntitiesDealsPlatformEmail}
+     */
+    patchPlatformEmail(id, kind, patchPlatformEmailRequest, callback) {
+      let postBody = patchPlatformEmailRequest;
+      // verify the required parameter 'id' is set
+      if (id === undefined || id === null) {
+        throw new Error("Missing the required parameter 'id' when calling patchPlatformEmail");
+      }
+      // verify the required parameter 'kind' is set
+      if (kind === undefined || kind === null) {
+        throw new Error("Missing the required parameter 'kind' when calling patchPlatformEmail");
+      }
+      // verify the required parameter 'patchPlatformEmailRequest' is set
+      if (patchPlatformEmailRequest === undefined || patchPlatformEmailRequest === null) {
+        throw new Error("Missing the required parameter 'patchPlatformEmailRequest' when calling patchPlatformEmail");
+      }
+
+      let pathParams = {
+        'id': id,
+        'kind': kind
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = V1EntitiesDealsPlatformEmail;
+      return this.apiClient.callApi(
+        '/deals/{id}/platform_emails/{kind}/update', 'PATCH',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

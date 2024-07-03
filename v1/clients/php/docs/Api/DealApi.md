@@ -10,6 +10,8 @@ All URIs are relative to http://api.dealmaker.tech, except if the operation defi
 | [**getDeal()**](DealApi.md#getDeal) | **GET** /deals/{id} | Get deal by Deal ID |
 | [**getDealIncentivePlan()**](DealApi.md#getDealIncentivePlan) | **GET** /deals/{id}/incentive_plan | Get incentive plan by deal id |
 | [**listDeals()**](DealApi.md#listDeals) | **GET** /deals | List available deals |
+| [**listPlatformEmails()**](DealApi.md#listPlatformEmails) | **GET** /deals/{id}/platform_emails | Get a list of platform emails for the deal |
+| [**patchPlatformEmail()**](DealApi.md#patchPlatformEmail) | **PATCH** /deals/{id}/platform_emails/{kind}/update | Patch platform email by kind and deal. |
 
 
 ## `achBankAccountSetupIntent()`
@@ -361,6 +363,124 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `listPlatformEmails()`
+
+```php
+listPlatformEmails($id): \DealMaker\Model\V1EntitiesDealsPlatformEmails
+```
+
+Get a list of platform emails for the deal
+
+Get a list of platform emails for the deal
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new DealMaker\Api\DealApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = 56; // int | The deal id.
+
+try {
+    $result = $apiInstance->listPlatformEmails($id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling DealApi->listPlatformEmails: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **int**| The deal id. | |
+
+### Return type
+
+[**\DealMaker\Model\V1EntitiesDealsPlatformEmails**](../Model/V1EntitiesDealsPlatformEmails.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `patchPlatformEmail()`
+
+```php
+patchPlatformEmail($id, $kind, $patch_platform_email_request): \DealMaker\Model\V1EntitiesDealsPlatformEmail
+```
+
+Patch platform email by kind and deal.
+
+Patch platform email by kind and deal.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new DealMaker\Api\DealApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = 56; // int
+$kind = 56; // int
+$patch_platform_email_request = new \DealMaker\Model\PatchPlatformEmailRequest(); // \DealMaker\Model\PatchPlatformEmailRequest
+
+try {
+    $result = $apiInstance->patchPlatformEmail($id, $kind, $patch_platform_email_request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling DealApi->patchPlatformEmail: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **int**|  | |
+| **kind** | **int**|  | |
+| **patch_platform_email_request** | [**\DealMaker\Model\PatchPlatformEmailRequest**](../Model/PatchPlatformEmailRequest.md)|  | |
+
+### Return type
+
+[**\DealMaker\Model\V1EntitiesDealsPlatformEmail**](../Model/V1EntitiesDealsPlatformEmail.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

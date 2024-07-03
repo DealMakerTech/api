@@ -98,6 +98,15 @@ class V1EntitiesTtwCampaignResponseTest extends TestCase
     }
 
     /**
+     * Test attribute "state"
+     */
+    public function testPropertyState()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "redirect_link"
      */
     public function testPropertyRedirectLink()
@@ -146,6 +155,15 @@ class V1EntitiesTtwCampaignResponseTest extends TestCase
      * Test attribute "confirmation_email"
      */
     public function testPropertyConfirmationEmail()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "launch_date"
+     */
+    public function testPropertyLaunchDate()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

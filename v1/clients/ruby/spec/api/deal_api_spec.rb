@@ -111,4 +111,30 @@ describe 'DealApi' do
     end
   end
 
+  # unit tests for list_platform_emails
+  # Get a list of platform emails for the deal
+  # Get a list of platform emails for the deal
+  # @param id The deal id.
+  # @param [Hash] opts the optional parameters
+  # @return [V1EntitiesDealsPlatformEmails]
+  describe 'list_platform_emails test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for patch_platform_email
+  # Patch platform email by kind and deal.
+  # Patch platform email by kind and deal.
+  # @param id 
+  # @param kind 
+  # @param patch_platform_email_request 
+  # @param [Hash] opts the optional parameters
+  # @return [V1EntitiesDealsPlatformEmail]
+  describe 'patch_platform_email test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
 end

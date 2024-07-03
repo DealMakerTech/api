@@ -11,55 +11,88 @@
  *
  */
 
-(function(root, factory) {
-  if (typeof define === 'function' && define.amd) {
-    // AMD.
-    define(['expect.js', process.cwd()+'/src/index'], factory);
-  } else if (typeof module === 'object' && module.exports) {
-    // CommonJS-like environments that support module.exports, like Node.
-    factory(require('expect.js'), require(process.cwd()+'/src/index'));
-  } else {
-    // Browser globals (root is window)
-    factory(root.expect, root.Api);
-  }
-}(this, function(expect, Api) {
-  'use strict';
+import ApiClient from '../ApiClient';
 
-  var instance;
+/**
+ * The V1EntitiesTtwReservationCreate model module.
+ * @module model/V1EntitiesTtwReservationCreate
+ * @version 0.106.3
+ */
+class V1EntitiesTtwReservationCreate {
+    /**
+     * Constructs a new <code>V1EntitiesTtwReservationCreate</code>.
+     * V1_Entities_Ttw_Reservation_Create model
+     * @alias module:model/V1EntitiesTtwReservationCreate
+     */
+    constructor() { 
+        
+        V1EntitiesTtwReservationCreate.initialize(this);
+    }
 
-  beforeEach(function() {
-    instance = new Api.V1EntitiesTtwReservation();
-  });
+    /**
+     * Initializes the fields of this object.
+     * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
+     * Only for internal use.
+     */
+    static initialize(obj) { 
+    }
 
-  var getProperty = function(object, getter, property) {
-    // Use getter method if present; otherwise, get the property directly.
-    if (typeof object[getter] === 'function')
-      return object[getter]();
-    else
-      return object[property];
-  }
+    /**
+     * Constructs a <code>V1EntitiesTtwReservationCreate</code> from a plain JavaScript object, optionally creating a new instance.
+     * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @param {module:model/V1EntitiesTtwReservationCreate} obj Optional instance to populate.
+     * @return {module:model/V1EntitiesTtwReservationCreate} The populated <code>V1EntitiesTtwReservationCreate</code> instance.
+     */
+    static constructFromObject(data, obj) {
+        if (data) {
+            obj = obj || new V1EntitiesTtwReservationCreate();
 
-  var setProperty = function(object, setter, property, value) {
-    // Use setter method if present; otherwise, set the property directly.
-    if (typeof object[setter] === 'function')
-      object[setter](value);
-    else
-      object[property] = value;
-  }
+            if (data.hasOwnProperty('id')) {
+                obj['id'] = ApiClient.convertToType(data['id'], 'Number');
+            }
+            if (data.hasOwnProperty('token')) {
+                obj['token'] = ApiClient.convertToType(data['token'], 'String');
+            }
+        }
+        return obj;
+    }
 
-  describe('V1EntitiesTtwReservation', function() {
-    it('should create an instance of V1EntitiesTtwReservation', function() {
-      // uncomment below and update the code to test V1EntitiesTtwReservation
-      //var instance = new Api.V1EntitiesTtwReservation();
-      //expect(instance).to.be.a(Api.V1EntitiesTtwReservation);
-    });
+    /**
+     * Validates the JSON data with respect to <code>V1EntitiesTtwReservationCreate</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>V1EntitiesTtwReservationCreate</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is a string
+        if (data['token'] && !(typeof data['token'] === 'string' || data['token'] instanceof String)) {
+            throw new Error("Expected the field `token` to be a primitive type in the JSON string but got " + data['token']);
+        }
 
-    it('should have the property id (base name: "id")', function() {
-      // uncomment below and update the code to test the property id
-      //var instance = new Api.V1EntitiesTtwReservation();
-      //expect(instance).to.be();
-    });
+        return true;
+    }
 
-  });
 
-}));
+}
+
+
+
+/**
+ * The ID of the reservation.
+ * @member {Number} id
+ */
+V1EntitiesTtwReservationCreate.prototype['id'] = undefined;
+
+/**
+ * The token for the reservation.
+ * @member {String} token
+ */
+V1EntitiesTtwReservationCreate.prototype['token'] = undefined;
+
+
+
+
+
+
+export default V1EntitiesTtwReservationCreate;
+

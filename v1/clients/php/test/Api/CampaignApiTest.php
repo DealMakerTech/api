@@ -82,4 +82,16 @@ class CampaignApiTest extends TestCase
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test case for getTtwCampaigns
+     *
+     * Gets a list TTW campaigns for a given company.
+     *
+     */
+    public function testGetTtwCampaigns()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
 }

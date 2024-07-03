@@ -37,8 +37,20 @@ describe 'ReservationApi' do
   # Create a new reservation
   # @param create_reservation_request 
   # @param [Hash] opts the optional parameters
-  # @return [V1EntitiesTtwReservation]
+  # @return [V1EntitiesTtwReservationCreate]
   describe 'create_reservation test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for get_ttw_reservation
+  # Gets a TTW reservation
+  # Gets a TTW reservation
+  # @param id 
+  # @param [Hash] opts the optional parameters
+  # @return [V1EntitiesTtwReservationResponse]
+  describe 'get_ttw_reservation test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end

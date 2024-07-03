@@ -405,6 +405,7 @@ All URIs are relative to *http://api.dealmaker.tech*
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *CampaignApi* | [**getTtwCampaign**](docs/Api/CampaignApi.md#getttwcampaign) | **GET** /ttw/campaigns/{id} | Gets a TTW campaign for a given company
+*CampaignApi* | [**getTtwCampaigns**](docs/Api/CampaignApi.md#getttwcampaigns) | **GET** /ttw/companies/{company_id}/campaigns | Gets a list TTW campaigns for a given company
 *CompanyApi* | [**createBulkUpload**](docs/Api/CompanyApi.md#createbulkupload) | **POST** /companies/{id}/documents/bulk_uploads | Create bulk upload record
 *CompanyApi* | [**createBulkUploadDetail**](docs/Api/CompanyApi.md#createbulkuploaddetail) | **POST** /companies/{company_id}/documents/bulk_uploads/{bulk_upload_id}/details | Create a BulkUploadDetail class record
 *CompanyApi* | [**createCompany**](docs/Api/CompanyApi.md#createcompany) | **POST** /companies | Create new company
@@ -436,6 +437,8 @@ Class | Method | HTTP request | Description
 *DealApi* | [**getDeal**](docs/Api/DealApi.md#getdeal) | **GET** /deals/{id} | Get deal by Deal ID
 *DealApi* | [**getDealIncentivePlan**](docs/Api/DealApi.md#getdealincentiveplan) | **GET** /deals/{id}/incentive_plan | Get incentive plan by deal id
 *DealApi* | [**listDeals**](docs/Api/DealApi.md#listdeals) | **GET** /deals | List available deals
+*DealApi* | [**listPlatformEmails**](docs/Api/DealApi.md#listplatformemails) | **GET** /deals/{id}/platform_emails | Get a list of platform emails for the deal
+*DealApi* | [**patchPlatformEmail**](docs/Api/DealApi.md#patchplatformemail) | **PATCH** /deals/{id}/platform_emails/{kind}/update | Patch platform email by kind and deal.
 *DealsApi* | [**postDealsIdEmailCampaignEmailCampaignIdSendEmail**](docs/Api/DealsApi.md#postdealsidemailcampaignemailcampaignidsendemail) | **POST** /deals/{id}/email_campaign/{email_campaign_id}/send_email | Send emails to all the investors invited to the material change campaign
 *DealsApi* | [**putDealsIdScriptTagEnvironment**](docs/Api/DealsApi.md#putdealsidscripttagenvironment) | **PUT** /deals/{id}/script_tag_environment | Update script tag environment for the deal.
 *DefaultApi* | [**getDealsDealIdPaymentOnboardingQuestionnaireDigitalPaymentsConnectionData**](docs/Api/DefaultApi.md#getdealsdealidpaymentonboardingquestionnairedigitalpaymentsconnectiondata) | **GET** /deals/{deal_id}/payment_onboarding/questionnaire/digital_payments_connection/data | Load data for the digital payments connection stage
@@ -493,6 +496,7 @@ Class | Method | HTTP request | Description
 *InvestorProfileApi* | [**patchTrustProfile**](docs/Api/InvestorProfileApi.md#patchtrustprofile) | **PATCH** /investor_profiles/trusts/{investor_profile_id} | Patch a trust investor profile
 *PaymentsApi* | [**postDealInvestorPaymentsIra**](docs/Api/PaymentsApi.md#postdealinvestorpaymentsira) | **POST** /deals/{id}/investors/{investor_id}/payments/ira | Creates a payment intent for express wire and mail its instructions.
 *ReservationApi* | [**createReservation**](docs/Api/ReservationApi.md#createreservation) | **POST** /ttw/reservations | Create a new reservation
+*ReservationApi* | [**getTtwReservation**](docs/Api/ReservationApi.md#getttwreservation) | **GET** /ttw/reservations/{id} | Gets a TTW reservation
 *ShareholderApi* | [**getShareholders**](docs/Api/ShareholderApi.md#getshareholders) | **GET** /companies/{id}/shareholders | Get a company shareholders list
 *ShareholderApi* | [**getShareholdersTags**](docs/Api/ShareholderApi.md#getshareholderstags) | **GET** /companies/{id}/shareholders/tags | Get a company shareholders list grouped by tags
 *UploadApi* | [**generateUrl**](docs/Api/UploadApi.md#generateurl) | **POST** /uploads/generate_url | Create a presigned URL for Amazon S3
@@ -536,6 +540,7 @@ Class | Method | HTTP request | Description
 - [PatchInvestorProfilesTrusts](docs/Model/PatchInvestorProfilesTrusts.md)
 - [PatchInvestorProfilesTrustsTrusteesInner](docs/Model/PatchInvestorProfilesTrustsTrusteesInner.md)
 - [PatchInvestorRequest](docs/Model/PatchInvestorRequest.md)
+- [PatchPlatformEmailRequest](docs/Model/PatchPlatformEmailRequest.md)
 - [PostDealIncentivePlanRequest](docs/Model/PostDealIncentivePlanRequest.md)
 - [PostDealsIdInvestors](docs/Model/PostDealsIdInvestors.md)
 - [PostInvestorProfilesCorporations](docs/Model/PostInvestorProfilesCorporations.md)
@@ -582,6 +587,8 @@ Class | Method | HTTP request | Description
 - [V1EntitiesDealsIncentivePlansIncentiveTier](docs/Model/V1EntitiesDealsIncentivePlansIncentiveTier.md)
 - [V1EntitiesDealsInvestorsPaymentAchBankAccountSetupIntent](docs/Model/V1EntitiesDealsInvestorsPaymentAchBankAccountSetupIntent.md)
 - [V1EntitiesDealsInvestorsPaymentAcssBankAccountSetupIntent](docs/Model/V1EntitiesDealsInvestorsPaymentAcssBankAccountSetupIntent.md)
+- [V1EntitiesDealsPlatformEmail](docs/Model/V1EntitiesDealsPlatformEmail.md)
+- [V1EntitiesDealsPlatformEmails](docs/Model/V1EntitiesDealsPlatformEmails.md)
 - [V1EntitiesDealsPlatformEmailsDomainSettings](docs/Model/V1EntitiesDealsPlatformEmailsDomainSettings.md)
 - [V1EntitiesDealsPriceDetails](docs/Model/V1EntitiesDealsPriceDetails.md)
 - [V1EntitiesDealsProgress](docs/Model/V1EntitiesDealsProgress.md)
@@ -637,8 +644,10 @@ Class | Method | HTTP request | Description
 - [V1EntitiesShareholdersTags](docs/Model/V1EntitiesShareholdersTags.md)
 - [V1EntitiesState](docs/Model/V1EntitiesState.md)
 - [V1EntitiesSubscriptionAgreement](docs/Model/V1EntitiesSubscriptionAgreement.md)
+- [V1EntitiesTtwCampaignList](docs/Model/V1EntitiesTtwCampaignList.md)
 - [V1EntitiesTtwCampaignResponse](docs/Model/V1EntitiesTtwCampaignResponse.md)
-- [V1EntitiesTtwReservation](docs/Model/V1EntitiesTtwReservation.md)
+- [V1EntitiesTtwReservationCreate](docs/Model/V1EntitiesTtwReservationCreate.md)
+- [V1EntitiesTtwReservationResponse](docs/Model/V1EntitiesTtwReservationResponse.md)
 - [V1EntitiesUser](docs/Model/V1EntitiesUser.md)
 - [V1EntitiesUsersBinding](docs/Model/V1EntitiesUsersBinding.md)
 - [V1EntitiesUsersContext](docs/Model/V1EntitiesUsersContext.md)
@@ -676,6 +685,6 @@ vendor/bin/phpunit
 This PHP package is automatically generated by the [OpenAPI Generator](https://openapi-generator.tech) project:
 
 - API version: `1.75.0`
-    - Package version: `0.106.2`
+    - Package version: `0.106.3`
     - Generator version: `7.8.0-SNAPSHOT`
 - Build package: `org.openapitools.codegen.languages.PhpClientCodegen`

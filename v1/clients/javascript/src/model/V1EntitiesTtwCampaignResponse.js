@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The V1EntitiesTtwCampaignResponse model module.
  * @module model/V1EntitiesTtwCampaignResponse
- * @version 0.106.2
+ * @version 0.106.3
  */
 class V1EntitiesTtwCampaignResponse {
     /**
@@ -54,23 +54,29 @@ class V1EntitiesTtwCampaignResponse {
             if (data.hasOwnProperty('name')) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('redirect_link')) {
-                obj['redirect_link'] = ApiClient.convertToType(data['redirect_link'], 'String');
+            if (data.hasOwnProperty('state')) {
+                obj['state'] = ApiClient.convertToType(data['state'], 'String');
             }
-            if (data.hasOwnProperty('introduction_email')) {
-                obj['introduction_email'] = ApiClient.convertToType(data['introduction_email'], 'Boolean');
+            if (data.hasOwnProperty('redirectLink')) {
+                obj['redirectLink'] = ApiClient.convertToType(data['redirectLink'], 'String');
             }
-            if (data.hasOwnProperty('one_day_reminder_email')) {
-                obj['one_day_reminder_email'] = ApiClient.convertToType(data['one_day_reminder_email'], 'Boolean');
+            if (data.hasOwnProperty('introductionEmail')) {
+                obj['introductionEmail'] = ApiClient.convertToType(data['introductionEmail'], 'Boolean');
             }
-            if (data.hasOwnProperty('two_day_reminder_email')) {
-                obj['two_day_reminder_email'] = ApiClient.convertToType(data['two_day_reminder_email'], 'Boolean');
+            if (data.hasOwnProperty('oneDayReminderEmail')) {
+                obj['oneDayReminderEmail'] = ApiClient.convertToType(data['oneDayReminderEmail'], 'Boolean');
             }
-            if (data.hasOwnProperty('seven_day_reminder_email')) {
-                obj['seven_day_reminder_email'] = ApiClient.convertToType(data['seven_day_reminder_email'], 'Boolean');
+            if (data.hasOwnProperty('twoDayReminderEmail')) {
+                obj['twoDayReminderEmail'] = ApiClient.convertToType(data['twoDayReminderEmail'], 'Boolean');
             }
-            if (data.hasOwnProperty('confirmation_email')) {
-                obj['confirmation_email'] = ApiClient.convertToType(data['confirmation_email'], 'Boolean');
+            if (data.hasOwnProperty('sevenDayReminderEmail')) {
+                obj['sevenDayReminderEmail'] = ApiClient.convertToType(data['sevenDayReminderEmail'], 'Boolean');
+            }
+            if (data.hasOwnProperty('confirmationEmail')) {
+                obj['confirmationEmail'] = ApiClient.convertToType(data['confirmationEmail'], 'Boolean');
+            }
+            if (data.hasOwnProperty('launchDate')) {
+                obj['launchDate'] = ApiClient.convertToType(data['launchDate'], 'Date');
             }
         }
         return obj;
@@ -87,8 +93,12 @@ class V1EntitiesTtwCampaignResponse {
             throw new Error("Expected the field `name` to be a primitive type in the JSON string but got " + data['name']);
         }
         // ensure the json data is a string
-        if (data['redirect_link'] && !(typeof data['redirect_link'] === 'string' || data['redirect_link'] instanceof String)) {
-            throw new Error("Expected the field `redirect_link` to be a primitive type in the JSON string but got " + data['redirect_link']);
+        if (data['state'] && !(typeof data['state'] === 'string' || data['state'] instanceof String)) {
+            throw new Error("Expected the field `state` to be a primitive type in the JSON string but got " + data['state']);
+        }
+        // ensure the json data is a string
+        if (data['redirectLink'] && !(typeof data['redirectLink'] === 'string' || data['redirectLink'] instanceof String)) {
+            throw new Error("Expected the field `redirectLink` to be a primitive type in the JSON string but got " + data['redirectLink']);
         }
 
         return true;
@@ -112,40 +122,52 @@ V1EntitiesTtwCampaignResponse.prototype['id'] = undefined;
 V1EntitiesTtwCampaignResponse.prototype['name'] = undefined;
 
 /**
- * Redirect link for the campaign
- * @member {String} redirect_link
+ * Campaign state
+ * @member {String} state
  */
-V1EntitiesTtwCampaignResponse.prototype['redirect_link'] = undefined;
+V1EntitiesTtwCampaignResponse.prototype['state'] = undefined;
+
+/**
+ * Redirect link for the campaign
+ * @member {String} redirectLink
+ */
+V1EntitiesTtwCampaignResponse.prototype['redirectLink'] = undefined;
 
 /**
  * State of the introduction email
- * @member {Boolean} introduction_email
+ * @member {Boolean} introductionEmail
  */
-V1EntitiesTtwCampaignResponse.prototype['introduction_email'] = undefined;
+V1EntitiesTtwCampaignResponse.prototype['introductionEmail'] = undefined;
 
 /**
  * State of the 1 day reminder email
- * @member {Boolean} one_day_reminder_email
+ * @member {Boolean} oneDayReminderEmail
  */
-V1EntitiesTtwCampaignResponse.prototype['one_day_reminder_email'] = undefined;
+V1EntitiesTtwCampaignResponse.prototype['oneDayReminderEmail'] = undefined;
 
 /**
  * State of the 2 day reminder email
- * @member {Boolean} two_day_reminder_email
+ * @member {Boolean} twoDayReminderEmail
  */
-V1EntitiesTtwCampaignResponse.prototype['two_day_reminder_email'] = undefined;
+V1EntitiesTtwCampaignResponse.prototype['twoDayReminderEmail'] = undefined;
 
 /**
  * State of the 7 day reminder email
- * @member {Boolean} seven_day_reminder_email
+ * @member {Boolean} sevenDayReminderEmail
  */
-V1EntitiesTtwCampaignResponse.prototype['seven_day_reminder_email'] = undefined;
+V1EntitiesTtwCampaignResponse.prototype['sevenDayReminderEmail'] = undefined;
 
 /**
  * State of the confirmation email
- * @member {Boolean} confirmation_email
+ * @member {Boolean} confirmationEmail
  */
-V1EntitiesTtwCampaignResponse.prototype['confirmation_email'] = undefined;
+V1EntitiesTtwCampaignResponse.prototype['confirmationEmail'] = undefined;
+
+/**
+ * Campaign launch date
+ * @member {Date} launchDate
+ */
+V1EntitiesTtwCampaignResponse.prototype['launchDate'] = undefined;
 
 
 

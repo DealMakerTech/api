@@ -37,6 +37,7 @@ docs/PatchInvestorProfilesManaged.md
 docs/PatchInvestorProfilesTrusts.md
 docs/PatchInvestorProfilesTrustsTrusteesInner.md
 docs/PatchInvestorRequest.md
+docs/PatchPlatformEmailRequest.md
 docs/PaymentsApi.md
 docs/PostDealIncentivePlanRequest.md
 docs/PostDealsIdInvestors.md
@@ -89,6 +90,8 @@ docs/V1EntitiesDealsIncentivePlan.md
 docs/V1EntitiesDealsIncentivePlansIncentiveTier.md
 docs/V1EntitiesDealsInvestorsPaymentAchBankAccountSetupIntent.md
 docs/V1EntitiesDealsInvestorsPaymentAcssBankAccountSetupIntent.md
+docs/V1EntitiesDealsPlatformEmail.md
+docs/V1EntitiesDealsPlatformEmails.md
 docs/V1EntitiesDealsPlatformEmailsDomainSettings.md
 docs/V1EntitiesDealsPriceDetails.md
 docs/V1EntitiesDealsProgress.md
@@ -144,8 +147,10 @@ docs/V1EntitiesShareholders.md
 docs/V1EntitiesShareholdersTags.md
 docs/V1EntitiesState.md
 docs/V1EntitiesSubscriptionAgreement.md
+docs/V1EntitiesTtwCampaignList.md
 docs/V1EntitiesTtwCampaignResponse.md
-docs/V1EntitiesTtwReservation.md
+docs/V1EntitiesTtwReservationCreate.md
+docs/V1EntitiesTtwReservationResponse.md
 docs/V1EntitiesUser.md
 docs/V1EntitiesUsersBinding.md
 docs/V1EntitiesUsersContext.md
@@ -206,6 +211,7 @@ src/model/PatchInvestorProfilesManaged.js
 src/model/PatchInvestorProfilesTrusts.js
 src/model/PatchInvestorProfilesTrustsTrusteesInner.js
 src/model/PatchInvestorRequest.js
+src/model/PatchPlatformEmailRequest.js
 src/model/PostDealIncentivePlanRequest.js
 src/model/PostDealsIdInvestors.js
 src/model/PostInvestorProfilesCorporations.js
@@ -252,6 +258,8 @@ src/model/V1EntitiesDealsIncentivePlan.js
 src/model/V1EntitiesDealsIncentivePlansIncentiveTier.js
 src/model/V1EntitiesDealsInvestorsPaymentAchBankAccountSetupIntent.js
 src/model/V1EntitiesDealsInvestorsPaymentAcssBankAccountSetupIntent.js
+src/model/V1EntitiesDealsPlatformEmail.js
+src/model/V1EntitiesDealsPlatformEmails.js
 src/model/V1EntitiesDealsPlatformEmailsDomainSettings.js
 src/model/V1EntitiesDealsPriceDetails.js
 src/model/V1EntitiesDealsProgress.js
@@ -307,8 +315,10 @@ src/model/V1EntitiesShareholders.js
 src/model/V1EntitiesShareholdersTags.js
 src/model/V1EntitiesState.js
 src/model/V1EntitiesSubscriptionAgreement.js
+src/model/V1EntitiesTtwCampaignList.js
 src/model/V1EntitiesTtwCampaignResponse.js
-src/model/V1EntitiesTtwReservation.js
+src/model/V1EntitiesTtwReservationCreate.js
+src/model/V1EntitiesTtwReservationResponse.js
 src/model/V1EntitiesUser.js
 src/model/V1EntitiesUsersBinding.js
 src/model/V1EntitiesUsersContext.js
@@ -364,6 +374,7 @@ test/model/PatchInvestorProfilesManaged.spec.js
 test/model/PatchInvestorProfilesTrusts.spec.js
 test/model/PatchInvestorProfilesTrustsTrusteesInner.spec.js
 test/model/PatchInvestorRequest.spec.js
+test/model/PatchPlatformEmailRequest.spec.js
 test/model/PostDealIncentivePlanRequest.spec.js
 test/model/PostDealsIdInvestors.spec.js
 test/model/PostInvestorProfilesCorporations.spec.js
@@ -410,6 +421,8 @@ test/model/V1EntitiesDealsIncentivePlan.spec.js
 test/model/V1EntitiesDealsIncentivePlansIncentiveTier.spec.js
 test/model/V1EntitiesDealsInvestorsPaymentAchBankAccountSetupIntent.spec.js
 test/model/V1EntitiesDealsInvestorsPaymentAcssBankAccountSetupIntent.spec.js
+test/model/V1EntitiesDealsPlatformEmail.spec.js
+test/model/V1EntitiesDealsPlatformEmails.spec.js
 test/model/V1EntitiesDealsPlatformEmailsDomainSettings.spec.js
 test/model/V1EntitiesDealsPriceDetails.spec.js
 test/model/V1EntitiesDealsProgress.spec.js
@@ -465,8 +478,10 @@ test/model/V1EntitiesShareholders.spec.js
 test/model/V1EntitiesShareholdersTags.spec.js
 test/model/V1EntitiesState.spec.js
 test/model/V1EntitiesSubscriptionAgreement.spec.js
+test/model/V1EntitiesTtwCampaignList.spec.js
 test/model/V1EntitiesTtwCampaignResponse.spec.js
-test/model/V1EntitiesTtwReservation.spec.js
+test/model/V1EntitiesTtwReservationCreate.spec.js
+test/model/V1EntitiesTtwReservationResponse.spec.js
 test/model/V1EntitiesUser.spec.js
 test/model/V1EntitiesUsersBinding.spec.js
 test/model/V1EntitiesUsersContext.spec.js

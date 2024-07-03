@@ -11,75 +11,73 @@
  *
  */
 
-import ApiClient from '../ApiClient';
+(function(root, factory) {
+  if (typeof define === 'function' && define.amd) {
+    // AMD.
+    define(['expect.js', process.cwd()+'/src/index'], factory);
+  } else if (typeof module === 'object' && module.exports) {
+    // CommonJS-like environments that support module.exports, like Node.
+    factory(require('expect.js'), require(process.cwd()+'/src/index'));
+  } else {
+    // Browser globals (root is window)
+    factory(root.expect, root.Api);
+  }
+}(this, function(expect, Api) {
+  'use strict';
 
-/**
- * The V1EntitiesTtwReservation model module.
- * @module model/V1EntitiesTtwReservation
- * @version 0.106.2
- */
-class V1EntitiesTtwReservation {
-    /**
-     * Constructs a new <code>V1EntitiesTtwReservation</code>.
-     * V1_Entities_Ttw_Reservation model
-     * @alias module:model/V1EntitiesTtwReservation
-     */
-    constructor() { 
-        
-        V1EntitiesTtwReservation.initialize(this);
-    }
+  var instance;
 
-    /**
-     * Initializes the fields of this object.
-     * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
-     * Only for internal use.
-     */
-    static initialize(obj) { 
-    }
+  beforeEach(function() {
+    instance = new Api.PatchPlatformEmailRequest();
+  });
 
-    /**
-     * Constructs a <code>V1EntitiesTtwReservation</code> from a plain JavaScript object, optionally creating a new instance.
-     * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
-     * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @param {module:model/V1EntitiesTtwReservation} obj Optional instance to populate.
-     * @return {module:model/V1EntitiesTtwReservation} The populated <code>V1EntitiesTtwReservation</code> instance.
-     */
-    static constructFromObject(data, obj) {
-        if (data) {
-            obj = obj || new V1EntitiesTtwReservation();
+  var getProperty = function(object, getter, property) {
+    // Use getter method if present; otherwise, get the property directly.
+    if (typeof object[getter] === 'function')
+      return object[getter]();
+    else
+      return object[property];
+  }
 
-            if (data.hasOwnProperty('id')) {
-                obj['id'] = ApiClient.convertToType(data['id'], 'Number');
-            }
-        }
-        return obj;
-    }
+  var setProperty = function(object, setter, property, value) {
+    // Use setter method if present; otherwise, set the property directly.
+    if (typeof object[setter] === 'function')
+      object[setter](value);
+    else
+      object[property] = value;
+  }
 
-    /**
-     * Validates the JSON data with respect to <code>V1EntitiesTtwReservation</code>.
-     * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>V1EntitiesTtwReservation</code>.
-     */
-    static validateJSON(data) {
+  describe('PatchPlatformEmailRequest', function() {
+    it('should create an instance of PatchPlatformEmailRequest', function() {
+      // uncomment below and update the code to test PatchPlatformEmailRequest
+      //var instance = new Api.PatchPlatformEmailRequest();
+      //expect(instance).to.be.a(Api.PatchPlatformEmailRequest);
+    });
 
-        return true;
-    }
+    it('should have the property enabled (base name: "enabled")', function() {
+      // uncomment below and update the code to test the property enabled
+      //var instance = new Api.PatchPlatformEmailRequest();
+      //expect(instance).to.be();
+    });
 
+    it('should have the property subject (base name: "subject")', function() {
+      // uncomment below and update the code to test the property subject
+      //var instance = new Api.PatchPlatformEmailRequest();
+      //expect(instance).to.be();
+    });
 
-}
+    it('should have the property reminderNumber (base name: "reminder_number")', function() {
+      // uncomment below and update the code to test the property reminderNumber
+      //var instance = new Api.PatchPlatformEmailRequest();
+      //expect(instance).to.be();
+    });
 
+    it('should have the property reminderType (base name: "reminder_type")', function() {
+      // uncomment below and update the code to test the property reminderType
+      //var instance = new Api.PatchPlatformEmailRequest();
+      //expect(instance).to.be();
+    });
 
+  });
 
-/**
- * The ID of the reservation.
- * @member {Number} id
- */
-V1EntitiesTtwReservation.prototype['id'] = undefined;
-
-
-
-
-
-
-export default V1EntitiesTtwReservation;
-
+}));

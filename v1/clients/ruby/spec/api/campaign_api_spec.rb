@@ -44,4 +44,16 @@ describe 'CampaignApi' do
     end
   end
 
+  # unit tests for get_ttw_campaigns
+  # Gets a list TTW campaigns for a given company
+  # Gets a list TTW campaigns for a given company
+  # @param company_id 
+  # @param [Hash] opts the optional parameters
+  # @return [V1EntitiesTtwCampaignList]
+  describe 'get_ttw_campaigns test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
 end

@@ -13,12 +13,13 @@
 
 
 import ApiClient from "../ApiClient";
+import V1EntitiesTtwCampaignList from '../model/V1EntitiesTtwCampaignList';
 import V1EntitiesTtwCampaignResponse from '../model/V1EntitiesTtwCampaignResponse';
 
 /**
 * Campaign service.
 * @module api/CampaignApi
-* @version 0.106.2
+* @version 0.106.3
 */
 export default class CampaignApi {
 
@@ -72,6 +73,49 @@ export default class CampaignApi {
       let returnType = V1EntitiesTtwCampaignResponse;
       return this.apiClient.callApi(
         '/ttw/campaigns/{id}', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the getTtwCampaigns operation.
+     * @callback module:api/CampaignApi~getTtwCampaignsCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/V1EntitiesTtwCampaignList} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Gets a list TTW campaigns for a given company
+     * Gets a list TTW campaigns for a given company
+     * @param {Number} companyId 
+     * @param {module:api/CampaignApi~getTtwCampaignsCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/V1EntitiesTtwCampaignList}
+     */
+    getTtwCampaigns(companyId, callback) {
+      let postBody = null;
+      // verify the required parameter 'companyId' is set
+      if (companyId === undefined || companyId === null) {
+        throw new Error("Missing the required parameter 'companyId' when calling getTtwCampaigns");
+      }
+
+      let pathParams = {
+        'company_id': companyId
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = V1EntitiesTtwCampaignList;
+      return this.apiClient.callApi(
+        '/ttw/companies/{company_id}/campaigns', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

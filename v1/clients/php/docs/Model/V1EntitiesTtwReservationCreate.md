@@ -1,9 +1,10 @@
-# # V1EntitiesTtwReservation
+# # V1EntitiesTtwReservationCreate
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** | The ID of the reservation. | [optional]
+**token** | **string** | The token for the reservation. | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

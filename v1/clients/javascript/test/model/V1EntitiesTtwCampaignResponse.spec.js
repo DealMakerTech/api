@@ -66,38 +66,50 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property redirectLink (base name: "redirect_link")', function() {
+    it('should have the property state (base name: "state")', function() {
+      // uncomment below and update the code to test the property state
+      //var instance = new Api.V1EntitiesTtwCampaignResponse();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property redirectLink (base name: "redirectLink")', function() {
       // uncomment below and update the code to test the property redirectLink
       //var instance = new Api.V1EntitiesTtwCampaignResponse();
       //expect(instance).to.be();
     });
 
-    it('should have the property introductionEmail (base name: "introduction_email")', function() {
+    it('should have the property introductionEmail (base name: "introductionEmail")', function() {
       // uncomment below and update the code to test the property introductionEmail
       //var instance = new Api.V1EntitiesTtwCampaignResponse();
       //expect(instance).to.be();
     });
 
-    it('should have the property oneDayReminderEmail (base name: "one_day_reminder_email")', function() {
+    it('should have the property oneDayReminderEmail (base name: "oneDayReminderEmail")', function() {
       // uncomment below and update the code to test the property oneDayReminderEmail
       //var instance = new Api.V1EntitiesTtwCampaignResponse();
       //expect(instance).to.be();
     });
 
-    it('should have the property twoDayReminderEmail (base name: "two_day_reminder_email")', function() {
+    it('should have the property twoDayReminderEmail (base name: "twoDayReminderEmail")', function() {
       // uncomment below and update the code to test the property twoDayReminderEmail
       //var instance = new Api.V1EntitiesTtwCampaignResponse();
       //expect(instance).to.be();
     });
 
-    it('should have the property sevenDayReminderEmail (base name: "seven_day_reminder_email")', function() {
+    it('should have the property sevenDayReminderEmail (base name: "sevenDayReminderEmail")', function() {
       // uncomment below and update the code to test the property sevenDayReminderEmail
       //var instance = new Api.V1EntitiesTtwCampaignResponse();
       //expect(instance).to.be();
     });
 
-    it('should have the property confirmationEmail (base name: "confirmation_email")', function() {
+    it('should have the property confirmationEmail (base name: "confirmationEmail")', function() {
       // uncomment below and update the code to test the property confirmationEmail
+      //var instance = new Api.V1EntitiesTtwCampaignResponse();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property launchDate (base name: "launchDate")', function() {
+      // uncomment below and update the code to test the property launchDate
       //var instance = new Api.V1EntitiesTtwCampaignResponse();
       //expect(instance).to.be();
     });

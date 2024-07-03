@@ -58,6 +58,16 @@
         done();
       });
     });
+    describe('getTtwCampaigns', function() {
+      it('should call getTtwCampaigns successfully', function(done) {
+        //uncomment below and update the code to test getTtwCampaigns
+        //instance.getTtwCampaigns(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
   });
 
 }));

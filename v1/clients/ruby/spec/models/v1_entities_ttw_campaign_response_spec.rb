@@ -39,6 +39,12 @@ describe DealMakerAPI::V1EntitiesTtwCampaignResponse do
     end
   end
 
+  describe 'test attribute "state"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   describe 'test attribute "redirect_link"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -70,6 +76,12 @@ describe DealMakerAPI::V1EntitiesTtwCampaignResponse do
   end
 
   describe 'test attribute "confirmation_email"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  describe 'test attribute "launch_date"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end

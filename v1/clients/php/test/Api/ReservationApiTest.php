@@ -82,4 +82,16 @@ class ReservationApiTest extends TestCase
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test case for getTtwReservation
+     *
+     * Gets a TTW reservation.
+     *
+     */
+    public function testGetTtwReservation()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
 }

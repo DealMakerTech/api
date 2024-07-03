@@ -4423,6 +4423,156 @@
         "operationId": "getDealsIdProgressPageSummary"
       }
     },
+    "/deals/{id}/platform_emails": {
+      "get": {
+        "summary": "Get a list of platform emails for the deal",
+        "description": "Get a list of platform emails for the deal",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "description": "The deal id.",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "security": [
+          {
+            "oauth": [
+              "deals.read"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get a list of platform emails for the deal",
+            "schema": {
+              "$ref": "#/definitions/V1_Entities_Deals_PlatformEmails"
+            }
+          },
+          "404": {
+            "description": "Not found"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "tags": [
+          "deal"
+        ],
+        "operationId": "listPlatformEmails",
+        "x-codeSamples": [
+          {
+            "lang": "javascript",
+            "source": ""
+          },
+          {
+            "lang": "ruby",
+            "source": ""
+          }
+        ]
+      }
+    },
+    "/deals/{id}/platform_emails/{kind}/update": {
+      "patch": {
+        "summary": "Patch platform email by kind and deal.",
+        "description": "Patch platform email by kind and deal.",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "formData",
+            "name": "enabled",
+            "description": "Specifies if platform email is enabled.",
+            "type": "boolean",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "subject",
+            "description": "The platform email subject.",
+            "type": "string",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "reminder_number",
+            "description": "The number of reminder_type periods of platform email.",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "reminder_type",
+            "description": "The reminder type of platform email.",
+            "type": "string",
+            "enum": [
+              "day",
+              "week"
+            ],
+            "required": true
+          },
+          {
+            "in": "path",
+            "name": "id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          },
+          {
+            "in": "path",
+            "name": "kind",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "security": [
+          {
+            "oauth": [
+              "deals.read"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Patch platform email by kind and deal.",
+            "schema": {
+              "$ref": "#/definitions/V1_Entities_Deals_PlatformEmail"
+            }
+          },
+          "404": {
+            "description": "Not found"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "tags": [
+          "deal"
+        ],
+        "operationId": "patchPlatformEmail",
+        "x-codeSamples": [
+          {
+            "lang": "javascript",
+            "source": ""
+          },
+          {
+            "lang": "ruby",
+            "source": ""
+          }
+        ]
+      }
+    },
     "/deals/{id}/platform_emails/domain": {
       "patch": {
         "summary": "Update the email domain settings for the deal",
@@ -6806,6 +6956,59 @@
         "operationId": "postWebhooks"
       }
     },
+    "/ttw/reservations/{id}": {
+      "get": {
+        "summary": "Gets a TTW reservation",
+        "description": "Gets a TTW reservation",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "security": [
+          {
+            "oauth": [
+              "internal"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Gets a TTW reservation",
+            "schema": {
+              "$ref": "#/definitions/V1_Entities_Ttw_Reservation_Response"
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "tags": [
+          "reservation"
+        ],
+        "operationId": "getTtwReservation",
+        "x-codeSamples": [
+          {
+            "lang": "javascript",
+            "source": ""
+          },
+          {
+            "lang": "ruby",
+            "source": ""
+          }
+        ]
+      }
+    },
     "/ttw/reservations": {
       "post": {
         "summary": "Create a new reservation",
@@ -6858,7 +7061,7 @@
           "201": {
             "description": "Create a new reservation",
             "schema": {
-              "$ref": "#/definitions/V1_Entities_Ttw_Reservation"
+              "$ref": "#/definitions/V1_Entities_Ttw_Reservation_Create"
             }
           },
           "400": {
@@ -6869,6 +7072,59 @@
           "reservation"
         ],
         "operationId": "createReservation",
+        "x-codeSamples": [
+          {
+            "lang": "javascript",
+            "source": ""
+          },
+          {
+            "lang": "ruby",
+            "source": ""
+          }
+        ]
+      }
+    },
+    "/ttw/companies/{company_id}/campaigns": {
+      "get": {
+        "summary": "Gets a list TTW campaigns for a given company",
+        "description": "Gets a list TTW campaigns for a given company",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "company_id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "security": [
+          {
+            "oauth": [
+              "internal"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Gets a list TTW campaigns for a given company",
+            "schema": {
+              "$ref": "#/definitions/V1_Entities_Ttw_Campaign_List"
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "tags": [
+          "campaign"
+        ],
+        "operationId": "getTtwCampaigns",
         "x-codeSamples": [
           {
             "lang": "javascript",
@@ -10595,6 +10851,77 @@
         }
       }
     },
+    "V1_Entities_Deals_PlatformEmails": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "$ref": "#/definitions/V1_Entities_Deals_PlatformEmail"
+        }
+      },
+      "description": "V1_Entities_Deals_PlatformEmails model"
+    },
+    "V1_Entities_Deals_PlatformEmail": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32",
+          "description": "The platform email id."
+        },
+        "kind": {
+          "type": "string",
+          "enum": [
+            "global",
+            "introduction_email",
+            "manual_email",
+            "funnel_start_reminder",
+            "mid_funnel_reminder",
+            "end_of_funnel_reminder",
+            "payment_reminder_email",
+            "payment_failure_email",
+            "payment_confirmation_email",
+            "document_reminder_email",
+            "next_steps_email",
+            "acceptance_email",
+            "reset_signature_or_agreement",
+            "refund_email",
+            "access_link",
+            "payment_instructions",
+            "microdeposit_email",
+            "closing_campaign_email",
+            "closing_opt_out_email",
+            "material_change_email"
+          ],
+          "description": "The platform email kind."
+        },
+        "enabled": {
+          "type": "boolean",
+          "description": "Specifies if platform email is enabled."
+        },
+        "subject": {
+          "type": "string",
+          "description": "The platform email subject."
+        },
+        "last_reminder": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The platform email last reminder."
+        },
+        "reminder_number": {
+          "type": "string",
+          "description": "The number of reminder_type periods of platform email."
+        },
+        "reminder_type": {
+          "type": "string",
+          "enum": [
+            "day",
+            "week"
+          ],
+          "description": "The reminder type of platform email."
+        }
+      },
+      "description": "V1_Entities_Deals_PlatformEmail model"
+    },
     "V1_Entities_Deals_PlatformEmails_DomainSettings": {
       "type": "object",
       "properties": {
@@ -11148,16 +11475,80 @@
         }
       }
     },
-    "V1_Entities_Ttw_Reservation": {
+    "V1_Entities_Ttw_Reservation_Response": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32",
+          "description": "The TTW reservation ID"
+        },
+        "email": {
+          "type": "string",
+          "description": "The reservation email"
+        },
+        "name": {
+          "type": "string",
+          "description": "The reservation name"
+        },
+        "phone": {
+          "type": "string",
+          "description": "The reservation phone"
+        },
+        "reservation_amount": {
+          "type": "integer",
+          "format": "int32",
+          "description": "The reservation amount"
+        },
+        "state": {
+          "type": "string",
+          "description": "The state of the reservation"
+        },
+        "validated": {
+          "type": "boolean",
+          "description": "The validated status for the reservation"
+        },
+        "ttw_campaign_id": {
+          "type": "integer",
+          "format": "int32",
+          "description": "The ID of the associated campaign"
+        },
+        "user_id": {
+          "type": "integer",
+          "format": "int32",
+          "description": "The ID of the associated user"
+        },
+        "investor_profile_id": {
+          "type": "integer",
+          "format": "int32",
+          "description": "The ID of the associated investor profile"
+        }
+      },
+      "description": "V1_Entities_Ttw_Reservation_Response model"
+    },
+    "V1_Entities_Ttw_Reservation_Create": {
       "type": "object",
       "properties": {
         "id": {
           "type": "integer",
           "format": "int32",
           "description": "The ID of the reservation."
+        },
+        "token": {
+          "type": "string",
+          "description": "The token for the reservation."
         }
       },
-      "description": "V1_Entities_Ttw_Reservation model"
+      "description": "V1_Entities_Ttw_Reservation_Create model"
+    },
+    "V1_Entities_Ttw_Campaign_List": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "$ref": "#/definitions/V1_Entities_Ttw_Campaign_Response"
+        }
+      },
+      "description": "V1_Entities_Ttw_Campaign_List model"
     },
     "V1_Entities_Ttw_Campaign_Response": {
       "type": "object",
@@ -11175,29 +11566,38 @@
           "type": "json",
           "description": "Campaign tags"
         },
-        "redirect_link": {
+        "state": {
+          "type": "string",
+          "description": "Campaign state"
+        },
+        "redirectLink": {
           "type": "string",
           "description": "Redirect link for the campaign"
         },
-        "introduction_email": {
+        "introductionEmail": {
           "type": "boolean",
           "description": "State of the introduction email"
         },
-        "one_day_reminder_email": {
+        "oneDayReminderEmail": {
           "type": "boolean",
           "description": "State of the 1 day reminder email"
         },
-        "two_day_reminder_email": {
+        "twoDayReminderEmail": {
           "type": "boolean",
           "description": "State of the 2 day reminder email"
         },
-        "seven_day_reminder_email": {
+        "sevenDayReminderEmail": {
           "type": "boolean",
           "description": "State of the 7 day reminder email"
         },
-        "confirmation_email": {
+        "confirmationEmail": {
           "type": "boolean",
           "description": "State of the confirmation email"
+        },
+        "launchDate": {
+          "type": "string",
+          "format": "date",
+          "description": "Campaign launch date"
         }
       },
       "description": "V1_Entities_Ttw_Campaign_Response model"

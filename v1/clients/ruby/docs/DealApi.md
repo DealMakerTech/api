@@ -10,6 +10,8 @@ All URIs are relative to *http://api.dealmaker.tech*
 | [**get_deal**](DealApi.md#get_deal) | **GET** /deals/{id} | Get deal by Deal ID |
 | [**get_deal_incentive_plan**](DealApi.md#get_deal_incentive_plan) | **GET** /deals/{id}/incentive_plan | Get incentive plan by deal id |
 | [**list_deals**](DealApi.md#list_deals) | **GET** /deals | List available deals |
+| [**list_platform_emails**](DealApi.md#list_platform_emails) | **GET** /deals/{id}/platform_emails | Get a list of platform emails for the deal |
+| [**patch_platform_email**](DealApi.md#patch_platform_email) | **PATCH** /deals/{id}/platform_emails/{kind}/update | Patch platform email by kind and deal. |
 
 
 ## ach_bank_account_setup_intent
@@ -421,5 +423,141 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## list_platform_emails
+
+> <V1EntitiesDealsPlatformEmails> list_platform_emails(id)
+
+Get a list of platform emails for the deal
+
+Get a list of platform emails for the deal
+
+### Examples
+
+```ruby
+require 'time'
+require 'DealMakerAPI'
+# setup authorization
+DealMakerAPI.configure do |config|end
+
+api_instance = DealMakerAPI::DealApi.new
+id = 56 # Integer | The deal id.
+
+begin
+  # Get a list of platform emails for the deal
+  result = api_instance.list_platform_emails(id)
+  p result
+rescue DealMakerAPI::ApiError => e
+  puts "Error when calling DealApi->list_platform_emails: #{e}"
+end
+```
+
+#### Using the list_platform_emails_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<V1EntitiesDealsPlatformEmails>, Integer, Hash)> list_platform_emails_with_http_info(id)
+
+```ruby
+begin
+  # Get a list of platform emails for the deal
+  data, status_code, headers = api_instance.list_platform_emails_with_http_info(id)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <V1EntitiesDealsPlatformEmails>
+rescue DealMakerAPI::ApiError => e
+  puts "Error when calling DealApi->list_platform_emails_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **id** | **Integer** | The deal id. |  |
+
+### Return type
+
+[**V1EntitiesDealsPlatformEmails**](V1EntitiesDealsPlatformEmails.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## patch_platform_email
+
+> <V1EntitiesDealsPlatformEmail> patch_platform_email(id, kind, patch_platform_email_request)
+
+Patch platform email by kind and deal.
+
+Patch platform email by kind and deal.
+
+### Examples
+
+```ruby
+require 'time'
+require 'DealMakerAPI'
+# setup authorization
+DealMakerAPI.configure do |config|end
+
+api_instance = DealMakerAPI::DealApi.new
+id = 56 # Integer | 
+kind = 56 # Integer | 
+patch_platform_email_request = DealMakerAPI::PatchPlatformEmailRequest.new({enabled: false, subject: 'subject_example', reminder_number: 37, reminder_type: 'day'}) # PatchPlatformEmailRequest | 
+
+begin
+  # Patch platform email by kind and deal.
+  result = api_instance.patch_platform_email(id, kind, patch_platform_email_request)
+  p result
+rescue DealMakerAPI::ApiError => e
+  puts "Error when calling DealApi->patch_platform_email: #{e}"
+end
+```
+
+#### Using the patch_platform_email_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<V1EntitiesDealsPlatformEmail>, Integer, Hash)> patch_platform_email_with_http_info(id, kind, patch_platform_email_request)
+
+```ruby
+begin
+  # Patch platform email by kind and deal.
+  data, status_code, headers = api_instance.patch_platform_email_with_http_info(id, kind, patch_platform_email_request)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <V1EntitiesDealsPlatformEmail>
+rescue DealMakerAPI::ApiError => e
+  puts "Error when calling DealApi->patch_platform_email_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **id** | **Integer** |  |  |
+| **kind** | **Integer** |  |  |
+| **patch_platform_email_request** | [**PatchPlatformEmailRequest**](PatchPlatformEmailRequest.md) |  |  |
+
+### Return type
+
+[**V1EntitiesDealsPlatformEmail**](V1EntitiesDealsPlatformEmail.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json
 

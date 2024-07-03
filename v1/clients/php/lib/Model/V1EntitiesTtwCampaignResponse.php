@@ -60,12 +60,14 @@ class V1EntitiesTtwCampaignResponse implements ModelInterface, ArrayAccess, \Jso
     protected static $openAPITypes = [
         'id' => 'int',
         'name' => 'string',
+        'state' => 'string',
         'redirect_link' => 'string',
         'introduction_email' => 'bool',
         'one_day_reminder_email' => 'bool',
         'two_day_reminder_email' => 'bool',
         'seven_day_reminder_email' => 'bool',
-        'confirmation_email' => 'bool'
+        'confirmation_email' => 'bool',
+        'launch_date' => '\DateTime'
     ];
 
     /**
@@ -78,12 +80,14 @@ class V1EntitiesTtwCampaignResponse implements ModelInterface, ArrayAccess, \Jso
     protected static $openAPIFormats = [
         'id' => 'int32',
         'name' => null,
+        'state' => null,
         'redirect_link' => null,
         'introduction_email' => null,
         'one_day_reminder_email' => null,
         'two_day_reminder_email' => null,
         'seven_day_reminder_email' => null,
-        'confirmation_email' => null
+        'confirmation_email' => null,
+        'launch_date' => 'date'
     ];
 
     /**
@@ -94,12 +98,14 @@ class V1EntitiesTtwCampaignResponse implements ModelInterface, ArrayAccess, \Jso
     protected static array $openAPINullables = [
         'id' => false,
         'name' => false,
+        'state' => false,
         'redirect_link' => false,
         'introduction_email' => false,
         'one_day_reminder_email' => false,
         'two_day_reminder_email' => false,
         'seven_day_reminder_email' => false,
-        'confirmation_email' => false
+        'confirmation_email' => false,
+        'launch_date' => false
     ];
 
     /**
@@ -190,12 +196,14 @@ class V1EntitiesTtwCampaignResponse implements ModelInterface, ArrayAccess, \Jso
     protected static $attributeMap = [
         'id' => 'id',
         'name' => 'name',
-        'redirect_link' => 'redirect_link',
-        'introduction_email' => 'introduction_email',
-        'one_day_reminder_email' => 'one_day_reminder_email',
-        'two_day_reminder_email' => 'two_day_reminder_email',
-        'seven_day_reminder_email' => 'seven_day_reminder_email',
-        'confirmation_email' => 'confirmation_email'
+        'state' => 'state',
+        'redirect_link' => 'redirectLink',
+        'introduction_email' => 'introductionEmail',
+        'one_day_reminder_email' => 'oneDayReminderEmail',
+        'two_day_reminder_email' => 'twoDayReminderEmail',
+        'seven_day_reminder_email' => 'sevenDayReminderEmail',
+        'confirmation_email' => 'confirmationEmail',
+        'launch_date' => 'launchDate'
     ];
 
     /**
@@ -206,12 +214,14 @@ class V1EntitiesTtwCampaignResponse implements ModelInterface, ArrayAccess, \Jso
     protected static $setters = [
         'id' => 'setId',
         'name' => 'setName',
+        'state' => 'setState',
         'redirect_link' => 'setRedirectLink',
         'introduction_email' => 'setIntroductionEmail',
         'one_day_reminder_email' => 'setOneDayReminderEmail',
         'two_day_reminder_email' => 'setTwoDayReminderEmail',
         'seven_day_reminder_email' => 'setSevenDayReminderEmail',
-        'confirmation_email' => 'setConfirmationEmail'
+        'confirmation_email' => 'setConfirmationEmail',
+        'launch_date' => 'setLaunchDate'
     ];
 
     /**
@@ -222,12 +232,14 @@ class V1EntitiesTtwCampaignResponse implements ModelInterface, ArrayAccess, \Jso
     protected static $getters = [
         'id' => 'getId',
         'name' => 'getName',
+        'state' => 'getState',
         'redirect_link' => 'getRedirectLink',
         'introduction_email' => 'getIntroductionEmail',
         'one_day_reminder_email' => 'getOneDayReminderEmail',
         'two_day_reminder_email' => 'getTwoDayReminderEmail',
         'seven_day_reminder_email' => 'getSevenDayReminderEmail',
-        'confirmation_email' => 'getConfirmationEmail'
+        'confirmation_email' => 'getConfirmationEmail',
+        'launch_date' => 'getLaunchDate'
     ];
 
     /**
@@ -289,12 +301,14 @@ class V1EntitiesTtwCampaignResponse implements ModelInterface, ArrayAccess, \Jso
     {
         $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('name', $data ?? [], null);
+        $this->setIfExists('state', $data ?? [], null);
         $this->setIfExists('redirect_link', $data ?? [], null);
         $this->setIfExists('introduction_email', $data ?? [], null);
         $this->setIfExists('one_day_reminder_email', $data ?? [], null);
         $this->setIfExists('two_day_reminder_email', $data ?? [], null);
         $this->setIfExists('seven_day_reminder_email', $data ?? [], null);
         $this->setIfExists('confirmation_email', $data ?? [], null);
+        $this->setIfExists('launch_date', $data ?? [], null);
     }
 
     /**
@@ -389,6 +403,33 @@ class V1EntitiesTtwCampaignResponse implements ModelInterface, ArrayAccess, \Jso
             throw new \InvalidArgumentException('non-nullable name cannot be null');
         }
         $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets state
+     *
+     * @return string|null
+     */
+    public function getState()
+    {
+        return $this->container['state'];
+    }
+
+    /**
+     * Sets state
+     *
+     * @param string|null $state Campaign state
+     *
+     * @return self
+     */
+    public function setState($state)
+    {
+        if (is_null($state)) {
+            throw new \InvalidArgumentException('non-nullable state cannot be null');
+        }
+        $this->container['state'] = $state;
 
         return $this;
     }
@@ -551,6 +592,33 @@ class V1EntitiesTtwCampaignResponse implements ModelInterface, ArrayAccess, \Jso
             throw new \InvalidArgumentException('non-nullable confirmation_email cannot be null');
         }
         $this->container['confirmation_email'] = $confirmation_email;
+
+        return $this;
+    }
+
+    /**
+     * Gets launch_date
+     *
+     * @return \DateTime|null
+     */
+    public function getLaunchDate()
+    {
+        return $this->container['launch_date'];
+    }
+
+    /**
+     * Sets launch_date
+     *
+     * @param \DateTime|null $launch_date Campaign launch date
+     *
+     * @return self
+     */
+    public function setLaunchDate($launch_date)
+    {
+        if (is_null($launch_date)) {
+            throw new \InvalidArgumentException('non-nullable launch_date cannot be null');
+        }
+        $this->container['launch_date'] = $launch_date;
 
         return $this;
     }

@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The CreateReservationRequest model module.
  * @module model/CreateReservationRequest
- * @version 0.106.3
+ * @version 0.106.4
  */
 class CreateReservationRequest {
     /**

@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The V1EntitiesDealsProgressPageSummaryItem model module.
  * @module model/V1EntitiesDealsProgressPageSummaryItem
- * @version 0.106.3
+ * @version 0.106.4
  */
 class V1EntitiesDealsProgressPageSummaryItem {
     /**

@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The V1EntitiesDividend model module.
  * @module model/V1EntitiesDividend
- * @version 0.106.3
+ * @version 0.106.4
  */
 class V1EntitiesDividend {
     /**

@@ -17,7 +17,7 @@ import ApiClient from "../ApiClient";
 /**
 * Payments service.
 * @module api/PaymentsApi
-* @version 0.106.3
+* @version 0.106.4
 */
 export default class PaymentsApi {
 

@@ -7084,6 +7084,63 @@
         ]
       }
     },
+    "/ttw/campaign/{id}/reservation/{reservation_id}/user_id": {
+      "get": {
+        "summary": "Gets User ID for a TTW reservation",
+        "description": "Gets a TTW reservation",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          },
+          {
+            "in": "path",
+            "name": "reservation_id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "security": [
+          {
+            "oauth": [
+
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Gets a TTW reservation",
+            "schema": {
+              "$ref": "#/definitions/V1_Entities_Ttw_Reservation_UserId"
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        },
+        "tags": [
+          "campaign"
+        ],
+        "operationId": "getUserTtwReservation",
+        "x-codeSamples": [
+          {
+            "lang": "javascript",
+            "source": ""
+          },
+          {
+            "lang": "ruby",
+            "source": ""
+          }
+        ]
+      }
+    },
     "/ttw/companies/{company_id}/campaigns": {
       "get": {
         "summary": "Gets a list TTW campaigns for a given company",
@@ -11118,6 +11175,11 @@
           "type": "integer",
           "format": "int32",
           "description": "The number of email bounced."
+        },
+        "blocked": {
+          "type": "integer",
+          "format": "int32",
+          "description": "The number of email blocked."
         }
       }
     },
@@ -11540,6 +11602,17 @@
         }
       },
       "description": "V1_Entities_Ttw_Reservation_Create model"
+    },
+    "V1_Entities_Ttw_Reservation_UserId": {
+      "type": "object",
+      "properties": {
+        "user_id": {
+          "type": "integer",
+          "format": "int32",
+          "description": "The ID of user associated with reservation."
+        }
+      },
+      "description": "V1_Entities_Ttw_Reservation_UserId model"
     },
     "V1_Entities_Ttw_Campaign_List": {
       "type": "object",

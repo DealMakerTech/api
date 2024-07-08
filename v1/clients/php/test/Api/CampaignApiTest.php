@@ -94,4 +94,16 @@ class CampaignApiTest extends TestCase
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test case for getUserTtwReservation
+     *
+     * Gets User ID for a TTW reservation.
+     *
+     */
+    public function testGetUserTtwReservation()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
 }

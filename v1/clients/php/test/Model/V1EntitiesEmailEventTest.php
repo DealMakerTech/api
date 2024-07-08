@@ -141,4 +141,13 @@ class V1EntitiesEmailEventTest extends TestCase
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test attribute "blocked"
+     */
+    public function testPropertyBlocked()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
 }

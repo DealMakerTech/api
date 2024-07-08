@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The V1EntitiesEmailEvent model module.
  * @module model/V1EntitiesEmailEvent
- * @version 0.106.4
+ * @version 0.107.0
  */
 class V1EntitiesEmailEvent {
     /**
@@ -67,6 +67,9 @@ class V1EntitiesEmailEvent {
             }
             if (data.hasOwnProperty('bounced')) {
                 obj['bounced'] = ApiClient.convertToType(data['bounced'], 'Number');
+            }
+            if (data.hasOwnProperty('blocked')) {
+                obj['blocked'] = ApiClient.convertToType(data['blocked'], 'Number');
             }
         }
         return obj;
@@ -140,6 +143,12 @@ V1EntitiesEmailEvent.prototype['clicked'] = undefined;
  * @member {Number} bounced
  */
 V1EntitiesEmailEvent.prototype['bounced'] = undefined;
+
+/**
+ * The number of email blocked.
+ * @member {Number} blocked
+ */
+V1EntitiesEmailEvent.prototype['blocked'] = undefined;
 
 
 

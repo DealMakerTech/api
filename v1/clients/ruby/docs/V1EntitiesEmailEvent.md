@@ -11,6 +11,7 @@
 | **opened** | **Integer** | The number of email opened. | [optional] |
 | **clicked** | **Integer** | The number of email clicked. | [optional] |
 | **bounced** | **Integer** | The number of email bounced. | [optional] |
+| **blocked** | **Integer** | The number of email blocked. | [optional] |
 
 ## Example
 
@@ -24,7 +25,8 @@ instance = DealMakerAPI::V1EntitiesEmailEvent.new(
   delivered: null,
   opened: null,
   clicked: null,
-  bounced: null
+  bounced: null,
+  blocked: null
 )
 ```
 

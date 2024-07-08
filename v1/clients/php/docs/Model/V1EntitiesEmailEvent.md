@@ -11,5 +11,6 @@ Name | Type | Description | Notes
 **opened** | **int** | The number of email opened. | [optional]
 **clicked** | **int** | The number of email clicked. | [optional]
 **bounced** | **int** | The number of email bounced. | [optional]
+**blocked** | **int** | The number of email blocked. | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

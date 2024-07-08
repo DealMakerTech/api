@@ -6,6 +6,7 @@ All URIs are relative to *http://api.dealmaker.tech*
 | ------ | ------------ | ----------- |
 | [**get_ttw_campaign**](CampaignApi.md#get_ttw_campaign) | **GET** /ttw/campaigns/{id} | Gets a TTW campaign for a given company |
 | [**get_ttw_campaigns**](CampaignApi.md#get_ttw_campaigns) | **GET** /ttw/companies/{company_id}/campaigns | Gets a list TTW campaigns for a given company |
+| [**get_user_ttw_reservation**](CampaignApi.md#get_user_ttw_reservation) | **GET** /ttw/campaign/{id}/reservation/{reservation_id}/user_id | Gets User ID for a TTW reservation |
 
 
 ## get_ttw_campaign
@@ -129,6 +130,74 @@ end
 ### Return type
 
 [**V1EntitiesTtwCampaignList**](V1EntitiesTtwCampaignList.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## get_user_ttw_reservation
+
+> <V1EntitiesTtwReservationUserId> get_user_ttw_reservation(id, reservation_id)
+
+Gets User ID for a TTW reservation
+
+Gets a TTW reservation
+
+### Examples
+
+```ruby
+require 'time'
+require 'DealMakerAPI'
+# setup authorization
+DealMakerAPI.configure do |config|end
+
+api_instance = DealMakerAPI::CampaignApi.new
+id = 56 # Integer | 
+reservation_id = 56 # Integer | 
+
+begin
+  # Gets User ID for a TTW reservation
+  result = api_instance.get_user_ttw_reservation(id, reservation_id)
+  p result
+rescue DealMakerAPI::ApiError => e
+  puts "Error when calling CampaignApi->get_user_ttw_reservation: #{e}"
+end
+```
+
+#### Using the get_user_ttw_reservation_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<V1EntitiesTtwReservationUserId>, Integer, Hash)> get_user_ttw_reservation_with_http_info(id, reservation_id)
+
+```ruby
+begin
+  # Gets User ID for a TTW reservation
+  data, status_code, headers = api_instance.get_user_ttw_reservation_with_http_info(id, reservation_id)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <V1EntitiesTtwReservationUserId>
+rescue DealMakerAPI::ApiError => e
+  puts "Error when calling CampaignApi->get_user_ttw_reservation_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **id** | **Integer** |  |  |
+| **reservation_id** | **Integer** |  |  |
+
+### Return type
+
+[**V1EntitiesTtwReservationUserId**](V1EntitiesTtwReservationUserId.md)
 
 ### Authorization
 

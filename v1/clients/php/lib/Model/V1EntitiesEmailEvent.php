@@ -63,7 +63,8 @@ class V1EntitiesEmailEvent implements ModelInterface, ArrayAccess, \JsonSerializ
         'delivered' => 'int',
         'opened' => 'int',
         'clicked' => 'int',
-        'bounced' => 'int'
+        'bounced' => 'int',
+        'blocked' => 'int'
     ];
 
     /**
@@ -80,7 +81,8 @@ class V1EntitiesEmailEvent implements ModelInterface, ArrayAccess, \JsonSerializ
         'delivered' => 'int32',
         'opened' => 'int32',
         'clicked' => 'int32',
-        'bounced' => 'int32'
+        'bounced' => 'int32',
+        'blocked' => 'int32'
     ];
 
     /**
@@ -95,7 +97,8 @@ class V1EntitiesEmailEvent implements ModelInterface, ArrayAccess, \JsonSerializ
         'delivered' => false,
         'opened' => false,
         'clicked' => false,
-        'bounced' => false
+        'bounced' => false,
+        'blocked' => false
     ];
 
     /**
@@ -190,7 +193,8 @@ class V1EntitiesEmailEvent implements ModelInterface, ArrayAccess, \JsonSerializ
         'delivered' => 'delivered',
         'opened' => 'opened',
         'clicked' => 'clicked',
-        'bounced' => 'bounced'
+        'bounced' => 'bounced',
+        'blocked' => 'blocked'
     ];
 
     /**
@@ -205,7 +209,8 @@ class V1EntitiesEmailEvent implements ModelInterface, ArrayAccess, \JsonSerializ
         'delivered' => 'setDelivered',
         'opened' => 'setOpened',
         'clicked' => 'setClicked',
-        'bounced' => 'setBounced'
+        'bounced' => 'setBounced',
+        'blocked' => 'setBlocked'
     ];
 
     /**
@@ -220,7 +225,8 @@ class V1EntitiesEmailEvent implements ModelInterface, ArrayAccess, \JsonSerializ
         'delivered' => 'getDelivered',
         'opened' => 'getOpened',
         'clicked' => 'getClicked',
-        'bounced' => 'getBounced'
+        'bounced' => 'getBounced',
+        'blocked' => 'getBlocked'
     ];
 
     /**
@@ -287,6 +293,7 @@ class V1EntitiesEmailEvent implements ModelInterface, ArrayAccess, \JsonSerializ
         $this->setIfExists('opened', $data ?? [], null);
         $this->setIfExists('clicked', $data ?? [], null);
         $this->setIfExists('bounced', $data ?? [], null);
+        $this->setIfExists('blocked', $data ?? [], null);
     }
 
     /**
@@ -516,6 +523,33 @@ class V1EntitiesEmailEvent implements ModelInterface, ArrayAccess, \JsonSerializ
             throw new \InvalidArgumentException('non-nullable bounced cannot be null');
         }
         $this->container['bounced'] = $bounced;
+
+        return $this;
+    }
+
+    /**
+     * Gets blocked
+     *
+     * @return int|null
+     */
+    public function getBlocked()
+    {
+        return $this->container['blocked'];
+    }
+
+    /**
+     * Sets blocked
+     *
+     * @param int|null $blocked The number of email blocked.
+     *
+     * @return self
+     */
+    public function setBlocked($blocked)
+    {
+        if (is_null($blocked)) {
+            throw new \InvalidArgumentException('non-nullable blocked cannot be null');
+        }
+        $this->container['blocked'] = $blocked;
 
         return $this;
     }

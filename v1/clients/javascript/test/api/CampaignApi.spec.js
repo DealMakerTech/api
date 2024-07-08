@@ -68,6 +68,16 @@
         done();
       });
     });
+    describe('getUserTtwReservation', function() {
+      it('should call getUserTtwReservation successfully', function(done) {
+        //uncomment below and update the code to test getUserTtwReservation
+        //instance.getUserTtwReservation(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
   });
 
 }));

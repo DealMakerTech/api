@@ -36,6 +36,9 @@ module DealMakerAPI
     # The number of email bounced.
     attr_accessor :bounced
 
+    # The number of email blocked.
+    attr_accessor :blocked
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -45,7 +48,8 @@ module DealMakerAPI
         :'delivered' => :'delivered',
         :'opened' => :'opened',
         :'clicked' => :'clicked',
-        :'bounced' => :'bounced'
+        :'bounced' => :'bounced',
+        :'blocked' => :'blocked'
       }
     end
 
@@ -63,7 +67,8 @@ module DealMakerAPI
         :'delivered' => :'Integer',
         :'opened' => :'Integer',
         :'clicked' => :'Integer',
-        :'bounced' => :'Integer'
+        :'bounced' => :'Integer',
+        :'blocked' => :'Integer'
       }
     end
 
@@ -115,6 +120,10 @@ module DealMakerAPI
       if attributes.key?(:'bounced')
         self.bounced = attributes[:'bounced']
       end
+
+      if attributes.key?(:'blocked')
+        self.blocked = attributes[:'blocked']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -143,7 +152,8 @@ module DealMakerAPI
           delivered == o.delivered &&
           opened == o.opened &&
           clicked == o.clicked &&
-          bounced == o.bounced
+          bounced == o.bounced &&
+          blocked == o.blocked
     end
 
     # @see the `==` method
@@ -155,7 +165,7 @@ module DealMakerAPI
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, name, email, delivered, opened, clicked, bounced].hash
+      [id, name, email, delivered, opened, clicked, bounced, blocked].hash
     end
 
     # Builds the object from hash

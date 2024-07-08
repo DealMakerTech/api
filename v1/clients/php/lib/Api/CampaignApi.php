@@ -77,6 +77,9 @@ class CampaignApi
         'getTtwCampaigns' => [
             'application/json',
         ],
+        'getUserTtwReservation' => [
+            'application/json',
+        ],
     ];
 
     /**
@@ -681,6 +684,333 @@ class CampaignApi
             $resourcePath = str_replace(
                 '{' . 'company_id' . '}',
                 ObjectSerializer::toPathValue($company_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getUserTtwReservation
+     *
+     * Gets User ID for a TTW reservation
+     *
+     * @param  int $id id (required)
+     * @param  int $reservation_id reservation_id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getUserTtwReservation'] to see the possible values for this operation
+     *
+     * @throws \DealMaker\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \DealMaker\Model\V1EntitiesTtwReservationUserId
+     */
+    public function getUserTtwReservation($id, $reservation_id, string $contentType = self::contentTypes['getUserTtwReservation'][0])
+    {
+        list($response) = $this->getUserTtwReservationWithHttpInfo($id, $reservation_id, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation getUserTtwReservationWithHttpInfo
+     *
+     * Gets User ID for a TTW reservation
+     *
+     * @param  int $id (required)
+     * @param  int $reservation_id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getUserTtwReservation'] to see the possible values for this operation
+     *
+     * @throws \DealMaker\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \DealMaker\Model\V1EntitiesTtwReservationUserId, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getUserTtwReservationWithHttpInfo($id, $reservation_id, string $contentType = self::contentTypes['getUserTtwReservation'][0])
+    {
+        $request = $this->getUserTtwReservationRequest($id, $reservation_id, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\DealMaker\Model\V1EntitiesTtwReservationUserId' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\DealMaker\Model\V1EntitiesTtwReservationUserId' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\DealMaker\Model\V1EntitiesTtwReservationUserId', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\DealMaker\Model\V1EntitiesTtwReservationUserId';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    try {
+                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                    } catch (\JsonException $exception) {
+                        throw new ApiException(
+                            sprintf(
+                                'Error JSON decoding server response (%s)',
+                                $request->getUri()
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $content
+                        );
+                    }
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\DealMaker\Model\V1EntitiesTtwReservationUserId',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getUserTtwReservationAsync
+     *
+     * Gets User ID for a TTW reservation
+     *
+     * @param  int $id (required)
+     * @param  int $reservation_id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getUserTtwReservation'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getUserTtwReservationAsync($id, $reservation_id, string $contentType = self::contentTypes['getUserTtwReservation'][0])
+    {
+        return $this->getUserTtwReservationAsyncWithHttpInfo($id, $reservation_id, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getUserTtwReservationAsyncWithHttpInfo
+     *
+     * Gets User ID for a TTW reservation
+     *
+     * @param  int $id (required)
+     * @param  int $reservation_id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getUserTtwReservation'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getUserTtwReservationAsyncWithHttpInfo($id, $reservation_id, string $contentType = self::contentTypes['getUserTtwReservation'][0])
+    {
+        $returnType = '\DealMaker\Model\V1EntitiesTtwReservationUserId';
+        $request = $this->getUserTtwReservationRequest($id, $reservation_id, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getUserTtwReservation'
+     *
+     * @param  int $id (required)
+     * @param  int $reservation_id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getUserTtwReservation'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getUserTtwReservationRequest($id, $reservation_id, string $contentType = self::contentTypes['getUserTtwReservation'][0])
+    {
+
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling getUserTtwReservation'
+            );
+        }
+
+        // verify the required parameter 'reservation_id' is set
+        if ($reservation_id === null || (is_array($reservation_id) && count($reservation_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $reservation_id when calling getUserTtwReservation'
+            );
+        }
+
+
+        $resourcePath = '/ttw/campaign/{id}/reservation/{reservation_id}/user_id';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'id' . '}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($reservation_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'reservation_id' . '}',
+                ObjectSerializer::toPathValue($reservation_id),
                 $resourcePath
             );
         }

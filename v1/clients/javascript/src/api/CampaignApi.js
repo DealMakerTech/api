@@ -15,11 +15,12 @@
 import ApiClient from "../ApiClient";
 import V1EntitiesTtwCampaignList from '../model/V1EntitiesTtwCampaignList';
 import V1EntitiesTtwCampaignResponse from '../model/V1EntitiesTtwCampaignResponse';
+import V1EntitiesTtwReservationUserId from '../model/V1EntitiesTtwReservationUserId';
 
 /**
 * Campaign service.
 * @module api/CampaignApi
-* @version 0.106.4
+* @version 0.107.0
 */
 export default class CampaignApi {
 
@@ -116,6 +117,55 @@ export default class CampaignApi {
       let returnType = V1EntitiesTtwCampaignList;
       return this.apiClient.callApi(
         '/ttw/companies/{company_id}/campaigns', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the getUserTtwReservation operation.
+     * @callback module:api/CampaignApi~getUserTtwReservationCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/V1EntitiesTtwReservationUserId} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Gets User ID for a TTW reservation
+     * Gets a TTW reservation
+     * @param {Number} id 
+     * @param {Number} reservationId 
+     * @param {module:api/CampaignApi~getUserTtwReservationCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/V1EntitiesTtwReservationUserId}
+     */
+    getUserTtwReservation(id, reservationId, callback) {
+      let postBody = null;
+      // verify the required parameter 'id' is set
+      if (id === undefined || id === null) {
+        throw new Error("Missing the required parameter 'id' when calling getUserTtwReservation");
+      }
+      // verify the required parameter 'reservationId' is set
+      if (reservationId === undefined || reservationId === null) {
+        throw new Error("Missing the required parameter 'reservationId' when calling getUserTtwReservation");
+      }
+
+      let pathParams = {
+        'id': id,
+        'reservation_id': reservationId
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = V1EntitiesTtwReservationUserId;
+      return this.apiClient.callApi(
+        '/ttw/campaign/{id}/reservation/{reservation_id}/user_id', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

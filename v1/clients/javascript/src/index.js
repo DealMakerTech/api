@@ -145,6 +145,7 @@ import V1EntitiesTtwCampaignList from './model/V1EntitiesTtwCampaignList';
 import V1EntitiesTtwCampaignResponse from './model/V1EntitiesTtwCampaignResponse';
 import V1EntitiesTtwReservationCreate from './model/V1EntitiesTtwReservationCreate';
 import V1EntitiesTtwReservationResponse from './model/V1EntitiesTtwReservationResponse';
+import V1EntitiesTtwReservationUserId from './model/V1EntitiesTtwReservationUserId';
 import V1EntitiesUser from './model/V1EntitiesUser';
 import V1EntitiesUsersBinding from './model/V1EntitiesUsersBinding';
 import V1EntitiesUsersContext from './model/V1EntitiesUsersContext';
@@ -207,7 +208,7 @@ import UsersApi from './api/UsersApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.106.4
+* @version 0.107.0
 */
 export {
     /**
@@ -1007,6 +1008,12 @@ export {
      * @property {module:model/V1EntitiesTtwReservationResponse}
      */
     V1EntitiesTtwReservationResponse,
+
+    /**
+     * The V1EntitiesTtwReservationUserId model constructor.
+     * @property {module:model/V1EntitiesTtwReservationUserId}
+     */
+    V1EntitiesTtwReservationUserId,
 
     /**
      * The V1EntitiesUser model constructor.

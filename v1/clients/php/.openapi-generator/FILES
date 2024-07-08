@@ -152,6 +152,7 @@ docs/Model/V1EntitiesTtwCampaignList.md
 docs/Model/V1EntitiesTtwCampaignResponse.md
 docs/Model/V1EntitiesTtwReservationCreate.md
 docs/Model/V1EntitiesTtwReservationResponse.md
+docs/Model/V1EntitiesTtwReservationUserId.md
 docs/Model/V1EntitiesUser.md
 docs/Model/V1EntitiesUsersBinding.md
 docs/Model/V1EntitiesUsersContext.md
@@ -320,6 +321,7 @@ lib/Model/V1EntitiesTtwCampaignList.php
 lib/Model/V1EntitiesTtwCampaignResponse.php
 lib/Model/V1EntitiesTtwReservationCreate.php
 lib/Model/V1EntitiesTtwReservationResponse.php
+lib/Model/V1EntitiesTtwReservationUserId.php
 lib/Model/V1EntitiesUser.php
 lib/Model/V1EntitiesUsersBinding.php
 lib/Model/V1EntitiesUsersContext.php
@@ -485,6 +487,7 @@ test/Model/V1EntitiesTtwCampaignListTest.php
 test/Model/V1EntitiesTtwCampaignResponseTest.php
 test/Model/V1EntitiesTtwReservationCreateTest.php
 test/Model/V1EntitiesTtwReservationResponseTest.php
+test/Model/V1EntitiesTtwReservationUserIdTest.php
 test/Model/V1EntitiesUserTest.php
 test/Model/V1EntitiesUsersBindingTest.php
 test/Model/V1EntitiesUsersContextTest.php

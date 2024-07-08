@@ -156,6 +156,7 @@ docs/V1EntitiesTtwCampaignList.md
 docs/V1EntitiesTtwCampaignResponse.md
 docs/V1EntitiesTtwReservationCreate.md
 docs/V1EntitiesTtwReservationResponse.md
+docs/V1EntitiesTtwReservationUserId.md
 docs/V1EntitiesUser.md
 docs/V1EntitiesUsersBinding.md
 docs/V1EntitiesUsersContext.md
@@ -324,6 +325,7 @@ lib/DealMakerAPI/models/v1_entities_ttw_campaign_list.rb
 lib/DealMakerAPI/models/v1_entities_ttw_campaign_response.rb
 lib/DealMakerAPI/models/v1_entities_ttw_reservation_create.rb
 lib/DealMakerAPI/models/v1_entities_ttw_reservation_response.rb
+lib/DealMakerAPI/models/v1_entities_ttw_reservation_user_id.rb
 lib/DealMakerAPI/models/v1_entities_user.rb
 lib/DealMakerAPI/models/v1_entities_users_binding.rb
 lib/DealMakerAPI/models/v1_entities_users_context.rb
@@ -488,6 +490,7 @@ spec/models/v1_entities_ttw_campaign_list_spec.rb
 spec/models/v1_entities_ttw_campaign_response_spec.rb
 spec/models/v1_entities_ttw_reservation_create_spec.rb
 spec/models/v1_entities_ttw_reservation_response_spec.rb
+spec/models/v1_entities_ttw_reservation_user_id_spec.rb
 spec/models/v1_entities_user_spec.rb
 spec/models/v1_entities_users_binding_spec.rb
 spec/models/v1_entities_users_context_spec.rb

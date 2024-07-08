@@ -11,5 +11,6 @@ Name | Type | Description | Notes
 **opened** | **Number** | The number of email opened. | [optional] 
 **clicked** | **Number** | The number of email clicked. | [optional] 
 **bounced** | **Number** | The number of email bounced. | [optional] 
+**blocked** | **Number** | The number of email blocked. | [optional] 
 
 

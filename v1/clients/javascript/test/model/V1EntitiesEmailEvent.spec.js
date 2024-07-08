@@ -96,6 +96,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property blocked (base name: "blocked")', function() {
+      // uncomment below and update the code to test the property blocked
+      //var instance = new Api.V1EntitiesEmailEvent();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

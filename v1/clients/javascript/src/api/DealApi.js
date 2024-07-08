@@ -27,7 +27,7 @@ import V1EntitiesDealsPriceDetails from '../model/V1EntitiesDealsPriceDetails';
 /**
 * Deal service.
 * @module api/DealApi
-* @version 0.106.4
+* @version 0.107.0
 */
 export default class DealApi {
 

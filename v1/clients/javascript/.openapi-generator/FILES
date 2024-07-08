@@ -151,6 +151,7 @@ docs/V1EntitiesTtwCampaignList.md
 docs/V1EntitiesTtwCampaignResponse.md
 docs/V1EntitiesTtwReservationCreate.md
 docs/V1EntitiesTtwReservationResponse.md
+docs/V1EntitiesTtwReservationUserId.md
 docs/V1EntitiesUser.md
 docs/V1EntitiesUsersBinding.md
 docs/V1EntitiesUsersContext.md
@@ -319,6 +320,7 @@ src/model/V1EntitiesTtwCampaignList.js
 src/model/V1EntitiesTtwCampaignResponse.js
 src/model/V1EntitiesTtwReservationCreate.js
 src/model/V1EntitiesTtwReservationResponse.js
+src/model/V1EntitiesTtwReservationUserId.js
 src/model/V1EntitiesUser.js
 src/model/V1EntitiesUsersBinding.js
 src/model/V1EntitiesUsersContext.js
@@ -482,6 +484,7 @@ test/model/V1EntitiesTtwCampaignList.spec.js
 test/model/V1EntitiesTtwCampaignResponse.spec.js
 test/model/V1EntitiesTtwReservationCreate.spec.js
 test/model/V1EntitiesTtwReservationResponse.spec.js
+test/model/V1EntitiesTtwReservationUserId.spec.js
 test/model/V1EntitiesUser.spec.js
 test/model/V1EntitiesUsersBinding.spec.js
 test/model/V1EntitiesUsersContext.spec.js

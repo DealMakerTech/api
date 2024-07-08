@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**getTtwCampaign**](CampaignApi.md#getTtwCampaign) | **GET** /ttw/campaigns/{id} | Gets a TTW campaign for a given company
 [**getTtwCampaigns**](CampaignApi.md#getTtwCampaigns) | **GET** /ttw/companies/{company_id}/campaigns | Gets a list TTW campaigns for a given company
+[**getUserTtwReservation**](CampaignApi.md#getUserTtwReservation) | **GET** /ttw/campaign/{id}/reservation/{reservation_id}/user_id | Gets User ID for a TTW reservation
 
 
 
@@ -90,6 +91,54 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**V1EntitiesTtwCampaignList**](V1EntitiesTtwCampaignList.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## getUserTtwReservation
+
+> V1EntitiesTtwReservationUserId getUserTtwReservation(id, reservationId)
+
+Gets User ID for a TTW reservation
+
+Gets a TTW reservation
+
+### Example
+
+```javascript
+import Api from 'api';
+let defaultClient = Api.ApiClient.instance;
+
+let apiInstance = new Api.CampaignApi();
+let id = 56; // Number | 
+let reservationId = 56; // Number | 
+apiInstance.getUserTtwReservation(id, reservationId, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Number**|  | 
+ **reservationId** | **Number**|  | 
+
+### Return type
+
+[**V1EntitiesTtwReservationUserId**](V1EntitiesTtwReservationUserId.md)
 
 ### Authorization
 

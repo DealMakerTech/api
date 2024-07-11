@@ -20,7 +20,7 @@ import V1EntitiesTtwReservationUserId from '../model/V1EntitiesTtwReservationUse
 /**
 * Campaign service.
 * @module api/CampaignApi
-* @version 0.107.0
+* @version 0.107.1
 */
 export default class CampaignApi {
 

@@ -80,18 +80,9 @@ class V1EntitiesTtwReservationCreateTest extends TestCase
     }
 
     /**
-     * Test attribute "id"
+     * Test attribute "uuid"
      */
-    public function testPropertyId()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "token"
-     */
-    public function testPropertyToken()
+    public function testPropertyUuid()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

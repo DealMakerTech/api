@@ -58,8 +58,7 @@ class V1EntitiesTtwReservationCreate implements ModelInterface, ArrayAccess, \Js
       * @var string[]
       */
     protected static $openAPITypes = [
-        'id' => 'int',
-        'token' => 'string'
+        'uuid' => 'int'
     ];
 
     /**
@@ -70,8 +69,7 @@ class V1EntitiesTtwReservationCreate implements ModelInterface, ArrayAccess, \Js
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'id' => 'int32',
-        'token' => null
+        'uuid' => 'int32'
     ];
 
     /**
@@ -80,8 +78,7 @@ class V1EntitiesTtwReservationCreate implements ModelInterface, ArrayAccess, \Js
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'id' => false,
-        'token' => false
+        'uuid' => false
     ];
 
     /**
@@ -170,8 +167,7 @@ class V1EntitiesTtwReservationCreate implements ModelInterface, ArrayAccess, \Js
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id',
-        'token' => 'token'
+        'uuid' => 'uuid'
     ];
 
     /**
@@ -180,8 +176,7 @@ class V1EntitiesTtwReservationCreate implements ModelInterface, ArrayAccess, \Js
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
-        'token' => 'setToken'
+        'uuid' => 'setUuid'
     ];
 
     /**
@@ -190,8 +185,7 @@ class V1EntitiesTtwReservationCreate implements ModelInterface, ArrayAccess, \Js
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
-        'token' => 'getToken'
+        'uuid' => 'getUuid'
     ];
 
     /**
@@ -251,8 +245,7 @@ class V1EntitiesTtwReservationCreate implements ModelInterface, ArrayAccess, \Js
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('id', $data ?? [], null);
-        $this->setIfExists('token', $data ?? [], null);
+        $this->setIfExists('uuid', $data ?? [], null);
     }
 
     /**
@@ -298,55 +291,28 @@ class V1EntitiesTtwReservationCreate implements ModelInterface, ArrayAccess, \Js
 
 
     /**
-     * Gets id
+     * Gets uuid
      *
      * @return int|null
      */
-    public function getId()
+    public function getUuid()
     {
-        return $this->container['id'];
+        return $this->container['uuid'];
     }
 
     /**
-     * Sets id
+     * Sets uuid
      *
-     * @param int|null $id The ID of the reservation.
+     * @param int|null $uuid The ID of the reservation.
      *
      * @return self
      */
-    public function setId($id)
+    public function setUuid($uuid)
     {
-        if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
+        if (is_null($uuid)) {
+            throw new \InvalidArgumentException('non-nullable uuid cannot be null');
         }
-        $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
-     * Gets token
-     *
-     * @return string|null
-     */
-    public function getToken()
-    {
-        return $this->container['token'];
-    }
-
-    /**
-     * Sets token
-     *
-     * @param string|null $token The token for the reservation.
-     *
-     * @return self
-     */
-    public function setToken($token)
-    {
-        if (is_null($token)) {
-            throw new \InvalidArgumentException('non-nullable token cannot be null');
-        }
-        $this->container['token'] = $token;
+        $this->container['uuid'] = $uuid;
 
         return $this;
     }

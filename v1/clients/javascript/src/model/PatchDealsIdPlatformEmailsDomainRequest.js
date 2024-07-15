@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The PatchDealsIdPlatformEmailsDomainRequest model module.
  * @module model/PatchDealsIdPlatformEmailsDomainRequest
- * @version 0.107.1
+ * @version 0.107.2
  */
 class PatchDealsIdPlatformEmailsDomainRequest {
     /**

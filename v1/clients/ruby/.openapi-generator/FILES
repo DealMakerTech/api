@@ -64,7 +64,9 @@ docs/SendPortalInviteRequest.md
 docs/SendVerificationCodeRequest.md
 docs/SetupSmsVerificationRequest.md
 docs/ShareholderApi.md
+docs/ShwApi.md
 docs/TestDocumentUploadEmailRequest.md
+docs/TtwCampaignsApi.md
 docs/UpdateUserPasswordRequest.md
 docs/UploadApi.md
 docs/UserApi.md
@@ -141,6 +143,7 @@ docs/V1EntitiesInvestors.md
 docs/V1EntitiesMembersBulkUpload.md
 docs/V1EntitiesMembersBulkUploads.md
 docs/V1EntitiesMoneyEntity.md
+docs/V1EntitiesPage.md
 docs/V1EntitiesPaymentsSelfServeOnboardingDigitalPaymentsConnectionData.md
 docs/V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsData.md
 docs/V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsResult.md
@@ -155,8 +158,8 @@ docs/V1EntitiesSubscriptionAgreement.md
 docs/V1EntitiesTtwCampaignList.md
 docs/V1EntitiesTtwCampaignResponse.md
 docs/V1EntitiesTtwReservationCreate.md
+docs/V1EntitiesTtwReservationGetResponse.md
 docs/V1EntitiesTtwReservationResponse.md
-docs/V1EntitiesTtwReservationUserId.md
 docs/V1EntitiesUser.md
 docs/V1EntitiesUsersBinding.md
 docs/V1EntitiesUsersContext.md
@@ -187,6 +190,8 @@ lib/DealMakerAPI/api/investor_profile_api.rb
 lib/DealMakerAPI/api/payments_api.rb
 lib/DealMakerAPI/api/reservation_api.rb
 lib/DealMakerAPI/api/shareholder_api.rb
+lib/DealMakerAPI/api/shw_api.rb
+lib/DealMakerAPI/api/ttw_campaigns_api.rb
 lib/DealMakerAPI/api/upload_api.rb
 lib/DealMakerAPI/api/user_api.rb
 lib/DealMakerAPI/api/users_api.rb
@@ -310,6 +315,7 @@ lib/DealMakerAPI/models/v1_entities_investors.rb
 lib/DealMakerAPI/models/v1_entities_members_bulk_upload.rb
 lib/DealMakerAPI/models/v1_entities_members_bulk_uploads.rb
 lib/DealMakerAPI/models/v1_entities_money_entity.rb
+lib/DealMakerAPI/models/v1_entities_page.rb
 lib/DealMakerAPI/models/v1_entities_payments_self_serve_onboarding_digital_payments_connection_data.rb
 lib/DealMakerAPI/models/v1_entities_payments_self_serve_onboarding_payout_account_details_data.rb
 lib/DealMakerAPI/models/v1_entities_payments_self_serve_onboarding_payout_account_details_result.rb
@@ -324,8 +330,8 @@ lib/DealMakerAPI/models/v1_entities_subscription_agreement.rb
 lib/DealMakerAPI/models/v1_entities_ttw_campaign_list.rb
 lib/DealMakerAPI/models/v1_entities_ttw_campaign_response.rb
 lib/DealMakerAPI/models/v1_entities_ttw_reservation_create.rb
+lib/DealMakerAPI/models/v1_entities_ttw_reservation_get_response.rb
 lib/DealMakerAPI/models/v1_entities_ttw_reservation_response.rb
-lib/DealMakerAPI/models/v1_entities_ttw_reservation_user_id.rb
 lib/DealMakerAPI/models/v1_entities_user.rb
 lib/DealMakerAPI/models/v1_entities_users_binding.rb
 lib/DealMakerAPI/models/v1_entities_users_context.rb
@@ -355,6 +361,8 @@ spec/api/investor_profile_api_spec.rb
 spec/api/payments_api_spec.rb
 spec/api/reservation_api_spec.rb
 spec/api/shareholder_api_spec.rb
+spec/api/shw_api_spec.rb
+spec/api/ttw_campaigns_api_spec.rb
 spec/api/upload_api_spec.rb
 spec/api/user_api_spec.rb
 spec/api/users_api_spec.rb
@@ -475,6 +483,7 @@ spec/models/v1_entities_investors_spec.rb
 spec/models/v1_entities_members_bulk_upload_spec.rb
 spec/models/v1_entities_members_bulk_uploads_spec.rb
 spec/models/v1_entities_money_entity_spec.rb
+spec/models/v1_entities_page_spec.rb
 spec/models/v1_entities_payments_self_serve_onboarding_digital_payments_connection_data_spec.rb
 spec/models/v1_entities_payments_self_serve_onboarding_payout_account_details_data_spec.rb
 spec/models/v1_entities_payments_self_serve_onboarding_payout_account_details_result_spec.rb
@@ -489,8 +498,8 @@ spec/models/v1_entities_subscription_agreement_spec.rb
 spec/models/v1_entities_ttw_campaign_list_spec.rb
 spec/models/v1_entities_ttw_campaign_response_spec.rb
 spec/models/v1_entities_ttw_reservation_create_spec.rb
+spec/models/v1_entities_ttw_reservation_get_response_spec.rb
 spec/models/v1_entities_ttw_reservation_response_spec.rb
-spec/models/v1_entities_ttw_reservation_user_id_spec.rb
 spec/models/v1_entities_user_spec.rb
 spec/models/v1_entities_users_binding_spec.rb
 spec/models/v1_entities_users_context_spec.rb

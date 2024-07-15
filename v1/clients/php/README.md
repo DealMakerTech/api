@@ -406,7 +406,7 @@ Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *CampaignApi* | [**getTtwCampaign**](docs/Api/CampaignApi.md#getttwcampaign) | **GET** /ttw/campaigns/{id} | Gets a TTW campaign for a given company
 *CampaignApi* | [**getTtwCampaigns**](docs/Api/CampaignApi.md#getttwcampaigns) | **GET** /ttw/companies/{company_id}/campaigns | Gets a list TTW campaigns for a given company
-*CampaignApi* | [**getUserTtwReservation**](docs/Api/CampaignApi.md#getuserttwreservation) | **GET** /ttw/campaign/{id}/reservation/{reservation_id}/user_id | Gets User ID for a TTW reservation
+*CampaignApi* | [**getUserTtwReservation**](docs/Api/CampaignApi.md#getuserttwreservation) | **GET** /ttw/campaign/{id}/reservation/{reservation_uuid} | Gets User ID for a TTW reservation
 *CompanyApi* | [**createBulkUpload**](docs/Api/CompanyApi.md#createbulkupload) | **POST** /companies/{id}/documents/bulk_uploads | Create bulk upload record
 *CompanyApi* | [**createBulkUploadDetail**](docs/Api/CompanyApi.md#createbulkuploaddetail) | **POST** /companies/{company_id}/documents/bulk_uploads/{bulk_upload_id}/details | Create a BulkUploadDetail class record
 *CompanyApi* | [**createCompany**](docs/Api/CompanyApi.md#createcompany) | **POST** /companies | Create new company
@@ -437,6 +437,7 @@ Class | Method | HTTP request | Description
 *DealApi* | [**createDealSetup**](docs/Api/DealApi.md#createdealsetup) | **POST** /deal_setups | Create deal setup
 *DealApi* | [**getDeal**](docs/Api/DealApi.md#getdeal) | **GET** /deals/{id} | Get deal by Deal ID
 *DealApi* | [**getDealIncentivePlan**](docs/Api/DealApi.md#getdealincentiveplan) | **GET** /deals/{id}/incentive_plan | Get incentive plan by deal id
+*DealApi* | [**getPlatformEmailPage**](docs/Api/DealApi.md#getplatformemailpage) | **GET** /deals/{id}/platform_emails/{platform_email_id}/page | Get the Page for a given Platform Email
 *DealApi* | [**listDeals**](docs/Api/DealApi.md#listdeals) | **GET** /deals | List available deals
 *DealApi* | [**listPlatformEmails**](docs/Api/DealApi.md#listplatformemails) | **GET** /deals/{id}/platform_emails | Get a list of platform emails for the deal
 *DealApi* | [**patchPlatformEmail**](docs/Api/DealApi.md#patchplatformemail) | **PATCH** /deals/{id}/platform_emails/{kind}/update | Patch platform email by kind and deal.
@@ -500,6 +501,10 @@ Class | Method | HTTP request | Description
 *ReservationApi* | [**getTtwReservation**](docs/Api/ReservationApi.md#getttwreservation) | **GET** /ttw/reservations/{id} | Gets a TTW reservation
 *ShareholderApi* | [**getShareholders**](docs/Api/ShareholderApi.md#getshareholders) | **GET** /companies/{id}/shareholders | Get a company shareholders list
 *ShareholderApi* | [**getShareholdersTags**](docs/Api/ShareholderApi.md#getshareholderstags) | **GET** /companies/{id}/shareholders/tags | Get a company shareholders list grouped by tags
+*ShwApi* | [**getShwPage**](docs/Api/ShwApi.md#getshwpage) | **GET** /shw/{id}/page | Get self hosted website page
+*ShwApi* | [**publishShwPage**](docs/Api/ShwApi.md#publishshwpage) | **PATCH** /shw/{id}/page/publish | Publish self hosted website page
+*TtwCampaignsApi* | [**getTtwCampaignPage**](docs/Api/TtwCampaignsApi.md#getttwcampaignpage) | **GET** /ttw/campaigns/{id}/page | Get ttw campaign page
+*TtwCampaignsApi* | [**publishTtwCampaignPage**](docs/Api/TtwCampaignsApi.md#publishttwcampaignpage) | **PATCH** /ttw/campaigns/{id}/page/publish | Publish ttw campaign page
 *UploadApi* | [**generateUrl**](docs/Api/UploadApi.md#generateurl) | **POST** /uploads/generate_url | Create a presigned URL for Amazon S3
 *UserApi* | [**createFactor**](docs/Api/UserApi.md#createfactor) | **POST** /users/{id}/create_factor | Creates an API endpoint for creating a new TOTP factor
 *UserApi* | [**deleteChannel**](docs/Api/UserApi.md#deletechannel) | **DELETE** /users/{id}/two_factor_channels/delete/{channel} | Creates an API endpoint to delete a specific two factor channel\&quot;
@@ -634,6 +639,7 @@ Class | Method | HTTP request | Description
 - [V1EntitiesMembersBulkUpload](docs/Model/V1EntitiesMembersBulkUpload.md)
 - [V1EntitiesMembersBulkUploads](docs/Model/V1EntitiesMembersBulkUploads.md)
 - [V1EntitiesMoneyEntity](docs/Model/V1EntitiesMoneyEntity.md)
+- [V1EntitiesPage](docs/Model/V1EntitiesPage.md)
 - [V1EntitiesPaymentsSelfServeOnboardingDigitalPaymentsConnectionData](docs/Model/V1EntitiesPaymentsSelfServeOnboardingDigitalPaymentsConnectionData.md)
 - [V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsData](docs/Model/V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsData.md)
 - [V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsResult](docs/Model/V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsResult.md)
@@ -648,8 +654,8 @@ Class | Method | HTTP request | Description
 - [V1EntitiesTtwCampaignList](docs/Model/V1EntitiesTtwCampaignList.md)
 - [V1EntitiesTtwCampaignResponse](docs/Model/V1EntitiesTtwCampaignResponse.md)
 - [V1EntitiesTtwReservationCreate](docs/Model/V1EntitiesTtwReservationCreate.md)
+- [V1EntitiesTtwReservationGetResponse](docs/Model/V1EntitiesTtwReservationGetResponse.md)
 - [V1EntitiesTtwReservationResponse](docs/Model/V1EntitiesTtwReservationResponse.md)
-- [V1EntitiesTtwReservationUserId](docs/Model/V1EntitiesTtwReservationUserId.md)
 - [V1EntitiesUser](docs/Model/V1EntitiesUser.md)
 - [V1EntitiesUsersBinding](docs/Model/V1EntitiesUsersBinding.md)
 - [V1EntitiesUsersContext](docs/Model/V1EntitiesUsersContext.md)
@@ -687,6 +693,6 @@ vendor/bin/phpunit
 This PHP package is automatically generated by the [OpenAPI Generator](https://openapi-generator.tech) project:
 
 - API version: `1.75.0`
-    - Package version: `0.107.1`
+    - Package version: `0.107.2`
     - Generator version: `7.8.0-SNAPSHOT`
 - Build package: `org.openapitools.codegen.languages.PhpClientCodegen`

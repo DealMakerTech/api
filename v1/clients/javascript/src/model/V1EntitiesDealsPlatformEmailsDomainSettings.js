@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The V1EntitiesDealsPlatformEmailsDomainSettings model module.
  * @module model/V1EntitiesDealsPlatformEmailsDomainSettings
- * @version 0.107.1
+ * @version 0.107.2
  */
 class V1EntitiesDealsPlatformEmailsDomainSettings {
     /**

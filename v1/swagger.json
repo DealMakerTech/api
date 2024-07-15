@@ -89,6 +89,14 @@
       "description": "Operations about custom_emails"
     },
     {
+      "name": "ttw_campaigns",
+      "description": "Operations about ttw_campaigns"
+    },
+    {
+      "name": "shw",
+      "description": "Operations about shws"
+    },
+    {
       "name": "deal",
       "description": "The Deal is the portal which a Company uses for its raise. Each deal will have one Company, and will have multiple investors. An Investor represents a specific investment, meaning that a User could have multiple Investments. A Deal has many complex components. The Deal will have a subscription agreement, which is the document investors will sign. The Deal will have team members which have different roles and permissions in terms of how they interact with the Deal and with Investors on the Deal. The Deal will also have payment methods set up to allow Investors to pay for their investments. These features can be accessed within the DealMaker application. To set up a Deal and interact with these features, please view our help desk documentation: [How can I set up my own deal?](https://help.dealmaker.tech/new-deal). In the production environment, a Deal’s invoice must be recorded as paid before it can be set to `active`, however this requirement is waived in the staging environment.\n\nWith the Deal Endpoints you may interact with your deals. Each Deal has a unique ID, which is accessible from the URL of any page on that Deal.",
       "x-displayName": "Deal"
@@ -4673,6 +4681,68 @@
         "operationId": "getDealsIdPlatformEmailsDomain"
       }
     },
+    "/deals/{id}/platform_emails/{platform_email_id}/page": {
+      "get": {
+        "summary": "Get the Page for a given Platform Email",
+        "description": "Get the Page for a given Platform Email",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "description": "The deal id.",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          },
+          {
+            "in": "path",
+            "name": "platform_email_id",
+            "description": "The platform email id.",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "security": [
+          {
+            "oauth": [
+              "deals.read"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get the Page for a given Platform Email",
+            "schema": {
+              "$ref": "#/definitions/V1_Entities_Page"
+            }
+          },
+          "404": {
+            "description": "Not found"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "tags": [
+          "deal"
+        ],
+        "operationId": "getPlatformEmailPage",
+        "x-codeSamples": [
+          {
+            "lang": "javascript",
+            "source": ""
+          },
+          {
+            "lang": "ruby",
+            "source": ""
+          }
+        ]
+      }
+    },
     "/deals/{id}/summary": {
       "get": {
         "summary": "Get Deal Overview",
@@ -7084,7 +7154,7 @@
         ]
       }
     },
-    "/ttw/campaign/{id}/reservation/{reservation_id}/user_id": {
+    "/ttw/campaign/{id}/reservation/{reservation_uuid}": {
       "get": {
         "summary": "Gets User ID for a TTW reservation",
         "description": "Gets a TTW reservation",
@@ -7101,7 +7171,7 @@
           },
           {
             "in": "path",
-            "name": "reservation_id",
+            "name": "reservation_uuid",
             "type": "integer",
             "format": "int32",
             "required": true
@@ -7118,7 +7188,7 @@
           "200": {
             "description": "Gets a TTW reservation",
             "schema": {
-              "$ref": "#/definitions/V1_Entities_Ttw_Reservation_UserId"
+              "$ref": "#/definitions/V1_Entities_Ttw_Reservation_GetResponse"
             }
           },
           "400": {
@@ -7129,6 +7199,115 @@
           "campaign"
         ],
         "operationId": "getUserTtwReservation",
+        "x-codeSamples": [
+          {
+            "lang": "javascript",
+            "source": ""
+          },
+          {
+            "lang": "ruby",
+            "source": ""
+          }
+        ]
+      }
+    },
+    "/ttw/campaigns/{id}/page": {
+      "get": {
+        "summary": "Get ttw campaign page",
+        "description": "Get ttw campaign page",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "security": [
+          {
+            "oauth": [
+              "internal"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get ttw campaign page",
+            "schema": {
+              "$ref": "#/definitions/V1_Entities_Page"
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "tags": [
+          "ttw_campaigns"
+        ],
+        "operationId": "getTtwCampaignPage",
+        "x-codeSamples": [
+          {
+            "lang": "javascript",
+            "source": ""
+          },
+          {
+            "lang": "ruby",
+            "source": ""
+          }
+        ]
+      }
+    },
+    "/ttw/campaigns/{id}/page/publish": {
+      "patch": {
+        "summary": "Publish ttw campaign page",
+        "description": "Publish ttw campaign page",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "security": [
+          {
+            "oauth": [
+              "internal"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Publish ttw campaign page",
+            "schema": {
+              "$ref": "#/definitions/V1_Entities_Page"
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "tags": [
+          "ttw_campaigns"
+        ],
+        "operationId": "publishTtwCampaignPage",
         "x-codeSamples": [
           {
             "lang": "javascript",
@@ -7235,6 +7414,115 @@
           "campaign"
         ],
         "operationId": "getTtwCampaign",
+        "x-codeSamples": [
+          {
+            "lang": "javascript",
+            "source": ""
+          },
+          {
+            "lang": "ruby",
+            "source": ""
+          }
+        ]
+      }
+    },
+    "/shw/{id}/page": {
+      "get": {
+        "summary": "Get self hosted website page",
+        "description": "Get self hosted website page",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "security": [
+          {
+            "oauth": [
+              "internal"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get self hosted website page",
+            "schema": {
+              "$ref": "#/definitions/V1_Entities_Page"
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "tags": [
+          "shw"
+        ],
+        "operationId": "getShwPage",
+        "x-codeSamples": [
+          {
+            "lang": "javascript",
+            "source": ""
+          },
+          {
+            "lang": "ruby",
+            "source": ""
+          }
+        ]
+      }
+    },
+    "/shw/{id}/page/publish": {
+      "patch": {
+        "summary": "Publish self hosted website page",
+        "description": "Publish self hosted website page",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "security": [
+          {
+            "oauth": [
+              "internal"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Publish self hosted website page",
+            "schema": {
+              "$ref": "#/definitions/V1_Entities_Page"
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "tags": [
+          "shw"
+        ],
+        "operationId": "publishShwPage",
         "x-codeSamples": [
           {
             "lang": "javascript",
@@ -10997,6 +11285,53 @@
       },
       "description": "V1_Entities_Deals_PlatformEmails_DomainSettings model"
     },
+    "V1_Entities_Page": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32",
+          "description": "The page id."
+        },
+        "name": {
+          "type": "string",
+          "description": "The page name."
+        },
+        "draft_json_content": {
+          "type": "string",
+          "description": "The page draft json content."
+        },
+        "json_content": {
+          "type": "string",
+          "description": "The page live json content."
+        },
+        "pageable_type": {
+          "type": "string",
+          "description": "The pageable type."
+        },
+        "pageable_id": {
+          "type": "integer",
+          "format": "int32",
+          "description": "The pageable id."
+        },
+        "page_template_id": {
+          "type": "integer",
+          "format": "int32",
+          "description": "The page template id."
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The creation time."
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The last update time."
+        }
+      },
+      "description": "V1_Entities_Page model"
+    },
     "V1_Entities_DealSetup": {
       "type": "object",
       "properties": {
@@ -11591,28 +11926,28 @@
     "V1_Entities_Ttw_Reservation_Create": {
       "type": "object",
       "properties": {
-        "id": {
+        "uuid": {
           "type": "integer",
           "format": "int32",
           "description": "The ID of the reservation."
-        },
-        "token": {
-          "type": "string",
-          "description": "The token for the reservation."
         }
       },
       "description": "V1_Entities_Ttw_Reservation_Create model"
     },
-    "V1_Entities_Ttw_Reservation_UserId": {
+    "V1_Entities_Ttw_Reservation_GetResponse": {
       "type": "object",
       "properties": {
-        "user_id": {
+        "token": {
+          "type": "string",
+          "description": "The token for the user."
+        },
+        "reservation_id": {
           "type": "integer",
           "format": "int32",
-          "description": "The ID of user associated with reservation."
+          "description": "The ID of the reservation."
         }
       },
-      "description": "V1_Entities_Ttw_Reservation_UserId model"
+      "description": "V1_Entities_Ttw_Reservation_GetResponse model"
     },
     "V1_Entities_Ttw_Campaign_List": {
       "type": "object",

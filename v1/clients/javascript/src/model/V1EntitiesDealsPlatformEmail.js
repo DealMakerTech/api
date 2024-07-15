@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The V1EntitiesDealsPlatformEmail model module.
  * @module model/V1EntitiesDealsPlatformEmail
- * @version 0.107.1
+ * @version 0.107.2
  */
 class V1EntitiesDealsPlatformEmail {
     /**

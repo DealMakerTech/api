@@ -17,6 +17,8 @@ docs/Api/InvestorProfileApi.md
 docs/Api/PaymentsApi.md
 docs/Api/ReservationApi.md
 docs/Api/ShareholderApi.md
+docs/Api/ShwApi.md
+docs/Api/TtwCampaignsApi.md
 docs/Api/UploadApi.md
 docs/Api/UserApi.md
 docs/Api/UsersApi.md
@@ -137,6 +139,7 @@ docs/Model/V1EntitiesInvestors.md
 docs/Model/V1EntitiesMembersBulkUpload.md
 docs/Model/V1EntitiesMembersBulkUploads.md
 docs/Model/V1EntitiesMoneyEntity.md
+docs/Model/V1EntitiesPage.md
 docs/Model/V1EntitiesPaymentsSelfServeOnboardingDigitalPaymentsConnectionData.md
 docs/Model/V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsData.md
 docs/Model/V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsResult.md
@@ -151,8 +154,8 @@ docs/Model/V1EntitiesSubscriptionAgreement.md
 docs/Model/V1EntitiesTtwCampaignList.md
 docs/Model/V1EntitiesTtwCampaignResponse.md
 docs/Model/V1EntitiesTtwReservationCreate.md
+docs/Model/V1EntitiesTtwReservationGetResponse.md
 docs/Model/V1EntitiesTtwReservationResponse.md
-docs/Model/V1EntitiesTtwReservationUserId.md
 docs/Model/V1EntitiesUser.md
 docs/Model/V1EntitiesUsersBinding.md
 docs/Model/V1EntitiesUsersContext.md
@@ -182,6 +185,8 @@ lib/Api/InvestorProfileApi.php
 lib/Api/PaymentsApi.php
 lib/Api/ReservationApi.php
 lib/Api/ShareholderApi.php
+lib/Api/ShwApi.php
+lib/Api/TtwCampaignsApi.php
 lib/Api/UploadApi.php
 lib/Api/UserApi.php
 lib/Api/UsersApi.php
@@ -306,6 +311,7 @@ lib/Model/V1EntitiesInvestors.php
 lib/Model/V1EntitiesMembersBulkUpload.php
 lib/Model/V1EntitiesMembersBulkUploads.php
 lib/Model/V1EntitiesMoneyEntity.php
+lib/Model/V1EntitiesPage.php
 lib/Model/V1EntitiesPaymentsSelfServeOnboardingDigitalPaymentsConnectionData.php
 lib/Model/V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsData.php
 lib/Model/V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsResult.php
@@ -320,8 +326,8 @@ lib/Model/V1EntitiesSubscriptionAgreement.php
 lib/Model/V1EntitiesTtwCampaignList.php
 lib/Model/V1EntitiesTtwCampaignResponse.php
 lib/Model/V1EntitiesTtwReservationCreate.php
+lib/Model/V1EntitiesTtwReservationGetResponse.php
 lib/Model/V1EntitiesTtwReservationResponse.php
-lib/Model/V1EntitiesTtwReservationUserId.php
 lib/Model/V1EntitiesUser.php
 lib/Model/V1EntitiesUsersBinding.php
 lib/Model/V1EntitiesUsersContext.php
@@ -352,6 +358,8 @@ test/Api/InvestorProfileApiTest.php
 test/Api/PaymentsApiTest.php
 test/Api/ReservationApiTest.php
 test/Api/ShareholderApiTest.php
+test/Api/ShwApiTest.php
+test/Api/TtwCampaignsApiTest.php
 test/Api/UploadApiTest.php
 test/Api/UserApiTest.php
 test/Api/UsersApiTest.php
@@ -472,6 +480,7 @@ test/Model/V1EntitiesInvestorsTest.php
 test/Model/V1EntitiesMembersBulkUploadTest.php
 test/Model/V1EntitiesMembersBulkUploadsTest.php
 test/Model/V1EntitiesMoneyEntityTest.php
+test/Model/V1EntitiesPageTest.php
 test/Model/V1EntitiesPaymentsSelfServeOnboardingDigitalPaymentsConnectionDataTest.php
 test/Model/V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsDataTest.php
 test/Model/V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsResultTest.php
@@ -486,8 +495,8 @@ test/Model/V1EntitiesSubscriptionAgreementTest.php
 test/Model/V1EntitiesTtwCampaignListTest.php
 test/Model/V1EntitiesTtwCampaignResponseTest.php
 test/Model/V1EntitiesTtwReservationCreateTest.php
+test/Model/V1EntitiesTtwReservationGetResponseTest.php
 test/Model/V1EntitiesTtwReservationResponseTest.php
-test/Model/V1EntitiesTtwReservationUserIdTest.php
 test/Model/V1EntitiesUserTest.php
 test/Model/V1EntitiesUsersBindingTest.php
 test/Model/V1EntitiesUsersContextTest.php

@@ -59,7 +59,9 @@ docs/SendPortalInviteRequest.md
 docs/SendVerificationCodeRequest.md
 docs/SetupSmsVerificationRequest.md
 docs/ShareholderApi.md
+docs/ShwApi.md
 docs/TestDocumentUploadEmailRequest.md
+docs/TtwCampaignsApi.md
 docs/UpdateUserPasswordRequest.md
 docs/UploadApi.md
 docs/UserApi.md
@@ -136,6 +138,7 @@ docs/V1EntitiesInvestors.md
 docs/V1EntitiesMembersBulkUpload.md
 docs/V1EntitiesMembersBulkUploads.md
 docs/V1EntitiesMoneyEntity.md
+docs/V1EntitiesPage.md
 docs/V1EntitiesPaymentsSelfServeOnboardingDigitalPaymentsConnectionData.md
 docs/V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsData.md
 docs/V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsResult.md
@@ -150,8 +153,8 @@ docs/V1EntitiesSubscriptionAgreement.md
 docs/V1EntitiesTtwCampaignList.md
 docs/V1EntitiesTtwCampaignResponse.md
 docs/V1EntitiesTtwReservationCreate.md
+docs/V1EntitiesTtwReservationGetResponse.md
 docs/V1EntitiesTtwReservationResponse.md
-docs/V1EntitiesTtwReservationUserId.md
 docs/V1EntitiesUser.md
 docs/V1EntitiesUsersBinding.md
 docs/V1EntitiesUsersContext.md
@@ -184,6 +187,8 @@ src/api/InvestorProfileApi.js
 src/api/PaymentsApi.js
 src/api/ReservationApi.js
 src/api/ShareholderApi.js
+src/api/ShwApi.js
+src/api/TtwCampaignsApi.js
 src/api/UploadApi.js
 src/api/UserApi.js
 src/api/UsersApi.js
@@ -305,6 +310,7 @@ src/model/V1EntitiesInvestors.js
 src/model/V1EntitiesMembersBulkUpload.js
 src/model/V1EntitiesMembersBulkUploads.js
 src/model/V1EntitiesMoneyEntity.js
+src/model/V1EntitiesPage.js
 src/model/V1EntitiesPaymentsSelfServeOnboardingDigitalPaymentsConnectionData.js
 src/model/V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsData.js
 src/model/V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsResult.js
@@ -319,8 +325,8 @@ src/model/V1EntitiesSubscriptionAgreement.js
 src/model/V1EntitiesTtwCampaignList.js
 src/model/V1EntitiesTtwCampaignResponse.js
 src/model/V1EntitiesTtwReservationCreate.js
+src/model/V1EntitiesTtwReservationGetResponse.js
 src/model/V1EntitiesTtwReservationResponse.js
-src/model/V1EntitiesTtwReservationUserId.js
 src/model/V1EntitiesUser.js
 src/model/V1EntitiesUsersBinding.js
 src/model/V1EntitiesUsersContext.js
@@ -349,6 +355,8 @@ test/api/InvestorProfileApi.spec.js
 test/api/PaymentsApi.spec.js
 test/api/ReservationApi.spec.js
 test/api/ShareholderApi.spec.js
+test/api/ShwApi.spec.js
+test/api/TtwCampaignsApi.spec.js
 test/api/UploadApi.spec.js
 test/api/UserApi.spec.js
 test/api/UsersApi.spec.js
@@ -469,6 +477,7 @@ test/model/V1EntitiesInvestors.spec.js
 test/model/V1EntitiesMembersBulkUpload.spec.js
 test/model/V1EntitiesMembersBulkUploads.spec.js
 test/model/V1EntitiesMoneyEntity.spec.js
+test/model/V1EntitiesPage.spec.js
 test/model/V1EntitiesPaymentsSelfServeOnboardingDigitalPaymentsConnectionData.spec.js
 test/model/V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsData.spec.js
 test/model/V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsResult.spec.js
@@ -483,8 +492,8 @@ test/model/V1EntitiesSubscriptionAgreement.spec.js
 test/model/V1EntitiesTtwCampaignList.spec.js
 test/model/V1EntitiesTtwCampaignResponse.spec.js
 test/model/V1EntitiesTtwReservationCreate.spec.js
+test/model/V1EntitiesTtwReservationGetResponse.spec.js
 test/model/V1EntitiesTtwReservationResponse.spec.js
-test/model/V1EntitiesTtwReservationUserId.spec.js
 test/model/V1EntitiesUser.spec.js
 test/model/V1EntitiesUsersBinding.spec.js
 test/model/V1EntitiesUsersContext.spec.js

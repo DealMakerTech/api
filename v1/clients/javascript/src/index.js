@@ -130,6 +130,7 @@ import V1EntitiesInvestors from './model/V1EntitiesInvestors';
 import V1EntitiesMembersBulkUpload from './model/V1EntitiesMembersBulkUpload';
 import V1EntitiesMembersBulkUploads from './model/V1EntitiesMembersBulkUploads';
 import V1EntitiesMoneyEntity from './model/V1EntitiesMoneyEntity';
+import V1EntitiesPage from './model/V1EntitiesPage';
 import V1EntitiesPaymentsSelfServeOnboardingDigitalPaymentsConnectionData from './model/V1EntitiesPaymentsSelfServeOnboardingDigitalPaymentsConnectionData';
 import V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsData from './model/V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsData';
 import V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsResult from './model/V1EntitiesPaymentsSelfServeOnboardingPayoutAccountDetailsResult';
@@ -144,8 +145,8 @@ import V1EntitiesSubscriptionAgreement from './model/V1EntitiesSubscriptionAgree
 import V1EntitiesTtwCampaignList from './model/V1EntitiesTtwCampaignList';
 import V1EntitiesTtwCampaignResponse from './model/V1EntitiesTtwCampaignResponse';
 import V1EntitiesTtwReservationCreate from './model/V1EntitiesTtwReservationCreate';
+import V1EntitiesTtwReservationGetResponse from './model/V1EntitiesTtwReservationGetResponse';
 import V1EntitiesTtwReservationResponse from './model/V1EntitiesTtwReservationResponse';
-import V1EntitiesTtwReservationUserId from './model/V1EntitiesTtwReservationUserId';
 import V1EntitiesUser from './model/V1EntitiesUser';
 import V1EntitiesUsersBinding from './model/V1EntitiesUsersBinding';
 import V1EntitiesUsersContext from './model/V1EntitiesUsersContext';
@@ -174,6 +175,8 @@ import InvestorProfileApi from './api/InvestorProfileApi';
 import PaymentsApi from './api/PaymentsApi';
 import ReservationApi from './api/ReservationApi';
 import ShareholderApi from './api/ShareholderApi';
+import ShwApi from './api/ShwApi';
+import TtwCampaignsApi from './api/TtwCampaignsApi';
 import UploadApi from './api/UploadApi';
 import UserApi from './api/UserApi';
 import UsersApi from './api/UsersApi';
@@ -208,7 +211,7 @@ import UsersApi from './api/UsersApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.107.1
+* @version 0.107.2
 */
 export {
     /**
@@ -920,6 +923,12 @@ export {
     V1EntitiesMoneyEntity,
 
     /**
+     * The V1EntitiesPage model constructor.
+     * @property {module:model/V1EntitiesPage}
+     */
+    V1EntitiesPage,
+
+    /**
      * The V1EntitiesPaymentsSelfServeOnboardingDigitalPaymentsConnectionData model constructor.
      * @property {module:model/V1EntitiesPaymentsSelfServeOnboardingDigitalPaymentsConnectionData}
      */
@@ -1004,16 +1013,16 @@ export {
     V1EntitiesTtwReservationCreate,
 
     /**
+     * The V1EntitiesTtwReservationGetResponse model constructor.
+     * @property {module:model/V1EntitiesTtwReservationGetResponse}
+     */
+    V1EntitiesTtwReservationGetResponse,
+
+    /**
      * The V1EntitiesTtwReservationResponse model constructor.
      * @property {module:model/V1EntitiesTtwReservationResponse}
      */
     V1EntitiesTtwReservationResponse,
-
-    /**
-     * The V1EntitiesTtwReservationUserId model constructor.
-     * @property {module:model/V1EntitiesTtwReservationUserId}
-     */
-    V1EntitiesTtwReservationUserId,
 
     /**
      * The V1EntitiesUser model constructor.
@@ -1182,6 +1191,18 @@ export {
     * @property {module:api/ShareholderApi}
     */
     ShareholderApi,
+
+    /**
+    * The ShwApi service constructor.
+    * @property {module:api/ShwApi}
+    */
+    ShwApi,
+
+    /**
+    * The TtwCampaignsApi service constructor.
+    * @property {module:api/TtwCampaignsApi}
+    */
+    TtwCampaignsApi,
 
     /**
     * The UploadApi service constructor.

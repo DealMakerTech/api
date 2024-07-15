@@ -14,15 +14,47 @@ require 'date'
 require 'time'
 
 module DealMakerAPI
-  # V1_Entities_Ttw_Reservation_UserId model
-  class V1EntitiesTtwReservationUserId
-    # The ID of user associated with reservation.
-    attr_accessor :user_id
+  # V1_Entities_Page model
+  class V1EntitiesPage
+    # The page id.
+    attr_accessor :id
+
+    # The page name.
+    attr_accessor :name
+
+    # The page draft json content.
+    attr_accessor :draft_json_content
+
+    # The page live json content.
+    attr_accessor :json_content
+
+    # The pageable type.
+    attr_accessor :pageable_type
+
+    # The pageable id.
+    attr_accessor :pageable_id
+
+    # The page template id.
+    attr_accessor :page_template_id
+
+    # The creation time.
+    attr_accessor :created_at
+
+    # The last update time.
+    attr_accessor :updated_at
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'user_id' => :'user_id'
+        :'id' => :'id',
+        :'name' => :'name',
+        :'draft_json_content' => :'draft_json_content',
+        :'json_content' => :'json_content',
+        :'pageable_type' => :'pageable_type',
+        :'pageable_id' => :'pageable_id',
+        :'page_template_id' => :'page_template_id',
+        :'created_at' => :'created_at',
+        :'updated_at' => :'updated_at'
       }
     end
 
@@ -34,7 +66,15 @@ module DealMakerAPI
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'user_id' => :'Integer'
+        :'id' => :'Integer',
+        :'name' => :'String',
+        :'draft_json_content' => :'String',
+        :'json_content' => :'String',
+        :'pageable_type' => :'String',
+        :'pageable_id' => :'Integer',
+        :'page_template_id' => :'Integer',
+        :'created_at' => :'Time',
+        :'updated_at' => :'Time'
       }
     end
 
@@ -48,19 +88,51 @@ module DealMakerAPI
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DealMakerAPI::V1EntitiesTtwReservationUserId` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DealMakerAPI::V1EntitiesPage` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `DealMakerAPI::V1EntitiesTtwReservationUserId`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DealMakerAPI::V1EntitiesPage`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'user_id')
-        self.user_id = attributes[:'user_id']
+      if attributes.key?(:'id')
+        self.id = attributes[:'id']
+      end
+
+      if attributes.key?(:'name')
+        self.name = attributes[:'name']
+      end
+
+      if attributes.key?(:'draft_json_content')
+        self.draft_json_content = attributes[:'draft_json_content']
+      end
+
+      if attributes.key?(:'json_content')
+        self.json_content = attributes[:'json_content']
+      end
+
+      if attributes.key?(:'pageable_type')
+        self.pageable_type = attributes[:'pageable_type']
+      end
+
+      if attributes.key?(:'pageable_id')
+        self.pageable_id = attributes[:'pageable_id']
+      end
+
+      if attributes.key?(:'page_template_id')
+        self.page_template_id = attributes[:'page_template_id']
+      end
+
+      if attributes.key?(:'created_at')
+        self.created_at = attributes[:'created_at']
+      end
+
+      if attributes.key?(:'updated_at')
+        self.updated_at = attributes[:'updated_at']
       end
     end
 
@@ -84,7 +156,15 @@ module DealMakerAPI
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          user_id == o.user_id
+          id == o.id &&
+          name == o.name &&
+          draft_json_content == o.draft_json_content &&
+          json_content == o.json_content &&
+          pageable_type == o.pageable_type &&
+          pageable_id == o.pageable_id &&
+          page_template_id == o.page_template_id &&
+          created_at == o.created_at &&
+          updated_at == o.updated_at
     end
 
     # @see the `==` method
@@ -96,7 +176,7 @@ module DealMakerAPI
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [user_id].hash
+      [id, name, draft_json_content, json_content, pageable_type, pageable_id, page_template_id, created_at, updated_at].hash
     end
 
     # Builds the object from hash

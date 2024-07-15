@@ -98,6 +98,16 @@
         done();
       });
     });
+    describe('getPlatformEmailPage', function() {
+      it('should call getPlatformEmailPage successfully', function(done) {
+        //uncomment below and update the code to test getPlatformEmailPage
+        //instance.getPlatformEmailPage(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('listDeals', function() {
       it('should call listDeals successfully', function(done) {
         //uncomment below and update the code to test listDeals

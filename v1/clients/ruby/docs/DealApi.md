@@ -9,6 +9,7 @@ All URIs are relative to *http://api.dealmaker.tech*
 | [**create_deal_setup**](DealApi.md#create_deal_setup) | **POST** /deal_setups | Create deal setup |
 | [**get_deal**](DealApi.md#get_deal) | **GET** /deals/{id} | Get deal by Deal ID |
 | [**get_deal_incentive_plan**](DealApi.md#get_deal_incentive_plan) | **GET** /deals/{id}/incentive_plan | Get incentive plan by deal id |
+| [**get_platform_email_page**](DealApi.md#get_platform_email_page) | **GET** /deals/{id}/platform_emails/{platform_email_id}/page | Get the Page for a given Platform Email |
 | [**list_deals**](DealApi.md#list_deals) | **GET** /deals | List available deals |
 | [**list_platform_emails**](DealApi.md#list_platform_emails) | **GET** /deals/{id}/platform_emails | Get a list of platform emails for the deal |
 | [**patch_platform_email**](DealApi.md#patch_platform_email) | **PATCH** /deals/{id}/platform_emails/{kind}/update | Patch platform email by kind and deal. |
@@ -343,6 +344,74 @@ end
 ### Return type
 
 [**V1EntitiesDealsPriceDetails**](V1EntitiesDealsPriceDetails.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## get_platform_email_page
+
+> <V1EntitiesPage> get_platform_email_page(id, platform_email_id)
+
+Get the Page for a given Platform Email
+
+Get the Page for a given Platform Email
+
+### Examples
+
+```ruby
+require 'time'
+require 'DealMakerAPI'
+# setup authorization
+DealMakerAPI.configure do |config|end
+
+api_instance = DealMakerAPI::DealApi.new
+id = 56 # Integer | The deal id.
+platform_email_id = 56 # Integer | The platform email id.
+
+begin
+  # Get the Page for a given Platform Email
+  result = api_instance.get_platform_email_page(id, platform_email_id)
+  p result
+rescue DealMakerAPI::ApiError => e
+  puts "Error when calling DealApi->get_platform_email_page: #{e}"
+end
+```
+
+#### Using the get_platform_email_page_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<V1EntitiesPage>, Integer, Hash)> get_platform_email_page_with_http_info(id, platform_email_id)
+
+```ruby
+begin
+  # Get the Page for a given Platform Email
+  data, status_code, headers = api_instance.get_platform_email_page_with_http_info(id, platform_email_id)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <V1EntitiesPage>
+rescue DealMakerAPI::ApiError => e
+  puts "Error when calling DealApi->get_platform_email_page_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **id** | **Integer** | The deal id. |  |
+| **platform_email_id** | **Integer** | The platform email id. |  |
+
+### Return type
+
+[**V1EntitiesPage**](V1EntitiesPage.md)
 
 ### Authorization
 

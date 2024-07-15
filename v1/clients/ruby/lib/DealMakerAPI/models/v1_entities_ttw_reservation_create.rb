@@ -17,16 +17,12 @@ module DealMakerAPI
   # V1_Entities_Ttw_Reservation_Create model
   class V1EntitiesTtwReservationCreate
     # The ID of the reservation.
-    attr_accessor :id
-
-    # The token for the reservation.
-    attr_accessor :token
+    attr_accessor :uuid
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'id' => :'id',
-        :'token' => :'token'
+        :'uuid' => :'uuid'
       }
     end
 
@@ -38,8 +34,7 @@ module DealMakerAPI
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'id' => :'Integer',
-        :'token' => :'String'
+        :'uuid' => :'Integer'
       }
     end
 
@@ -64,12 +59,8 @@ module DealMakerAPI
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'id')
-        self.id = attributes[:'id']
-      end
-
-      if attributes.key?(:'token')
-        self.token = attributes[:'token']
+      if attributes.key?(:'uuid')
+        self.uuid = attributes[:'uuid']
       end
     end
 
@@ -93,8 +84,7 @@ module DealMakerAPI
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          id == o.id &&
-          token == o.token
+          uuid == o.uuid
     end
 
     # @see the `==` method
@@ -106,7 +96,7 @@ module DealMakerAPI
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, token].hash
+      [uuid].hash
     end
 
     # Builds the object from hash

@@ -54,14 +54,8 @@
       //expect(instance).to.be.a(Api.V1EntitiesTtwReservationCreate);
     });
 
-    it('should have the property id (base name: "id")', function() {
-      // uncomment below and update the code to test the property id
-      //var instance = new Api.V1EntitiesTtwReservationCreate();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property token (base name: "token")', function() {
-      // uncomment below and update the code to test the property token
+    it('should have the property uuid (base name: "uuid")', function() {
+      // uncomment below and update the code to test the property uuid
       //var instance = new Api.V1EntitiesTtwReservationCreate();
       //expect(instance).to.be();
     });

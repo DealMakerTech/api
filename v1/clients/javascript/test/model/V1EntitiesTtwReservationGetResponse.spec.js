@@ -11,75 +11,61 @@
  *
  */
 
-import ApiClient from '../ApiClient';
+(function(root, factory) {
+  if (typeof define === 'function' && define.amd) {
+    // AMD.
+    define(['expect.js', process.cwd()+'/src/index'], factory);
+  } else if (typeof module === 'object' && module.exports) {
+    // CommonJS-like environments that support module.exports, like Node.
+    factory(require('expect.js'), require(process.cwd()+'/src/index'));
+  } else {
+    // Browser globals (root is window)
+    factory(root.expect, root.Api);
+  }
+}(this, function(expect, Api) {
+  'use strict';
 
-/**
- * The V1EntitiesTtwReservationUserId model module.
- * @module model/V1EntitiesTtwReservationUserId
- * @version 0.107.1
- */
-class V1EntitiesTtwReservationUserId {
-    /**
-     * Constructs a new <code>V1EntitiesTtwReservationUserId</code>.
-     * V1_Entities_Ttw_Reservation_UserId model
-     * @alias module:model/V1EntitiesTtwReservationUserId
-     */
-    constructor() { 
-        
-        V1EntitiesTtwReservationUserId.initialize(this);
-    }
+  var instance;
 
-    /**
-     * Initializes the fields of this object.
-     * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
-     * Only for internal use.
-     */
-    static initialize(obj) { 
-    }
+  beforeEach(function() {
+    instance = new Api.V1EntitiesTtwReservationGetResponse();
+  });
 
-    /**
-     * Constructs a <code>V1EntitiesTtwReservationUserId</code> from a plain JavaScript object, optionally creating a new instance.
-     * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
-     * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @param {module:model/V1EntitiesTtwReservationUserId} obj Optional instance to populate.
-     * @return {module:model/V1EntitiesTtwReservationUserId} The populated <code>V1EntitiesTtwReservationUserId</code> instance.
-     */
-    static constructFromObject(data, obj) {
-        if (data) {
-            obj = obj || new V1EntitiesTtwReservationUserId();
+  var getProperty = function(object, getter, property) {
+    // Use getter method if present; otherwise, get the property directly.
+    if (typeof object[getter] === 'function')
+      return object[getter]();
+    else
+      return object[property];
+  }
 
-            if (data.hasOwnProperty('user_id')) {
-                obj['user_id'] = ApiClient.convertToType(data['user_id'], 'Number');
-            }
-        }
-        return obj;
-    }
+  var setProperty = function(object, setter, property, value) {
+    // Use setter method if present; otherwise, set the property directly.
+    if (typeof object[setter] === 'function')
+      object[setter](value);
+    else
+      object[property] = value;
+  }
 
-    /**
-     * Validates the JSON data with respect to <code>V1EntitiesTtwReservationUserId</code>.
-     * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>V1EntitiesTtwReservationUserId</code>.
-     */
-    static validateJSON(data) {
+  describe('V1EntitiesTtwReservationGetResponse', function() {
+    it('should create an instance of V1EntitiesTtwReservationGetResponse', function() {
+      // uncomment below and update the code to test V1EntitiesTtwReservationGetResponse
+      //var instance = new Api.V1EntitiesTtwReservationGetResponse();
+      //expect(instance).to.be.a(Api.V1EntitiesTtwReservationGetResponse);
+    });
 
-        return true;
-    }
+    it('should have the property token (base name: "token")', function() {
+      // uncomment below and update the code to test the property token
+      //var instance = new Api.V1EntitiesTtwReservationGetResponse();
+      //expect(instance).to.be();
+    });
 
+    it('should have the property reservationId (base name: "reservation_id")', function() {
+      // uncomment below and update the code to test the property reservationId
+      //var instance = new Api.V1EntitiesTtwReservationGetResponse();
+      //expect(instance).to.be();
+    });
 
-}
+  });
 
-
-
-/**
- * The ID of user associated with reservation.
- * @member {Number} user_id
- */
-V1EntitiesTtwReservationUserId.prototype['user_id'] = undefined;
-
-
-
-
-
-
-export default V1EntitiesTtwReservationUserId;
-
+}));

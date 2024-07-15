@@ -4,8 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **id** | **Integer** | The ID of the reservation. | [optional] |
-| **token** | **String** | The token for the reservation. | [optional] |
+| **uuid** | **Integer** | The ID of the reservation. | [optional] |
 
 ## Example
 
@@ -13,8 +12,7 @@
 require 'DealMakerAPI'
 
 instance = DealMakerAPI::V1EntitiesTtwReservationCreate.new(
-  id: null,
-  token: null
+  uuid: null
 )
 ```
 

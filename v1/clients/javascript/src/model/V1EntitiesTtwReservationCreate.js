@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The V1EntitiesTtwReservationCreate model module.
  * @module model/V1EntitiesTtwReservationCreate
- * @version 0.107.1
+ * @version 0.107.2
  */
 class V1EntitiesTtwReservationCreate {
     /**
@@ -48,11 +48,8 @@ class V1EntitiesTtwReservationCreate {
         if (data) {
             obj = obj || new V1EntitiesTtwReservationCreate();
 
-            if (data.hasOwnProperty('id')) {
-                obj['id'] = ApiClient.convertToType(data['id'], 'Number');
-            }
-            if (data.hasOwnProperty('token')) {
-                obj['token'] = ApiClient.convertToType(data['token'], 'String');
+            if (data.hasOwnProperty('uuid')) {
+                obj['uuid'] = ApiClient.convertToType(data['uuid'], 'Number');
             }
         }
         return obj;
@@ -64,10 +61,6 @@ class V1EntitiesTtwReservationCreate {
      * @return {boolean} to indicate whether the JSON data is valid with respect to <code>V1EntitiesTtwReservationCreate</code>.
      */
     static validateJSON(data) {
-        // ensure the json data is a string
-        if (data['token'] && !(typeof data['token'] === 'string' || data['token'] instanceof String)) {
-            throw new Error("Expected the field `token` to be a primitive type in the JSON string but got " + data['token']);
-        }
 
         return true;
     }
@@ -79,15 +72,9 @@ class V1EntitiesTtwReservationCreate {
 
 /**
  * The ID of the reservation.
- * @member {Number} id
+ * @member {Number} uuid
  */
-V1EntitiesTtwReservationCreate.prototype['id'] = undefined;
-
-/**
- * The token for the reservation.
- * @member {String} token
- */
-V1EntitiesTtwReservationCreate.prototype['token'] = undefined;
+V1EntitiesTtwReservationCreate.prototype['uuid'] = undefined;
 
 
 

@@ -132,6 +132,18 @@ class DealApiTest extends TestCase
     }
 
     /**
+     * Test case for getPlatformEmailPage
+     *
+     * Get the Page for a given Platform Email.
+     *
+     */
+    public function testGetPlatformEmailPage()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for listDeals
      *
      * List available deals.

@@ -23,11 +23,12 @@ import V1EntitiesDealsInvestorsPaymentAcssBankAccountSetupIntent from '../model/
 import V1EntitiesDealsPlatformEmail from '../model/V1EntitiesDealsPlatformEmail';
 import V1EntitiesDealsPlatformEmails from '../model/V1EntitiesDealsPlatformEmails';
 import V1EntitiesDealsPriceDetails from '../model/V1EntitiesDealsPriceDetails';
+import V1EntitiesPage from '../model/V1EntitiesPage';
 
 /**
 * Deal service.
 * @module api/DealApi
-* @version 0.107.1
+* @version 0.107.2
 */
 export default class DealApi {
 
@@ -280,6 +281,55 @@ export default class DealApi {
       let returnType = V1EntitiesDealsPriceDetails;
       return this.apiClient.callApi(
         '/deals/{id}/incentive_plan', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the getPlatformEmailPage operation.
+     * @callback module:api/DealApi~getPlatformEmailPageCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/V1EntitiesPage} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Get the Page for a given Platform Email
+     * Get the Page for a given Platform Email
+     * @param {Number} id The deal id.
+     * @param {Number} platformEmailId The platform email id.
+     * @param {module:api/DealApi~getPlatformEmailPageCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/V1EntitiesPage}
+     */
+    getPlatformEmailPage(id, platformEmailId, callback) {
+      let postBody = null;
+      // verify the required parameter 'id' is set
+      if (id === undefined || id === null) {
+        throw new Error("Missing the required parameter 'id' when calling getPlatformEmailPage");
+      }
+      // verify the required parameter 'platformEmailId' is set
+      if (platformEmailId === undefined || platformEmailId === null) {
+        throw new Error("Missing the required parameter 'platformEmailId' when calling getPlatformEmailPage");
+      }
+
+      let pathParams = {
+        'id': id,
+        'platform_email_id': platformEmailId
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = V1EntitiesPage;
+      return this.apiClient.callApi(
+        '/deals/{id}/platform_emails/{platform_email_id}/page', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

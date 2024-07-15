@@ -6,7 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**getTtwCampaign**](CampaignApi.md#getTtwCampaign) | **GET** /ttw/campaigns/{id} | Gets a TTW campaign for a given company
 [**getTtwCampaigns**](CampaignApi.md#getTtwCampaigns) | **GET** /ttw/companies/{company_id}/campaigns | Gets a list TTW campaigns for a given company
-[**getUserTtwReservation**](CampaignApi.md#getUserTtwReservation) | **GET** /ttw/campaign/{id}/reservation/{reservation_id}/user_id | Gets User ID for a TTW reservation
+[**getUserTtwReservation**](CampaignApi.md#getUserTtwReservation) | **GET** /ttw/campaign/{id}/reservation/{reservation_uuid} | Gets User ID for a TTW reservation
 
 
 
@@ -104,7 +104,7 @@ No authorization required
 
 ## getUserTtwReservation
 
-> V1EntitiesTtwReservationUserId getUserTtwReservation(id, reservationId)
+> V1EntitiesTtwReservationGetResponse getUserTtwReservation(id, reservationUuid)
 
 Gets User ID for a TTW reservation
 
@@ -118,8 +118,8 @@ let defaultClient = Api.ApiClient.instance;
 
 let apiInstance = new Api.CampaignApi();
 let id = 56; // Number | 
-let reservationId = 56; // Number | 
-apiInstance.getUserTtwReservation(id, reservationId, (error, data, response) => {
+let reservationUuid = 56; // Number | 
+apiInstance.getUserTtwReservation(id, reservationUuid, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -134,11 +134,11 @@ apiInstance.getUserTtwReservation(id, reservationId, (error, data, response) => 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Number**|  | 
- **reservationId** | **Number**|  | 
+ **reservationUuid** | **Number**|  | 
 
 ### Return type
 
-[**V1EntitiesTtwReservationUserId**](V1EntitiesTtwReservationUserId.md)
+[**V1EntitiesTtwReservationGetResponse**](V1EntitiesTtwReservationGetResponse.md)
 
 ### Authorization
 

@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**createDealSetup**](DealApi.md#createDealSetup) | **POST** /deal_setups | Create deal setup
 [**getDeal**](DealApi.md#getDeal) | **GET** /deals/{id} | Get deal by Deal ID
 [**getDealIncentivePlan**](DealApi.md#getDealIncentivePlan) | **GET** /deals/{id}/incentive_plan | Get incentive plan by deal id
+[**getPlatformEmailPage**](DealApi.md#getPlatformEmailPage) | **GET** /deals/{id}/platform_emails/{platform_email_id}/page | Get the Page for a given Platform Email
 [**listDeals**](DealApi.md#listDeals) | **GET** /deals | List available deals
 [**listPlatformEmails**](DealApi.md#listPlatformEmails) | **GET** /deals/{id}/platform_emails | Get a list of platform emails for the deal
 [**patchPlatformEmail**](DealApi.md#patchPlatformEmail) | **PATCH** /deals/{id}/platform_emails/{kind}/update | Patch platform email by kind and deal.
@@ -245,6 +246,54 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**V1EntitiesDealsPriceDetails**](V1EntitiesDealsPriceDetails.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## getPlatformEmailPage
+
+> V1EntitiesPage getPlatformEmailPage(id, platformEmailId)
+
+Get the Page for a given Platform Email
+
+Get the Page for a given Platform Email
+
+### Example
+
+```javascript
+import Api from 'api';
+let defaultClient = Api.ApiClient.instance;
+
+let apiInstance = new Api.DealApi();
+let id = 56; // Number | The deal id.
+let platformEmailId = 56; // Number | The platform email id.
+apiInstance.getPlatformEmailPage(id, platformEmailId, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Number**| The deal id. | 
+ **platformEmailId** | **Number**| The platform email id. | 
+
+### Return type
+
+[**V1EntitiesPage**](V1EntitiesPage.md)
 
 ### Authorization
 

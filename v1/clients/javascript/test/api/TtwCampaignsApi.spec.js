@@ -28,7 +28,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new Api.V1EntitiesTtwReservationUserId();
+    instance = new Api.TtwCampaignsApi();
   });
 
   var getProperty = function(object, getter, property) {
@@ -47,19 +47,27 @@
       object[property] = value;
   }
 
-  describe('V1EntitiesTtwReservationUserId', function() {
-    it('should create an instance of V1EntitiesTtwReservationUserId', function() {
-      // uncomment below and update the code to test V1EntitiesTtwReservationUserId
-      //var instance = new Api.V1EntitiesTtwReservationUserId();
-      //expect(instance).to.be.a(Api.V1EntitiesTtwReservationUserId);
+  describe('TtwCampaignsApi', function() {
+    describe('getTtwCampaignPage', function() {
+      it('should call getTtwCampaignPage successfully', function(done) {
+        //uncomment below and update the code to test getTtwCampaignPage
+        //instance.getTtwCampaignPage(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
     });
-
-    it('should have the property userId (base name: "user_id")', function() {
-      // uncomment below and update the code to test the property userId
-      //var instance = new Api.V1EntitiesTtwReservationUserId();
-      //expect(instance).to.be();
+    describe('publishTtwCampaignPage', function() {
+      it('should call publishTtwCampaignPage successfully', function(done) {
+        //uncomment below and update the code to test publishTtwCampaignPage
+        //instance.publishTtwCampaignPage(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
     });
-
   });
 
 }));

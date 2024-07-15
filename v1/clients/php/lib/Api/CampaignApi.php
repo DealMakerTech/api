@@ -748,16 +748,16 @@ class CampaignApi
      * Gets User ID for a TTW reservation
      *
      * @param  int $id id (required)
-     * @param  int $reservation_id reservation_id (required)
+     * @param  int $reservation_uuid reservation_uuid (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getUserTtwReservation'] to see the possible values for this operation
      *
      * @throws \DealMaker\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \DealMaker\Model\V1EntitiesTtwReservationUserId
+     * @return \DealMaker\Model\V1EntitiesTtwReservationGetResponse
      */
-    public function getUserTtwReservation($id, $reservation_id, string $contentType = self::contentTypes['getUserTtwReservation'][0])
+    public function getUserTtwReservation($id, $reservation_uuid, string $contentType = self::contentTypes['getUserTtwReservation'][0])
     {
-        list($response) = $this->getUserTtwReservationWithHttpInfo($id, $reservation_id, $contentType);
+        list($response) = $this->getUserTtwReservationWithHttpInfo($id, $reservation_uuid, $contentType);
         return $response;
     }
 
@@ -767,16 +767,16 @@ class CampaignApi
      * Gets User ID for a TTW reservation
      *
      * @param  int $id (required)
-     * @param  int $reservation_id (required)
+     * @param  int $reservation_uuid (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getUserTtwReservation'] to see the possible values for this operation
      *
      * @throws \DealMaker\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \DealMaker\Model\V1EntitiesTtwReservationUserId, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \DealMaker\Model\V1EntitiesTtwReservationGetResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getUserTtwReservationWithHttpInfo($id, $reservation_id, string $contentType = self::contentTypes['getUserTtwReservation'][0])
+    public function getUserTtwReservationWithHttpInfo($id, $reservation_uuid, string $contentType = self::contentTypes['getUserTtwReservation'][0])
     {
-        $request = $this->getUserTtwReservationRequest($id, $reservation_id, $contentType);
+        $request = $this->getUserTtwReservationRequest($id, $reservation_uuid, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -815,11 +815,11 @@ class CampaignApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\DealMaker\Model\V1EntitiesTtwReservationUserId' === '\SplFileObject') {
+                    if ('\DealMaker\Model\V1EntitiesTtwReservationGetResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\DealMaker\Model\V1EntitiesTtwReservationUserId' !== 'string') {
+                        if ('\DealMaker\Model\V1EntitiesTtwReservationGetResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -837,13 +837,13 @@ class CampaignApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\DealMaker\Model\V1EntitiesTtwReservationUserId', []),
+                        ObjectSerializer::deserialize($content, '\DealMaker\Model\V1EntitiesTtwReservationGetResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\DealMaker\Model\V1EntitiesTtwReservationUserId';
+            $returnType = '\DealMaker\Model\V1EntitiesTtwReservationGetResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -876,7 +876,7 @@ class CampaignApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\DealMaker\Model\V1EntitiesTtwReservationUserId',
+                        '\DealMaker\Model\V1EntitiesTtwReservationGetResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -892,15 +892,15 @@ class CampaignApi
      * Gets User ID for a TTW reservation
      *
      * @param  int $id (required)
-     * @param  int $reservation_id (required)
+     * @param  int $reservation_uuid (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getUserTtwReservation'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getUserTtwReservationAsync($id, $reservation_id, string $contentType = self::contentTypes['getUserTtwReservation'][0])
+    public function getUserTtwReservationAsync($id, $reservation_uuid, string $contentType = self::contentTypes['getUserTtwReservation'][0])
     {
-        return $this->getUserTtwReservationAsyncWithHttpInfo($id, $reservation_id, $contentType)
+        return $this->getUserTtwReservationAsyncWithHttpInfo($id, $reservation_uuid, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -914,16 +914,16 @@ class CampaignApi
      * Gets User ID for a TTW reservation
      *
      * @param  int $id (required)
-     * @param  int $reservation_id (required)
+     * @param  int $reservation_uuid (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getUserTtwReservation'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getUserTtwReservationAsyncWithHttpInfo($id, $reservation_id, string $contentType = self::contentTypes['getUserTtwReservation'][0])
+    public function getUserTtwReservationAsyncWithHttpInfo($id, $reservation_uuid, string $contentType = self::contentTypes['getUserTtwReservation'][0])
     {
-        $returnType = '\DealMaker\Model\V1EntitiesTtwReservationUserId';
-        $request = $this->getUserTtwReservationRequest($id, $reservation_id, $contentType);
+        $returnType = '\DealMaker\Model\V1EntitiesTtwReservationGetResponse';
+        $request = $this->getUserTtwReservationRequest($id, $reservation_uuid, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -965,13 +965,13 @@ class CampaignApi
      * Create request for operation 'getUserTtwReservation'
      *
      * @param  int $id (required)
-     * @param  int $reservation_id (required)
+     * @param  int $reservation_uuid (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getUserTtwReservation'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getUserTtwReservationRequest($id, $reservation_id, string $contentType = self::contentTypes['getUserTtwReservation'][0])
+    public function getUserTtwReservationRequest($id, $reservation_uuid, string $contentType = self::contentTypes['getUserTtwReservation'][0])
     {
 
         // verify the required parameter 'id' is set
@@ -981,15 +981,15 @@ class CampaignApi
             );
         }
 
-        // verify the required parameter 'reservation_id' is set
-        if ($reservation_id === null || (is_array($reservation_id) && count($reservation_id) === 0)) {
+        // verify the required parameter 'reservation_uuid' is set
+        if ($reservation_uuid === null || (is_array($reservation_uuid) && count($reservation_uuid) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $reservation_id when calling getUserTtwReservation'
+                'Missing the required parameter $reservation_uuid when calling getUserTtwReservation'
             );
         }
 
 
-        $resourcePath = '/ttw/campaign/{id}/reservation/{reservation_id}/user_id';
+        $resourcePath = '/ttw/campaign/{id}/reservation/{reservation_uuid}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1007,10 +1007,10 @@ class CampaignApi
             );
         }
         // path params
-        if ($reservation_id !== null) {
+        if ($reservation_uuid !== null) {
             $resourcePath = str_replace(
-                '{' . 'reservation_id' . '}',
-                ObjectSerializer::toPathValue($reservation_id),
+                '{' . 'reservation_uuid' . '}',
+                ObjectSerializer::toPathValue($reservation_uuid),
                 $resourcePath
             );
         }

@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The RequestNewDocumentRequest model module.
  * @module model/RequestNewDocumentRequest
- * @version 0.107.1
+ * @version 0.107.2
  */
 class RequestNewDocumentRequest {
     /**

@@ -6,7 +6,7 @@ All URIs are relative to http://api.dealmaker.tech, except if the operation defi
 | ------------- | ------------- | ------------- |
 | [**getTtwCampaign()**](CampaignApi.md#getTtwCampaign) | **GET** /ttw/campaigns/{id} | Gets a TTW campaign for a given company |
 | [**getTtwCampaigns()**](CampaignApi.md#getTtwCampaigns) | **GET** /ttw/companies/{company_id}/campaigns | Gets a list TTW campaigns for a given company |
-| [**getUserTtwReservation()**](CampaignApi.md#getUserTtwReservation) | **GET** /ttw/campaign/{id}/reservation/{reservation_id}/user_id | Gets User ID for a TTW reservation |
+| [**getUserTtwReservation()**](CampaignApi.md#getUserTtwReservation) | **GET** /ttw/campaign/{id}/reservation/{reservation_uuid} | Gets User ID for a TTW reservation |
 
 
 ## `getTtwCampaign()`
@@ -126,7 +126,7 @@ No authorization required
 ## `getUserTtwReservation()`
 
 ```php
-getUserTtwReservation($id, $reservation_id): \DealMaker\Model\V1EntitiesTtwReservationUserId
+getUserTtwReservation($id, $reservation_uuid): \DealMaker\Model\V1EntitiesTtwReservationGetResponse
 ```
 
 Gets User ID for a TTW reservation
@@ -148,10 +148,10 @@ $apiInstance = new DealMaker\Api\CampaignApi(
     $config
 );
 $id = 56; // int
-$reservation_id = 56; // int
+$reservation_uuid = 56; // int
 
 try {
-    $result = $apiInstance->getUserTtwReservation($id, $reservation_id);
+    $result = $apiInstance->getUserTtwReservation($id, $reservation_uuid);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CampaignApi->getUserTtwReservation: ', $e->getMessage(), PHP_EOL;
@@ -163,11 +163,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **int**|  | |
-| **reservation_id** | **int**|  | |
+| **reservation_uuid** | **int**|  | |
 
 ### Return type
 
-[**\DealMaker\Model\V1EntitiesTtwReservationUserId**](../Model/V1EntitiesTtwReservationUserId.md)
+[**\DealMaker\Model\V1EntitiesTtwReservationGetResponse**](../Model/V1EntitiesTtwReservationGetResponse.md)
 
 ### Authorization
 

@@ -17,7 +17,7 @@ import V1EntitiesUsersContext from './V1EntitiesUsersContext';
 /**
  * The V1EntitiesUsersContexts model module.
  * @module model/V1EntitiesUsersContexts
- * @version 0.107.1
+ * @version 0.107.2
  */
 class V1EntitiesUsersContexts {
     /**

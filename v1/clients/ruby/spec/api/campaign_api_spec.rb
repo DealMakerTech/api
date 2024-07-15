@@ -60,9 +60,9 @@ describe 'CampaignApi' do
   # Gets User ID for a TTW reservation
   # Gets a TTW reservation
   # @param id 
-  # @param reservation_id 
+  # @param reservation_uuid 
   # @param [Hash] opts the optional parameters
-  # @return [V1EntitiesTtwReservationUserId]
+  # @return [V1EntitiesTtwReservationGetResponse]
   describe 'get_user_ttw_reservation test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/

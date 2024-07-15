@@ -97,6 +97,19 @@ describe 'DealApi' do
     end
   end
 
+  # unit tests for get_platform_email_page
+  # Get the Page for a given Platform Email
+  # Get the Page for a given Platform Email
+  # @param id The deal id.
+  # @param platform_email_id The platform email id.
+  # @param [Hash] opts the optional parameters
+  # @return [V1EntitiesPage]
+  describe 'get_platform_email_page test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for list_deals
   # List available deals
   # List available deals

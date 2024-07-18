@@ -59,7 +59,8 @@ class V1EntitiesTtwReservationGetResponse implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'token' => 'string',
-        'reservation_id' => 'int'
+        'reservation_id' => 'int',
+        'complete' => 'bool'
     ];
 
     /**
@@ -71,7 +72,8 @@ class V1EntitiesTtwReservationGetResponse implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'token' => null,
-        'reservation_id' => 'int32'
+        'reservation_id' => 'int32',
+        'complete' => null
     ];
 
     /**
@@ -81,7 +83,8 @@ class V1EntitiesTtwReservationGetResponse implements ModelInterface, ArrayAccess
       */
     protected static array $openAPINullables = [
         'token' => false,
-        'reservation_id' => false
+        'reservation_id' => false,
+        'complete' => false
     ];
 
     /**
@@ -171,7 +174,8 @@ class V1EntitiesTtwReservationGetResponse implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'token' => 'token',
-        'reservation_id' => 'reservation_id'
+        'reservation_id' => 'reservation_id',
+        'complete' => 'complete'
     ];
 
     /**
@@ -181,7 +185,8 @@ class V1EntitiesTtwReservationGetResponse implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'token' => 'setToken',
-        'reservation_id' => 'setReservationId'
+        'reservation_id' => 'setReservationId',
+        'complete' => 'setComplete'
     ];
 
     /**
@@ -191,7 +196,8 @@ class V1EntitiesTtwReservationGetResponse implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'token' => 'getToken',
-        'reservation_id' => 'getReservationId'
+        'reservation_id' => 'getReservationId',
+        'complete' => 'getComplete'
     ];
 
     /**
@@ -253,6 +259,7 @@ class V1EntitiesTtwReservationGetResponse implements ModelInterface, ArrayAccess
     {
         $this->setIfExists('token', $data ?? [], null);
         $this->setIfExists('reservation_id', $data ?? [], null);
+        $this->setIfExists('complete', $data ?? [], null);
     }
 
     /**
@@ -347,6 +354,33 @@ class V1EntitiesTtwReservationGetResponse implements ModelInterface, ArrayAccess
             throw new \InvalidArgumentException('non-nullable reservation_id cannot be null');
         }
         $this->container['reservation_id'] = $reservation_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets complete
+     *
+     * @return bool|null
+     */
+    public function getComplete()
+    {
+        return $this->container['complete'];
+    }
+
+    /**
+     * Sets complete
+     *
+     * @param bool|null $complete Whether the reservation is complete.
+     *
+     * @return self
+     */
+    public function setComplete($complete)
+    {
+        if (is_null($complete)) {
+            throw new \InvalidArgumentException('non-nullable complete cannot be null');
+        }
+        $this->container['complete'] = $complete;
 
         return $this;
     }

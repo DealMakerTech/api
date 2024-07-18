@@ -20,7 +20,7 @@ import V1EntitiesTtwReservationGetResponse from '../model/V1EntitiesTtwReservati
 /**
 * Campaign service.
 * @module api/CampaignApi
-* @version 0.107.2
+* @version 0.107.3
 */
 export default class CampaignApi {
 

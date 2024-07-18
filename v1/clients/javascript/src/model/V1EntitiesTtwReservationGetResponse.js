@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The V1EntitiesTtwReservationGetResponse model module.
  * @module model/V1EntitiesTtwReservationGetResponse
- * @version 0.107.2
+ * @version 0.107.3
  */
 class V1EntitiesTtwReservationGetResponse {
     /**
@@ -54,6 +54,9 @@ class V1EntitiesTtwReservationGetResponse {
             if (data.hasOwnProperty('reservation_id')) {
                 obj['reservation_id'] = ApiClient.convertToType(data['reservation_id'], 'Number');
             }
+            if (data.hasOwnProperty('complete')) {
+                obj['complete'] = ApiClient.convertToType(data['complete'], 'Boolean');
+            }
         }
         return obj;
     }
@@ -88,6 +91,12 @@ V1EntitiesTtwReservationGetResponse.prototype['token'] = undefined;
  * @member {Number} reservation_id
  */
 V1EntitiesTtwReservationGetResponse.prototype['reservation_id'] = undefined;
+
+/**
+ * Whether the reservation is complete.
+ * @member {Boolean} complete
+ */
+V1EntitiesTtwReservationGetResponse.prototype['complete'] = undefined;
 
 
 

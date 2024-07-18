@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The CreateEmailTemplateRequest model module.
  * @module model/CreateEmailTemplateRequest
- * @version 0.107.2
+ * @version 0.107.3
  */
 class CreateEmailTemplateRequest {
     /**

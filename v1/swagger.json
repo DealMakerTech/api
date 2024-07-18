@@ -11945,6 +11945,10 @@
           "type": "integer",
           "format": "int32",
           "description": "The ID of the reservation."
+        },
+        "complete": {
+          "type": "boolean",
+          "description": "Whether the reservation is complete."
         }
       },
       "description": "V1_Entities_Ttw_Reservation_GetResponse model"

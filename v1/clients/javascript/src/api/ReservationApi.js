@@ -20,7 +20,7 @@ import V1EntitiesTtwReservationResponse from '../model/V1EntitiesTtwReservationR
 /**
 * Reservation service.
 * @module api/ReservationApi
-* @version 0.107.2
+* @version 0.107.3
 */
 export default class ReservationApi {
 

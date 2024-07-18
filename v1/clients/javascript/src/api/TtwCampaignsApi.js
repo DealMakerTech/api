@@ -18,7 +18,7 @@ import V1EntitiesPage from '../model/V1EntitiesPage';
 /**
 * TtwCampaigns service.
 * @module api/TtwCampaignsApi
-* @version 0.107.2
+* @version 0.107.3
 */
 export default class TtwCampaignsApi {
 

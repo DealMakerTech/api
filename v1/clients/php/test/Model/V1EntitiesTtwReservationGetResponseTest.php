@@ -96,4 +96,13 @@ class V1EntitiesTtwReservationGetResponseTest extends TestCase
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test attribute "complete"
+     */
+    public function testPropertyComplete()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
 }

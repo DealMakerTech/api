@@ -22,11 +22,15 @@ module DealMakerAPI
     # The ID of the reservation.
     attr_accessor :reservation_id
 
+    # Whether the reservation is complete.
+    attr_accessor :complete
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'token' => :'token',
-        :'reservation_id' => :'reservation_id'
+        :'reservation_id' => :'reservation_id',
+        :'complete' => :'complete'
       }
     end
 
@@ -39,7 +43,8 @@ module DealMakerAPI
     def self.openapi_types
       {
         :'token' => :'String',
-        :'reservation_id' => :'Integer'
+        :'reservation_id' => :'Integer',
+        :'complete' => :'Boolean'
       }
     end
 
@@ -71,6 +76,10 @@ module DealMakerAPI
       if attributes.key?(:'reservation_id')
         self.reservation_id = attributes[:'reservation_id']
       end
+
+      if attributes.key?(:'complete')
+        self.complete = attributes[:'complete']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -94,7 +103,8 @@ module DealMakerAPI
       return true if self.equal?(o)
       self.class == o.class &&
           token == o.token &&
-          reservation_id == o.reservation_id
+          reservation_id == o.reservation_id &&
+          complete == o.complete
     end
 
     # @see the `==` method
@@ -106,7 +116,7 @@ module DealMakerAPI
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [token, reservation_id].hash
+      [token, reservation_id, complete].hash
     end
 
     # Builds the object from hash

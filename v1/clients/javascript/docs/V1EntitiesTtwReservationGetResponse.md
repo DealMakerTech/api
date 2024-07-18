@@ -6,5 +6,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **token** | **String** | The token for the user. | [optional] 
 **reservationId** | **Number** | The ID of the reservation. | [optional] 
+**complete** | **Boolean** | Whether the reservation is complete. | [optional] 
 
 

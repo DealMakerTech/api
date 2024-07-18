@@ -66,6 +66,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property complete (base name: "complete")', function() {
+      // uncomment below and update the code to test the property complete
+      //var instance = new Api.V1EntitiesTtwReservationGetResponse();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

@@ -276,6 +276,18 @@ class DefaultApiTest extends TestCase
     }
 
     /**
+     * Test case for postInvestorsInvestorIdDeleteInvestmentProcess
+     *
+     * Delete investment.
+     *
+     */
+    public function testPostInvestorsInvestorIdDeleteInvestmentProcess()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for postInvestorsInvestorIdTransactionsRequestRefundProcess
      *
      * Request refund for investor transactions.

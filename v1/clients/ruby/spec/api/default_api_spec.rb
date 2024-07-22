@@ -237,6 +237,18 @@ describe 'DefaultApi' do
     end
   end
 
+  # unit tests for post_investors_investor_id_delete_investment_process
+  # Delete investment
+  # Delete investment
+  # @param investor_id 
+  # @param [Hash] opts the optional parameters
+  # @return [nil]
+  describe 'post_investors_investor_id_delete_investment_process test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for post_investors_investor_id_transactions_request_refund_process
   # Request refund for investor transactions
   # Request refund for investor transactions

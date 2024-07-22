@@ -1992,6 +1992,49 @@
         "operationId": "getCountryStates"
       }
     },
+    "/investors/{investor_id}/delete_investment/process": {
+      "post": {
+        "summary": "Delete investment",
+        "description": "Delete investment",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "investor_id",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          }
+        ],
+        "security": [
+          {
+            "oauth": [
+              "internal"
+            ]
+          }
+        ],
+        "responses": {
+          "404": {
+            "description": "Not found"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "422": {
+            "description": "Bad Request"
+          }
+        },
+        "tags": [
+
+        ],
+        "operationId": "postInvestorsInvestorIdDeleteInvestmentProcess"
+      }
+    },
     "/investors/{investor_id}/transactions/request_refund/process": {
       "post": {
         "summary": "Request refund for investor transactions",

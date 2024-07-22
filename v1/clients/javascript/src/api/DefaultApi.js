@@ -32,7 +32,7 @@ import V1EntitiesWebhooksSubscription from '../model/V1EntitiesWebhooksSubscript
 /**
 * Default service.
 * @module api/DefaultApi
-* @version 0.107.3
+* @version 0.107.4
 */
 export default class DefaultApi {
 
@@ -765,6 +765,48 @@ export default class DefaultApi {
       let returnType = V1EntitiesPaymentsSelfServeOnboardingQualificationQuestionnaireResult;
       return this.apiClient.callApi(
         '/deals/{deal_id}/payment_onboarding/questionnaire/qualification_questionnaire/submit', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the postInvestorsInvestorIdDeleteInvestmentProcess operation.
+     * @callback module:api/DefaultApi~postInvestorsInvestorIdDeleteInvestmentProcessCallback
+     * @param {String} error Error message, if any.
+     * @param data This operation does not return a value.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Delete investment
+     * Delete investment
+     * @param {Number} investorId 
+     * @param {module:api/DefaultApi~postInvestorsInvestorIdDeleteInvestmentProcessCallback} callback The callback function, accepting three arguments: error, data, response
+     */
+    postInvestorsInvestorIdDeleteInvestmentProcess(investorId, callback) {
+      let postBody = null;
+      // verify the required parameter 'investorId' is set
+      if (investorId === undefined || investorId === null) {
+        throw new Error("Missing the required parameter 'investorId' when calling postInvestorsInvestorIdDeleteInvestmentProcess");
+      }
+
+      let pathParams = {
+        'investor_id': investorId
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = [];
+      let returnType = null;
+      return this.apiClient.callApi(
+        '/investors/{investor_id}/delete_investment/process', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

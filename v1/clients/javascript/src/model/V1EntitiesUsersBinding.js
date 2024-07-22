@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The V1EntitiesUsersBinding model module.
  * @module model/V1EntitiesUsersBinding
- * @version 0.107.3
+ * @version 0.107.4
  */
 class V1EntitiesUsersBinding {
     /**

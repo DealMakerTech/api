@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The UpdateUserPasswordRequest model module.
  * @module model/UpdateUserPasswordRequest
- * @version 0.107.3
+ * @version 0.107.4
  */
 class UpdateUserPasswordRequest {
     /**

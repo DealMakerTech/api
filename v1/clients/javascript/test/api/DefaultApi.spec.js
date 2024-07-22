@@ -218,6 +218,16 @@
         done();
       });
     });
+    describe('postInvestorsInvestorIdDeleteInvestmentProcess', function() {
+      it('should call postInvestorsInvestorIdDeleteInvestmentProcess successfully', function(done) {
+        //uncomment below and update the code to test postInvestorsInvestorIdDeleteInvestmentProcess
+        //instance.postInvestorsInvestorIdDeleteInvestmentProcess(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('postInvestorsInvestorIdTransactionsRequestRefundProcess', function() {
       it('should call postInvestorsInvestorIdTransactionsRequestRefundProcess successfully', function(done) {
         //uncomment below and update the code to test postInvestorsInvestorIdTransactionsRequestRefundProcess

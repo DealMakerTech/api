@@ -21,6 +21,7 @@ Method | HTTP request | Description
 [**postDealsDealIdPaymentOnboardingQuestionnairePayoutAccountDetailsSubmit**](DefaultApi.md#postDealsDealIdPaymentOnboardingQuestionnairePayoutAccountDetailsSubmit) | **POST** /deals/{deal_id}/payment_onboarding/questionnaire/payout_account_details/submit | Submit a payout account details form
 [**postDealsDealIdPaymentOnboardingQuestionnaireQualificationQuestionnaireResponseSubmit**](DefaultApi.md#postDealsDealIdPaymentOnboardingQuestionnaireQualificationQuestionnaireResponseSubmit) | **POST** /deals/{deal_id}/payment_onboarding/questionnaire/qualification_questionnaire/response/submit | Submit a qualification questionnaire response
 [**postDealsDealIdPaymentOnboardingQuestionnaireQualificationQuestionnaireSubmit**](DefaultApi.md#postDealsDealIdPaymentOnboardingQuestionnaireQualificationQuestionnaireSubmit) | **POST** /deals/{deal_id}/payment_onboarding/questionnaire/qualification_questionnaire/submit | Submit a qualification questionnaire form
+[**postInvestorsInvestorIdDeleteInvestmentProcess**](DefaultApi.md#postInvestorsInvestorIdDeleteInvestmentProcess) | **POST** /investors/{investor_id}/delete_investment/process | Delete investment
 [**postInvestorsInvestorIdTransactionsRequestRefundProcess**](DefaultApi.md#postInvestorsInvestorIdTransactionsRequestRefundProcess) | **POST** /investors/{investor_id}/transactions/request_refund/process | Request refund for investor transactions
 [**postWebhooks**](DefaultApi.md#postWebhooks) | **POST** /webhooks | Creates a webhook subscription which is associated to the user
 [**putWebhooksId**](DefaultApi.md#putWebhooksId) | **PUT** /webhooks/{id} | Updates webhook subscription and webhooks subcription deals
@@ -804,6 +805,52 @@ No authorization required
 
 - **Content-Type**: Not defined
 - **Accept**: application/json
+
+
+## postInvestorsInvestorIdDeleteInvestmentProcess
+
+> postInvestorsInvestorIdDeleteInvestmentProcess(investorId)
+
+Delete investment
+
+Delete investment
+
+### Example
+
+```javascript
+import Api from 'api';
+let defaultClient = Api.ApiClient.instance;
+
+let apiInstance = new Api.DefaultApi();
+let investorId = 56; // Number | 
+apiInstance.postInvestorsInvestorIdDeleteInvestmentProcess(investorId, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully.');
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **investorId** | **Number**|  | 
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
 
 
 ## postInvestorsInvestorIdTransactionsRequestRefundProcess

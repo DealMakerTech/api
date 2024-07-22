@@ -21,6 +21,7 @@ All URIs are relative to http://api.dealmaker.tech, except if the operation defi
 | [**postDealsDealIdPaymentOnboardingQuestionnairePayoutAccountDetailsSubmit()**](DefaultApi.md#postDealsDealIdPaymentOnboardingQuestionnairePayoutAccountDetailsSubmit) | **POST** /deals/{deal_id}/payment_onboarding/questionnaire/payout_account_details/submit | Submit a payout account details form |
 | [**postDealsDealIdPaymentOnboardingQuestionnaireQualificationQuestionnaireResponseSubmit()**](DefaultApi.md#postDealsDealIdPaymentOnboardingQuestionnaireQualificationQuestionnaireResponseSubmit) | **POST** /deals/{deal_id}/payment_onboarding/questionnaire/qualification_questionnaire/response/submit | Submit a qualification questionnaire response |
 | [**postDealsDealIdPaymentOnboardingQuestionnaireQualificationQuestionnaireSubmit()**](DefaultApi.md#postDealsDealIdPaymentOnboardingQuestionnaireQualificationQuestionnaireSubmit) | **POST** /deals/{deal_id}/payment_onboarding/questionnaire/qualification_questionnaire/submit | Submit a qualification questionnaire form |
+| [**postInvestorsInvestorIdDeleteInvestmentProcess()**](DefaultApi.md#postInvestorsInvestorIdDeleteInvestmentProcess) | **POST** /investors/{investor_id}/delete_investment/process | Delete investment |
 | [**postInvestorsInvestorIdTransactionsRequestRefundProcess()**](DefaultApi.md#postInvestorsInvestorIdTransactionsRequestRefundProcess) | **POST** /investors/{investor_id}/transactions/request_refund/process | Request refund for investor transactions |
 | [**postWebhooks()**](DefaultApi.md#postWebhooks) | **POST** /webhooks | Creates a webhook subscription which is associated to the user |
 | [**putWebhooksId()**](DefaultApi.md#putWebhooksId) | **PUT** /webhooks/{id} | Updates webhook subscription and webhooks subcription deals |
@@ -984,6 +985,62 @@ No authorization required
 
 - **Content-Type**: Not defined
 - **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `postInvestorsInvestorIdDeleteInvestmentProcess()`
+
+```php
+postInvestorsInvestorIdDeleteInvestmentProcess($investor_id)
+```
+
+Delete investment
+
+Delete investment
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new DealMaker\Api\DefaultApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$investor_id = 56; // int
+
+try {
+    $apiInstance->postInvestorsInvestorIdDeleteInvestmentProcess($investor_id);
+} catch (Exception $e) {
+    echo 'Exception when calling DefaultApi->postInvestorsInvestorIdDeleteInvestmentProcess: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **investor_id** | **int**|  | |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)

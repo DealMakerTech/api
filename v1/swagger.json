@@ -4724,7 +4724,105 @@
         "operationId": "getDealsIdPlatformEmailsDomain"
       }
     },
-    "/deals/{id}/platform_emails/{platform_email_id}/page": {
+    "/deals/{id}/platform_emails/{kind}/page": {
+      "patch": {
+        "summary": "Create and associate a page with a platform email or update the existing page",
+        "description": "Create and associate a page with a platform email or update the existing page",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "description": "The deal id.",
+            "type": "integer",
+            "format": "int32",
+            "required": true
+          },
+          {
+            "in": "path",
+            "name": "kind",
+            "description": "The platform email id.",
+            "type": "string",
+            "enum": [
+              "global",
+              "introduction_email",
+              "manual_email",
+              "funnel_start_reminder",
+              "mid_funnel_reminder",
+              "end_of_funnel_reminder",
+              "payment_reminder_email",
+              "payment_failure_email",
+              "payment_confirmation_email",
+              "document_reminder_email",
+              "next_steps_email",
+              "acceptance_email",
+              "reset_signature_or_agreement",
+              "refund_email",
+              "access_link",
+              "payment_instructions",
+              "microdeposit_email",
+              "closing_campaign_email",
+              "closing_opt_out_email",
+              "material_change_email"
+            ],
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "draft_json_content",
+            "description": "The invitation page draft json content",
+            "type": "string",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "name": "name",
+            "description": "The name of the invitation page.",
+            "type": "string",
+            "required": false
+          }
+        ],
+        "security": [
+          {
+            "oauth": [
+              "deals.write"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Create and associate a page with a platform email or update the existing page",
+            "schema": {
+              "$ref": "#/definitions/V1_Entities_Page"
+            }
+          },
+          "404": {
+            "description": "Not found"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "tags": [
+          "deal"
+        ],
+        "operationId": "patchPlatformEmailPage",
+        "x-codeSamples": [
+          {
+            "lang": "javascript",
+            "source": ""
+          },
+          {
+            "lang": "ruby",
+            "source": ""
+          }
+        ]
+      },
       "get": {
         "summary": "Get the Page for a given Platform Email",
         "description": "Get the Page for a given Platform Email",
@@ -4742,10 +4840,31 @@
           },
           {
             "in": "path",
-            "name": "platform_email_id",
+            "name": "kind",
             "description": "The platform email id.",
-            "type": "integer",
-            "format": "int32",
+            "type": "string",
+            "enum": [
+              "global",
+              "introduction_email",
+              "manual_email",
+              "funnel_start_reminder",
+              "mid_funnel_reminder",
+              "end_of_funnel_reminder",
+              "payment_reminder_email",
+              "payment_failure_email",
+              "payment_confirmation_email",
+              "document_reminder_email",
+              "next_steps_email",
+              "acceptance_email",
+              "reset_signature_or_agreement",
+              "refund_email",
+              "access_link",
+              "payment_instructions",
+              "microdeposit_email",
+              "closing_campaign_email",
+              "closing_opt_out_email",
+              "material_change_email"
+            ],
             "required": true
           }
         ],
@@ -10570,6 +10689,14 @@
     "V1_Entities_Users_Contexts": {
       "type": "object",
       "properties": {
+        "hasInvestments": {
+          "type": "boolean",
+          "description": "A boolean indicating if the user has investments."
+        },
+        "default": {
+          "$ref": "#/definitions/V1_Entities_Users_Context",
+          "description": "The default user context."
+        },
         "contexts": {
           "$ref": "#/definitions/V1_Entities_Users_Context",
           "description": "An array of contexts for the user."

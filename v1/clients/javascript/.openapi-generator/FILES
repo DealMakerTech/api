@@ -37,6 +37,7 @@ docs/PatchInvestorProfilesManaged.md
 docs/PatchInvestorProfilesTrusts.md
 docs/PatchInvestorProfilesTrustsTrusteesInner.md
 docs/PatchInvestorRequest.md
+docs/PatchPlatformEmailPageRequest.md
 docs/PatchPlatformEmailRequest.md
 docs/PaymentsApi.md
 docs/PostDealIncentivePlanRequest.md
@@ -217,6 +218,7 @@ src/model/PatchInvestorProfilesManaged.js
 src/model/PatchInvestorProfilesTrusts.js
 src/model/PatchInvestorProfilesTrustsTrusteesInner.js
 src/model/PatchInvestorRequest.js
+src/model/PatchPlatformEmailPageRequest.js
 src/model/PatchPlatformEmailRequest.js
 src/model/PostDealIncentivePlanRequest.js
 src/model/PostDealsIdInvestors.js
@@ -384,6 +386,7 @@ test/model/PatchInvestorProfilesManaged.spec.js
 test/model/PatchInvestorProfilesTrusts.spec.js
 test/model/PatchInvestorProfilesTrustsTrusteesInner.spec.js
 test/model/PatchInvestorRequest.spec.js
+test/model/PatchPlatformEmailPageRequest.spec.js
 test/model/PatchPlatformEmailRequest.spec.js
 test/model/PostDealIncentivePlanRequest.spec.js
 test/model/PostDealsIdInvestors.spec.js

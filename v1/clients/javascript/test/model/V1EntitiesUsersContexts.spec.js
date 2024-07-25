@@ -54,6 +54,18 @@
       //expect(instance).to.be.a(Api.V1EntitiesUsersContexts);
     });
 
+    it('should have the property hasInvestments (base name: "hasInvestments")', function() {
+      // uncomment below and update the code to test the property hasInvestments
+      //var instance = new Api.V1EntitiesUsersContexts();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property _default (base name: "default")', function() {
+      // uncomment below and update the code to test the property _default
+      //var instance = new Api.V1EntitiesUsersContexts();
+      //expect(instance).to.be();
+    });
+
     it('should have the property contexts (base name: "contexts")', function() {
       // uncomment below and update the code to test the property contexts
       //var instance = new Api.V1EntitiesUsersContexts();

@@ -14,6 +14,7 @@
 
 import ApiClient from "../ApiClient";
 import CreateDealSetupRequest from '../model/CreateDealSetupRequest';
+import PatchPlatformEmailPageRequest from '../model/PatchPlatformEmailPageRequest';
 import PatchPlatformEmailRequest from '../model/PatchPlatformEmailRequest';
 import V1EntitiesDeal from '../model/V1EntitiesDeal';
 import V1EntitiesDealSetup from '../model/V1EntitiesDealSetup';
@@ -28,7 +29,7 @@ import V1EntitiesPage from '../model/V1EntitiesPage';
 /**
 * Deal service.
 * @module api/DealApi
-* @version 0.107.4
+* @version 0.107.5
 */
 export default class DealApi {
 
@@ -298,24 +299,24 @@ export default class DealApi {
      * Get the Page for a given Platform Email
      * Get the Page for a given Platform Email
      * @param {Number} id The deal id.
-     * @param {Number} platformEmailId The platform email id.
+     * @param {module:model/String} kind The platform email id.
      * @param {module:api/DealApi~getPlatformEmailPageCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/V1EntitiesPage}
      */
-    getPlatformEmailPage(id, platformEmailId, callback) {
+    getPlatformEmailPage(id, kind, callback) {
       let postBody = null;
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling getPlatformEmailPage");
       }
-      // verify the required parameter 'platformEmailId' is set
-      if (platformEmailId === undefined || platformEmailId === null) {
-        throw new Error("Missing the required parameter 'platformEmailId' when calling getPlatformEmailPage");
+      // verify the required parameter 'kind' is set
+      if (kind === undefined || kind === null) {
+        throw new Error("Missing the required parameter 'kind' when calling getPlatformEmailPage");
       }
 
       let pathParams = {
         'id': id,
-        'platform_email_id': platformEmailId
+        'kind': kind
       };
       let queryParams = {
       };
@@ -329,7 +330,7 @@ export default class DealApi {
       let accepts = ['application/json'];
       let returnType = V1EntitiesPage;
       return this.apiClient.callApi(
-        '/deals/{id}/platform_emails/{platform_email_id}/page', 'GET',
+        '/deals/{id}/platform_emails/{kind}/page', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -472,6 +473,58 @@ export default class DealApi {
       let returnType = V1EntitiesDealsPlatformEmail;
       return this.apiClient.callApi(
         '/deals/{id}/platform_emails/{kind}/update', 'PATCH',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the patchPlatformEmailPage operation.
+     * @callback module:api/DealApi~patchPlatformEmailPageCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/V1EntitiesPage} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Create and associate a page with a platform email or update the existing page
+     * Create and associate a page with a platform email or update the existing page
+     * @param {Number} id The deal id.
+     * @param {module:model/String} kind The platform email id.
+     * @param {Object} opts Optional parameters
+     * @param {module:model/PatchPlatformEmailPageRequest} [patchPlatformEmailPageRequest] 
+     * @param {module:api/DealApi~patchPlatformEmailPageCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/V1EntitiesPage}
+     */
+    patchPlatformEmailPage(id, kind, opts, callback) {
+      opts = opts || {};
+      let postBody = opts['patchPlatformEmailPageRequest'];
+      // verify the required parameter 'id' is set
+      if (id === undefined || id === null) {
+        throw new Error("Missing the required parameter 'id' when calling patchPlatformEmailPage");
+      }
+      // verify the required parameter 'kind' is set
+      if (kind === undefined || kind === null) {
+        throw new Error("Missing the required parameter 'kind' when calling patchPlatformEmailPage");
+      }
+
+      let pathParams = {
+        'id': id,
+        'kind': kind
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = V1EntitiesPage;
+      return this.apiClient.callApi(
+        '/deals/{id}/platform_emails/{kind}/page', 'PATCH',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

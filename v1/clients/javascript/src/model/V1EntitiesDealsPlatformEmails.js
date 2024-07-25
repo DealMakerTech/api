@@ -17,7 +17,7 @@ import V1EntitiesDealsPlatformEmail from './V1EntitiesDealsPlatformEmail';
 /**
  * The V1EntitiesDealsPlatformEmails model module.
  * @module model/V1EntitiesDealsPlatformEmails
- * @version 0.107.4
+ * @version 0.107.5
  */
 class V1EntitiesDealsPlatformEmails {
     /**

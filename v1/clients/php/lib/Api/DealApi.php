@@ -98,6 +98,9 @@ class DealApi
         'patchPlatformEmail' => [
             'application/json',
         ],
+        'patchPlatformEmailPage' => [
+            'application/json',
+        ],
     ];
 
     /**
@@ -1781,16 +1784,16 @@ class DealApi
      * Get the Page for a given Platform Email
      *
      * @param  int $id The deal id. (required)
-     * @param  int $platform_email_id The platform email id. (required)
+     * @param  string $kind The platform email id. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPlatformEmailPage'] to see the possible values for this operation
      *
      * @throws \DealMaker\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \DealMaker\Model\V1EntitiesPage
      */
-    public function getPlatformEmailPage($id, $platform_email_id, string $contentType = self::contentTypes['getPlatformEmailPage'][0])
+    public function getPlatformEmailPage($id, $kind, string $contentType = self::contentTypes['getPlatformEmailPage'][0])
     {
-        list($response) = $this->getPlatformEmailPageWithHttpInfo($id, $platform_email_id, $contentType);
+        list($response) = $this->getPlatformEmailPageWithHttpInfo($id, $kind, $contentType);
         return $response;
     }
 
@@ -1800,16 +1803,16 @@ class DealApi
      * Get the Page for a given Platform Email
      *
      * @param  int $id The deal id. (required)
-     * @param  int $platform_email_id The platform email id. (required)
+     * @param  string $kind The platform email id. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPlatformEmailPage'] to see the possible values for this operation
      *
      * @throws \DealMaker\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \DealMaker\Model\V1EntitiesPage, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getPlatformEmailPageWithHttpInfo($id, $platform_email_id, string $contentType = self::contentTypes['getPlatformEmailPage'][0])
+    public function getPlatformEmailPageWithHttpInfo($id, $kind, string $contentType = self::contentTypes['getPlatformEmailPage'][0])
     {
-        $request = $this->getPlatformEmailPageRequest($id, $platform_email_id, $contentType);
+        $request = $this->getPlatformEmailPageRequest($id, $kind, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1925,15 +1928,15 @@ class DealApi
      * Get the Page for a given Platform Email
      *
      * @param  int $id The deal id. (required)
-     * @param  int $platform_email_id The platform email id. (required)
+     * @param  string $kind The platform email id. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPlatformEmailPage'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getPlatformEmailPageAsync($id, $platform_email_id, string $contentType = self::contentTypes['getPlatformEmailPage'][0])
+    public function getPlatformEmailPageAsync($id, $kind, string $contentType = self::contentTypes['getPlatformEmailPage'][0])
     {
-        return $this->getPlatformEmailPageAsyncWithHttpInfo($id, $platform_email_id, $contentType)
+        return $this->getPlatformEmailPageAsyncWithHttpInfo($id, $kind, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1947,16 +1950,16 @@ class DealApi
      * Get the Page for a given Platform Email
      *
      * @param  int $id The deal id. (required)
-     * @param  int $platform_email_id The platform email id. (required)
+     * @param  string $kind The platform email id. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPlatformEmailPage'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getPlatformEmailPageAsyncWithHttpInfo($id, $platform_email_id, string $contentType = self::contentTypes['getPlatformEmailPage'][0])
+    public function getPlatformEmailPageAsyncWithHttpInfo($id, $kind, string $contentType = self::contentTypes['getPlatformEmailPage'][0])
     {
         $returnType = '\DealMaker\Model\V1EntitiesPage';
-        $request = $this->getPlatformEmailPageRequest($id, $platform_email_id, $contentType);
+        $request = $this->getPlatformEmailPageRequest($id, $kind, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1998,13 +2001,13 @@ class DealApi
      * Create request for operation 'getPlatformEmailPage'
      *
      * @param  int $id The deal id. (required)
-     * @param  int $platform_email_id The platform email id. (required)
+     * @param  string $kind The platform email id. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPlatformEmailPage'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getPlatformEmailPageRequest($id, $platform_email_id, string $contentType = self::contentTypes['getPlatformEmailPage'][0])
+    public function getPlatformEmailPageRequest($id, $kind, string $contentType = self::contentTypes['getPlatformEmailPage'][0])
     {
 
         // verify the required parameter 'id' is set
@@ -2014,15 +2017,15 @@ class DealApi
             );
         }
 
-        // verify the required parameter 'platform_email_id' is set
-        if ($platform_email_id === null || (is_array($platform_email_id) && count($platform_email_id) === 0)) {
+        // verify the required parameter 'kind' is set
+        if ($kind === null || (is_array($kind) && count($kind) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $platform_email_id when calling getPlatformEmailPage'
+                'Missing the required parameter $kind when calling getPlatformEmailPage'
             );
         }
 
 
-        $resourcePath = '/deals/{id}/platform_emails/{platform_email_id}/page';
+        $resourcePath = '/deals/{id}/platform_emails/{kind}/page';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2040,10 +2043,10 @@ class DealApi
             );
         }
         // path params
-        if ($platform_email_id !== null) {
+        if ($kind !== null) {
             $resourcePath = str_replace(
-                '{' . 'platform_email_id' . '}',
-                ObjectSerializer::toPathValue($platform_email_id),
+                '{' . 'kind' . '}',
+                ObjectSerializer::toPathValue($kind),
                 $resourcePath
             );
         }
@@ -3040,6 +3043,346 @@ class DealApi
                 $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_platform_email_request));
             } else {
                 $httpBody = $patch_platform_email_request;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'PATCH',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation patchPlatformEmailPage
+     *
+     * Create and associate a page with a platform email or update the existing page
+     *
+     * @param  int $id The deal id. (required)
+     * @param  string $kind The platform email id. (required)
+     * @param  \DealMaker\Model\PatchPlatformEmailPageRequest $patch_platform_email_page_request patch_platform_email_page_request (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchPlatformEmailPage'] to see the possible values for this operation
+     *
+     * @throws \DealMaker\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \DealMaker\Model\V1EntitiesPage
+     */
+    public function patchPlatformEmailPage($id, $kind, $patch_platform_email_page_request = null, string $contentType = self::contentTypes['patchPlatformEmailPage'][0])
+    {
+        list($response) = $this->patchPlatformEmailPageWithHttpInfo($id, $kind, $patch_platform_email_page_request, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation patchPlatformEmailPageWithHttpInfo
+     *
+     * Create and associate a page with a platform email or update the existing page
+     *
+     * @param  int $id The deal id. (required)
+     * @param  string $kind The platform email id. (required)
+     * @param  \DealMaker\Model\PatchPlatformEmailPageRequest $patch_platform_email_page_request (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchPlatformEmailPage'] to see the possible values for this operation
+     *
+     * @throws \DealMaker\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \DealMaker\Model\V1EntitiesPage, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function patchPlatformEmailPageWithHttpInfo($id, $kind, $patch_platform_email_page_request = null, string $contentType = self::contentTypes['patchPlatformEmailPage'][0])
+    {
+        $request = $this->patchPlatformEmailPageRequest($id, $kind, $patch_platform_email_page_request, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\DealMaker\Model\V1EntitiesPage' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\DealMaker\Model\V1EntitiesPage' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\DealMaker\Model\V1EntitiesPage', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\DealMaker\Model\V1EntitiesPage';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    try {
+                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                    } catch (\JsonException $exception) {
+                        throw new ApiException(
+                            sprintf(
+                                'Error JSON decoding server response (%s)',
+                                $request->getUri()
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $content
+                        );
+                    }
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\DealMaker\Model\V1EntitiesPage',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation patchPlatformEmailPageAsync
+     *
+     * Create and associate a page with a platform email or update the existing page
+     *
+     * @param  int $id The deal id. (required)
+     * @param  string $kind The platform email id. (required)
+     * @param  \DealMaker\Model\PatchPlatformEmailPageRequest $patch_platform_email_page_request (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchPlatformEmailPage'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function patchPlatformEmailPageAsync($id, $kind, $patch_platform_email_page_request = null, string $contentType = self::contentTypes['patchPlatformEmailPage'][0])
+    {
+        return $this->patchPlatformEmailPageAsyncWithHttpInfo($id, $kind, $patch_platform_email_page_request, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation patchPlatformEmailPageAsyncWithHttpInfo
+     *
+     * Create and associate a page with a platform email or update the existing page
+     *
+     * @param  int $id The deal id. (required)
+     * @param  string $kind The platform email id. (required)
+     * @param  \DealMaker\Model\PatchPlatformEmailPageRequest $patch_platform_email_page_request (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchPlatformEmailPage'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function patchPlatformEmailPageAsyncWithHttpInfo($id, $kind, $patch_platform_email_page_request = null, string $contentType = self::contentTypes['patchPlatformEmailPage'][0])
+    {
+        $returnType = '\DealMaker\Model\V1EntitiesPage';
+        $request = $this->patchPlatformEmailPageRequest($id, $kind, $patch_platform_email_page_request, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'patchPlatformEmailPage'
+     *
+     * @param  int $id The deal id. (required)
+     * @param  string $kind The platform email id. (required)
+     * @param  \DealMaker\Model\PatchPlatformEmailPageRequest $patch_platform_email_page_request (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchPlatformEmailPage'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function patchPlatformEmailPageRequest($id, $kind, $patch_platform_email_page_request = null, string $contentType = self::contentTypes['patchPlatformEmailPage'][0])
+    {
+
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling patchPlatformEmailPage'
+            );
+        }
+
+        // verify the required parameter 'kind' is set
+        if ($kind === null || (is_array($kind) && count($kind) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $kind when calling patchPlatformEmailPage'
+            );
+        }
+
+
+
+        $resourcePath = '/deals/{id}/platform_emails/{kind}/page';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'id' . '}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($kind !== null) {
+            $resourcePath = str_replace(
+                '{' . 'kind' . '}',
+                ObjectSerializer::toPathValue($kind),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($patch_platform_email_page_request)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_platform_email_page_request));
+            } else {
+                $httpBody = $patch_platform_email_page_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

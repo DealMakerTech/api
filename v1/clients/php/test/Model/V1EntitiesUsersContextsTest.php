@@ -80,6 +80,24 @@ class V1EntitiesUsersContextsTest extends TestCase
     }
 
     /**
+     * Test attribute "has_investments"
+     */
+    public function testPropertyHasInvestments()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "default"
+     */
+    public function testPropertyDefault()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "contexts"
      */
     public function testPropertyContexts()

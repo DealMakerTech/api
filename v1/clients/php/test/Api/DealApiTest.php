@@ -178,4 +178,16 @@ class DealApiTest extends TestCase
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test case for patchPlatformEmailPage
+     *
+     * Create and associate a page with a platform email or update the existing page.
+     *
+     */
+    public function testPatchPlatformEmailPage()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
 }

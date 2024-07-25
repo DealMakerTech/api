@@ -46,6 +46,7 @@ docs/Model/PatchInvestorProfilesManaged.md
 docs/Model/PatchInvestorProfilesTrusts.md
 docs/Model/PatchInvestorProfilesTrustsTrusteesInner.md
 docs/Model/PatchInvestorRequest.md
+docs/Model/PatchPlatformEmailPageRequest.md
 docs/Model/PatchPlatformEmailRequest.md
 docs/Model/PostDealIncentivePlanRequest.md
 docs/Model/PostDealsIdInvestors.md
@@ -218,6 +219,7 @@ lib/Model/PatchInvestorProfilesManaged.php
 lib/Model/PatchInvestorProfilesTrusts.php
 lib/Model/PatchInvestorProfilesTrustsTrusteesInner.php
 lib/Model/PatchInvestorRequest.php
+lib/Model/PatchPlatformEmailPageRequest.php
 lib/Model/PatchPlatformEmailRequest.php
 lib/Model/PostDealIncentivePlanRequest.php
 lib/Model/PostDealsIdInvestors.php
@@ -387,6 +389,7 @@ test/Model/PatchInvestorProfilesManagedTest.php
 test/Model/PatchInvestorProfilesTrustsTest.php
 test/Model/PatchInvestorProfilesTrustsTrusteesInnerTest.php
 test/Model/PatchInvestorRequestTest.php
+test/Model/PatchPlatformEmailPageRequestTest.php
 test/Model/PatchPlatformEmailRequestTest.php
 test/Model/PostDealIncentivePlanRequestTest.php
 test/Model/PostDealsIdInvestorsTest.php

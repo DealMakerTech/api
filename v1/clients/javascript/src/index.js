@@ -37,6 +37,7 @@ import PatchInvestorProfilesManaged from './model/PatchInvestorProfilesManaged';
 import PatchInvestorProfilesTrusts from './model/PatchInvestorProfilesTrusts';
 import PatchInvestorProfilesTrustsTrusteesInner from './model/PatchInvestorProfilesTrustsTrusteesInner';
 import PatchInvestorRequest from './model/PatchInvestorRequest';
+import PatchPlatformEmailPageRequest from './model/PatchPlatformEmailPageRequest';
 import PatchPlatformEmailRequest from './model/PatchPlatformEmailRequest';
 import PostDealIncentivePlanRequest from './model/PostDealIncentivePlanRequest';
 import PostDealsIdInvestors from './model/PostDealsIdInvestors';
@@ -211,7 +212,7 @@ import UsersApi from './api/UsersApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.107.4
+* @version 0.107.5
 */
 export {
     /**
@@ -363,6 +364,12 @@ export {
      * @property {module:model/PatchInvestorRequest}
      */
     PatchInvestorRequest,
+
+    /**
+     * The PatchPlatformEmailPageRequest model constructor.
+     * @property {module:model/PatchPlatformEmailPageRequest}
+     */
+    PatchPlatformEmailPageRequest,
 
     /**
      * The PatchPlatformEmailRequest model constructor.

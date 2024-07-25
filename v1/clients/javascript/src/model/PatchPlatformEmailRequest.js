@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The PatchPlatformEmailRequest model module.
  * @module model/PatchPlatformEmailRequest
- * @version 0.107.4
+ * @version 0.107.5
  */
 class PatchPlatformEmailRequest {
     /**

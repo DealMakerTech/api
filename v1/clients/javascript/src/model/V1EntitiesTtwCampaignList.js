@@ -17,7 +17,7 @@ import V1EntitiesTtwCampaignResponse from './V1EntitiesTtwCampaignResponse';
 /**
  * The V1EntitiesTtwCampaignList model module.
  * @module model/V1EntitiesTtwCampaignList
- * @version 0.107.4
+ * @version 0.107.5
  */
 class V1EntitiesTtwCampaignList {
     /**

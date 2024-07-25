@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The GetAccessTokenRequest model module.
  * @module model/GetAccessTokenRequest
- * @version 0.107.4
+ * @version 0.107.5
  */
 class GetAccessTokenRequest {
     /**

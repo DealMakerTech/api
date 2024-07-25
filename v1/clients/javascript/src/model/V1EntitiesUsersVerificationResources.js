@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The V1EntitiesUsersVerificationResources model module.
  * @module model/V1EntitiesUsersVerificationResources
- * @version 0.107.4
+ * @version 0.107.5
  */
 class V1EntitiesUsersVerificationResources {
     /**

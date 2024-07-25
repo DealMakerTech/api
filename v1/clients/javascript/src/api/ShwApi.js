@@ -18,7 +18,7 @@ import V1EntitiesPage from '../model/V1EntitiesPage';
 /**
 * Shw service.
 * @module api/ShwApi
-* @version 0.107.4
+* @version 0.107.5
 */
 export default class ShwApi {
 

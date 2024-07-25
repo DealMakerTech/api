@@ -58,6 +58,8 @@ class V1EntitiesUsersContexts implements ModelInterface, ArrayAccess, \JsonSeria
       * @var string[]
       */
     protected static $openAPITypes = [
+        'has_investments' => 'bool',
+        'default' => '\DealMaker\Model\V1EntitiesUsersContext',
         'contexts' => '\DealMaker\Model\V1EntitiesUsersContext'
     ];
 
@@ -69,6 +71,8 @@ class V1EntitiesUsersContexts implements ModelInterface, ArrayAccess, \JsonSeria
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'has_investments' => null,
+        'default' => null,
         'contexts' => null
     ];
 
@@ -78,6 +82,8 @@ class V1EntitiesUsersContexts implements ModelInterface, ArrayAccess, \JsonSeria
       * @var boolean[]
       */
     protected static array $openAPINullables = [
+        'has_investments' => false,
+        'default' => false,
         'contexts' => false
     ];
 
@@ -167,6 +173,8 @@ class V1EntitiesUsersContexts implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $attributeMap = [
+        'has_investments' => 'hasInvestments',
+        'default' => 'default',
         'contexts' => 'contexts'
     ];
 
@@ -176,6 +184,8 @@ class V1EntitiesUsersContexts implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $setters = [
+        'has_investments' => 'setHasInvestments',
+        'default' => 'setDefault',
         'contexts' => 'setContexts'
     ];
 
@@ -185,6 +195,8 @@ class V1EntitiesUsersContexts implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $getters = [
+        'has_investments' => 'getHasInvestments',
+        'default' => 'getDefault',
         'contexts' => 'getContexts'
     ];
 
@@ -245,6 +257,8 @@ class V1EntitiesUsersContexts implements ModelInterface, ArrayAccess, \JsonSeria
      */
     public function __construct(array $data = null)
     {
+        $this->setIfExists('has_investments', $data ?? [], null);
+        $this->setIfExists('default', $data ?? [], null);
         $this->setIfExists('contexts', $data ?? [], null);
     }
 
@@ -289,6 +303,60 @@ class V1EntitiesUsersContexts implements ModelInterface, ArrayAccess, \JsonSeria
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets has_investments
+     *
+     * @return bool|null
+     */
+    public function getHasInvestments()
+    {
+        return $this->container['has_investments'];
+    }
+
+    /**
+     * Sets has_investments
+     *
+     * @param bool|null $has_investments A boolean indicating if the user has investments.
+     *
+     * @return self
+     */
+    public function setHasInvestments($has_investments)
+    {
+        if (is_null($has_investments)) {
+            throw new \InvalidArgumentException('non-nullable has_investments cannot be null');
+        }
+        $this->container['has_investments'] = $has_investments;
+
+        return $this;
+    }
+
+    /**
+     * Gets default
+     *
+     * @return \DealMaker\Model\V1EntitiesUsersContext|null
+     */
+    public function getDefault()
+    {
+        return $this->container['default'];
+    }
+
+    /**
+     * Sets default
+     *
+     * @param \DealMaker\Model\V1EntitiesUsersContext|null $default default
+     *
+     * @return self
+     */
+    public function setDefault($default)
+    {
+        if (is_null($default)) {
+            throw new \InvalidArgumentException('non-nullable default cannot be null');
+        }
+        $this->container['default'] = $default;
+
+        return $this;
+    }
 
     /**
      * Gets contexts

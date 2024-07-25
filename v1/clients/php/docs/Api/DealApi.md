@@ -9,10 +9,11 @@ All URIs are relative to http://api.dealmaker.tech, except if the operation defi
 | [**createDealSetup()**](DealApi.md#createDealSetup) | **POST** /deal_setups | Create deal setup |
 | [**getDeal()**](DealApi.md#getDeal) | **GET** /deals/{id} | Get deal by Deal ID |
 | [**getDealIncentivePlan()**](DealApi.md#getDealIncentivePlan) | **GET** /deals/{id}/incentive_plan | Get incentive plan by deal id |
-| [**getPlatformEmailPage()**](DealApi.md#getPlatformEmailPage) | **GET** /deals/{id}/platform_emails/{platform_email_id}/page | Get the Page for a given Platform Email |
+| [**getPlatformEmailPage()**](DealApi.md#getPlatformEmailPage) | **GET** /deals/{id}/platform_emails/{kind}/page | Get the Page for a given Platform Email |
 | [**listDeals()**](DealApi.md#listDeals) | **GET** /deals | List available deals |
 | [**listPlatformEmails()**](DealApi.md#listPlatformEmails) | **GET** /deals/{id}/platform_emails | Get a list of platform emails for the deal |
 | [**patchPlatformEmail()**](DealApi.md#patchPlatformEmail) | **PATCH** /deals/{id}/platform_emails/{kind}/update | Patch platform email by kind and deal. |
+| [**patchPlatformEmailPage()**](DealApi.md#patchPlatformEmailPage) | **PATCH** /deals/{id}/platform_emails/{kind}/page | Create and associate a page with a platform email or update the existing page |
 
 
 ## `achBankAccountSetupIntent()`
@@ -312,7 +313,7 @@ No authorization required
 ## `getPlatformEmailPage()`
 
 ```php
-getPlatformEmailPage($id, $platform_email_id): \DealMaker\Model\V1EntitiesPage
+getPlatformEmailPage($id, $kind): \DealMaker\Model\V1EntitiesPage
 ```
 
 Get the Page for a given Platform Email
@@ -334,10 +335,10 @@ $apiInstance = new DealMaker\Api\DealApi(
     $config
 );
 $id = 56; // int | The deal id.
-$platform_email_id = 56; // int | The platform email id.
+$kind = 'kind_example'; // string | The platform email id.
 
 try {
-    $result = $apiInstance->getPlatformEmailPage($id, $platform_email_id);
+    $result = $apiInstance->getPlatformEmailPage($id, $kind);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DealApi->getPlatformEmailPage: ', $e->getMessage(), PHP_EOL;
@@ -349,7 +350,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **int**| The deal id. | |
-| **platform_email_id** | **int**| The platform email id. | |
+| **kind** | **string**| The platform email id. | |
 
 ### Return type
 
@@ -533,6 +534,67 @@ try {
 ### Return type
 
 [**\DealMaker\Model\V1EntitiesDealsPlatformEmail**](../Model/V1EntitiesDealsPlatformEmail.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `patchPlatformEmailPage()`
+
+```php
+patchPlatformEmailPage($id, $kind, $patch_platform_email_page_request): \DealMaker\Model\V1EntitiesPage
+```
+
+Create and associate a page with a platform email or update the existing page
+
+Create and associate a page with a platform email or update the existing page
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new DealMaker\Api\DealApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = 56; // int | The deal id.
+$kind = 'kind_example'; // string | The platform email id.
+$patch_platform_email_page_request = new \DealMaker\Model\PatchPlatformEmailPageRequest(); // \DealMaker\Model\PatchPlatformEmailPageRequest
+
+try {
+    $result = $apiInstance->patchPlatformEmailPage($id, $kind, $patch_platform_email_page_request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling DealApi->patchPlatformEmailPage: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **int**| The deal id. | |
+| **kind** | **string**| The platform email id. | |
+| **patch_platform_email_page_request** | [**\DealMaker\Model\PatchPlatformEmailPageRequest**](../Model/PatchPlatformEmailPageRequest.md)|  | [optional] |
+
+### Return type
+
+[**\DealMaker\Model\V1EntitiesPage**](../Model/V1EntitiesPage.md)
 
 ### Authorization
 

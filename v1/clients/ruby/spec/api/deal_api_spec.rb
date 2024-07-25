@@ -101,7 +101,7 @@ describe 'DealApi' do
   # Get the Page for a given Platform Email
   # Get the Page for a given Platform Email
   # @param id The deal id.
-  # @param platform_email_id The platform email id.
+  # @param kind The platform email id.
   # @param [Hash] opts the optional parameters
   # @return [V1EntitiesPage]
   describe 'get_platform_email_page test' do
@@ -145,6 +145,20 @@ describe 'DealApi' do
   # @param [Hash] opts the optional parameters
   # @return [V1EntitiesDealsPlatformEmail]
   describe 'patch_platform_email test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for patch_platform_email_page
+  # Create and associate a page with a platform email or update the existing page
+  # Create and associate a page with a platform email or update the existing page
+  # @param id The deal id.
+  # @param kind The platform email id.
+  # @param [Hash] opts the optional parameters
+  # @option opts [PatchPlatformEmailPageRequest] :patch_platform_email_page_request 
+  # @return [V1EntitiesPage]
+  describe 'patch_platform_email_page test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end

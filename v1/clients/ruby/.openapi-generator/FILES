@@ -42,6 +42,7 @@ docs/PatchInvestorProfilesManaged.md
 docs/PatchInvestorProfilesTrusts.md
 docs/PatchInvestorProfilesTrustsTrusteesInner.md
 docs/PatchInvestorRequest.md
+docs/PatchPlatformEmailPageRequest.md
 docs/PatchPlatformEmailRequest.md
 docs/PaymentsApi.md
 docs/PostDealIncentivePlanRequest.md
@@ -222,6 +223,7 @@ lib/DealMakerAPI/models/patch_investor_profiles_managed.rb
 lib/DealMakerAPI/models/patch_investor_profiles_trusts.rb
 lib/DealMakerAPI/models/patch_investor_profiles_trusts_trustees_inner.rb
 lib/DealMakerAPI/models/patch_investor_request.rb
+lib/DealMakerAPI/models/patch_platform_email_page_request.rb
 lib/DealMakerAPI/models/patch_platform_email_request.rb
 lib/DealMakerAPI/models/post_deal_incentive_plan_request.rb
 lib/DealMakerAPI/models/post_deals_id_investors.rb
@@ -390,6 +392,7 @@ spec/models/patch_investor_profiles_managed_spec.rb
 spec/models/patch_investor_profiles_trusts_spec.rb
 spec/models/patch_investor_profiles_trusts_trustees_inner_spec.rb
 spec/models/patch_investor_request_spec.rb
+spec/models/patch_platform_email_page_request_spec.rb
 spec/models/patch_platform_email_request_spec.rb
 spec/models/post_deal_incentive_plan_request_spec.rb
 spec/models/post_deals_id_investors_spec.rb

@@ -17,7 +17,7 @@ import V1EntitiesUsersContext from './V1EntitiesUsersContext';
 /**
  * The V1EntitiesUsersContexts model module.
  * @module model/V1EntitiesUsersContexts
- * @version 0.107.4
+ * @version 0.107.5
  */
 class V1EntitiesUsersContexts {
     /**
@@ -49,6 +49,12 @@ class V1EntitiesUsersContexts {
         if (data) {
             obj = obj || new V1EntitiesUsersContexts();
 
+            if (data.hasOwnProperty('hasInvestments')) {
+                obj['hasInvestments'] = ApiClient.convertToType(data['hasInvestments'], 'Boolean');
+            }
+            if (data.hasOwnProperty('default')) {
+                obj['default'] = V1EntitiesUsersContext.constructFromObject(data['default']);
+            }
             if (data.hasOwnProperty('contexts')) {
                 obj['contexts'] = V1EntitiesUsersContext.constructFromObject(data['contexts']);
             }
@@ -62,6 +68,10 @@ class V1EntitiesUsersContexts {
      * @return {boolean} to indicate whether the JSON data is valid with respect to <code>V1EntitiesUsersContexts</code>.
      */
     static validateJSON(data) {
+        // validate the optional field `default`
+        if (data['default']) { // data not null
+          V1EntitiesUsersContext.validateJSON(data['default']);
+        }
         // validate the optional field `contexts`
         if (data['contexts']) { // data not null
           V1EntitiesUsersContext.validateJSON(data['contexts']);
@@ -74,6 +84,17 @@ class V1EntitiesUsersContexts {
 }
 
 
+
+/**
+ * A boolean indicating if the user has investments.
+ * @member {Boolean} hasInvestments
+ */
+V1EntitiesUsersContexts.prototype['hasInvestments'] = undefined;
+
+/**
+ * @member {module:model/V1EntitiesUsersContext} default
+ */
+V1EntitiesUsersContexts.prototype['default'] = undefined;
 
 /**
  * @member {module:model/V1EntitiesUsersContext} contexts

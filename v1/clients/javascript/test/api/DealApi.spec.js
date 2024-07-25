@@ -138,6 +138,16 @@
         done();
       });
     });
+    describe('patchPlatformEmailPage', function() {
+      it('should call patchPlatformEmailPage successfully', function(done) {
+        //uncomment below and update the code to test patchPlatformEmailPage
+        //instance.patchPlatformEmailPage(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
   });
 
 }));

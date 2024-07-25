@@ -16,11 +16,18 @@ require 'time'
 module DealMakerAPI
   # V1_Entities_Users_Contexts model
   class V1EntitiesUsersContexts
+    # A boolean indicating if the user has investments.
+    attr_accessor :has_investments
+
+    attr_accessor :default
+
     attr_accessor :contexts
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'has_investments' => :'hasInvestments',
+        :'default' => :'default',
         :'contexts' => :'contexts'
       }
     end
@@ -33,6 +40,8 @@ module DealMakerAPI
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'has_investments' => :'Boolean',
+        :'default' => :'V1EntitiesUsersContext',
         :'contexts' => :'V1EntitiesUsersContext'
       }
     end
@@ -57,6 +66,14 @@ module DealMakerAPI
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'has_investments')
+        self.has_investments = attributes[:'has_investments']
+      end
+
+      if attributes.key?(:'default')
+        self.default = attributes[:'default']
+      end
 
       if attributes.key?(:'contexts')
         self.contexts = attributes[:'contexts']
@@ -83,6 +100,8 @@ module DealMakerAPI
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          has_investments == o.has_investments &&
+          default == o.default &&
           contexts == o.contexts
     end
 
@@ -95,7 +114,7 @@ module DealMakerAPI
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [contexts].hash
+      [has_investments, default, contexts].hash
     end
 
     # Builds the object from hash

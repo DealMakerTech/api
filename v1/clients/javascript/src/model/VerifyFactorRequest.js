@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The VerifyFactorRequest model module.
  * @module model/VerifyFactorRequest
- * @version 0.107.4
+ * @version 0.107.5
  */
 class VerifyFactorRequest {
     /**

@@ -369,21 +369,21 @@ module DealMakerAPI
     # Get the Page for a given Platform Email
     # Get the Page for a given Platform Email
     # @param id [Integer] The deal id.
-    # @param platform_email_id [Integer] The platform email id.
+    # @param kind [String] The platform email id.
     # @param [Hash] opts the optional parameters
     # @return [V1EntitiesPage]
-    def get_platform_email_page(id, platform_email_id, opts = {})
-      data, _status_code, _headers = get_platform_email_page_with_http_info(id, platform_email_id, opts)
+    def get_platform_email_page(id, kind, opts = {})
+      data, _status_code, _headers = get_platform_email_page_with_http_info(id, kind, opts)
       data
     end
 
     # Get the Page for a given Platform Email
     # Get the Page for a given Platform Email
     # @param id [Integer] The deal id.
-    # @param platform_email_id [Integer] The platform email id.
+    # @param kind [String] The platform email id.
     # @param [Hash] opts the optional parameters
     # @return [Array<(V1EntitiesPage, Integer, Hash)>] V1EntitiesPage data, response status code and response headers
-    def get_platform_email_page_with_http_info(id, platform_email_id, opts = {})
+    def get_platform_email_page_with_http_info(id, kind, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: DealApi.get_platform_email_page ...'
       end
@@ -391,12 +391,17 @@ module DealMakerAPI
       if @api_client.config.client_side_validation && id.nil?
         fail ArgumentError, "Missing the required parameter 'id' when calling DealApi.get_platform_email_page"
       end
-      # verify the required parameter 'platform_email_id' is set
-      if @api_client.config.client_side_validation && platform_email_id.nil?
-        fail ArgumentError, "Missing the required parameter 'platform_email_id' when calling DealApi.get_platform_email_page"
+      # verify the required parameter 'kind' is set
+      if @api_client.config.client_side_validation && kind.nil?
+        fail ArgumentError, "Missing the required parameter 'kind' when calling DealApi.get_platform_email_page"
+      end
+      # verify enum value
+      allowable_values = ["global", "introduction_email", "manual_email", "funnel_start_reminder", "mid_funnel_reminder", "end_of_funnel_reminder", "payment_reminder_email", "payment_failure_email", "payment_confirmation_email", "document_reminder_email", "next_steps_email", "acceptance_email", "reset_signature_or_agreement", "refund_email", "access_link", "payment_instructions", "microdeposit_email", "closing_campaign_email", "closing_opt_out_email", "material_change_email"]
+      if @api_client.config.client_side_validation && !allowable_values.include?(kind)
+        fail ArgumentError, "invalid value for \"kind\", must be one of #{allowable_values}"
       end
       # resource path
-      local_var_path = '/deals/{id}/platform_emails/{platform_email_id}/page'.sub('{' + 'id' + '}', CGI.escape(id.to_s)).sub('{' + 'platform_email_id' + '}', CGI.escape(platform_email_id.to_s))
+      local_var_path = '/deals/{id}/platform_emails/{kind}/page'.sub('{' + 'id' + '}', CGI.escape(id.to_s)).sub('{' + 'kind' + '}', CGI.escape(kind.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -640,6 +645,87 @@ module DealMakerAPI
       data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: DealApi#patch_platform_email\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Create and associate a page with a platform email or update the existing page
+    # Create and associate a page with a platform email or update the existing page
+    # @param id [Integer] The deal id.
+    # @param kind [String] The platform email id.
+    # @param [Hash] opts the optional parameters
+    # @option opts [PatchPlatformEmailPageRequest] :patch_platform_email_page_request 
+    # @return [V1EntitiesPage]
+    def patch_platform_email_page(id, kind, opts = {})
+      data, _status_code, _headers = patch_platform_email_page_with_http_info(id, kind, opts)
+      data
+    end
+
+    # Create and associate a page with a platform email or update the existing page
+    # Create and associate a page with a platform email or update the existing page
+    # @param id [Integer] The deal id.
+    # @param kind [String] The platform email id.
+    # @param [Hash] opts the optional parameters
+    # @option opts [PatchPlatformEmailPageRequest] :patch_platform_email_page_request 
+    # @return [Array<(V1EntitiesPage, Integer, Hash)>] V1EntitiesPage data, response status code and response headers
+    def patch_platform_email_page_with_http_info(id, kind, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: DealApi.patch_platform_email_page ...'
+      end
+      # verify the required parameter 'id' is set
+      if @api_client.config.client_side_validation && id.nil?
+        fail ArgumentError, "Missing the required parameter 'id' when calling DealApi.patch_platform_email_page"
+      end
+      # verify the required parameter 'kind' is set
+      if @api_client.config.client_side_validation && kind.nil?
+        fail ArgumentError, "Missing the required parameter 'kind' when calling DealApi.patch_platform_email_page"
+      end
+      # verify enum value
+      allowable_values = ["global", "introduction_email", "manual_email", "funnel_start_reminder", "mid_funnel_reminder", "end_of_funnel_reminder", "payment_reminder_email", "payment_failure_email", "payment_confirmation_email", "document_reminder_email", "next_steps_email", "acceptance_email", "reset_signature_or_agreement", "refund_email", "access_link", "payment_instructions", "microdeposit_email", "closing_campaign_email", "closing_opt_out_email", "material_change_email"]
+      if @api_client.config.client_side_validation && !allowable_values.include?(kind)
+        fail ArgumentError, "invalid value for \"kind\", must be one of #{allowable_values}"
+      end
+      # resource path
+      local_var_path = '/deals/{id}/platform_emails/{kind}/page'.sub('{' + 'id' + '}', CGI.escape(id.to_s)).sub('{' + 'kind' + '}', CGI.escape(kind.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(opts[:'patch_platform_email_page_request'])
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'V1EntitiesPage'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"DealApi.patch_platform_email_page",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: DealApi#patch_platform_email_page\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

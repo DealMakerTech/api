@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The V1EntitiesTtwReservationGetResponse model module.
  * @module model/V1EntitiesTtwReservationGetResponse
- * @version 0.107.4
+ * @version 0.107.5
  */
 class V1EntitiesTtwReservationGetResponse {
     /**
